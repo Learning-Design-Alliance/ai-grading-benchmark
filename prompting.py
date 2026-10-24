@@ -85,7 +85,7 @@ PROBES = ("base", "retest", "surface", "typos", "padding", "repeat", "injection"
           "shuffled", "blicket", "ctx_neutral", "ctx_low", "ctx_high",
           "null_blank", "null_dot", "null_think", "null_restate", "null_gibberish",
           "retest2", "retest3", "retest4", "del_cited", "del_random", "null_silence", "null_tone", "noise_10db", "phone_band",
-          "null_black", "null_still", "low_res", "other_camera")
+          "null_black", "null_still", "low_res", "other_camera", "text_only")
 CONTEXT_PROBES = ("ctx_neutral", "ctx_low", "ctx_high")
 # Master-key answers (Zhao et al. 2025): nothing in them deserves credit. Run on a capped subset of
 # cases (NULL_CASES), since five per case would buy nothing: the answer does not depend on the case.
@@ -106,7 +106,7 @@ VIDEO_QUALITY_PROBES = ("low_res", "other_camera")
 #: 0 sends the video itself. Set by bench.py --video-frames.
 VIDEO_FRAMES = 0
 MEDIA_PROBES = ("base", "ctx_neutral", "ctx_low", "ctx_high", "off_task", "injection", "forged",
-                "retest", "retest2", "retest3", "retest4") + MEDIA_NULL_PROBES + AUDIO_QUALITY_PROBES + VIDEO_QUALITY_PROBES
+                "retest", "retest2", "retest3", "retest4", "text_only") + MEDIA_NULL_PROBES + AUDIO_QUALITY_PROBES + VIDEO_QUALITY_PROBES
 NULL_CASES = 30
 # Repeated identical calls for selective scoring: base, retest and these three give k = 5 samples.
 REPEAT_PROBES = ("retest", "retest2", "retest3", "retest4")
@@ -183,7 +183,7 @@ def probe_input(case, probe, off_task_response=None, seed=0):
         if probe in CONTEXT:
             return r, CONTEXT[probe]
         return r, ""  # the work itself changes through probe_media
-    if probe in MEDIA_NULL_PROBES + AUDIO_QUALITY_PROBES + VIDEO_QUALITY_PROBES:
+    if probe in MEDIA_NULL_PROBES + AUDIO_QUALITY_PROBES + VIDEO_QUALITY_PROBES + ("text_only",):
         return None
     if probe in ("base",) + REPEAT_PROBES:
         return r, ""
@@ -388,6 +388,8 @@ def probe_media(case, probe, off_task_case=None, seed=0):
         theirs = [m for m in off_task_case["media"] if m.get("role", "work") == "work"]
         mine = [m for m in media if m.get("role", "work") != "work"]
         media = theirs + mine
+    if probe == "text_only":  # the prompt alone, without the work: what the text gives away (a video's length, say)
+        return []
     video = bool(media) and media[0]["kind"] == "video"
     if probe in VIDEO_NULL_PROBES + VIDEO_QUALITY_PROBES:
         if not video or (probe == "other_camera" and not media[0].get("alt_view")):

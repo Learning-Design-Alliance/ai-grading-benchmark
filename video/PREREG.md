@@ -42,8 +42,27 @@ beside every agreement figure.
 | null_still | the recording's first frame held for its whole length: the setup, with nothing done | the minimum (4) |
 | low_res | the recording at 160 × 90, heavily compressed: a poor recording | no change |
 | other_camera | the same performance from the stereo pair's right camera | no change |
+| text_only | the prompt with no video: the task, the rating scale and the recording's length | agreement well below base |
 
-The blank-video probes run on 30 recordings (the first 30 by id). Every other probe runs on all 100.
+The blank-video probes run on 30 recordings (the first 30 by id). Every other probe runs on all 100. A model
+told the length could rate a black screen or a frozen frame from the length alone, so the hallucination rate
+also shows whether a model checks that the recording shows a performance.
+
+**Length.** Added before any run, after a quick literature check and a look at the annotation files. On the 100
+recordings, the recording's length predicts the raters' mean GRS: shorter is better. The Spearman correlation
+is 0.80 for peg transfer, 0.81 for circle cutting, 0.46 for balloon resection and 0.96 for suture and knot
+(0.68 pooled). Length is part of what the raters judged (efficiency), and they knew it, so the prompt still
+gives it. A model can, though, match the raters from the length without watching. Two checks therefore go
+with every agreement figure:
+
+- **text_only**, above: what the model scores from the prompt alone.
+- **Agreement beyond length**: the partial Spearman correlation of the model's base mark with the raters'
+  mean GRS, controlling for length, within each task and pooled. The human reference is the same statistic
+  for each rater against the mean of the other raters, averaged over raters. A model that only times the
+  recording scores near 0 here, whatever its QWK.
+
+A model is said to **watch the recording** if its agreement beyond length has a 95% bootstrap interval
+(over recordings) above 0. It is said to **add nothing to the stopwatch** if that interval contains 0.
 
 **Hallucination** is the share of black-screen and frozen-frame gradings given more than the minimum. A grader
 that credits a recording in which nothing happens is reporting a performance it did not see.
@@ -66,5 +85,21 @@ video is built.
 The failure rule gives a pass/fail reading on the two tasks that have one: whether a model gives 4 where most
 raters marked the attempt failed. There are few such recordings, so it is reported as counts.
 
-**Budget.** About 960 gradings a grader. At the smoke run's token counts, the whole set is about $90-100, with
+**Considered and not changed.**
+- *Frame rate.* Gemini samples video at 1 frame a second whatever the file's rate, and other video models
+  sample at 1-2. 2 frames a second loses nothing a model would use.
+- *Frame count for frames-only models.* Studies of video question answering find that most gains come by 16-32
+  frames. Fine motion (instrument handling) may need more. The Gemini video-against-frames pair shows how much
+  16 frames lose.
+- *Resolution.* Gemini spends a fixed token budget on each frame, so a smaller frame costs it the same and
+  shows less. 480 × 270 is half the original in each direction, and the low_res probe measures how much
+  resolution matters.
+- *Audio.* LASANA has none. A task with speech should test the soundtrack separately from the picture, for
+  example with a transcript-only or audio-only probe beside the video, since benchmarks find the two are used
+  very differently.
+- *Prompt severity.* One study of Gemini scoring medical students' video presentations found a rubric-only
+  prompt inflated scores by about 26 points out of 100. The signed bias against the raters is reported for
+  every model.
+
+**Budget.** About 1,060 gradings a grader. At the smoke run's token counts, the whole set is about $90-100, with
 a spend cap on each run.
