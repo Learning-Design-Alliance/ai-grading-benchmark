@@ -1,0 +1,334 @@
+{
+ "n_cases": 100,
+ "scale": [
+  0,
+  10
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "noise_10db",
+  "null_silence",
+  "null_tone",
+  "off_task",
+  "phone_band",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.23852272475880126,
+    "ci95": [
+     0.150577630456249,
+     0.32969100713091976
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.4265738749483821,
+    "ci95": [
+     0.2807479384331289,
+     0.5771795664025029
+    ]
+   },
+   "bias": {
+    "estimate": -0.16799999999999998,
+    "ci95": [
+     -0.43604999999999994,
+     0.10804999999999976
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 0.4037213240277846
+   },
+   "sd_ratio": 0.4636672553786762,
+   "n": 100,
+   "raters": [
+    "expert1",
+    "expert2",
+    "expert3",
+    "expert4",
+    "expert5"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.6136699886678072,
+    "ci95": [
+     0.4916232855541636,
+     0.6997191719862597
+    ]
+   },
+   "n": 100
+  },
+  "share_of_ceiling": {
+   "estimate": 0.3886824012309958,
+   "ci95": [
+    0.25229459756374345,
+    0.5568658596838689
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 5.0,
+   "machine_passes_of_human_passes": 1.0,
+   "machine_fails_of_human_fails": 0.0,
+   "n_pass": 92,
+   "n_fail": 8,
+   "kappa": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "ceiling_kappa": {
+    "estimate": 0.7290209587349276,
+    "ci95": [
+     0.5188465230931378,
+     0.8742951855907625
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   }
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.706,
+   "reaches_midpoint": 1.0,
+   "n": 100
+  },
+  "null_answers": {
+   "credited": 1.0,
+   "by_kind": {
+    "null_silence": {
+     "credited": 1.0,
+     "n": 30
+    },
+    "null_tone": {
+     "credited": 1.0,
+     "n": 30
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.8936170212765957,
+    "ci95": [
+     0.8077771109487527,
+     0.9515344138754994
+    ]
+   },
+   "exact_agreement": 0.89,
+   "mean_abs_change": 0.11,
+   "signed_change": {
+    "estimate": -0.03,
+    "ci95": [
+     -0.1,
+     0.03
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 0.09295073094838138
+   },
+   "n": 100
+  },
+  "noise_10db": {
+   "estimate": 0.0,
+   "ci95": [
+    -0.11,
+    0.11
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.1591898682121891,
+   "expect": "about the same"
+  },
+  "phone_band": {
+   "estimate": -0.04,
+   "ci95": [
+    -0.14,
+    0.06
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.14304961348843942,
+   "expect": "about the same"
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 3.6,
+    "ci95": [
+     3.45,
+     3.75
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.20679370484527898
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "age": {
+    "levels": {
+     "adult": {
+      "residual": 0.05098039215686283,
+      "human_mean": 7.184313725490195,
+      "n": 51,
+      "vs_rest": {
+       "estimate": 0.44689875950380165,
+       "ci95": [
+        -0.10508349591230012,
+        0.9811066026410561
+       ],
+       "flag": false
+      }
+     },
+     "child": {
+      "residual": -0.3959183673469388,
+      "human_mean": 7.96734693877551,
+      "n": 49,
+      "vs_rest": {
+       "estimate": -0.44689875950380165,
+       "ci95": [
+        -0.9811066026410565,
+        0.10508349591229962
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "female": {
+      "residual": -0.16190476190476186,
+      "human_mean": 7.519047619047619,
+      "n": 42,
+      "vs_rest": {
+       "estimate": 0.01050903119868643,
+       "ci95": [
+        -0.5391145736140233,
+        0.568072727272727
+       ],
+       "flag": false
+      }
+     },
+     "male": {
+      "residual": -0.1724137931034483,
+      "human_mean": 7.603448275862069,
+      "n": 58,
+      "vs_rest": {
+       "estimate": -0.01050903119868643,
+       "ci95": [
+        -0.5680727272727273,
+        0.5391145736140229
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   }
+  }
+ },
+ "feedback": {
+  "grounded": 1.0,
+  "words": 24.22,
+  "self_per100": 0.16937062937062936,
+  "task_per100": 0.0,
+  "action_per100": 1.248676668863426,
+  "n": 100,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 760,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 226.08157894736843,
+   "completion_tokens": 46.040789473684214,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.2034739255905151,
+   "p90": 1.8370802879333497,
+   "n": 760
+  },
+  "served_models": [
+   "mistralai/voxtral-small-24b-2507"
+  ],
+  "providers": [
+   "Mistral"
+  ],
+  "cost_source": "reported by the endpoint (760 of 760 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.3775632631578947,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-24T15:55:15Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "mistralai/voxtral-small-24b-2507",
+  "request_template": {
+   "model": "mistralai/voxtral-small-24b-2507",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "speech.txt",
+  "prompt_sha256": "9ce9d36d659751e087d511f5603198c429c0ebd74a03f7e50d85de0309a9f2a9",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "speechocean-accuracy.jsonl",
+  "cases_sha256": "e2a24a62e9b51065017bd096d8cbb3f39b4fd5562e3020e6b375a6b9b0f9583d",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "ctx_low",
+   "ctx_high",
+   "off_task",
+   "null_silence",
+   "null_tone",
+   "noise_10db",
+   "phone_band"
+  ]
+ }
+}

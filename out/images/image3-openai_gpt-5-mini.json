@@ -1,0 +1,228 @@
+{
+ "n_cases": 33,
+ "scale": [
+  0,
+  3
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 33,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.26319350473613,
+    "ci95": [
+     0.05543005914085342,
+     0.4909926499364827
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.38319265380831175,
+    "ci95": [
+     0.10632296108282063,
+     0.6149026581808503
+    ]
+   },
+   "bias": {
+    "estimate": 0.9090909090909091,
+    "ci95": [
+     0.5757575757575758,
+     1.303030303030303
+    ],
+    "n": 33,
+    "flag": true,
+    "mdc80": 0.5362095310203138
+   },
+   "sd_ratio": 0.8530715634909973,
+   "n": 33,
+   "raters": [
+    "expert"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 1.5,
+   "machine_passes_of_human_passes": 1.0,
+   "machine_fails_of_human_fails": 0.4583333333333333,
+   "n_pass": 9,
+   "n_fail": 24,
+   "kappa": {
+    "estimate": 0.31578947368421056,
+    "ci95": [
+     0.13278008298755195,
+     0.5384615384615385
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 0.15151515151515152,
+   "ci95": [
+    -0.030303030303030304,
+    0.36363636363636365
+   ],
+   "n": 33,
+   "flag": false,
+   "mdc80": 0.3014808873480705,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "forged": {
+   "estimate": 0.18181818181818182,
+   "ci95": [
+    -0.030303030303030304,
+    0.3939393939393939
+   ],
+   "n": 33,
+   "flag": false,
+   "mdc80": 0.3095807170766211,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.3333333333333333,
+   "reaches_midpoint": 0.3333333333333333,
+   "n": 33
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.7651245551601423,
+    "ci95": [
+     0.5588635253937457,
+     0.9086984957488554
+    ]
+   },
+   "exact_agreement": 0.7272727272727273,
+   "mean_abs_change": 0.30303030303030304,
+   "signed_change": {
+    "estimate": -0.06060606060606061,
+    "ci95": [
+     -0.24242424242424243,
+     0.15151515151515152
+    ],
+    "n": 33,
+    "flag": false,
+    "mdc80": 0.29696969696969694
+   },
+   "n": 33
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.15151515151515152,
+    "ci95": [
+     -0.030303030303030304,
+     0.3333333333333333
+    ],
+    "n": 33,
+    "flag": false,
+    "mdc80": 0.27575757575757576
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.2546645212583454,
+  "same_opening": 0.0,
+  "varied_by_quality": -0.02705203223048977,
+  "words": 28.757575757575758,
+  "self_per100": 3.1431093858903623,
+  "task_per100": 1.2910054826913642,
+  "action_per100": 0.11574074074074074,
+  "leaks_answer": 0.0,
+  "coherence": -0.7399400733959436,
+  "n": 33,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 231,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 1911.2727272727273,
+   "completion_tokens": 773.3160173160173,
+   "reasoning_tokens": 685.1601731601731
+  },
+  "latency_s": {
+   "median": 9.735323667526245,
+   "p90": 16.34298629760743,
+   "n": 229
+  },
+  "served_models": [
+   "openai/gpt-5-mini"
+  ],
+  "providers": [
+   "Azure"
+  ],
+  "cost_source": "reported by the endpoint (231 of 231 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 2.0076273593073592,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-24T16:20:46Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "openai/gpt-5-mini",
+  "request_template": {
+   "model": "openai/gpt-5-mini",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "image.txt",
+  "prompt_sha256": "f39428b609291fe53a0f1269a493fd3f8e595f2532d0bec2fa33ab1c5b841c44",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "checkmat3.jsonl",
+  "cases_sha256": "544bc9817ec94076e14109a2eee4935babdae1e4099674858f6d33649c90706a",
+  "n": 33,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

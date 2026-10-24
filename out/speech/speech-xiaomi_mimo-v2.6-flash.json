@@ -1,0 +1,353 @@
+{
+ "n_cases": 100,
+ "scale": [
+  0,
+  10
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "noise_10db",
+  "null_silence",
+  "null_tone",
+  "off_task",
+  "phone_band",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "null_silence": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 30
+   },
+   "null_tone": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 30
+   },
+   "off_task": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 100
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.4686932050580623,
+    "ci95": [
+     0.3533497446232178,
+     0.5667731196255523
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.6814937596844465,
+    "ci95": [
+     0.57559084084695,
+     0.7700000046259199
+    ]
+   },
+   "bias": {
+    "estimate": -1.258,
+    "ci95": [
+     -1.5240500000000001,
+     -0.9999500000000002
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.3790002030862173
+   },
+   "sd_ratio": 1.1134273307806193,
+   "n": 100,
+   "raters": [
+    "expert1",
+    "expert2",
+    "expert3",
+    "expert4",
+    "expert5"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.6136699886678072,
+    "ci95": [
+     0.4916232855541636,
+     0.6997191719862597
+    ]
+   },
+   "n": 100
+  },
+  "share_of_ceiling": {
+   "estimate": 0.7637544832125985,
+   "ci95": [
+    0.6409144393084639,
+    0.8855327173550757
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 5.0,
+   "machine_passes_of_human_passes": 0.9239130434782609,
+   "machine_fails_of_human_fails": 1.0,
+   "n_pass": 92,
+   "n_fail": 8,
+   "kappa": {
+    "estimate": 0.5556482614590357,
+    "ci95": [
+     0.3195672804850822,
+     0.7545670338619413
+    ]
+   },
+   "ceiling_kappa": {
+    "estimate": 0.7290209587349276,
+    "ci95": [
+     0.5188465230931378,
+     0.8742951855907625
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.7621842071910442,
+    "ci95": [
+     0.49731264959030896,
+     0.9817171626077866
+    ]
+   }
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.22424242424242422,
+   "reaches_midpoint": 0.1414141414141414,
+   "n": 99
+  },
+  "null_answers": {
+   "credited": 0.6551724137931034,
+   "by_kind": {
+    "null_silence": {
+     "credited": 0.896551724137931,
+     "n": 29
+    },
+    "null_tone": {
+     "credited": 0.41379310344827586,
+     "n": 29
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.7408945028413274,
+    "ci95": [
+     0.6314622320563955,
+     0.8242904432081575
+    ]
+   },
+   "exact_agreement": 0.31,
+   "mean_abs_change": 0.98,
+   "signed_change": {
+    "estimate": -0.04,
+    "ci95": [
+     -0.3,
+     0.23
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 0.3731635977786026
+   },
+   "n": 100
+  },
+  "noise_10db": {
+   "estimate": -0.06,
+   "ci95": [
+    -0.35,
+    0.23
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.4055047484433456,
+   "expect": "about the same"
+  },
+  "phone_band": {
+   "estimate": -0.04,
+   "ci95": [
+    -0.32,
+    0.24
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.401777062661382,
+   "expect": "about the same"
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 1.12,
+    "ci95": [
+     0.84,
+     1.39
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.394537243316314
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "age": {
+    "levels": {
+     "adult": {
+      "residual": -1.2235294117647058,
+      "human_mean": 7.184313725490195,
+      "n": 51,
+      "vs_rest": {
+       "estimate": 0.07034813925570238,
+       "ci95": [
+        -0.49071022727272706,
+        0.5753782608695653
+       ],
+       "flag": false
+      }
+     },
+     "child": {
+      "residual": -1.2938775510204081,
+      "human_mean": 7.96734693877551,
+      "n": 49,
+      "vs_rest": {
+       "estimate": -0.07034813925570238,
+       "ci95": [
+        -0.5753782608695653,
+        0.49071022727272706
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "female": {
+      "residual": -1.1857142857142857,
+      "human_mean": 7.519047619047619,
+      "n": 42,
+      "vs_rest": {
+       "estimate": 0.12463054187192113,
+       "ci95": [
+        -0.425106185743256,
+        0.6417412988115447
+       ],
+       "flag": false
+      }
+     },
+     "male": {
+      "residual": -1.3103448275862069,
+      "human_mean": 7.603448275862069,
+      "n": 58,
+      "vs_rest": {
+       "estimate": -0.12463054187192113,
+       "ci95": [
+        -0.6417412988115452,
+        0.4251061857432552
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   }
+  }
+ },
+ "feedback": {
+  "grounded": 0.16,
+  "words": 24.12,
+  "self_per100": 0.06666666666666667,
+  "task_per100": 0.0,
+  "action_per100": 0.15622335890878092,
+  "n": 100,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 760,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 251.8,
+   "completion_tokens": 77.72105263157894,
+   "reasoning_tokens": 34.00921052631579
+  },
+  "latency_s": {
+   "median": 1.433353304862976,
+   "p90": 3.0116764545440677,
+   "n": 760
+  },
+  "served_models": [
+   "xiaomi/mimo-v2.6-flash"
+  ],
+  "providers": [
+   "Makora",
+   "Novita",
+   "Relace"
+  ],
+  "mixed_backends": "3 providers / 1 model ids served this run; paired probe differences can include backend differences",
+  "cost_source": "reported by the endpoint (760 of 760 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.05161597631578948,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-24T15:55:15Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "xiaomi/mimo-v2.6-flash",
+  "request_template": {
+   "model": "xiaomi/mimo-v2.6-flash",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "speech.txt",
+  "prompt_sha256": "9ce9d36d659751e087d511f5603198c429c0ebd74a03f7e50d85de0309a9f2a9",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "speechocean-accuracy.jsonl",
+  "cases_sha256": "e2a24a62e9b51065017bd096d8cbb3f39b4fd5562e3020e6b375a6b9b0f9583d",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "ctx_low",
+   "ctx_high",
+   "off_task",
+   "null_silence",
+   "null_tone",
+   "noise_10db",
+   "phone_band"
+  ]
+ }
+}

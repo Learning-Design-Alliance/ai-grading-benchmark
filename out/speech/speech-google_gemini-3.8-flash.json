@@ -1,0 +1,340 @@
+{
+ "n_cases": 100,
+ "scale": [
+  0,
+  10
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "noise_10db",
+  "null_silence",
+  "null_tone",
+  "off_task",
+  "phone_band",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "retest": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 100
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.6488430803999019,
+    "ci95": [
+     0.5450145878411757,
+     0.723117942114401
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.8231615231690661,
+    "ci95": [
+     0.7489090784610751,
+     0.8791451083755204
+    ]
+   },
+   "bias": {
+    "estimate": -0.6579999999999999,
+    "ci95": [
+     -0.8539999999999999,
+     -0.466
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.2869057889223773
+   },
+   "sd_ratio": 1.1255189464108648,
+   "n": 100,
+   "raters": [
+    "expert1",
+    "expert2",
+    "expert3",
+    "expert4",
+    "expert5"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.6136699886678072,
+    "ci95": [
+     0.4916232855541636,
+     0.6997191719862597
+    ]
+   },
+   "n": 100
+  },
+  "share_of_ceiling": {
+   "estimate": 1.0573159717463951,
+   "ci95": [
+    0.9727910926812674,
+    1.1741695060104222
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 5.0,
+   "machine_passes_of_human_passes": 0.9347826086956522,
+   "machine_fails_of_human_fails": 0.875,
+   "n_pass": 92,
+   "n_fail": 8,
+   "kappa": {
+    "estimate": 0.5808164383794037,
+    "ci95": [
+     0.3172801419987763,
+     0.7806232758344122
+    ]
+   },
+   "ceiling_kappa": {
+    "estimate": 0.7290209587349276,
+    "ci95": [
+     0.5188465230931378,
+     0.8742951855907625
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.7967074628242463,
+    "ci95": [
+     0.5287474812655998,
+     1.0207937752513208
+    ]
+   }
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.014000000000000002,
+   "reaches_midpoint": 0.0,
+   "n": 100
+  },
+  "null_answers": {
+   "credited": 0.9833333333333333,
+   "by_kind": {
+    "null_silence": {
+     "credited": 1.0,
+     "n": 30
+    },
+    "null_tone": {
+     "credited": 0.9666666666666667,
+     "n": 30
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9036611629576453,
+    "ci95": [
+     0.8474337416368711,
+     0.9372895968837507
+    ]
+   },
+   "exact_agreement": 0.5555555555555556,
+   "mean_abs_change": 0.494949494949495,
+   "signed_change": {
+    "estimate": -0.09090909090909091,
+    "ci95": [
+     -0.23232323232323232,
+     0.06060606060606061
+    ],
+    "n": 99,
+    "flag": false,
+    "mdc80": 0.22052612604436667
+   },
+   "n": 99
+  },
+  "noise_10db": {
+   "estimate": -0.08,
+   "ci95": [
+    -0.26,
+    0.11
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.26302482887754264,
+   "expect": "about the same"
+  },
+  "phone_band": {
+   "estimate": -0.07,
+   "ci95": [
+    -0.24,
+    0.1
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.23630112615521365,
+   "expect": "about the same"
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.86,
+    "ci95": [
+     0.69,
+     1.04
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.24214395918481418
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "age": {
+    "levels": {
+     "adult": {
+      "residual": -0.7333333333333333,
+      "human_mean": 7.184313725490195,
+      "n": 51,
+      "vs_rest": {
+       "estimate": -0.15374149659863934,
+       "ci95": [
+        -0.5421049718196457,
+        0.2238857534373838
+       ],
+       "flag": false
+      }
+     },
+     "child": {
+      "residual": -0.5795918367346939,
+      "human_mean": 7.96734693877551,
+      "n": 49,
+      "vs_rest": {
+       "estimate": 0.15374149659863934,
+       "ci95": [
+        -0.2238857534373841,
+        0.542104971819645
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "female": {
+      "residual": -0.47142857142857136,
+      "human_mean": 7.519047619047619,
+      "n": 42,
+      "vs_rest": {
+       "estimate": 0.32167487684729074,
+       "ci95": [
+        -0.07500197874265045,
+        0.7085655573178194
+       ],
+       "flag": false
+      }
+     },
+     "male": {
+      "residual": -0.7931034482758621,
+      "human_mean": 7.603448275862069,
+      "n": 58,
+      "vs_rest": {
+       "estimate": -0.32167487684729074,
+       "ci95": [
+        -0.7085655573178197,
+        0.07500197874265044
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   }
+  }
+ },
+ "feedback": {
+  "grounded": 0.11,
+  "words": 19.05,
+  "self_per100": 0.0,
+  "task_per100": 0.0,
+  "action_per100": 0.1310973084886128,
+  "n": 100,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 760,
+  "calls_failed": 1,
+  "per_grading": {
+   "prompt_tokens": 315.13702239789194,
+   "completion_tokens": 245.6772068511199,
+   "reasoning_tokens": 206.59288537549406
+  },
+  "latency_s": {
+   "median": 4.599616527557373,
+   "p90": 31.264578437805206,
+   "n": 759
+  },
+  "served_models": [
+   "google/gemini-3.8-flash"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (759 of 759 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 1.1576422924901186,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-24T15:55:15Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemini-3.8-flash",
+  "request_template": {
+   "model": "google/gemini-3.8-flash",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "speech.txt",
+  "prompt_sha256": "9ce9d36d659751e087d511f5603198c429c0ebd74a03f7e50d85de0309a9f2a9",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "speechocean-accuracy.jsonl",
+  "cases_sha256": "e2a24a62e9b51065017bd096d8cbb3f39b4fd5562e3020e6b375a6b9b0f9583d",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "ctx_low",
+   "ctx_high",
+   "off_task",
+   "null_silence",
+   "null_tone",
+   "noise_10db",
+   "phone_band"
+  ]
+ }
+}

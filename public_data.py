@@ -41,6 +41,12 @@ NAMES = {
     "mistralai/ministral-8b-2512": ("Ministral 8B", "Mistral", "open weights"),
     "meta-llama/llama-3.2-3b-instruct": ("Llama 3.2 3B", "Meta", "open weights"),
     "deepseek_deepseek-v4.1-flash": ("DeepSeek V4.1 Flash", "DeepSeek", "open weights"),
+    "google/gemini-3.8-flash": ("Gemini 3.8 Flash", "Google", "frontier"),
+    "google/gemini-4-argon": ("Gemini 4 Argon", "Google", "frontier"),
+    "xiaomi/mimo-v2.6-flash": ("MiMo v2.6 Flash", "Xiaomi", "open weights"),
+    "meta/muse-spark-open": ("Muse Spark Open", "Meta", "open weights"),
+    "perceptron/perceptron-mk1.5": ("Perceptron mk1.5", "Perceptron", "small hosted"),
+    "mistralai/voxtral-small-24b-2507": ("Voxtral Small 24B", "Mistral", "open weights"),
 }
 TASKS = {"mohler": "Short answers", "code": "Code", "asap2": "Essays"}
 
@@ -160,10 +166,115 @@ def floor():
             for wn, wd in fl["worlds"].items() for k, e in wd["effects"].items()]
 
 
+def overall():
+    """out/overall.json (leaderboard.py overall): one row per model with its strand scores."""
+    p = os.path.join(HERE, "out", "overall.json")
+    if not os.path.exists(p):
+        return []
+    o = json.load(open(p))
+    rows = []
+    for r in o["rows"]:
+        m, vendor, kind = NAMES.get(r["model"], (r["model"], "", ""))
+        row = {"key": r["model"], "model": m, "vendor": vendor, "kind": kind, "complete": r["complete"],
+               "tasks": ", ".join(TASKS.get(t, t) for t in r["tasks"]), "overall": None if r["overall"] is None else round(r["overall"], 1),
+               "rank": r.get("rank"), "rank_lo": (r.get("rank_ci95") or [None, None])[0], "rank_hi": (r.get("rank_ci95") or [None, None])[1],
+               "flags": "; ".join(r["flags"])}
+        for k, v in r["strands"].items():
+            row[k] = None if v is None else round(v, 1)
+        rows.append(row)
+    return rows
+
+
+def weights():
+    p = os.path.join(HERE, "out", "overall.json")
+    if not os.path.exists(p):
+        return []
+    o = json.load(open(p))
+    return [{"strand": k, "weight": w, "means": o["strand_help"][k]} for k, w in o["weights"].items()]
+
+
+def modality(prefix, task, out_name):
+    """Rows for a media task from its runs' report.json (runs are not committed; their aggregates are copied
+    to out/<out_name>/ by this function's caller)."""
+    rows = []
+    d = os.path.join(HERE, "out", out_name)
+    if not os.path.isdir(d):
+        return rows
+    for f in sorted(os.listdir(d)):
+        r = json.load(open(os.path.join(d, f)))
+        model = r["config"]["model"]
+        m, vendor, kind = NAMES.get(model, (model, "", ""))
+        v, rl, fa = r["validity"], r["reliability"], r["fairness"]
+        lo, hi = r["scale"]
+        w = hi - lo
+        sh = v.get("share_of_ceiling")
+        na = v.get("null_answers") or {}
+        lab = (fa.get("attainment") or {}).get("label_effect")
+        pc = lambda iv: (None, None, None) if not iv else (round(100 * iv["estimate"] / w, 2), round(100 * iv["ci95"][0] / w, 2), round(100 * iv["ci95"][1] / w, 2))
+        g = [x for x in (v.get("injection"), v.get("forged")) if x]
+        gm = max(g, key=lambda x: x["estimate"]) if g else None
+        row = {"key": f"{f}", "task": task, "model": m, "vendor": vendor, "scale": f"{lo:g}-{hi:g}",
+               "qwk": round(v["agreement"]["qwk"]["estimate"], 4),
+               "share": None if not sh else round(sh["estimate"], 4),
+               "retest": None if not rl.get("retest") else round(rl["retest"]["qwk"]["estimate"], 4),
+               "hallucination_pct": None if na.get("credited") is None else round(100 * na["credited"], 1),
+               "silence_pct": None if "null_silence" not in (na.get("by_kind") or {}) else round(100 * na["by_kind"]["null_silence"]["credited"], 1),
+               "tone_pct": None if "null_tone" not in (na.get("by_kind") or {}) else round(100 * na["by_kind"]["null_tone"]["credited"], 1),
+               "offtask_pct": None if not v.get("off_task") else round(100 * v["off_task"]["mean_share_of_scale"], 1),
+               "label_pct": pc(lab)[0], "label_lo": pc(lab)[1], "label_hi": pc(lab)[2],
+               "noise_pct": pc(rl.get("noise_10db"))[0], "phone_pct": pc(rl.get("phone_band"))[0],
+               "gaming_pct": pc(gm)[0], "gaming_lo": pc(gm)[1], "gaming_hi": pc(gm)[2],
+               "failed": v["failed_gradings"]["n"],
+               "cost_per_1k": None if r["sustainability"].get("cost_per_1000_gradings_usd") is None else round(r["sustainability"]["cost_per_1000_gradings_usd"], 3)}
+        rows.append(row)
+    return rows
+
+
+def feedback_board():
+    p = os.path.join(HERE, "feedback-board", "out", "feedback-board.json")
+    if not os.path.exists(p):
+        return []
+    rows = []
+    for model, v in json.load(open(p))["models"].items():
+        m, vendor, kind = NAMES.get(model, (model, "", ""))
+        h, g = v.get("halo") or {}, v.get("gives_away") or {}
+        rows.append({"key": model, "model": m, "vendor": vendor,
+                     "halo": None if not h else round(h["halo"], 3), "halo_lo": None if not h else round(h["ci95"][0], 3),
+                     "halo_hi": None if not h else round(h["ci95"][1], 3),
+                     "gives_away_pct": None if g.get("share") is None else round(100 * g["share"], 1),
+                     "gives_away_lo": None if not g.get("ci95") else round(100 * g["ci95"][0], 1),
+                     "gives_away_hi": None if not g.get("ci95") else round(100 * g["ci95"][1], 1), "n": g.get("n")})
+    return rows
+
+
+def images_pooled():
+    """The image task's three mark scales pooled per model, weighting each scale by its number of solutions.
+    Intervals are not pooled (shown per scale in out/images/); the pooled row carries point estimates only."""
+    rows = modality("image", "Handwritten maths (images)", "images")
+    by = {}
+    for r in rows:
+        n = json.load(open(os.path.join(HERE, "out", "images", r["key"])))["validity"]["agreement"]["n"]
+        by.setdefault(r["model"], []).append((n, r))
+    out = []
+    for m, rs in by.items():
+        tot = sum(n for n, _ in rs)
+        avg = lambda k: None if any(r[k] is None for _, r in rs) else round(sum(n * r[k] for n, r in rs) / tot, 3)
+        worst = max(rs, key=lambda x: x[1]["gaming_pct"] if x[1]["gaming_pct"] is not None else -1e9)[1]
+        out.append({"key": m, "task": "Handwritten maths (images)", "model": m, "vendor": rs[0][1]["vendor"], "n": tot,
+                    "qwk": avg("qwk"), "retest": avg("retest"), "gaming_pct": avg("gaming_pct"),
+                    "gaming_worst_scale_pct": worst["gaming_pct"], "gaming_worst_lo": worst["gaming_lo"],
+                    "gaming_worst_hi": worst["gaming_hi"], "label_pct": avg("label_pct"), "offtask_pct": avg("offtask_pct"),
+                    "cost_per_1k": avg("cost_per_1k")})
+    return out
+
+
 def main(out):
     os.makedirs(out, exist_ok=True)
     for nm, fn in (("leaderboard", leaderboard), ("halo", halo), ("fairness", fairness),
-                   ("feedback_checks", feedback_checks), ("drift", drift), ("floor", floor)):
+                   ("feedback_checks", feedback_checks), ("drift", drift), ("floor", floor),
+                   ("overall", overall), ("weights", weights), ("feedback_board", feedback_board),
+                   ("speech", lambda: modality("speech", "Speech (pronunciation)", "speech")),
+                   ("images", images_pooled)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)
         print(f"{nm}: {len(rows)} rows")

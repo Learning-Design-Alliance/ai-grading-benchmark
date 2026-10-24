@@ -1,0 +1,236 @@
+{
+ "n_cases": 33,
+ "scale": [
+  0,
+  3
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 33,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.3913200723327306,
+    "ci95": [
+     0.08746018262900819,
+     0.6684360842509364
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.41128377885053496,
+    "ci95": [
+     0.09514096467875012,
+     0.686604452030746
+    ]
+   },
+   "bias": {
+    "estimate": 0.3333333333333333,
+    "ci95": [
+     -0.06060606060606061,
+     0.7575757575757576
+    ],
+    "n": 33,
+    "flag": false,
+    "mdc80": 0.5928019411356051
+   },
+   "sd_ratio": 1.1053726699605875,
+   "n": 33,
+   "raters": [
+    "expert"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 1.5,
+   "machine_passes_of_human_passes": 0.7777777777777778,
+   "machine_fails_of_human_fails": 0.75,
+   "n_pass": 9,
+   "n_fail": 24,
+   "kappa": {
+    "estimate": 0.4634146341463415,
+    "ci95": [
+     0.12565953193630414,
+     0.75
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 0.5757575757575758,
+   "ci95": [
+    0.21212121212121213,
+    0.9696969696969697
+   ],
+   "n": 33,
+   "flag": true,
+   "mdc80": 0.5315742339575252,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.6363636363636364,
+   "ci95": [
+    0.2727272727272727,
+    1.0
+   ],
+   "n": 33,
+   "flag": true,
+   "mdc80": 0.5143666034598483,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.0707070707070707,
+   "reaches_midpoint": 0.06060606060606061,
+   "n": 33
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9166365932876218,
+    "ci95": [
+     0.792427847080667,
+     0.988923013860845
+    ]
+   },
+   "exact_agreement": 0.8787878787878788,
+   "mean_abs_change": 0.15151515151515152,
+   "signed_change": {
+    "estimate": 0.030303030303030304,
+    "ci95": [
+     -0.12121212121212122,
+     0.18181818181818182
+    ],
+    "n": 33,
+    "flag": false,
+    "mdc80": 0.22747465776771286
+   },
+   "n": 33
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.21212121212121213,
+    "ci95": [
+     0.06060606060606061,
+     0.42424242424242425
+    ],
+    "n": 33,
+    "flag": true,
+    "mdc80": 0.2657871169787626
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.30744994516311785,
+  "same_opening": 0.03183940242763772,
+  "varied_by_quality": -0.004428327915974001,
+  "words": 25.575757575757574,
+  "self_per100": 4.094655924701406,
+  "task_per100": 0.2483024222154657,
+  "action_per100": 0.23243801652892562,
+  "leaks_answer": 0.0,
+  "coherence": -0.7249176968562113,
+  "n": 33,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 231,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 879.7878787878788,
+   "completion_tokens": 48.523809523809526,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 4.648036956787109,
+   "p90": 10.441042327880867,
+   "n": 229
+  },
+  "served_models": [
+   "google/gemma-4-31b-it"
+  ],
+  "providers": [
+   "CoreWeave"
+  ],
+  "cost_source": "reported by the endpoint (231 of 231 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.10447688311688312,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-24T16:05:53Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemma-4-31b-it",
+  "request_template": {
+   "model": "google/gemma-4-31b-it",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "CoreWeave"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "CoreWeave"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "image.txt",
+  "prompt_sha256": "f39428b609291fe53a0f1269a493fd3f8e595f2532d0bec2fa33ab1c5b841c44",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "checkmat3.jsonl",
+  "cases_sha256": "544bc9817ec94076e14109a2eee4935babdae1e4099674858f6d33649c90706a",
+  "n": 33,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

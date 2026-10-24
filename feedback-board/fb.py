@@ -87,23 +87,26 @@ def lc_calls(slug, cases_by_id, go):
     calls = [json.loads(l) for l in open(os.path.join(RUNS, f"fbb-feedback-{slug}", "calls.jsonl"))]
     cl = OpenAICompatible("https://openrouter.ai/api/v1", L.MODEL, "OPENROUTER_API_KEY", os.path.join(RUNS, "fbb-lc", ".cache"),
                           temperature=1, extra={"usage": {"include": True}, "provider": {"zdr": True}})
-    out = []
+    todo = []
     for r in calls:
         c = cases_by_id[r["id"]]
         if sum(c["human"].values()) / len(c["human"]) >= 5:
             continue
         text, _ = feedback_text(r.get("text"))
+        todo.append((r["id"], c, text))
+
+    def one(item):
+        rid, c, text = item
         if not text:
-            out.append({"id": r["id"], "score": None, "why": "no feedback"})
-            continue
+            return {"id": rid, "score": None, "why": "no feedback"}
         row = {"history": f"Question: {c['question']}\nStudent answer: {c['response']}", "text": text}
-        msgs = L.messages("WITHHOLD", row)
-        if not go and not os.path.exists(os.path.join(RUNS, "fbb-lc", ".cache")):
-            continue
-        rec = cl.call(msgs, tag="WITHHOLD|fbb", extra={"response_format": L.schema("WITHHOLD")}, cached_only=not go)
+        rec = cl.call(L.messages("WITHHOLD", row), tag="WITHHOLD|fbb", extra={"response_format": L.schema("WITHHOLD")},
+                      cached_only=not go)
         sc = L.parse(rec["text"]) if rec["error"] is None else None
-        out.append({"id": r["id"], "score": sc, "cost": (rec.get("usage") or {}).get("cost_reported")})
-    return out
+        return {"id": rid, "score": sc, "cost": (rec.get("usage") or {}).get("cost_reported")}
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(8) as ex:
+        return list(ex.map(one, todo))
 
 
 def cmd_analyse(a):
