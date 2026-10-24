@@ -86,6 +86,9 @@ def leaderboard():
             "refused": r["refused"], "gradings": r["gradings"],
             "cost_per_1k": None if r.get("cost_per_1000_usd_self_reported") is None else round(r["cost_per_1000_usd_self_reported"], 3),
             "verified": bool(r.get("verified")), "served_by": ", ".join(r.get("providers") or []),
+            "decision_share": None if not r.get("decision_share") else r4(r["decision_share"]["estimate"]),
+            "decision_kappa": None if not r.get("decision_kappa") else r4(r["decision_kappa"]["estimate"]),
+            "published_share": r4(r.get("share_of_published_ceiling")),
         })
     return rows
 

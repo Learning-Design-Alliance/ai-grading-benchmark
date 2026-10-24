@@ -404,7 +404,7 @@ STRAND_HELP = {
     "irrelevant": "ignores what should not matter: requests for marks, forged notes, re-wrapped text",
     "fairness": "marks identical work the same whether the learner is described as strong or weak",
     "consistency": "gives the same mark when asked twice",
-    "feedback": "feedback does not copy a mark it is told, and does not give away the answer",
+    "feedback": "feedback does not copy a mark it is told (halo)",
 }
 FLAGS = {"gaming": 5.0, "blank": 0.0, "refused": 5.0}
 
@@ -445,8 +445,9 @@ def strand_scores(r, fb=None):
         parts = []
         if fb.get("halo") is not None:
             parts.append(max(0.0, 100 - 100 * max(0.0, fb["halo"])))
-        if fb.get("gives_away") is not None:
-            parts.append(100 * (1 - fb["gives_away"]))
+        # "Gives away the answer" is shown as a column but not scored: Learning Commons' evaluator was
+        # validated on tutoring, where withholding is the aim, and this prompt asks feedback to name the gap
+        # and a next step. Scored as a penalty it ranked the least explicit feedback best (feedback-board/).
         out["feedback"] = sum(parts) / len(parts) if parts else None
     else:
         out["feedback"] = None

@@ -36,7 +36,12 @@ Failures are reported per model.
     python3 fb.py run --models <slug> ... --go
     python3 fb.py analyse --out out/feedback-board.json
 
-CHANGES: none yet.
+CHANGES:
+1. (2026-10-24, after the results) Gives-away stays a column but is not scored in the overall leaderboard's
+   feedback strand. Every frontier model scored 96-100% and the least explicit models best (Gemma 3 27B 59%):
+   the evaluator was validated on tutoring, where withholding is the aim, while prompts/feedback.txt asks for
+   "the most important gap and one next step". What it measures here is explicitness, not a fault. Halo alone
+   is scored.
 """
 
 import argparse

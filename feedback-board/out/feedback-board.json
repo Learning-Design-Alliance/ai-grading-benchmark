@@ -1,0 +1,650 @@
+{
+ "design": "fb.py docstring",
+ "models": {
+  "anthropic/claude-fable-5.1": {
+   "halo": {
+    "n": 100,
+    "corr_blind": 0.4655798538945884,
+    "corr_shown": 0.5398688865966423,
+    "halo": 0.07428903270205395,
+    "ci95": [
+     -0.10331444794675348,
+     0.2647284011669686
+    ],
+    "flag": false,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.9629629629629629,
+    "ci95": [
+     0.9074074074074074,
+     1.0
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.4281575
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.5005078839316848,
+    "same_opening": 0.03225806451612903,
+    "grounded": 0.8390804597701149,
+    "words": 67.44,
+    "self_per100": 2.7793345663745095,
+    "task_per100": 0.6199919794849097,
+    "action_per100": 0.7432309821108112,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.11995362344199495,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "anthropic/claude-haiku-5.5": {
+   "halo": {
+    "n": 97,
+    "corr_blind": 0.5040011867032426,
+    "corr_shown": 0.5903996799137813,
+    "halo": 0.08639849321053872,
+    "ci95": [
+     -0.01935836705406413,
+     0.1918236272124913
+    ],
+    "flag": false,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.9814814814814815,
+    "ci95": [
+     0.9444444444444444,
+     1.0
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.4247725
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.45676442654341876,
+    "same_opening": 0.0,
+    "grounded": 0.896551724137931,
+    "words": 66.83,
+    "self_per100": 3.346307917667056,
+    "task_per100": 0.8233811397363908,
+    "action_per100": 0.9692021431354302,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.32063251718893393,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "anthropic/claude-opus-5.5": {
+   "halo": {
+    "n": 100,
+    "corr_blind": 0.39783940026068704,
+    "corr_shown": 0.5315381042419841,
+    "halo": 0.13369870398129707,
+    "ci95": [
+     -0.0003943041114388701,
+     0.2794191714080167
+    ],
+    "flag": false,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 1.0,
+    "ci95": [
+     1.0,
+     1.0
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.426255
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.5288912212329324,
+    "same_opening": 0.03225806451612903,
+    "grounded": 0.8620689655172413,
+    "words": 71.23,
+    "self_per100": 2.802080225028908,
+    "task_per100": 0.5681487127993001,
+    "action_per100": 0.6095223536186881,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.2709231438602645,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "deepseek/deepseek-v4.1-flash": {
+   "halo": {
+    "n": 98,
+    "corr_blind": 0.43217626849197266,
+    "corr_shown": 0.5148595962972545,
+    "halo": 0.08268332780528187,
+    "ci95": [
+     -0.06222508691164441,
+     0.23250317640769963
+    ],
+    "flag": false,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.9629629629629629,
+    "ci95": [
+     0.9074074074074074,
+     1.0
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.4184225
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.499618886253421,
+    "same_opening": 0.06451612903225806,
+    "grounded": 0.8735632183908046,
+    "words": 54.99,
+    "self_per100": 3.354183178256165,
+    "task_per100": 0.39602919092825856,
+    "action_per100": 0.5045227128563236,
+    "leaks_answer": 0.25,
+    "varied_by_quality": 0.07540049591810771,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "google/gemini-3.5-flash-lite": {
+   "halo": {
+    "n": 100,
+    "corr_blind": 0.28505790675901815,
+    "corr_shown": 0.6234297441134161,
+    "halo": 0.33837183735439796,
+    "ci95": [
+     0.21699206613253635,
+     0.47426441509362843
+    ],
+    "flag": true,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.7777777777777778,
+    "ci95": [
+     0.6666666666666666,
+     0.8703703703703703
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.3998525
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.4292680307929752,
+    "same_opening": 0.03225806451612903,
+    "grounded": 0.8045977011494253,
+    "words": 48.95,
+    "self_per100": 5.38039416668521,
+    "task_per100": 0.28594277304841975,
+    "action_per100": 2.5203576071593004,
+    "leaks_answer": 0.0,
+    "varied_by_quality": -0.013935854349797716,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "google/gemma-3-27b-it": {
+   "halo": {
+    "n": 99,
+    "corr_blind": 0.3628527508675837,
+    "corr_shown": 0.7236082979036883,
+    "halo": 0.36075554703610463,
+    "ci95": [
+     0.23508979560045928,
+     0.4837099663994136
+    ],
+    "flag": true,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.5925925925925926,
+    "ci95": [
+     0.46296296296296297,
+     0.7222222222222222
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.4002875
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.40800277317081235,
+    "same_opening": 0.03763440860215054,
+    "grounded": 0.7701149425287356,
+    "words": 46.49,
+    "self_per100": 3.6143243492065014,
+    "task_per100": 0.44328092326625135,
+    "action_per100": 1.2364886009847664,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.2994895167113802,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "google/gemma-3-4b-it": {
+   "halo": {
+    "n": 93,
+    "corr_blind": 0.31890054210528324,
+    "corr_shown": 0.3765745466492312,
+    "halo": 0.05767400454394794,
+    "ci95": [
+     -0.12410711834800209,
+     0.23555345087026197
+    ],
+    "flag": false,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.6923076923076923,
+    "ci95": [
+     0.5769230769230769,
+     0.8076923076923077
+    ],
+    "n": 52,
+    "unscored": 2,
+    "evaluator_cost_usd": 0.388075
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.4532886194531065,
+    "same_opening": 0.08333333333333333,
+    "grounded": 0.7261904761904762,
+    "words": 45.91752577319588,
+    "self_per100": 3.887870161556269,
+    "task_per100": 0.5958976739567889,
+    "action_per100": 2.0906184991610544,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.12806725839069394,
+    "n": 97,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "google/gemma-4-26b-a4b-it": {
+   "halo": {
+    "n": 100,
+    "corr_blind": 0.45385474516196267,
+    "corr_shown": 0.5436515024094006,
+    "halo": 0.08979675724743796,
+    "ci95": [
+     -0.02751202071743941,
+     0.2199706921910481
+    ],
+    "flag": false,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.7222222222222222,
+    "ci95": [
+     0.5925925925925926,
+     0.8333333333333334
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.405025
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.35404868221272173,
+    "same_opening": 0.03763440860215054,
+    "grounded": 0.735632183908046,
+    "words": 49.44,
+    "self_per100": 5.357825204253142,
+    "task_per100": 0.2613692656861138,
+    "action_per100": 1.9031774795180096,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.18308119933009004,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "google/gemma-4-31b-it": {
+   "halo": {
+    "n": 99,
+    "corr_blind": 0.529498304419062,
+    "corr_shown": 0.6208945704760841,
+    "halo": 0.09139626605702211,
+    "ci95": [
+     -0.03474753673926467,
+     0.21849379544884995
+    ],
+    "flag": false,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.7735849056603774,
+    "ci95": [
+     0.6415094339622641,
+     0.8867924528301887
+    ],
+    "n": 53,
+    "unscored": 1,
+    "evaluator_cost_usd": 0.3956175
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.4163119766918158,
+    "same_opening": 0.11290322580645161,
+    "grounded": 0.6976744186046512,
+    "words": 43.78787878787879,
+    "self_per100": 5.673107303246475,
+    "task_per100": 0.36978363213218696,
+    "action_per100": 2.7242936138778444,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.38624718021664173,
+    "n": 99,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "meta-llama/llama-3.2-3b-instruct": {
+   "halo": {
+    "n": 81,
+    "corr_blind": 0.06389119810985074,
+    "corr_shown": 0.27223424842691046,
+    "halo": 0.20834305031705974,
+    "ci95": [
+     -0.0344373258667226,
+     0.4437520839863185
+    ],
+    "flag": false,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.7045454545454546,
+    "ci95": [
+     0.5681818181818182,
+     0.8181818181818182
+    ],
+    "n": 44,
+    "unscored": 10,
+    "evaluator_cost_usd": 0.34066
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.42592256893846897,
+    "same_opening": 0.04166666666666667,
+    "grounded": 0.7361111111111112,
+    "words": 63.80952380952381,
+    "self_per100": 3.6281238995762197,
+    "task_per100": 0.4560036775105148,
+    "action_per100": 2.4784740453231704,
+    "leaks_answer": 0.0,
+    "n": 84,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "microsoft/phi-4": {
+   "halo": {
+    "n": 99,
+    "corr_blind": 0.29406317977667046,
+    "corr_shown": 0.5611119660334103,
+    "halo": 0.26704878625673983,
+    "ci95": [
+     0.12503178297013512,
+     0.4308857078744557
+    ],
+    "flag": true,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.8703703703703703,
+    "ci95": [
+     0.7777777777777778,
+     0.9444444444444444
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.4034
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.3534504225676625,
+    "same_opening": 0.0,
+    "grounded": 0.6896551724137931,
+    "words": 42.47,
+    "self_per100": 3.5579680184160076,
+    "task_per100": 0.36694239835765546,
+    "action_per100": 1.7790101318606233,
+    "leaks_answer": 0.0,
+    "varied_by_quality": -0.05256820162420267,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "mistralai/ministral-8b-2512": {
+   "halo": {
+    "n": 94,
+    "corr_blind": 0.23210523050756737,
+    "corr_shown": 0.5750541170166518,
+    "halo": 0.3429488865090844,
+    "ci95": [
+     0.1758962507471568,
+     0.5264517087662857
+    ],
+    "flag": true,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.8846153846153846,
+    "ci95": [
+     0.7884615384615384,
+     0.9615384615384616
+    ],
+    "n": 52,
+    "unscored": 2,
+    "evaluator_cost_usd": 0.39432
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.4106763579133806,
+    "same_opening": 0.04597701149425287,
+    "grounded": 0.6428571428571429,
+    "words": 38.333333333333336,
+    "self_per100": 3.900819055655473,
+    "task_per100": 0.3287965132002605,
+    "action_per100": 0.8079458411765189,
+    "leaks_answer": 0.0,
+    "varied_by_quality": -0.0443528401492706,
+    "n": 96,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "openai/gpt-5-mini": {
+   "halo": {
+    "n": 99,
+    "corr_blind": 0.538136634338413,
+    "corr_shown": 0.37220751517161904,
+    "halo": -0.16592911916679393,
+    "ci95": [
+     -0.31879046386452725,
+     -0.009597707659747434
+    ],
+    "flag": true,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.9814814814814815,
+    "ci95": [
+     0.9444444444444444,
+     1.0
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.421295
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.5102526852591953,
+    "same_opening": 0.0,
+    "grounded": 0.7931034482758621,
+    "words": 52.08,
+    "self_per100": 2.8531283464144077,
+    "task_per100": 0.4625173727075359,
+    "action_per100": 0.46540651199801863,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.06789750123449778,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "openai/gpt-5.6-luna": {
+   "halo": {
+    "n": 100,
+    "corr_blind": 0.524978971828558,
+    "corr_shown": 0.6197164066652072,
+    "halo": 0.0947374348366492,
+    "ci95": [
+     0.01585973163662846,
+     0.18144582546270072
+    ],
+    "flag": true,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.8888888888888888,
+    "ci95": [
+     0.7962962962962963,
+     0.9629629629629629
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.40168
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.5245060563578656,
+    "same_opening": 0.03225806451612903,
+    "grounded": 0.8160919540229885,
+    "words": 38.74,
+    "self_per100": 3.5821517288432894,
+    "task_per100": 0.5629370866846813,
+    "action_per100": 0.4884287311114321,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.14801498921656575,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "openai/gpt-6-astra": {
+   "halo": {
+    "n": 100,
+    "corr_blind": 0.4045303369680052,
+    "corr_shown": 0.5863338449144344,
+    "halo": 0.1818035079464292,
+    "ci95": [
+     0.04321678054710382,
+     0.32835470531443095
+    ],
+    "flag": true,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 1.0,
+    "ci95": [
+     1.0,
+     1.0
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.404815
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.50049334639959,
+    "same_opening": 0.03225806451612903,
+    "grounded": 0.8045977011494253,
+    "words": 46.96,
+    "self_per100": 3.7611729807782996,
+    "task_per100": 0.5538867890774415,
+    "action_per100": 0.9925945615055356,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.24296560173479487,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "openai/gpt-oss-20b": {
+   "halo": {
+    "n": 98,
+    "corr_blind": 0.23388335048645997,
+    "corr_shown": 0.5681213486014833,
+    "halo": 0.33423799811502336,
+    "ci95": [
+     0.16816530349460668,
+     0.5112284030728221
+    ],
+    "flag": true,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.8148148148148148,
+    "ci95": [
+     0.7037037037037037,
+     0.9074074074074074
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.40354
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.37963256766699105,
+    "same_opening": 0.0,
+    "grounded": 0.6551724137931034,
+    "words": 42.81,
+    "self_per100": 3.906740993671656,
+    "task_per100": 0.28105043005156843,
+    "action_per100": 1.140106004903722,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.21955723111639197,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  },
+  "qwen/qwen3-235b-a22b-2507": {
+   "halo": {
+    "n": 100,
+    "corr_blind": 0.47831590966102217,
+    "corr_shown": 0.383612630993288,
+    "halo": -0.09470327866773415,
+    "ci95": [
+     -0.2608492497576318,
+     0.10456387068791945
+    ],
+    "flag": false,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.8703703703703703,
+    "ci95": [
+     0.7777777777777778,
+     0.9444444444444444
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.4073025
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.4450376798913513,
+    "same_opening": 0.12365591397849462,
+    "grounded": 0.8045977011494253,
+    "words": 42.83,
+    "self_per100": 4.170473501898395,
+    "task_per100": 0.5185664293890333,
+    "action_per100": 1.2621422998162857,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.35182094322487234,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
+  }
+ }
+}

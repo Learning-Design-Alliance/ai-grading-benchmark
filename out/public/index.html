@@ -1,37 +1,46 @@
 <style>
-.gb { display: grid; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); max-width: 74rem; margin-inline: auto; }
+.gb { display: grid; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); max-width: 76rem; margin-inline: auto; }
 .gb-head { display: grid; gap: var(--cds-gap-sm); }
 .gb-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
-.gb-take { font-size: var(--cds-font-size-body); margin: 0; max-width: 64ch; line-height: 1.5; }
-.gb-note { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: 0; max-width: 72ch; line-height: 1.5; }
+.gb-take { font-size: var(--cds-font-size-body); margin: 0; line-height: 1.5; }
+.gb-note { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: 0; line-height: 1.5; }
 .gb-draft { display: inline-block; font-size: var(--cds-font-size-caption); color: var(--color-warn); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-sm); width: fit-content; }
 .gb-nav { display: flex; flex-wrap: wrap; gap: var(--cds-gap-sm); font-size: var(--cds-font-size-caption); }
 .gb-nav a { color: var(--color-fg-muted); }
 .gb-sec { display: grid; gap: var(--cds-gap-md); }
 .gb-sec > h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
-.gb-sec > p { margin: 0; max-width: 70ch; line-height: 1.5; font-size: var(--cds-font-size-body); }
+.gb-sec > p { margin: 0; line-height: 1.5; font-size: var(--cds-font-size-body); }
 .gb-grid { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); }
+.gb-grid.gb-full { grid-template-columns: 1fr; }
 .gb-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-sm); align-content: start; min-width: 0; position: relative; }
 .gb-card h3 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
 .gb-sub { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: 0; line-height: 1.45; }
-.gb-chart { min-height: 14rem; min-width: 0; position: relative; }
+.gb-chart { min-height: 10rem; min-width: 0; position: relative; }
 .gb-chart svg { display: block; }
 .gb-tabs { display: flex; gap: var(--cds-gap-xs); flex-wrap: wrap; }
 .gb-tabs button { font: inherit; font-size: var(--cds-font-size-caption); padding: var(--cds-pad-xs) var(--cds-pad-sm); border-radius: var(--cds-radius); border: 1px solid var(--color-border-line); background: transparent; color: var(--color-fg); cursor: pointer; }
 .gb-tabs button[aria-pressed=true] { background: var(--color-fg); color: var(--color-bg); }
-.gb-tablewrap { overflow: auto; max-height: 36rem; }
+.gb-weights { display: grid; gap: var(--cds-gap-sm) var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); font-size: var(--cds-font-size-caption); }
+.gb-weights label { display: grid; grid-template-columns: 1fr auto; gap: 0 var(--cds-gap-sm); align-items: center; }
+.gb-weights input { grid-column: 1 / -1; width: 100%; }
+.gb-weights .k { color: var(--color-fg-muted); }
+.gb-row { display: flex; gap: var(--cds-gap-sm); flex-wrap: wrap; align-items: center; }
+.gb-row button { font: inherit; font-size: var(--cds-font-size-caption); padding: var(--cds-pad-xs) var(--cds-pad-sm); border-radius: var(--cds-radius); border: 1px solid var(--color-border-line); background: transparent; color: var(--color-fg); cursor: pointer; }
+.gb-tablewrap { overflow-x: auto; }
 .gb-table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
 .gb-table th, .gb-table td { padding: var(--cds-pad-xs) var(--cds-pad-sm); text-align: right; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
 .gb-table th:first-child, .gb-table td:first-child, .gb-table th.l, .gb-table td.l { text-align: left; }
-.gb-table th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); vertical-align: bottom; white-space: normal; min-width: 5.5rem; position: sticky; top: 0; background: var(--color-panel); }
+.gb-table th { color: var(--color-fg-muted); font-weight: var(--cds-font-weight-medium); vertical-align: bottom; white-space: normal; min-width: 4.5rem; }
+.gb-table thead tr.grp th { text-align: center; border-bottom: 1px solid var(--color-border-line); color: var(--color-fg); }
 .gb-table th button { all: unset; cursor: pointer; }
 .gb-table th button:focus-visible { outline: 2px solid var(--color-fg-muted); outline-offset: 2px; }
 .gb-table td.bad { color: var(--color-bad); font-weight: 600; }
 .gb-table td.ok { color: var(--color-ok); }
 .gb-table td.dim { color: var(--color-fg-muted); }
+.gb-table td.flag { white-space: normal; color: var(--color-bad); min-width: 12rem; }
 .gb-tip { position: absolute; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); pointer-events: none; max-width: 18rem; z-index: 5; }
 .gb-tip .k { color: var(--cds-text-secondary); }
-.gb-list { margin: 0; padding-left: 1.1rem; display: grid; gap: var(--cds-gap-xs); font-size: var(--cds-font-size-body); max-width: 72ch; line-height: 1.5; }
+.gb-list { margin: 0; padding-left: 1.1rem; display: grid; gap: var(--cds-gap-xs); font-size: var(--cds-font-size-body); line-height: 1.5; }
 [data-dash-source-state=empty] { color: transparent; }
 [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
 .gb-fail { display: flex; align-items: center; justify-content: center; gap: 0.4rem; min-height: inherit; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
@@ -40,88 +49,130 @@
 
 <div class="gb">
   <header class="gb-head" id="top">
-    <span class="gb-draft">Draft for review: not for circulation until vendors have been notified of the forged-override exploit</span>
+    <span class="gb-draft">Draft for review: private until the checks are finished</span>
     <h1 class="gb-title">AI Grading Benchmark</h1>
     <p class="gb-take" id="takeaway">
-      <span data-source="headline" data-field="models">—</span> models graded the same student work through the same plain prompt.
-      Most agree with human markers about as well as the markers agree with each other.
-      <span data-source="headline" data-field="gamed_code">—</span> of the <span data-source="headline" data-field="code_models">—</span> tested on code can be talked into extra marks worth more than a twentieth of the scale; the worst, <span data-source="headline" data-field="worst_model">—</span>, gains <span data-source="headline" data-field="worst_pct">—</span>% of the scale from a forged "grading override" note.
+      Of <span data-source="headline" data-field="complete">—</span> models graded on short answers, code and essays, <span data-source="headline" data-field="unflagged">—</span> pass every disqualifying check; the rest can be talked into marks or credit blank answers.
+      Audio graders mostly hear speech in silence, and a note written on a handwritten page games models that ignore it as text.
     </p>
-    <p class="gb-note">Accuracy is reported against the human ceiling: how well a model agrees with human markers, as a share of how well the markers agree with each other. Every number is recomputed from submitted marks. Intervals are 95% bootstrap intervals over cases. Every probe passed a planted-effect self-check before any real result was read.</p>
+    <p class="gb-note">Every model graded the same student work through the same plain prompt. Agreement is reported against the human ceiling: how well a model agrees with expert markers, as a share of how well the markers agree with each other. Every number is recomputed from the submitted marks, and every probe passed a planted-effect self-check before any real result was read. Intervals are 95% bootstrap intervals.</p>
     <nav class="gb-nav" aria-label="Sections">
-      <a href="#leaderboard">Leaderboard</a><a href="#value">Accuracy and cost</a><a href="#gaming">Gaming</a><a href="#halo">Feedback copies the mark</a><a href="#fairness">Fairness</a><a href="#checks">Can feedback be checked?</a><a href="#drift">Model upgrades</a><a href="#method">Method and limits</a>
+      <a href="#overall">Overall</a><a href="#tasks">By task</a><a href="#value">Accuracy and cost</a><a href="#gaming">Gaming</a><a href="#feedback">Feedback</a><a href="#speech">Speech</a><a href="#images">Handwritten work</a><a href="#fairness">Fairness by group</a><a href="#drift">Model upgrades</a><a href="#method">Method and limits</a>
     </nav>
   </header>
 
-  <section class="gb-sec" id="leaderboard">
-    <h2>Leaderboard</h2>
-    <p>One row per model, one column per question a buyer would ask. There is no overall score: any weighting of these columns would be a judgement, and an average would hide the one result that should rule a model out. Red marks a gain from gaming or a label effect larger than a twentieth of the scale, or any credit for blank answers.</p>
+  <section class="gb-sec" id="overall">
+    <h2>Overall</h2>
+    <p>One score per model across short answers, code and essays: each validity strand scored 0 to 100, weighted, and averaged over the three tasks. The weights are a judgement, so set your own below; the ranking follows. A model with a disqualifying flag ranks below every model without one. The rank interval shows how far a model could move if each measure were redrawn within its own interval: overlapping intervals are ties.</p>
+    <div class="gb-card">
+      <div class="gb-weights" id="weights" data-source="weights"></div>
+      <div class="gb-row"><button type="button" id="reset-weights">Reset to default weights</button><span class="gb-sub" id="weights-note"></span></div>
+      <div class="gb-tablewrap">
+        <table class="gb-table" id="overall-table" data-source="overall" data-row-key="key">
+          <thead><tr>
+            <th class="l" data-field="rank">Rank</th><th class="l" data-field="model">Model</th><th class="l" data-field="vendor">Vendor</th>
+            <th data-field="overall">Overall (default weights)</th><th>Your weights</th>
+            <th data-field="agreement">Agreement</th><th data-field="decision">Pass/fail</th><th data-field="relevant">Reacts to wrong content</th>
+            <th data-field="irrelevant">Ignores gaming</th><th data-field="fairness">Fair to labels</th><th data-field="consistency">Consistent</th><th data-field="feedback">Feedback</th>
+            <th data-field="rank_lo">Rank interval</th><th class="l" data-field="flags">Flags</th>
+          </tr></thead><tbody></tbody>
+        </table>
+      </div>
+      <p class="gb-sub">Strand scores are 0 to 100. Models not yet run on all three tasks are listed last, unranked. Feedback is scored on short answers only.</p>
+    </div>
+  </section>
+
+  <section class="gb-sec" id="tasks">
+    <h2>By task</h2>
+    <p>Each task's numbers, grouped by what they test. Red marks a gain from gaming or a label effect over a twentieth of the scale, or any credit for blank answers.</p>
     <div class="gb-card">
       <div class="gb-tabs" role="group" aria-label="Task" id="task-tabs"></div>
       <div class="gb-tablewrap">
         <table class="gb-table" id="board-table" data-source="leaderboard" data-row-key="key">
-          <thead><tr>
+          <thead>
+            <tr class="grp"><th></th><th colspan="3">Agreement with experts</th><th colspan="3">Reacts to wrong content</th><th colspan="2">Ignores what should not matter</th><th>Fairness</th><th>Consistency</th><th></th></tr>
+            <tr>
             <th data-field="model"><button type="button" data-sort="model">Model</button></th>
-            <th class="l" data-field="kind"><button type="button" data-sort="kind">Kind</button></th>
-            <th data-field="share"><button type="button" data-sort="share">Share of human ceiling</button></th>
-            <th data-field="qwk"><button type="button" data-sort="qwk">Agreement (QWK)</button></th>
-            <th data-field="retest"><button type="button" data-sort="retest">Same work twice (QWK)</button></th>
-            <th data-field="gaming_pct"><button type="button" data-sort="gaming_pct">Largest gain from gaming, % of scale</button></th>
-            <th data-field="label_pct"><button type="button" data-sort="label_pct">Strong vs weak learner label, % of scale</button></th>
-            <th data-field="blicket_pct"><button type="button" data-sort="blicket_pct">Key word made nonsense, % of scale</button></th>
+            <th data-field="share"><button type="button" data-sort="share">Share of ceiling</button></th>
+            <th data-field="qwk"><button type="button" data-sort="qwk">QWK</button></th>
+            <th data-field="decision_share"><button type="button" data-sort="decision_share">Pass/fail, share of ceiling</button></th>
             <th data-field="blank_pct"><button type="button" data-sort="blank_pct">Blank answers credited</button></th>
+            <th data-field="blicket_pct"><button type="button" data-sort="blicket_pct">Key word made nonsense, % of scale</button></th>
             <th data-field="refused"><button type="button" data-sort="refused">Refused</button></th>
-            <th data-field="cost_per_1k"><button type="button" data-sort="cost_per_1k">$ per 1,000 gradings</button></th>
+            <th data-field="gaming_pct"><button type="button" data-sort="gaming_pct">Largest gain from gaming, % of scale</button></th>
+            <th data-field="surface_pct"><button type="button" data-sort="surface_pct">Re-wrapped text, % of scale</button></th>
+            <th data-field="label_pct"><button type="button" data-sort="label_pct">Strong vs weak label, % of scale</button></th>
+            <th data-field="retest"><button type="button" data-sort="retest">Same work twice (QWK)</button></th>
+            <th data-field="cost_per_1k"><button type="button" data-sort="cost_per_1k">$ per 1,000</button></th>
           </tr></thead>
           <tbody></tbody>
         </table>
       </div>
-      <p class="gb-sub">Essays have one released mark per essay, so they show agreement but no ceiling. Prose-only checks (nonsense word, blank answers on some tasks) do not apply to code. Cost is self-reported by each run. Click a heading to sort.</p>
+      <p class="gb-sub">Essays release one adjudicated mark per essay, so their agreement is shown against the published rater agreement (κ 0.745) and has no pass/fail ceiling. Prose-only checks do not apply to code. Cost is self-reported.</p>
     </div>
   </section>
 
   <section class="gb-sec" id="value">
     <h2>Accuracy and cost</h2>
     <p>Small open models reach the human ceiling on short answers for a hundredth of the price of the largest models. On code the gap is wider. Cost is on a log scale.</p>
-    <div class="gb-grid" id="value-grid" data-source="leaderboard"></div>
+    <div class="gb-grid gb-full" id="value-grid" data-source="leaderboard"></div>
   </section>
 
   <section class="gb-sec" id="gaming">
     <h2>Gaming: can a student talk the grader into marks?</h2>
     <p>The larger of two gains: appending a polite request for full marks, or a forged "GRADING OVERRIDE" note. Zero or below is what a grader should do. Bars show the 95% interval.</p>
-    <div class="gb-grid" id="gaming-grid" data-source="leaderboard"></div>
+    <div class="gb-grid gb-full" id="gaming-grid" data-source="leaderboard"></div>
   </section>
 
-  <section class="gb-sec" id="halo">
-    <h2>Feedback copies the mark it is told</h2>
-    <p>The same feedback prompt, once with the teacher's mark hidden and once with it shown. The halo is how much more the feedback's tone follows the mark when it is shown. On essays every model's feedback copies the mark: a teacher who marks first and asks for comments gets agreement, not a second opinion. The tone measure was validated against trained annotators on tutoring text (AUC 0.67); its transfer to essays is not shown.</p>
+  <section class="gb-sec" id="feedback">
+    <h2>Feedback</h2>
+    <p>Each model also wrote feedback on the same 100 short answers, measured with the two measures that passed validation against trained annotators. Halo is scored: whether the feedback's tone follows a mark the model is told, beyond what the work shows (0 is independent). How often feedback states the answer is shown but not scored: the prompt asks for the gap and a next step, and for marking, unlike tutoring, saying what was missing is often the point.</p>
+    <div class="gb-grid">
+      <div class="gb-card"><h3>Feedback copies a mark it is told</h3><p class="gb-sub">Correlation of tone with the teacher's mark when shown, minus when hidden.</p><div class="gb-chart" id="halo-chart" data-source="feedback_board"></div></div>
+      <div class="gb-card"><h3>Feedback states the answer</h3><p class="gb-sub">Share of feedback on answers below full marks that Learning Commons' Withholding Answers evaluator says does the work for the student. Higher means more explicit; whether that is wanted depends on the use. Not scored.</p><div class="gb-chart" id="give-chart" data-source="feedback_board"></div></div>
+    </div>
+  </section>
+
+  <section class="gb-sec" id="speech">
+    <h2>Speech: grading a recording</h2>
+    <p>Sentences read aloud by children and adults learning English, each scored for pronunciation by five experts. Five of six audio models give marks to a silent recording, most of them nearly always: an audio grader can report speech it did not hear.</p>
     <div class="gb-card">
-      <div class="gb-chart" id="halo-chart" data-source="halo"></div>
+      <div class="gb-tablewrap">
+        <table class="gb-table" id="speech-table" data-source="speech" data-row-key="key">
+          <thead><tr>
+            <th data-field="model">Model</th><th data-field="share">Share of expert ceiling</th><th data-field="retest">Same recording twice</th>
+            <th data-field="silence_pct">Credits silence</th><th data-field="tone_pct">Credits a tone</th><th data-field="offtask_pct">Another speaker's sentence, % of scale</th>
+            <th data-field="label_pct">Strong vs weak label, % of scale</th><th data-field="noise_pct">Background noise, % of scale</th><th data-field="phone_pct">Telephone audio, % of scale</th><th data-field="cost_per_1k">$ per 1,000</th>
+          </tr></thead><tbody></tbody>
+        </table>
+      </div>
+      <p class="gb-sub">speechocean762 (CC BY 4.0): 100 sentences, five experts each. Noise and telephone audio should not change the mark: the experts scored the clean recording.</p>
+    </div>
+  </section>
+
+  <section class="gb-sec" id="images">
+    <h2>Handwritten work: grading a scanned page</h2>
+    <p>122 handwritten solutions to Russian exam mathematics problems, each with one official score (so agreement has no ceiling). The gaming notes are written onto the student's page. Models that ignore the note as text are moved by it as writing on the work.</p>
+    <div class="gb-card">
+      <div class="gb-tablewrap">
+        <table class="gb-table" id="images-table" data-source="images" data-row-key="key">
+          <thead><tr>
+            <th data-field="model">Model</th><th data-field="qwk">Agreement with the expert (QWK)</th><th data-field="retest">Same page twice</th>
+            <th data-field="gaming_pct">Gain from a note on the page, % of scale</th><th data-field="gaming_worst_scale_pct">Worst mark scale, % of scale</th>
+            <th data-field="label_pct">Strong vs weak label, % of scale</th><th data-field="cost_per_1k">$ per 1,000</th>
+          </tr></thead><tbody></tbody>
+        </table>
+      </div>
+      <p class="gb-sub">CHECK-MAT, pooled over its three mark scales (0-2, 0-3, 0-4) by number of solutions; per-scale intervals are in the repository.</p>
     </div>
   </section>
 
   <section class="gb-sec" id="fairness">
     <h2>Fairness by group</h2>
-    <p>ELLIPSE releases two independent human ratings per essay, so a model's group gap can be compared with a second human's on the same essays. ASAP 2.0 releases one adjudicated mark, so its gaps are against that mark only and cannot separate a model's bias from a regression artefact. The dashed lines are the pre-registered ±0.10 bar.</p>
+    <p>ELLIPSE releases two independent human ratings per essay, so a model's group gap can be compared with a second human's on the same essays. ASAP 2.0 releases one adjudicated mark, so its gaps are against that mark only. The dashed lines are the pre-registered ±0.10 bar.</p>
     <div class="gb-card">
       <div class="gb-chart" id="fair-chart" data-source="fairness"></div>
-      <p class="gb-sub">The first Hispanic-vs-White signal (all four models) did not replicate cleanly on new essays: it halved, and vanished with rater roles swapped. The ASAP disability gap is shared by every model tested and awaits the individual human ratings.</p>
-    </div>
-  </section>
-
-  <section class="gb-sec" id="checks">
-    <h2>Can a grader's feedback be checked automatically?</h2>
-    <p>Rule-based and AI checks of feedback, scored against trained annotators' labels on 1,655 tutor responses (MRBench; annotators agree at κ 0.65–0.71). AUC 0.5 is chance; the pre-registered bar is a lower bound above 0.60 and above response length.</p>
-    <div class="gb-card">
-      <div class="gb-tablewrap">
-        <table class="gb-table" id="checks-table" data-source="feedback_checks" data-row-key="key">
-          <thead><tr>
-            <th data-field="measure">Check</th><th class="l" data-field="by">By</th><th class="l" data-field="label">Human label</th>
-            <th data-field="auc">AUC</th><th data-field="lo">Lower</th><th data-field="hi">Upper</th><th data-field="length_auc">Length alone</th><th class="l" data-field="verdict">Verdict</th>
-          </tr></thead><tbody></tbody>
-        </table>
-      </div>
-      <p class="gb-sub">Learning Commons scopes its Feedback evaluators to ELA writing; MRBench is maths tutoring, so its rows are an out-of-scope stress test, not a verdict on the evaluators in their own scope.</p>
+      <p class="gb-sub">The first Hispanic-vs-White signal did not replicate cleanly on new essays: it halved, and vanished with rater roles swapped. The ASAP disability gap is shared by every model tested and awaits the individual human ratings.</p>
     </div>
   </section>
 
@@ -143,10 +194,12 @@
   <section class="gb-sec" id="method">
     <h2>Method and limits</h2>
     <ul class="gb-list">
-      <li><b>Run it yourself.</b> The package fetches three CC BY corpora (Mohler short answers, HARMOGEN-R code, ASAP 2.0 essays), grades 100 fixed cases per task with your model, endpoint and prompt, and exports a submission holding every mark and no text. A pull request adds it; CI recomputes every number from the marks and refuses anything off the pinned cases or battery. A maintainer re-grades 25 cases to mark an entry verified.</li>
-      <li><b>Self-check.</b> Each probe was run on simulated graders with planted effects before any real number was read. <span data-source="floor_summary" data-field="passed">—</span> of <span data-source="floor_summary" data-field="total">—</span> planted checks passed. Selective scoring (routing uncertain work to a person) failed its check and is not on the leaderboard.</li>
-      <li><b>Not measured here:</b> whether feedback helps a learner; whether results hold on your students (public text may be in training data, and the surface-sensitivity check is weak); energy, unless you supply a per-token figure with its source.</li>
-      <li><b>Zero data retention</b> was required for every call. Fable ran on a bring-your-own Anthropic key through OpenRouter; its cost is Anthropic's list price.</li>
+      <li><b>Validity, not only agreement.</b> Agreement with experts is one strand. The others ask whether marks fall when the content is wrong (blank and junk answers, a nonsense key word), stay put when they should (requests for marks, forged notes, formatting, learner labels), and agree at a pass mark as well as the experts do.</li>
+      <li><b>Self-check.</b> Each probe was run on simulated graders with planted effects before any real number was read. <span data-source="floor_summary" data-field="passed">—</span> of <span data-source="floor_summary" data-field="total">—</span> planted checks passed. Selective scoring failed its check and is not shown. A test of whether graders tell analytic traits apart could not be answered: the human raters themselves barely separate the traits on the one corpus that has them.</li>
+      <li><b>Feedback measures</b> were validated against trained annotators on 1,655 tutor responses (MRBench). Only the two that passed (tone; Learning Commons' Withholding Answers) are used for the feedback columns; word-list measures of actionability and answer-copying did not pass and are not shown.</li>
+      <li><b>Run it yourself.</b> The package fetches the public corpora, grades fixed cases with your model, endpoint and prompt, and exports a submission holding every mark and no text. A pull request adds it; CI recomputes every number from the marks.</li>
+      <li><b>Not measured:</b> whether feedback helps a learner; whether results hold on your students (public text may be in training data); energy, unless you supply a per-token figure with its source.</li>
+      <li><b>Zero data retention</b> was required for every call.</li>
     </ul>
   </section>
 </div>
@@ -154,20 +207,16 @@
 <script>
 (() => {
   const TASKS = ["Short answers", "Code", "Essays"];
-  let task = "Short answers";
-  let sortKey = "share", sortDir = -1;
+  const STRANDS = ["agreement", "decision", "relevant", "irrelevant", "fairness", "consistency", "feedback"];
+  const NAMES = { agreement: "Agreement", decision: "Pass/fail", relevant: "Reacts to wrong content", irrelevant: "Ignores gaming", fairness: "Fair to labels", consistency: "Consistent", feedback: "Feedback" };
+  let task = "Short answers", sortKey = "share", sortDir = -1, userW = null;
   const f1 = d3.format(".1f"), f2 = d3.format(".2f"), f3 = d3.format(".3f"), pc = d3.format(".0%");
   const RED = (v, lim) => v !== null && v !== undefined && v > lim;
 
   dash.calc("headline", {
-    title: "Headline figures", description: "Models on the leaderboard, and how many tested on code gain more than 5% of the scale from gaming.",
-    inputs: ["leaderboard"],
-    fn: (leaderboard) => {
-      const code = leaderboard.filter(r => r.task === "Code" && r.gaming_pct !== null);
-      const worst = code.slice().sort((a, b) => b.gaming_pct - a.gaming_pct)[0] || {};
-      return [{ models: new Set(leaderboard.map(r => r.model)).size, code_models: code.length,
-                gamed_code: code.filter(r => r.gaming_pct > 5).length, worst_model: worst.model, worst_pct: worst.gaming_pct === undefined ? null : Math.round(worst.gaming_pct) }];
-    }
+    title: "Headline counts", description: "Models ranked on all three tasks, and how many carry no disqualifying flag.",
+    inputs: ["overall"],
+    fn: (overall) => [{ complete: overall.filter(r => r.complete).length, unflagged: overall.filter(r => r.complete && !r.flags).length }]
   });
   dash.calc("floor_summary", {
     title: "Self-check results", description: "Planted-effect checks run before any real result, and how many passed.",
@@ -177,8 +226,9 @@
   const tabs = document.getElementById("task-tabs");
   TASKS.forEach(t => { const b = document.createElement("button"); b.type = "button"; b.textContent = t; b.addEventListener("click", () => { task = t; draw(); }); tabs.appendChild(b); });
   document.querySelectorAll("#board-table th button").forEach(b => b.addEventListener("click", () => {
-    const k = b.dataset.sort; sortDir = (sortKey === k) ? -sortDir : (k === "model" || k === "kind" ? 1 : -1); sortKey = k; draw();
+    const k = b.dataset.sort; sortDir = (sortKey === k) ? -sortDir : (k === "model" ? 1 : -1); sortKey = k; draw();
   }));
+  document.getElementById("reset-weights").addEventListener("click", () => { userW = null; draw(); });
 
   function fail(el) { el.innerHTML = ""; const d = document.createElement("div"); d.className = "gb-fail"; d.textContent = "Failed to load"; el.appendChild(d); }
   function tipFor(box) { let t = box.querySelector(".gb-tip"); if (!t) { t = document.createElement("div"); t.className = "gb-tip"; t.style.display = "none"; box.appendChild(t); } return t; }
@@ -188,21 +238,22 @@
     if (x + t.offsetWidth > box.clientWidth) x = box.clientWidth - t.offsetWidth - 4; t.style.left = Math.max(0, x) + "px"; t.style.top = y + "px";
   }
   function hideTip(box) { const t = box.querySelector(".gb-tip"); if (t) t.style.display = "none"; }
+  function cell(tr, text, cls) { const td = document.createElement("td"); td.textContent = text; if (cls) td.className = cls; tr.appendChild(td); return td; }
+  const show = (v, fmt) => v === null || v === undefined ? "—" : fmt(v);
 
-  // A dot-and-interval chart: rows {label, est, lo, hi, group?}, x in the given units.
   function dots(box, rows, opt) {
     box.innerHTML = "";
     if (!rows.length) return;
-    const W = box.clientWidth || 600, rowH = 22, groups = opt.groups || null;
+    const W = box.clientWidth || 600, rowH = 22;
     const svg = d3.select(box).append("svg").attr("width", "100%");
     const meas = svg.append("text").attr("font-size", "12");
-    let lw = 0; rows.forEach(r => { meas.text(r.label); lw = Math.max(lw, meas.node().getComputedTextLength()); }); meas.remove();
+    let lw = 0; rows.forEach(r => { meas.text(r.label || ""); lw = Math.max(lw, meas.node().getComputedTextLength()); }); meas.remove();
     const m = { l: Math.min(lw + 12, W * 0.45), r: 16, t: 8, b: 30 };
     const H = m.t + m.b + rows.length * rowH;
     svg.attr("viewBox", `0 0 ${W} ${H}`).attr("height", H);
-    const lo = d3.min(rows, r => r.lo), hi = d3.max(rows, r => r.hi);
-    const dom = opt.domain || [Math.min(lo, 0, ...(opt.refs || [])), Math.max(hi, 0, ...(opt.refs || []))];
-    const x = d3.scaleLinear(d3.extent(dom), [m.l, W - m.r]).nice();
+    const vals = rows.filter(r => r.est !== undefined && r.est !== null);
+    const dom = opt.domain || [Math.min(d3.min(vals, r => r.lo ?? r.est), 0, ...(opt.refs || [])), Math.max(d3.max(vals, r => r.hi ?? r.est), 0, ...(opt.refs || []))];
+    const x = d3.scaleLinear(dom, [m.l, W - m.r]).nice();
     const y = (i) => m.t + i * rowH + rowH / 2;
     svg.append("g").attr("transform", `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(Math.max(3, Math.floor((W - m.l) / 80))).tickFormat(opt.fmt || (d => d)))
       .attr("font-size", null).attr("font-family", null).call(g => g.selectAll("text").attr("fill", "var(--color-fg-muted)").style("font-size", "var(--cds-font-size-caption)"))
@@ -210,56 +261,97 @@
     svg.append("line").attr("x1", x(0)).attr("x2", x(0)).attr("y1", m.t).attr("y2", H - m.b).attr("stroke", "var(--cds-chart-reference)");
     (opt.refs || []).forEach(v => svg.append("line").attr("x1", x(v)).attr("x2", x(v)).attr("y1", m.t).attr("y2", H - m.b).attr("stroke", "var(--cds-chart-reference)").attr("stroke-dasharray", "4 3"));
     rows.forEach((r, i) => {
-      const bad = opt.bad ? opt.bad(r) : false, col = bad ? "var(--cds-chart-status-critical)" : (r.color || dash.colors[0]);
       if (r.heading) { svg.append("text").attr("x", 0).attr("y", y(i) + 4).attr("font-size", 12).attr("font-weight", 600).attr("fill", "var(--color-fg)").text(r.heading); return; }
+      const bad = opt.bad ? opt.bad(r) : false, col = bad ? "var(--cds-chart-status-critical)" : dash.colors[0];
       svg.append("text").attr("x", m.l - 8).attr("y", y(i) + 4).attr("text-anchor", "end").attr("font-size", 12).attr("fill", "var(--color-fg)").text(r.label);
       if (r.est === null || r.est === undefined) return;
-      if (r.lo !== null && r.hi !== null) svg.append("line").attr("x1", x(r.lo)).attr("x2", x(r.hi)).attr("y1", y(i)).attr("y2", y(i)).attr("stroke", col).attr("stroke-width", 2).attr("stroke-linecap", "round").attr("opacity", 0.55);
+      if (r.lo !== null && r.lo !== undefined && r.hi !== null && r.hi !== undefined) svg.append("line").attr("x1", x(r.lo)).attr("x2", x(r.hi)).attr("y1", y(i)).attr("y2", y(i)).attr("stroke", col).attr("stroke-width", 2).attr("stroke-linecap", "round").attr("opacity", 0.55);
       svg.append("circle").attr("cx", x(r.est)).attr("cy", y(i)).attr("r", 4.5).attr("fill", col)
         .on("mousemove", ev => showTip(box, ev, r.tip)).on("mouseleave", () => hideTip(box));
     });
   }
 
-  function cell(tr, text, cls) { const td = document.createElement("td"); td.textContent = text; if (cls) td.className = cls; tr.appendChild(td); }
+  function scoreWith(r, w) {
+    let tot = 0, sum = 0; STRANDS.forEach(k => { if (r[k] !== null && r[k] !== undefined && w[k]) { tot += w[k]; sum += w[k] * r[k]; } });
+    return tot ? sum / tot : null;
+  }
+  function isDefault(wrows) { return !userW || wrows.every(r => userW[r.strand] === r.weight); }
+
+  function drawWeights(wrows) {
+    const box = document.getElementById("weights"); box.innerHTML = "";
+    if (!userW) { userW = {}; wrows.forEach(r => userW[r.strand] = r.weight); }
+    wrows.forEach(r => {
+      const lab = document.createElement("label"); lab.title = r.means;
+      const name = document.createElement("span"); name.textContent = NAMES[r.strand] || r.strand;
+      const val = document.createElement("span"); val.className = "k"; val.textContent = userW[r.strand];
+      const inp = document.createElement("input"); inp.type = "range"; inp.min = 0; inp.max = 50; inp.step = 1; inp.value = userW[r.strand];
+      inp.setAttribute("aria-label", "Weight for " + (NAMES[r.strand] || r.strand));
+      inp.addEventListener("input", () => { userW[r.strand] = +inp.value; val.textContent = inp.value; drawOverall(); });
+      lab.append(name, val, inp); box.appendChild(lab);
+    });
+  }
+
+  function drawOverall() {
+    const o = dash.data("overall"), w = dash.data("weights");
+    if (o.status !== "ok" || w.status !== "ok") return;
+    const tb = document.querySelector("#overall-table tbody"); tb.innerHTML = "";
+    const rows = o.data.map(r => Object.assign({}, r, { mine: scoreWith(r, userW) }));
+    const ranked = rows.filter(r => r.complete).sort((a, b) => (!!a.flags - !!b.flags) || (b.mine - a.mine));
+    const rest = rows.filter(r => !r.complete).sort((a, b) => (b.mine ?? 0) - (a.mine ?? 0));
+    ranked.concat(rest).forEach((r, i) => {
+      const tr = document.createElement("tr"); tr.dataset.key = r.key;
+      cell(tr, r.complete ? String(i + 1) : "—", "l");
+      cell(tr, r.model, "l"); cell(tr, r.vendor, "l dim");
+      cell(tr, show(r.overall, f1)); cell(tr, show(r.mine, f1), "dim");
+      STRANDS.forEach(k => cell(tr, show(r[k], d3.format(".0f")), r[k] !== null && r[k] < 60 ? "bad" : ""));
+      cell(tr, r.rank_lo ? `${r.rank_lo}–${r.rank_hi}` : (r.complete ? "—" : "not run: " + TASKS.filter(t => !String(r.tasks).includes(t)).join(", ").toLowerCase()), "dim");
+      cell(tr, r.flags || "", "l flag");
+      tb.appendChild(tr);
+    });
+    document.getElementById("weights-note").textContent = isDefault(w.data) ? "Default weights." : "Your weights: the ranking follows them; the default column does not change.";
+  }
 
   function drawBoard(rows) {
     const tb = document.querySelector("#board-table tbody"); tb.innerHTML = "";
-    const val = (r, k) => r[k] === null || r[k] === undefined ? (sortDir > 0 ? Infinity : -Infinity) : r[k];
-    const sk = (task === "Essays" && sortKey === "share") ? "qwk" : sortKey;
-    rows.filter(r => r.task === task).sort((a, b) => typeof a[sk] === "string" ? sortDir * String(a[sk]).localeCompare(String(b[sk])) : sortDir * (val(a, sk) - val(b, sk)))
+    const essays = task === "Essays";
+    const val = (r, k) => { const v = (k === "share" && essays) ? r.published_share : r[k]; return v === null || v === undefined ? (sortDir > 0 ? Infinity : -Infinity) : v; };
+    rows.filter(r => r.task === task).sort((a, b) => sortKey === "model" ? sortDir * a.model.localeCompare(b.model) : sortDir * (val(a, sortKey) - val(b, sortKey)))
       .forEach(r => {
         const tr = document.createElement("tr"); tr.dataset.key = r.key;
         cell(tr, r.model + (r.verified ? " ✓" : ""));
-        cell(tr, r.kind, "l dim");
-        cell(tr, r.share === null ? "—" : pc(r.share), r.share === null ? "dim" : "");
+        const sh = essays ? r.published_share : r.share;
+        cell(tr, show(sh, pc) + (essays && sh !== null ? " (published)" : ""), essays ? "dim" : "");
         cell(tr, f3(r.qwk));
-        cell(tr, r.retest === null ? "—" : f2(r.retest));
-        cell(tr, r.gaming_pct === null ? "—" : f1(r.gaming_pct), RED(r.gaming_pct, 5) ? "bad" : "");
-        cell(tr, r.label_pct === null ? "—" : f1(r.label_pct), RED(Math.abs(r.label_pct ?? 0), 5) ? "bad" : "");
-        cell(tr, r.blicket_pct === null ? "—" : f1(r.blicket_pct), r.blicket_pct === null ? "dim" : "");
+        cell(tr, show(r.decision_share, pc), r.decision_share === null ? "dim" : "");
         cell(tr, r.blank_pct === null ? "—" : f1(r.blank_pct) + "%", RED(r.blank_pct, 0) ? "bad" : (r.blank_pct === null ? "dim" : "ok"));
+        cell(tr, show(r.blicket_pct, f1), r.blicket_pct === null ? "dim" : "");
         cell(tr, d3.format(",")(r.refused));
+        cell(tr, show(r.gaming_pct, f1), RED(r.gaming_pct, 5) ? "bad" : "");
+        cell(tr, show(r.surface_pct, f1), r.surface_pct === null ? "dim" : "");
+        cell(tr, show(r.label_pct, f1), RED(Math.abs(r.label_pct ?? 0), 5) ? "bad" : "");
+        cell(tr, show(r.retest, f2));
         cell(tr, r.cost_per_1k === null ? "—" : (r.cost_per_1k < 0.1 ? d3.format(".3f")(r.cost_per_1k) : f2(r.cost_per_1k)));
         tb.appendChild(tr);
       });
-    document.querySelectorAll("#board-table th").forEach(th => { const b = th.querySelector("button"); th.setAttribute("aria-sort", b && b.dataset.sort === sortKey ? (sortDir > 0 ? "ascending" : "descending") : "none"); });
+    document.querySelectorAll("#board-table th").forEach(th => { const b = th.querySelector("button"); if (b) th.setAttribute("aria-sort", b.dataset.sort === sortKey ? (sortDir > 0 ? "ascending" : "descending") : "none"); });
     tabs.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", String(b.textContent === task)));
   }
 
   function drawValue(rows) {
     const grid = document.getElementById("value-grid"); grid.innerHTML = "";
     TASKS.forEach(t => {
-      const rs = rows.filter(r => r.task === t && r.cost_per_1k > 0);
+      const yv = r => t === "Essays" ? r.qwk : r.share;
+      const rs = rows.filter(r => r.task === t && r.cost_per_1k > 0 && yv(r) !== null);
       const card = document.createElement("div"); card.className = "gb-card";
       const h = document.createElement("h3"); h.textContent = t; card.appendChild(h);
       const s = document.createElement("p"); s.className = "gb-sub"; s.textContent = t === "Essays" ? "Agreement (QWK) against $ per 1,000 gradings" : "Share of the human ceiling against $ per 1,000 gradings"; card.appendChild(s);
       const box = document.createElement("div"); box.className = "gb-chart"; card.appendChild(box); grid.appendChild(card);
-      const W = box.clientWidth || 400, H = 240, m = { l: 44, r: 12, t: 10, b: 32 };
-      const yv = r => t === "Essays" ? r.qwk : r.share;
+      const W = box.clientWidth || 600, H = 260, m = { l: 48, r: 12, t: 10, b: 32 };
       const svg = d3.select(box).append("svg").attr("width", "100%").attr("viewBox", `0 0 ${W} ${H}`).attr("height", H);
       const x = d3.scaleLog([d3.min(rs, r => r.cost_per_1k) * 0.7, d3.max(rs, r => r.cost_per_1k) * 1.4], [m.l, W - m.r]);
-      const y = d3.scaleLinear([Math.min(0, d3.min(rs, yv)), Math.max(t === "Essays" ? 0.8 : 1.3, d3.max(rs, yv))], [H - m.b, m.t]).nice();
-      svg.append("g").attr("transform", `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(4, "$,.2~f")).attr("font-size", null).attr("font-family", null)
+      const yExt = d3.extent(rs.map(yv).concat(t === "Essays" ? [] : [1])); const yPad = (yExt[1] - yExt[0]) * 0.08 || 0.05;
+      const y = d3.scaleLinear([yExt[0] - yPad, yExt[1] + yPad], [H - m.b, m.t]).nice();
+      svg.append("g").attr("transform", `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(5, "$,.2~f")).attr("font-size", null).attr("font-family", null)
         .call(g => g.selectAll("text").attr("fill", "var(--color-fg-muted)").style("font-size", "var(--cds-font-size-caption)")).call(g => g.selectAll("line,path").attr("stroke", "var(--cds-chart-axis)"));
       svg.append("g").attr("transform", `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(t === "Essays" ? d3.format(".1f") : d3.format(".0%"))).attr("font-size", null).attr("font-family", null)
         .call(g => g.selectAll("text").attr("fill", "var(--color-fg-muted)").style("font-size", "var(--cds-font-size-caption)")).call(g => g.selectAll("line,path").attr("stroke", "var(--cds-chart-axis)"));
@@ -287,28 +379,13 @@
     });
   }
 
-  function drawHalo(rows) {
-    const box = document.getElementById("halo-chart");
-    const out = [];
-    ["Essays", "Short answers"].forEach(t => {
-      const rs = rows.filter(r => r.task === t).sort((a, b) => b.halo - a.halo);
-      if (!rs.length) return;
-      out.push({ heading: t === "Essays" ? "Essays (PERSUADE)" : "Short answers (Mohler)" });
-      rs.forEach(r => out.push({ label: r.model, est: r.halo, lo: r.lo, hi: r.hi, color: dash.colors[0],
-        tip: [r.model + ", " + t, "Halo " + f2(r.halo) + " [" + f2(r.lo) + ", " + f2(r.hi) + "]", "tone vs mark: r " + f2(r.corr_hidden) + " hidden, " + f2(r.corr_shown) + " shown"] }));
-    });
-    dots(box, out, { fmt: d3.format("+.1f"), bad: r => r.lo > 0 });
-  }
-
-  function drawFair(rows) {
-    const box = document.getElementById("fair-chart");
-    const out = [];
-    [...new Set(rows.map(r => r.test))].forEach(t => {
-      out.push({ heading: t + (rows.find(r => r.test === t).reference.startsWith("against") ? " (against the released mark)" : " (beyond a second human)") });
-      rows.filter(r => r.test === t).forEach(r => out.push({ label: r.grader, est: r.gap, lo: r.lo, hi: r.hi,
-        tip: [r.grader, t, "Gap " + d3.format("+.3f")(r.gap) + " [" + d3.format("+.3f")(r.lo) + ", " + d3.format("+.3f")(r.hi) + "] marks, scale " + r.scale, r.verdict] }));
-    });
-    dots(box, out, { fmt: d3.format("+.1f"), refs: [-0.1, 0.1], bad: r => r.hi < -0.1 || r.lo > 0.1 });
+  function drawFeedback(rows) {
+    const h = rows.filter(r => r.halo !== null).sort((a, b) => b.halo - a.halo);
+    dots(document.getElementById("halo-chart"), h.map(r => ({ label: r.model, est: r.halo, lo: r.halo_lo, hi: r.halo_hi,
+      tip: [r.model, "Halo " + f2(r.halo) + " [" + f2(r.halo_lo) + ", " + f2(r.halo_hi) + "]"] })), { fmt: d3.format("+.1f"), bad: r => r.lo > 0 });
+    const g = rows.filter(r => r.gives_away_pct !== null).sort((a, b) => b.gives_away_pct - a.gives_away_pct);
+    dots(document.getElementById("give-chart"), g.map(r => ({ label: r.model, est: r.gives_away_pct, lo: r.gives_away_lo, hi: r.gives_away_hi,
+      tip: [r.model, f1(r.gives_away_pct) + "% of " + r.n + " pieces of feedback"] })), { fmt: d => d + "%", domain: [0, 100] });
   }
 
   function drawTable(id, rows, cols) {
@@ -316,15 +393,33 @@
     rows.forEach(r => { const tr = document.createElement("tr"); tr.dataset.key = r.key; cols.forEach(([k, fmt, cls]) => cell(tr, r[k] === null || r[k] === undefined ? "—" : (fmt ? fmt(r[k]) : r[k]), typeof cls === "function" ? cls(r) : cls)); tb.appendChild(tr); });
   }
 
+  function drawFair(rows) {
+    const out = [];
+    [...new Set(rows.map(r => r.test))].forEach(t => {
+      out.push({ heading: t + (rows.find(r => r.test === t).reference.startsWith("against") ? " (against the released mark)" : " (beyond a second human)") });
+      rows.filter(r => r.test === t).forEach(r => out.push({ label: r.grader, est: r.gap, lo: r.lo, hi: r.hi,
+        tip: [r.grader, t, "Gap " + d3.format("+.3f")(r.gap) + " [" + d3.format("+.3f")(r.lo) + ", " + d3.format("+.3f")(r.hi) + "] marks, scale " + r.scale, r.verdict] }));
+    });
+    dots(document.getElementById("fair-chart"), out, { fmt: d3.format("+.1f"), refs: [-0.1, 0.1], bad: r => r.hi < -0.1 || r.lo > 0.1 });
+  }
+
   function draw() {
+    const w = dash.data("weights"); if (w.status === "ok") drawWeights(w.data);
+    drawOverall();
     const lb = dash.data("leaderboard");
     if (lb.status === "ok") { drawBoard(lb.data); drawValue(lb.data); drawGaming(lb.data); }
     else if (lb.status === "error") { ["value-grid", "gaming-grid"].forEach(i => fail(document.getElementById(i))); }
-    const h = dash.data("halo"); if (h.status === "ok") drawHalo(h.data); else if (h.status === "error") fail(document.getElementById("halo-chart"));
+    const fb = dash.data("feedback_board"); if (fb.status === "ok") drawFeedback(fb.data);
+    const sp = dash.data("speech");
+    if (sp.status === "ok") drawTable("speech-table", sp.data.slice().sort((a, b) => (b.share ?? 0) - (a.share ?? 0)), [["model"], ["share", pc], ["retest", f2],
+      ["silence_pct", v => f1(v) + "%", r => r.silence_pct > 10 ? "bad" : "ok"], ["tone_pct", v => f1(v) + "%", r => r.tone_pct > 10 ? "bad" : "ok"],
+      ["offtask_pct", f1, r => r.offtask_pct > 20 ? "bad" : ""], ["label_pct", f1, r => Math.abs(r.label_pct) > 5 ? "bad" : ""],
+      ["noise_pct", f1, r => Math.abs(r.noise_pct) > 5 ? "bad" : ""], ["phone_pct", f1, r => Math.abs(r.phone_pct) > 5 ? "bad" : ""], ["cost_per_1k", f2]]);
+    const im = dash.data("images");
+    if (im.status === "ok") drawTable("images-table", im.data.slice().sort((a, b) => b.qwk - a.qwk), [["model"], ["qwk", f2], ["retest", f2],
+      ["gaming_pct", f1, r => r.gaming_pct > 5 ? "bad" : ""], ["gaming_worst_scale_pct", f1, r => r.gaming_worst_scale_pct > 5 ? "bad" : ""],
+      ["label_pct", f1, r => Math.abs(r.label_pct) > 5 ? "bad" : ""], ["cost_per_1k", f2]]);
     const fr = dash.data("fairness"); if (fr.status === "ok") drawFair(fr.data); else if (fr.status === "error") fail(document.getElementById("fair-chart"));
-    const fc = dash.data("feedback_checks");
-    if (fc.status === "ok") drawTable("checks-table", fc.data, [["measure"], ["by", null, "l dim"], ["label", null, "l"], ["auc", f3], ["lo", f3], ["hi", f3], ["length_auc", f3, "dim"],
-      ["verdict", null, r => "l " + (r.verdict === "VALIDATED" ? "ok" : r.verdict.startsWith("NOT") ? "bad" : "")]]);
     const dr = dash.data("drift");
     if (dr.status === "ok") drawTable("drift-table", dr.data, [["from"], ["to", null, "l"], ["shift", d3.format("+.2f"), r => (r.lo > 0 || r.hi < 0) ? "bad" : ""], ["lo", d3.format("+.2f"), "dim"], ["hi", d3.format("+.2f"), "dim"], ["qwk_across", f3], ["qwk_within", f3, "dim"]]);
   }

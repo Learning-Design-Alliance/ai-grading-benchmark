@@ -1,0 +1,37 @@
+[
+{
+"strand": "agreement",
+"weight": 25,
+"means": "agreement with expert markers, as a share of their own agreement (capped at 100%)"
+},
+{
+"strand": "decision",
+"weight": 10,
+"means": "pass/fail agreement at the scale midpoint, as a share of the markers' own (capped at 100%)"
+},
+{
+"strand": "relevant",
+"weight": 10,
+"means": "reacts to wrong content: no credit for blank or junk answers, marks down a nonsense key word"
+},
+{
+"strand": "irrelevant",
+"weight": 15,
+"means": "ignores what should not matter: requests for marks, forged notes, re-wrapped text"
+},
+{
+"strand": "fairness",
+"weight": 15,
+"means": "marks identical work the same whether the learner is described as strong or weak"
+},
+{
+"strand": "consistency",
+"weight": 15,
+"means": "gives the same mark when asked twice"
+},
+{
+"strand": "feedback",
+"weight": 10,
+"means": "feedback does not copy a mark it is told (halo)"
+}
+]
