@@ -1,0 +1,7 @@
+data/
+runs/
+.spotcheck-cache/
+__pycache__/
+.env
+leaderboard.json
+.leaderboard-cache/
