@@ -1,0 +1,365 @@
+{
+ "n_cases": 100,
+ "scale": [
+  4,
+  20
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "low_res",
+  "null_black",
+  "null_still",
+  "off_task",
+  "other_camera",
+  "retest",
+  "text_only"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": -0.008030510155087961,
+    "ci95": [
+     -0.12621030192975805,
+     0.1125801311866484
+    ]
+   },
+   "pearson_r": {
+    "estimate": -0.02072345140020641,
+    "ci95": [
+     -0.2249399480460854,
+     0.1840799931384783
+    ]
+   },
+   "bias": {
+    "estimate": 1.5775,
+    "ci95": [
+     0.7966666666666667,
+     2.3609166666666663
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 1.1098748167547734
+   },
+   "sd_ratio": 0.6608715772986791,
+   "n": 100,
+   "raters": [
+    "rater0",
+    "rater1",
+    "rater2",
+    "rater3"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5710027774163684,
+    "ci95": [
+     0.42178682701553794,
+     0.6427368318918693
+    ]
+   },
+   "n": 100
+  },
+  "share_of_ceiling": {
+   "estimate": -0.014063872318491735,
+   "ci95": [
+    -0.23054663793560215,
+    0.2133764332778088
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 12.0,
+   "machine_passes_of_human_passes": 0.8245614035087719,
+   "machine_fails_of_human_fails": 0.06976744186046512,
+   "n_pass": 57,
+   "n_fail": 43,
+   "kappa": {
+    "estimate": -0.07417174761408503,
+    "ci95": [
+     -0.17235250749969103,
+     0.0312591824011245
+    ]
+   },
+   "ceiling_kappa": {
+    "estimate": 0.4458459873348498,
+    "ci95": [
+     0.31817951371864306,
+     0.563003078373645
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": -0.16636181488918236,
+    "ci95": [
+     -0.3965011295940629,
+     0.07007283570179054
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 4.69,
+   "ci95": [
+    4.33,
+    5.07
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 0.5349688558857204,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.86,
+   "ci95": [
+    0.51,
+    1.23
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 0.5034340256496557,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.48250000000000004,
+   "reaches_midpoint": 0.63,
+   "n": 100
+  },
+  "null_answers": {
+   "credited": 0.0,
+   "by_kind": {
+    "null_black": {
+     "credited": 0.0,
+     "n": 30
+    },
+    "null_still": {
+     "credited": 0.0,
+     "n": 30
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.8270077584399245,
+    "ci95": [
+     0.7347692543688681,
+     0.8971108925001897
+    ]
+   },
+   "exact_agreement": 0.68,
+   "mean_abs_change": 0.65,
+   "signed_change": {
+    "estimate": -0.13,
+    "ci95": [
+     -0.38,
+     0.14
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 0.35962247320255614
+   },
+   "n": 100
+  },
+  "low_res": {
+   "estimate": -0.52,
+   "ci95": [
+    -0.92,
+    -0.14
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 0.5690898634901809,
+   "expect": "about the same"
+  },
+  "other_camera": {
+   "estimate": -0.15,
+   "ci95": [
+    -0.47,
+    0.18
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.46814916037907867,
+   "expect": "about the same"
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 2.7,
+    "ci95": [
+     2.4,
+     3.0
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.43139426294401517
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "task": {
+    "levels": {
+     "BalloonResection": {
+      "residual": 4.19,
+      "human_mean": 10.97,
+      "n": 25,
+      "vs_rest": {
+       "estimate": 3.483333333333334,
+       "ci95": [
+        1.7366393851193178,
+        5.379751097453585
+       ],
+       "flag": true
+      }
+     },
+     "CircleCutting": {
+      "residual": -1.333333333333333,
+      "human_mean": 13.173333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": -3.8811111111111107,
+       "ci95": [
+        -5.253955144290013,
+        -2.487346329469618
+       ],
+       "flag": true
+      }
+     },
+     "PegTransfer": {
+      "residual": 3.4266666666666663,
+      "human_mean": 12.493333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": 2.4655555555555555,
+       "ci95": [
+        1.116151034512628,
+        3.7472930990200695
+       ],
+       "flag": true
+      }
+     },
+     "SutureAndKnot": {
+      "residual": 0.02666666666666657,
+      "human_mean": 12.253333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": -2.067777777777778,
+       "ci95": [
+        -3.7262967479674796,
+        -0.44990679824561475
+       ],
+       "flag": true
+      }
+     }
+    },
+    "comparisons": 4
+   }
+  }
+ },
+ "feedback": {
+  "generic": 0.5903464472129675,
+  "same_opening": 0.4508333333333333,
+  "varied_by_quality": 0.023034358706912533,
+  "words": 22.92,
+  "self_per100": 0.0,
+  "task_per100": 0.0,
+  "action_per100": 0.24550773300773301,
+  "coherence": -0.02360977242037253,
+  "n": 100,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1060,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 14768.007547169811,
+   "completion_tokens": 77.17358490566038,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 4.356290102005005,
+   "p90": 5.583427429199219,
+   "n": 1055
+  },
+  "served_models": [
+   "perceptron/perceptron-mk1.5"
+  ],
+  "providers": [
+   "Perceptron"
+  ],
+  "cost_source": "reported by the endpoint (1060 of 1060 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 2.3309615094339624,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-24T21:53:47Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "perceptron/perceptron-mk1.5",
+  "request_template": {
+   "model": "perceptron/perceptron-mk1.5",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "video.txt",
+  "prompt_path": "prompts/video.txt",
+  "prompt_sha256": "1f7750894a4a450761f7c22e875305b502257ad40ac0f367895121efd56b8ea6",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "data/lasana/lasana.jsonl",
+  "cases_sha256": "30a3e52f459284b40728233461dd8fff7d1ab7e89582b9cbc2ce51fb156fb204",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "ctx_low",
+   "ctx_high",
+   "off_task",
+   "injection",
+   "forged",
+   "null_black",
+   "null_still",
+   "low_res",
+   "other_camera",
+   "text_only"
+  ],
+  "video_frames": 0
+ }
+}

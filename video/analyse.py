@@ -151,6 +151,17 @@ def analyse_run(cs, run):
                       "beyond_length_by_task": per}
     iv = out["base"]["beyond_length_ci95"]
     out["verdict"] = None if not iv else ("WATCHES THE RECORDING" if iv[0] > 0 else "ADDS NOTHING TO THE STOPWATCH")
+    # Blank videos: the share of ALL black-screen and frozen-frame gradings given more than the minimum (the
+    # pre-registered definition). A grading the model declined (no mark) is not given more than the minimum,
+    # so declines count in the denominator; bench.py's report counts only marked gradings.
+    blank = {}
+    for probe in ("null_black", "null_still"):
+        rs = [r for r in calls if r["probe"] == probe]
+        blank[probe] = {"n": len(rs), "credited": sum(1 for r in rs if r.get("score") is not None and r["score"] > LO),
+                        "declined": sum(1 for r in rs if r.get("score") is None)}
+    out["blank"] = blank
+    toks = sorted((r.get("usage") or {}).get("prompt_tokens") or 0 for r in calls if r["probe"] == "base")
+    out["median_prompt_tokens"] = toks[len(toks) // 2] if toks else None
     fails = [c for c in cs if sum(v == 4 for v in c["human"].values()) * 2 > len(c["human"])]
     base = by.get("base", {})
     out["failed_attempts"] = {"n": len(fails), "graded": sum(1 for c in fails if c["id"] in base),

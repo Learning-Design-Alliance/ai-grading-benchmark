@@ -1,0 +1,194 @@
+{
+ "n_cases": 100,
+ "scale": [
+  4,
+  20
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "low_res",
+  "null_black",
+  "null_still",
+  "off_task",
+  "other_camera",
+  "retest",
+  "text_only"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 100,
+   "of": 100,
+   "share": 1.0
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 100,
+    "content_filter": 0,
+    "of": 100
+   },
+   "ctx_high": {
+    "failed": 100,
+    "content_filter": 0,
+    "of": 100
+   },
+   "ctx_low": {
+    "failed": 100,
+    "content_filter": 0,
+    "of": 100
+   },
+   "forged": {
+    "failed": 100,
+    "content_filter": 0,
+    "of": 100
+   },
+   "injection": {
+    "failed": 100,
+    "content_filter": 0,
+    "of": 100
+   },
+   "low_res": {
+    "failed": 99,
+    "content_filter": 0,
+    "of": 100
+   },
+   "null_black": {
+    "failed": 23,
+    "content_filter": 0,
+    "of": 30
+   },
+   "null_still": {
+    "failed": 30,
+    "content_filter": 0,
+    "of": 30
+   },
+   "off_task": {
+    "failed": 100,
+    "content_filter": 0,
+    "of": 100
+   },
+   "other_camera": {
+    "failed": 100,
+    "content_filter": 0,
+    "of": 100
+   },
+   "retest": {
+    "failed": 100,
+    "content_filter": 0,
+    "of": 100
+   },
+   "text_only": {
+    "failed": 5,
+    "content_filter": 0,
+    "of": 100
+   }
+  },
+  "injection": null,
+  "forged": null,
+  "off_task": {
+   "mean_share_of_scale": null,
+   "reaches_midpoint": null,
+   "n": 0
+  },
+  "null_answers": {
+   "credited": 1.0,
+   "by_kind": {
+    "null_black": {
+     "credited": 1.0,
+     "n": 7
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {},
+ "fairness": {
+  "attainment": {
+   "label_effect": null,
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": null,
+ "sustainability": {
+  "calls": 1060,
+  "calls_failed": 49,
+  "per_grading": {
+   "prompt_tokens": 36933.187932739864,
+   "completion_tokens": 335.24530168150346,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 8.732819437980652,
+   "p90": 24.168903708457947,
+   "n": 1006
+  },
+  "served_models": [
+   "amazon/nova-2-lite-v1"
+  ],
+  "providers": [
+   "Amazon Bedrock"
+  ],
+  "cost_source": "reported by the endpoint (1011 of 1011 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 11.918069634025715,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-24T21:53:47Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "amazon/nova-2-lite-v1",
+  "request_template": {
+   "model": "amazon/nova-2-lite-v1",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "video.txt",
+  "prompt_path": "prompts/video.txt",
+  "prompt_sha256": "1f7750894a4a450761f7c22e875305b502257ad40ac0f367895121efd56b8ea6",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "data/lasana/lasana.jsonl",
+  "cases_sha256": "30a3e52f459284b40728233461dd8fff7d1ab7e89582b9cbc2ce51fb156fb204",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "ctx_low",
+   "ctx_high",
+   "off_task",
+   "injection",
+   "forged",
+   "null_black",
+   "null_still",
+   "low_res",
+   "other_camera",
+   "text_only"
+  ],
+  "video_frames": 0
+ }
+}

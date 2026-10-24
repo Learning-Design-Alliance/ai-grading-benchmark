@@ -1,0 +1,395 @@
+{
+ "n_cases": 100,
+ "scale": [
+  4,
+  20
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "low_res",
+  "null_black",
+  "null_still",
+  "off_task",
+  "other_camera",
+  "retest",
+  "text_only"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "ctx_low": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 100
+   },
+   "low_res": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 100
+   },
+   "null_still": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 30
+   },
+   "off_task": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 100
+   },
+   "text_only": {
+    "failed": 3,
+    "content_filter": 0,
+    "of": 100
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.12516441489994481,
+    "ci95": [
+     -0.04034257259413002,
+     0.2786616999412158
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.17882849617067306,
+    "ci95": [
+     -0.009506298936146663,
+     0.3645279032902798
+    ]
+   },
+   "bias": {
+    "estimate": 0.5175,
+    "ci95": [
+     -0.3993541666666667,
+     1.3966666666666665
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 1.2807200604254647
+   },
+   "sd_ratio": 1.1695714423462271,
+   "n": 100,
+   "raters": [
+    "rater0",
+    "rater1",
+    "rater2",
+    "rater3"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5710027774163684,
+    "ci95": [
+     0.42178682701553794,
+     0.6427368318918693
+    ]
+   },
+   "n": 100
+  },
+  "share_of_ceiling": {
+   "estimate": 0.21920106144891205,
+   "ci95": [
+    -0.0713444353413155,
+    0.5932049353694581
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 12.0,
+   "machine_passes_of_human_passes": 0.8771929824561403,
+   "machine_fails_of_human_fails": 0.3953488372093023,
+   "n_pass": 57,
+   "n_fail": 43,
+   "kappa": {
+    "estimate": 0.25381389979803626,
+    "ci95": [
+     0.09786151163794113,
+     0.3989571890480911
+    ]
+   },
+   "ceiling_kappa": {
+    "estimate": 0.4458459873348498,
+    "ci95": [
+     0.31817951371864306,
+     0.563003078373645
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.5692860472183883,
+    "ci95": [
+     0.22587166298445202,
+     0.9420392756399045
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 5.95,
+   "ci95": [
+    5.0097499999999995,
+    6.93
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 1.3421692075957419,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 5.33,
+   "ci95": [
+    4.20975,
+    6.490499999999997
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 1.5814448833873151,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.5814393939393939,
+   "reaches_midpoint": 0.8484848484848485,
+   "n": 99
+  },
+  "null_answers": {
+   "credited": 0.9491525423728814,
+   "by_kind": {
+    "null_black": {
+     "credited": 0.9666666666666667,
+     "n": 30
+    },
+    "null_still": {
+     "credited": 0.9310344827586207,
+     "n": 29
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.5231691333078476,
+    "ci95": [
+     0.3037066804869846,
+     0.6933030907471771
+    ]
+   },
+   "exact_agreement": 0.17,
+   "mean_abs_change": 2.65,
+   "signed_change": {
+    "estimate": -0.11,
+    "ci95": [
+     -0.85,
+     0.58
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 1.0513576408096763
+   },
+   "n": 100
+  },
+  "low_res": {
+   "estimate": 0.9393939393939394,
+   "ci95": [
+    0.13131313131313133,
+    1.818434343434342
+   ],
+   "n": 99,
+   "flag": true,
+   "mdc80": 1.2258615156141122,
+   "expect": "about the same"
+  },
+  "other_camera": {
+   "estimate": 0.2,
+   "ci95": [
+    -0.58,
+    1.0102499999999985
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 1.1312565642423533,
+   "expect": "about the same"
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 4.05050505050505,
+    "ci95": [
+     3.3333333333333335,
+     4.767676767676767
+    ],
+    "n": 99,
+    "flag": true,
+    "mdc80": 1.033869841073231
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "task": {
+    "levels": {
+     "BalloonResection": {
+      "residual": -1.21,
+      "human_mean": 10.97,
+      "n": 25,
+      "vs_rest": {
+       "estimate": -2.3033333333333332,
+       "ci95": [
+        -5.207689220116381,
+        0.7529115800270174
+       ],
+       "flag": false
+      }
+     },
+     "CircleCutting": {
+      "residual": 0.10666666666666672,
+      "human_mean": 13.173333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": -0.5477777777777777,
+       "ci95": [
+        -2.1893255536733798,
+        1.096492897006596
+       ],
+       "flag": false
+      }
+     },
+     "PegTransfer": {
+      "residual": 2.626666666666667,
+      "human_mean": 12.493333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": 2.8122222222222226,
+       "ci95": [
+        1.269568969025491,
+        4.317066432963172
+       ],
+       "flag": true
+      }
+     },
+     "SutureAndKnot": {
+      "residual": 0.5466666666666665,
+      "human_mean": 12.253333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": 0.03888888888888886,
+       "ci95": [
+        -1.6961972128378378,
+        1.7602984234234225
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 4
+   }
+  }
+ },
+ "feedback": {
+  "generic": 0.2706029752158912,
+  "same_opening": 0.005833333333333334,
+  "varied_by_quality": 0.02640628601816003,
+  "words": 25.86,
+  "self_per100": 0.0,
+  "task_per100": 0.0,
+  "action_per100": 0.23198775054799725,
+  "coherence": -0.47912589324386834,
+  "n": 100,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1060,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2624.353773584906,
+   "completion_tokens": 120.23679245283019,
+   "reasoning_tokens": 37.70849056603774
+  },
+  "latency_s": {
+   "median": 1.5477981567382812,
+   "p90": 2.8630404472351074,
+   "n": 1055
+  },
+  "served_models": [
+   "xiaomi/mimo-v2.6-flash"
+  ],
+  "providers": [
+   "DeepInfra",
+   "Makora",
+   "Novita",
+   "Relace"
+  ],
+  "mixed_backends": "4 providers / 1 model ids served this run; paired probe differences can include backend differences",
+  "cost_source": "reported by the endpoint (1060 of 1060 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.32221977075471697,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-24T21:53:48Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "xiaomi/mimo-v2.6-flash",
+  "request_template": {
+   "model": "xiaomi/mimo-v2.6-flash",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "video.txt",
+  "prompt_path": "prompts/video.txt",
+  "prompt_sha256": "1f7750894a4a450761f7c22e875305b502257ad40ac0f367895121efd56b8ea6",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "data/lasana/lasana.jsonl",
+  "cases_sha256": "30a3e52f459284b40728233461dd8fff7d1ab7e89582b9cbc2ce51fb156fb204",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "ctx_low",
+   "ctx_high",
+   "off_task",
+   "injection",
+   "forged",
+   "null_black",
+   "null_still",
+   "low_res",
+   "other_camera",
+   "text_only"
+  ],
+  "video_frames": 0
+ }
+}

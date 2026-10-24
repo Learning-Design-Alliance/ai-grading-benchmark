@@ -46,6 +46,8 @@ NAMES = {
     "xiaomi/mimo-v2.6-flash": ("MiMo v2.6 Flash", "Xiaomi", "open weights"),
     "meta/muse-spark-open": ("Muse Spark Open", "Meta", "open weights"),
     "perceptron/perceptron-mk1.5": ("Perceptron mk1.5", "Perceptron", "small hosted"),
+    "amazon/nova-2-lite-v1": ("Nova 2 Lite", "Amazon", "small hosted"),
+    "qwen/qwen3.8-27b": ("Qwen3.8 27B", "Alibaba (Qwen)", "open weights"),
     "mistralai/voxtral-small-24b-2507": ("Voxtral Small 24B", "Mistral", "open weights"),
 }
 TASKS = {"mohler": "Short answers", "code": "Code", "asap2": "Essays"}
@@ -271,13 +273,116 @@ def images_pooled():
     return out
 
 
+def video():
+    """The video task (LASANA): one row per run, from out/video/ (bench.py reports + video/analyse.py extras).
+    Blank-video shares count declined gradings in the denominator, as video/PREREG.md defines hallucination."""
+    d = os.path.join(HERE, "out", "video")
+    ex_p = os.path.join(d, "extras.json")
+    if not os.path.exists(ex_p):
+        return []
+    ex = json.load(open(ex_p))
+    rows = []
+    for run, e in ex["runs"].items():
+        rp = os.path.join(d, f"{run}.json")
+        r = json.load(open(rp)) if os.path.exists(rp) else None
+        m, vendor, kind = NAMES.get(e["model"], (e["model"], "", ""))
+        v, rl, fa = (r["validity"], r["reliability"], r["fairness"]) if r else ({}, {}, {})
+        w = 16
+        pc = lambda iv: None if not iv else round(100 * iv["estimate"] / w, 1)
+        g = [x for x in (v.get("injection"), v.get("forged")) if x]
+        gm = max(g, key=lambda x: x["estimate"]) if g else None
+        b = e.get("blank") or {}
+        share = lambda k: None if not b.get(k) or not b[k]["n"] else round(100 * b[k]["credited"] / b[k]["n"], 1)
+        bl = e["base"]
+        sc = (v.get("share_of_ceiling") or {}).get("estimate") if v else None
+        nb = e["base"]["n"]
+        rows.append({"key": run, "model": m, "vendor": vendor,
+                     "input": "16 frames" if e.get("video_frames") else "video",
+                     "graded": nb, "qwk": None if bl["qwk"] is None else round(bl["qwk"], 3),
+                     "text_only_qwk": None if e["text_only"]["qwk"] is None else round(e["text_only"]["qwk"], 3),
+                     "share": None if sc is None or nb < 50 else round(sc, 3),
+                     "beyond": None if bl["beyond_length"] is None else round(bl["beyond_length"], 3),
+                     "beyond_lo": None if not bl["beyond_length_ci95"] else round(bl["beyond_length_ci95"][0], 3),
+                     "beyond_hi": None if not bl["beyond_length_ci95"] else round(bl["beyond_length_ci95"][1], 3),
+                     "verdict": e["verdict"] or ("DID NOT RATE" if nb < 50 else None),
+                     "black_pct": share("null_black"), "still_pct": share("null_still"),
+                     "gaming_pct": pc(gm), "label_pct": pc((fa.get("attainment") or {}).get("label_effect")),
+                     "lowres_pct": pc(rl.get("low_res")), "camera_pct": pc(rl.get("other_camera")),
+                     "retest": None if not rl.get("retest") else round(rl["retest"]["qwk"]["estimate"], 3),
+                     "tokens": e.get("median_prompt_tokens"),
+                     "cost_per_1k": None if not r or r["sustainability"].get("cost_per_1000_gradings_usd") is None else round(r["sustainability"]["cost_per_1000_gradings_usd"], 2)})
+    rows.sort(key=lambda x: -(x["beyond"] if x["beyond"] is not None else -9))
+    h = ex["human"]
+    rows.append({"key": "human", "model": "Raters (one against the others)", "vendor": "", "input": "video", "graded": None,
+                 "qwk": round(h["ceiling_qwk"], 3), "text_only_qwk": None, "share": 1.0, "beyond": round(h["beyond_length"], 3),
+                 "beyond_lo": None, "beyond_hi": None, "verdict": "REFERENCE", "black_pct": None, "still_pct": None,
+                 "gaming_pct": None, "label_pct": None, "lowres_pct": None, "camera_pct": None, "retest": None, "tokens": None,
+                 "cost_per_1k": None})
+    return rows
+
+
+def video_length():
+    p = os.path.join(HERE, "out", "video", "padding.json")
+    if not os.path.exists(p):
+        return []
+    rows = []
+    for run, e in json.load(open(p))["runs"].items():
+        m, vendor, kind = NAMES.get(e["model"], (e["model"], "", ""))
+        b1, b4 = e["by_length"]["x1"], e["by_length"]["x4"]
+        ch = e["change"]["x4-x1"]["balanced"]
+        r1 = lambda x: None if x is None else round(x, 3)
+        rows.append({"key": run, "model": m, "bal_x1": r1(b1["balanced"]), "bal_x4": r1(b4["balanced"]),
+                     "sens_x1": r1(b1["sensitivity"]), "sens_x4": r1(b4["sensitivity"]),
+                     "spec_x1": r1(b1["specificity"]), "spec_x4": r1(b4["specificity"]),
+                     "change": r1(ch[0]), "change_lo": r1(ch[1][0]), "change_hi": r1(ch[1][1]),
+                     "failed": sum(e["failed"].values()), "verdict": e["verdict"]})
+    return rows
+
+
+def maths():
+    p = os.path.join(HERE, "maths-process", "out", "process.json")
+    if not os.path.exists(p):
+        return []
+    rows = []
+    for g in json.load(open(p))["graders"]:
+        m = NAMES.get(g["grader"], (g["grader"], "", ""))[0]
+        mc, loc = g["mean_credit"], g.get("first_wrong_step_exact") or {}
+        r2 = lambda x: None if x is None else round(x, 3)
+        rows.append({"key": g["grader"], "model": m, "working": r2(g["reasoning_effect"]),
+                     "working_lo": r2(g["reasoning_ci95"][0]), "working_hi": r2(g["reasoning_ci95"][1]),
+                     "answer": r2(g["answer_effect"]), "correct": r2(mc["correct"]), "slip": r2(mc["slip"]),
+                     "lucky": r2(mc["lucky"]), "wrong": r2(mc["wrong"]), "lucky_full_pct": round(100 * g["lucky_accepted"], 1),
+                     "first_step_pct": None if loc.get("wrong") is None else round(100 * loc["wrong"], 1), "verdict": g["verdict"]})
+    return rows
+
+
+def pushback():
+    p = os.path.join(HERE, "feedback-board", "out", "pushback.json")
+    if not os.path.exists(p):
+        return []
+    rows = []
+    for model, v in json.load(open(p))["models"].items():
+        m = NAMES.get(model, (model, "", ""))[0]
+        pb, pc = v.get("pushback") or {}, v.get("praise_calibration") or {}
+        if not pb:
+            continue
+        rows.append({"key": model, "model": m, "effect_pct": round(100 * pb["effect"], 1),
+                     "effect_lo": round(100 * pb["ci95"][0], 1), "effect_hi": round(100 * pb["ci95"][1], 1),
+                     "full_push_pct": round(100 * pb["to_full_marks"]["push"], 1),
+                     "full_recheck_pct": round(100 * pb["to_full_marks"]["recheck"], 1), "verdict": pb["verdict"],
+                     "praise_rho": None if pc.get("spearman_tone_vs_experts") is None else round(pc["spearman_tone_vs_experts"], 3)})
+    rows.sort(key=lambda x: -x["effect_pct"])
+    return rows
+
+
 def main(out):
     os.makedirs(out, exist_ok=True)
     for nm, fn in (("leaderboard", leaderboard), ("halo", halo), ("fairness", fairness),
                    ("feedback_checks", feedback_checks), ("drift", drift), ("floor", floor),
                    ("overall", overall), ("weights", weights), ("feedback_board", feedback_board),
                    ("speech", lambda: modality("speech", "Speech (pronunciation)", "speech")),
-                   ("images", images_pooled)):
+                   ("images", images_pooled), ("video", video), ("video_length", video_length),
+                   ("maths", maths), ("pushback", pushback)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)
         print(f"{nm}: {len(rows)} rows")

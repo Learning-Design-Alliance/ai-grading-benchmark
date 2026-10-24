@@ -1,0 +1,411 @@
+{
+ "n_cases": 100,
+ "scale": [
+  4,
+  20
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "low_res",
+  "null_black",
+  "null_still",
+  "off_task",
+  "other_camera",
+  "retest",
+  "text_only"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 5,
+   "of": 100,
+   "share": 0.05
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 5,
+    "content_filter": 2,
+    "of": 100
+   },
+   "ctx_high": {
+    "failed": 3,
+    "content_filter": 1,
+    "of": 100
+   },
+   "ctx_low": {
+    "failed": 3,
+    "content_filter": 6,
+    "of": 100
+   },
+   "forged": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 100
+   },
+   "injection": {
+    "failed": 1,
+    "content_filter": 1,
+    "of": 100
+   },
+   "off_task": {
+    "failed": 2,
+    "content_filter": 3,
+    "of": 100
+   },
+   "other_camera": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 100
+   },
+   "retest": {
+    "failed": 3,
+    "content_filter": 2,
+    "of": 100
+   },
+   "text_only": {
+    "failed": 34,
+    "content_filter": 1,
+    "of": 100
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": -0.0329889410777541,
+    "ci95": [
+     -0.13194071536282953,
+     0.07393159325298503
+    ]
+   },
+   "pearson_r": {
+    "estimate": -0.056166081773491965,
+    "ci95": [
+     -0.23437940269285365,
+     0.11902656986721948
+    ]
+   },
+   "bias": {
+    "estimate": 2.064035087719298,
+    "ci95": [
+     1.2612719298245614,
+     2.873793859649122
+    ],
+    "n": 95,
+    "flag": true,
+    "mdc80": 1.2016539324758633
+   },
+   "sd_ratio": 0.7486467720747051,
+   "n": 95,
+   "raters": [
+    "rater0",
+    "rater1",
+    "rater2",
+    "rater3"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5626442863318852,
+    "ci95": [
+     0.4149328567706996,
+     0.6427552974583974
+    ]
+   },
+   "n": 95
+  },
+  "share_of_ceiling": {
+   "estimate": -0.05863196673127685,
+   "ci95": [
+    -0.2519280238528851,
+    0.1448859161026998
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 12.0,
+   "machine_passes_of_human_passes": 0.8,
+   "machine_fails_of_human_fails": 0.175,
+   "n_pass": 55,
+   "n_fail": 40,
+   "kappa": {
+    "estimate": -0.06523145107591365,
+    "ci95": [
+     -0.18960082778939608,
+     0.07118451833388018
+    ]
+   },
+   "ceiling_kappa": {
+    "estimate": 0.4441121920204244,
+    "ci95": [
+     0.31635525694907496,
+     0.5569417634733035
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": -0.1468805681266091,
+    "ci95": [
+     -0.4445148665540516,
+     0.16528483973475547
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 4.315789473684211,
+   "ci95": [
+    3.905263157894737,
+    4.726315789473684
+   ],
+   "n": 95,
+   "flag": true,
+   "mdc80": 0.5703505057563414,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 2.6842105263157894,
+   "ci95": [
+    2.0,
+    3.2528947368421037
+   ],
+   "n": 95,
+   "flag": true,
+   "mdc80": 0.8812267685843378,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.5389030612244898,
+   "reaches_midpoint": 0.7653061224489796,
+   "n": 98
+  },
+  "null_answers": {
+   "credited": 0.35,
+   "by_kind": {
+    "null_black": {
+     "credited": 0.0,
+     "n": 30
+    },
+    "null_still": {
+     "credited": 0.7,
+     "n": 30
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.7649152542372881,
+    "ci95": [
+     0.6570715732262,
+     0.8536448598321994
+    ]
+   },
+   "exact_agreement": 0.29473684210526313,
+   "mean_abs_change": 1.2210526315789474,
+   "signed_change": {
+    "estimate": -0.08421052631578947,
+    "ci95": [
+     -0.4631578947368421,
+     0.2634210526315775
+    ],
+    "n": 95,
+    "flag": false,
+    "mdc80": 0.5057340097978724
+   },
+   "n": 95
+  },
+  "low_res": {
+   "estimate": 0.3473684210526316,
+   "ci95": [
+    -0.3473684210526316,
+    0.9897368421052617
+   ],
+   "n": 95,
+   "flag": false,
+   "mdc80": 0.9735338039457087,
+   "expect": "about the same"
+  },
+  "other_camera": {
+   "estimate": -0.21052631578947367,
+   "ci95": [
+    -0.4842105263157895,
+    0.05263157894736842
+   ],
+   "n": 95,
+   "flag": false,
+   "mdc80": 0.3950802537555204,
+   "expect": "about the same"
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.6391752577319587,
+    "ci95": [
+     0.27809278350515465,
+     0.9484536082474226
+    ],
+    "n": 97,
+    "flag": true,
+    "mdc80": 0.4858511072357858
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "task": {
+    "levels": {
+     "BalloonResection": {
+      "residual": 4.771739130434782,
+      "human_mean": 11.184782608695652,
+      "n": 23,
+      "vs_rest": {
+       "estimate": 3.5726650563607083,
+       "ci95": [
+        1.9154702725479362,
+        5.548121332159624
+       ],
+       "flag": true
+      }
+     },
+     "CircleCutting": {
+      "residual": -2.333333333333333,
+      "human_mean": 13.173333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": -5.9678571428571425,
+       "ci95": [
+        -7.190478871728871,
+        -4.773021913431396
+       ],
+       "flag": true
+      }
+     },
+     "PegTransfer": {
+      "residual": 4.045454545454546,
+      "human_mean": 12.318181818181818,
+      "n": 22,
+      "vs_rest": {
+       "estimate": 2.578559568285596,
+       "ci95": [
+        1.0867726558665458,
+        3.909513781055899
+       ],
+       "flag": true
+      }
+     },
+     "SutureAndKnot": {
+      "residual": 2.2266666666666666,
+      "human_mean": 12.253333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": 0.22071428571428564,
+       "ci95": [
+        -1.5314021710943349,
+        1.9808089339339332
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 4
+   }
+  }
+ },
+ "feedback": {
+  "generic": 0.2894756760313425,
+  "same_opening": 0.0016666666666666668,
+  "varied_by_quality": 0.04960195460069621,
+  "words": 25.54736842105263,
+  "self_per100": 0.0,
+  "task_per100": 0.0,
+  "action_per100": 0.25250054106678427,
+  "coherence": -0.3469173825772917,
+  "n": 95,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1060,
+  "calls_failed": 18,
+  "per_grading": {
+   "prompt_tokens": 2712.073896353167,
+   "completion_tokens": 456.43186180422265,
+   "reasoning_tokens": 343.44241842610364
+  },
+  "latency_s": {
+   "median": 7.231054067611694,
+   "p90": 10.480212068557739,
+   "n": 1037
+  },
+  "served_models": [
+   "openai/gpt-5-mini"
+  ],
+  "providers": [
+   "Azure"
+  ],
+  "cost_source": "reported by the endpoint (1042 of 1042 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 1.5852880326295586,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-24T22:39:11Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "openai/gpt-5-mini",
+  "request_template": {
+   "model": "openai/gpt-5-mini",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "video.txt",
+  "prompt_path": "prompts/video.txt",
+  "prompt_sha256": "1f7750894a4a450761f7c22e875305b502257ad40ac0f367895121efd56b8ea6",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "data/lasana/lasana.jsonl",
+  "cases_sha256": "30a3e52f459284b40728233461dd8fff7d1ab7e89582b9cbc2ce51fb156fb204",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "ctx_low",
+   "ctx_high",
+   "off_task",
+   "injection",
+   "forged",
+   "null_black",
+   "null_still",
+   "low_res",
+   "other_camera",
+   "text_only"
+  ],
+  "video_frames": 16
+ }
+}
