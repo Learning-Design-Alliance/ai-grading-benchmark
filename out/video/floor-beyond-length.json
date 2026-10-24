@@ -1,0 +1,147 @@
+{
+ "design": "video/analyse.py docstring; video/PREREG.md",
+ "human": {
+  "ceiling_qwk": 0.5710027774163684,
+  "ceiling_qwk_by_task": {
+   "BalloonResection": 0.6775563793636084,
+   "CircleCutting": 0.32954919381375425,
+   "PegTransfer": 0.39944564213119804,
+   "SutureAndKnot": 0.7018162103551098
+  },
+  "beyond_length": 0.5748639419556592,
+  "beyond_length_by_rater": {
+   "rater0": 0.6493333217488308,
+   "rater1": 0.5498581030099241,
+   "rater2": 0.48612747583655624,
+   "rater3": 0.6141368672273254
+  },
+  "length_alone_spearman_by_task": {
+   "BalloonResection": 0.47381597659750424,
+   "CircleCutting": 0.8017708303393648,
+   "PegTransfer": 0.80196566847329,
+   "SutureAndKnot": 0.9584136251533426
+  }
+ },
+ "runs": {
+  "stopwatch": {
+   "model": "stopwatch",
+   "video_frames": 0,
+   "base": {
+    "n": 100,
+    "qwk": 0.565056731967823,
+    "beyond_length": -0.051067518090772576,
+    "beyond_length_ci95": [
+     -0.2742320218764466,
+     0.28580126703902614
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": -0.11133247239963531,
+     "CircleCutting": 0.1675633667899016,
+     "BalloonResection": -0.207677823074905,
+     "SutureAndKnot": 0.18787030038107164
+    }
+   },
+   "text_only": {
+    "n": 100,
+    "qwk": 0.565056731967823,
+    "beyond_length": -0.051067518090772576,
+    "beyond_length_ci95": [
+     -0.2742320218764466,
+     0.28580126703902614
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": -0.11133247239963531,
+     "CircleCutting": 0.1675633667899016,
+     "BalloonResection": -0.207677823074905,
+     "SutureAndKnot": 0.18787030038107164
+    }
+   },
+   "verdict": "ADDS NOTHING TO THE STOPWATCH",
+   "failed_attempts": {
+    "n": 7,
+    "graded": 7,
+    "given_minimum": 2
+   }
+  },
+  "watcher": {
+   "model": "watcher",
+   "video_frames": 0,
+   "base": {
+    "n": 100,
+    "qwk": 0.7039917284263186,
+    "beyond_length": 0.6454772014820324,
+    "beyond_length_ci95": [
+     0.45642916792252775,
+     0.7551622727202273
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": 0.7053990748850304,
+     "CircleCutting": 0.3760940417302639,
+     "BalloonResection": 0.8307771756397673,
+     "SutureAndKnot": 0.40740394956656945
+    }
+   },
+   "text_only": {
+    "n": 100,
+    "qwk": 0.565056731967823,
+    "beyond_length": -0.051067518090772576,
+    "beyond_length_ci95": [
+     -0.2742320218764466,
+     0.28580126703902614
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": -0.11133247239963531,
+     "CircleCutting": 0.1675633667899016,
+     "BalloonResection": -0.207677823074905,
+     "SutureAndKnot": 0.18787030038107164
+    }
+   },
+   "verdict": "WATCHES THE RECORDING",
+   "failed_attempts": {
+    "n": 7,
+    "graded": 7,
+    "given_minimum": 2
+   }
+  },
+  "weak": {
+   "model": "weak",
+   "video_frames": 0,
+   "base": {
+    "n": 100,
+    "qwk": 0.6266739698958945,
+    "beyond_length": 0.4917260139265179,
+    "beyond_length_ci95": [
+     0.2410611181066057,
+     0.6632644030826469
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": 0.5582769096847398,
+     "CircleCutting": 0.4795959924774374,
+     "BalloonResection": 0.57149314976599,
+     "SutureAndKnot": 0.030864331338397746
+    }
+   },
+   "text_only": {
+    "n": 100,
+    "qwk": 0.565056731967823,
+    "beyond_length": -0.051067518090772576,
+    "beyond_length_ci95": [
+     -0.2742320218764466,
+     0.28580126703902614
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": -0.11133247239963531,
+     "CircleCutting": 0.1675633667899016,
+     "BalloonResection": -0.207677823074905,
+     "SutureAndKnot": 0.18787030038107164
+    }
+   },
+   "verdict": "WATCHES THE RECORDING",
+   "failed_attempts": {
+    "n": 7,
+    "graded": 7,
+    "given_minimum": 4
+   }
+  }
+ }
+}
