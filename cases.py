@@ -451,8 +451,53 @@ def from_speechocean(root, trait="accuracy"):
     return out
 
 
+#: EGE profile mathematics, part 2: points per task (Rosobrnadzor specification), which sets each case's scale
+EGE_MAX = {"13": 2, "14": 3, "15": 2, "16": 2, "17": 3, "18": 4, "19": 4}
+
+
+def from_checkmat(path, max_points=2):
+    """CHECK-MAT / EGE Math Solutions Assessment Benchmark (Karifannaa 2025; the paper says MIT, the dataset
+    card 'other'; Hugging Face Karifannaa/EGE_Math_Solutions_Assessment_Benchmark): scanned handwritten solutions
+    to Russian Unified State Exam (EGE) mathematics problems 13-19, each with its official reference score from
+    ONE expert, so there is no ceiling. `path` is the downloaded parquet; images are written beside it on first
+    use. The work is the student's pages without the answer key; the official solution's pages follow as the
+    reference. Tasks are filtered to one maximum (2, 3 or 4 points) so a run has one scale."""
+    import pyarrow.parquet as pq
+    root = os.path.join(os.path.dirname(os.path.abspath(path)), "images")
+    os.makedirs(root, exist_ok=True)
+    out = []
+    for r in pq.read_table(path).to_pylist():
+        if EGE_MAX.get(r["task_id"]) != max_points:
+            continue
+        def save(imgs, tag):
+            paths = []
+            for i, im in enumerate(imgs):
+                fp = os.path.join(root, f"{r['solution_id']}_{tag}_{i}.png")
+                if not os.path.exists(fp):
+                    open(fp, "wb").write(im["bytes"])
+                paths.append(fp)
+            return paths
+        work = save(r["images_without_answer"], "work")
+        ref = save(r["images_with_true_solution"], "ref")
+        out.append(normalise({
+            "id": f"ege{r['solution_id']}", "task": f"EGE task {r['task_id']}: {r['task_type']}",
+            "question": f"EGE profile mathematics, task {r['task_id']} ({r['task_type']}); the problem is shown on the pages.",
+            "reference": f"The official solution is attached as the last {len(ref)} image(s).",
+            "rubric": (f"Score the student's written solution from 0 to {max_points} points by the official EGE criteria for "
+                       f"task {r['task_id']}: full marks for a complete, correctly justified solution with the right answer; "
+                       "partial points for a solution that is correct in part or has a minor gap or error; 0 otherwise."),
+            "materials": "", "response": f"(the student's solution is attached as the first {len(work)} image(s))",
+            "scale": [0, max_points], "human": {"expert": float(r["score"])},
+            "media": [{"kind": "image", "path": fp, "format": "png", "role": "work"} for fp in work]
+                     + [{"kind": "image", "path": fp, "format": "png", "role": "reference"} for fp in ref],
+        }))
+    return out
+
+
 LOADERS = {"mohler": from_mohler, "asap2": from_asap2, "harmogen-code": lambda p: from_harmogen(p, "code"),
            "harmogen-text20": lambda p: from_harmogen(p, "text20"), "harmogen-text50": lambda p: from_harmogen(p, "text50"),
            "menagerie": from_menagerie, "persuade": from_persuade,
            "ellipse": from_ellipse, "speechocean": from_speechocean,
-           "speechocean-fluency": lambda p: from_speechocean(p, "fluency")}
+           "speechocean-fluency": lambda p: from_speechocean(p, "fluency"),
+           "checkmat2": lambda p: from_checkmat(p, 2), "checkmat3": lambda p: from_checkmat(p, 3),
+           "checkmat4": lambda p: from_checkmat(p, 4)}

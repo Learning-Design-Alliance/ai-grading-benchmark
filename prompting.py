@@ -302,7 +302,11 @@ def probe_media(case, probe, off_task_case=None, seed=0):
     if probe == "off_task":
         if not off_task_case or not off_task_case.get("media"):
             return None
-        media = off_task_case["media"]
+        # Only the work is swapped: the task's own reference material (an official solution, say) stays, or
+        # the grader would see a consistent problem and answer and rightly give full marks.
+        theirs = [m for m in off_task_case["media"] if m.get("role", "work") == "work"]
+        mine = [m for m in media if m.get("role", "work") != "work"]
+        media = theirs + mine
     if probe in MEDIA_NULL_PROBES:
         if not media or media[0]["kind"] != "audio":
             return None
