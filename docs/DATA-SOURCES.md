@@ -14,6 +14,7 @@ are needed only to re-run a study.
 | MRBench (`mrbench`) | `feedback-validity/` | CC BY-SA 4.0 | https://github.com/kaushal0494/UnifyingAITutorEvaluation |
 | speechocean762 (Zhang et al. 2021; OpenSLR 101) | `speech/` | CC BY 4.0 | https://www.openslr.org/101/ |
 | CHECK-MAT / EGE Math Solutions Assessment Benchmark (Karifannaa 2025) | `images/` | MIT per the paper; "other" on the dataset card | https://huggingface.co/datasets/Karifannaa/EGE_Math_Solutions_Assessment_Benchmark |
+| VtG: stepwise maths solutions with the teacher-marked first wrong step (Daheim et al. 2024), from MathDial | `maths-process/` | CC BY-SA 4.0 (the README also shows a CC BY 4.0 badge; the stricter is followed) | https://github.com/eth-lre/verify-then-generate, `dataset/dataset.json` at commit 161019e (MD5 3aa4f6bf8b0185e26fe859b749165b13) |
 | LASANA laparoscopic skill videos (TU Dresden; DOI 10.25532/OPARA-1046) | `video/` | CC BY 4.0 | https://opara.zih.tu-dresden.de/handle/123456789/1907: Annotation.zip (MD5 2339e7cd12ba6291e9162119ba068439), then `python3 video/fetch_lasana.py --root DIR`, which reads 100 test-split recordings out of the video zips by range request |
 
 **ELLIPSE** (in `persuade-ellipse`): the two-rater file is a password-protected zip in

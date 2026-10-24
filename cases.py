@@ -57,7 +57,7 @@ def validate(case):
 def normalise(case):
     out = {f: case.get(f, "") for f in FIELDS}
     out["groups"] = {k: str(v) for k, v in (case.get("groups") or {}).items() if str(v).strip()}
-    for k in ("generator", "level", "media"):
+    for k in ("generator", "level", "media", "meta"):
         if case.get(k):
             out[k] = case[k]
     return out

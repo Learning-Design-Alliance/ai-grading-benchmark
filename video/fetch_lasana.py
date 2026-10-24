@@ -79,6 +79,7 @@ def main():
     ap.add_argument("--root", required=True)
     ap.add_argument("--per-task", type=int, default=25)
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--all-test", action="store_true", help="every test-split recording, left camera (for video/padding.py)")
     a = ap.parse_args()
     out_dir = os.path.join(a.root, "videos")
     os.makedirs(out_dir, exist_ok=True)
@@ -86,7 +87,9 @@ def main():
     jobs = []
     for task in TASKS:
         ids = select(a.root, task, a.per_task)
-        for cam in ("left", "right"):
+        if a.all_test:  # video/padding.py: every test-split recording, left camera only
+            ids = sorted(x["id"] for x in read(a.root, f"{task}_split.csv") if x["split"] == "test")
+        for cam in (("left",) if a.all_test else ("left", "right")):
             todo = [i for i in ids if not os.path.exists(os.path.join(out_dir, f"{i}_{cam}.mp4"))]
             if todo:
                 url = BASE.format(ZIPS[(task, cam)])
@@ -105,6 +108,8 @@ def main():
         for k, _ in enumerate(ex.map(one, jobs), 1):
             if k % 20 == 0 or k == len(jobs):
                 print(f"{k}/{len(jobs)} fetched", flush=True)
+    if a.all_test:
+        return
     with open(os.path.join(a.root, "selection.csv"), "w", encoding="utf-8") as f:
         f.write("task;id\n")
         for task in TASKS:

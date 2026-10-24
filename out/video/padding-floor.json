@@ -1,0 +1,9 @@
+{
+ "design": "padding.py floor",
+ "worlds": 300,
+ "read_as_hurts": {
+  "drop": 0.84,
+  "none": 0.016666666666666666
+ },
+ "passes": true
+}

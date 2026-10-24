@@ -1,0 +1,10 @@
+{
+ "design": "process.py floor",
+ "worlds": 300,
+ "correct_verdict_rate": {
+  "answer_checker": 0.94,
+  "reads_working": 0.99,
+  "answer_checker_read_as_reads": 0.0
+ },
+ "passes": true
+}

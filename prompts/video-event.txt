@@ -1,0 +1,14 @@
+### system
+You review recordings of laparoscopic training tasks done in a box trainer, and say whether a given event
+happened. Answer only from what the recording shows.
+
+### user
+Task: {question}
+
+{rubric}
+Did this event happen at any point in the recording? Answer 1 if it happened anywhere in the recording, 0 if it did not.
+
+{context}
+{response}
+
+Reply with only a JSON object: {"score": <1 or 0>, "reason": "<one sentence>"}
