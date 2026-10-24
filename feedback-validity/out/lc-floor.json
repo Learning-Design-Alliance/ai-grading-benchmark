@@ -1,0 +1,22 @@
+{
+ "WITHHOLD": {
+  "validated_of_50": {
+   "PLANTED": 50,
+   "LENGTH-ONLY": 0,
+   "COIN": 0
+  },
+  "n": 600,
+  "positive": 334,
+  "pass": true
+ },
+ "ACTION": {
+  "validated_of_50": {
+   "PLANTED": 50,
+   "LENGTH-ONLY": 0,
+   "COIN": 0
+  },
+  "n": 600,
+  "positive": 300,
+  "pass": true
+ }
+}

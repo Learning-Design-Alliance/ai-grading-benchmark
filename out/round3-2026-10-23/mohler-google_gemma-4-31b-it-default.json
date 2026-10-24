@@ -1,0 +1,359 @@
+{
+ "n_cases": 200,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "repeat",
+  "retest",
+  "shuffled",
+  "surface",
+  "typos"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.6081656214381653,
+    "ci95": [
+     0.5214343442000698,
+     0.6827360487211668
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7657909404184748,
+    "ci95": [
+     0.6991629157645962,
+     0.8246751117100367
+    ]
+   },
+   "bias": {
+    "estimate": -0.3775,
+    "ci95": [
+     -0.53,
+     -0.23
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.21799625417463223
+   },
+   "sd_ratio": 1.5052158766032548,
+   "n": 200,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5055363029329727,
+    "ci95": [
+     0.37160031885321515,
+     0.6176830142763576
+    ]
+   },
+   "n": 200
+  },
+  "share_of_ceiling": {
+   "estimate": 1.2030107786716158,
+   "ci95": [
+    1.0385164339467274,
+    1.4753519279055345
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.8152173913043478,
+   "machine_fails_of_human_fails": 0.9375,
+   "n_pass": 184,
+   "n_fail": 16
+  },
+  "padding": {
+   "estimate": -0.12,
+   "ci95": [
+    -0.19,
+    -0.06
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.09000011166938911,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "repeat": {
+   "estimate": -0.2653061224489796,
+   "ci95": [
+    -0.37244897959183676,
+    -0.1683673469387755
+   ],
+   "n": 196,
+   "flag": true,
+   "mdc80": 0.1390104822704282,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 0.15,
+   "ci95": [
+    0.065,
+    0.235
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.12355699760957067,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": -0.075,
+   "ci95": [
+    -0.145,
+    -0.005
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.10108705636640192,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "shuffled": {
+   "estimate": -0.08333333333333333,
+   "ci95": [
+    -0.3333333333333333,
+    0.16666666666666666
+   ],
+   "n": 12,
+   "flag": false,
+   "mdc80": 0.4162118730073941,
+   "expect": "lower",
+   "reading": "no detectable change",
+   "as_expected": false
+  },
+  "blicket": {
+   "estimate": -0.6111111111111112,
+   "ci95": [
+    -0.7638888888888888,
+    -0.4861111111111111
+   ],
+   "n": 144,
+   "flag": true,
+   "mdc80": 0.1873814339214759,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.020999999999999998,
+   "reaches_midpoint": 0.025,
+   "n": 200
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9834393794125338,
+    "ci95": [
+     0.9715893497440328,
+     0.9917068097368786
+    ]
+   },
+   "exact_agreement": 0.92,
+   "mean_abs_change": 0.085,
+   "signed_change": {
+    "estimate": -0.035,
+    "ci95": [
+     -0.08,
+     0.005
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.06078200606517139
+   },
+   "n": 200
+  },
+  "surface": {
+   "estimate": -0.03,
+   "ci95": [
+    -0.07,
+    0.01
+   ],
+   "n": 200,
+   "flag": false,
+   "mdc80": 0.055823843539635355,
+   "mean_abs_change": 0.08,
+   "vs_retest": 0.9411764705882353
+  },
+  "typos": {
+   "estimate": -0.0783132530120482,
+   "ci95": [
+    -0.13253012048192772,
+    -0.024096385542168676
+   ],
+   "n": 166,
+   "flag": true,
+   "mdc80": 0.07562766764170945
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.02,
+    "ci95": [
+     -0.03,
+     0.07
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07145522546484025
+   },
+   "presence": {
+    "estimate": 0.035,
+    "ci95": [
+     -0.01,
+     0.08
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.06695066810569551
+   },
+   "penalty": {
+    "estimate": -0.06,
+    "ci95": [
+     -0.105,
+     -0.015
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.06474441439985305
+   },
+   "reward": {
+    "estimate": -0.04,
+    "ci95": [
+     -0.095,
+     0.005124999999999318
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07112364490323599
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.4458857785635515,
+  "same_opening": 0.05172413793103448,
+  "grounded": 0.4624277456647399,
+  "words": 19.655,
+  "self_per100": 5.507983578052799,
+  "task_per100": 0.5111031864592236,
+  "action_per100": 0.6488962755303366,
+  "leaks_answer": 0.0,
+  "varied_by_quality": 0.2205014409824151,
+  "n": 200,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 2518,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 190.17116759332805,
+   "completion_tokens": 37.509134233518665,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.09100341796875,
+   "p90": 2.462806606292725,
+   "n": 2497
+  },
+  "served_models": [
+   "google/gemma-4-31b-it"
+  ],
+  "providers": [
+   "CoreWeave"
+  ],
+  "cost_source": "reported by the endpoint (2518 of 2518 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.03177022239872915,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:18Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemma-4-31b-it",
+  "request_template": {
+   "model": "google/gemma-4-31b-it",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "CoreWeave"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "CoreWeave"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "surface",
+   "typos",
+   "padding",
+   "repeat",
+   "injection",
+   "forged",
+   "off_task",
+   "shuffled",
+   "blicket",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

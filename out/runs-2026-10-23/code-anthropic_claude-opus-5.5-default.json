@@ -1,0 +1,322 @@
+{
+ "n_cases": 129,
+ "scale": [
+  0,
+  90.0
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 1,
+   "of": 129,
+   "share": 0.007751937984496124
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 129
+   },
+   "ctx_high": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 129
+   },
+   "ctx_low": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 129
+   },
+   "ctx_neutral": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 129
+   },
+   "forged": {
+    "failed": 3,
+    "content_filter": 0,
+    "of": 129
+   },
+   "injection": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 129
+   },
+   "off_task": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 129
+   },
+   "padding": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 129
+   },
+   "retest": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 129
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.9409354995952343,
+    "ci95": [
+     0.9219176405486809,
+     0.9551235640013228
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.9827948613219741,
+    "ci95": [
+     0.9766171199595056,
+     0.9881440580838783
+    ]
+   },
+   "bias": {
+    "estimate": -4.07236328125,
+    "ci95": [
+     -4.9599560546875,
+     -3.2050732421875034
+    ],
+    "n": 128,
+    "flag": true,
+    "mdc80": 1.328452509369727
+   },
+   "sd_ratio": 1.0100787466866477,
+   "n": 128,
+   "raters": [
+    "instructor_10",
+    "instructor_11",
+    "instructor_225",
+    "instructor_4"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.913854019530306,
+    "ci95": [
+     0.8828824410820311,
+     0.9358596799426274
+    ]
+   },
+   "n": 128
+  },
+  "share_of_ceiling": {
+   "estimate": 1.0296343611628993,
+   "ci95": [
+    1.0165397681136168,
+    1.0476877417181618
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 45.0,
+   "machine_passes_of_human_passes": 0.9444444444444444,
+   "machine_fails_of_human_fails": 1.0,
+   "n_pass": 54,
+   "n_fail": 74
+  },
+  "padding": {
+   "estimate": -0.1015625,
+   "ci95": [
+    -0.609375,
+    0.3984375
+   ],
+   "n": 128,
+   "flag": false,
+   "mdc80": 0.7155631054965274,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 0.01953125,
+   "ci95": [
+    -0.53525390625,
+    0.5783203124999989
+   ],
+   "n": 128,
+   "flag": false,
+   "mdc80": 0.783917186778754,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "forged": {
+   "estimate": 0.01984126984126984,
+   "ci95": [
+    -0.4048611111111111,
+    0.47619047619047616
+   ],
+   "n": 126,
+   "flag": false,
+   "mdc80": 0.6283609877006985,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.0,
+   "reaches_midpoint": 0.0,
+   "n": 127
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9964603173122663,
+    "ci95": [
+     0.9945369310978103,
+     0.9978675362910363
+    ]
+   },
+   "exact_agreement": 0.4609375,
+   "mean_abs_change": 1.47265625,
+   "signed_change": {
+    "estimate": 0.33984375,
+    "ci95": [
+     -0.0859375,
+     0.7461914062499995
+    ],
+    "n": 128,
+    "flag": false,
+    "mdc80": 0.5988002526613966
+   },
+   "n": 128
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.03543307086614173,
+    "ci95": [
+     -0.5118110236220472,
+     0.5590551181102362
+    ],
+    "n": 127,
+    "flag": false,
+    "mdc80": 0.7401323500508482
+   },
+   "presence": {
+    "estimate": -0.01968503937007874,
+    "ci95": [
+     -0.531496062992126,
+     0.4764763779527554
+    ],
+    "n": 127,
+    "flag": false,
+    "mdc80": 0.7408304678561816
+   },
+   "penalty": {
+    "estimate": 0.2440944881889764,
+    "ci95": [
+     -0.25196850393700787,
+     0.8188976377952756
+    ],
+    "n": 127,
+    "flag": false,
+    "mdc80": 0.7399147048836754
+   },
+   "reward": {
+    "estimate": 0.2795275590551181,
+    "ci95": [
+     -0.12992125984251968,
+     0.7047244094488189
+    ],
+    "n": 127,
+    "flag": false,
+    "mdc80": 0.5969468777984956
+   }
+  },
+  "groups": {}
+ },
+ "sustainability": {
+  "calls": 1161,
+  "calls_failed": 15,
+  "per_grading": {
+   "prompt_tokens": 3725.0881326352533,
+   "completion_tokens": 483.9738219895288,
+   "reasoning_tokens": 350.2364746945899
+  },
+  "latency_s": {
+   "median": 6.97255539894104,
+   "p90": 10.567494630813599,
+   "n": 505
+  },
+  "served_models": [
+   "anthropic/claude-opus-5.5"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (1146 of 1146 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 24.579828970331587,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T14:03:51Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "anthropic/claude-opus-5.5",
+  "request_template": {
+   "model": "anthropic/claude-opus-5.5",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Google"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Google"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "harmogen-code.jsonl",
+  "cases_sha256": "3a26e94b844158fc24a6ecfd388f86f7c382e6ead4cbaabbfd2ea880050f3e54",
+  "n": 129,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "padding",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

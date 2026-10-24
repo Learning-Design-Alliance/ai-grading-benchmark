@@ -1,0 +1,339 @@
+{
+ "n_cases": 200,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "chimpanzee",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "repeat",
+  "retest",
+  "shuffled",
+  "surface",
+  "typos"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.5422193231728571,
+    "ci95": [
+     0.45017913898096273,
+     0.625567620045558
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7010189508392095,
+    "ci95": [
+     0.6169311478839649,
+     0.7766034202848819
+    ]
+   },
+   "bias": {
+    "estimate": -0.4225,
+    "ci95": [
+     -0.6075,
+     -0.2599375000000004
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.2603313601651309
+   },
+   "sd_ratio": 1.6288907988204433,
+   "n": 200,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5055363029329727,
+    "ci95": [
+     0.37160031885321515,
+     0.6176830142763576
+    ]
+   },
+   "n": 200
+  },
+  "share_of_ceiling": {
+   "estimate": 1.0725625835910504,
+   "ci95": [
+    0.9027072207877004,
+    1.321044006646312
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.7771739130434783,
+   "machine_fails_of_human_fails": 0.875,
+   "n_pass": 184,
+   "n_fail": 16
+  },
+  "padding": {
+   "estimate": -0.265,
+   "ci95": [
+    -0.355,
+    -0.18
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.1247114458404604,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "repeat": {
+   "estimate": -0.18877551020408162,
+   "ci95": [
+    -0.29081632653061223,
+    -0.08673469387755102
+   ],
+   "n": 196,
+   "flag": true,
+   "mdc80": 0.15158330611180243,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 0.45,
+   "ci95": [
+    0.275,
+    0.63
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.2532164942590117,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.2,
+   "ci95": [
+    0.03,
+    0.375
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.24065237966659705,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "shuffled": {
+   "estimate": 0.25,
+   "ci95": [
+    -0.16666666666666666,
+    0.8333333333333334
+   ],
+   "n": 12,
+   "flag": false,
+   "mdc80": 0.7802486006317978,
+   "expect": "lower",
+   "reading": "no detectable change",
+   "as_expected": false
+  },
+  "blicket": {
+   "estimate": -0.5625,
+   "ci95": [
+    -0.7708333333333334,
+    -0.375
+   ],
+   "n": 144,
+   "flag": true,
+   "mdc80": 0.27693568940888796,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.017,
+   "reaches_midpoint": 0.01,
+   "n": 200
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.98259721990588,
+    "ci95": [
+     0.9711448525570061,
+     0.9910599003032307
+    ]
+   },
+   "exact_agreement": 0.91,
+   "mean_abs_change": 0.1,
+   "signed_change": {
+    "estimate": -0.03,
+    "ci95": [
+     -0.08,
+     0.015
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.06849949565159304
+   },
+   "n": 200
+  },
+  "surface": {
+   "estimate": -0.02,
+   "ci95": [
+    -0.095,
+    0.065
+   ],
+   "n": 200,
+   "flag": false,
+   "mdc80": 0.11566856133108083,
+   "mean_abs_change": 0.2,
+   "vs_retest": 2.0
+  },
+  "typos": {
+   "estimate": -0.10240963855421686,
+   "ci95": [
+    -0.1927710843373494,
+    -0.012048192771084338
+   ],
+   "n": 166,
+   "flag": true,
+   "mdc80": 0.125766121508227
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.04,
+    "ci95": [
+     -0.025,
+     0.11
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.09691357596348485
+   },
+   "presence": {
+    "estimate": -0.015,
+    "ci95": [
+     -0.09,
+     0.06
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.10404473332496611
+   },
+   "penalty": {
+    "estimate": -0.03,
+    "ci95": [
+     -0.085,
+     0.025
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.0791710824828582
+   },
+   "reward": {
+    "estimate": 0.01,
+    "ci95": [
+     -0.06,
+     0.08
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.10311763297882559
+   }
+  },
+  "groups": {}
+ },
+ "sustainability": {
+  "calls": 2662,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 171.67092411720512,
+   "completion_tokens": 33.420736288504884,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 0.8568825721740723,
+   "p90": 1.1994714736938477,
+   "n": 2641
+  },
+  "served_models": [
+   "google/gemini-3.5-flash-lite"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (2662 of 2662 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.13505311795642372,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T04:27:18Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemini-3.5-flash-lite",
+  "request_template": {
+   "model": "google/gemini-3.5-flash-lite",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "blicket",
+   "chimpanzee",
+   "ctx_high",
+   "ctx_low",
+   "ctx_neutral",
+   "forged",
+   "injection",
+   "off_task",
+   "padding",
+   "repeat",
+   "retest",
+   "shuffled",
+   "surface",
+   "typos"
+  ]
+ }
+}

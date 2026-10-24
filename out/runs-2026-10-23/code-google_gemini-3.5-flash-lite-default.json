@@ -1,0 +1,268 @@
+{
+ "n_cases": 129,
+ "scale": [
+  0,
+  90.0
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 129,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.8634515684041634,
+    "ci95": [
+     0.8203135735765497,
+     0.8994249957962143
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.9129397412436265,
+    "ci95": [
+     0.8777365805959704,
+     0.9414179447168902
+    ]
+   },
+   "bias": {
+    "estimate": -6.2093992248062015,
+    "ci95": [
+     -8.229035852713178,
+     -4.138466569767441
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 2.9750962571959674
+   },
+   "sd_ratio": 1.0164607544293824,
+   "n": 129,
+   "raters": [
+    "instructor_10",
+    "instructor_11",
+    "instructor_225",
+    "instructor_4"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.913904482474324,
+    "ci95": [
+     0.8846351180863613,
+     0.9355133965015396
+    ]
+   },
+   "n": 129
+  },
+  "share_of_ceiling": {
+   "estimate": 0.9447941059074758,
+   "ci95": [
+    0.9091375774636875,
+    0.9750031667820164
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 45.0,
+   "machine_passes_of_human_passes": 0.7962962962962963,
+   "machine_fails_of_human_fails": 0.9466666666666667,
+   "n_pass": 54,
+   "n_fail": 75
+  },
+  "padding": {
+   "estimate": -0.18604651162790697,
+   "ci95": [
+    -1.4806201550387597,
+    1.100968992248061
+   ],
+   "n": 129,
+   "flag": false,
+   "mdc80": 1.8488871818120882,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 40.263565891472865,
+   "ci95": [
+    34.70348837209303,
+    45.899612403100775
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 8.187059000032173,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 46.10852713178294,
+   "ci95": [
+    40.72848837209302,
+    51.63585271317829
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 7.85870348400372,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.0,
+   "reaches_midpoint": 0.0,
+   "n": 129
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9782173416835791,
+    "ci95": [
+     0.9648263424930317,
+     0.9880782618878398
+    ]
+   },
+   "exact_agreement": 0.5271317829457365,
+   "mean_abs_change": 3.2248062015503876,
+   "signed_change": {
+    "estimate": 0.5271317829457365,
+    "ci95": [
+     -0.4498062015503876,
+     1.5813953488372092
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 1.498951820139999
+   },
+   "n": 129
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.07751937984496124,
+    "ci95": [
+     -1.2015503875968991,
+     1.333720930232556
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 1.8496176419869015
+   },
+   "presence": {
+    "estimate": 0.6356589147286822,
+    "ci95": [
+     -0.7984496124031008,
+     2.0234496124030996
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 2.0216510312747027
+   },
+   "penalty": {
+    "estimate": -0.17054263565891473,
+    "ci95": [
+     -1.5195736434108527,
+     1.2094961240310067
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 1.9528853505098662
+   },
+   "reward": {
+    "estimate": -0.09302325581395349,
+    "ci95": [
+     -1.3800387596899224,
+     1.1317829457364341
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 1.8017199532603738
+   }
+  },
+  "groups": {}
+ },
+ "sustainability": {
+  "calls": 1161,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2327.303186907838,
+   "completion_tokens": 64.20499569336779,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 0.9942514896392822,
+   "p90": 1.281489896774292,
+   "n": 1105
+  },
+  "served_models": [
+   "google/gemini-3.5-flash-lite"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (1161 of 1161 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.8568160034453057,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T10:52:47Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemini-3.5-flash-lite",
+  "request_template": {
+   "model": "google/gemini-3.5-flash-lite",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "harmogen-code.jsonl",
+  "cases_sha256": "3a26e94b844158fc24a6ecfd388f86f7c382e6ead4cbaabbfd2ea880050f3e54",
+  "n": 129,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "padding",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

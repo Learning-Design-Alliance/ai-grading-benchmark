@@ -1,0 +1,549 @@
+{
+ "n_cases": 200,
+ "scale": [
+  1,
+  6
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "null_blank",
+  "null_dot",
+  "null_gibberish",
+  "null_restate",
+  "null_think",
+  "off_task",
+  "padding",
+  "repeat",
+  "retest",
+  "shuffled",
+  "surface",
+  "typos"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.6316857051350486,
+    "ci95": [
+     0.5472152878430144,
+     0.7037712472241109
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.6523201452189005,
+    "ci95": [
+     0.5670968257499811,
+     0.7224202516950173
+    ]
+   },
+   "bias": {
+    "estimate": 0.22,
+    "ci95": [
+     0.115,
+     0.335
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.15898775275988458
+   },
+   "sd_ratio": 0.8964027549053369,
+   "n": 200,
+   "raters": [
+    "rater"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 3.5,
+   "machine_passes_of_human_passes": 0.7142857142857143,
+   "machine_fails_of_human_fails": 0.8055555555555556,
+   "n_pass": 56,
+   "n_fail": 144
+  },
+  "padding": {
+   "estimate": -0.05,
+   "ci95": [
+    -0.105,
+    0.00012499999999931788
+   ],
+   "n": 200,
+   "flag": false,
+   "mdc80": 0.07623027795031255,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "repeat": {
+   "estimate": -0.4946236559139785,
+   "ci95": [
+    -0.5806451612903226,
+    -0.40860215053763443
+   ],
+   "n": 186,
+   "flag": true,
+   "mdc80": 0.12308608582513995,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 0.52,
+   "ci95": [
+    0.45,
+    0.595
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.10306030824560146,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.44,
+   "ci95": [
+    0.365,
+    0.52
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.11164768707927071,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "shuffled": {
+   "estimate": -0.41621621621621624,
+   "ci95": [
+    -0.5135135135135135,
+    -0.31891891891891894
+   ],
+   "n": 185,
+   "flag": true,
+   "mdc80": 0.13654484447721824,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "blicket": {
+   "estimate": -0.7688172043010753,
+   "ci95": [
+    -0.8655913978494624,
+    -0.6827956989247311
+   ],
+   "n": 186,
+   "flag": true,
+   "mdc80": 0.12543717864538778,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.06299999999999999,
+   "reaches_midpoint": 0.01,
+   "n": 200
+  },
+  "null_answers": {
+   "credited": 0.17142857142857143,
+   "by_kind": {
+    "null_blank": {
+     "credited": 0.5714285714285714,
+     "n": 7
+    },
+    "null_dot": {
+     "credited": 0.0,
+     "n": 7
+    },
+    "null_gibberish": {
+     "credited": 0.0,
+     "n": 7
+    },
+    "null_restate": {
+     "credited": 0.2857142857142857,
+     "n": 7
+    },
+    "null_think": {
+     "credited": 0.0,
+     "n": 7
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.930211902042888,
+    "ci95": [
+     0.8992261928841188,
+     0.9563229753488306
+    ]
+   },
+   "exact_agreement": 0.89,
+   "mean_abs_change": 0.11,
+   "signed_change": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.045,
+     0.045
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.06583060338253434
+   },
+   "n": 200
+  },
+  "surface": {
+   "estimate": 0.05913978494623656,
+   "ci95": [
+    0.005376344086021506,
+    0.11290322580645161
+   ],
+   "n": 186,
+   "flag": true,
+   "mdc80": 0.07748213412509986,
+   "mean_abs_change": 0.14516129032258066,
+   "vs_retest": 1.3196480938416424
+  },
+  "typos": {
+   "estimate": -0.1935483870967742,
+   "ci95": [
+    -0.25806451612903225,
+    -0.13440860215053763
+   ],
+   "n": 186,
+   "flag": true,
+   "mdc80": 0.09185563253442926
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.12,
+    "ci95": [
+     0.06,
+     0.18
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.08551070343535977
+   },
+   "presence": {
+    "estimate": 0.005,
+    "ci95": [
+     -0.045,
+     0.055
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07016864107957893
+   },
+   "penalty": {
+    "estimate": -0.095,
+    "ci95": [
+     -0.155,
+     -0.04
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.08086355528211903
+   },
+   "reward": {
+    "estimate": 0.025,
+    "ci95": [
+     -0.025,
+     0.08
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07798659851371062
+   }
+  },
+  "groups": {
+   "disability": {
+    "levels": {
+     "Identified as having disability": {
+      "residual": 0.037037037037037035,
+      "human_mean": 2.4444444444444446,
+      "n": 27,
+      "vs_rest": {
+       "estimate": -0.23439153439153437,
+       "ci95": [
+        -0.5592681845629384,
+        0.06982505375308869
+       ],
+       "flag": false
+      }
+     },
+     "Not identified as having disability": {
+      "residual": 0.2714285714285714,
+      "human_mean": 2.9714285714285715,
+      "n": 140,
+      "vs_rest": {
+       "estimate": 0.23439153439153437,
+       "ci95": [
+        -0.0698250537530888,
+        0.5592681845629384
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "economic": {
+    "levels": {
+     "Economically disadvantaged": {
+      "residual": 0.25961538461538464,
+      "human_mean": 2.7788461538461537,
+      "n": 104,
+      "vs_rest": {
+       "estimate": 0.06913919413919417,
+       "ci95": [
+        -0.1958224976883957,
+        0.3154056811048335
+       ],
+       "flag": false
+      }
+     },
+     "Not economically disadvantaged": {
+      "residual": 0.19047619047619047,
+      "human_mean": 3.0634920634920637,
+      "n": 63,
+      "vs_rest": {
+       "estimate": -0.06913919413919417,
+       "ci95": [
+        -0.31540568110483364,
+        0.19582249768839569
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "ell": {
+    "levels": {
+     "No": {
+      "residual": 0.19886363636363635,
+      "human_mean": 2.9431818181818183,
+      "n": 176,
+      "vs_rest": {
+       "estimate": -0.08685064935064934,
+       "ci95": [
+        -0.4254648268398268,
+        0.29068590704647634
+       ],
+       "flag": false
+      }
+     },
+     "Yes": {
+      "residual": 0.2857142857142857,
+      "human_mean": 2.619047619047619,
+      "n": 21,
+      "vs_rest": {
+       "estimate": 0.08685064935064934,
+       "ci95": [
+        -0.29068590704647673,
+        0.4254648268398267
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "F": {
+      "residual": 0.1919191919191919,
+      "human_mean": 2.9797979797979797,
+      "n": 99,
+      "vs_rest": {
+       "estimate": -0.05560556055605562,
+       "ci95": [
+        -0.2927792627348422,
+        0.1609939084682993
+       ],
+       "flag": false
+      }
+     },
+     "M": {
+      "residual": 0.24752475247524752,
+      "human_mean": 2.8415841584158414,
+      "n": 101,
+      "vs_rest": {
+       "estimate": 0.05560556055605562,
+       "ci95": [
+        -0.1609939084682994,
+        0.29277926273484195
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "race": {
+    "levels": {
+     "Black/African American": {
+      "residual": 0.15384615384615385,
+      "human_mean": 2.769230769230769,
+      "n": 26,
+      "vs_rest": {
+       "estimate": -0.11004273504273504,
+       "ci95": [
+        -0.41048068481123795,
+        0.1880276524968302
+       ],
+       "flag": false
+      }
+     },
+     "Hispanic/Latino": {
+      "residual": 0.3787878787878788,
+      "human_mean": 2.8333333333333335,
+      "n": 66,
+      "vs_rest": {
+       "estimate": 0.21532634032634032,
+       "ci95": [
+        -0.036100972666127724,
+        0.4535697278911562
+       ],
+       "flag": false
+      }
+     },
+     "White": {
+      "residual": 0.16666666666666666,
+      "human_mean": 2.948717948717949,
+      "n": 78,
+      "vs_rest": {
+       "estimate": -0.14855072463768118,
+       "ci95": [
+        -0.38198696041048813,
+        0.0948346452641868
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 3
+   }
+  },
+  "groups_note": "one human rater: a residual gap is measured against that rater, who may carry the gap"
+ },
+ "feedback": {
+  "generic": 0.2929466049329811,
+  "same_opening": 0.0298757821546342,
+  "varied_by_quality": 0.07778008309349109,
+  "grounded": 0.17,
+  "words": 34.85,
+  "self_per100": 0.4653804215941004,
+  "task_per100": 3.2064238363392668,
+  "action_per100": 1.1399117741321856,
+  "coherence": 0.046706566091873666,
+  "n": 200,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 2764,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2084.1671490593344,
+   "completion_tokens": 51.25904486251809,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.7845311164855957,
+   "p90": 3.133881855010987,
+   "n": 2763
+  },
+  "served_models": [
+   "google/gemma-3-27b-it"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (2764 of 2764 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.1749348191027496,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T22:49:05Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemma-3-27b-it",
+  "request_template": {
+   "model": "google/gemma-3-27b-it",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "asap2.jsonl",
+  "cases_sha256": "5af9331a2ed79103fdd2abe67ad284aff2ca720debd270cc843e425149acd807",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "surface",
+   "typos",
+   "padding",
+   "repeat",
+   "injection",
+   "forged",
+   "off_task",
+   "shuffled",
+   "blicket",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high",
+   "null_blank",
+   "null_dot",
+   "null_think",
+   "null_restate",
+   "null_gibberish"
+  ]
+ }
+}

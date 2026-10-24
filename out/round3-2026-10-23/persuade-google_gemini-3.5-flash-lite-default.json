@@ -1,0 +1,410 @@
+{
+ "n_cases": 100,
+ "scale": [
+  1,
+  6
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "null_blank",
+  "null_dot",
+  "null_gibberish",
+  "null_restate",
+  "null_think",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.6896853146853148,
+    "ci95": [
+     0.5604375947695985,
+     0.7857843480855083
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7096101371583386,
+    "ci95": [
+     0.5891638941253201,
+     0.8012191851221806
+    ]
+   },
+   "bias": {
+    "estimate": 0.23,
+    "ci95": [
+     0.07,
+     0.39
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.2281162206003994
+   },
+   "sd_ratio": 0.9039659681341525,
+   "n": 100,
+   "raters": [
+    "rater"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 3.5,
+   "machine_passes_of_human_passes": 0.9122807017543859,
+   "machine_fails_of_human_fails": 0.627906976744186,
+   "n_pass": 57,
+   "n_fail": 43
+  },
+  "injection": {
+   "estimate": 0.66,
+   "ci95": [
+    0.54,
+    0.78
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 0.17447456472899922,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 2.07,
+   "ci95": [
+    1.87,
+    2.26
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 0.2821272726621763,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "blicket": {
+   "estimate": -0.26804123711340205,
+   "ci95": [
+    -0.38144329896907214,
+    -0.16494845360824742
+   ],
+   "n": 97,
+   "flag": true,
+   "mdc80": 0.15633888338818344,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.008000000000000007,
+   "reaches_midpoint": 0.0,
+   "n": 100
+  },
+  "null_answers": {
+   "credited": 0.0,
+   "by_kind": {
+    "null_blank": {
+     "credited": 0.0,
+     "n": 8
+    },
+    "null_dot": {
+     "credited": 0.0,
+     "n": 8
+    },
+    "null_gibberish": {
+     "credited": 0.0,
+     "n": 8
+    },
+    "null_restate": {
+     "credited": 0.0,
+     "n": 8
+    },
+    "null_think": {
+     "credited": 0.0,
+     "n": 8
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9324650265315967,
+    "ci95": [
+     0.8894679893108289,
+     0.9629401064328013
+    ]
+   },
+   "exact_agreement": 0.86,
+   "mean_abs_change": 0.14,
+   "signed_change": {
+    "estimate": 0.02,
+    "ci95": [
+     -0.05,
+     0.1
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 0.10514367274920502
+   },
+   "n": 100
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.12,
+    "ci95": [
+     0.03,
+     0.21
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.1276003863076385
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "economic": {
+    "levels": {
+     "Economically disadvantaged": {
+      "residual": 0.23529411764705882,
+      "human_mean": 3.3823529411764706,
+      "n": 34,
+      "vs_rest": {
+       "estimate": -0.01470588235294118,
+       "ci95": [
+        -0.3710504201680672,
+        0.3333749999999998
+       ],
+       "flag": false
+      }
+     },
+     "Not economically disadvantaged": {
+      "residual": 0.25,
+      "human_mean": 3.8392857142857144,
+      "n": 56,
+      "vs_rest": {
+       "estimate": 0.01470588235294118,
+       "ci95": [
+        -0.33337500000000003,
+        0.37105042016806716
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "F": {
+      "residual": 0.22413793103448276,
+      "human_mean": 3.7241379310344827,
+      "n": 58,
+      "vs_rest": {
+       "estimate": -0.01395730706075532,
+       "ci95": [
+        -0.3083755339190122,
+        0.31213595583160775
+       ],
+       "flag": false
+      }
+     },
+     "M": {
+      "residual": 0.23809523809523808,
+      "human_mean": 3.6666666666666665,
+      "n": 42,
+      "vs_rest": {
+       "estimate": 0.01395730706075532,
+       "ci95": [
+        -0.312135955831608,
+        0.3083755339190122
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "grade": {
+    "levels": {
+     "grade 11": {
+      "residual": -0.15,
+      "human_mean": 4.35,
+      "n": 20,
+      "vs_rest": {
+       "estimate": -0.5626984126984127,
+       "ci95": [
+        -0.9367751835430969,
+        -0.210339699028874
+       ],
+       "flag": true
+      }
+     },
+     "grade 8": {
+      "residual": 0.4126984126984127,
+      "human_mean": 3.380952380952381,
+      "n": 63,
+      "vs_rest": {
+       "estimate": 0.5626984126984127,
+       "ci95": [
+        0.21033969902887345,
+        0.9367751835430963
+       ],
+       "flag": true
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "race": {
+    "levels": {
+     "Black/African American": {
+      "residual": -0.2857142857142857,
+      "human_mean": 4.142857142857143,
+      "n": 21,
+      "vs_rest": {
+       "estimate": -0.7060041407867494,
+       "ci95": [
+        -1.0294714089399548,
+        -0.40499879807692335
+       ],
+       "flag": true
+      }
+     },
+     "Hispanic/Latino": {
+      "residual": 0.43478260869565216,
+      "human_mean": 3.1739130434782608,
+      "n": 23,
+      "vs_rest": {
+       "estimate": 0.2407527579493835,
+       "ci95": [
+        -0.20833333333333331,
+        0.6995697115384613
+       ],
+       "flag": false
+      }
+     },
+     "White": {
+      "residual": 0.41304347826086957,
+      "human_mean": 3.6956521739130435,
+      "n": 46,
+      "vs_rest": {
+       "estimate": 0.3221343873517787,
+       "ci95": [
+        -0.012947165387335932,
+        0.6361499391402655
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 3
+   }
+  },
+  "groups_note": "one human rater: a residual gap is measured against that rater, who may carry the gap"
+ },
+ "feedback": {
+  "generic": 0.36580780089290815,
+  "same_opening": 0.17002668066741292,
+  "varied_by_quality": 0.1222439495047778,
+  "grounded": 0.24,
+  "words": 26.02,
+  "self_per100": 0.15690515655452542,
+  "task_per100": 3.972667805723741,
+  "action_per100": 0.5407358268431064,
+  "coherence": -0.6342366683095346,
+  "n": 100,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 837,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 843.9534050179211,
+   "completion_tokens": 39.77180406212664,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 0.9705512523651123,
+   "p90": 1.1712469577789306,
+   "n": 837
+  },
+  "served_models": [
+   "google/gemini-3.5-flash-lite"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (837 of 837 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.3526155316606929,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T20:47:07Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemini-3.5-flash-lite",
+  "request_template": {
+   "model": "google/gemini-3.5-flash-lite",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "persuade-independent.jsonl",
+  "cases_sha256": "64e8f3bea879b2b4b8d1265feb7215e3c503a4def06c16aa49b3e3845505ba9a",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "blicket",
+   "off_task",
+   "ctx_low",
+   "ctx_high",
+   "null_blank",
+   "null_dot",
+   "null_think",
+   "null_restate",
+   "null_gibberish"
+  ]
+ }
+}

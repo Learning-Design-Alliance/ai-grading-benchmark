@@ -1,0 +1,288 @@
+{
+ "n_cases": 150,
+ "scale": [
+  1,
+  6
+ ],
+ "probes_run": [
+  "base"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 150,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.4686204259087796,
+    "ci95": [
+     0.3537134801807849,
+     0.5690285077729921
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.5558977960237773,
+    "ci95": [
+     0.43244223782048336,
+     0.6574207224507858
+    ]
+   },
+   "bias": {
+    "estimate": 0.5333333333333333,
+    "ci95": [
+     0.38,
+     0.6866666666666666
+    ],
+    "n": 150,
+    "flag": true,
+    "mdc80": 0.21626619330903712
+   },
+   "sd_ratio": 0.7726984140074514,
+   "n": 150,
+   "raters": [
+    "rater"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 3.5,
+   "machine_passes_of_human_passes": 0.9418604651162791,
+   "machine_fails_of_human_fails": 0.421875,
+   "n_pass": 86,
+   "n_fail": 64
+  }
+ },
+ "reliability": {},
+ "fairness": {
+  "attainment": null,
+  "attainment_not_run": "the prompt has no {context} slot, or the context probes were not selected",
+  "groups": {
+   "economic": {
+    "levels": {
+     "Economically disadvantaged": {
+      "residual": 0.46153846153846156,
+      "human_mean": 3.4423076923076925,
+      "n": 52,
+      "vs_rest": {
+       "estimate": -0.07417582417582413,
+       "ci95": [
+        -0.42162708866475995,
+        0.24807178253449302
+       ],
+       "flag": false
+      }
+     },
+     "Not economically disadvantaged": {
+      "residual": 0.5357142857142857,
+      "human_mean": 3.880952380952381,
+      "n": 84,
+      "vs_rest": {
+       "estimate": 0.07417582417582413,
+       "ci95": [
+        -0.24807178253449308,
+        0.42162708866475984
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "F": {
+      "residual": 0.5256410256410257,
+      "human_mean": 3.730769230769231,
+      "n": 78,
+      "vs_rest": {
+       "estimate": -0.01602564102564097,
+       "ci95": [
+        -0.3108993902439025,
+        0.3032642185696108
+       ],
+       "flag": false
+      }
+     },
+     "M": {
+      "residual": 0.5416666666666666,
+      "human_mean": 3.6944444444444446,
+      "n": 72,
+      "vs_rest": {
+       "estimate": 0.01602564102564097,
+       "ci95": [
+        -0.3032642185696108,
+        0.3108993902439025
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "grade": {
+    "levels": {
+     "grade 11": {
+      "residual": 0.16666666666666666,
+      "human_mean": 4.472222222222222,
+      "n": 36,
+      "vs_rest": {
+       "estimate": -0.5366300366300367,
+       "ci95": [
+        -0.8913666979949874,
+        -0.18509088393421885
+       ],
+       "flag": true
+      }
+     },
+     "grade 8": {
+      "residual": 0.7032967032967034,
+      "human_mean": 3.3626373626373627,
+      "n": 91,
+      "vs_rest": {
+       "estimate": 0.5366300366300367,
+       "ci95": [
+        0.18509088393421883,
+        0.8913666979949872
+       ],
+       "flag": true
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "race": {
+    "levels": {
+     "Black/African American": {
+      "residual": 0.3225806451612903,
+      "human_mean": 3.7419354838709675,
+      "n": 31,
+      "vs_rest": {
+       "estimate": -0.3336693548387097,
+       "ci95": [
+        -0.7116530106132787,
+        0.04614737274219998
+       ],
+       "flag": false
+      }
+     },
+     "Hispanic/Latino": {
+      "residual": 0.6829268292682927,
+      "human_mean": 3.4634146341463414,
+      "n": 41,
+      "vs_rest": {
+       "estimate": 0.15967101531480432,
+       "ci95": [
+        -0.1556338769925726,
+        0.4804256711035734
+       ],
+       "flag": false
+      }
+     },
+     "White": {
+      "residual": 0.6363636363636364,
+      "human_mean": 3.672727272727273,
+      "n": 55,
+      "vs_rest": {
+       "estimate": 0.10858585858585856,
+       "ci95": [
+        -0.1958219883691582,
+        0.42648796832165703
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 3
+   }
+  },
+  "groups_note": "one human rater: a residual gap is measured against that rater, who may carry the gap"
+ },
+ "feedback": {
+  "generic": 0.32396679665738304,
+  "same_opening": 0.06782225780297309,
+  "varied_by_quality": 0.011300385332823798,
+  "grounded": 0.74,
+  "words": 55.38,
+  "self_per100": 6.0674029290665885,
+  "task_per100": 0.20612880126410743,
+  "action_per100": 0.9199879275660083,
+  "coherence": -0.6720306079401213,
+  "n": 150,
+  "field": "feedback",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+ },
+ "sustainability": {
+  "calls": 150,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 874.06,
+   "completion_tokens": 79.26666666666667,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 14.90329396724701,
+   "p90": 23.788386154174805,
+   "n": 150
+  },
+  "served_models": [
+   "qwen/qwen3-235b-a22b-2507"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (150 of 150 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.12226206666666667,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T19:33:49Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "request_template": {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "feedback.txt",
+  "prompt_sha256": "b05fc490fd80a94235844f9c7773734c7be552761c3ed4e9764688ea2b51b6d7",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "persuade-independent.jsonl",
+  "cases_sha256": "64e8f3bea879b2b4b8d1265feb7215e3c503a4def06c16aa49b3e3845505ba9a",
+  "n": 150,
+  "seed": 7,
+  "probes": [
+   "base"
+  ]
+ }
+}

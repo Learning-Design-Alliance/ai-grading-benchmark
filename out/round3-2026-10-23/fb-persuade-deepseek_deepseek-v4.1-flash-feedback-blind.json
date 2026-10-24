@@ -1,0 +1,142 @@
+{
+ "n_cases": 150,
+ "scale": [
+  1,
+  6
+ ],
+ "probes_run": [
+  "base"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 148,
+   "of": 150,
+   "share": 0.9866666666666667
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 148,
+    "content_filter": 0,
+    "of": 150
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.6666666666666666,
+    "ci95": [
+     0.0,
+     0.6666666666666666
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.9999999999999998,
+    "ci95": [
+     0.9999999999999998,
+     0.9999999999999998
+    ]
+   },
+   "bias": {
+    "estimate": -1.0,
+    "ci95": [
+     -1.0,
+     -1.0
+    ],
+    "n": 2,
+    "flag": true,
+    "mdc80": 0.0
+   },
+   "sd_ratio": 1.0,
+   "n": 2,
+   "raters": [
+    "rater"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 3.5,
+   "machine_passes_of_human_passes": 0.5,
+   "machine_fails_of_human_fails": null,
+   "n_pass": 2,
+   "n_fail": 0
+  }
+ },
+ "reliability": {},
+ "fairness": {
+  "attainment": null,
+  "attainment_not_run": "the prompt has no {context} slot, or the context probes were not selected",
+  "groups": {}
+ },
+ "feedback": null,
+ "sustainability": {
+  "calls": 150,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 863.5466666666666,
+   "completion_tokens": 445.20666666666665,
+   "reasoning_tokens": 359.0133333333333
+  },
+  "latency_s": {
+   "median": 4.781205177307129,
+   "p90": 8.248705339431762,
+   "n": 150
+  },
+  "served_models": [
+   "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (150 of 150 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.2720755893333333,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T19:56:09Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "request_template": {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "feedback-blind.txt",
+  "prompt_sha256": "d1f2d14adf7955abfb0c085a5c6ae27d26031e57887f671e3af05052e30c4480",
+  "context_slot": false,
+  "response_format": false,
+  "cases": "persuade-independent.jsonl",
+  "cases_sha256": "64e8f3bea879b2b4b8d1265feb7215e3c503a4def06c16aa49b3e3845505ba9a",
+  "n": 150,
+  "seed": 7,
+  "probes": [
+   "base"
+  ]
+ }
+}

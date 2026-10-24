@@ -1,0 +1,290 @@
+{
+ "n_cases": 129,
+ "scale": [
+  0,
+  90.0
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 129,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.8601489674781466,
+    "ci95": [
+     0.8111128193920427,
+     0.8972617310286866
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.9093776923449081,
+    "ci95": [
+     0.8702818541234307,
+     0.9397101857020703
+    ]
+   },
+   "bias": {
+    "estimate": 4.480523255813953,
+    "ci95": [
+     2.5679990310077523,
+     6.3960634689922475
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 2.9400461253592822
+   },
+   "sd_ratio": 0.9008095843092254,
+   "n": 129,
+   "raters": [
+    "instructor_10",
+    "instructor_11",
+    "instructor_225",
+    "instructor_4"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.913904482474324,
+    "ci95": [
+     0.8846351180863613,
+     0.9355133965015396
+    ]
+   },
+   "n": 129
+  },
+  "share_of_ceiling": {
+   "estimate": 0.9411803793207814,
+   "ci95": [
+    0.8934226487004928,
+    0.9787031699984942
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 45.0,
+   "machine_passes_of_human_passes": 0.9074074074074074,
+   "machine_fails_of_human_fails": 0.8666666666666667,
+   "n_pass": 54,
+   "n_fail": 75
+  },
+  "padding": {
+   "estimate": -0.6589147286821705,
+   "ci95": [
+    -1.666860465116279,
+    0.2560077519379835
+   ],
+   "n": 129,
+   "flag": false,
+   "mdc80": 1.4605822752921733,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 16.976744186046513,
+   "ci95": [
+    14.425968992248063,
+    19.822480620155037
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 3.867529785460973,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 19.914728682170544,
+   "ci95": [
+    15.44825581395349,
+    24.70600775193798
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 6.454786877302173,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.0017226528854435831,
+   "reaches_midpoint": 0.0,
+   "n": 129
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.982443305381965,
+    "ci95": [
+     0.9710451465702005,
+     0.9897000614243223
+    ]
+   },
+   "exact_agreement": 0.3798449612403101,
+   "mean_abs_change": 2.953488372093023,
+   "signed_change": {
+    "estimate": 0.14728682170542637,
+    "ci95": [
+     -0.6436046511627908,
+     0.9536821705426346
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 1.1750881377507318
+   },
+   "n": 129
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 4.170542635658915,
+    "ci95": [
+     3.0618217054263566,
+     5.364341085271318
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 1.6537839950590774
+   },
+   "presence": {
+    "estimate": 1.2093023255813953,
+    "ci95": [
+     0.3643410852713178,
+     2.046511627906977
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 1.163953488372093
+   },
+   "penalty": {
+    "estimate": -4.503875968992248,
+    "ci95": [
+     -5.550581395348837,
+     -3.4959302325581407
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 1.517540068302221
+   },
+   "reward": {
+    "estimate": -0.3333333333333333,
+    "ci95": [
+     -1.069767441860465,
+     0.3953488372093023
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 1.052408950685618
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.2622178297927115,
+  "same_opening": 0.019250865883576693,
+  "varied_by_quality": 0.1550169066498697,
+  "words": 44.457364341085274,
+  "self_per100": 1.9251051662666798,
+  "task_per100": 1.1132465693908207,
+  "action_per100": 0.4317179175063912,
+  "grounded": 0.2871287128712871,
+  "coherence": -0.17024400585839106,
+  "n": 129,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1161,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2337.303186907838,
+   "completion_tokens": 70.4978466838932,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 2.356471300125122,
+   "p90": 3.8127579212188722,
+   "n": 1105
+  },
+  "served_models": [
+   "google/gemma-3-27b-it"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (1161 of 1161 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.19826391042204997,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:18Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemma-3-27b-it",
+  "request_template": {
+   "model": "google/gemma-3-27b-it",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "harmogen-code.jsonl",
+  "cases_sha256": "3a26e94b844158fc24a6ecfd388f86f7c382e6ead4cbaabbfd2ea880050f3e54",
+  "n": 129,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "padding",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

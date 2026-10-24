@@ -1,0 +1,355 @@
+{
+ "n_cases": 200,
+ "scale": [
+  1,
+  6
+ ],
+ "probes_run": [
+  "base",
+  "del_cited",
+  "del_random"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 17,
+   "of": 200,
+   "share": 0.085
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 17,
+    "content_filter": 0,
+    "of": 200
+   },
+   "del_cited": {
+    "failed": 3,
+    "content_filter": 0,
+    "of": 157
+   },
+   "del_random": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 157
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.5699020480854853,
+    "ci95": [
+     0.4809405195613042,
+     0.6461433666214839
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.5980050349907613,
+    "ci95": [
+     0.5061083204274485,
+     0.6791146852917325
+    ]
+   },
+   "bias": {
+    "estimate": 0.2786885245901639,
+    "ci95": [
+     0.14754098360655737,
+     0.4098360655737705
+    ],
+    "n": 183,
+    "flag": true,
+    "mdc80": 0.18588331971655261
+   },
+   "sd_ratio": 0.8715188132898143,
+   "n": 183,
+   "raters": [
+    "rater"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 3.5,
+   "machine_passes_of_human_passes": 0.8725490196078431,
+   "machine_fails_of_human_fails": 0.5925925925925926,
+   "n_pass": 102,
+   "n_fail": 81
+  },
+  "rationale_faithfulness": {
+   "cited_minus_random_abs_change": {
+    "estimate": 0.0392156862745098,
+    "ci95": [
+     -0.0457516339869281,
+     0.11764705882352941
+    ],
+    "n": 153,
+    "flag": false,
+    "mdc80": 0.12146538443664473
+   },
+   "cited_abs_change": 0.38562091503267976,
+   "random_abs_change": 0.3464052287581699,
+   "n": 153,
+   "reading": "no evidence the rationale reflects what drove the mark"
+  }
+ },
+ "reliability": {},
+ "fairness": {
+  "attainment": null,
+  "attainment_not_run": "the prompt has no {context} slot, or the context probes were not selected",
+  "groups": {
+   "disability": {
+    "levels": {
+     "Identified as having disability": {
+      "residual": 0.4,
+      "human_mean": 3.0,
+      "n": 20,
+      "vs_rest": {
+       "estimate": 0.10833333333333334,
+       "ci95": [
+        -0.28203869047619046,
+        0.4981525806243605
+       ],
+       "flag": false
+      }
+     },
+     "Not identified as having disability": {
+      "residual": 0.2916666666666667,
+      "human_mean": 3.7152777777777777,
+      "n": 144,
+      "vs_rest": {
+       "estimate": -0.10833333333333334,
+       "ci95": [
+        -0.4981525806243609,
+        0.28203869047618996
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "economic": {
+    "levels": {
+     "Economically disadvantaged": {
+      "residual": 0.35384615384615387,
+      "human_mean": 3.3076923076923075,
+      "n": 65,
+      "vs_rest": {
+       "estimate": 0.08854003139717426,
+       "ci95": [
+        -0.18377870209455008,
+        0.3703919003986182
+       ],
+       "flag": false
+      }
+     },
+     "Not economically disadvantaged": {
+      "residual": 0.2653061224489796,
+      "human_mean": 3.857142857142857,
+      "n": 98,
+      "vs_rest": {
+       "estimate": -0.08854003139717426,
+       "ci95": [
+        -0.3703919003986185,
+        0.18377870209455002
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "F": {
+      "residual": 0.26666666666666666,
+      "human_mean": 3.6555555555555554,
+      "n": 90,
+      "vs_rest": {
+       "estimate": -0.023655913978494647,
+       "ci95": [
+        -0.2921712844288519,
+        0.2448353184737558
+       ],
+       "flag": false
+      }
+     },
+     "M": {
+      "residual": 0.2903225806451613,
+      "human_mean": 3.6774193548387095,
+      "n": 93,
+      "vs_rest": {
+       "estimate": 0.023655913978494647,
+       "ci95": [
+        -0.2448353184737563,
+        0.2921712844288519
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "grade": {
+    "levels": {
+     "grade 11": {
+      "residual": 0.0,
+      "human_mean": 4.625,
+      "n": 32,
+      "vs_rest": {
+       "estimate": -0.43333333333333335,
+       "ci95": [
+        -0.8092923946755023,
+        -0.053483606557377404
+       ],
+       "flag": true
+      }
+     },
+     "grade 8": {
+      "residual": 0.43333333333333335,
+      "human_mean": 3.3,
+      "n": 120,
+      "vs_rest": {
+       "estimate": 0.43333333333333335,
+       "ci95": [
+        0.053483606557377036,
+        0.8092923946755023
+       ],
+       "flag": true
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "race": {
+    "levels": {
+     "Black/African American": {
+      "residual": -0.25,
+      "human_mean": 4.0,
+      "n": 44,
+      "vs_rest": {
+       "estimate": -0.7324561403508771,
+       "ci95": [
+        -1.0506587624209573,
+        -0.4137315270935964
+       ],
+       "flag": true
+      }
+     },
+     "Hispanic/Latino": {
+      "residual": 0.48717948717948717,
+      "human_mean": 3.1794871794871793,
+      "n": 39,
+      "vs_rest": {
+       "estimate": 0.2770954535660418,
+       "ci95": [
+        -0.02728634422933975,
+        0.5674872602793013
+       ],
+       "flag": false
+      }
+     },
+     "White": {
+      "residual": 0.48,
+      "human_mean": 3.5733333333333333,
+      "n": 75,
+      "vs_rest": {
+       "estimate": 0.3836144578313253,
+       "ci95": [
+        0.09590938037292457,
+        0.6477600269024688
+       ],
+       "flag": true
+      }
+     }
+    },
+    "comparisons": 3
+   }
+  },
+  "groups_note": "one human rater: a residual gap is measured against that rater, who may carry the gap"
+ },
+ "feedback": {
+  "generic": 0.39208401160990003,
+  "same_opening": 0.06692185451860375,
+  "varied_by_quality": 0.05550248371094065,
+  "grounded": 0.26229508196721313,
+  "words": 29.91256830601093,
+  "self_per100": 0.032255616272009714,
+  "task_per100": 2.919100064816407,
+  "action_per100": 0.42302609752786546,
+  "coherence": -0.5317856881055333,
+  "n": 183,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 514,
+  "calls_failed": 22,
+  "per_grading": {
+   "prompt_tokens": 834.8170731707318,
+   "completion_tokens": 540.0284552845528,
+   "reasoning_tokens": 492.3434959349593
+  },
+  "latency_s": {
+   "median": 5.869927644729614,
+   "p90": 11.54637839794159,
+   "n": 492
+  },
+  "served_models": [
+   "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (492 of 492 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.2974039349593496,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T20:19:03Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "request_template": {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "persuade-independent.jsonl",
+  "cases_sha256": "64e8f3bea879b2b4b8d1265feb7215e3c503a4def06c16aa49b3e3845505ba9a",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "del_cited",
+   "del_random"
+  ]
+ }
+}

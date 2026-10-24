@@ -1,0 +1,60 @@
+{
+ "design": "lc_mrbench.py docstring",
+ "scope": "OUT OF SCOPE: maths tutoring, not the evaluators' ELA writing",
+ "model_served": [
+  "openai/gpt-5.4"
+ ],
+ "cost_reported_usd": 10.3675055,
+ "evaluators": {
+  "WITHHOLD": {
+   "auc": 0.8038584485165008,
+   "auc_ci": [
+    0.7746661351405222,
+    0.832102975961274
+   ],
+   "length_auc": 0.5726216739453424,
+   "length_direction": -1,
+   "minus_length": 0.23123677457115843,
+   "minus_length_ci": [
+    0.17132867132867136,
+    0.2915365035288673
+   ],
+   "verdict": "VALIDATED",
+   "kappa": 0.5806090846524432,
+   "sensitivity": 0.6227544910179641,
+   "specificity": 0.9849624060150376,
+   "evaluator_rate_1": 0.35333333333333333,
+   "missing_by_class": {
+    "0": 0.0,
+    "1": 0.0
+   },
+   "retest_exact": 0.96,
+   "retest_n": 100
+  },
+  "ACTION": {
+   "auc": 0.6333333333333333,
+   "auc_ci": [
+    0.5915885604422014,
+    0.6731741781942585
+   ],
+   "length_auc": 0.5739111111111111,
+   "length_direction": 1,
+   "minus_length": 0.059422222222222154,
+   "minus_length_ci": [
+    0.0007690335811331162,
+    0.12049416144863767
+   ],
+   "verdict": "INCONCLUSIVE",
+   "kappa": 0.2666666666666666,
+   "sensitivity": 0.5566666666666666,
+   "specificity": 0.71,
+   "evaluator_rate_1": 0.42333333333333334,
+   "missing_by_class": {
+    "0": 0.0,
+    "1": 0.0
+   },
+   "retest_exact": 0.92,
+   "retest_n": 100
+  }
+ }
+}

@@ -1,0 +1,297 @@
+{
+ "n_cases": 129,
+ "scale": [
+  0,
+  90.0
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 129,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "forged": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 129
+   },
+   "injection": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 129
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.725777751331703,
+    "ci95": [
+     0.6264383414062299,
+     0.8065527764836905
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7573507388992515,
+    "ci95": [
+     0.6641126633993407,
+     0.8379260058451482
+    ]
+   },
+   "bias": {
+    "estimate": 3.581298449612403,
+    "ci95": [
+     -0.025673449612403046,
+     7.241489825581395
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 5.212412166641633
+   },
+   "sd_ratio": 1.1003991751225775,
+   "n": 129,
+   "raters": [
+    "instructor_10",
+    "instructor_11",
+    "instructor_225",
+    "instructor_4"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.913904482474324,
+    "ci95": [
+     0.8846351180863613,
+     0.9355133965015396
+    ]
+   },
+   "n": 129
+  },
+  "share_of_ceiling": {
+   "estimate": 0.794150554297225,
+   "ci95": [
+    0.6902084432004628,
+    0.8783054577578747
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 45.0,
+   "machine_passes_of_human_passes": 0.8333333333333334,
+   "machine_fails_of_human_fails": 0.7866666666666666,
+   "n_pass": 54,
+   "n_fail": 75
+  },
+  "padding": {
+   "estimate": -14.054263565891473,
+   "ci95": [
+    -18.325581395348838,
+    -9.945736434108527
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 5.964132447289141,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 5.6299212598425195,
+   "ci95": [
+    1.5978346456692913,
+    9.52775590551181
+   ],
+   "n": 127,
+   "flag": true,
+   "mdc80": 5.735952792894035,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": -20.2890625,
+   "ci95": [
+    -25.2505859375,
+    -15.140429687500001
+   ],
+   "n": 128,
+   "flag": true,
+   "mdc80": 7.098869357745747,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.02239448751076658,
+   "reaches_midpoint": 0.023255813953488372,
+   "n": 129
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.7813157123520755,
+    "ci95": [
+     0.690405058164513,
+     0.8542557035285333
+    ]
+   },
+   "exact_agreement": 0.24806201550387597,
+   "mean_abs_change": 13.976744186046512,
+   "signed_change": {
+    "estimate": 0.7829457364341085,
+    "ci95": [
+     -2.8761627906976743,
+     4.256201550387594
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 5.164008007080709
+   },
+   "n": 129
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 8.10077519379845,
+    "ci95": [
+     4.712984496124031,
+     11.76782945736434
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 5.070188372990881
+   },
+   "presence": {
+    "estimate": -2.248062015503876,
+    "ci95": [
+     -5.915891472868217,
+     1.3488372093023255
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 5.362391502272135
+   },
+   "penalty": {
+    "estimate": -7.596899224806202,
+    "ci95": [
+     -11.178488372093023,
+     -4.147093023255815
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 5.123444081480184
+   },
+   "reward": {
+    "estimate": 0.5038759689922481,
+    "ci95": [
+     -2.7674418604651163,
+     4.101162790697672
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 5.081346182036155
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.30207164147967475,
+  "same_opening": 0.007513672135520875,
+  "varied_by_quality": 0.05990671151552974,
+  "words": 46.372727272727275,
+  "grounded": 0.15294117647058825,
+  "n": 110,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1161,
+  "calls_failed": 1,
+  "per_grading": {
+   "prompt_tokens": 2495.2672413793102,
+   "completion_tokens": 413.9801724137931,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.429042100906372,
+   "p90": 5.227788519859314,
+   "n": 1104
+  },
+  "served_models": [
+   "meta-llama/llama-3.2-3b-instruct"
+  ],
+  "providers": [
+   "Parasail"
+  ],
+  "cost_source": "reported by the endpoint (1160 of 1160 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.26137681896551723,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:18Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "meta-llama/llama-3.2-3b-instruct",
+  "request_template": {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "harmogen-code.jsonl",
+  "cases_sha256": "3a26e94b844158fc24a6ecfd388f86f7c382e6ead4cbaabbfd2ea880050f3e54",
+  "n": 129,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "padding",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

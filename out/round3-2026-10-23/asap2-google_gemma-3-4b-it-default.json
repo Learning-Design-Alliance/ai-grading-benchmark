@@ -1,0 +1,580 @@
+{
+ "n_cases": 200,
+ "scale": [
+  1,
+  6
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "null_blank",
+  "null_dot",
+  "null_gibberish",
+  "null_restate",
+  "null_think",
+  "off_task",
+  "padding",
+  "repeat",
+  "retest",
+  "shuffled",
+  "surface",
+  "typos"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "ctx_low": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   },
+   "forged": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   },
+   "null_blank": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 7
+   },
+   "null_restate": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 7
+   },
+   "padding": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   },
+   "retest": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 200
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.15931329169932495,
+    "ci95": [
+     0.10721433792704839,
+     0.2142737018245855
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.4087905839609854,
+    "ci95": [
+     0.30352234176763593,
+     0.5060755937001612
+    ]
+   },
+   "bias": {
+    "estimate": 1.535,
+    "ci95": [
+     1.4,
+     1.6801249999999992
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.19536328741693448
+   },
+   "sd_ratio": 0.7616246723393092,
+   "n": 200,
+   "raters": [
+    "rater"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 3.5,
+   "machine_passes_of_human_passes": 1.0,
+   "machine_fails_of_human_fails": 0.19444444444444445,
+   "n_pass": 56,
+   "n_fail": 144
+  },
+  "padding": {
+   "estimate": -0.1708542713567839,
+   "ci95": [
+    -0.23115577889447236,
+    -0.11557788944723618
+   ],
+   "n": 199,
+   "flag": true,
+   "mdc80": 0.08248111292175389,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "repeat": {
+   "estimate": -0.5860215053763441,
+   "ci95": [
+    -0.6881720430107527,
+    -0.489247311827957
+   ],
+   "n": 186,
+   "flag": true,
+   "mdc80": 0.13926462972653214,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 0.87,
+   "ci95": [
+    0.79,
+    0.955
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.12123949470109514,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.964824120603015,
+   "ci95": [
+    0.8693467336683417,
+    1.065326633165829
+   ],
+   "n": 199,
+   "flag": true,
+   "mdc80": 0.13874995263546827,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "shuffled": {
+   "estimate": -0.2594594594594595,
+   "ci95": [
+    -0.34594594594594597,
+    -0.1783783783783784
+   ],
+   "n": 185,
+   "flag": true,
+   "mdc80": 0.12286725999475914,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "blicket": {
+   "estimate": -0.3118279569892473,
+   "ci95": [
+    -0.3924731182795699,
+    -0.23655913978494625
+   ],
+   "n": 186,
+   "flag": true,
+   "mdc80": 0.11286931584148599,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.34500000000000003,
+   "reaches_midpoint": 0.28,
+   "n": 200
+  },
+  "null_answers": {
+   "credited": 0.7878787878787878,
+   "by_kind": {
+    "null_blank": {
+     "credited": 1.0,
+     "n": 6
+    },
+    "null_dot": {
+     "credited": 1.0,
+     "n": 7
+    },
+    "null_gibberish": {
+     "credited": 0.14285714285714285,
+     "n": 7
+    },
+    "null_restate": {
+     "credited": 0.8333333333333334,
+     "n": 6
+    },
+    "null_think": {
+     "credited": 1.0,
+     "n": 7
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9517308629936616,
+    "ci95": [
+     0.9183815397936481,
+     0.9767472708483919
+    ]
+   },
+   "exact_agreement": 0.9444444444444444,
+   "mean_abs_change": 0.05555555555555555,
+   "signed_change": {
+    "estimate": 0.005050505050505051,
+    "ci95": [
+     -0.025252525252525252,
+     0.03535353535353535
+    ],
+    "n": 198,
+    "flag": false,
+    "mdc80": 0.047009858344087246
+   },
+   "n": 198
+  },
+  "surface": {
+   "estimate": -0.005376344086021506,
+   "ci95": [
+    -0.053763440860215055,
+    0.03763440860215054
+   ],
+   "n": 186,
+   "flag": false,
+   "mdc80": 0.06578563053729403,
+   "mean_abs_change": 0.10215053763440861,
+   "vs_retest": 1.838709677419355
+  },
+  "typos": {
+   "estimate": -0.0913978494623656,
+   "ci95": [
+    -0.14516129032258066,
+    -0.03763440860215054
+   ],
+   "n": 186,
+   "flag": true,
+   "mdc80": 0.07907825843305402
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.8140703517587939,
+    "ci95": [
+     0.7437185929648241,
+     0.8844221105527639
+    ],
+    "n": 199,
+    "flag": true,
+    "mdc80": 0.10377200584674438
+   },
+   "presence": {
+    "estimate": 0.02,
+    "ci95": [
+     -0.025,
+     0.065
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.06571080236718078
+   },
+   "penalty": {
+    "estimate": -0.5125628140703518,
+    "ci95": [
+     -0.5829145728643216,
+     -0.44221105527638194
+    ],
+    "n": 199,
+    "flag": true,
+    "mdc80": 0.10338587611387759
+   },
+   "reward": {
+    "estimate": 0.3,
+    "ci95": [
+     0.23,
+     0.37
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.09519089521936074
+   }
+  },
+  "groups": {
+   "disability": {
+    "levels": {
+     "Identified as having disability": {
+      "residual": 1.6666666666666667,
+      "human_mean": 2.4444444444444446,
+      "n": 27,
+      "vs_rest": {
+       "estimate": 0.16666666666666674,
+       "ci95": [
+        -0.24020362803695472,
+        0.5441907401857955
+       ],
+       "flag": false
+      }
+     },
+     "Not identified as having disability": {
+      "residual": 1.5,
+      "human_mean": 2.9714285714285715,
+      "n": 140,
+      "vs_rest": {
+       "estimate": -0.16666666666666674,
+       "ci95": [
+        -0.5441907401857955,
+        0.24020362803695441
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "economic": {
+    "levels": {
+     "Economically disadvantaged": {
+      "residual": 1.5576923076923077,
+      "human_mean": 2.7788461538461537,
+      "n": 104,
+      "vs_rest": {
+       "estimate": 0.08150183150183143,
+       "ci95": [
+        -0.2420132863718788,
+        0.3896203910983133
+       ],
+       "flag": false
+      }
+     },
+     "Not economically disadvantaged": {
+      "residual": 1.4761904761904763,
+      "human_mean": 3.0634920634920637,
+      "n": 63,
+      "vs_rest": {
+       "estimate": -0.08150183150183143,
+       "ci95": [
+        -0.3896203910983141,
+        0.2420132863718784
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "ell": {
+    "levels": {
+     "No": {
+      "residual": 1.5113636363636365,
+      "human_mean": 2.9431818181818183,
+      "n": 176,
+      "vs_rest": {
+       "estimate": -0.15530303030303028,
+       "ci95": [
+        -0.6033572701047352,
+        0.3073463268365817
+       ],
+       "flag": false
+      }
+     },
+     "Yes": {
+      "residual": 1.6666666666666667,
+      "human_mean": 2.619047619047619,
+      "n": 21,
+      "vs_rest": {
+       "estimate": 0.15530303030303028,
+       "ci95": [
+        -0.3073463268365817,
+        0.6033572701047352
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "F": {
+      "residual": 1.5656565656565657,
+      "human_mean": 2.9797979797979797,
+      "n": 99,
+      "vs_rest": {
+       "estimate": 0.06070607060706079,
+       "ci95": [
+        -0.20613465481886534,
+        0.3376302331529587
+       ],
+       "flag": false
+      }
+     },
+     "M": {
+      "residual": 1.504950495049505,
+      "human_mean": 2.8415841584158414,
+      "n": 101,
+      "vs_rest": {
+       "estimate": -0.06070607060706079,
+       "ci95": [
+        -0.33763023315295887,
+        0.20613465481886492
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "race": {
+    "levels": {
+     "Black/African American": {
+      "residual": 1.6153846153846154,
+      "human_mean": 2.769230769230769,
+      "n": 26,
+      "vs_rest": {
+       "estimate": 0.09455128205128216,
+       "ci95": [
+        -0.3074195439732411,
+        0.4861476608187133
+       ],
+       "flag": false
+      }
+     },
+     "Hispanic/Latino": {
+      "residual": 1.5909090909090908,
+      "human_mean": 2.8333333333333335,
+      "n": 66,
+      "vs_rest": {
+       "estimate": 0.09090909090909083,
+       "ci95": [
+        -0.21436312217468986,
+        0.39669607266079965
+       ],
+       "flag": false
+      }
+     },
+     "White": {
+      "residual": 1.4615384615384615,
+      "human_mean": 2.948717948717949,
+      "n": 78,
+      "vs_rest": {
+       "estimate": -0.13628762541806028,
+       "ci95": [
+        -0.41983113174260145,
+        0.16807284616734322
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 3
+   }
+  },
+  "groups_note": "one human rater: a residual gap is measured against that rater, who may carry the gap"
+ },
+ "feedback": {
+  "generic": 0.35506063847462777,
+  "same_opening": 0.04574605508267303,
+  "varied_by_quality": 0.04284019542099814,
+  "grounded": 0.4948453608247423,
+  "words": 67.79381443298969,
+  "self_per100": 2.1646960483970403,
+  "task_per100": 1.8480381966623425,
+  "action_per100": 1.4190665634090558,
+  "coherence": -0.5854600718836138,
+  "n": 194,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 2764,
+  "calls_failed": 4,
+  "per_grading": {
+   "prompt_tokens": 2087.9503623188407,
+   "completion_tokens": 101.22065217391304,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.1670589447021484,
+   "p90": 1.9071885585784916,
+   "n": 2759
+  },
+  "served_models": [
+   "google/gemma-3-4b-it"
+  ],
+  "providers": [
+   "Parasail"
+  ],
+  "cost_source": "reported by the endpoint (2760 of 2760 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.07738704710144928,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T22:49:05Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemma-3-4b-it",
+  "request_template": {
+   "model": "google/gemma-3-4b-it",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "asap2.jsonl",
+  "cases_sha256": "5af9331a2ed79103fdd2abe67ad284aff2ca720debd270cc843e425149acd807",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "surface",
+   "typos",
+   "padding",
+   "repeat",
+   "injection",
+   "forged",
+   "off_task",
+   "shuffled",
+   "blicket",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high",
+   "null_blank",
+   "null_dot",
+   "null_think",
+   "null_restate",
+   "null_gibberish"
+  ]
+ }
+}

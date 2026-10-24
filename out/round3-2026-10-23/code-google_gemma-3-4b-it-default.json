@@ -1,0 +1,296 @@
+{
+ "n_cases": 129,
+ "scale": [
+  0,
+  90.0
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 129,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "ctx_neutral": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 129
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.464274278079514,
+    "ci95": [
+     0.36375579109205264,
+     0.5579651676529002
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7161474303628126,
+    "ci95": [
+     0.6260090258142319,
+     0.7924596017901291
+    ]
+   },
+   "bias": {
+    "estimate": 23.387500000000003,
+    "ci95": [
+     20.116957364341083,
+     26.836596414728678
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 4.932905140482634
+   },
+   "sd_ratio": 0.7295868318586145,
+   "n": 129,
+   "raters": [
+    "instructor_10",
+    "instructor_11",
+    "instructor_225",
+    "instructor_4"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.913904482474324,
+    "ci95": [
+     0.8846351180863613,
+     0.9355133965015396
+    ]
+   },
+   "n": 129
+  },
+  "share_of_ceiling": {
+   "estimate": 0.5080118185026603,
+   "ci95": [
+    0.40085466467876535,
+    0.6055196540605496
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 45.0,
+   "machine_passes_of_human_passes": 0.9814814814814815,
+   "machine_fails_of_human_fails": 0.29333333333333333,
+   "n_pass": 54,
+   "n_fail": 75
+  },
+  "padding": {
+   "estimate": 0.07751937984496124,
+   "ci95": [
+    -1.822674418604651,
+    1.627906976744186
+   ],
+   "n": 129,
+   "flag": false,
+   "mdc80": 2.455538778530491,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 14.496124031007753,
+   "ci95": [
+    11.666666666666666,
+    17.51937984496124
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 4.156833538669192,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 11.472868217054264,
+   "ci95": [
+    8.83624031007752,
+    14.263565891472869
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 3.8991496748660457,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.15762273901808785,
+   "reaches_midpoint": 0.11627906976744186,
+   "n": 129
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9678029686124585,
+    "ci95": [
+     0.9510457670428991,
+     0.9796783202439028
+    ]
+   },
+   "exact_agreement": 0.7209302325581395,
+   "mean_abs_change": 2.6511627906976742,
+   "signed_change": {
+    "estimate": -0.7906976744186046,
+    "ci95": [
+     -1.7753875968992248,
+     0.13953488372093023
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 1.315250783051799
+   },
+   "n": 129
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 11.550387596899224,
+    "ci95": [
+     9.883720930232558,
+     13.333333333333334
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 2.449798681711338
+   },
+   "presence": {
+    "estimate": 2.7734375,
+    "ci95": [
+     1.484375,
+     4.1015625
+    ],
+    "n": 128,
+    "flag": true,
+    "mdc80": 1.8815333802772247
+   },
+   "penalty": {
+    "estimate": -7.5,
+    "ci95": [
+     -9.1025390625,
+     -5.9765625
+    ],
+    "n": 128,
+    "flag": true,
+    "mdc80": 2.1461144160119168
+   },
+   "reward": {
+    "estimate": 4.140625,
+    "ci95": [
+     3.0078125,
+     5.3515625
+    ],
+    "n": 128,
+    "flag": true,
+    "mdc80": 1.644209502852861
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.3379622089554583,
+  "same_opening": 0.037952845536320355,
+  "varied_by_quality": 0.1117853921191767,
+  "words": 62.751937984496124,
+  "self_per100": 0.9163946440949309,
+  "task_per100": 1.567106531399216,
+  "action_per100": 0.8411470669960021,
+  "grounded": 0.297029702970297,
+  "coherence": -0.3443762098556828,
+  "n": 129,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1161,
+  "calls_failed": 1,
+  "per_grading": {
+   "prompt_tokens": 2341.5991379310344,
+   "completion_tokens": 108.44913793103449,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.636149525642395,
+   "p90": 2.4480083703994757,
+   "n": 1104
+  },
+  "served_models": [
+   "google/gemma-3-4b-it"
+  ],
+  "providers": [
+   "Parasail"
+  ],
+  "cost_source": "reported by the endpoint (1160 of 1160 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.07734656034482759,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:17Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemma-3-4b-it",
+  "request_template": {
+   "model": "google/gemma-3-4b-it",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "harmogen-code.jsonl",
+  "cases_sha256": "3a26e94b844158fc24a6ecfd388f86f7c382e6ead4cbaabbfd2ea880050f3e54",
+  "n": 129,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "padding",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

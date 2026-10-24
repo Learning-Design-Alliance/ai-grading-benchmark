@@ -1,5 +1,8 @@
 # Grader benchmark: can you trust an AI to mark student work?
 
+> **Working repository, private.** Studies, results and the research log live alongside the package
+> (`disability/`, `fairness-ellipse/`, `feedback-validity/`, `out/`, `docs/`); see `CLAUDE.md`.
+
 An open benchmark you run yourself, with your own model, your own prompt and your own API key. It
 scores AI graders on four things a school, a vendor or a researcher needs to know before trusting one:
 

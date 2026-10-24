@@ -1,0 +1,300 @@
+{
+ "n_cases": 129,
+ "scale": [
+  0,
+  90.0
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 129,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "ctx_low": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 129
+   },
+   "forged": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 129
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.8334303849816609,
+    "ci95": [
+     0.7775558893718155,
+     0.8756709260291375
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.8653136538726213,
+    "ci95": [
+     0.8136656679068399,
+     0.9066255412323312
+    ]
+   },
+   "bias": {
+    "estimate": 2.3564922480620156,
+    "ci95": [
+     -0.2049031007751938,
+     4.919978197674419
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 3.66907264039701
+   },
+   "sd_ratio": 1.0008311938873697,
+   "n": 129,
+   "raters": [
+    "instructor_10",
+    "instructor_11",
+    "instructor_225",
+    "instructor_4"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.913904482474324,
+    "ci95": [
+     0.8846351180863613,
+     0.9355133965015396
+    ]
+   },
+   "n": 129
+  },
+  "share_of_ceiling": {
+   "estimate": 0.9119447392633573,
+   "ci95": [
+    0.8599439916891386,
+    0.9510580707252683
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 45.0,
+   "machine_passes_of_human_passes": 0.8888888888888888,
+   "machine_fails_of_human_fails": 0.8533333333333334,
+   "n_pass": 54,
+   "n_fail": 75
+  },
+  "padding": {
+   "estimate": 1.0775193798449612,
+   "ci95": [
+    -1.6286821705426355,
+    4.054651162790695
+   ],
+   "n": 129,
+   "flag": false,
+   "mdc80": 4.063433572521319,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 11.03875968992248,
+   "ci95": [
+    8.08468992248062,
+    14.147286821705427
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 4.207612959922,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": -1.24609375,
+   "ci95": [
+    -5.7388671875,
+    3.215722656249995
+   ],
+   "n": 128,
+   "flag": false,
+   "mdc80": 6.437350567256426,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.0020671834625322996,
+   "reaches_midpoint": 0.0,
+   "n": 129
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.835479571756507,
+    "ci95": [
+     0.7560613969315688,
+     0.8948004226341111
+    ]
+   },
+   "exact_agreement": 0.09302325581395349,
+   "mean_abs_change": 11.30232558139535,
+   "signed_change": {
+    "estimate": 0.6821705426356589,
+    "ci95": [
+     -2.155232558139535,
+     3.5738372093023245
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 4.058332514310147
+   },
+   "n": 129
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 1.1023622047244095,
+    "ci95": [
+     -1.1341535433070866,
+     3.437696850393697
+    ],
+    "n": 127,
+    "flag": false,
+    "mdc80": 3.452222939260023
+   },
+   "presence": {
+    "estimate": 1.9612403100775193,
+    "ci95": [
+     -0.7521317829457365,
+     4.698062015503874
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 3.9533661251809686
+   },
+   "penalty": {
+    "estimate": -3.34251968503937,
+    "ci95": [
+     -5.9015748031496065,
+     -0.6929133858267716
+    ],
+    "n": 127,
+    "flag": true,
+    "mdc80": 3.727446171448121
+   },
+   "reward": {
+    "estimate": -2.12015503875969,
+    "ci95": [
+     -4.065891472868217,
+     0.0007751937984453822
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 3.02029150540101
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.11099743485281684,
+  "same_opening": 0.00044984255510571296,
+  "varied_by_quality": 0.05645832594810816,
+  "words": 30.95275590551181,
+  "self_per100": 2.603407596247852,
+  "task_per100": 0.9587832917006965,
+  "action_per100": 0.7649920798106902,
+  "grounded": 0.13131313131313133,
+  "n": 127,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1161,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2493.5581395348836,
+   "completion_tokens": 249.6373815676141,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 2.2830255031585693,
+   "p90": 7.466868495941163,
+   "n": 1105
+  },
+  "served_models": [
+   "microsoft/phi-4"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (1161 of 1161 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.20949830318690785,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:18Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "microsoft/phi-4",
+  "request_template": {
+   "model": "microsoft/phi-4",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "harmogen-code.jsonl",
+  "cases_sha256": "3a26e94b844158fc24a6ecfd388f86f7c382e6ead4cbaabbfd2ea880050f3e54",
+  "n": 129,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "padding",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

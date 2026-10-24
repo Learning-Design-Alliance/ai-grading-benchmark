@@ -1,0 +1,101 @@
+{
+ "n_cases": 200,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 200,
+   "of": 200,
+   "share": 1.0
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 200,
+    "content_filter": 0,
+    "of": 200
+   }
+  }
+ },
+ "reliability": {},
+ "fairness": {
+  "attainment": null,
+  "attainment_not_run": "the prompt has no {context} slot, or the context probes were not selected",
+  "groups": {}
+ },
+ "feedback": null,
+ "sustainability": {
+  "calls": 200,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 207.415,
+   "completion_tokens": 242.17,
+   "reasoning_tokens": 160.39
+  },
+  "latency_s": {
+   "median": 2.581838846206665,
+   "p90": 4.407399082183837,
+   "n": 200
+  },
+  "served_models": [
+   "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (200 of 200 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.1307495,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T20:07:40Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "request_template": {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "feedback-shown.txt",
+  "prompt_sha256": "7c01f21712e36c4561f25d45c548eba694a8ba53819025845b79146f5095dcf6",
+  "context_slot": false,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base"
+  ]
+ }
+}

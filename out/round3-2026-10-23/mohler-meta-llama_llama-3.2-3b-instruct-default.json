@@ -1,0 +1,385 @@
+{
+ "n_cases": 200,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "repeat",
+  "retest",
+  "shuffled",
+  "surface",
+  "typos"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 1,
+   "of": 200,
+   "share": 0.005
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   },
+   "ctx_high": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   },
+   "off_task": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   },
+   "surface": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   },
+   "typos": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 166
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.17216451900276392,
+    "ci95": [
+     0.04750676475654183,
+     0.2876565155076269
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.22775135232422244,
+    "ci95": [
+     0.06601883389268644,
+     0.3746680476030588
+    ]
+   },
+   "bias": {
+    "estimate": -0.7060301507537688,
+    "ci95": [
+     -0.9196608040201005,
+     -0.47738693467336685
+    ],
+    "n": 199,
+    "flag": true,
+    "mdc80": 0.31653474640468904
+   },
+   "sd_ratio": 1.2587748444815963,
+   "n": 199,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.504479962542831,
+    "ci95": [
+     0.38113812124440233,
+     0.6159458647268583
+    ]
+   },
+   "n": 199
+  },
+  "share_of_ceiling": {
+   "estimate": 0.3412712729658652,
+   "ci95": [
+    0.11288844715710937,
+    0.5402168570774848
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.73224043715847,
+   "machine_fails_of_human_fails": 0.3125,
+   "n_pass": 183,
+   "n_fail": 16
+  },
+  "padding": {
+   "estimate": -1.5829145728643217,
+   "ci95": [
+    -1.8090452261306533,
+    -1.3616834170854277
+   ],
+   "n": 199,
+   "flag": true,
+   "mdc80": 0.3303242501227132,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "repeat": {
+   "estimate": 0.29743589743589743,
+   "ci95": [
+    0.11282051282051282,
+    0.48717948717948717
+   ],
+   "n": 195,
+   "flag": true,
+   "mdc80": 0.273427542324974,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "injection": {
+   "estimate": 1.5778894472361809,
+   "ci95": [
+    1.3869346733668342,
+    1.7688442211055277
+   ],
+   "n": 199,
+   "flag": true,
+   "mdc80": 0.2751696955728468,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 1.2462311557788945,
+   "ci95": [
+    1.0300251256281405,
+    1.4773869346733668
+   ],
+   "n": 199,
+   "flag": true,
+   "mdc80": 0.32195155756874755,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "shuffled": {
+   "estimate": -0.36363636363636365,
+   "ci95": [
+    -0.8181818181818182,
+    0.18181818181818182
+   ],
+   "n": 11,
+   "flag": false,
+   "mdc80": 0.7804215855802998,
+   "expect": "lower",
+   "reading": "no detectable change",
+   "as_expected": false
+  },
+  "blicket": {
+   "estimate": -0.7622377622377622,
+   "ci95": [
+    -0.993006993006993,
+    -0.5314685314685315
+   ],
+   "n": 143,
+   "flag": true,
+   "mdc80": 0.31556225687533007,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.18592964824120603,
+   "reaches_midpoint": 0.135678391959799,
+   "n": 199
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.6330602115653898,
+    "ci95": [
+     0.52022979446274,
+     0.7171721425794196
+    ]
+   },
+   "exact_agreement": 0.41708542713567837,
+   "mean_abs_change": 0.8040201005025126,
+   "signed_change": {
+    "estimate": 0.07035175879396985,
+    "ci95": [
+     -0.09547738693467336,
+     0.23115577889447236
+    ],
+    "n": 199,
+    "flag": false,
+    "mdc80": 0.22963294084762348
+   },
+   "n": 199
+  },
+  "surface": {
+   "estimate": 0.06060606060606061,
+   "ci95": [
+    -0.1111111111111111,
+    0.23244949494949427
+   ],
+   "n": 198,
+   "flag": false,
+   "mdc80": 0.25411438657390245,
+   "mean_abs_change": 0.898989898989899,
+   "vs_retest": 1.1181186868686868
+  },
+  "typos": {
+   "estimate": -0.4878048780487805,
+   "ci95": [
+    -0.6890243902439024,
+    -0.2865853658536585
+   ],
+   "n": 164,
+   "flag": true,
+   "mdc80": 0.29212625999119013
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": -0.135678391959799,
+    "ci95": [
+     -0.3316582914572864,
+     0.04535175879396917
+    ],
+    "n": 199,
+    "flag": false,
+    "mdc80": 0.27975710412337307
+   },
+   "presence": {
+    "estimate": 0.12060301507537688,
+    "ci95": [
+     -0.04522613065326633,
+     0.2914572864321608
+    ],
+    "n": 199,
+    "flag": false,
+    "mdc80": 0.24477004187483103
+   },
+   "penalty": {
+    "estimate": 0.055,
+    "ci95": [
+     -0.135,
+     0.2351249999999993
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.26496120887981933
+   },
+   "reward": {
+    "estimate": -0.08040201005025126,
+    "ci95": [
+     -0.2663316582914573,
+     0.10050251256281408
+    ],
+    "n": 199,
+    "flag": false,
+    "mdc80": 0.24944353946988115
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.32206777557205085,
+  "same_opening": 0.04273504273504273,
+  "grounded": 0.2782608695652174,
+  "words": 17.25,
+  "self_per100": 2.891000425178919,
+  "task_per100": 0.99970624158859,
+  "action_per100": 0.41004861548319504,
+  "leaks_answer": 0.0,
+  "varied_by_quality": -0.007860541172362262,
+  "n": 132,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 2518,
+  "calls_failed": 5,
+  "per_grading": {
+   "prompt_tokens": 178.5483485873458,
+   "completion_tokens": 32.56824512534819,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 0.8685464859008789,
+   "p90": 1.2449253082275396,
+   "n": 2493
+  },
+  "served_models": [
+   "meta-llama/llama-3.2-3b-instruct"
+  ],
+  "providers": [
+   "Parasail"
+  ],
+  "cost_source": "reported by the endpoint (2513 of 2513 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.019674938320732194,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:18Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "meta-llama/llama-3.2-3b-instruct",
+  "request_template": {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "surface",
+   "typos",
+   "padding",
+   "repeat",
+   "injection",
+   "forged",
+   "off_task",
+   "shuffled",
+   "blicket",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

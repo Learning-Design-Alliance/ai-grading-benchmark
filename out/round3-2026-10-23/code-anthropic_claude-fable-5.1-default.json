@@ -1,0 +1,288 @@
+{
+ "n_cases": 129,
+ "scale": [
+  0,
+  90.0
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 129,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "forged": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 129
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.942959329117804,
+    "ci95": [
+     0.9234321613993451,
+     0.9575215923889571
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.9815395554313774,
+    "ci95": [
+     0.9740923045338922,
+     0.9876939148811735
+    ]
+   },
+   "bias": {
+    "estimate": -2.876065891472868,
+    "ci95": [
+     -3.775365794573643,
+     -1.9630595930232562
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 1.3515199479896747
+   },
+   "sd_ratio": 0.9810443628730972,
+   "n": 129,
+   "raters": [
+    "instructor_10",
+    "instructor_11",
+    "instructor_225",
+    "instructor_4"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.913904482474324,
+    "ci95": [
+     0.8846351180863613,
+     0.9355133965015396
+    ]
+   },
+   "n": 129
+  },
+  "share_of_ceiling": {
+   "estimate": 1.0317919948973402,
+   "ci95": [
+    1.0194047110293065,
+    1.0493873017311903
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 45.0,
+   "machine_passes_of_human_passes": 0.9444444444444444,
+   "machine_fails_of_human_fails": 1.0,
+   "n_pass": 54,
+   "n_fail": 75
+  },
+  "padding": {
+   "estimate": -0.16279069767441862,
+   "ci95": [
+    -0.5813953488372093,
+    0.21705426356589147
+   ],
+   "n": 129,
+   "flag": false,
+   "mdc80": 0.5763380822060098,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": -0.5968992248062015,
+   "ci95": [
+    -1.0155038759689923,
+    -0.17054263565891473
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 0.5979527348449769,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "forged": {
+   "estimate": -0.546875,
+   "ci95": [
+    -0.984375,
+    -0.10136718750000107
+   ],
+   "n": 128,
+   "flag": true,
+   "mdc80": 0.6124384811625257,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.0,
+   "reaches_midpoint": 0.0,
+   "n": 129
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9974949901707206,
+    "ci95": [
+     0.99628579626326,
+     0.9983680980797658
+    ]
+   },
+   "exact_agreement": 0.40310077519379844,
+   "mean_abs_change": 1.302325581395349,
+   "signed_change": {
+    "estimate": -0.21705426356589147,
+    "ci95": [
+     -0.5736434108527132,
+     0.13953488372093023
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 0.4891477475151087
+   },
+   "n": 129
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.7906976744186046,
+    "ci95": [
+     0.3178294573643411,
+     1.2560077519379835
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 0.6742070638565196
+   },
+   "presence": {
+    "estimate": 0.3798449612403101,
+    "ci95": [
+     -0.007945736434108515,
+     0.7674418604651163
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 0.5741946858752898
+   },
+   "penalty": {
+    "estimate": -0.875968992248062,
+    "ci95": [
+     -1.2713178294573644,
+     -0.4883720930232558
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 0.5690564038773508
+   },
+   "reward": {
+    "estimate": -0.08527131782945736,
+    "ci95": [
+     -0.45755813953488367,
+     0.2868217054263566
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 0.5266082671694956
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.2872225812524589,
+  "same_opening": 0.0018030555664964268,
+  "varied_by_quality": 0.09096707502817337,
+  "words": 59.201550387596896,
+  "self_per100": 0.3672042792020832,
+  "task_per100": 0.20823681176009426,
+  "action_per100": 1.1717467706749225,
+  "grounded": 0.39603960396039606,
+  "coherence": -0.14789927363296515,
+  "n": 129,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1161,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 3751.8036175710595,
+   "completion_tokens": 675.8587424633936,
+   "reasoning_tokens": 533.6726959517657
+  },
+  "latency_s": {
+   "median": 10.165431499481201,
+   "p90": 17.297044038772583,
+   "n": 297
+  },
+  "served_models": [
+   "anthropic/claude-fable-5.1"
+  ],
+  "providers": [
+   "Anthropic"
+  ],
+  "cost_source": "reported by the endpoint (1161 of 1161 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 71.31097329888028,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T22:33:30Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "anthropic/claude-fable-5.1",
+  "request_template": {
+   "model": "anthropic/claude-fable-5.1",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "harmogen-code.jsonl",
+  "cases_sha256": "3a26e94b844158fc24a6ecfd388f86f7c382e6ead4cbaabbfd2ea880050f3e54",
+  "n": 129,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "padding",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

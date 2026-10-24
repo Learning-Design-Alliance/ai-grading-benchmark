@@ -1,0 +1,177 @@
+{
+ "n_cases": 200,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base",
+  "del_cited",
+  "del_random"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.5356725688503781,
+    "ci95": [
+     0.4450410226371912,
+     0.6181679667745847
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.6934389542400318,
+    "ci95": [
+     0.6074995766362624,
+     0.7689303758572825
+    ]
+   },
+   "bias": {
+    "estimate": -0.4275,
+    "ci95": [
+     -0.615,
+     -0.2574375000000004
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.2648882479831787
+   },
+   "sd_ratio": 1.64145815473332,
+   "n": 200,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5055363029329727,
+    "ci95": [
+     0.37160031885321515,
+     0.6176830142763576
+    ]
+   },
+   "n": 200
+  },
+  "share_of_ceiling": {
+   "estimate": 1.0596124664886846,
+   "ci95": [
+    0.8910333712902289,
+    1.30480421427118
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.7663043478260869,
+   "machine_fails_of_human_fails": 0.875,
+   "n_pass": 184,
+   "n_fail": 16
+  },
+  "rationale_faithfulness": {
+   "cited_minus_random_abs_change": {
+    "estimate": 0.7,
+    "ci95": [
+     -0.5,
+     1.9
+    ],
+    "n": 10,
+    "flag": false,
+    "mdc80": 1.8689985434867393
+   },
+   "cited_abs_change": 1.4,
+   "random_abs_change": 0.7,
+   "n": 10,
+   "reading": "no evidence the rationale reflects what drove the mark"
+  }
+ },
+ "reliability": {},
+ "fairness": {
+  "attainment": null,
+  "attainment_not_run": "the prompt has no {context} slot, or the context probes were not selected",
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.4861995803582022,
+  "same_opening": 0.10689655172413794,
+  "grounded": 0.5606936416184971,
+  "words": 19.96,
+  "self_per100": 5.300890081123858,
+  "task_per100": 0.41608160387411336,
+  "action_per100": 0.6069759284167238,
+  "leaks_answer": 0.0,
+  "varied_by_quality": 0.357334185418625,
+  "n": 200,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 220,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 158.12727272727273,
+   "completion_tokens": 33.93636363636364,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.1114634275436401,
+   "p90": 1.6198205471038818,
+   "n": 220
+  },
+  "served_models": [
+   "google/gemini-3.5-flash-lite"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (220 of 220 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.1322790909090909,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T20:07:50Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemini-3.5-flash-lite",
+  "request_template": {
+   "model": "google/gemini-3.5-flash-lite",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "del_cited",
+   "del_random"
+  ]
+ }
+}

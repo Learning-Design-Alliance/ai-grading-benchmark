@@ -1,0 +1,501 @@
+{
+ "n_cases": 200,
+ "scale": [
+  1,
+  6
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "chimpanzee",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "repeat",
+  "retest",
+  "shuffled",
+  "surface",
+  "typos"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.48330344179690843,
+    "ci95": [
+     0.3922593676064569,
+     0.5666802276873221
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.5712252761807289,
+    "ci95": [
+     0.48010716369601053,
+     0.6534006398190019
+    ]
+   },
+   "bias": {
+    "estimate": 0.6,
+    "ci95": [
+     0.48,
+     0.735
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.18299572996638377
+   },
+   "sd_ratio": 0.9790270283931595,
+   "n": 200,
+   "raters": [
+    "rater"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 3.5,
+   "machine_passes_of_human_passes": 0.7678571428571429,
+   "machine_fails_of_human_fails": 0.6666666666666666,
+   "n_pass": 56,
+   "n_fail": 144
+  },
+  "padding": {
+   "estimate": -0.53,
+   "ci95": [
+    -0.61,
+    -0.455
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.11212304798500276,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "repeat": {
+   "estimate": -0.54,
+   "ci95": [
+    -0.62,
+    -0.46
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.11546401906434949,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 0.43,
+   "ci95": [
+    0.29,
+    0.575
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.20388172746465005,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 2.465,
+   "ci95": [
+    2.32,
+    2.6
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.2003413669629488,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "shuffled": {
+   "estimate": -0.6180904522613065,
+   "ci95": [
+    -0.7085427135678392,
+    -0.5276381909547738
+   ],
+   "n": 199,
+   "flag": true,
+   "mdc80": 0.12693285238524143,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "blicket": {
+   "estimate": -0.815,
+   "ci95": [
+    -0.915,
+    -0.7198750000000007
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.136187795260403,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.008999999999999985,
+   "reaches_midpoint": 0.0,
+   "n": 200
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9297131254230229,
+    "ci95": [
+     0.8993849037863122,
+     0.9538919622600548
+    ]
+   },
+   "exact_agreement": 0.865,
+   "mean_abs_change": 0.135,
+   "signed_change": {
+    "estimate": -0.045,
+    "ci95": [
+     -0.095,
+     0.005
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07237965232267807
+   },
+   "n": 200
+  },
+  "surface": {
+   "estimate": -0.055,
+   "ci95": [
+    -0.11,
+    0.0
+   ],
+   "n": 200,
+   "flag": false,
+   "mdc80": 0.07478894928178471,
+   "mean_abs_change": 0.145,
+   "vs_retest": 1.074074074074074
+  },
+  "typos": {
+   "estimate": -0.125,
+   "ci95": [
+    -0.18,
+    -0.07
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.07671326236783037
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.14,
+    "ci95": [
+     0.08,
+     0.2
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.08660938707581436
+   },
+   "presence": {
+    "estimate": -0.045,
+    "ci95": [
+     -0.1,
+     0.01
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07763216967755196
+   },
+   "penalty": {
+    "estimate": -0.035,
+    "ci95": [
+     -0.1,
+     0.025
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.08959978015048403
+   },
+   "reward": {
+    "estimate": 0.105,
+    "ci95": [
+     0.045,
+     0.165
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.08741870595446817
+   }
+  },
+  "groups": {
+   "disability": {
+    "levels": {
+     "Identified as having disability": {
+      "residual": 0.4444444444444444,
+      "human_mean": 2.4444444444444446,
+      "n": 27,
+      "vs_rest": {
+       "estimate": -0.19126984126984126,
+       "ci95": [
+        -0.5463036679628919,
+        0.1378746047714854
+       ],
+       "flag": false
+      }
+     },
+     "Not identified as having disability": {
+      "residual": 0.6357142857142857,
+      "human_mean": 2.9714285714285715,
+      "n": 140,
+      "vs_rest": {
+       "estimate": 0.19126984126984126,
+       "ci95": [
+        -0.13787460477148603,
+        0.5463036679628915
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "economic": {
+    "levels": {
+     "Economically disadvantaged": {
+      "residual": 0.6057692307692307,
+      "human_mean": 2.7788461538461537,
+      "n": 104,
+      "vs_rest": {
+       "estimate": 0.0025946275946275854,
+       "ci95": [
+        -0.3192397811209692,
+        0.3193767807413523
+       ],
+       "flag": false
+      }
+     },
+     "Not economically disadvantaged": {
+      "residual": 0.6031746031746031,
+      "human_mean": 3.0634920634920637,
+      "n": 63,
+      "vs_rest": {
+       "estimate": -0.0025946275946275854,
+       "ci95": [
+        -0.31937678074135234,
+        0.31923978112096835
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "ell": {
+    "levels": {
+     "No": {
+      "residual": 0.6022727272727273,
+      "human_mean": 2.9431818181818183,
+      "n": 176,
+      "vs_rest": {
+       "estimate": 0.12608225108225113,
+       "ci95": [
+        -0.32964901972517074,
+        0.5714415584415583
+       ],
+       "flag": false
+      }
+     },
+     "Yes": {
+      "residual": 0.47619047619047616,
+      "human_mean": 2.619047619047619,
+      "n": 21,
+      "vs_rest": {
+       "estimate": -0.12608225108225113,
+       "ci95": [
+        -0.5714415584415584,
+        0.3296490197251707
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "F": {
+      "residual": 0.5454545454545454,
+      "human_mean": 2.9797979797979797,
+      "n": 99,
+      "vs_rest": {
+       "estimate": -0.10801080108010808,
+       "ci95": [
+        -0.3810197034473884,
+        0.14752808633843373
+       ],
+       "flag": false
+      }
+     },
+     "M": {
+      "residual": 0.6534653465346535,
+      "human_mean": 2.8415841584158414,
+      "n": 101,
+      "vs_rest": {
+       "estimate": 0.10801080108010808,
+       "ci95": [
+        -0.14752808633843376,
+        0.381019703447388
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "race": {
+    "levels": {
+     "Black/African American": {
+      "residual": 0.5,
+      "human_mean": 2.769230769230769,
+      "n": 26,
+      "vs_rest": {
+       "estimate": -0.09027777777777779,
+       "ci95": [
+        -0.4572085734506116,
+        0.2706348353523319
+       ],
+       "flag": false
+      }
+     },
+     "Hispanic/Latino": {
+      "residual": 0.6818181818181818,
+      "human_mean": 2.8333333333333335,
+      "n": 66,
+      "vs_rest": {
+       "estimate": 0.1722027972027972,
+       "ci95": [
+        -0.10387096397909663,
+        0.42881081220366923
+       ],
+       "flag": false
+      }
+     },
+     "White": {
+      "residual": 0.5128205128205128,
+      "human_mean": 2.948717948717949,
+      "n": 78,
+      "vs_rest": {
+       "estimate": -0.1176142697881829,
+       "ci95": [
+        -0.37444019274376417,
+        0.15082240736039407
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 3
+   }
+  },
+  "groups_note": "one human rater: a residual gap is measured against that rater, who may carry the gap"
+ },
+ "sustainability": {
+  "calls": 2999,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2095.3311103701235,
+   "completion_tokens": 53.741247082360786,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 3.1076533794403076,
+   "p90": 7.732688093185429,
+   "n": 2998
+  },
+  "served_models": [
+   "qwen/qwen3-235b-a22b-2507"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (2999 of 2999 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.21813748582860953,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T05:01:59Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "request_template": {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "asap2.jsonl",
+  "cases_sha256": "5af9331a2ed79103fdd2abe67ad284aff2ca720debd270cc843e425149acd807",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "blicket",
+   "chimpanzee",
+   "ctx_high",
+   "ctx_low",
+   "ctx_neutral",
+   "forged",
+   "injection",
+   "off_task",
+   "padding",
+   "repeat",
+   "retest",
+   "shuffled",
+   "surface",
+   "typos"
+  ]
+ }
+}

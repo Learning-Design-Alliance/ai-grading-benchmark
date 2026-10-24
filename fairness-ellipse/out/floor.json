@@ -1,0 +1,94 @@
+{
+ "rater_correlation": 0.5924024650835097,
+ "s_theta": 0.5495448108520478,
+ "s_error": 0.455837927374315,
+ "contrasts": {
+  "C1": {
+   "group_rater1_mean": {
+    "Economically disadvantaged": 3.0949944382647385,
+    "Not economically disadvantaged": 3.1453252032520327
+   },
+   "group_n": {
+    "Economically disadvantaged": 4495,
+    "Not economically disadvantaged": 1968
+   },
+   "draw": {
+    "Economically disadvantaged": 1000,
+    "Not economically disadvantaged": 1000
+   },
+   "k=0.7 bias=-0.30": {
+    "rate": 1.0
+   },
+   "k=0.7 bias=+0.00": {
+    "rate": 0.0,
+    "old_design_gap_rate": 0.0
+   },
+   "k=1.3 bias=-0.30": {
+    "rate": 0.9966666666666667
+   },
+   "k=1.3 bias=+0.00": {
+    "rate": 0.0,
+    "old_design_gap_rate": 0.0
+   },
+   "pass": true
+  },
+  "C2": {
+   "group_rater1_mean": {
+    "Black/African American": 3.217898832684825,
+    "White": 3.191897654584222
+   },
+   "group_n": {
+    "Black/African American": 514,
+    "White": 469
+   },
+   "draw": {
+    "Black/African American": 465,
+    "White": 465
+   },
+   "k=0.7 bias=-0.30": {
+    "rate": 0.9966666666666667
+   },
+   "k=0.7 bias=+0.00": {
+    "rate": 0.0,
+    "old_design_gap_rate": 0.0
+   },
+   "k=1.3 bias=-0.30": {
+    "rate": 0.9433333333333334
+   },
+   "k=1.3 bias=+0.00": {
+    "rate": 0.0,
+    "old_design_gap_rate": 0.0
+   },
+   "pass": true
+  },
+  "C3": {
+   "group_rater1_mean": {
+    "Hispanic/Latino": 3.063838995888336,
+    "White": 3.191897654584222
+   },
+   "group_n": {
+    "Hispanic/Latino": 4621,
+    "White": 469
+   },
+   "draw": {
+    "Hispanic/Latino": 469,
+    "White": 469
+   },
+   "k=0.7 bias=-0.30": {
+    "rate": 0.9833333333333333
+   },
+   "k=0.7 bias=+0.00": {
+    "rate": 0.0,
+    "old_design_gap_rate": 0.0
+   },
+   "k=1.3 bias=-0.30": {
+    "rate": 0.9433333333333334
+   },
+   "k=1.3 bias=+0.00": {
+    "rate": 0.0,
+    "old_design_gap_rate": 0.0033333333333333335
+   },
+   "pass": true
+  }
+ }
+}

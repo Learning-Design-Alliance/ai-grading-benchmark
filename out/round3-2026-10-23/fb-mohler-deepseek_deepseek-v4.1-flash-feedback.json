@@ -1,0 +1,165 @@
+{
+ "n_cases": 200,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.5812280021339624,
+    "ci95": [
+     0.5040853970505706,
+     0.646877460375886
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7783064618950127,
+    "ci95": [
+     0.7174131372063509,
+     0.8287585205505159
+    ]
+   },
+   "bias": {
+    "estimate": -0.71,
+    "ci95": [
+     -0.855,
+     -0.5775
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.20444133952440408
+   },
+   "sd_ratio": 1.4493977456525262,
+   "n": 200,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5055363029329727,
+    "ci95": [
+     0.37160031885321515,
+     0.6176830142763576
+    ]
+   },
+   "n": 200
+  },
+  "share_of_ceiling": {
+   "estimate": 1.149725546438206,
+   "ci95": [
+    0.9809351073342246,
+    1.4118329237796334
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.7554347826086957,
+   "machine_fails_of_human_fails": 1.0,
+   "n_pass": 184,
+   "n_fail": 16
+  }
+ },
+ "reliability": {},
+ "fairness": {
+  "attainment": null,
+  "attainment_not_run": "the prompt has no {context} slot, or the context probes were not selected",
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.49564055498130793,
+  "same_opening": 0.0,
+  "grounded": 0.8034682080924855,
+  "words": 55.755,
+  "self_per100": 3.229716487296795,
+  "task_per100": 0.5414144917828541,
+  "action_per100": 0.4081254128895499,
+  "leaks_answer": 0.14285714285714285,
+  "varied_by_quality": 0.06341552129467962,
+  "n": 200,
+  "field": "feedback",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+ },
+ "sustainability": {
+  "calls": 200,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 212.745,
+   "completion_tokens": 441.805,
+   "reasoning_tokens": 358.315
+  },
+  "latency_s": {
+   "median": 3.4633461236953735,
+   "p90": 9.428597927093504,
+   "n": 200
+  },
+  "served_models": [
+   "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (200 of 200 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.2161047,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T19:21:31Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "request_template": {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "feedback.txt",
+  "prompt_sha256": "b05fc490fd80a94235844f9c7773734c7be552761c3ed4e9764688ea2b51b6d7",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base"
+  ]
+ }
+}

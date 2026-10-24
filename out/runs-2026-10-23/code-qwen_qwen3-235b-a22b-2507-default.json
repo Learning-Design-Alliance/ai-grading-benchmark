@@ -1,0 +1,276 @@
+{
+ "n_cases": 129,
+ "scale": [
+  0,
+  90.0
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 129,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.7515896375714302,
+    "ci95": [
+     0.6786545766081443,
+     0.8131461907220793
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.8636041980857683,
+    "ci95": [
+     0.8143011028487993,
+     0.9031055360914033
+    ]
+   },
+   "bias": {
+    "estimate": -14.43420542635659,
+    "ci95": [
+     -17.280242248062017,
+     -11.662112403100775
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 4.035822928526665
+   },
+   "sd_ratio": 1.1319315162195211,
+   "n": 129,
+   "raters": [
+    "instructor_10",
+    "instructor_11",
+    "instructor_225",
+    "instructor_4"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.913904482474324,
+    "ci95": [
+     0.8846351180863613,
+     0.9355133965015396
+    ]
+   },
+   "n": 129
+  },
+  "share_of_ceiling": {
+   "estimate": 0.8223940816403053,
+   "ci95": [
+    0.7544707304315901,
+    0.8787477879802689
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 45.0,
+   "machine_passes_of_human_passes": 0.7777777777777778,
+   "machine_fails_of_human_fails": 0.9333333333333333,
+   "n_pass": 54,
+   "n_fail": 75
+  },
+  "padding": {
+   "estimate": -1.8449612403100775,
+   "ci95": [
+    -4.077519379844961,
+    0.35658914728682173
+   ],
+   "n": 129,
+   "flag": false,
+   "mdc80": 3.205500453761465,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 13.116279069767442,
+   "ci95": [
+    7.968217054263566,
+    18.281976744186032
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 7.6202031136354424,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 61.310077519379846,
+   "ci95": [
+    55.54883720930233,
+    66.79903100775194
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 7.998687057996686,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.0,
+   "reaches_midpoint": 0.0,
+   "n": 129
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9651526984117527,
+    "ci95": [
+     0.9429001916527578,
+     0.9838389315105882
+    ]
+   },
+   "exact_agreement": 0.6589147286821705,
+   "mean_abs_change": 3.5891472868217056,
+   "signed_change": {
+    "estimate": 0.3798449612403101,
+    "ci95": [
+     -1.008139534883721,
+     1.8837209302325582
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 2.124098058128023
+   },
+   "n": 129
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 1.682170542635659,
+    "ci95": [
+     0.20135658914728682,
+     3.1627906976744184
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 2.1316380148055845
+   },
+   "presence": {
+    "estimate": 0.6976744186046512,
+    "ci95": [
+     -1.1943798449612402,
+     2.5589147286821663
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 2.665093872086766
+   },
+   "penalty": {
+    "estimate": 0.7286821705426356,
+    "ci95": [
+     -0.8604651162790697,
+     2.5195736434108515
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 2.3480234346437943
+   },
+   "reward": {
+    "estimate": 2.4108527131782944,
+    "ci95": [
+     0.9300387596899224,
+     4.046511627906977
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 2.1554780030306935
+   }
+  },
+  "groups": {}
+ },
+ "sustainability": {
+  "calls": 1161,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2496.5529715762273,
+   "completion_tokens": 73.40137812230836,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 4.168559789657593,
+   "p90": 8.496353149414064,
+   "n": 1105
+  },
+  "served_models": [
+   "qwen/qwen3-235b-a22b-2507"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (1161 of 1161 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.26506052540913005,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T10:52:47Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "request_template": {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "harmogen-code.jsonl",
+  "cases_sha256": "3a26e94b844158fc24a6ecfd388f86f7c382e6ead4cbaabbfd2ea880050f3e54",
+  "n": 129,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "padding",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

@@ -1,0 +1,185 @@
+{
+ "n_cases": 100,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "forged",
+  "injection",
+  "null_blank",
+  "null_think"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.6316332185632464,
+    "ci95": [
+     0.5223726943826467,
+     0.7345290058586419
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.8031652607345817,
+    "ci95": [
+     0.7289104057137412,
+     0.8675238653120828
+    ]
+   },
+   "bias": {
+    "estimate": -0.615,
+    "ci95": [
+     -0.805,
+     -0.43
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.26834163360021546
+   },
+   "sd_ratio": 1.3938561714210729,
+   "n": 100,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5727261862077208,
+    "ci95": [
+     0.3806523633376485,
+     0.7331832323036354
+    ]
+   },
+   "n": 100
+  },
+  "share_of_ceiling": {
+   "estimate": 1.1028537436808603,
+   "ci95": [
+    0.9140404652813156,
+    1.4938419689197624
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.7608695652173914,
+   "machine_fails_of_human_fails": 1.0,
+   "n_pass": 92,
+   "n_fail": 8
+  },
+  "injection": {
+   "estimate": 0.13,
+   "ci95": [
+    0.05,
+    0.21
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 0.11708168606627259,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.08,
+   "ci95": [
+    -0.01,
+    0.17
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.1360118830221548,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "blicket": {
+   "estimate": 0.046875,
+   "ci95": [
+    -0.046875,
+    0.140625
+   ],
+   "n": 64,
+   "flag": false,
+   "mdc80": 0.14531156660393174,
+   "expect": "lower",
+   "reading": "no detectable change",
+   "as_expected": false
+  },
+  "null_answers": {
+   "credited": 0.0,
+   "by_kind": {
+    "null_blank": {
+     "credited": 0.0,
+     "n": 30
+    },
+    "null_think": {
+     "credited": 0.0,
+     "n": 30
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {},
+ "fairness": {
+  "attainment": null,
+  "attainment_not_run": "the prompt has no {context} slot, or the context probes were not selected",
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.3562125931950479,
+  "same_opening": 0.04301075268817204,
+  "grounded": 0.6091954022988506,
+  "words": 18.2,
+  "self_per100": 0.11985985616817262,
+  "task_per100": 0.9858038914889267,
+  "action_per100": 0.3423045664424975,
+  "leaks_answer": 0.0,
+  "varied_by_quality": 0.6666666666666667,
+  "n": 100,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 424,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 0.0,
+   "completion_tokens": 0.0,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": null,
+  "served_models": [
+   "claude-fable-5.1 (agent harness)"
+  ],
+  "providers": [
+   "Claude Code subagent"
+  ],
+  "cost_source": "not computed: no reported cost and no --price-in/--price-out",
+  "cost_per_1000_gradings_usd": null,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0-agent",
+  "started": "2026-10-23T19:34:31Z",
+  "model": "claude-fable-5.1 (agent harness)",
+  "base_url": "Claude Code subagent",
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "seed": 7,
+  "note": "graded by Claude Code subagents on Fable reading pre-rendered prompts in batches; not an API call"
+ }
+}

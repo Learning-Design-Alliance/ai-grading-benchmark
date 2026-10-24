@@ -1,0 +1,412 @@
+{
+ "n_cases": 100,
+ "scale": [
+  1,
+  6
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "null_blank",
+  "null_dot",
+  "null_gibberish",
+  "null_restate",
+  "null_think",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "null_gibberish": {
+    "failed": 8,
+    "content_filter": 8,
+    "of": 8
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.42934782608695654,
+    "ci95": [
+     0.3035684860302789,
+     0.5371426511976688
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.5579313093941712,
+    "ci95": [
+     0.39782933354830846,
+     0.6910372776095267
+    ]
+   },
+   "bias": {
+    "estimate": -0.45,
+    "ci95": [
+     -0.63,
+     -0.27
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.2590659211767374
+   },
+   "sd_ratio": 0.5755873634889235,
+   "n": 100,
+   "raters": [
+    "rater"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 3.5,
+   "machine_passes_of_human_passes": 0.5614035087719298,
+   "machine_fails_of_human_fails": 0.9069767441860465,
+   "n_pass": 57,
+   "n_fail": 43
+  },
+  "injection": {
+   "estimate": -0.13,
+   "ci95": [
+    -0.22,
+    -0.05
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 0.1236606630904088,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "forged": {
+   "estimate": -0.04,
+   "ci95": [
+    -0.13,
+    0.04
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.11886058381077547,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "blicket": {
+   "estimate": -0.18556701030927836,
+   "ci95": [
+    -0.27835051546391754,
+    -0.09278350515463918
+   ],
+   "n": 97,
+   "flag": true,
+   "mdc80": 0.1318862558530716,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.008000000000000007,
+   "reaches_midpoint": 0.0,
+   "n": 100
+  },
+  "null_answers": {
+   "credited": 0.0,
+   "by_kind": {
+    "null_blank": {
+     "credited": 0.0,
+     "n": 8
+    },
+    "null_dot": {
+     "credited": 0.0,
+     "n": 8
+    },
+    "null_restate": {
+     "credited": 0.0,
+     "n": 8
+    },
+    "null_think": {
+     "credited": 0.0,
+     "n": 8
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.7942857142857143,
+    "ci95": [
+     0.6860627546085899,
+     0.8747163592154178
+    ]
+   },
+   "exact_agreement": 0.82,
+   "mean_abs_change": 0.17,
+   "signed_change": {
+    "estimate": -0.13,
+    "ci95": [
+     -0.20512499999999997,
+     -0.055
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.10829738331244772
+   },
+   "n": 100
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.26,
+    "ci95": [
+     0.17,
+     0.35
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.13566208763026616
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "economic": {
+    "levels": {
+     "Economically disadvantaged": {
+      "residual": -0.35294117647058826,
+      "human_mean": 3.3823529411764706,
+      "n": 34,
+      "vs_rest": {
+       "estimate": 0.1292016806722689,
+       "ci95": [
+        -0.2815604390427737,
+        0.5407384844314981
+       ],
+       "flag": false
+      }
+     },
+     "Not economically disadvantaged": {
+      "residual": -0.48214285714285715,
+      "human_mean": 3.8392857142857144,
+      "n": 56,
+      "vs_rest": {
+       "estimate": -0.1292016806722689,
+       "ci95": [
+        -0.5407384844314981,
+        0.28156043904277345
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "F": {
+      "residual": -0.5,
+      "human_mean": 3.7241379310344827,
+      "n": 58,
+      "vs_rest": {
+       "estimate": -0.11904761904761907,
+       "ci95": [
+        -0.4552485521235521,
+        0.2244288045695633
+       ],
+       "flag": false
+      }
+     },
+     "M": {
+      "residual": -0.38095238095238093,
+      "human_mean": 3.6666666666666665,
+      "n": 42,
+      "vs_rest": {
+       "estimate": 0.11904761904761907,
+       "ci95": [
+        -0.22442880456956346,
+        0.45524855212355164
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "grade": {
+    "levels": {
+     "grade 11": {
+      "residual": -0.85,
+      "human_mean": 4.35,
+      "n": 20,
+      "vs_rest": {
+       "estimate": -0.611904761904762,
+       "ci95": [
+        -1.0805204105991884,
+        -0.20163561076604597
+       ],
+       "flag": true
+      }
+     },
+     "grade 8": {
+      "residual": -0.23809523809523808,
+      "human_mean": 3.380952380952381,
+      "n": 63,
+      "vs_rest": {
+       "estimate": 0.611904761904762,
+       "ci95": [
+        0.20163561076604555,
+        1.0805204105991884
+       ],
+       "flag": true
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "race": {
+    "levels": {
+     "Black/African American": {
+      "residual": -1.0476190476190477,
+      "human_mean": 4.142857142857143,
+      "n": 21,
+      "vs_rest": {
+       "estimate": -0.8157349896480331,
+       "ci95": [
+        -1.2571428571428571,
+        -0.363170803014553
+       ],
+       "flag": true
+      }
+     },
+     "Hispanic/Latino": {
+      "residual": -0.08695652173913043,
+      "human_mean": 3.1739130434782608,
+      "n": 23,
+      "vs_rest": {
+       "estimate": 0.45035691109669046,
+       "ci95": [
+        0.028448359073359037,
+        0.8754455749617407
+       ],
+       "flag": true
+      }
+     },
+     "White": {
+      "residual": -0.30434782608695654,
+      "human_mean": 3.6956521739130435,
+      "n": 46,
+      "vs_rest": {
+       "estimate": 0.24110671936758887,
+       "ci95": [
+        -0.13657452404514497,
+        0.6019097222222219
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 3
+   }
+  },
+  "groups_note": "one human rater: a residual gap is measured against that rater, who may carry the gap"
+ },
+ "feedback": {
+  "generic": 0.2987847964502612,
+  "same_opening": 0.09316631912455711,
+  "varied_by_quality": 0.04962345027525194,
+  "grounded": 0.8787878787878788,
+  "words": 47.80808080808081,
+  "self_per100": 0.19989409247408002,
+  "task_per100": 1.619138797068475,
+  "action_per100": 0.37305310548757736,
+  "coherence": 0.1862782750861909,
+  "n": 99,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 837,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 1157.704898446834,
+   "completion_tokens": 317.94862604540026,
+   "reasoning_tokens": 211.84707287933094
+  },
+  "latency_s": {
+   "median": 2.4199578762054443,
+   "p90": 3.3172291755676264,
+   "n": 837
+  },
+  "served_models": [
+   "anthropic/claude-haiku-5.5"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (829 of 837 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.27739613992762363,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T20:47:07Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "anthropic/claude-haiku-5.5",
+  "request_template": {
+   "model": "anthropic/claude-haiku-5.5",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "persuade-independent.jsonl",
+  "cases_sha256": "64e8f3bea879b2b4b8d1265feb7215e3c503a4def06c16aa49b3e3845505ba9a",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "blicket",
+   "off_task",
+   "ctx_low",
+   "ctx_high",
+   "null_blank",
+   "null_dot",
+   "null_think",
+   "null_restate",
+   "null_gibberish"
+  ]
+ }
+}

@@ -1,0 +1,119 @@
+{
+ "design": "validate.py docstring",
+ "n_responses": 1655,
+ "pairs": {
+  "LEAK": {
+   "positivity": {
+    "positive": 90,
+    "negative": 1070,
+    "positive_dialogues": 56,
+    "ok": true
+   },
+   "label_counts": {
+    "No": 1070,
+    "Yes (and the answer is correct)": 70,
+    "Yes (but the answer is incorrect)": 20
+   },
+   "auc": 0.5169781931464175,
+   "auc_ci": [
+    0.489615975422427,
+    0.5473104928930793
+   ],
+   "length_auc": 0.7814174454828661,
+   "length_direction": 1,
+   "minus_length": -0.2644392523364486,
+   "minus_length_ci": [
+    -0.30992612859097124,
+    -0.21655809216341904
+   ],
+   "statistic": "pooled AUC",
+   "spearman_vs_ordinal": 0.049195755845386206,
+   "verdict": "NOT VALIDATED",
+   "exploratory_final_number_auc": 0.8303219106957425
+  },
+  "ACTION": {
+   "positivity": {
+    "positive": 916,
+    "negative": 541,
+    "positive_dialogues": 192,
+    "ok": true
+   },
+   "label_counts": {
+    "Yes": 916,
+    "No": 541,
+    "To some extent": 198
+   },
+   "auc": 0.5131438222925361,
+   "auc_ci": [
+    0.4856605783389204,
+    0.5402549480040255
+   ],
+   "length_auc": 0.5649563318777293,
+   "length_direction": 1,
+   "minus_length": -0.051812509585193234,
+   "minus_length_ci": [
+    -0.09493041127437485,
+    -0.007741405980022709
+   ],
+   "statistic": "pooled AUC",
+   "spearman_vs_ordinal": 0.01930953506385754,
+   "verdict": "NOT VALIDATED"
+  },
+  "TONE": {
+   "positivity": {
+    "positive": 528,
+    "negative": 1126,
+    "positive_dialogues": 178,
+    "ok": true
+   },
+   "label_counts": {
+    "Neutral": 1126,
+    "Encouraging": 528,
+    "Offensive": 1
+   },
+   "auc": 0.6691064171914527,
+   "auc_ci": [
+    0.6387653997081606,
+    0.6982654779901565
+   ],
+   "length_auc": 0.5852718459012864,
+   "length_direction": -1,
+   "minus_length": 0.08383457129016625,
+   "minus_length_ci": [
+    0.05134933573831901,
+    0.11450081359996578
+   ],
+   "statistic": "pooled AUC",
+   "spearman_vs_ordinal": 0.29279335662593853,
+   "verdict": "VALIDATED"
+  },
+  "MISTAKE": {
+   "positivity": {
+    "positive": 1326,
+    "negative": 233,
+    "positive_dialogues": 194,
+    "ok": true
+   },
+   "label_counts": {
+    "Yes": 1326,
+    "No": 233,
+    "To some extent": 96
+   },
+   "auc": 0.5814625288874216,
+   "auc_ci": [
+    0.537934177968782,
+    0.624086225154122
+   ],
+   "length_auc": 0.6363599583114857,
+   "length_direction": 1,
+   "minus_length": -0.05489742942406417,
+   "minus_length_ci": [
+    -0.1182533759772566,
+    0.0034223591962261324
+   ],
+   "statistic": "pooled AUC",
+   "spearman_vs_ordinal": 0.1115390302876469,
+   "verdict": "INCONCLUSIVE"
+  }
+ }
+}

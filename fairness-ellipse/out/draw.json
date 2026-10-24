@@ -1,0 +1,15 @@
+{
+ "C1": {
+  "Economically disadvantaged": 1000,
+  "Not economically disadvantaged": 1000
+ },
+ "C2": {
+  "Black/African American": 465,
+  "White": 465
+ },
+ "C3": {
+  "Hispanic/Latino": 469,
+  "White": 469
+ },
+ "union": 2962
+}

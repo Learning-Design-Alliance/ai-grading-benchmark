@@ -1,0 +1,380 @@
+{
+ "n_cases": 200,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "repeat",
+  "retest",
+  "shuffled",
+  "surface",
+  "typos"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "ctx_high": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 200
+   },
+   "ctx_low": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   },
+   "forged": {
+    "failed": 5,
+    "content_filter": 0,
+    "of": 200
+   },
+   "padding": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 200
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.39428981121284085,
+    "ci95": [
+     0.22817362079386666,
+     0.5358513146476783
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.48240719976746493,
+    "ci95": [
+     0.3090596964054777,
+     0.6289430243402199
+    ]
+   },
+   "bias": {
+    "estimate": 0.3525,
+    "ci95": [
+     0.20243750000000002,
+     0.5050624999999996
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.2137301050131795
+   },
+   "sd_ratio": 0.8771370044313793,
+   "n": 200,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5055363029329727,
+    "ci95": [
+     0.37160031885321515,
+     0.6176830142763576
+    ]
+   },
+   "n": 200
+  },
+  "share_of_ceiling": {
+   "estimate": 0.7799436141881158,
+   "ci95": [
+    0.5054816999898515,
+    1.0222095158563114
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.9728260869565217,
+   "machine_fails_of_human_fails": 0.25,
+   "n_pass": 184,
+   "n_fail": 16
+  },
+  "padding": {
+   "estimate": -0.5252525252525253,
+   "ci95": [
+    -0.6262626262626263,
+    -0.43434343434343436
+   ],
+   "n": 198,
+   "flag": true,
+   "mdc80": 0.14553200578653686,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "repeat": {
+   "estimate": -0.05102040816326531,
+   "ci95": [
+    -0.15306122448979592,
+    0.04081632653061224
+   ],
+   "n": 196,
+   "flag": false,
+   "mdc80": 0.13995588749600105,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 0.56,
+   "ci95": [
+    0.43,
+    0.6901249999999992
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.19512366906953077,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.517948717948718,
+   "ci95": [
+    0.38974358974358975,
+    0.6514102564102557
+   ],
+   "n": 195,
+   "flag": true,
+   "mdc80": 0.18807900202124675,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "shuffled": {
+   "estimate": -0.16666666666666666,
+   "ci95": [
+    -0.5833333333333334,
+    0.25
+   ],
+   "n": 12,
+   "flag": false,
+   "mdc80": 0.5801427898075238,
+   "expect": "lower",
+   "reading": "no detectable change",
+   "as_expected": false
+  },
+  "blicket": {
+   "estimate": -0.6666666666666666,
+   "ci95": [
+    -0.8194444444444444,
+    -0.5208333333333334
+   ],
+   "n": 144,
+   "flag": true,
+   "mdc80": 0.2083344988312387,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.23500000000000001,
+   "reaches_midpoint": 0.18,
+   "n": 200
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.965670222879476,
+    "ci95": [
+     0.9316284081650665,
+     0.9876828383661692
+    ]
+   },
+   "exact_agreement": 0.95,
+   "mean_abs_change": 0.055,
+   "signed_change": {
+    "estimate": 0.005,
+    "ci95": [
+     -0.03,
+     0.04
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.050594654811327515
+   },
+   "n": 200
+  },
+  "surface": {
+   "estimate": 0.02,
+   "ci95": [
+    -0.035,
+    0.08
+   ],
+   "n": 200,
+   "flag": false,
+   "mdc80": 0.08411717121053414,
+   "mean_abs_change": 0.15,
+   "vs_retest": 2.727272727272727
+  },
+  "typos": {
+   "estimate": -0.3072289156626506,
+   "ci95": [
+    -0.39156626506024095,
+    -0.2227409638554225
+   ],
+   "n": 166,
+   "flag": true,
+   "mdc80": 0.12355297391238244
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": -0.010101010101010102,
+    "ci95": [
+     -0.06565656565656566,
+     0.045454545454545456
+    ],
+    "n": 198,
+    "flag": false,
+    "mdc80": 0.08017337775714584
+   },
+   "presence": {
+    "estimate": 0.025,
+    "ci95": [
+     -0.02,
+     0.075
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07275967186049034
+   },
+   "penalty": {
+    "estimate": 0.035175879396984924,
+    "ci95": [
+     -0.04020100502512563,
+     0.12060301507537688
+    ],
+    "n": 199,
+    "flag": false,
+    "mdc80": 0.11524890114986032
+   },
+   "reward": {
+    "estimate": 0.030303030303030304,
+    "ci95": [
+     -0.03535353535353535,
+     0.10606060606060606
+    ],
+    "n": 198,
+    "flag": false,
+    "mdc80": 0.10205479352418005
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.4894704060619187,
+  "same_opening": 0.08735632183908046,
+  "grounded": 0.48554913294797686,
+  "words": 18.475,
+  "self_per100": 5.958003666661983,
+  "task_per100": 0.6513172899360805,
+  "action_per100": 0.26518674353047456,
+  "leaks_answer": 0.0,
+  "varied_by_quality": 0.20054690023525215,
+  "n": 200,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 2518,
+  "calls_failed": 3,
+  "per_grading": {
+   "prompt_tokens": 186.1534791252485,
+   "completion_tokens": 40.19642147117296,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 0.8509936332702637,
+   "p90": 1.185635828971863,
+   "n": 2494
+  },
+  "served_models": [
+   "google/gemma-3-4b-it"
+  ],
+  "providers": [
+   "Parasail"
+  ],
+  "cost_source": "reported by the endpoint (2515 of 2515 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.006722027833001989,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:17Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemma-3-4b-it",
+  "request_template": {
+   "model": "google/gemma-3-4b-it",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "surface",
+   "typos",
+   "padding",
+   "repeat",
+   "injection",
+   "forged",
+   "off_task",
+   "shuffled",
+   "blicket",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

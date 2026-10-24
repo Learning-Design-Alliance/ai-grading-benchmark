@@ -1,0 +1,239 @@
+{
+ "n_cases": 200,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base",
+  "retest",
+  "retest2",
+  "retest3",
+  "retest4"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 1,
+   "of": 200,
+   "share": 0.005
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.5503263370762135,
+    "ci95": [
+     0.45942484671097666,
+     0.6281869697414455
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7409441811569402,
+    "ci95": [
+     0.6583035466212127,
+     0.8083837690641631
+    ]
+   },
+   "bias": {
+    "estimate": -0.7311557788944724,
+    "ci95": [
+     -0.8693467336683417,
+     -0.6030150753768844
+    ],
+    "n": 199,
+    "flag": true,
+    "mdc80": 0.18996685558402987
+   },
+   "sd_ratio": 1.2647553430047154,
+   "n": 199,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5074643899029236,
+    "ci95": [
+     0.3738923310793576,
+     0.6211788127160487
+    ]
+   },
+   "n": 199
+  },
+  "share_of_ceiling": {
+   "estimate": 1.0844629653353395,
+   "ci95": [
+    0.9011037676876875,
+    1.343076533711027
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.7868852459016393,
+   "machine_fails_of_human_fails": 0.875,
+   "n_pass": 183,
+   "n_fail": 16
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9720187649397298,
+    "ci95": [
+     0.9582949553109671,
+     0.9820306683119306
+    ]
+   },
+   "exact_agreement": 0.8894472361809045,
+   "mean_abs_change": 0.11055276381909548,
+   "signed_change": {
+    "estimate": -0.03015075376884422,
+    "ci95": [
+     -0.07537688442211055,
+     0.01507537688442211
+    ],
+    "n": 199,
+    "flag": false,
+    "mdc80": 0.06588966042917772
+   },
+   "n": 199
+  },
+  "selective": {
+   "k": 5,
+   "curve": [
+    {
+     "kept": 1.0,
+     "n": 199,
+     "qwk_vs_humans": 0.548827862803942
+    },
+    {
+     "kept": 0.9,
+     "n": 179,
+     "qwk_vs_humans": 0.5338100338064131
+    },
+    {
+     "kept": 0.8,
+     "n": 159,
+     "qwk_vs_humans": 0.541377509749488
+    },
+    {
+     "kept": 0.7,
+     "n": 139,
+     "qwk_vs_humans": 0.5622100495930835
+    },
+    {
+     "kept": 0.6,
+     "n": 119,
+     "qwk_vs_humans": 0.5738483853685397
+    },
+    {
+     "kept": 0.5,
+     "n": 100,
+     "qwk_vs_humans": 0.5389029641311123
+    }
+   ],
+   "consistent_share": 0.7487437185929648,
+   "note": "cases sorted by the spread of k identical calls; agreement on the kept share, using the mean of the k marks"
+  }
+ },
+ "fairness": {
+  "attainment": null,
+  "attainment_not_run": "the prompt has no {context} slot, or the context probes were not selected",
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.451690646817967,
+  "same_opening": 0.08505747126436781,
+  "grounded": 0.627906976744186,
+  "words": 27.934673366834172,
+  "self_per100": 3.6265982430229093,
+  "task_per100": 0.8234508491265746,
+  "action_per100": 0.3184728885201039,
+  "leaks_answer": 0.0,
+  "varied_by_quality": 0.13237692663418096,
+  "n": 199,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1000,
+  "calls_failed": 1,
+  "per_grading": {
+   "prompt_tokens": 160.54854854854855,
+   "completion_tokens": 44.22422422422422,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 9.24822187423706,
+   "p90": 15.682627344131474,
+   "n": 999
+  },
+  "served_models": [
+   "qwen/qwen3-235b-a22b-2507"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (999 of 999 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.03877269269269269,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T19:21:38Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "qwen/qwen3-235b-a22b-2507",
+  "request_template": {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "retest2",
+   "retest3",
+   "retest4"
+  ]
+ }
+}

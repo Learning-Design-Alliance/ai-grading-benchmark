@@ -1,0 +1,293 @@
+{
+ "n_cases": 100,
+ "scale": [
+  0,
+  4
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "null_blank",
+  "null_dot",
+  "null_gibberish",
+  "null_restate",
+  "null_think",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "null_gibberish": {
+    "failed": 4,
+    "content_filter": 4,
+    "of": 4
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.10378290905172839,
+    "ci95": [
+     -0.007400223093116583,
+     0.19167912094160683
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.32765682747583014,
+    "ci95": [
+     0.06606521720392476,
+     0.5121900719110739
+    ]
+   },
+   "bias": {
+    "estimate": -1.2825,
+    "ci95": [
+     -1.4841666666666666,
+     -1.0808125000000002
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.28271485478014025
+   },
+   "sd_ratio": 1.189304040474543,
+   "n": 100,
+   "raters": [
+    "grader_01",
+    "grader_02",
+    "grader_03",
+    "grader_04",
+    "grader_05",
+    "grader_06",
+    "grader_07",
+    "grader_08",
+    "grader_09",
+    "grader_10",
+    "grader_11",
+    "grader_12",
+    "grader_13",
+    "grader_14",
+    "grader_15",
+    "grader_16",
+    "grader_17",
+    "grader_18",
+    "grader_19",
+    "grader_20",
+    "grader_21",
+    "grader_22",
+    "grader_23",
+    "grader_24",
+    "grader_25",
+    "grader_26",
+    "grader_27",
+    "grader_28"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.23396127322861252,
+    "ci95": [
+     0.05305441664130897,
+     0.2934630069853856
+    ]
+   },
+   "n": 100
+  },
+  "share_of_ceiling": {
+   "estimate": 0.4435901190805973,
+   "ci95": [
+    -0.10742870796621129,
+    0.9095666865900943
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.0,
+   "machine_passes_of_human_passes": 0.7684210526315789,
+   "machine_fails_of_human_fails": 0.8,
+   "n_pass": 95,
+   "n_fail": 5
+  },
+  "injection": {
+   "estimate": -0.09,
+   "ci95": [
+    -0.19,
+    0.01
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.14401515071812285,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "forged": {
+   "estimate": -0.07,
+   "ci95": [
+    -0.16,
+    0.03
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.13351442247974937,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "null_answers": {
+   "credited": 0.0,
+   "by_kind": {
+    "null_blank": {
+     "credited": 0.0,
+     "n": 4
+    },
+    "null_dot": {
+     "credited": 0.0,
+     "n": 4
+    },
+    "null_restate": {
+     "credited": 0.0,
+     "n": 4
+    },
+    "null_think": {
+     "credited": 0.0,
+     "n": 4
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.8368108171115515,
+    "ci95": [
+     0.7450281276610096,
+     0.9024368610698661
+    ]
+   },
+   "exact_agreement": 0.75,
+   "mean_abs_change": 0.26,
+   "signed_change": {
+    "estimate": 0.04,
+    "ci95": [
+     -0.06,
+     0.15
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 0.14848242422263416
+   },
+   "n": 100
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.08,
+     0.08
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 0.11939240115914185
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.2771373331223803,
+  "same_opening": 0.08058404558404558,
+  "varied_by_quality": 0.04843373320736006,
+  "grounded": 0.88,
+  "words": 55.05,
+  "self_per100": 0.03598247809762203,
+  "task_per100": 1.1276282097093158,
+  "action_per100": 0.5896481605472959,
+  "coherence": 0.247573060668125,
+  "n": 100,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 620,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 26402.720967741934,
+   "completion_tokens": 825.6564516129032,
+   "reasoning_tokens": 684.8435483870968
+  },
+  "latency_s": {
+   "median": 4.194856882095337,
+   "p90": 8.819532036781313,
+   "n": 614
+  },
+  "served_models": [
+   "anthropic/claude-haiku-5.5"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (616 of 620 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 3.0729256493506494,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T19:16:27Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "anthropic/claude-haiku-5.5",
+  "request_template": {
+   "model": "anthropic/claude-haiku-5.5",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "menagerie.jsonl",
+  "cases_sha256": "eaacd91004864250ba7c6f203a19087ebd3eaec706a390b093096fba957e9cb4",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "ctx_low",
+   "ctx_high",
+   "null_blank",
+   "null_dot",
+   "null_think",
+   "null_restate",
+   "null_gibberish"
+  ]
+ }
+}

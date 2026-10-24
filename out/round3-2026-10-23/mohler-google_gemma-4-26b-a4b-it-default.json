@@ -1,0 +1,359 @@
+{
+ "n_cases": 200,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "repeat",
+  "retest",
+  "shuffled",
+  "surface",
+  "typos"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.6046022751898996,
+    "ci95": [
+     0.5117339689720711,
+     0.6815337703307659
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7498581422650688,
+    "ci95": [
+     0.6666432286090636,
+     0.8149060976297996
+    ]
+   },
+   "bias": {
+    "estimate": -0.3575,
+    "ci95": [
+     -0.4975625,
+     -0.2175
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.20967789367379047
+   },
+   "sd_ratio": 1.4212083987230972,
+   "n": 200,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5055363029329727,
+    "ci95": [
+     0.37160031885321515,
+     0.6176830142763576
+    ]
+   },
+   "n": 200
+  },
+  "share_of_ceiling": {
+   "estimate": 1.195962133049942,
+   "ci95": [
+    1.0183668806958799,
+    1.4808449767805691
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.8097826086956522,
+   "machine_fails_of_human_fails": 0.875,
+   "n_pass": 184,
+   "n_fail": 16
+  },
+  "padding": {
+   "estimate": -0.295,
+   "ci95": [
+    -0.38,
+    -0.22
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.11192522629598313,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "repeat": {
+   "estimate": -0.39285714285714285,
+   "ci95": [
+    -0.49502551020408164,
+    -0.29081632653061223
+   ],
+   "n": 196,
+   "flag": true,
+   "mdc80": 0.15207960128894712,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 0.135,
+   "ci95": [
+    0.03,
+    0.24512499999999932
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.14942966951262812,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.02,
+   "ci95": [
+    -0.1,
+    0.135
+   ],
+   "n": 200,
+   "flag": false,
+   "mdc80": 0.16837479131912472,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "shuffled": {
+   "estimate": -0.25,
+   "ci95": [
+    -0.5833333333333334,
+    0.08333333333333333
+   ],
+   "n": 12,
+   "flag": false,
+   "mdc80": 0.5024183937956914,
+   "expect": "lower",
+   "reading": "no detectable change",
+   "as_expected": false
+  },
+  "blicket": {
+   "estimate": -0.7152777777777778,
+   "ci95": [
+    -0.8611111111111112,
+    -0.5763888888888888
+   ],
+   "n": 144,
+   "flag": true,
+   "mdc80": 0.20025223130497896,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.020999999999999998,
+   "reaches_midpoint": 0.015,
+   "n": 200
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9806531496672342,
+    "ci95": [
+     0.9701998821078842,
+     0.9887088283194898
+    ]
+   },
+   "exact_agreement": 0.9,
+   "mean_abs_change": 0.1,
+   "signed_change": {
+    "estimate": -0.01,
+    "ci95": [
+     -0.055,
+     0.035
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.0627356261941319
+   },
+   "n": 200
+  },
+  "surface": {
+   "estimate": -0.005,
+   "ci95": [
+    -0.05,
+    0.04
+   ],
+   "n": 200,
+   "flag": false,
+   "mdc80": 0.0673028108009505,
+   "mean_abs_change": 0.115,
+   "vs_retest": 1.15
+  },
+  "typos": {
+   "estimate": -0.12048192771084337,
+   "ci95": [
+    -0.20481927710843373,
+    -0.04819277108433735
+   ],
+   "n": 166,
+   "flag": true,
+   "mdc80": 0.11671361394139203
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.005,
+    "ci95": [
+     -0.045,
+     0.05512499999999932
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07292193113324004
+   },
+   "presence": {
+    "estimate": -0.025,
+    "ci95": [
+     -0.085,
+     0.03
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.08288455372523372
+   },
+   "penalty": {
+    "estimate": 0.035,
+    "ci95": [
+     -0.02,
+     0.09
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07783489806496774
+   },
+   "reward": {
+    "estimate": 0.04,
+    "ci95": [
+     -0.01,
+     0.095
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07646249121506615
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.396217018896004,
+  "same_opening": 0.04080459770114943,
+  "grounded": 0.45664739884393063,
+  "words": 21.49,
+  "self_per100": 5.094425578068037,
+  "task_per100": 0.3293719919364462,
+  "action_per100": 0.5976496281966616,
+  "leaks_answer": 0.0,
+  "varied_by_quality": 0.20598562936821133,
+  "n": 200,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 2518,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 191.17116759332805,
+   "completion_tokens": 36.58260524225576,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.4714927673339844,
+   "p90": 5.502296352386476,
+   "n": 2499
+  },
+  "served_models": [
+   "google/gemma-4-26b-a4b-it"
+  ],
+  "providers": [
+   "DekaLLM"
+  ],
+  "cost_source": "reported by the endpoint (2518 of 2518 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.022476032565528197,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:17Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemma-4-26b-a4b-it",
+  "request_template": {
+   "model": "google/gemma-4-26b-a4b-it",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DekaLLM"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DekaLLM"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "surface",
+   "typos",
+   "padding",
+   "repeat",
+   "injection",
+   "forged",
+   "off_task",
+   "shuffled",
+   "blicket",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

@@ -1,0 +1,134 @@
+{
+ "n_cases": 150,
+ "scale": [
+  1,
+  6
+ ],
+ "probes_run": [
+  "base"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 148,
+   "of": 150,
+   "share": 0.9866666666666667
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 148,
+    "content_filter": 0,
+    "of": 150
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": NaN,
+    "ci95": [
+     NaN,
+     NaN
+    ]
+   },
+   "pearson_r": {
+    "estimate": NaN,
+    "ci95": [
+     NaN,
+     NaN
+    ]
+   },
+   "bias": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "n": 2,
+    "flag": false,
+    "mdc80": 0.0
+   },
+   "sd_ratio": null,
+   "n": 2,
+   "raters": [
+    "rater"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 3.5,
+   "machine_passes_of_human_passes": null,
+   "machine_fails_of_human_fails": 1.0,
+   "n_pass": 0,
+   "n_fail": 2
+  }
+ },
+ "reliability": {},
+ "fairness": {
+  "attainment": null,
+  "attainment_not_run": "the prompt has no {context} slot, or the context probes were not selected",
+  "groups": {}
+ },
+ "feedback": null,
+ "sustainability": {
+  "calls": 150,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 877.6533333333333,
+   "completion_tokens": 79.28666666666666,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.1562070846557617,
+   "p90": 1.503745126724243,
+   "n": 150
+  },
+  "served_models": [
+   "google/gemini-3.5-flash-lite"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (150 of 150 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.4615126666666666,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T20:19:05Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemini-3.5-flash-lite",
+  "request_template": {
+   "model": "google/gemini-3.5-flash-lite",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "feedback-shown.txt",
+  "prompt_sha256": "7c01f21712e36c4561f25d45c548eba694a8ba53819025845b79146f5095dcf6",
+  "context_slot": false,
+  "response_format": false,
+  "cases": "persuade-independent.jsonl",
+  "cases_sha256": "64e8f3bea879b2b4b8d1265feb7215e3c503a4def06c16aa49b3e3845505ba9a",
+  "n": 150,
+  "seed": 7,
+  "probes": [
+   "base"
+  ]
+ }
+}

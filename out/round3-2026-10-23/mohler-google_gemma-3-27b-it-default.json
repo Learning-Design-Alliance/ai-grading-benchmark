@@ -1,0 +1,359 @@
+{
+ "n_cases": 200,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "repeat",
+  "retest",
+  "shuffled",
+  "surface",
+  "typos"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.5534151547947505,
+    "ci95": [
+     0.4605621345940355,
+     0.6346524818102643
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7064632294488925,
+    "ci95": [
+     0.6209775726244195,
+     0.7787070571048273
+    ]
+   },
+   "bias": {
+    "estimate": -0.5575,
+    "ci95": [
+     -0.7000624999999999,
+     -0.425
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.19578317152211086
+   },
+   "sd_ratio": 1.2295972679999008,
+   "n": 200,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5055363029329727,
+    "ci95": [
+     0.37160031885321515,
+     0.6176830142763576
+    ]
+   },
+   "n": 200
+  },
+  "share_of_ceiling": {
+   "estimate": 1.0947090279847338,
+   "ci95": [
+    0.9199511309054739,
+    1.3472754759097432
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.8097826086956522,
+   "machine_fails_of_human_fails": 0.875,
+   "n_pass": 184,
+   "n_fail": 16
+  },
+  "padding": {
+   "estimate": -0.2,
+   "ci95": [
+    -0.265,
+    -0.14
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.08876596749275381,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "repeat": {
+   "estimate": -0.46938775510204084,
+   "ci95": [
+    -0.5510204081632653,
+    -0.3877551020408163
+   ],
+   "n": 196,
+   "flag": true,
+   "mdc80": 0.11881148742752519,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 0.81,
+   "ci95": [
+    0.675,
+    0.945
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.18870859724285702,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 1.16,
+   "ci95": [
+    0.995,
+    1.335
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.2521953458379269,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "shuffled": {
+   "estimate": 0.08333333333333333,
+   "ci95": [
+    -0.16666666666666666,
+    0.4166666666666667
+   ],
+   "n": 12,
+   "flag": false,
+   "mdc80": 0.4162118730073941,
+   "expect": "lower",
+   "reading": "no detectable change",
+   "as_expected": false
+  },
+  "blicket": {
+   "estimate": -0.9583333333333334,
+   "ci95": [
+    -1.0694444444444444,
+    -0.8401041666666677
+   ],
+   "n": 144,
+   "flag": true,
+   "mdc80": 0.16756749559167364,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.031,
+   "reaches_midpoint": 0.015,
+   "n": 200
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9779065838380163,
+    "ci95": [
+     0.9652733888717306,
+     0.9880764246945336
+    ]
+   },
+   "exact_agreement": 0.915,
+   "mean_abs_change": 0.085,
+   "signed_change": {
+    "estimate": 0.015,
+    "ci95": [
+     -0.025,
+     0.055
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.057791689687920735
+   },
+   "n": 200
+  },
+  "surface": {
+   "estimate": -0.03,
+   "ci95": [
+    -0.07,
+    0.015
+   ],
+   "n": 200,
+   "flag": false,
+   "mdc80": 0.06248392758166015,
+   "mean_abs_change": 0.1,
+   "vs_retest": 1.1764705882352942
+  },
+  "typos": {
+   "estimate": -0.4457831325301205,
+   "ci95": [
+    -0.5240963855421686,
+    -0.3674698795180723
+   ],
+   "n": 166,
+   "flag": true,
+   "mdc80": 0.11350798204210133
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.075,
+    "ci95": [
+     0.03,
+     0.125
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.06857853217572453
+   },
+   "presence": {
+    "estimate": -0.035,
+    "ci95": [
+     -0.085,
+     0.015
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07259704992829567
+   },
+   "penalty": {
+    "estimate": -0.025,
+    "ci95": [
+     -0.08,
+     0.03
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07541843076126988
+   },
+   "reward": {
+    "estimate": 0.05,
+    "ci95": [
+     0.005,
+     0.095
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.06197746388931022
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.40699432786414386,
+  "same_opening": 0.04942528735632184,
+  "grounded": 0.39766081871345027,
+  "words": 22.96969696969697,
+  "self_per100": 4.267748162041348,
+  "task_per100": 0.7262493837935148,
+  "action_per100": 0.37066455513378993,
+  "leaks_answer": 0.0,
+  "varied_by_quality": 0.2122681663915694,
+  "n": 198,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 2518,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 182.17116759332805,
+   "completion_tokens": 40.06949960285941,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.44700288772583,
+   "p90": 2.577660179138184,
+   "n": 2497
+  },
+  "served_models": [
+   "google/gemma-3-27b-it"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (2518 of 2518 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.020984813343923752,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:17Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemma-3-27b-it",
+  "request_template": {
+   "model": "google/gemma-3-27b-it",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "surface",
+   "typos",
+   "padding",
+   "repeat",
+   "injection",
+   "forged",
+   "off_task",
+   "shuffled",
+   "blicket",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

@@ -1,0 +1,125 @@
+{
+ "note": "corr(tone, teacher mark) with the mark shown minus hidden; rule-coded tone, English only, no human reference: descriptive. See feedback.halo.",
+ "runs": {
+  "mohler|anthropic_claude-haiku-5.5": {
+   "n": 188,
+   "corr_blind": 0.5360211167909287,
+   "corr_shown": 0.5358971371419364,
+   "halo": -0.00012397964899224512,
+   "ci95": [
+    -0.1322021941498036,
+    0.1281036324663064
+   ],
+   "flag": false,
+   "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+  },
+  "mohler|google_gemini-3.5-flash-lite": {
+   "n": 198,
+   "corr_blind": 0.33362615475181395,
+   "corr_shown": 0.5905109590653173,
+   "halo": 0.2568848043135033,
+   "ci95": [
+    0.16726515818361037,
+    0.3548886310682484
+   ],
+   "flag": true,
+   "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+  },
+  "mohler|openai_gpt-5-mini": {
+   "n": 197,
+   "corr_blind": 0.18706270477333117,
+   "corr_shown": 0.3051634128472615,
+   "halo": 0.11810070807393033,
+   "ci95": [
+    -0.0013687685688919538,
+    0.24639599100135423
+   ],
+   "flag": false,
+   "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+  },
+  "mohler|qwen_qwen3-235b-a22b-2507": {
+   "n": 200,
+   "corr_blind": 0.401626199564873,
+   "corr_shown": 0.4458430217021197,
+   "halo": 0.0442168221372467,
+   "ci95": [
+    -0.05797836402166884,
+    0.14535894647718606
+   ],
+   "flag": false,
+   "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+  },
+  "mohler|deepseek_deepseek-v4.1-flash": {
+   "n": 196,
+   "corr_blind": 0.4288312510487769,
+   "corr_shown": 0.5478893540351712,
+   "halo": 0.11905810298639435,
+   "ci95": [
+    0.01062342966530233,
+    0.22439842226389906
+   ],
+   "flag": true,
+   "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+  },
+  "persuade|anthropic_claude-haiku-5.5": {
+   "n": 145,
+   "corr_blind": 0.14371489236692864,
+   "corr_shown": 0.34753508152146056,
+   "halo": 0.20382018915453193,
+   "ci95": [
+    0.008681714856557998,
+    0.3916263481623895
+   ],
+   "flag": true,
+   "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+  },
+  "persuade|google_gemini-3.5-flash-lite": {
+   "n": 150,
+   "corr_blind": 0.2633586781897576,
+   "corr_shown": 0.641027362362162,
+   "halo": 0.37766868417240435,
+   "ci95": [
+    0.2331589613359808,
+    0.5253382560473241
+   ],
+   "flag": true,
+   "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+  },
+  "persuade|openai_gpt-5-mini": {
+   "n": 150,
+   "corr_blind": -0.10121030901967826,
+   "corr_shown": 0.29854109430737324,
+   "halo": 0.3997514033270515,
+   "ci95": [
+    0.1570194503975803,
+    0.6480178651267294
+   ],
+   "flag": true,
+   "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+  },
+  "persuade|qwen_qwen3-235b-a22b-2507": {
+   "n": 147,
+   "corr_blind": 0.11245643631893262,
+   "corr_shown": 0.542636989425464,
+   "halo": 0.43018055310653136,
+   "ci95": [
+    0.22066677625040299,
+    0.6262985120167258
+   ],
+   "flag": true,
+   "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+  },
+  "persuade|deepseek_deepseek-v4.1-flash": {
+   "n": 147,
+   "corr_blind": 0.17571193081001532,
+   "corr_shown": 0.5622487361981773,
+   "halo": 0.38653680538816193,
+   "ci95": [
+    0.19028513092873733,
+    0.5898864291136193
+   ],
+   "flag": true,
+   "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+  }
+ }
+}

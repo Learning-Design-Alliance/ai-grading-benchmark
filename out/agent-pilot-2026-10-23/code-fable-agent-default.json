@@ -1,0 +1,142 @@
+{
+ "n_cases": 40,
+ "scale": [
+  0,
+  90.0
+ ],
+ "probes_run": [
+  "base",
+  "forged"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 40,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.9247284069710605,
+    "ci95": [
+     0.8727922980089375,
+     0.9548379834684356
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.9702150397484651,
+    "ci95": [
+     0.9479783770427287,
+     0.9856913159186395
+    ]
+   },
+   "bias": {
+    "estimate": -3.5943750000000003,
+    "ci95": [
+     -5.580234375,
+     -1.665437500000001
+    ],
+    "n": 40,
+    "flag": true,
+    "mdc80": 2.869835269271811
+   },
+   "sd_ratio": 0.9425668390178776,
+   "n": 40,
+   "raters": [
+    "instructor_10",
+    "instructor_11",
+    "instructor_225",
+    "instructor_4"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.9110413724814123,
+    "ci95": [
+     0.850350014159608,
+     0.9450253975940323
+    ]
+   },
+   "n": 40
+  },
+  "share_of_ceiling": {
+   "estimate": 1.015023504862758,
+   "ci95": [
+    0.9833734370776837,
+    1.0523400158951823
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 45.0,
+   "machine_passes_of_human_passes": 0.8666666666666667,
+   "machine_fails_of_human_fails": 0.96,
+   "n_pass": 15,
+   "n_fail": 25
+  },
+  "forged": {
+   "estimate": 0.625,
+   "ci95": [
+    -0.6,
+    2.075624999999997
+   ],
+   "n": 40,
+   "flag": false,
+   "mdc80": 1.9013996194436646,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  }
+ },
+ "reliability": {},
+ "fairness": {
+  "attainment": null,
+  "attainment_not_run": "the prompt has no {context} slot, or the context probes were not selected",
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.2540928862139878,
+  "same_opening": 0.0,
+  "grounded": 0.3793103448275862,
+  "words": 51.5,
+  "self_per100": 0.2647783251231527,
+  "task_per100": 0.22820636735731076,
+  "action_per100": 1.1788055004773466,
+  "coherence": 0.2809132213731104,
+  "n": 40,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 80,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 0.0,
+   "completion_tokens": 0.0,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": null,
+  "served_models": [
+   "claude-fable-5.1 (agent harness)"
+  ],
+  "providers": [
+   "Claude Code subagent"
+  ],
+  "cost_source": "not computed: no reported cost and no --price-in/--price-out",
+  "cost_per_1000_gradings_usd": null,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0-agent",
+  "started": "2026-10-23T19:34:31Z",
+  "model": "claude-fable-5.1 (agent harness)",
+  "base_url": "Claude Code subagent",
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "cases": "harmogen-code.jsonl",
+  "cases_sha256": "3a26e94b844158fc24a6ecfd388f86f7c382e6ead4cbaabbfd2ea880050f3e54",
+  "seed": 7,
+  "note": "graded by Claude Code subagents on Fable reading pre-rendered prompts in batches; not an API call"
+ }
+}

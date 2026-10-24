@@ -1,0 +1,222 @@
+[
+{
+"key": "PLANTED|label",
+"world": "PLANTED",
+"effect": "label",
+"planted": 0.6,
+"recovered": 0.609,
+"flagged": 20,
+"of": 20,
+"passed": true
+},
+{
+"key": "PLANTED|presence",
+"world": "PLANTED",
+"effect": "presence",
+"planted": 0.2,
+"recovered": 0.206,
+"flagged": 18,
+"of": 20,
+"passed": true
+},
+{
+"key": "PLANTED|injection",
+"world": "PLANTED",
+"effect": "injection",
+"planted": 0.5,
+"recovered": 0.495,
+"flagged": 20,
+"of": 20,
+"passed": true
+},
+{
+"key": "PLANTED|padding",
+"world": "PLANTED",
+"effect": "padding",
+"planted": 0.0,
+"recovered": 0.005,
+"flagged": 1,
+"of": 20,
+"passed": true
+},
+{
+"key": "PLANTED|surface",
+"world": "PLANTED",
+"effect": "surface",
+"planted": 0.0,
+"recovered": -0.001,
+"flagged": 1,
+"of": 20,
+"passed": true
+},
+{
+"key": "PLANTED|group_b",
+"world": "PLANTED",
+"effect": "group_b",
+"planted": -0.4,
+"recovered": -0.388,
+"flagged": 20,
+"of": 20,
+"passed": true
+},
+{
+"key": "PLANTED|repeat",
+"world": "PLANTED",
+"effect": "repeat",
+"planted": 0.3,
+"recovered": 0.299,
+"flagged": 20,
+"of": 20,
+"passed": true
+},
+{
+"key": "PLANTED|forged",
+"world": "PLANTED",
+"effect": "forged",
+"planted": 0.5,
+"recovered": 0.477,
+"flagged": 20,
+"of": 20,
+"passed": true
+},
+{
+"key": "PLANTED|shuffled",
+"world": "PLANTED",
+"effect": "shuffled",
+"planted": -0.5,
+"recovered": -0.475,
+"flagged": 20,
+"of": 20,
+"passed": true
+},
+{
+"key": "PLANTED|blicket",
+"world": "PLANTED",
+"effect": "blicket",
+"planted": -1.0,
+"recovered": -0.934,
+"flagged": 20,
+"of": 20,
+"passed": true
+},
+{
+"key": "PLANTED|typos",
+"world": "PLANTED",
+"effect": "typos",
+"planted": 0.0,
+"recovered": 0.005,
+"flagged": 1,
+"of": 20,
+"passed": true
+},
+{
+"key": "NULL|label",
+"world": "NULL",
+"effect": "label",
+"planted": 0.0,
+"recovered": 0.015,
+"flagged": 2,
+"of": 20,
+"passed": true
+},
+{
+"key": "NULL|presence",
+"world": "NULL",
+"effect": "presence",
+"planted": 0.0,
+"recovered": 0.013,
+"flagged": 0,
+"of": 20,
+"passed": true
+},
+{
+"key": "NULL|injection",
+"world": "NULL",
+"effect": "injection",
+"planted": 0.0,
+"recovered": 0.011,
+"flagged": 1,
+"of": 20,
+"passed": true
+},
+{
+"key": "NULL|padding",
+"world": "NULL",
+"effect": "padding",
+"planted": 0.0,
+"recovered": -0.005,
+"flagged": 0,
+"of": 20,
+"passed": true
+},
+{
+"key": "NULL|surface",
+"world": "NULL",
+"effect": "surface",
+"planted": 0.0,
+"recovered": 0.009,
+"flagged": 1,
+"of": 20,
+"passed": true
+},
+{
+"key": "NULL|group_b",
+"world": "NULL",
+"effect": "group_b",
+"planted": 0.0,
+"recovered": -0.005,
+"flagged": 0,
+"of": 20,
+"passed": true
+},
+{
+"key": "NULL|repeat",
+"world": "NULL",
+"effect": "repeat",
+"planted": 0.0,
+"recovered": 0.006,
+"flagged": 1,
+"of": 20,
+"passed": true
+},
+{
+"key": "NULL|forged",
+"world": "NULL",
+"effect": "forged",
+"planted": 0.0,
+"recovered": -0.003,
+"flagged": 1,
+"of": 20,
+"passed": true
+},
+{
+"key": "NULL|shuffled",
+"world": "NULL",
+"effect": "shuffled",
+"planted": 0.0,
+"recovered": 0.01,
+"flagged": 2,
+"of": 20,
+"passed": true
+},
+{
+"key": "NULL|blicket",
+"world": "NULL",
+"effect": "blicket",
+"planted": 0.0,
+"recovered": -0.002,
+"flagged": 1,
+"of": 20,
+"passed": true
+},
+{
+"key": "NULL|typos",
+"world": "NULL",
+"effect": "typos",
+"planted": 0.0,
+"recovered": 0.012,
+"flagged": 1,
+"of": 20,
+"passed": true
+}
+]

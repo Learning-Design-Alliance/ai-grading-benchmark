@@ -1,0 +1,359 @@
+{
+ "n_cases": 200,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "repeat",
+  "retest",
+  "shuffled",
+  "surface",
+  "typos"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.5275038569083427,
+    "ci95": [
+     0.4362948498954138,
+     0.6117142877642465
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7087451584900273,
+    "ci95": [
+     0.6288618293643836,
+     0.7780267746712611
+    ]
+   },
+   "bias": {
+    "estimate": -0.6475,
+    "ci95": [
+     -0.83,
+     -0.48
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.25375997641105796
+   },
+   "sd_ratio": 1.6051664317264691,
+   "n": 200,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5055363029329727,
+    "ci95": [
+     0.37160031885321515,
+     0.6176830142763576
+    ]
+   },
+   "n": 200
+  },
+  "share_of_ceiling": {
+   "estimate": 1.0434539593851533,
+   "ci95": [
+    0.8636240134701455,
+    1.3050864293229039
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.7554347826086957,
+   "machine_fails_of_human_fails": 0.9375,
+   "n_pass": 184,
+   "n_fail": 16
+  },
+  "padding": {
+   "estimate": 0.11,
+   "ci95": [
+    -0.005,
+    0.225
+   ],
+   "n": 200,
+   "flag": false,
+   "mdc80": 0.16462437829692247,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "repeat": {
+   "estimate": -0.29081632653061223,
+   "ci95": [
+    -0.42857142857142855,
+    -0.1631377551020415
+   ],
+   "n": 196,
+   "flag": true,
+   "mdc80": 0.1847651145825937,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 0.345,
+   "ci95": [
+    0.215,
+    0.48
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.1930506742129391,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": -1.535,
+   "ci95": [
+    -1.850125,
+    -1.1948750000000008
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.48816339220330435,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "shuffled": {
+   "estimate": -0.08333333333333333,
+   "ci95": [
+    -0.3333333333333333,
+    0.16666666666666666
+   ],
+   "n": 12,
+   "flag": false,
+   "mdc80": 0.4162118730073941,
+   "expect": "lower",
+   "reading": "no detectable change",
+   "as_expected": false
+  },
+  "blicket": {
+   "estimate": -0.2222222222222222,
+   "ci95": [
+    -0.4375,
+    -0.020833333333333332
+   ],
+   "n": 144,
+   "flag": true,
+   "mdc80": 0.3040973185377434,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.020999999999999998,
+   "reaches_midpoint": 0.015,
+   "n": 200
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.8907541890659876,
+    "ci95": [
+     0.8339139607096714,
+     0.9311449581681129
+    ]
+   },
+   "exact_agreement": 0.64,
+   "mean_abs_change": 0.445,
+   "signed_change": {
+    "estimate": 0.075,
+    "ci95": [
+     -0.035,
+     0.2
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.16480077816082075
+   },
+   "n": 200
+  },
+  "surface": {
+   "estimate": 0.0125,
+   "ci95": [
+    -0.085,
+    0.105
+   ],
+   "n": 200,
+   "flag": false,
+   "mdc80": 0.13695494986110318,
+   "mean_abs_change": 0.3975,
+   "vs_retest": 0.8932584269662922
+  },
+  "typos": {
+   "estimate": -0.19578313253012047,
+   "ci95": [
+    -0.32838855421686747,
+    -0.07522590361445824
+   ],
+   "n": 166,
+   "flag": true,
+   "mdc80": 0.18524570560009168
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.0675,
+    "ci95": [
+     -0.0425,
+     0.18006249999999965
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.1589993679074696
+   },
+   "presence": {
+    "estimate": 0.045,
+    "ci95": [
+     -0.085,
+     0.18
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.18223795808457185
+   },
+   "penalty": {
+    "estimate": -0.0875,
+    "ci95": [
+     -0.215,
+     0.0375
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.18067677071883625
+   },
+   "reward": {
+    "estimate": -0.02,
+    "ci95": [
+     -0.15,
+     0.105
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.18078644499371993
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.38160478587923924,
+  "same_opening": 0.0028735632183908046,
+  "grounded": 0.44508670520231214,
+  "words": 18.785,
+  "self_per100": 1.625495120975673,
+  "task_per100": 1.6184866222969658,
+  "action_per100": 0.18077860013343883,
+  "leaks_answer": 0.0,
+  "varied_by_quality": 0.3215252255972367,
+  "n": 200,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 2518,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 236.0448768864178,
+   "completion_tokens": 262.53335980937254,
+   "reasoning_tokens": 16.294678316123907
+  },
+  "latency_s": {
+   "median": 4.489458322525024,
+   "p90": 9.360886096954346,
+   "n": 2497
+  },
+  "served_models": [
+   "openai/gpt-oss-20b"
+  ],
+  "providers": [
+   "AkashML"
+  ],
+  "cost_source": "reported by the endpoint (2518 of 2518 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.030974233518665604,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:18Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "openai/gpt-oss-20b",
+  "request_template": {
+   "model": "openai/gpt-oss-20b",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "AkashML"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "AkashML"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "surface",
+   "typos",
+   "padding",
+   "repeat",
+   "injection",
+   "forged",
+   "off_task",
+   "shuffled",
+   "blicket",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

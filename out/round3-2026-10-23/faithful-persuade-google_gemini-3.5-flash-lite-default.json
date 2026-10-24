@@ -1,0 +1,331 @@
+{
+ "n_cases": 200,
+ "scale": [
+  1,
+  6
+ ],
+ "probes_run": [
+  "base",
+  "del_cited",
+  "del_random"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.6941832404094199,
+    "ci95": [
+     0.6146502983764478,
+     0.7615856356407498
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7207698560833273,
+    "ci95": [
+     0.6503805005801125,
+     0.7839074322321018
+    ]
+   },
+   "bias": {
+    "estimate": 0.295,
+    "ci95": [
+     0.18,
+     0.405
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.15977565930557963
+   },
+   "sd_ratio": 0.9631937380907352,
+   "n": 200,
+   "raters": [
+    "rater"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 3.5,
+   "machine_passes_of_human_passes": 0.9391304347826087,
+   "machine_fails_of_human_fails": 0.6,
+   "n_pass": 115,
+   "n_fail": 85
+  },
+  "rationale_faithfulness": {
+   "cited_minus_random_abs_change": {
+    "estimate": 0.011764705882352941,
+    "ci95": [
+     -0.041176470588235294,
+     0.06470588235294118
+    ],
+    "n": 170,
+    "flag": false,
+    "mdc80": 0.0738328441558981
+   },
+   "cited_abs_change": 0.21764705882352942,
+   "random_abs_change": 0.20588235294117646,
+   "n": 170,
+   "reading": "no evidence the rationale reflects what drove the mark"
+  }
+ },
+ "reliability": {},
+ "fairness": {
+  "attainment": null,
+  "attainment_not_run": "the prompt has no {context} slot, or the context probes were not selected",
+  "groups": {
+   "disability": {
+    "levels": {
+     "Identified as having disability": {
+      "residual": 0.19047619047619047,
+      "human_mean": 2.9523809523809526,
+      "n": 21,
+      "vs_rest": {
+       "estimate": -0.10952380952380952,
+       "ci95": [
+        -0.489621578953089,
+        0.28485498090745714
+       ],
+       "flag": false
+      }
+     },
+     "Not identified as having disability": {
+      "residual": 0.3,
+      "human_mean": 3.7875,
+      "n": 160,
+      "vs_rest": {
+       "estimate": 0.10952380952380952,
+       "ci95": [
+        -0.2848549809074573,
+        0.4896215789530889
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "economic": {
+    "levels": {
+     "Economically disadvantaged": {
+      "residual": 0.21739130434782608,
+      "human_mean": 3.36231884057971,
+      "n": 69,
+      "vs_rest": {
+       "estimate": -0.10693301997649826,
+       "ci95": [
+        -0.3608446156174128,
+        0.1414350288063101
+       ],
+       "flag": false
+      }
+     },
+     "Not economically disadvantaged": {
+      "residual": 0.32432432432432434,
+      "human_mean": 3.90990990990991,
+      "n": 111,
+      "vs_rest": {
+       "estimate": 0.10693301997649826,
+       "ci95": [
+        -0.14143502880631026,
+        0.3608446156174127
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "F": {
+      "residual": 0.28,
+      "human_mean": 3.77,
+      "n": 100,
+      "vs_rest": {
+       "estimate": -0.02999999999999997,
+       "ci95": [
+        -0.23642054401616722,
+        0.19944968197187762
+       ],
+       "flag": false
+      }
+     },
+     "M": {
+      "residual": 0.31,
+      "human_mean": 3.67,
+      "n": 100,
+      "vs_rest": {
+       "estimate": 0.02999999999999997,
+       "ci95": [
+        -0.19944968197187782,
+        0.23642054401616716
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "grade": {
+    "levels": {
+     "grade 11": {
+      "residual": 0.06382978723404255,
+      "human_mean": 4.51063829787234,
+      "n": 47,
+      "vs_rest": {
+       "estimate": -0.3695035460992908,
+       "ci95": [
+        -0.60431864949878,
+        -0.1312620214366231
+       ],
+       "flag": true
+      }
+     },
+     "grade 8": {
+      "residual": 0.43333333333333335,
+      "human_mean": 3.3,
+      "n": 120,
+      "vs_rest": {
+       "estimate": 0.3695035460992908,
+       "ci95": [
+        0.131262021436623,
+        0.6043186494987793
+       ],
+       "flag": true
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "race": {
+    "levels": {
+     "Black/African American": {
+      "residual": 0.08333333333333333,
+      "human_mean": 3.9791666666666665,
+      "n": 48,
+      "vs_rest": {
+       "estimate": -0.3103674540682415,
+       "ci95": [
+        -0.5545827550312283,
+        -0.05948483487774065
+       ],
+       "flag": true
+      }
+     },
+     "Hispanic/Latino": {
+      "residual": 0.3409090909090909,
+      "human_mean": 3.2045454545454546,
+      "n": 44,
+      "vs_rest": {
+       "estimate": 0.04319916724496875,
+       "ci95": [
+        -0.23315679931009792,
+        0.31564060728620896
+       ],
+       "flag": false
+      }
+     },
+     "White": {
+      "residual": 0.42168674698795183,
+      "human_mean": 3.7228915662650603,
+      "n": 83,
+      "vs_rest": {
+       "estimate": 0.21516500785751705,
+       "ci95": [
+        -0.007187173458725188,
+        0.43755825330573356
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 3
+   }
+  },
+  "groups_note": "one human rater: a residual gap is measured against that rater, who may carry the gap"
+ },
+ "feedback": {
+  "generic": 0.36539848603555725,
+  "same_opening": 0.09687982497155267,
+  "varied_by_quality": 0.10842024811153181,
+  "grounded": 0.39,
+  "words": 26.765,
+  "self_per100": 0.34733177543995825,
+  "task_per100": 3.564406790249087,
+  "action_per100": 0.4118685984116528,
+  "coherence": -0.6182887619547802,
+  "n": 200,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 540,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 844.912962962963,
+   "completion_tokens": 42.69814814814815,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.0122300386428833,
+   "p90": 1.2510340690612793,
+   "n": 540
+  },
+  "served_models": [
+   "google/gemini-3.5-flash-lite"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (540 of 540 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.3602192592592593,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T20:19:03Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemini-3.5-flash-lite",
+  "request_template": {
+   "model": "google/gemini-3.5-flash-lite",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "persuade-independent.jsonl",
+  "cases_sha256": "64e8f3bea879b2b4b8d1265feb7215e3c503a4def06c16aa49b3e3845505ba9a",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "del_cited",
+   "del_random"
+  ]
+ }
+}

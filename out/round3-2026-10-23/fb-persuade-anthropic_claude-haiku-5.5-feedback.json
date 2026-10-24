@@ -1,0 +1,280 @@
+{
+ "n_cases": 150,
+ "scale": [
+  1,
+  6
+ ],
+ "probes_run": [
+  "base"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 150,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.4069015097052481,
+    "ci95": [
+     0.31210609705711484,
+     0.5028920843428772
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.5529112236213837,
+    "ci95": [
+     0.45077423278950574,
+     0.6527559018971877
+    ]
+   },
+   "bias": {
+    "estimate": -0.5133333333333333,
+    "ci95": [
+     -0.66,
+     -0.37333333333333335
+    ],
+    "n": 150,
+    "flag": true,
+    "mdc80": 0.2097949284562563
+   },
+   "sd_ratio": 0.5665874729689091,
+   "n": 150,
+   "raters": [
+    "rater"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 3.5,
+   "machine_passes_of_human_passes": 0.5,
+   "machine_fails_of_human_fails": 0.9375,
+   "n_pass": 86,
+   "n_fail": 64
+  }
+ },
+ "reliability": {},
+ "fairness": {
+  "attainment": null,
+  "attainment_not_run": "the prompt has no {context} slot, or the context probes were not selected",
+  "groups": {
+   "economic": {
+    "levels": {
+     "Economically disadvantaged": {
+      "residual": -0.3269230769230769,
+      "human_mean": 3.4423076923076925,
+      "n": 52,
+      "vs_rest": {
+       "estimate": 0.29212454212454214,
+       "ci95": [
+        -0.022766096459966755,
+        0.623110159032265
+       ],
+       "flag": false
+      }
+     },
+     "Not economically disadvantaged": {
+      "residual": -0.6190476190476191,
+      "human_mean": 3.880952380952381,
+      "n": 84,
+      "vs_rest": {
+       "estimate": -0.29212454212454214,
+       "ci95": [
+        -0.623110159032265,
+        0.02276609645996643
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "F": {
+      "residual": -0.47435897435897434,
+      "human_mean": 3.730769230769231,
+      "n": 78,
+      "vs_rest": {
+       "estimate": 0.08119658119658124,
+       "ci95": [
+        -0.21240185423957764,
+        0.3810653279024972
+       ],
+       "flag": false
+      }
+     },
+     "M": {
+      "residual": -0.5555555555555556,
+      "human_mean": 3.6944444444444446,
+      "n": 72,
+      "vs_rest": {
+       "estimate": -0.08119658119658124,
+       "ci95": [
+        -0.3810653279024976,
+        0.2124018542395775
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "grade": {
+    "levels": {
+     "grade 11": {
+      "residual": -0.9166666666666666,
+      "human_mean": 4.472222222222222,
+      "n": 36,
+      "vs_rest": {
+       "estimate": -0.6089743589743589,
+       "ci95": [
+        -0.9748779689320854,
+        -0.2313667652747753
+       ],
+       "flag": true
+      }
+     },
+     "grade 8": {
+      "residual": -0.3076923076923077,
+      "human_mean": 3.3626373626373627,
+      "n": 91,
+      "vs_rest": {
+       "estimate": 0.6089743589743589,
+       "ci95": [
+        0.23136676527477523,
+        0.9748779689320853
+       ],
+       "flag": true
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "race": {
+    "levels": {
+     "Black/African American": {
+      "residual": -0.6774193548387096,
+      "human_mean": 3.7419354838709675,
+      "n": 31,
+      "vs_rest": {
+       "estimate": -0.33366935483870963,
+       "ci95": [
+        -0.7396301781108962,
+        0.0555729166666666
+       ],
+       "flag": false
+      }
+     },
+     "Hispanic/Latino": {
+      "residual": -0.2926829268292683,
+      "human_mean": 3.4634146341463414,
+      "n": 41,
+      "vs_rest": {
+       "estimate": 0.19568916619398752,
+       "ci95": [
+        -0.13282643132638752,
+        0.5269535235375946
+       ],
+       "flag": false
+      }
+     },
+     "White": {
+      "residual": -0.38181818181818183,
+      "human_mean": 3.672727272727273,
+      "n": 55,
+      "vs_rest": {
+       "estimate": 0.07651515151515148,
+       "ci95": [
+        -0.21718506493506493,
+        0.3694659442724457
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 3
+   }
+  },
+  "groups_note": "one human rater: a residual gap is measured against that rater, who may carry the gap"
+ },
+ "feedback": {
+  "generic": 0.33881347540655243,
+  "same_opening": 0.06748862696443342,
+  "varied_by_quality": 0.008777582774487832,
+  "grounded": 0.9530201342281879,
+  "words": 79.95973154362416,
+  "self_per100": 4.526153819377698,
+  "task_per100": 0.191533396866461,
+  "action_per100": 0.5410396183929622,
+  "coherence": 0.06136971135670295,
+  "n": 149,
+  "field": "feedback",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+ },
+ "sustainability": {
+  "calls": 150,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 1209.5733333333333,
+   "completion_tokens": 431.5733333333333,
+   "reasoning_tokens": 266.82
+  },
+  "latency_s": {
+   "median": 3.080190896987915,
+   "p90": 3.896284985542297,
+   "n": 150
+  },
+  "served_models": [
+   "anthropic/claude-haiku-5.5"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (150 of 150 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.336744,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T19:33:49Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "anthropic/claude-haiku-5.5",
+  "request_template": {
+   "model": "anthropic/claude-haiku-5.5",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "feedback.txt",
+  "prompt_sha256": "b05fc490fd80a94235844f9c7773734c7be552761c3ed4e9764688ea2b51b6d7",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "persuade-independent.jsonl",
+  "cases_sha256": "64e8f3bea879b2b4b8d1265feb7215e3c503a4def06c16aa49b3e3845505ba9a",
+  "n": 150,
+  "seed": 7,
+  "probes": [
+   "base"
+  ]
+ }
+}

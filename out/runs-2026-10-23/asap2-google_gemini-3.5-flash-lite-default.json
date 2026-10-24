@@ -1,0 +1,493 @@
+{
+ "n_cases": 200,
+ "scale": [
+  1,
+  6
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "chimpanzee",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "repeat",
+  "retest",
+  "shuffled",
+  "surface",
+  "typos"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.6054993058142292,
+    "ci95": [
+     0.5272463140026526,
+     0.6764054685680535
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.716668591387511,
+    "ci95": [
+     0.6497561548245333,
+     0.7760961230961365
+    ]
+   },
+   "bias": {
+    "estimate": 0.635,
+    "ci95": [
+     0.525,
+     0.76
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.17323867406256252
+   },
+   "sd_ratio": 1.2328375111450227,
+   "n": 200,
+   "raters": [
+    "rater"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 3.5,
+   "machine_passes_of_human_passes": 0.9642857142857143,
+   "machine_fails_of_human_fails": 0.6597222222222222,
+   "n_pass": 56,
+   "n_fail": 144
+  },
+  "padding": {
+   "estimate": -0.265,
+   "ci95": [
+    -0.35,
+    -0.175
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.1247114458404604,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "repeat": {
+   "estimate": -0.51,
+   "ci95": [
+    -0.605125,
+    -0.415
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.13750132023121314,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 0.245,
+   "ci95": [
+    0.14,
+    0.35
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.1518099181749381,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 2.335,
+   "ci95": [
+    2.164875,
+    2.52
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.25748060374819043,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "shuffled": {
+   "estimate": -0.9849246231155779,
+   "ci95": [
+    -1.1155778894472361,
+    -0.8542713567839196
+   ],
+   "n": 199,
+   "flag": true,
+   "mdc80": 0.18550908141309025,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "blicket": {
+   "estimate": -0.37,
+   "ci95": [
+    -0.445125,
+    -0.29
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.11455625551837822,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.0009999999999999788,
+   "reaches_midpoint": 0.0,
+   "n": 200
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9571670977413881,
+    "ci95": [
+     0.939658137129795,
+     0.9713568334586478
+    ]
+   },
+   "exact_agreement": 0.87,
+   "mean_abs_change": 0.13,
+   "signed_change": {
+    "estimate": 0.01,
+    "ci95": [
+     -0.04,
+     0.06
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.07153788046698435
+   },
+   "n": 200
+  },
+  "surface": {
+   "estimate": 0.06,
+   "ci95": [
+    0.0,
+    0.12
+   ],
+   "n": 200,
+   "flag": false,
+   "mdc80": 0.08796344603979529,
+   "mean_abs_change": 0.2,
+   "vs_retest": 1.5384615384615385
+  },
+  "typos": {
+   "estimate": -0.1,
+   "ci95": [
+    -0.175,
+    -0.025
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.10688837929419974
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.12,
+    "ci95": [
+     0.05,
+     0.185
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.09634277164500307
+   },
+   "presence": {
+    "estimate": -0.01,
+    "ci95": [
+     -0.075,
+     0.06
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.10118930962265503
+   },
+   "penalty": {
+    "estimate": 0.02,
+    "ci95": [
+     -0.045,
+     0.08
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.0908713818548007
+   },
+   "reward": {
+    "estimate": 0.14,
+    "ci95": [
+     0.07,
+     0.21
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.10128659770360468
+   }
+  },
+  "groups": {
+   "disability": {
+    "levels": {
+     "Identified as having disability": {
+      "residual": 0.1111111111111111,
+      "human_mean": 2.4444444444444446,
+      "n": 27,
+      "vs_rest": {
+       "estimate": -0.5960317460317461,
+       "ci95": [
+        -0.9339409352257649,
+        -0.2571877765792678
+       ],
+       "flag": true
+      }
+     },
+     "Not identified as having disability": {
+      "residual": 0.7071428571428572,
+      "human_mean": 2.9714285714285715,
+      "n": 140,
+      "vs_rest": {
+       "estimate": 0.5960317460317461,
+       "ci95": [
+        0.25718777657926767,
+        0.9339409352257646
+       ],
+       "flag": true
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "economic": {
+    "levels": {
+     "Economically disadvantaged": {
+      "residual": 0.5384615384615384,
+      "human_mean": 2.7788461538461537,
+      "n": 104,
+      "vs_rest": {
+       "estimate": -0.19169719169719168,
+       "ci95": [
+        -0.4719339922203699,
+        0.09438012395189554
+       ],
+       "flag": false
+      }
+     },
+     "Not economically disadvantaged": {
+      "residual": 0.7301587301587301,
+      "human_mean": 3.0634920634920637,
+      "n": 63,
+      "vs_rest": {
+       "estimate": 0.19169719169719168,
+       "ci95": [
+        -0.09438012395189566,
+        0.47193399222036986
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "ell": {
+    "levels": {
+     "No": {
+      "residual": 0.6306818181818182,
+      "human_mean": 2.9431818181818183,
+      "n": 176,
+      "vs_rest": {
+       "estimate": 0.1068722943722944,
+       "ci95": [
+        -0.2522668333035358,
+        0.4665691910538235
+       ],
+       "flag": false
+      }
+     },
+     "Yes": {
+      "residual": 0.5238095238095238,
+      "human_mean": 2.619047619047619,
+      "n": 21,
+      "vs_rest": {
+       "estimate": -0.1068722943722944,
+       "ci95": [
+        -0.4665691910538238,
+        0.2522668333035355
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "F": {
+      "residual": 0.7272727272727273,
+      "human_mean": 2.9797979797979797,
+      "n": 99,
+      "vs_rest": {
+       "estimate": 0.1827182718271827,
+       "ci95": [
+        -0.05530127207948617,
+        0.4255506683033277
+       ],
+       "flag": false
+      }
+     },
+     "M": {
+      "residual": 0.5445544554455446,
+      "human_mean": 2.8415841584158414,
+      "n": 101,
+      "vs_rest": {
+       "estimate": -0.1827182718271827,
+       "ci95": [
+        -0.42555066830332783,
+        0.055301272079486104
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "race": {
+    "levels": {
+     "Black/African American": {
+      "residual": 0.46153846153846156,
+      "human_mean": 2.769230769230769,
+      "n": 26,
+      "vs_rest": {
+       "estimate": -0.21901709401709402,
+       "ci95": [
+        -0.5350686018448111,
+        0.11195608995740453
+       ],
+       "flag": false
+      }
+     },
+     "Hispanic/Latino": {
+      "residual": 0.7121212121212122,
+      "human_mean": 2.8333333333333335,
+      "n": 66,
+      "vs_rest": {
+       "estimate": 0.10635198135198143,
+       "ci95": [
+        -0.16287591203788387,
+        0.3676519428201881
+       ],
+       "flag": false
+      }
+     },
+     "White": {
+      "residual": 0.6538461538461539,
+      "human_mean": 2.948717948717949,
+      "n": 78,
+      "vs_rest": {
+       "estimate": 0.012541806020066937,
+       "ci95": [
+        -0.26287974185104723,
+        0.2757593813240189
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 3
+   }
+  },
+  "groups_note": "one human rater: a residual gap is measured against that rater, who may carry the gap"
+ },
+ "sustainability": {
+  "calls": 2999,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2110.7389129709904,
+   "completion_tokens": 50.056018672890964,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.0014665126800537,
+   "p90": 1.3553417682647706,
+   "n": 2998
+  },
+  "served_models": [
+   "google/gemini-3.5-flash-lite"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (2999 of 2999 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.7576308569523174,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T05:01:59Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemini-3.5-flash-lite",
+  "request_template": {
+   "model": "google/gemini-3.5-flash-lite",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "asap2.jsonl",
+  "cases_sha256": "5af9331a2ed79103fdd2abe67ad284aff2ca720debd270cc843e425149acd807",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "blicket",
+   "chimpanzee",
+   "ctx_high",
+   "ctx_low",
+   "ctx_neutral",
+   "forged",
+   "injection",
+   "off_task",
+   "padding",
+   "repeat",
+   "retest",
+   "shuffled",
+   "surface",
+   "typos"
+  ]
+ }
+}

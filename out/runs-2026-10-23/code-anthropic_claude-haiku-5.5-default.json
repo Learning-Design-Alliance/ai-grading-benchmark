@@ -1,0 +1,268 @@
+{
+ "n_cases": 129,
+ "scale": [
+  0,
+  90.0
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 129,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.9094191049090716,
+    "ci95": [
+     0.8787305168833368,
+     0.9326777800141997
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.9593110914180638,
+    "ci95": [
+     0.9443241761964152,
+     0.9717363410035165
+    ]
+   },
+   "bias": {
+    "estimate": -5.534980620155039,
+    "ci95": [
+     -6.912112403100775,
+     -4.192943313953489
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 1.998750573890275
+   },
+   "sd_ratio": 0.9761431006054953,
+   "n": 129,
+   "raters": [
+    "instructor_10",
+    "instructor_11",
+    "instructor_225",
+    "instructor_4"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.913904482474324,
+    "ci95": [
+     0.8846351180863613,
+     0.9355133965015396
+    ]
+   },
+   "n": 129
+  },
+  "share_of_ceiling": {
+   "estimate": 0.9950920718179338,
+   "ci95": [
+    0.9737309915235529,
+    1.0167642986826249
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 45.0,
+   "machine_passes_of_human_passes": 0.8333333333333334,
+   "machine_fails_of_human_fails": 0.9866666666666667,
+   "n_pass": 54,
+   "n_fail": 75
+  },
+  "padding": {
+   "estimate": -0.9224806201550387,
+   "ci95": [
+    -2.217441860465116,
+    0.2947674418604641
+   ],
+   "n": 129,
+   "flag": false,
+   "mdc80": 1.8516701436200758,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": -2.0232558139534884,
+   "ci95": [
+    -3.015891472868217,
+    -0.9143410852713199
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 1.5110625060670893,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "forged": {
+   "estimate": -0.9302325581395349,
+   "ci95": [
+    -1.930232558139535,
+    0.07751937984496124
+   ],
+   "n": 129,
+   "flag": false,
+   "mdc80": 1.4105370099969443,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.0,
+   "reaches_midpoint": 0.0,
+   "n": 129
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9815732575941126,
+    "ci95": [
+     0.9739537383026723,
+     0.9878704890901918
+    ]
+   },
+   "exact_agreement": 0.3333333333333333,
+   "mean_abs_change": 3.511627906976744,
+   "signed_change": {
+    "estimate": -0.17829457364341086,
+    "ci95": [
+     -1.0852713178294573,
+     0.7364341085271318
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 1.321652059665061
+   },
+   "n": 129
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 1.751937984496124,
+    "ci95": [
+     0.8294573643410853,
+     2.6668604651162777
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 1.2865472645614244
+   },
+   "presence": {
+    "estimate": -0.12403100775193798,
+    "ci95": [
+     -0.9224806201550387,
+     0.7054263565891473
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 1.2061565250359696
+   },
+   "penalty": {
+    "estimate": -1.6744186046511629,
+    "ci95": [
+     -2.666860465116279,
+     -0.7596899224806202
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 1.359797755882407
+   },
+   "reward": {
+    "estimate": 0.07751937984496124,
+    "ci95": [
+     -0.8065891472868216,
+     0.9614341085271307
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 1.273035861737648
+   }
+  },
+  "groups": {}
+ },
+ "sustainability": {
+  "calls": 1161,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 3751.8036175710595,
+   "completion_tokens": 673.6373815676142,
+   "reasoning_tokens": 538.5245478036176
+  },
+  "latency_s": {
+   "median": 4.222896575927734,
+   "p90": 6.07344241142273,
+   "n": 1105
+  },
+  "served_models": [
+   "anthropic/claude-haiku-5.5"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (1161 of 1161 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.711999052540913,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T10:52:47Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "anthropic/claude-haiku-5.5",
+  "request_template": {
+   "model": "anthropic/claude-haiku-5.5",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "harmogen-code.jsonl",
+  "cases_sha256": "3a26e94b844158fc24a6ecfd388f86f7c382e6ead4cbaabbfd2ea880050f3e54",
+  "n": 129,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "padding",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

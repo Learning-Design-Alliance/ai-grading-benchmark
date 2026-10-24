@@ -1,0 +1,185 @@
+{
+ "population_ceiling": 0.8005566171201007,
+ "worlds": {
+  "PLANTED": {
+   "effects": {
+    "label": {
+     "planted": 0.6,
+     "mean_estimate": 0.5925,
+     "flagged": 20,
+     "of": 20,
+     "ok": true
+    },
+    "presence": {
+     "planted": 0.2,
+     "mean_estimate": 0.1765,
+     "flagged": 14,
+     "of": 20,
+     "ok": false
+    },
+    "injection": {
+     "planted": 0.5,
+     "mean_estimate": 0.47450000000000003,
+     "flagged": 20,
+     "of": 20,
+     "ok": true
+    },
+    "padding": {
+     "planted": 0.0,
+     "mean_estimate": -0.015,
+     "flagged": 0,
+     "of": 20,
+     "ok": true
+    },
+    "surface": {
+     "planted": 0.0,
+     "mean_estimate": -0.00925,
+     "flagged": 2,
+     "of": 20,
+     "ok": true
+    },
+    "group_b": {
+     "planted": -0.4,
+     "mean_estimate": -0.39825,
+     "flagged": 20,
+     "of": 20,
+     "ok": true
+    },
+    "repeat": {
+     "planted": 0.3,
+     "mean_estimate": 0.28425,
+     "flagged": 20,
+     "of": 20,
+     "ok": true
+    },
+    "forged": {
+     "planted": 0.5,
+     "mean_estimate": 0.49225,
+     "flagged": 20,
+     "of": 20,
+     "ok": true
+    },
+    "shuffled": {
+     "planted": -0.5,
+     "mean_estimate": -0.49800000000000005,
+     "flagged": 20,
+     "of": 20,
+     "ok": true
+    },
+    "chimpanzee": {
+     "planted": -1.0,
+     "mean_estimate": -0.9262247982335922,
+     "flagged": 20,
+     "of": 20,
+     "ok": true
+    },
+    "typos": {
+     "planted": 0.0,
+     "mean_estimate": -0.0029696969696969694,
+     "flagged": 0,
+     "of": 20,
+     "ok": true
+    }
+   },
+   "ceiling_mean": 0.807534563176582,
+   "retest_qwk_max": 0.8359263683596955,
+   "off_task_mean_share": 0.10415,
+   "label_halfwidth_mean": 0.11189999999999992
+  },
+  "NULL": {
+   "effects": {
+    "label": {
+     "planted": 0.0,
+     "mean_estimate": -0.0020000000000000005,
+     "flagged": 0,
+     "of": 20,
+     "ok": true
+    },
+    "presence": {
+     "planted": 0.0,
+     "mean_estimate": -0.02,
+     "flagged": 1,
+     "of": 20,
+     "ok": true
+    },
+    "injection": {
+     "planted": 0.0,
+     "mean_estimate": -0.01975,
+     "flagged": 2,
+     "of": 20,
+     "ok": true
+    },
+    "padding": {
+     "planted": 0.0,
+     "mean_estimate": -0.008,
+     "flagged": 2,
+     "of": 20,
+     "ok": true
+    },
+    "surface": {
+     "planted": 0.0,
+     "mean_estimate": -0.0085,
+     "flagged": 2,
+     "of": 20,
+     "ok": true
+    },
+    "group_b": {
+     "planted": 0.0,
+     "mean_estimate": -0.013749999999999998,
+     "flagged": 0,
+     "of": 20,
+     "ok": true
+    },
+    "repeat": {
+     "planted": 0.0,
+     "mean_estimate": 0.0002499999999999991,
+     "flagged": 2,
+     "of": 20,
+     "ok": true
+    },
+    "forged": {
+     "planted": 0.0,
+     "mean_estimate": 0.0022499999999999994,
+     "flagged": 3,
+     "of": 20,
+     "ok": true
+    },
+    "shuffled": {
+     "planted": 0.0,
+     "mean_estimate": -0.007750000000000002,
+     "flagged": 3,
+     "of": 20,
+     "ok": true
+    },
+    "chimpanzee": {
+     "planted": 0.0,
+     "mean_estimate": -0.0018028018882290252,
+     "flagged": 1,
+     "of": 20,
+     "ok": true
+    },
+    "typos": {
+     "planted": 0.0,
+     "mean_estimate": -0.014474747474747474,
+     "flagged": 2,
+     "of": 20,
+     "ok": true
+    }
+   },
+   "ceiling_mean": 0.807534563176582,
+   "retest_qwk_max": 0.8346268223688982,
+   "off_task_mean_share": 0.10415,
+   "label_halfwidth_mean": 0.11251562500000001
+  }
+ },
+ "cost_check": {
+  "report": 0.20835561115082202,
+  "by_hand": 0.20835561115082202
+ },
+ "mohler_positive_control": {
+  "n": 1727,
+  "ceiling": 0.5193208051471492,
+  "expected": 0.519
+ },
+ "verdict": "FLOOR FAILS: F1 PLANTED presence"
+}

@@ -1,0 +1,35 @@
+== gpt-4o-mini -> gpt-4.1-mini
+  mean shift B - A        +0.240 [+0.090, +0.400] marks
+  agreement A with B      QWK 0.829
+  agreement A with itself QWK 0.920 (same version, asked twice)
+  DRIFT: marks moved; individual marks agree less across versions than within one
+== gpt-4.1-mini -> gpt-5-mini
+  mean shift B - A        +0.340 [+0.140, +0.550] marks
+  agreement A with B      QWK 0.743
+  agreement A with itself QWK 0.956 (same version, asked twice)
+  DRIFT: marks moved; individual marks agree less across versions than within one
+== gpt-5-mini -> gpt-5.6-luna
+  mean shift B - A        -0.090 [-0.240, +0.040] marks
+  agreement A with B      QWK 0.895
+  agreement A with itself QWK 0.970 (same version, asked twice)
+  no shift in mean marks detected; individual marks agree less across versions than within one
+== gpt-4o-mini -> gpt-5.6-luna
+  mean shift B - A        +0.490 [+0.290, +0.700] marks
+  agreement A with B      QWK 0.728
+  agreement A with itself QWK 0.920 (same version, asked twice)
+  DRIFT: marks moved; individual marks agree less across versions than within one
+== claude-haiku-4.5 -> claude-haiku-5.5
+  mean shift B - A        -0.490 [-0.660, -0.330] marks
+  agreement A with B      QWK 0.802
+  agreement A with itself QWK 0.983 (same version, asked twice)
+  DRIFT: marks moved; individual marks agree less across versions than within one
+== qwen-2.5-72b-instruct -> qwen3-235b-a22b-2507
+  mean shift B - A        -0.040 [-0.190, +0.090] marks
+  agreement A with B      QWK 0.855
+  agreement A with itself QWK 0.908 (same version, asked twice)
+  no shift in mean marks detected; individual marks agree less across versions than within one
+== deepseek-chat -> deepseek-v4.1-flash
+  mean shift B - A        +0.130 [-0.060, +0.350] marks
+  agreement A with B      QWK 0.806
+  agreement A with itself QWK 0.901 (same version, asked twice)
+  no shift in mean marks detected; individual marks agree less across versions than within one

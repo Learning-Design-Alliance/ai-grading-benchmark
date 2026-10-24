@@ -1,0 +1,290 @@
+{
+ "n_cases": 129,
+ "scale": [
+  0,
+  90.0
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 129,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.6493313329328981,
+    "ci95": [
+     0.5590262609925054,
+     0.7279551466087515
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.8109909908065694,
+    "ci95": [
+     0.7490425365065471,
+     0.8650432831140963
+    ]
+   },
+   "bias": {
+    "estimate": -19.783042635658912,
+    "ci95": [
+     -22.90188226744186,
+     -16.70796027131783
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 4.59109596778951
+   },
+   "sd_ratio": 1.093526122414038,
+   "n": 129,
+   "raters": [
+    "instructor_10",
+    "instructor_11",
+    "instructor_225",
+    "instructor_4"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.913904482474324,
+    "ci95": [
+     0.8846351180863613,
+     0.9355133965015396
+    ]
+   },
+   "n": 129
+  },
+  "share_of_ceiling": {
+   "estimate": 0.7105024052129442,
+   "ci95": [
+    0.6220396454778262,
+    0.7880193584672035
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 45.0,
+   "machine_passes_of_human_passes": 0.5925925925925926,
+   "machine_fails_of_human_fails": 1.0,
+   "n_pass": 54,
+   "n_fail": 75
+  },
+  "padding": {
+   "estimate": -2.705426356589147,
+   "ci95": [
+    -5.240697674418605,
+    -0.2864341085271339
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 3.498290700936032,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": -2.689922480620155,
+   "ci95": [
+    -5.124418604651163,
+    -0.49573643410852924
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 3.376374609618561,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "forged": {
+   "estimate": 39.666666666666664,
+   "ci95": [
+    32.277906976744184,
+    46.45096899224805
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 10.211437512532278,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.0,
+   "reaches_midpoint": 0.0,
+   "n": 129
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9030781847107748,
+    "ci95": [
+     0.8251416963360688,
+     0.956160796981649
+    ]
+   },
+   "exact_agreement": 0.5813953488372093,
+   "mean_abs_change": 6.224806201550388,
+   "signed_change": {
+    "estimate": -2.7209302325581395,
+    "ci95": [
+     -5.155038759689923,
+     -0.49612403100775193
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 3.2719884089875317
+   },
+   "n": 129
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": -0.2713178294573643,
+    "ci95": [
+     -2.271511627906977,
+     1.6127906976744164
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 2.786017986334452
+   },
+   "presence": {
+    "estimate": -1.937984496124031,
+    "ci95": [
+     -4.806395348837209,
+     0.5660852713178284
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 3.756335333128255
+   },
+   "penalty": {
+    "estimate": 0.29457364341085274,
+    "ci95": [
+     -2.10077519379845,
+     2.9302325581395348
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 3.496254230202518
+   },
+   "reward": {
+    "estimate": 0.023255813953488372,
+    "ci95": [
+     -2.550387596899225,
+     2.6596899224806156
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 3.707186585250587
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.19238604421416125,
+  "same_opening": 0.00017067759003242875,
+  "varied_by_quality": 0.08954181909287995,
+  "words": 20.68217054263566,
+  "self_per100": 0.833737548273386,
+  "task_per100": 1.0882848012131079,
+  "action_per100": 0.11869408055848735,
+  "grounded": 0.0,
+  "coherence": -0.12488457538423108,
+  "n": 129,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1161,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2229.34797588286,
+   "completion_tokens": 639.5538329026701,
+   "reasoning_tokens": 40.01808785529716
+  },
+  "latency_s": {
+   "median": 8.573956489562988,
+   "p90": 26.937295484542847,
+   "n": 1105
+  },
+  "served_models": [
+   "openai/gpt-oss-20b"
+  ],
+  "providers": [
+   "AkashML"
+  ],
+  "cost_source": "reported by the endpoint (1161 of 1161 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.10854234280792421,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:19Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "openai/gpt-oss-20b",
+  "request_template": {
+   "model": "openai/gpt-oss-20b",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "AkashML"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "AkashML"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "harmogen-code.jsonl",
+  "cases_sha256": "3a26e94b844158fc24a6ecfd388f86f7c382e6ead4cbaabbfd2ea880050f3e54",
+  "n": 129,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "padding",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

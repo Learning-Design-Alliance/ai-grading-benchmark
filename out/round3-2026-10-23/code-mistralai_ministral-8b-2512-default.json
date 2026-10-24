@@ -1,0 +1,289 @@
+{
+ "n_cases": 129,
+ "scale": [
+  0,
+  90.0
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 129,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.8440011306644991,
+    "ci95": [
+     0.7975428887176969,
+     0.8829723261087206
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.9217331902127158,
+    "ci95": [
+     0.8932055225992386,
+     0.9455009371807459
+    ]
+   },
+   "bias": {
+    "estimate": -10.09312015503876,
+    "ci95": [
+     -12.208924418604651,
+     -8.015433624031008
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 2.925211031393788
+   },
+   "sd_ratio": 1.0664921938234617,
+   "n": 129,
+   "raters": [
+    "instructor_10",
+    "instructor_11",
+    "instructor_225",
+    "instructor_4"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.913904482474324,
+    "ci95": [
+     0.8846351180863613,
+     0.9355133965015396
+    ]
+   },
+   "n": 129
+  },
+  "share_of_ceiling": {
+   "estimate": 0.9235113152957002,
+   "ci95": [
+    0.885719873584696,
+    0.9549692176252297
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 45.0,
+   "machine_passes_of_human_passes": 0.7777777777777778,
+   "machine_fails_of_human_fails": 1.0,
+   "n_pass": 54,
+   "n_fail": 75
+  },
+  "padding": {
+   "estimate": -0.5193798449612403,
+   "ci95": [
+    -1.4810077519379845,
+    0.5503875968992248
+   ],
+   "n": 129,
+   "flag": false,
+   "mdc80": 1.489107336162933,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 3.4573643410852712,
+   "ci95": [
+    0.6277131782945736,
+    6.450193798449609
+   ],
+   "n": 129,
+   "flag": true,
+   "mdc80": 4.111107990764053,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 1.930232558139535,
+   "ci95": [
+    -2.2253875968992247,
+    6.271317829457364
+   ],
+   "n": 129,
+   "flag": false,
+   "mdc80": 6.060704087514591,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.0,
+   "reaches_midpoint": 0.0,
+   "n": 129
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9846990224709399,
+    "ci95": [
+     0.9769083644357393,
+     0.99071722795413
+    ]
+   },
+   "exact_agreement": 0.5271317829457365,
+   "mean_abs_change": 2.868217054263566,
+   "signed_change": {
+    "estimate": 0.46511627906976744,
+    "ci95": [
+     -0.3877906976744186,
+     1.3643410852713178
+    ],
+    "n": 129,
+    "flag": false,
+    "mdc80": 1.293545987695186
+   },
+   "n": 129
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 3.4031007751937983,
+    "ci95": [
+     2.2790697674418605,
+     4.504457364341082
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 1.5924692542783252
+   },
+   "presence": {
+    "estimate": -1.186046511627907,
+    "ci95": [
+     -2.0699612403100778,
+     -0.30213178294573745
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 1.3145621832190617
+   },
+   "penalty": {
+    "estimate": -1.8527131782945736,
+    "ci95": [
+     -2.8372093023255816,
+     -0.8366279069767474
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 1.4358635814400125
+   },
+   "reward": {
+    "estimate": 1.550387596899225,
+    "ci95": [
+     0.4418604651162791,
+     2.6591085271317816
+    ],
+    "n": 129,
+    "flag": true,
+    "mdc80": 1.5336730798310079
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.1663328740052993,
+  "same_opening": 0.003714598508033709,
+  "varied_by_quality": 0.09934463801577971,
+  "words": 28.58139534883721,
+  "self_per100": 4.275068190585084,
+  "task_per100": 0.5277777777777778,
+  "action_per100": 0.19230769230769232,
+  "grounded": 0.24752475247524752,
+  "n": 129,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1161,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2433.293712316968,
+   "completion_tokens": 67.96985357450474,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.0989058017730713,
+   "p90": 1.745709276199341,
+   "n": 1105
+  },
+  "served_models": [
+   "mistralai/ministral-8b-2512"
+  ],
+  "providers": [
+   "Mistral"
+  ],
+  "cost_source": "reported by the endpoint (1161 of 1161 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.07821465116279071,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:19Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "mistralai/ministral-8b-2512",
+  "request_template": {
+   "model": "mistralai/ministral-8b-2512",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Mistral"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Mistral"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "harmogen-code.jsonl",
+  "cases_sha256": "3a26e94b844158fc24a6ecfd388f86f7c382e6ead4cbaabbfd2ea880050f3e54",
+  "n": 129,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "padding",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

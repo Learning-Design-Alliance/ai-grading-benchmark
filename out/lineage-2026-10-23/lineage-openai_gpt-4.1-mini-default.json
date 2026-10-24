@@ -1,0 +1,293 @@
+{
+ "n_cases": 100,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "null_blank",
+  "null_dot",
+  "null_gibberish",
+  "null_restate",
+  "null_think",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "null_gibberish": {
+    "failed": 1,
+    "content_filter": 1,
+    "of": 30
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.5848041657867591,
+    "ci95": [
+     0.45145067118254995,
+     0.6916261889239969
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7397461993432354,
+    "ci95": [
+     0.6010969268622114,
+     0.8357519318179099
+    ]
+   },
+   "bias": {
+    "estimate": -0.605,
+    "ci95": [
+     -0.7751250000000001,
+     -0.4298750000000007
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.2671882021226524
+   },
+   "sd_ratio": 1.2347492493444376,
+   "n": 100,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5727261862077208,
+    "ci95": [
+     0.3735246545760042,
+     0.7342636633316876
+    ]
+   },
+   "n": 100
+  },
+  "share_of_ceiling": {
+   "estimate": 1.0210885757800112,
+   "ci95": [
+    0.802927063222035,
+    1.3881910806708393
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.8369565217391305,
+   "machine_fails_of_human_fails": 0.875,
+   "n_pass": 92,
+   "n_fail": 8
+  },
+  "injection": {
+   "estimate": 0.33,
+   "ci95": [
+    0.2,
+    0.46
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 0.186899854348674,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.78,
+   "ci95": [
+    0.47,
+    1.07
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 0.4315410955769069,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "blicket": {
+   "estimate": -0.859375,
+   "ci95": [
+    -1.046875,
+    -0.6875
+   ],
+   "n": 64,
+   "flag": true,
+   "mdc80": 0.2708733944730145,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.02,
+   "reaches_midpoint": 0.0,
+   "n": 100
+  },
+  "null_answers": {
+   "credited": 0.0,
+   "by_kind": {
+    "null_blank": {
+     "credited": 0.0,
+     "n": 30
+    },
+    "null_dot": {
+     "credited": 0.0,
+     "n": 30
+    },
+    "null_gibberish": {
+     "credited": 0.0,
+     "n": 29
+    },
+    "null_restate": {
+     "credited": 0.0,
+     "n": 30
+    },
+    "null_think": {
+     "credited": 0.0,
+     "n": 30
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9556968622954237,
+    "ci95": [
+     0.9277722121498374,
+     0.9747164060235541
+    ]
+   },
+   "exact_agreement": 0.83,
+   "mean_abs_change": 0.17,
+   "signed_change": {
+    "estimate": 0.05,
+    "ci95": [
+     -0.03,
+     0.13
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 0.11517224693756072
+   },
+   "n": 100
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.09,
+    "ci95": [
+     -0.01,
+     0.19
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 0.1384070997186389
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.462866790572657,
+  "same_opening": 0.10752688172043011,
+  "grounded": 0.7816091954022989,
+  "words": 28.49,
+  "self_per100": 3.695318336648019,
+  "task_per100": 1.2892218176320258,
+  "action_per100": 0.24009012103232538,
+  "leaks_answer": 0.0,
+  "varied_by_quality": 0.1706430970515102,
+  "n": 100,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 914,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 164.6805251641138,
+   "completion_tokens": 39.076586433260395,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.2358789443969727,
+   "p90": 2.1909539699554443,
+   "n": 911
+  },
+  "served_models": [
+   "openai/gpt-4.1-mini"
+  ],
+  "providers": [
+   "Azure"
+  ],
+  "cost_source": "reported by the endpoint (914 of 914 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.12839474835886214,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-23T19:16:38Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "openai/gpt-4.1-mini",
+  "request_template": {
+   "model": "openai/gpt-4.1-mini",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "blicket",
+   "off_task",
+   "ctx_low",
+   "ctx_high",
+   "null_blank",
+   "null_dot",
+   "null_think",
+   "null_restate",
+   "null_gibberish"
+  ]
+ }
+}

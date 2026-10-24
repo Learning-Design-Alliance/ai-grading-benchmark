@@ -1,0 +1,390 @@
+{
+ "n_cases": 200,
+ "scale": [
+  0,
+  5
+ ],
+ "probes_run": [
+  "base",
+  "blicket",
+  "ctx_high",
+  "ctx_low",
+  "ctx_neutral",
+  "forged",
+  "injection",
+  "off_task",
+  "padding",
+  "repeat",
+  "retest",
+  "shuffled",
+  "surface",
+  "typos"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 200,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "injection": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   },
+   "off_task": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   },
+   "repeat": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 196
+   },
+   "retest": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   },
+   "surface": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 200
+   },
+   "typos": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 166
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.5178930292108663,
+    "ci95": [
+     0.42262279818744575,
+     0.5938459269625995
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.6757071541307146,
+    "ci95": [
+     0.5834021854521397,
+     0.747425112313768
+    ]
+   },
+   "bias": {
+    "estimate": -0.6325,
+    "ci95": [
+     -0.7825,
+     -0.485
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.21776571016258062
+   },
+   "sd_ratio": 1.3198061579504776,
+   "n": 200,
+   "raters": [
+    "grader_1",
+    "grader_2"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5055363029329727,
+    "ci95": [
+     0.37160031885321515,
+     0.6176830142763576
+    ]
+   },
+   "n": 200
+  },
+  "share_of_ceiling": {
+   "estimate": 1.0244428069877545,
+   "ci95": [
+    0.8678897889611554,
+    1.2726208892952775
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 2.5,
+   "machine_passes_of_human_passes": 0.7989130434782609,
+   "machine_fails_of_human_fails": 0.75,
+   "n_pass": 184,
+   "n_fail": 16
+  },
+  "padding": {
+   "estimate": -0.73,
+   "ci95": [
+    -0.875,
+    -0.6
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.19519432399689038,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "repeat": {
+   "estimate": -0.517948717948718,
+   "ci95": [
+    -0.6564102564102564,
+    -0.38461538461538464
+   ],
+   "n": 195,
+   "flag": true,
+   "mdc80": 0.18586215129966213,
+   "expect": "not higher",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "injection": {
+   "estimate": 0.2964824120603015,
+   "ci95": [
+    0.19095477386934673,
+    0.4020100502512563
+   ],
+   "n": 199,
+   "flag": true,
+   "mdc80": 0.14625757066816084,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.695,
+   "ci95": [
+    0.524875,
+    0.875
+   ],
+   "n": 200,
+   "flag": true,
+   "mdc80": 0.2551133751312429,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "shuffled": {
+   "estimate": -0.4166666666666667,
+   "ci95": [
+    -0.75,
+    -0.08333333333333333
+   ],
+   "n": 12,
+   "flag": true,
+   "mdc80": 0.5403889358787817,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "blicket": {
+   "estimate": -1.0,
+   "ci95": [
+    -1.1736111111111112,
+    -0.8402777777777778
+   ],
+   "n": 144,
+   "flag": true,
+   "mdc80": 0.24056395796340288,
+   "expect": "lower",
+   "reading": "penalises",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.034170854271356785,
+   "reaches_midpoint": 0.02512562814070352,
+   "n": 199
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9000502260170768,
+    "ci95": [
+     0.8697289864179194,
+     0.9239343567657657
+    ]
+   },
+   "exact_agreement": 0.6231155778894473,
+   "mean_abs_change": 0.39195979899497485,
+   "signed_change": {
+    "estimate": -0.05025125628140704,
+    "ci95": [
+     -0.1407035175879397,
+     0.035175879396984924
+    ],
+    "n": 199,
+    "flag": false,
+    "mdc80": 0.12889486072080594
+   },
+   "n": 199
+  },
+  "surface": {
+   "estimate": -0.18090452261306533,
+   "ci95": [
+    -0.2914572864321608,
+    -0.07035175879396985
+   ],
+   "n": 199,
+   "flag": true,
+   "mdc80": 0.16297428920421594,
+   "mean_abs_change": 0.49246231155778897,
+   "vs_retest": 1.2564102564102566
+  },
+  "typos": {
+   "estimate": -0.5757575757575758,
+   "ci95": [
+    -0.703030303030303,
+    -0.44242424242424244
+   ],
+   "n": 165,
+   "flag": true,
+   "mdc80": 0.194299370279597
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.245,
+    "ci95": [
+     0.135,
+     0.35
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.15050674870926942
+   },
+   "presence": {
+    "estimate": -0.08,
+    "ci95": [
+     -0.185,
+     0.025
+    ],
+    "n": 200,
+    "flag": false,
+    "mdc80": 0.1554798699180982
+   },
+   "penalty": {
+    "estimate": -0.12,
+    "ci95": [
+     -0.21,
+     -0.029875000000000682
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.13100124668554047
+   },
+   "reward": {
+    "estimate": 0.125,
+    "ci95": [
+     0.025,
+     0.23
+    ],
+    "n": 200,
+    "flag": true,
+    "mdc80": 0.14977202105686258
+   }
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.3775871195404176,
+  "same_opening": 0.017241379310344827,
+  "grounded": 0.4393063583815029,
+  "words": 21.625,
+  "self_per100": 4.427724581656676,
+  "task_per100": 1.050637392415268,
+  "action_per100": 0.5940986432245163,
+  "leaks_answer": 0.0,
+  "varied_by_quality": -0.04334846067789466,
+  "n": 200,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 2518,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 173.5683081810961,
+   "completion_tokens": 40.45830023828435,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 0.9320757389068604,
+   "p90": 1.3793992042541505,
+   "n": 2497
+  },
+  "served_models": [
+   "microsoft/phi-4"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (2518 of 2518 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.017813943606036536,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.1.0",
+  "started": "2026-10-23T18:59:18Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "microsoft/phi-4",
+  "request_template": {
+   "model": "microsoft/phi-4",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "default.txt",
+  "prompt_sha256": "e97aa6618ed2637f7c043c857a5106f413aaa04b0fb16613865c004ca88ac115",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "mohler.jsonl",
+  "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+  "n": 200,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "surface",
+   "typos",
+   "padding",
+   "repeat",
+   "injection",
+   "forged",
+   "off_task",
+   "shuffled",
+   "blicket",
+   "ctx_neutral",
+   "ctx_low",
+   "ctx_high"
+  ]
+ }
+}

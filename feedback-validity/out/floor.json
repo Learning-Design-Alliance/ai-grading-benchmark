@@ -1,0 +1,70 @@
+{
+ "LEAK": {
+  "positivity": {
+   "positive": 90,
+   "negative": 1070,
+   "positive_dialogues": 56,
+   "ok": true
+  },
+  "planted_population_auc": 0.7229595015576324,
+  "length_planted_auc": 0.7157684319833852,
+  "validated_of_50": {
+   "PLANTED": 50,
+   "LENGTH-ONLY": 0,
+   "NULL": 0
+  },
+  "null_mean_auc": 0.5016013938775123,
+  "pass": true
+ },
+ "ACTION": {
+  "positivity": {
+   "positive": 916,
+   "negative": 541,
+   "positive_dialogues": 192,
+   "ok": true
+  },
+  "planted_population_auc": 0.7260969496888343,
+  "length_planted_auc": 0.7159116225007869,
+  "validated_of_50": {
+   "PLANTED": 50,
+   "LENGTH-ONLY": 0,
+   "NULL": 0
+  },
+  "null_mean_auc": 0.4743473391503684,
+  "pass": true
+ },
+ "TONE": {
+  "positivity": {
+   "positive": 528,
+   "negative": 1126,
+   "positive_dialogues": 178,
+   "ok": true
+  },
+  "planted_population_auc": 0.7285788699852972,
+  "length_planted_auc": 0.7386846460827557,
+  "validated_of_50": {
+   "PLANTED": 50,
+   "LENGTH-ONLY": 0,
+   "NULL": 0
+  },
+  "null_mean_auc": 0.5045390292803703,
+  "pass": true
+ },
+ "MISTAKE": {
+  "positivity": {
+   "positive": 1326,
+   "negative": 233,
+   "positive_dialogues": 194,
+   "ok": true
+  },
+  "planted_population_auc": 0.7210297404048541,
+  "length_planted_auc": 0.7372404698178416,
+  "validated_of_50": {
+   "PLANTED": 50,
+   "LENGTH-ONLY": 0,
+   "NULL": 0
+  },
+  "null_mean_auc": 0.5292163659785473,
+  "pass": true
+ }
+}
