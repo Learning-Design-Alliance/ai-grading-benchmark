@@ -58,6 +58,7 @@ import cases as cases_mod  # noqa: E402
 import report as report_mod  # noqa: E402
 from client import OpenAICompatible  # noqa: E402
 from prompting import (CONTEXT_PROBES, DELETION_PROBES, NULL_CASES, NULL_PROBES, PROBES, cited_and_random,  # noqa: E402
+                       MEDIA_NULL_PROBES, attach_media, off_task_cases, probe_media, text_len,  # noqa: E402
                        load_prompt, off_task_map, probe_input)
 
 VERSION = "0.2.0"
@@ -100,7 +101,10 @@ def plan(cases, pool, prompt, probes, seed):
     """Every grading to make: (case, probe, messages). A probe that would not change a case is skipped."""
     if not prompt.context_slot:
         probes = [p for p in probes if p not in CONTEXT_PROBES]
+    if not any(c.get("media") for c in cases):
+        probes = [p for p in probes if p not in MEDIA_NULL_PROBES + ("noise_10db", "phone_band")]
     ot = off_task_map(cases, pool, seed) if "off_task" in probes else {}
+    ot_case = off_task_cases(cases, pool, seed) if "off_task" in probes and any(c.get("media") for c in cases) else {}
     if "off_task" in probes and not ot:
         probes = [p for p in probes if p != "off_task"]
     # Null answers do not depend on the case, so they run on one case per task, up to NULL_CASES.
@@ -115,8 +119,15 @@ def plan(cases, pool, prompt, probes, seed):
             if p in DELETION_PROBES or (code and p in PROSE_PROBES) or (p in NULL_PROBES and c["id"] not in null_ids):
                 continue
             got = probe_input(c, p, ot.get(c["id"]), seed)
-            if got is not None:
-                jobs.append((c, p, prompt.build(c, *got)))
+            if got is None:
+                continue
+            msgs = prompt.build(c, *got)
+            if c.get("media"):
+                parts = probe_media(c, p, ot_case.get(c["id"]), seed)
+                if parts is None:
+                    continue
+                msgs = attach_media(msgs, parts)
+            jobs.append((c, p, msgs))
     return jobs, probes
 
 
@@ -215,7 +226,7 @@ def cmd_run(a):
         sys.exit("the base probe is required: every other probe is read against it")
     jobs, probes = plan(cs, pool, prompt, probes, a.seed)
     skipped = sorted(set(PROBES if a.probes == "all" else probes) - set(probes))
-    size = max(sum(len(m["content"]) for m in j[2]) for j in jobs)
+    size = max(text_len(j[2]) for j in jobs)
     n_del = 2 * len(cs) if any(p in DELETION_PROBES for p in probes) else 0
     print(f"battery {a.battery}: {len(cs)} cases, {len(jobs)} gradings" + (f" (+ up to {n_del} deletion gradings in phase two)" if n_del else "")
           + f" with {a.model} at {a.base_url}")
@@ -223,7 +234,7 @@ def cmd_run(a):
     print(f"largest prompt: {size:,} characters (about {size // 4:,} tokens)")
     price = openrouter_price(a.model) if "openrouter.ai" in a.base_url else None
     if price:
-        tin = sum(sum(len(m["content"]) for m in j[2]) for j in jobs) / 3.6
+        tin = sum(text_len(j[2]) for j in jobs) / 3.6
         tout = (len(jobs) + n_del) * a.assume_out
         est = tin * price[0] * (1 + n_del / max(1, len(jobs))) + tout * price[1]
         print(f"estimated cost ${est:,.2f} at OpenRouter list prices, assuming {a.assume_out} output tokens a grading "

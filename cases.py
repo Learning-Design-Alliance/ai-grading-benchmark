@@ -57,7 +57,7 @@ def validate(case):
 def normalise(case):
     out = {f: case.get(f, "") for f in FIELDS}
     out["groups"] = {k: str(v) for k, v in (case.get("groups") or {}).items() if str(v).strip()}
-    for k in ("generator", "level"):
+    for k in ("generator", "level", "media"):
         if case.get(k):
             out[k] = case[k]
     return out
@@ -402,7 +402,57 @@ def from_ellipse(path, max_chars=12000):
     return out
 
 
+SPEECH_RUBRICS = {
+    "accuracy": ("Score the overall pronunciation accuracy of the sentence from 0 to 10 (speechocean762 sentence-level "
+                 "rubric). 9-10: excellent, accurate phonology and no obvious pronunciation mistakes. 7-8: good, a few "
+                 "pronunciation mistakes. 5-6: understandable, many pronunciation mistakes and accent, but basic meaning "
+                 "is not affected. 3-4: poor, clumsy and rigid pronunciation with serious mistakes. 0-2: extremely poor; "
+                 "only one or two words are recognisable."),
+    "fluency": ("Score the fluency of the reading from 0 to 10 (speechocean762 sentence-level rubric). 8-10: fluent, "
+                "without noticeable pauses or stammering. 6-7: fluent in general, with a few pauses, repetition and "
+                "stammering. 4-5: a little disfluent, with many pauses, repetition and stammering. 0-3: intermittent, very "
+                "disfluent speech, with lots of pauses, repetition and stammering."),
+}
+
+
+def from_speechocean(root, trait="accuracy"):
+    """speechocean762 (Zhang et al. 2021, CC BY 4.0; OpenSLR 101): 5,000 English sentences read aloud by
+    Mandarin-L1 speakers, half children and half adults, each scored independently by FIVE experts at sentence
+    level (accuracy, fluency, prosody 0-10). `root` is the extracted corpus folder (holding WAVE/, train/,
+    test/, resource/). One case per utterance: the target sentence as the question, the recording as media,
+    the five experts' scores for `trait` as human marks. Groups: speaker gender, and age band (child under 16,
+    adult 16 and over)."""
+    import json as _json
+    det = _json.load(open(os.path.join(root, "resource", "scores-detail.json")))
+    text, wav, spk, age, gender = {}, {}, {}, {}, {}
+    for part in ("train", "test"):
+        d = os.path.join(root, part)
+        for fn, store in (("text", text), ("wav.scp", wav), ("utt2spk", spk), ("spk2age", age), ("spk2gender", gender)):
+            for line in open(os.path.join(d, fn), encoding="utf-8"):
+                k, _, v = line.strip().partition("\t") if "\t" in line else line.strip().partition(" ")
+                store[k] = v.strip()
+    out = []
+    for utt, sc in det.items():
+        marks = sc.get(trait)
+        if not marks or utt not in wav:
+            continue
+        sp = spk.get(utt, "")
+        a = age.get(sp)
+        groups = {"gender": {"m": "male", "f": "female"}.get(gender.get(sp, ""), "")}
+        if a and a.isdigit():
+            groups["age"] = "child" if int(a) < 16 else "adult"
+        out.append(normalise({
+            "id": f"so{utt}", "task": text.get(utt, ""), "question": text.get(utt, ""), "reference": "",
+            "rubric": SPEECH_RUBRICS[trait], "materials": "", "response": "(the learner's recording is attached)",
+            "scale": [0, 10], "human": {f"expert{i + 1}": float(m) for i, m in enumerate(marks)},
+            "groups": {k: v for k, v in groups.items() if v},
+            "media": [{"kind": "audio", "path": os.path.join(root, wav[utt]), "format": "wav"}],
+        }))
+    return out
+
+
 LOADERS = {"mohler": from_mohler, "asap2": from_asap2, "harmogen-code": lambda p: from_harmogen(p, "code"),
            "harmogen-text20": lambda p: from_harmogen(p, "text20"), "harmogen-text50": lambda p: from_harmogen(p, "text50"),
            "menagerie": from_menagerie, "persuade": from_persuade,
-           "ellipse": from_ellipse}
+           "ellipse": from_ellipse, "speechocean": from_speechocean,
+           "speechocean-fluency": lambda p: from_speechocean(p, "fluency")}

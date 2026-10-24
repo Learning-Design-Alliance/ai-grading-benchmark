@@ -68,6 +68,10 @@ TASKS = {
     "asap2": ("asap2", "asap2", None),
 }
 SHA_FILE = os.path.join(HERE, "leaderboard-cases.json")
+#: tasks whose released data has no two raters per item: the corpus's own published rater agreement, used only
+#: to put agreement on the same footing as the other tasks, and always shown as "against a published figure"
+PUBLISHED_CEILING = {"asap2": {"value": 0.745, "statistic": "pre-adjudication weighted kappa between two expert raters",
+                               "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"}}
 
 
 def task_sha():
@@ -233,6 +237,13 @@ def row(sub, rep):
         "blicket_share": est(v.get("blicket")),
         "surface_share": est(rl.get("surface")),
         "blank_credited": (v.get("null_answers") or {}).get("credited"),
+        "decision_kappa": (v.get("decision") or {}).get("kappa"),
+        "decision_share": (v.get("decision") or {}).get("share_of_ceiling"),
+        "decision_n_fail": (v.get("decision") or {}).get("n_fail"),
+        # where a task has no computed ceiling, agreement against the corpus's published reliability, labelled
+        "published_ceiling": PUBLISHED_CEILING.get(sub["task"]),
+        "share_of_published_ceiling": (v["agreement"]["qwk"]["estimate"] / PUBLISHED_CEILING[sub["task"]]["value"]
+                                       if sub["task"] in PUBLISHED_CEILING else None),
         "refused": refused, "gradings": len(sub["calls"]),
         "cost_per_1000_usd_self_reported": su.get("cost_per_1000_gradings_usd"),
         "benchmark_version": sub.get("benchmark_version"),

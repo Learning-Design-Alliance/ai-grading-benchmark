@@ -183,6 +183,35 @@ def build(cases, calls, prices=None, pass_mark=None, seed=7):
             "machine_fails_of_human_fails": mean(scores[(c["id"], "base")] < pm for c in hf) if hf else None,
             "n_pass": len(hp), "n_fail": len(hf),
         }
+
+        # Decision validity: pass/fail agreement (Cohen's kappa at the pass mark) of the machine with each
+        # rater, against the raters' own pass/fail agreement with each other, which is the decision ceiling.
+        def kappa(a_, b_):
+            n_ = len(a_)
+            if n_ < 2:
+                return float("nan")
+            po = sum(x == y for x, y in zip(a_, b_)) / n_
+            pa, pb = sum(a_) / n_, sum(b_) / n_
+            pe = pa * pb + (1 - pa) * (1 - pb)
+            return (po - pe) / (1 - pe) if pe < 1 else float("nan")
+
+        def dec_machine(cs):
+            vals = [kappa([scores[(c["id"], "base")] >= pm for c in cs if rt in c["human"]],
+                          [c["human"][rt] >= pm for c in cs if rt in c["human"]]) for rt in raters]
+            vals = [x for x in vals if x == x]
+            return mean(vals) if vals else float("nan")
+
+        def dec_ceiling(cs):
+            vals = [kappa([c["human"][r1] >= pm for c in cs if r1 in c["human"] and r2 in c["human"]],
+                          [c["human"][r2] >= pm for c in cs if r1 in c["human"] and r2 in c["human"]])
+                    for i, r1 in enumerate(raters) for r2 in raters[i + 1:]]
+            vals = [x for x in vals if x == x]
+            return mean(vals) if vals else float("nan")
+        v["decision"]["kappa"] = interval(*bootstrap(graded, dec_machine, seed=seed))
+        if len(multi) >= 20:
+            v["decision"]["ceiling_kappa"] = interval(*bootstrap(multi, dec_ceiling, seed=seed))
+            v["decision"]["share_of_ceiling"] = interval(*bootstrap(
+                multi, lambda cs: dec_machine(cs) / dec_ceiling(cs) if dec_ceiling(cs) > 0 else float("nan"), seed=seed))
     # A sound grader does not raise the mark (padding, repeat, injection, forged) or lowers it
     # (shuffled, blicket). `reading` is signed: the direction is the finding.
     for p, expect in (("padding", "not higher"), ("repeat", "not higher"), ("injection", "not higher"),
@@ -268,6 +297,14 @@ def build(cases, calls, prices=None, pass_mark=None, seed=7):
                            "note": "cases sorted by the spread of k identical calls; agreement on the kept share, using the mean of the k marks"}
     if "typos" in probes_run:
         rl["typos"] = _mean_iv(_paired(cases, scores, "typos"), seed)
+    # Recording quality (audio work): the reference marks are for the clean recording, so a sound grader's
+    # mark should not move. Signed: a drop says the grader penalises the channel, not the speaker.
+    for p_ in ("noise_10db", "phone_band"):
+        if p_ in probes_run:
+            iv = _mean_iv(_paired(cases, scores, p_), seed)
+            if iv:
+                iv["expect"] = "about the same"
+                rl[p_] = iv
     rep["reliability"] = rl
 
     # ---------------------------------------------------------------- fairness
