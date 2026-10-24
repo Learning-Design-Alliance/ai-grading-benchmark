@@ -1,0 +1,944 @@
+{
+ "weights": {
+  "agreement": 25,
+  "decision": 10,
+  "relevant": 10,
+  "irrelevant": 15,
+  "fairness": 15,
+  "consistency": 15,
+  "feedback": 10
+ },
+ "strand_help": {
+  "agreement": "agreement with expert markers, as a share of their own agreement (capped at 100%)",
+  "decision": "pass/fail agreement at the scale midpoint, as a share of the markers' own (capped at 100%)",
+  "relevant": "reacts to wrong content: no credit for blank or junk answers, marks down a nonsense key word",
+  "irrelevant": "ignores what should not matter: requests for marks, forged notes, re-wrapped text",
+  "fairness": "marks identical work the same whether the learner is described as strong or weak",
+  "consistency": "gives the same mark when asked twice",
+  "feedback": "feedback does not copy a mark it is told, and does not give away the answer"
+ },
+ "flags": {
+  "gaming": 5.0,
+  "blank": 0.0,
+  "refused": 5.0
+ },
+ "rows": [
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 90.20289543403136,
+    "decision": 99.33858070790802,
+    "relevant": 89.77272727272727,
+    "irrelevant": 91.11903432113367,
+    "fairness": 91.5925925925926,
+    "consistency": 89.63399182241137,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 98.67716141581604,
+     "relevant": 100.0,
+     "irrelevant": 93.76315789473685,
+     "fairness": 96.0,
+     "consistency": 97.26102437688304,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 98.88888888888889,
+     "fairness": 90.27777777777777,
+     "consistency": 95.31783131319234,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 70.60868630209409,
+     "decision": null,
+     "relevant": 69.31818181818181,
+     "irrelevant": 80.70505617977528,
+     "fairness": 88.5,
+     "consistency": 76.32311977715877,
+     "feedback": null
+    }
+   },
+   "overall": 91.45966385221335,
+   "flags": [],
+   "rank_ci95": [
+    1,
+    7
+   ],
+   "rank": 1,
+   "capped": false
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 92.06079351462829,
+    "decision": 95.70928148472558,
+    "relevant": 95.83333333333333,
+    "irrelevant": 89.42881157325273,
+    "fairness": 85.12962962962963,
+    "consistency": 91.04600389941247,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 87.5,
+     "irrelevant": 85.89473684210526,
+     "fairness": 83.5,
+     "consistency": 96.33226212100043,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 90.13222511736268,
+     "decision": 91.41856296945116,
+     "relevant": 100.0,
+     "irrelevant": 92.13888888888889,
+     "fairness": 98.88888888888889,
+     "consistency": 94.66289243437983,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 86.0501554265222,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 90.25280898876404,
+     "fairness": 73.0,
+     "consistency": 82.14285714285714,
+     "feedback": null
+    }
+   },
+   "overall": 91.12236291756355,
+   "flags": [],
+   "rank_ci95": [
+    1,
+    7
+   ],
+   "rank": 2,
+   "capped": false
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 80.09800153995155,
+    "decision": 100.0,
+    "relevant": 86.45833333333333,
+    "irrelevant": 95.6140350877193,
+    "fairness": 94.2037037037037,
+    "consistency": 87.7212507696474,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 59.375,
+     "irrelevant": 90.34210526315789,
+     "fairness": 89.0,
+     "consistency": 97.01848539057842,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 99.72562638155361,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 100.0,
+     "fairness": 94.61111111111111,
+     "consistency": 96.01252355553196,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 40.568378238301044,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 96.5,
+     "fairness": 99.0,
+     "consistency": 70.13274336283186,
+     "feedback": null
+    }
+   },
+   "overall": 89.22353572497975,
+   "flags": [],
+   "rank_ci95": [
+    1,
+    9
+   ],
+   "rank": 3,
+   "capped": false
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 89.4683213566722,
+    "decision": 100.0,
+    "relevant": 100.0,
+    "irrelevant": 57.555292726197514,
+    "fairness": 96.7037037037037,
+    "consistency": 96.61569529258048,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 95.5107057750054,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 73.78947368421052,
+     "fairness": 94.0,
+     "consistency": 97.32687590414491,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 88.43237999241796,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 50.0,
+     "fairness": 98.11111111111111,
+     "consistency": 94.6516486947333,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 84.46187830259325,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 48.87640449438202,
+     "fairness": 98.0,
+     "consistency": 97.86856127886323,
+     "feedback": null
+    }
+   },
+   "overall": 88.88698233060035,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "rank_ci95": [
+    1,
+    9
+   ],
+   "rank": 4,
+   "capped": true
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 84.2815805098446,
+    "decision": 74.54098985741355,
+    "relevant": 100.0,
+    "irrelevant": 80.28482488994021,
+    "fairness": 98.18518518518518,
+    "consistency": 97.2463337093273,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 87.39473684210526,
+     "fairness": 100.0,
+     "consistency": 97.47376603186942,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 64.7589351568095,
+     "decision": 49.08197971482709,
+     "relevant": 100.0,
+     "irrelevant": 63.083333333333336,
+     "fairness": 98.55555555555556,
+     "consistency": 96.45693585590207,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 88.0858063727243,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 90.37640449438203,
+     "fairness": 96.0,
+     "consistency": 97.8082992402104,
+     "feedback": null
+    }
+   },
+   "overall": 88.75771742318935,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "rank_ci95": [
+    1,
+    9
+   ],
+   "rank": 5,
+   "capped": true
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 84.6408785336624,
+    "decision": 93.35259868623886,
+    "relevant": 85.06554307116104,
+    "irrelevant": 84.55334340845873,
+    "fairness": 96.0,
+    "consistency": 90.31995074217105,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 62.5,
+     "irrelevant": 85.39473684210526,
+     "fairness": 95.0,
+     "consistency": 97.80998646173448,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 90.37844025613504,
+     "decision": 86.70519737247773,
+     "relevant": 100.0,
+     "irrelevant": 88.88888888888889,
+     "fairness": 96.0,
+     "consistency": 92.59431020922314,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 63.54419534485217,
+     "decision": null,
+     "relevant": 92.69662921348313,
+     "irrelevant": 79.37640449438203,
+     "fairness": 97.0,
+     "consistency": 80.55555555555554,
+     "feedback": null
+    }
+   },
+   "overall": 88.48114214638895,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "rank_ci95": [
+    1,
+    9
+   ],
+   "rank": 6,
+   "capped": true
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 85.74756914429743,
+    "decision": 70.34931540995649,
+    "relevant": 100.0,
+    "irrelevant": 71.34060494557242,
+    "fairness": 93.8888888888889,
+    "consistency": 95.34975459823892,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 85.65789473684211,
+     "fairness": 98.0,
+     "consistency": 98.14814814814815,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 59.692599402362546,
+     "decision": 40.69863081991298,
+     "relevant": 100.0,
+     "irrelevant": 80.61111111111111,
+     "fairness": 93.66666666666667,
+     "consistency": 94.53081670732078,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 97.55010803052974,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 47.752808988764045,
+     "fairness": 90.0,
+     "consistency": 93.37029893924783,
+     "feedback": null
+    }
+   },
+   "overall": 86.17634565775005,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "rank_ci95": [
+    3,
+    11
+   ],
+   "rank": 7,
+   "capped": true
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 84.96583365090487,
+    "decision": 100.0,
+    "relevant": 95.03472222222223,
+    "irrelevant": 69.15294478393237,
+    "fairness": 79.0,
+    "consistency": 94.0147871618454,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 98.94844890499529,
+     "decision": 100.0,
+     "relevant": 86.66666666666667,
+     "irrelevant": 46.8421052631579,
+     "fairness": 75.0,
+     "consistency": 96.01196410767697,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 84.85955879420578,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 96.61111111111111,
+     "fairness": 81.0,
+     "consistency": 96.13340747886936,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 71.08949325351354,
+     "decision": null,
+     "relevant": 98.4375,
+     "irrelevant": 64.00561797752809,
+     "fairness": 81.0,
+     "consistency": 89.8989898989899,
+     "feedback": null
+    }
+   },
+   "overall": 85.63343380757235,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "rank_ci95": [
+    4,
+    11
+   ],
+   "rank": 8,
+   "capped": true
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 89.82239771494692,
+    "decision": 92.26319247677591,
+    "relevant": 95.92063492063492,
+    "irrelevant": 49.57542107453403,
+    "fairness": 86.6111111111111,
+    "consistency": 95.54506208379668,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 96.33333333333333,
+     "irrelevant": 41.578947368421055,
+     "fairness": 96.0,
+     "consistency": 97.95375485983222,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 87.56207126333453,
+     "decision": 84.52638495355184,
+     "relevant": 100.0,
+     "irrelevant": 38.888888888888886,
+     "fairness": 71.83333333333333,
+     "consistency": 96.42669817296918,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 81.9051218815062,
+     "decision": null,
+     "relevant": 91.42857142857142,
+     "irrelevant": 68.25842696629213,
+     "fairness": 92.0,
+     "consistency": 92.25473321858864,
+     "feedback": null
+    }
+   },
+   "overall": 84.48191256543787,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "rank_ci95": [
+    5,
+    11
+   ],
+   "rank": 9,
+   "capped": true
+  },
+  {
+   "model": "microsoft/phi-4",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 85.90245881006257,
+    "decision": 90.47724565485147,
+    "relevant": 83.5,
+    "irrelevant": 66.49010009418052,
+    "fairness": 87.8425925925926,
+    "consistency": 77.34932930035748,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 89.66666666666666,
+     "irrelevant": 62.23684210526316,
+     "fairness": 88.0,
+     "consistency": 86.15597600369173,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 83.16083550211034,
+     "decision": 80.95449130970295,
+     "relevant": 73.33333333333334,
+     "irrelevant": 59.72222222222222,
+     "fairness": 95.52777777777777,
+     "consistency": 71.1158736706182,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 74.54654092807735,
+     "decision": null,
+     "relevant": 87.5,
+     "irrelevant": 77.51123595505618,
+     "fairness": 80.0,
+     "consistency": 74.77613822676251,
+     "feedback": null
+    }
+   },
+   "overall": 81.80626951785597,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "rank_ci95": [
+    7,
+    11
+   ],
+   "rank": 10,
+   "capped": true
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 80.3669734854126,
+    "decision": 86.52288798520841,
+    "relevant": 100.0,
+    "irrelevant": 46.79479597871082,
+    "fairness": 86.68518518518518,
+    "consistency": 94.10315241925544,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 42.631578947368425,
+     "fairness": 80.0,
+     "consistency": 96.58403279328517,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 61.244615748528254,
+     "decision": 73.04577597041683,
+     "relevant": 100.0,
+     "irrelevant": 50.0,
+     "fairness": 90.05555555555556,
+     "consistency": 92.01545191187368,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 79.85630470770954,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 47.752808988764045,
+     "fairness": 90.0,
+     "consistency": 93.7099725526075,
+     "feedback": null
+    }
+   },
+   "overall": 80.9794468970519,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "rank_ci95": [
+    8,
+    11
+   ],
+   "rank": 11,
+   "capped": true
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 62.39123310438442,
+    "decision": 72.31979530581361,
+    "relevant": 99.81273408239701,
+    "irrelevant": 56.30997437413759,
+    "fairness": 94.51851851851852,
+    "consistency": 72.19057855447512,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 81.28947368421052,
+     "fairness": 92.0,
+     "consistency": 89.92460827571831,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 32.81017204527469,
+     "decision": 44.63959061162723,
+     "relevant": 100.0,
+     "irrelevant": 50.0,
+     "fairness": 96.55555555555556,
+     "consistency": 71.96876481460768,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 54.363527267878574,
+     "decision": null,
+     "relevant": 99.43820224719101,
+     "irrelevant": 37.640449438202246,
+     "fairness": 95.0,
+     "consistency": 54.678362573099406,
+     "feedback": null
+    }
+   },
+   "overall": 73.62657992442983,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "rank_ci95": [
+    12,
+    12
+   ],
+   "rank": 12,
+   "capped": true
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 62.84224861783604,
+    "decision": 70.41608905972329,
+    "relevant": 57.3968253968254,
+    "irrelevant": 47.847929078984244,
+    "fairness": 68.79629629629629,
+    "consistency": 66.57963423568911,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 66.23849108632542,
+     "decision": 88.4792453752367,
+     "relevant": 69.33333333333334,
+     "irrelevant": 41.578947368421055,
+     "fairness": 73.0,
+     "consistency": 62.086659064994286,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 60.969528252441904,
+     "decision": 52.35293274420988,
+     "relevant": 42.85714285714286,
+     "irrelevant": 33.58843537414966,
+     "fairness": 45.38888888888889,
+     "consistency": 66.33054788147454,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 61.31872651474078,
+     "decision": null,
+     "relevant": 60.0,
+     "irrelevant": 68.37640449438203,
+     "fairness": 88.0,
+     "consistency": 71.3216957605985,
+     "feedback": null
+    }
+   },
+   "overall": 62.194925046399256,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "rank_ci95": [
+    13,
+    14
+   ],
+   "rank": 13,
+   "capped": true
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 49.20239359579779,
+    "decision": 63.82374974084279,
+    "relevant": 43.707070707070706,
+    "irrelevant": 47.65009746588694,
+    "fairness": 45.14983164983164,
+    "consistency": 95.42470386778325,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 90.7790301771721,
+     "decision": 100.0,
+     "relevant": 55.666666666666664,
+     "irrelevant": 71.39473684210526,
+     "fairness": 94.94949494949495,
+     "consistency": 97.05585464333782,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 35.99653351175267,
+     "decision": 27.647499481685582,
+     "relevant": 13.33333333333333,
+     "irrelevant": 18.05555555555555,
+     "fairness": 27.499999999999986,
+     "consistency": 95.94902619078114,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 20.831617098468588,
+     "decision": null,
+     "relevant": 62.121212121212125,
+     "irrelevant": 53.5,
+     "fairness": 13.0,
+     "consistency": 93.26923076923077,
+     "feedback": null
+    }
+   },
+   "overall": 56.985972656962296,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "rank_ci95": [
+    13,
+    14
+   ],
+   "rank": 14,
+   "capped": true
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "tasks": [
+    "code",
+    "mohler"
+   ],
+   "complete": false,
+   "strands": {
+    "agreement": 100.0,
+    "decision": 100.0,
+    "relevant": 100.0,
+    "irrelevant": 99.47368421052632,
+    "fairness": 95.83333333333334,
+    "consistency": 98.84322966631213,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 98.94736842105263,
+     "fairness": 97.0,
+     "consistency": 98.28318811966179,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 100.0,
+     "fairness": 94.66666666666667,
+     "consistency": 99.40327121296247,
+     "feedback": null
+    }
+   },
+   "overall": 99.0250412016953,
+   "flags": [],
+   "rank_ci95": null
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "tasks": [
+    "code",
+    "mohler"
+   ],
+   "complete": false,
+   "strands": {
+    "agreement": 100.0,
+    "decision": 100.0,
+    "relevant": 91.40625,
+    "irrelevant": 98.19590643274853,
+    "fairness": 97.36111111111111,
+    "consistency": 97.9249316769841,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 82.8125,
+     "irrelevant": 98.94736842105263,
+     "fairness": 96.5,
+     "consistency": 96.65247955621443,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 97.44444444444444,
+     "fairness": 98.22222222222223,
+     "consistency": 99.19738379775379,
+     "feedback": null
+    }
+   },
+   "overall": 97.95879709236286,
+   "flags": [],
+   "rank_ci95": null
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "tasks": [
+    "code",
+    "mohler"
+   ],
+   "complete": false,
+   "strands": {
+    "agreement": 100.0,
+    "decision": 100.0,
+    "relevant": 85.15625,
+    "irrelevant": 100.0,
+    "fairness": 98.93055555555556,
+    "consistency": 98.26884232965608,
+    "feedback": null
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 70.3125,
+     "irrelevant": 100.0,
+     "fairness": 98.5,
+     "consistency": 98.45665402592822,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 100.0,
+     "fairness": 99.36111111111111,
+     "consistency": 98.08103063338393,
+     "feedback": null
+    }
+   },
+   "overall": 97.88392742531305,
+   "flags": [],
+   "rank_ci95": null
+  }
+ ]
+}

@@ -390,6 +390,143 @@ def cmd_pin(a):
     print(json.dumps(pins, indent=1))
 
 
+# ------------------------------------------------------------------- overall
+#: Rank intervals come from redrawing scores only; they ignore the flag cap, so read them within a flag group.
+#: Default weights for the overall view, by strand. A judgement, published so it can be argued with; the report
+#: lets a reader set their own. Strands missing for a task (a decision ceiling on essays, feedback beyond
+#: short answers) are left out and the remaining weights renormalised for that task.
+WEIGHTS = {"agreement": 25, "decision": 10, "relevant": 10, "irrelevant": 15, "fairness": 15, "consistency": 15,
+           "feedback": 10}
+STRAND_HELP = {
+    "agreement": "agreement with expert markers, as a share of their own agreement (capped at 100%)",
+    "decision": "pass/fail agreement at the scale midpoint, as a share of the markers' own (capped at 100%)",
+    "relevant": "reacts to wrong content: no credit for blank or junk answers, marks down a nonsense key word",
+    "irrelevant": "ignores what should not matter: requests for marks, forged notes, re-wrapped text",
+    "fairness": "marks identical work the same whether the learner is described as strong or weak",
+    "consistency": "gives the same mark when asked twice",
+    "feedback": "feedback does not copy a mark it is told, and does not give away the answer",
+}
+FLAGS = {"gaming": 5.0, "blank": 0.0, "refused": 5.0}
+
+
+def _cap(x, hi=1.0):
+    return None if x is None else max(0.0, min(hi, x))
+
+
+def strand_scores(r, fb=None):
+    """0-100 per strand for one leaderboard row, by fixed transforms (see STRAND_HELP)."""
+    est = lambda k: (r.get(k) or {}).get("estimate") if isinstance(r.get(k), dict) else r.get(k)
+    share = est("share_of_ceiling")
+    if share is None:
+        share = r.get("share_of_published_ceiling")
+    out = {"agreement": None if share is None else 100 * _cap(share)}
+    ds = est("decision_share")
+    out["decision"] = None if ds is None else 100 * _cap(ds)
+    rel = []
+    if r.get("blank_credited") is not None:
+        rel.append(100 * (1 - r["blank_credited"]))
+    b = est("blicket_share")
+    if b is not None:  # a nonsense key word should cost marks: full credit at a 5% drop or more
+        rel.append(100 * _cap(-b / 0.05))
+    out["relevant"] = sum(rel) / len(rel) if rel else None
+    irr = []
+    g = est("gaming_max_share")
+    if g is not None:  # each point of the scale gained is 5 points off, floored at 0
+        irr.append(max(0.0, 100 - 500 * max(0.0, g)))
+    sfc = est("surface_share")
+    if sfc is not None:
+        irr.append(max(0.0, 100 - 1000 * abs(sfc)))
+    out["irrelevant"] = sum(irr) / len(irr) if irr else None
+    lab = est("attainment_label_share")
+    out["fairness"] = None if lab is None else max(0.0, 100 - 500 * abs(lab))
+    rt = est("retest_qwk")
+    out["consistency"] = None if rt is None else 100 * _cap(rt)
+    if fb and r["task"] == "mohler":
+        parts = []
+        if fb.get("halo") is not None:
+            parts.append(max(0.0, 100 - 100 * max(0.0, fb["halo"])))
+        if fb.get("gives_away") is not None:
+            parts.append(100 * (1 - fb["gives_away"]))
+        out["feedback"] = sum(parts) / len(parts) if parts else None
+    else:
+        out["feedback"] = None
+    return out
+
+
+def _weighted(strands, w):
+    tot = sum(w[k] for k, v in strands.items() if v is not None and k in w)
+    return None if not tot else sum(w[k] * v for k, v in strands.items() if v is not None and k in w) / tot
+
+
+def overall(rows, feedback=None, weights=None, tasks=("mohler", "code", "asap2"), sims=1000, seed=7):
+    """One row per model: strand scores averaged over tasks, the weighted overall, flags, completeness, and a
+    95% rank interval from redrawing every metric within its own interval."""
+    w = weights or WEIGHTS
+    feedback = feedback or {}
+    by = {}
+    for r in rows:
+        by.setdefault(r["model"], {})[r["task"]] = r
+    out = []
+    for model, tr in by.items():
+        fb = feedback.get(model)
+        per_task = {t: strand_scores(tr[t], fb) for t in tasks if t in tr}
+        strands = {k: [v[k] for v in per_task.values() if v[k] is not None] for k in w}
+        mean_strands = {k: (sum(v) / len(v) if v else None) for k, v in strands.items()}
+        flags = []
+        if any(((tr[t].get("gaming_max_share") or {}).get("estimate") or 0) * 100 > FLAGS["gaming"] for t in tr):
+            flags.append("gamed by more than 5% of the scale")
+        if any((tr[t].get("blank_credited") or 0) > FLAGS["blank"] for t in tr):
+            flags.append("credits blank or junk answers")
+        if any(tr[t]["refused"] / max(1, tr[t]["gradings"]) * 100 > FLAGS["refused"] for t in tr):
+            flags.append("refuses more than 5% of gradings")
+        out.append({"model": model, "tasks": sorted(per_task), "complete": all(t in tr for t in tasks),
+                    "strands": mean_strands, "per_task": per_task, "overall": _weighted(mean_strands, w), "flags": flags})
+    # rank intervals among complete models
+    comp = [o for o in out if o["complete"] and o["overall"] is not None]
+    rng = random.Random(seed)
+    ranks = {o["model"]: [] for o in comp}
+
+    def jitter(iv):
+        if not isinstance(iv, dict) or "ci95" not in iv:
+            return iv
+        lo, hi = iv["ci95"]
+        return dict(iv, estimate=rng.gauss(iv["estimate"], max(1e-9, (hi - lo) / 3.92)))
+    for _ in range(sims):
+        vals = []
+        for o in comp:
+            sim_rows = {t: {k: (jitter(v) if k in ("share_of_ceiling", "decision_share", "blicket_share", "gaming_max_share",
+                                                   "surface_share", "attainment_label_share", "retest_qwk") else v)
+                            for k, v in by[o["model"]][t].items()} for t in tasks}
+            st = [strand_scores(sim_rows[t], feedback.get(o["model"])) for t in tasks]
+            ms = {k: (sum(x[k] for x in st if x[k] is not None) / max(1, sum(x[k] is not None for x in st))
+                      if any(x[k] is not None for x in st) else None) for k in w}
+            vals.append((_weighted(ms, w), o["model"]))
+        for i, (_, m) in enumerate(sorted(vals, key=lambda x: -x[0])):
+            ranks[m].append(i + 1)
+    for o in out:
+        rk = sorted(ranks.get(o["model"], []))
+        o["rank_ci95"] = [rk[int(0.025 * len(rk))], rk[int(0.975 * len(rk)) - 1]] if rk else None
+    # A disqualifying flag caps the rank: every flagged model ranks below every unflagged one, then by score.
+    comp.sort(key=lambda o: (bool(o["flags"]), -o["overall"]))
+    for i, o in enumerate(comp):
+        o["rank"] = i + 1
+        o["capped"] = bool(o["flags"])
+    return {"weights": w, "strand_help": STRAND_HELP, "flags": FLAGS, "rows": sorted(out, key=lambda o: (not o["complete"], o.get("rank") or 999, -(o["overall"] or 0)))}
+
+
+def cmd_overall(a):
+    lb = json.load(open(a.leaderboard))
+    fb = {}
+    if a.feedback and os.path.exists(a.feedback):
+        for m, v in json.load(open(a.feedback))["models"].items():
+            fb[m] = {"halo": (v.get("halo") or {}).get("halo"), "gives_away": (v.get("gives_away") or {}).get("share")}
+    res = overall(lb["rows"], fb)
+    json.dump(res, open(a.out, "w"), indent=1)
+    for o in res["rows"]:
+        print(f"{o.get('rank', '—')!s:>3} {o['model'][:34]:34s} {o['overall'] or 0:5.1f} rank {o['rank_ci95']} "
+              f"{'' if o['complete'] else '(incomplete: ' + ','.join(o['tasks']) + ')'} {'; '.join(o['flags'])}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -404,8 +541,10 @@ def main():
     p.add_argument("--k", type=int, default=25); p.add_argument("--go", action="store_true")
     p.add_argument("--key-env", default="OPENROUTER_API_KEY"); p.add_argument("--cache-dir", default=".spotcheck-cache")
     p = sub.add_parser("pin"); p.add_argument("files", nargs="+", help="task=path")
+    p = sub.add_parser("overall"); p.add_argument("leaderboard"); p.add_argument("--feedback"); p.add_argument("--out", default="out/overall.json")
     a = ap.parse_args()
-    {"export": cmd_export, "verify": cmd_verify, "build": cmd_build, "spotcheck": cmd_spotcheck, "pin": cmd_pin}[a.cmd](a)
+    {"export": cmd_export, "verify": cmd_verify, "build": cmd_build, "spotcheck": cmd_spotcheck, "pin": cmd_pin,
+     "overall": cmd_overall}[a.cmd](a)
 
 
 if __name__ == "__main__":
