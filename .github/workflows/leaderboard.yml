@@ -1,0 +1,46 @@
+name: leaderboard
+
+on:
+  pull_request:
+    paths: ["submissions/**"]
+  push:
+    branches: [main]
+    paths: ["submissions/**", "leaderboard.py", "report.py", "leaderboard-cases.json"]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Before any repository code runs: a submission PR may change nothing but submissions/.
+      - name: Pull requests may only add submissions
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          bad=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -v '^submissions/' || true)
+          if [ -n "$bad" ]; then echo "only submissions/ may change in a submission PR:"; echo "$bad"; exit 1; fi
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyarrow
+      - name: Fetch and check the public corpora
+        run: python3 fetch_data.py --dir data/
+      # Rows are cached by submission, scoring code and pinned cases, so only new or changed submissions are
+      # recomputed. A pull request from a fork reads the main branch's cache but cannot write to it.
+      - uses: actions/cache@v4
+        with:
+          path: .leaderboard-cache
+          key: leaderboard-${{ hashFiles('leaderboard.py', 'report.py', 'metrics.py', 'bench.py', 'prompting.py', 'cases.py', 'leaderboard-cases.json', 'prompts/default.txt', 'submissions/**') }}
+          restore-keys: |
+            leaderboard-
+      - name: Verify every submission and rebuild the leaderboard
+        run: python3 leaderboard.py build submissions/ --cases-dir data/ --out leaderboard.json --strict --cache-dir .leaderboard-cache
+      - uses: actions/upload-artifact@v4
+        with:
+          name: leaderboard
+          path: leaderboard.json
