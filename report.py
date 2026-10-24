@@ -297,9 +297,9 @@ def build(cases, calls, prices=None, pass_mark=None, seed=7):
                            "note": "cases sorted by the spread of k identical calls; agreement on the kept share, using the mean of the k marks"}
     if "typos" in probes_run:
         rl["typos"] = _mean_iv(_paired(cases, scores, "typos"), seed)
-    # Recording quality (audio work): the reference marks are for the clean recording, so a sound grader's
-    # mark should not move. Signed: a drop says the grader penalises the channel, not the speaker.
-    for p_ in ("noise_10db", "phone_band"):
+    # Recording quality (audio and video work): the reference marks are for the clean recording (for video, the
+    # full-quality left camera), so a sound grader's mark should not move. Signed: a drop says the grader penalises the channel, not the speaker.
+    for p_ in ("noise_10db", "phone_band", "low_res", "other_camera"):
         if p_ in probes_run:
             iv = _mean_iv(_paired(cases, scores, p_), seed)
             if iv:

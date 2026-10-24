@@ -112,6 +112,10 @@ def plan(cases, pool, prompt, probes, seed):
     for c in sorted(cases, key=lambda c: c["id"]):
         first.setdefault(c["task"], c["id"])
     null_ids = set(sorted(first.values())[:NULL_CASES])
+    if any((c.get("media") or [{}])[0].get("kind") == "video" for c in cases):
+        # A video task has few task labels (LASANA has four), so the blank-video probes run on the first
+        # NULL_CASES cases by id instead: one per task would leave too few for a hallucination rate.
+        null_ids = {c["id"] for c in sorted(cases, key=lambda c: c["id"])[:NULL_CASES]}
     jobs = []
     for c in cases:
         code = looks_like_code(c["response"])
@@ -224,6 +228,8 @@ def cmd_run(a):
         sys.exit(f"unknown probe(s) {', '.join(bad)}; choose from {', '.join(PROBES)}")
     if "base" not in probes:
         sys.exit("the base probe is required: every other probe is read against it")
+    import prompting
+    prompting.VIDEO_FRAMES = a.video_frames
     jobs, probes = plan(cs, pool, prompt, probes, a.seed)
     skipped = sorted(set(PROBES if a.probes == "all" else probes) - set(probes))
     size = max(text_len(j[2]) for j in jobs)
@@ -259,7 +265,7 @@ def cmd_run(a):
         "battery": a.battery if a.probes is None else "custom",
         "context_slot": prompt.context_slot, "response_format": bool(getattr(prompt, "response_format", None)), "cases": a.cases,
         "cases_sha256": file_sha256(a.cases), "n": len(cs), "seed": a.seed, "probes": probes,
-        "case_ids": [c["id"] for c in cs],
+        "case_ids": [c["id"] for c in cs], "video_frames": a.video_frames,
     }
     with open(os.path.join(a.out, "config.json"), "w") as fh:
         json.dump(config, fh, indent=1)
@@ -640,6 +646,8 @@ def main(argv=None):
     p.add_argument("--workers", type=int, default=4)
     p.add_argument("--max-calls", type=int, default=3000)
     p.add_argument("--max-usd", type=float, help="stop sending once the endpoint-reported cost reaches this")
+    p.add_argument("--video-frames", type=int, default=0,
+                   help="send video work as this many evenly spaced frames, for models without video input (0: the video)")
     p.add_argument("--out", required=True)
     p.add_argument("--go", action="store_true", help="make the calls (otherwise a dry run)")
     p.add_argument("--cached-only", action="store_true",

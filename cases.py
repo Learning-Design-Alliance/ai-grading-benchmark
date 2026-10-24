@@ -494,10 +494,71 @@ def from_checkmat(path, max_points=2):
     return out
 
 
+LASANA_TASKS = {
+    "PegTransfer": ("Peg transfer: using two laparoscopic graspers, transfer six triangular objects from the left to the "
+                    "right side of a pegboard, then transfer them back.", None),
+    "CircleCutting": ("Circle cutting: accurately cut along a pre-marked circular path on a piece of gauze held by "
+                      "metal clips.", None),
+    "BalloonResection": ("Balloon resection: carefully incise the outer balloon along the marked line without "
+                         "puncturing the inner balloon, which is filled with water.",
+                         "the inner balloon is opened with the first cut"),
+    "SutureAndKnot": ("Suture and knot: pass a suture through a Penrose drain and close the slit with a laparoscopic "
+                      "knot of three throws.", "fewer than three throws are completed"),
+}
+#: GOALS (Vassiliou et al. 2005) anchors for the four aspects LASANA rates, paraphrased; 2 and 4 lie between.
+LASANA_RUBRIC = """Rate each of four aspects from 1 to 5, then give the total (4-20) as the score.
+- Depth perception. 1: constantly overshoots the target, wide swings, slow to correct. 3: some overshooting or
+  missing of the target, but quick to correct. 5: accurately directs instruments in the correct plane to the target.
+- Bimanual dexterity. 1: uses only one hand, ignores the non-dominant hand, poor coordination between hands.
+  3: uses both hands, but does not make the most of their interaction. 5: expertly uses both hands in a
+  complementary way to give the best exposure.
+- Efficiency. 1: uncertain, inefficient efforts; many tentative movements; keeps changing focus or persists
+  without progress. 3: slow, but movements are planned and reasonably organised. 5: confident, efficient and safe;
+  keeps focus on the task until it is better done another way.
+- Tissue handling. 1: rough movements, tears or damages the material, poor control of the grasper, which often
+  slips. 3: handles the material reasonably well, with minor damage. 5: handles the material well, with
+  appropriate traction and negligible damage."""
+
+
+def from_lasana(root):
+    """LASANA (Laparoscopic Skill Analysis and Assessment, TU Dresden 2026; CC BY 4.0; DOI 10.25532/OPARA-1046):
+    stereo videos of four laparoscopic training tasks, each rated by THREE of four raters on four GOALS-style
+    aspects (1-5) summed to a global rating score (4-20). `root` holds `Annotation/` and the `videos/` that
+    video/fetch_lasana.py writes (left camera = the work; right camera = the other_camera probe). A rater who
+    marked a recording failed (the task's failure rule) gave no aspect scores; that rating counts as 4, the
+    minimum, as the corpus's own aggregate sets a failed recording to its lowest value. Groups: the task."""
+    import csv as _csv
+    out = []
+    vids = os.path.join(root, "videos")
+    for task, (desc, fail) in LASANA_TASKS.items():
+        ratings = {}
+        for r in range(4):
+            fn = os.path.join(root, "Annotation", f"{task}_rater{r}.csv")
+            for x in _csv.DictReader(open(fn, encoding="utf-8"), delimiter=";"):
+                failed = not (x.get("bimanual_dexterity") or "").strip()
+                ratings.setdefault(x["id"], {})[f"rater{r}"] = 4.0 if failed else float(x["GRS"])
+        dur = {x["id"]: x["duration"] for x in _csv.DictReader(open(os.path.join(root, "Annotation", f"{task}.csv"),
+                                                                     encoding="utf-8"), delimiter=";")}
+        for rid, hum in ratings.items():
+            left, right = os.path.join(vids, f"{rid}_left.mp4"), os.path.join(vids, f"{rid}_right.mp4")
+            if not os.path.exists(left) or len(hum) < 2:
+                continue
+            m, sec = dur[rid].split(":")[-2:]
+            rubric = LASANA_RUBRIC + (f"\nIf {fail}, the attempt has failed: give 1 on every aspect (score 4)." if fail else "")
+            out.append(normalise({
+                "id": f"lasana-{rid}", "task": task, "question": desc, "reference": "", "rubric": rubric,
+                "materials": "", "response": f"(the trainee's recording is attached; length {int(m)} min {int(sec)} s)",
+                "scale": [4, 20], "human": hum, "groups": {"task": task},
+                "media": [{"kind": "video", "path": left, "format": "mp4",
+                           **({"alt_view": right} if os.path.exists(right) else {})}],
+            }))
+    return out
+
+
 LOADERS = {"mohler": from_mohler, "asap2": from_asap2, "harmogen-code": lambda p: from_harmogen(p, "code"),
            "harmogen-text20": lambda p: from_harmogen(p, "text20"), "harmogen-text50": lambda p: from_harmogen(p, "text50"),
            "menagerie": from_menagerie, "persuade": from_persuade,
            "ellipse": from_ellipse, "speechocean": from_speechocean,
            "speechocean-fluency": lambda p: from_speechocean(p, "fluency"),
            "checkmat2": lambda p: from_checkmat(p, 2), "checkmat3": lambda p: from_checkmat(p, 3),
-           "checkmat4": lambda p: from_checkmat(p, 4)}
+           "checkmat4": lambda p: from_checkmat(p, 4), "lasana": from_lasana}
