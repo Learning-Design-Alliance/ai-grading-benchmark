@@ -184,6 +184,8 @@ def cmd_analyse(a):
     import feedback as fb
     cs = {c["id"]: c for c in cases_mod.load(CASES)}
     res = {"design": "feedback-board/pushback.py docstring", "models": {}}
+    if a.merge and os.path.exists(a.out):  # keep rows for models whose runs are not in RUNS here
+        res["models"] = json.load(open(a.out))["models"]
     slugs = sorted(d[len("fbb-feedback-"):] for d in os.listdir(RUNS) if d.startswith("fbb-feedback-"))
     for slug in slugs:
         model = json.load(open(os.path.join(run_dir(slug), "config.json")))["model"]
@@ -245,6 +247,7 @@ def main():
     p = sub.add_parser("floor"); p.add_argument("--worlds", type=int, default=300)
     p = sub.add_parser("run"); p.add_argument("--models", nargs="+", required=True); p.add_argument("--go", action="store_true")
     p = sub.add_parser("analyse"); p.add_argument("--out", default=os.path.join(HERE, "out", "pushback.json"))
+    p.add_argument("--merge", action="store_true", help="keep the existing output's rows and add or replace the models found in RUNS")
     a = ap.parse_args()
     {"floor": cmd_floor, "run": cmd_run, "analyse": cmd_analyse}[a.cmd](a)
 

@@ -122,6 +122,8 @@ def cmd_analyse(a):
     cs = cases_mod.load(CASES)
     by_id = {c["id"]: c for c in cs}
     res = {"design": "fb.py docstring", "models": {}}
+    if a.merge and os.path.exists(a.out):  # keep rows for models whose runs are not in RUNS here
+        res["models"] = json.load(open(a.out))["models"]
     slugs = sorted({d.split("fbb-feedback-", 1)[1] for d in os.listdir(RUNS) if d.startswith("fbb-feedback-")})
     for slug in slugs:
         paths = {k: os.path.join(RUNS, f"fbb-{k}-{slug}", "calls.jsonl") for k in PROMPTS}
@@ -154,6 +156,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("run"); p.add_argument("--models", nargs="+", required=True); p.add_argument("--go", action="store_true")
     p = sub.add_parser("analyse"); p.add_argument("--out", default=os.path.join(HERE, "out", "feedback-board.json"))
+    p.add_argument("--merge", action="store_true", help="keep the existing output's rows and add or replace the models found in RUNS")
     p.add_argument("--go", action="store_true", help="call the evaluator for feedback not yet scored")
     a = ap.parse_args()
     {"run": cmd_run, "analyse": cmd_analyse}[a.cmd](a)
