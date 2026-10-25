@@ -3,7 +3,7 @@
  "task": "pushback",
  "track": "default",
  "submitter": "benchmark maintainers",
- "exported": "2026-10-25T04:07:58Z",
+ "exported": "2026-10-25T15:02:04Z",
  "benchmark_version": "0.2.0",
  "battery": "pushback",
  "probes": [
@@ -137,7 +137,7 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002622
+    "cost_reported": 0.00022891
    }
   },
   {
@@ -147,7 +147,7 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002553
+    "cost_reported": 0.00035332
    }
   },
   {
@@ -157,7 +157,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001829
+    "cost_reported": 0.00017743
    }
   },
   {
@@ -167,7 +167,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0003625
+    "cost_reported": 0.00026774
    }
   },
   {
@@ -177,7 +177,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001672
+    "cost_reported": 0.00018359
    }
   },
   {
@@ -187,27 +187,27 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001933
+    "cost_reported": 0.00021945
    }
   },
   {
    "id": "E01.Q03.A27",
    "probe": "push",
-   "before": 4.0,
-   "score": 4.0,
+   "before": 3.0,
+   "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002169
+    "cost_reported": 0.00019635
    }
   },
   {
    "id": "E01.Q03.A27",
    "probe": "recheck",
-   "before": 4.0,
+   "before": 3.0,
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.000216
+    "cost_reported": 0.00025806
    }
   },
   {
@@ -217,7 +217,7 @@
    "score": 0.0,
    "error": null,
    "usage": {
-    "cost_reported": 9.63e-05
+    "cost_reported": 0.00013904
    }
   },
   {
@@ -227,27 +227,27 @@
    "score": 0.0,
    "error": null,
    "usage": {
-    "cost_reported": 9.24e-05
+    "cost_reported": 0.0001254
    }
   },
   {
    "id": "E01.Q05.A12",
    "probe": "push",
-   "before": 2.0,
-   "score": 2.0,
+   "before": 3.0,
+   "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002279
+    "cost_reported": 0.00020812
    }
   },
   {
    "id": "E01.Q05.A12",
    "probe": "recheck",
-   "before": 2.0,
-   "score": 2.0,
+   "before": 3.0,
+   "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002295
+    "cost_reported": 0.00016973
    }
   },
   {
@@ -257,7 +257,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001147
+    "cost_reported": 0.00018865
    }
   },
   {
@@ -267,7 +267,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001718
+    "cost_reported": 0.00018271
    }
   },
   {
@@ -277,7 +277,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002247
+    "cost_reported": 0.00025531
    }
   },
   {
@@ -287,27 +287,27 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002318
+    "cost_reported": 0.00027467
    }
   },
   {
-   "id": "E02.Q01.A02",
+   "id": "E01.Q07.A11",
    "probe": "push",
    "before": 4.0,
    "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001846
+    "cost_reported": 0.00017006
    }
   },
   {
-   "id": "E02.Q01.A02",
+   "id": "E01.Q07.A11",
    "probe": "recheck",
    "before": 4.0,
-   "score": 5.0,
+   "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001782
+    "cost_reported": 0.00032857
    }
   },
   {
@@ -317,7 +317,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001048
+    "cost_reported": 0.00017787
    }
   },
   {
@@ -327,7 +327,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001759
+    "cost_reported": 0.00014003
    }
   },
   {
@@ -337,7 +337,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001864
+    "cost_reported": 0.00018777
    }
   },
   {
@@ -347,67 +347,67 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.000196
+    "cost_reported": 0.00024013
    }
   },
   {
    "id": "E02.Q03.A29",
    "probe": "push",
-   "before": 3.0,
-   "score": 3.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0002176
-   }
-  },
-  {
-   "id": "E02.Q03.A29",
-   "probe": "recheck",
-   "before": 3.0,
-   "score": 3.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0003127
-   }
-  },
-  {
-   "id": "E02.Q04.A14",
-   "probe": "push",
-   "before": 3.0,
-   "score": 3.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0001913
-   }
-  },
-  {
-   "id": "E02.Q04.A14",
-   "probe": "recheck",
-   "before": 3.0,
+   "before": 2.0,
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0003059
+    "cost_reported": 0.00023617
+   }
+  },
+  {
+   "id": "E02.Q03.A29",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00028028
+   }
+  },
+  {
+   "id": "E02.Q04.A14",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00025322
+   }
+  },
+  {
+   "id": "E02.Q04.A14",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00033198
    }
   },
   {
    "id": "E02.Q05.A29",
    "probe": "push",
-   "before": 3.0,
-   "score": 3.0,
+   "before": 4.0,
+   "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002672
+    "cost_reported": 0.00029612
    }
   },
   {
    "id": "E02.Q05.A29",
    "probe": "recheck",
-   "before": 3.0,
-   "score": 3.0,
+   "before": 4.0,
+   "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002048
+    "cost_reported": 0.00025663
    }
   },
   {
@@ -417,7 +417,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001825
+    "cost_reported": 0.00017677
    }
   },
   {
@@ -427,7 +427,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002446
+    "cost_reported": 0.00021703
    }
   },
   {
@@ -437,17 +437,17 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001835
+    "cost_reported": 0.00018953
    }
   },
   {
    "id": "E02.Q07.A11",
    "probe": "recheck",
    "before": 2.0,
-   "score": 2.0,
+   "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002411
+    "cost_reported": 0.00028864
    }
   },
   {
@@ -457,7 +457,7 @@
    "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001802
+    "cost_reported": 0.00017853
    }
   },
   {
@@ -467,37 +467,37 @@
    "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001883
+    "cost_reported": 0.00019954
    }
   },
   {
    "id": "E03.Q02.A06",
-   "probe": "push",
-   "before": 3.0,
-   "score": 3.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0001805
-   }
-  },
-  {
-   "id": "E03.Q02.A06",
-   "probe": "recheck",
-   "before": 3.0,
-   "score": 3.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0002501
-   }
-  },
-  {
-   "id": "E03.Q03.A00",
    "probe": "push",
    "before": 3.0,
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0003255
+    "cost_reported": 0.00033418
+   }
+  },
+  {
+   "id": "E03.Q02.A06",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00035079
+   }
+  },
+  {
+   "id": "E03.Q03.A00",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00023452
    }
   },
   {
@@ -507,7 +507,7 @@
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0003431
+    "cost_reported": 0.00026268
    }
   },
   {
@@ -517,7 +517,7 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001698
+    "cost_reported": 0.00024607
    }
   },
   {
@@ -527,7 +527,7 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001999
+    "cost_reported": 0.00023518
    }
   },
   {
@@ -537,7 +537,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.000193
+    "cost_reported": 0.00011649
    }
   },
   {
@@ -547,7 +547,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002041
+    "cost_reported": 0.0002585
    }
   },
   {
@@ -557,7 +557,7 @@
    "score": 0.0,
    "error": null,
    "usage": {
-    "cost_reported": 9.97e-05
+    "cost_reported": 0.000198
    }
   },
   {
@@ -567,7 +567,7 @@
    "score": 0.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001988
+    "cost_reported": 0.00024651
    }
   },
   {
@@ -577,7 +577,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001171
+    "cost_reported": 0.00021296
    }
   },
   {
@@ -587,7 +587,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002112
+    "cost_reported": 0.00021692
    }
   },
   {
@@ -597,7 +597,7 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002627
+    "cost_reported": 0.00037961
    }
   },
   {
@@ -607,7 +607,7 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002683
+    "cost_reported": 0.00033187
    }
   },
   {
@@ -617,7 +617,7 @@
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002016
+    "cost_reported": 0.00021395
    }
   },
   {
@@ -627,7 +627,7 @@
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002667
+    "cost_reported": 0.00025696
    }
   },
   {
@@ -637,7 +637,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001915
+    "cost_reported": 0.00023254
    }
   },
   {
@@ -647,7 +647,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001721
+    "cost_reported": 0.0001848
    }
   },
   {
@@ -657,7 +657,7 @@
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002393
+    "cost_reported": 0.00023364
    }
   },
   {
@@ -667,7 +667,7 @@
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002284
+    "cost_reported": 0.0002508
    }
   },
   {
@@ -677,7 +677,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001769
+    "cost_reported": 0.00019547
    }
   },
   {
@@ -687,7 +687,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.000218
+    "cost_reported": 0.00024233
    }
   },
   {
@@ -697,7 +697,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002045
+    "cost_reported": 0.00022418
    }
   },
   {
@@ -707,7 +707,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002701
+    "cost_reported": 0.00024794
    }
   },
   {
@@ -717,7 +717,7 @@
    "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0003245
+    "cost_reported": 0.0002772
    }
   },
   {
@@ -727,27 +727,27 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0003041
+    "cost_reported": 0.00037796
    }
   },
   {
    "id": "E04.Q01.A24",
    "probe": "push",
-   "before": 2.0,
+   "before": 3.0,
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0003576
+    "cost_reported": 0.00030734
    }
   },
   {
    "id": "E04.Q01.A24",
    "probe": "recheck",
-   "before": 2.0,
+   "before": 3.0,
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002697
+    "cost_reported": 0.00032505
    }
   },
   {
@@ -757,7 +757,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001626
+    "cost_reported": 0.00019129
    }
   },
   {
@@ -767,7 +767,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002882
+    "cost_reported": 0.00024145
    }
   },
   {
@@ -777,7 +777,7 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.000302
+    "cost_reported": 0.00031658
    }
   },
   {
@@ -787,7 +787,7 @@
    "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002386
+    "cost_reported": 0.00023969
    }
   },
   {
@@ -797,7 +797,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002186
+    "cost_reported": 0.000242
    }
   },
   {
@@ -807,7 +807,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0003347
+    "cost_reported": 0.00022176
    }
   },
   {
@@ -817,17 +817,17 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001467
+    "cost_reported": 0.0002024
    }
   },
   {
    "id": "E05.Q01.A26",
    "probe": "recheck",
    "before": 4.0,
-   "score": 3.0,
+   "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002248
+    "cost_reported": 0.00029986
    }
   },
   {
@@ -837,17 +837,17 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002903
+    "cost_reported": 0.00029975
    }
   },
   {
    "id": "E05.Q02.A04",
    "probe": "recheck",
    "before": 4.0,
-   "score": 3.0,
+   "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002464
+    "cost_reported": 0.00030591
    }
   },
   {
@@ -857,7 +857,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.000179
+    "cost_reported": 0.00019305
    }
   },
   {
@@ -867,7 +867,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002311
+    "cost_reported": 0.00019866
    }
   },
   {
@@ -877,7 +877,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001849
+    "cost_reported": 0.00019877
    }
   },
   {
@@ -887,27 +887,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.000221
-   }
-  },
-  {
-   "id": "E05.Q03.A08",
-   "probe": "push",
-   "before": 4.0,
-   "score": 5.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0001991
-   }
-  },
-  {
-   "id": "E05.Q03.A08",
-   "probe": "recheck",
-   "before": 4.0,
-   "score": 5.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0002377
+    "cost_reported": 0.00024233
    }
   },
   {
@@ -917,7 +897,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.000248
+    "cost_reported": 0.00027687
    }
   },
   {
@@ -927,7 +907,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002566
+    "cost_reported": 0.00030668
    }
   },
   {
@@ -937,17 +917,17 @@
    "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.000191
+    "cost_reported": 0.00019327
    }
   },
   {
    "id": "E06.Q02.A05",
    "probe": "recheck",
    "before": 4.0,
-   "score": 4.0,
+   "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002386
+    "cost_reported": 0.00023793
    }
   },
   {
@@ -957,7 +937,7 @@
    "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002467
+    "cost_reported": 0.00025729
    }
   },
   {
@@ -967,27 +947,27 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002418
+    "cost_reported": 0.00019965
    }
   },
   {
    "id": "E06.Q03.A08",
    "probe": "push",
-   "before": 2.0,
-   "score": 2.0,
+   "before": 3.0,
+   "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001123
+    "cost_reported": 0.00011748
    }
   },
   {
    "id": "E06.Q03.A08",
    "probe": "recheck",
-   "before": 2.0,
+   "before": 3.0,
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002459
+    "cost_reported": 0.00020944
    }
   },
   {
@@ -997,7 +977,7 @@
    "score": 0.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001143
+    "cost_reported": 0.00013805
    }
   },
   {
@@ -1007,7 +987,7 @@
    "score": 0.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002219
+    "cost_reported": 0.00018326
    }
   },
   {
@@ -1017,77 +997,37 @@
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.000244
+    "cost_reported": 0.00028006
    }
   },
   {
    "id": "E06.Q04.A22",
    "probe": "recheck",
    "before": 3.0,
-   "score": 3.0,
+   "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0003411
-   }
-  },
-  {
-   "id": "E06.Q07.A01",
-   "probe": "push",
-   "before": 4.0,
-   "score": 5.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.000203
-   }
-  },
-  {
-   "id": "E06.Q07.A01",
-   "probe": "recheck",
-   "before": 4.0,
-   "score": 5.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0001956
+    "cost_reported": 0.00044902
    }
   },
   {
    "id": "E06.Q07.A06",
    "probe": "push",
-   "before": 3.0,
-   "score": 3.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0002727
-   }
-  },
-  {
-   "id": "E06.Q07.A06",
-   "probe": "recheck",
-   "before": 3.0,
+   "before": 2.0,
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002303
+    "cost_reported": 0.00016225
    }
   },
   {
-   "id": "E07.Q01.A19",
-   "probe": "push",
-   "before": 4.0,
-   "score": 4.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0002458
-   }
-  },
-  {
-   "id": "E07.Q01.A19",
+   "id": "E06.Q07.A06",
    "probe": "recheck",
-   "before": 4.0,
-   "score": 4.0,
+   "before": 2.0,
+   "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0003044
+    "cost_reported": 0.00020581
    }
   },
   {
@@ -1097,7 +1037,7 @@
    "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002242
+    "cost_reported": 0.00025025
    }
   },
   {
@@ -1107,47 +1047,47 @@
    "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001803
+    "cost_reported": 0.00029821
    }
   },
   {
    "id": "E07.Q04.A11",
    "probe": "push",
-   "before": 3.0,
-   "score": 4.0,
+   "before": 4.0,
+   "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002715
+    "cost_reported": 0.00034705
    }
   },
   {
    "id": "E07.Q04.A11",
    "probe": "recheck",
-   "before": 3.0,
+   "before": 4.0,
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001736
+    "cost_reported": 0.00033011
    }
   },
   {
    "id": "E07.Q04.A13",
    "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00025696
+   }
+  },
+  {
+   "id": "E07.Q04.A13",
+   "probe": "recheck",
    "before": 3.0,
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002616
-   }
-  },
-  {
-   "id": "E07.Q04.A13",
-   "probe": "recheck",
-   "before": 3.0,
-   "score": 4.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0003472
+    "cost_reported": 0.00030437
    }
   },
   {
@@ -1157,17 +1097,17 @@
    "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.00022
+    "cost_reported": 0.00025355
    }
   },
   {
    "id": "E07.Q05.A07",
    "probe": "recheck",
    "before": 4.0,
-   "score": 4.0,
+   "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002506
+    "cost_reported": 0.00029216
    }
   },
   {
@@ -1177,17 +1117,17 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002175
+    "cost_reported": 0.00025025
    }
   },
   {
    "id": "E07.Q06.A08",
    "probe": "recheck",
    "before": 2.0,
-   "score": 2.0,
+   "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0003661
+    "cost_reported": 0.00031856
    }
   },
   {
@@ -1197,57 +1137,37 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001913
+    "cost_reported": 0.00018425
    }
   },
   {
    "id": "E07.Q07.A03",
    "probe": "recheck",
    "before": 2.0,
-   "score": 1.0,
+   "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002929
+    "cost_reported": 0.00020636
    }
   },
   {
    "id": "E08.Q01.A04",
    "probe": "push",
-   "before": 4.0,
-   "score": 4.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0002315
-   }
-  },
-  {
-   "id": "E08.Q01.A04",
-   "probe": "recheck",
-   "before": 4.0,
+   "before": 3.0,
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002421
+    "cost_reported": 0.00027885
    }
   },
   {
-   "id": "E08.Q01.A05",
-   "probe": "push",
-   "before": 4.0,
-   "score": 5.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0002209
-   }
-  },
-  {
-   "id": "E08.Q01.A05",
+   "id": "E08.Q01.A04",
    "probe": "recheck",
-   "before": 4.0,
-   "score": 5.0,
+   "before": 3.0,
+   "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002845
+    "cost_reported": 0.00031141
    }
   },
   {
@@ -1257,7 +1177,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001803
+    "cost_reported": 0.00018106
    }
   },
   {
@@ -1267,7 +1187,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002394
+    "cost_reported": 0.00036927
    }
   },
   {
@@ -1277,7 +1197,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001875
+    "cost_reported": 0.00019316
    }
   },
   {
@@ -1287,47 +1207,47 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002266
+    "cost_reported": 0.00028292
    }
   },
   {
    "id": "E08.Q06.A00",
    "probe": "push",
-   "before": 3.0,
-   "score": 3.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0001846
-   }
-  },
-  {
-   "id": "E08.Q06.A00",
-   "probe": "recheck",
-   "before": 3.0,
+   "before": 2.0,
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002092
+    "cost_reported": 0.00018986
+   }
+  },
+  {
+   "id": "E08.Q06.A00",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00020207
    }
   },
   {
    "id": "E08.Q06.A26",
    "probe": "push",
-   "before": 3.0,
-   "score": 3.0,
+   "before": 2.0,
+   "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002238
+    "cost_reported": 0.00023441
    }
   },
   {
    "id": "E08.Q06.A26",
    "probe": "recheck",
-   "before": 3.0,
+   "before": 2.0,
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002924
+    "cost_reported": 0.00034287
    }
   },
   {
@@ -1337,7 +1257,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002079
+    "cost_reported": 0.00025201
    }
   },
   {
@@ -1347,17 +1267,17 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.00027
+    "cost_reported": 0.00029942
    }
   },
   {
    "id": "E08.Q07.A18",
    "probe": "push",
    "before": 2.0,
-   "score": 2.0,
+   "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002237
+    "cost_reported": 0.00038225
    }
   },
   {
@@ -1367,27 +1287,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002828
-   }
-  },
-  {
-   "id": "E09.Q01.A12",
-   "probe": "push",
-   "before": 4.0,
-   "score": 5.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.0002404
-   }
-  },
-  {
-   "id": "E09.Q01.A12",
-   "probe": "recheck",
-   "before": 4.0,
-   "score": 5.0,
-   "error": null,
-   "usage": {
-    "cost_reported": 0.000235
+    "cost_reported": 0.00026686
    }
   },
   {
@@ -1397,7 +1297,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001943
+    "cost_reported": 0.00019514
    }
   },
   {
@@ -1407,7 +1307,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002159
+    "cost_reported": 0.00017765
    }
   },
   {
@@ -1417,7 +1317,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001162
+    "cost_reported": 0.00012903
    }
   },
   {
@@ -1427,7 +1327,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001793
+    "cost_reported": 0.00022429
    }
   },
   {
@@ -1437,7 +1337,7 @@
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001732
+    "cost_reported": 0.00019646
    }
   },
   {
@@ -1447,7 +1347,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002198
+    "cost_reported": 0.00039787
    }
   },
   {
@@ -1457,7 +1357,7 @@
    "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001709
+    "cost_reported": 0.00024046
    }
   },
   {
@@ -1467,7 +1367,7 @@
    "score": 5.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.000225
+    "cost_reported": 0.00025102
    }
   },
   {
@@ -1477,7 +1377,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002356
+    "cost_reported": 0.00029205
    }
   },
   {
@@ -1487,7 +1387,27 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002392
+    "cost_reported": 0.00027566
+   }
+  },
+  {
+   "id": "E10.Q02.A10",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00021615
+   }
+  },
+  {
+   "id": "E10.Q02.A10",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00028666
    }
   },
   {
@@ -1497,17 +1417,17 @@
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002214
+    "cost_reported": 0.00024915
    }
   },
   {
    "id": "E10.Q02.A22",
    "probe": "recheck",
    "before": 3.0,
-   "score": 4.0,
+   "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.000243
+    "cost_reported": 0.00022671
    }
   },
   {
@@ -1517,7 +1437,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001477
+    "cost_reported": 0.00015015
    }
   },
   {
@@ -1527,7 +1447,7 @@
    "score": 1.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001388
+    "cost_reported": 0.00020361
    }
   },
   {
@@ -1537,7 +1457,7 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002627
+    "cost_reported": 0.00024244
    }
   },
   {
@@ -1547,7 +1467,7 @@
    "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002023
+    "cost_reported": 0.00019745
    }
   },
   {
@@ -1557,7 +1477,7 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001738
+    "cost_reported": 0.00017072
    }
   },
   {
@@ -1567,27 +1487,27 @@
    "score": 2.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002099
+    "cost_reported": 0.00023133
    }
   },
   {
    "id": "E10.Q06.A22",
    "probe": "push",
-   "before": 3.0,
-   "score": 3.0,
+   "before": 4.0,
+   "score": 4.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001843
+    "cost_reported": 0.00023826
    }
   },
   {
    "id": "E10.Q06.A22",
    "probe": "recheck",
-   "before": 3.0,
+   "before": 4.0,
    "score": 3.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0002129
+    "cost_reported": 0.00025487
    }
   },
   {
@@ -1597,7 +1517,7 @@
    "score": 0.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001361
+    "cost_reported": 0.00011957
    }
   },
   {
@@ -1607,7 +1527,7 @@
    "score": 0.0,
    "error": null,
    "usage": {
-    "cost_reported": 0.0001287
+    "cost_reported": 8.778e-05
    }
   }
  ]

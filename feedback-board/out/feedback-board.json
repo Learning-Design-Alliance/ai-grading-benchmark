@@ -41,13 +41,13 @@
   },
   "anthropic/claude-haiku-5.5": {
    "halo": {
-    "n": 97,
-    "corr_blind": 0.5040011867032426,
-    "corr_shown": 0.5903996799137813,
-    "halo": 0.08639849321053872,
+    "n": 95,
+    "corr_blind": 0.4833132075937329,
+    "corr_shown": 0.5954832811236002,
+    "halo": 0.11217007352986724,
     "ci95": [
-     -0.01935836705406413,
-     0.1918236272124913
+     -0.045527879359997026,
+     0.2615717601827734
     ],
     "flag": false,
     "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
@@ -60,18 +60,18 @@
     ],
     "n": 54,
     "unscored": 0,
-    "evaluator_cost_usd": 0.4247725
+    "evaluator_cost_usd": 0.4247125
    },
    "feedback_measures_descriptive": {
-    "generic": 0.45676442654341876,
-    "same_opening": 0.0,
-    "grounded": 0.896551724137931,
-    "words": 66.83,
-    "self_per100": 3.346307917667056,
-    "task_per100": 0.8233811397363908,
-    "action_per100": 0.9692021431354302,
+    "generic": 0.4490110809496708,
+    "same_opening": 0.03225806451612903,
+    "grounded": 0.9080459770114943,
+    "words": 64.38,
+    "self_per100": 3.4304730771535277,
+    "task_per100": 0.7479710586970033,
+    "action_per100": 1.190146208304322,
     "leaks_answer": 0.0,
-    "varied_by_quality": 0.32063251718893393,
+    "varied_by_quality": -0.03160918903566379,
     "n": 100,
     "field": "feedback",
     "note": "rule-coded descriptive measures with no human reference; see feedback.py"

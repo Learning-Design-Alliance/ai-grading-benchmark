@@ -51,28 +51,28 @@
   },
   {
    "grader": "anthropic/claude-haiku-5.5",
-   "reasoning_effect": 1.905,
+   "reasoning_effect": 1.855,
    "reasoning_ci95": [
-    1.8075,
-    1.995
+    1.7625,
+    1.945
    ],
-   "answer_effect": 1.235,
+   "answer_effect": 1.225,
    "answer_ci95": [
-    1.17,
-    1.3025
+    1.15,
+    1.295
    ],
    "mean_credit": {
-    "correct": 3.855,
-    "slip": 1.585,
-    "lucky": 0.915,
-    "wrong": 0.715
+    "correct": 3.84,
+    "slip": 1.6,
+    "lucky": 0.97,
+    "wrong": 0.76
    },
    "lucky_accepted": 0.0,
    "verdict": "READS THE WORKING",
    "first_wrong_step_exact": {
-    "wrong": 0.66,
-    "lucky": 0.675,
-    "correct_none_flagged": 0.91
+    "wrong": 0.655,
+    "lucky": 0.64,
+    "correct_none_flagged": 0.915
    },
    "failed": 0
   },
