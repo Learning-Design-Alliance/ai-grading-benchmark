@@ -2,6 +2,15 @@
 {
 "key": "2026-10-25:0",
 "date": "2026-10-25",
+"what": "Zero data retention for Claude Fable 5.1 and Claude Haiku 5.5",
+"was": "every request asked for zero retention (`provider.zdr`)",
+"now": "3,142 of Fable's and 1,720 of Haiku's leaderboard gradings (5,517 and 11,313 across all runs) were served by Anthropic's own endpoint. It is not on OpenRouter's zero-retention list today, and Anthropic documents that Fable 5.1 requires 30-day retention unless it authorises otherwise. Results are unchanged; whether those requests were retained is unverified",
+"why": "the zero-retention flag had not been checked against OpenRouter's live list",
+"where": "client.py now pins every request to listed endpoints and refuses a model with none"
+},
+{
+"key": "2026-10-25:1",
+"date": "2026-10-25",
 "what": "Length study: Qwen3.8 27B's interval for the change in balanced accuracy",
 "was": "[\u22120.14, +0.05]",
 "now": "[\u22120.13, +0.05]",
@@ -9,7 +18,7 @@
 "where": "video/LENGTH.md"
 },
 {
-"key": "2026-10-25:1",
+"key": "2026-10-25:2",
 "date": "2026-10-25",
 "what": "Null verdicts on video, length and pushback now print the largest effect they cannot rule out",
 "was": "\"adds nothing to a stopwatch\"; \"NO DETECTABLE EFFECT\"; \"HOLDS\"",
@@ -18,7 +27,7 @@
 "where": "video/README.md, video/LENGTH.md, feedback-board/PUSHBACK.md; CHANGE 1 in each script"
 },
 {
-"key": "2026-10-25:2",
+"key": "2026-10-25:3",
 "date": "2026-10-25",
 "what": "Length study headline",
 "was": "\"length does not change detection\"",
@@ -27,7 +36,7 @@
 "where": "video/LENGTH.md"
 },
 {
-"key": "2026-10-25:3",
+"key": "2026-10-25:4",
 "date": "2026-10-25",
 "what": "Benchmark card, conflict of interest",
 "was": "\"a grading product\"",
@@ -36,7 +45,7 @@
 "where": "BENCHMARK-CARD.md"
 },
 {
-"key": "2026-10-24:4",
+"key": "2026-10-24:5",
 "date": "2026-10-24",
 "what": "Feedback strand of the overall score",
 "was": "halo and \"gives away the answer\"",

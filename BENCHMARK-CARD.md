@@ -178,6 +178,13 @@ As of 2026-10-25: 17 models, all five tasks, default prompt. Overall scores rang
 `out/leaderboard.json` and `out/overall.json` are rebuilt from `submissions/` on every change. The report
 page shows every strand and module.
 
+## What the vendors document
+
+`docs/MODELS.md` lists each model's licence, size, training cutoff, training data and the evaluations its
+card reports, beside this benchmark's measurements. No card evaluates education or grading. Only one
+model's training data is fully released: Olmo, a candidate for the board. Open-weight models can run on an
+institution's own servers, so student work need not leave it.
+
 ## Energy, carbon and water
 
 A grading is short: a median of 44-112 output tokens. Published estimates put an ordinary model at

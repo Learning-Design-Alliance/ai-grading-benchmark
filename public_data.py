@@ -13,7 +13,7 @@ regenerated:
 - baselines, agreement_flags, pushback_split, length_check, per_prompt, multiplicity: the reference baselines
   and the standard checks (out/baselines.json, out/standard_checks.json, out/cluster_check.json,
   out/overall.json);
-- corrections.json   docs/CORRECTIONS.md; energy.json from docs/energy.json.
+- corrections.json   docs/CORRECTIONS.md; energy.json from docs/energy.json; models.json from docs/models.json.
 
     python3 public_data.py <out dir>
 
@@ -510,6 +510,31 @@ def energy():
     return rows
 
 
+def models():
+    """docs/models.json: what each vendor documents, beside two of the benchmark's own measurements."""
+    d = _load("docs", "models.json")
+    if not d:
+        return []
+    pb = {k: v.get("pushback") for k, v in (_load("feedback-board", "out", "pushback.json") or {"models": {}})["models"].items()}
+    ov = {r["model"]: r for r in (_load("out", "overall.json") or {"rows": []})["rows"]}
+    fmti = d["fmti"]["scores"]
+    rows = []
+    for m in d["models"]:
+        k = m["model"]
+        p = pb.get(k) or {}
+        vendor = NAMES.get(k, (k, "", ""))[1]
+        rows.append({"key": k, "model": name(k) if k in NAMES else k.split("/")[-1], "vendor": vendor,
+                     "candidate": bool(m.get("candidate")), "weights": m["weights"], "licence": m["licence"],
+                     "params": m["params"], "cutoff": m["cutoff"], "training_data": m["training_data"],
+                     "card": m["card"], "card_date": m["card_date"], "sycophancy_claim": m["sycophancy_eval"],
+                     "pushback_measured": None if not p else f"{p['verdict']} ({100 * p['effect']:+.1f}% of the scale)",
+                     "injection_claim": m["injection_eval"],
+                     "gaming_measured": None if k not in ov else ("gamed by more than 5% of the scale" if any("gamed" in f for f in ov[k]["flags"]) else "not gamed above 5%"),
+                     "bias_claim": m["bias_eval"], "education_eval": m["education_eval"], "energy": m["energy"], "zdr": m["zdr"],
+                     "fmti": fmti.get(vendor)})
+    return rows
+
+
 def main(out):
     os.makedirs(out, exist_ok=True)
     for nm, fn in (("leaderboard", leaderboard), ("halo", halo), ("fairness", fairness),
@@ -519,7 +544,7 @@ def main(out):
                    ("images", images_pooled), ("video", video), ("video_length", video_length),
                    ("maths", maths), ("pushback", pushback), ("baselines", baselines), ("agreement_flags", agreement_flags),
                    ("pushback_split", pushback_split), ("length_check", length_check), ("per_prompt", per_prompt),
-                   ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy)):
+                   ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)
         print(f"{nm}: {len(rows)} rows")
