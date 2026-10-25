@@ -27,6 +27,16 @@ human ceiling on essays (length is a known strong predictor of essay scores); th
 lowest marks; padding-like probes (forged note, the request appended) RAISE the length baseline's mark, since
 they add words. Code has only 29 training cases, so its baselines are expected to be weak.
 
+CHANGE 1 (2026-10-25, before this baseline was scored): a small pretrained encoder.
+- **encoder-ridge**: sentence embeddings from all-MiniLM-L6-v2 (22M parameters, Apache 2.0, revision
+  1110a243fdf4706b3f48f1d95db1a4f5529b4d41), normalised, then Ridge (alpha 1) on the mean human mark. The
+  same text as tfidf-ridge (question prefixed for short answers). The encoder reads at most 256 word pieces,
+  so long essays are truncated, which is stated beside the result. It is the "small model" tier between the
+  classic baselines and the smallest language models on the board, and runs on a laptop CPU.
+Expected (written before scoring): close to tfidf-ridge on essays and short answers; weak on code (29
+training cases); blank answers credited as by the others, since a regression has no floor.
+Run with `--kinds encoder-ridge` to add its rows to an existing output.
+
     python3 baselines/baselines.py --cases-dir <dir with mohler.jsonl, harmogen-code.jsonl, asap2.jsonl> --out out/baselines.json
 
 Reads the corpora's cases (aggregates out only).
@@ -81,7 +91,30 @@ def fit(task, train, kind):
         sim = lambda c, r: float(cosine_similarity(vec.transform([r or ""]), vec.transform([c.get("reference", "") or ""]))[0, 0])
         m = LinearRegression().fit(np.array([[sim(c, c["response"])] for c in train]), y)
         return lambda c, r: float(m.predict(np.array([[sim(c, r)]]))[0])
+    if kind == "encoder-ridge":
+        enc = encoder()
+        emb = lambda texts: enc.encode(texts, batch_size=64, normalize_embeddings=True, show_progress_bar=False)
+        m = Ridge(alpha=1.0).fit(emb([text_of(task, c, c["response"]) for c in train]), y)
+        cache = {}
+
+        def pred(c, r):
+            k = text_of(task, c, r)
+            if k not in cache:
+                cache[k] = float(m.predict(emb([k]))[0])
+            return cache[k]
+        return pred
     raise ValueError(kind)
+
+
+_ENC = []
+
+
+def encoder():
+    if not _ENC:
+        from sentence_transformers import SentenceTransformer
+        _ENC.append(SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2",
+                                        revision="1110a243fdf4706b3f48f1d95db1a4f5529b4d41", device="cpu"))
+    return _ENC[0]
 
 
 def run(task, path, kind):
@@ -114,10 +147,14 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cases-dir", required=True)
     ap.add_argument("--out", default=os.path.join(ROOT, "out", "baselines.json"))
+    ap.add_argument("--kinds", nargs="+", help="only these baselines, added to the existing output")
     a = ap.parse_args()
     rows = []
+    if a.kinds and os.path.exists(a.out):
+        rows = [r for r in json.load(open(a.out))["rows"] if r["model"].replace("baseline: ", "") not in a.kinds]
     for task, fn in FILES.items():
-        kinds = ["length", "tfidf-ridge"] + (["reference-similarity"] if task in ("mohler", "code") else [])
+        kinds = ["length", "tfidf-ridge"] + (["reference-similarity"] if task in ("mohler", "code") else []) + ["encoder-ridge"]
+        kinds = [k for k in kinds if not a.kinds or k in a.kinds]
         for kind in kinds:
             r = run(task, os.path.join(a.cases_dir, fn), kind)
             rows.append(r)
