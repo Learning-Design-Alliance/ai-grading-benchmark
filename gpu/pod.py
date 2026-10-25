@@ -70,9 +70,15 @@ def ctl(method, path, body=None, raw=False, timeout=120):
     url = f"https://{s['pod']}-8001.proxy.runpod.net{path}"
     data = body if isinstance(body, (bytes, type(None))) else json.dumps(body).encode()
     req = urllib.request.Request(url, method=method, data=data, headers={"X-Token": s["token"], "User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        b = r.read()
-    return b if raw else json.loads(b)
+    for attempt in range(6):  # RunPod's proxy answers 404/502/524 now and then; a GET is safe to repeat
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                b = r.read()
+            return b if raw else json.loads(b)
+        except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError) as e:
+            if method != "GET" or attempt == 5 or getattr(e, "code", 0) == 403:
+                raise
+            time.sleep(5 * (attempt + 1))
 
 
 def cmd_create(a):
