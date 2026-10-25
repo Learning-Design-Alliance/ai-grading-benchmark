@@ -393,8 +393,7 @@
    "training_refs": "Qwen3 tech report (arXiv 2505.09388) s3.1 p.3-4, s3.2 p.4, s4.1 p.10, s4.5 p.12; covers original 235B-A22B, not the 2507 update"
   },
   {
-   "model": "allenai/Olmo-3.1-32B-Instruct",
-   "candidate": true,
+   "model": "allenai/olmo-3.1-32b-instruct",
    "weights": "open",
    "licence": "Apache 2.0 (research and educational use under Ai2's responsible-use guidelines)",
    "params": "32B",
@@ -407,14 +406,15 @@
    "bias_eval": "BBQ for the 7B models only",
    "education_eval": "not reported",
    "energy": "compute only",
-   "zdr": "open weights: runs locally",
+   "zdr": "open weights: runs locally (the board's runs used a rented GPU pod, deleted afterwards, so nothing was retained)",
    "training_tokens": "Dolma 3 Mix 5.9T (32B run stopped at 5.5T) + 100B midtraining + 100B long-context",
    "training_sources": "Common Crawl web, olmOCR science PDFs, code (Stack-Edu), math, Wikipedia, synthetic sets; SFT: WildChat, Aya, FLAN, Tulu 3, others",
    "user_data": "No vendor user data; public WildChat user-chatbot logs; consented public user prompts from SearchArena, OpenScholar",
    "decontamination": "Yes: n-gram 'decon' tool vs all OLMES benchmarks (midtraining); post-training Tulu 3 method, 8-grams, 0.5 overlap",
    "distilled_from": "SFT/DPO outputs from GPT-4.1, QwQ-32B, DeepSeek R1, Qwen3 32B (chosen) and 0.6B (rejected); GPT-4o/4.1/5 tool trajectories",
    "education_data": "PII filter removes docs linking educational info to a person; synthetic 'school quiz' rewrites; no student work stated",
-   "training_refs": "Olmo 3 report (arXiv 2512.13961) s2.1 p.4, p.11, s3.4 p.15-17, s3.5.3 p.26, p.34, s4.2 p.41, s5.2 p.54-56, Table 30 p.58"
+   "training_refs": "Olmo 3 report (arXiv 2512.13961) s2.1 p.4, p.11, s3.4 p.15-17, s3.5.3 p.26, p.34, s4.2 p.41, s5.2 p.54-56, Table 30 p.58",
+   "hf_repo": "allenai/Olmo-3.1-32B-Instruct (revision ac0587e4a7744a551c059d8cd17ba220bc940dae)"
   }
  ],
  "fmti": {

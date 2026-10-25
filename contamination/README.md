@@ -34,6 +34,9 @@ from this repository's October 2026 documents, which cannot be in a 2024 crawl, 
   - Only exact 13-word matches are found, not paraphrases.
   - Short answers and code are often too short or too fragmented to search: 43 and 66 of 100 had no line of
     14 words.
-  - No index of Olmo 3's data is offered, so the board's candidate model is not covered.
+  - No index of Olmo 3's data is offered (infini-gram's list, checked 2026-10-25, ends at OLMo 2), so Olmo
+    3.1 32B, on the board since 2026-10-25 and the one model whose training data is fully released, is not yet
+    covered. Its data (Dolma 3, Dolci) can be downloaded and searched directly. That is the next step, and the
+    only way to test whether a model's marks on these cases depend on having seen them.
 
 Output: `out/search.json`.

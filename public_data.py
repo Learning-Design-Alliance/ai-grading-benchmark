@@ -14,7 +14,8 @@ regenerated:
   and the standard checks (out/baselines.json, out/standard_checks.json, out/cluster_check.json,
   out/overall.json);
 - corrections.json   docs/CORRECTIONS.md; energy.json from docs/energy.json; models.json from docs/models.json;
-- contamination.json from contamination/out/search.json.
+- contamination.json from contamination/out/search.json; energy_measured.json from docs/energy.json's measured
+  block (energy/).
 
     python3 public_data.py <out dir>
 
@@ -45,6 +46,7 @@ NAMES = {
     "microsoft/phi-4": ("Phi-4", "Microsoft", "open weights"),
     "mistralai/ministral-8b-2512": ("Ministral 8B", "Mistral", "open weights"),
     "meta-llama/llama-3.2-3b-instruct": ("Llama 3.2 3B", "Meta", "open weights"),
+    "allenai/olmo-3.1-32b-instruct": ("Olmo 3.1 32B", "Ai2", "open weights"),
     "deepseek_deepseek-v4.1-flash": ("DeepSeek V4.1 Flash", "DeepSeek", "open weights"),
     "google/gemini-3.8-flash": ("Gemini 3.8 Flash", "Google", "frontier"),
     "google/gemini-4-argon": ("Gemini 4 Argon", "Google", "frontier"),
@@ -591,6 +593,20 @@ def energy_tasks():
     return rows
 
 
+def energy_measured():
+    """docs/energy.json measured: GPU energy per grading for the open models (energy/), beside the estimates."""
+    e = _load("docs", "energy.json")
+    if not e or "measured" not in e:
+        return []
+    m = e["measured"]
+    rows = []
+    for r in m["rows"]:
+        rows.append({"key": f"{r['model']}:{r['task']}", "model": name(r["model"]), "model_id": r["model"],
+                     "task": TASKS.get(r["task"], r["task"]), **{k: v for k, v in r.items() if k not in ("model", "task")},
+                     "status": m["status"], "boundary": m["boundary"], "hardware": m["hardware"]})
+    return rows
+
+
 def _lifecycle_task(e, tk):
     c, a, o = e["per_token_model"]["tiers"]["mid-size model (GPT-4o)"]
     op = c + a * tk["input_tokens"] / 1000 + o * tk["output_tokens"] / 1000
@@ -652,6 +668,7 @@ def main(out):
                    ("maths", maths), ("pushback", pushback), ("baselines", baselines), ("agreement_flags", agreement_flags),
                    ("pushback_split", pushback_split), ("length_check", length_check), ("per_prompt", per_prompt),
                    ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models), ("contamination", contamination), ("energy_tasks", energy_tasks),
+                   ("energy_measured", energy_measured),
                    ("lifecycle_tasks", lifecycle_tasks), ("lifecycle_compare", lifecycle_compare), ("footprint_scale", footprint_scale)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)

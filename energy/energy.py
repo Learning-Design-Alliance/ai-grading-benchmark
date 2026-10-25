@@ -97,6 +97,7 @@ CHANGES:
     python3 energy/energy.py floor
     python3 energy/energy.py measure --slug <slug> --model <served name> --cases-dir DIR --runs DIR   # on the pod
     python3 energy/energy.py analyse --runs DIR --out energy/out/energy.json                         # here
+    python3 energy/energy.py to-docs                       # the measured block of docs/energy.json
 
 Reads the corpora's cases on the pod (aggregates out only). Run folders stay outside the repository.
 """
@@ -386,6 +387,36 @@ def cmd_analyse(a):
     json.dump(res, open(a.out, "w"), indent=1)
 
 
+def cmd_to_docs(a):
+    """Writes the measured figures into docs/energy.json's `measured` block, beside the estimates (never over them)."""
+    res = json.load(open(a.result))
+    p = os.path.join(ROOT, "docs", "energy.json")
+    doc = json.load(open(p))
+    rows = []
+    for model, r in res["models"].items():
+        for task, t in r["tasks"].items():
+            rows.append({"model": model, "task": task, "net_mwh": round(t["net_wh"] * 1000, 3),
+                         "net_mwh_ci95": [round(x * 1000, 3) for x in t["net_ci95"]],
+                         "net_mwh_idle_range": [round(x * 1000, 3) for x in t["net_wh_idle_range"]],
+                         "gross_mwh": round(t["gross_wh"] * 1000, 3), "full_stack_mwh": round(t["full_stack_wh"] * 1000, 3),
+                         "full_stack_mwh_ci95": [round(x * 1000, 3) for x in t["full_stack_ci95"]],
+                         "tokens_in": round(t["mean_tokens_in"]), "tokens_out": round(t["mean_tokens_out"]),
+                         "estimate_small_mwh": round(t["estimate_small_wh"] * 1000, 2), "estimate_mid_mwh": round(t["estimate_mid_wh"] * 1000, 2),
+                         "verdict": t["verdict"], "descriptive_verdicts": t["descriptive_verdicts"],
+                         "one_at_a_time_mwh": round(r["sensitivity"][task]["net_wh"] * 1000, 2) if task in r["sensitivity"] else None})
+    doc["measured"] = {
+        "note": "Measured GPU energy per grading for open models (energy/, pre-registered), beside the per-token estimates, "
+                "which stay as they are. NET = GPU energy above idle; FULL-STACK = NET x 1.72 (Elsworth et al. 2025, "
+                "accelerators 58% of the total). Every model failed the pre-registered idle check, so every verdict is UNMEASURED; "
+                "the figures are descriptive.",
+        "status": "UNMEASURED (idle check failed); descriptive",
+        "boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+        "hardware": res["hardware"], "serving": res["serving"], "overhead_factor": round(res["overhead_factor"], 3),
+        "source": "energy/out/energy.json", "rows": rows}
+    json.dump(doc, open(p, "w"), indent=1, ensure_ascii=False)
+    print(f"{len(rows)} measured rows -> {p}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -395,8 +426,9 @@ def main():
     p.add_argument("--tasks", default="mohler,asap2,code"); p.add_argument("--prefix", default="en-")
     p.add_argument("--no-sensitivity", action="store_true")
     p = sub.add_parser("analyse"); p.add_argument("--runs", required=True); p.add_argument("--out", default=os.path.join(HERE, "out", "energy.json"))
+    p = sub.add_parser("to-docs"); p.add_argument("--result", default=os.path.join(HERE, "out", "energy.json"))
     a = ap.parse_args()
-    {"floor": cmd_floor, "measure": cmd_measure, "analyse": cmd_analyse}[a.cmd](a)
+    {"floor": cmd_floor, "measure": cmd_measure, "analyse": cmd_analyse, "to-docs": cmd_to_docs}[a.cmd](a)
 
 
 if __name__ == "__main__":

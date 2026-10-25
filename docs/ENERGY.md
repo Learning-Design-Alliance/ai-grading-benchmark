@@ -46,6 +46,36 @@ Carbon and streaming are for the mid-size model.
   about 7 times the energy of one that writes 135.
 - **A model's size** changes the figure about tenfold between the small and the mid-size model.
 
+## Measured on open models (2026-10-25)
+
+The estimates above stay as they are. Beside them, the open models on the board were run on a rented GPU and
+their energy read off it (`energy/`, pre-registered): one NVIDIA A100 80GB, vLLM, the leaderboard battery, 16
+gradings at a time. **Boundary:** the GPU's energy above idle, then × 1.72 for the rest of the server and the
+data centre (Google's split of its own figure: accelerators 58% of the total; Elsworth et al. 2025), so that
+it compares with the per-token model, which counts them too.
+
+**Status.** Every model failed one pre-registered self-check: the GPU idled 13-26% higher in the minute after
+the runs than before them (the bar was 10%). So the comparison below is descriptive. Which idle figure is
+subtracted moves the result by 5-10%. The GPU's energy counter itself agreed with its power readings within 1%.
+
+| task | measured, full-stack, range over the 8 board models | small-model estimate at the same tokens | mid-size estimate |
+|---|---|---|---|
+| short answer | 1.5-16 mWh (0.0015-0.016 Wh) | 16-47 mWh | 178-386 mWh |
+| essay | 3.9-33 mWh | 59-95 mWh | 435-680 mWh |
+| code | 6.5-51 mWh | 66-136 mWh | 480-950 mWh |
+
+<!-- OLMO_ENERGY_LINE: added after its run -->
+
+- **Measured is lower than estimated.** For 23 of 24 model-task pairs it is below even the small-model
+  estimate. The median gap is a factor of 4, and up to 15. The per-token model was fitted to figures inferred
+  for hosted APIs, which carry their own overheads and batch sizes. For an open model of up to 32B parameters
+  run in a batch on one modern GPU, it overstates the energy.
+- **One request at a time costs 4-16 times as much** as batching. This is the largest lever, bigger than the
+  model's size. AI Energy Score measures this way.
+- **Per model** (`energy/README.md`): a full leaderboard run of 2,342 gradings used 7-34 Wh of GPU energy.
+  That is less than an hour of video streaming for the heaviest model.
+- Closed models cannot be measured. Their estimates above remain the only figures.
+
 ## A burger for scale
 
 A half-pound (227 g) beef burger patty from a beef herd carries about 22.6 kg CO2e and 330 litres of
@@ -104,6 +134,6 @@ figure and 15-75 L at the high one.
 
 ## What we could add
 
-- **Measured energy for open models.** Running the open models on the board on our own GPU with the same
-  battery would give measured Wh per grading, which no one has for grading tasks.
+- **Measured energy at more batch sizes and on other GPUs**, and a node-level meter, so the full-stack factor
+  is measured rather than taken from Google.
 - **A column per model** citing the vendor's own disclosure, or its absence, beside the independent figure.
