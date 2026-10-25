@@ -563,6 +563,31 @@ def contamination():
     return rows
 
 
+def energy_tasks():
+    """docs/energy.json: energy per grading by task and model size, with a half-pound beef burger for scale."""
+    e = _load("docs", "energy.json")
+    if not e or "tasks" not in e:
+        return []
+    tiers = e["per_token_model"]["tiers"]
+    g = e["grid_kg_co2_per_kwh"]  # kg per kWh = g per Wh
+    b = e["burger"]
+    burger_g = b["kg"] * b["kg_co2e_per_kg"] * 1000
+    rows = []
+    for tk in e["tasks"]:
+        wh = {k: c + a * tk["input_tokens"] / 1000 + o * tk["output_tokens"] / 1000 for k, (c, a, o) in tiers.items()}
+        names = list(tiers)
+        mid = wh[names[1]]
+        rows.append({"key": tk["task"], "task": tk["task"], "input_tokens": tk["input_tokens"], "output_tokens": tk["output_tokens"],
+                     "wh_small": round(wh[names[0]], 3), "wh_mid": round(mid, 3), "wh_large": round(wh[names[2]], 3),
+                     "stream_seconds_mid": round(mid / e["streaming_kwh_per_hour"] * 3.6, 1),
+                     "co2_g_mid": round(mid * g, 3), "water_ml_mid_on_site": round(mid * e["water_ml_per_wh_on_site"], 2),
+                     "per_burger_mid": round(burger_g / (mid * g))})
+    rows.append({"key": "burger", "task": b["item"], "input_tokens": None, "output_tokens": None, "wh_small": None, "wh_mid": None,
+                 "wh_large": None, "stream_seconds_mid": None, "co2_g_mid": round(burger_g, 0),
+                 "water_ml_mid_on_site": round(b["kg"] * b["litres_withdrawn_per_kg"] * 1000, 0), "per_burger_mid": 1})
+    return rows
+
+
 def main(out):
     os.makedirs(out, exist_ok=True)
     for nm, fn in (("leaderboard", leaderboard), ("halo", halo), ("fairness", fairness),
@@ -572,7 +597,7 @@ def main(out):
                    ("images", images_pooled), ("video", video), ("video_length", video_length),
                    ("maths", maths), ("pushback", pushback), ("baselines", baselines), ("agreement_flags", agreement_flags),
                    ("pushback_split", pushback_split), ("length_check", length_check), ("per_prompt", per_prompt),
-                   ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models), ("contamination", contamination)):
+                   ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models), ("contamination", contamination), ("energy_tasks", energy_tasks)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)
         print(f"{nm}: {len(rows)} rows")

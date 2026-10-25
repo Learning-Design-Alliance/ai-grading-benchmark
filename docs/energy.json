@@ -1,26 +1,155 @@
 {
  "note": "Inputs for docs/ENERGY.md and the report's energy table. Every figure is a published estimate; see docs/ENERGY.md for sources and boundaries.",
- "per_query_wh": {"ordinary_low": 0.24, "ordinary_high": 0.42, "reasoning": 3.91},
+ "per_query_wh": {
+  "ordinary_low": 0.24,
+  "ordinary_high": 0.42,
+  "reasoning": 3.91
+ },
  "grid_kg_co2_per_kwh": 0.4,
  "streaming_kwh_per_hour": 0.077,
  "petrol_car_g_per_km": 170,
  "flight_g_per_pkm": 246,
- "water_ml_per_query": {"low": 0.26, "high_low": 10, "high_high": 50},
+ "water_ml_per_query": {
+  "low": 0.26,
+  "high_low": 10,
+  "high_high": 50
+ },
  "scenarios": [
-  {"name": "one grading", "gradings": 1},
-  {"name": "a teacher's term (150 students x 10 assignments)", "gradings": 1500},
-  {"name": "one model's full leaderboard run", "gradings": 3250}
+  {
+   "name": "one grading",
+   "gradings": 1
+  },
+  {
+   "name": "a teacher's term (150 students x 10 assignments)",
+   "gradings": 1500
+  },
+  {
+   "name": "one model's full leaderboard run",
+   "gradings": 3250
+  }
  ],
  "sources": [
-  {"figure": "0.24 Wh, 0.03 g, 0.26 mL per median Gemini prompt", "who": "Google, about its own service", "ref": "Elsworth et al. 2025, arXiv 2508.15734"},
-  {"figure": "0.34 Wh per ChatGPT query", "who": "OpenAI, about its own service", "ref": "Altman 2025, blog post"},
-  {"figure": "1.14 g CO2e, 45 mL per 400-token response", "who": "Mistral, about its own model", "ref": "Mistral 2025 life-cycle analysis"},
-  {"figure": "0.42 Wh short query; over 29 Wh per long prompt for the heaviest models", "who": "University of Rhode Island, independent (modelled)", "ref": "Jegham et al. 2025, arXiv 2505.09598 v6"},
-  {"figure": "0.31 Wh median frontier query; 3.91 Wh for long reasoning", "who": "Microsoft researchers", "ref": "Oviedo et al. 2025, arXiv 2509.20241 v2"},
-  {"figure": "measured GPU energy, open models", "who": "University of Michigan, independent (measured)", "ref": "ML.ENERGY Benchmark, arXiv 2505.06371"},
-  {"figure": "star ratings, open models measured", "who": "Hugging Face, Salesforce, Cohere, CMU", "ref": "AI Energy Score"},
-  {"figure": "500 mL per 10-50 medium responses (GPT-3, incl. electricity's water)", "who": "UC Riverside, independent", "ref": "Li et al. 2023, arXiv 2304.03271 v5"},
-  {"figure": "streaming 0.077 kWh per hour", "who": "IEA", "ref": "Kamiya 2020, IEA commentary (2019 data)"},
-  {"figure": "petrol car 170 g/km; domestic flight 246 g/pkm", "who": "UK government factors 2022", "ref": "Our World in Data"}
- ]
+  {
+   "figure": "0.24 Wh, 0.03 g, 0.26 mL per median Gemini prompt",
+   "who": "Google, about its own service",
+   "ref": "Elsworth et al. 2025, arXiv 2508.15734"
+  },
+  {
+   "figure": "0.34 Wh per ChatGPT query",
+   "who": "OpenAI, about its own service",
+   "ref": "Altman 2025, blog post"
+  },
+  {
+   "figure": "1.14 g CO2e, 45 mL per 400-token response",
+   "who": "Mistral, about its own model",
+   "ref": "Mistral 2025 life-cycle analysis"
+  },
+  {
+   "figure": "0.42 Wh short query; over 29 Wh per long prompt for the heaviest models",
+   "who": "University of Rhode Island, independent (modelled)",
+   "ref": "Jegham et al. 2025, arXiv 2505.09598 v6"
+  },
+  {
+   "figure": "0.31 Wh median frontier query; 3.91 Wh for long reasoning",
+   "who": "Microsoft researchers",
+   "ref": "Oviedo et al. 2025, arXiv 2509.20241 v2"
+  },
+  {
+   "figure": "measured GPU energy, open models",
+   "who": "University of Michigan, independent (measured)",
+   "ref": "ML.ENERGY Benchmark, arXiv 2505.06371"
+  },
+  {
+   "figure": "star ratings, open models measured",
+   "who": "Hugging Face, Salesforce, Cohere, CMU",
+   "ref": "AI Energy Score"
+  },
+  {
+   "figure": "500 mL per 10-50 medium responses (GPT-3, incl. electricity's water)",
+   "who": "UC Riverside, independent",
+   "ref": "Li et al. 2023, arXiv 2304.03271 v5"
+  },
+  {
+   "figure": "streaming 0.077 kWh per hour",
+   "who": "IEA",
+   "ref": "Kamiya 2020, IEA commentary (2019 data)"
+  },
+  {
+   "figure": "petrol car 170 g/km; domestic flight 246 g/pkm",
+   "who": "UK government factors 2022",
+   "ref": "Our World in Data"
+  }
+ ],
+ "per_token_model": {
+  "note": "Energy = fixed + per 1k input tokens + per 1k output tokens (reasoning included), fitted exactly to the three prompt sizes in Jegham et al. 2025 (arXiv 2505.09598 v6, Table 4: 100/300, 1k/1k, 10k/1.5k tokens). Inputs far beyond 10k tokens, such as long video, are extrapolated linearly, which likely understates them.",
+  "tiers": {
+   "small model (Llama 3.1 8B)": [
+    0.007,
+    0.022,
+    0.143
+   ],
+   "mid-size model (GPT-4o)": [
+    0.121,
+    0.131,
+    0.963
+   ],
+   "large model (Claude 3.7 Sonnet)": [
+    0.118,
+    0.147,
+    2.724
+   ]
+  }
+ },
+ "tasks": [
+  {
+   "task": "short answer",
+   "input_tokens": 166,
+   "output_tokens": 46,
+   "source": "median over the board's models (lb-mohler runs)"
+  },
+  {
+   "task": "maths working",
+   "input_tokens": 450,
+   "output_tokens": 72,
+   "source": "median, maths runs"
+  },
+  {
+   "task": "essay",
+   "input_tokens": 1951,
+   "output_tokens": 91,
+   "source": "median, lb-asap2 runs"
+  },
+  {
+   "task": "code",
+   "input_tokens": 2162,
+   "output_tokens": 135,
+   "source": "median, lb-code runs"
+  },
+  {
+   "task": "code, reasoning-heavy model",
+   "input_tokens": 2162,
+   "output_tokens": 3602,
+   "source": "DeepSeek V4.1 Flash's median reasoning on code"
+  },
+  {
+   "task": "3-minute video",
+   "input_tokens": 12357,
+   "output_tokens": 88,
+   "source": "4,119 input tokens per minute (Gemini, 2 frames a second at 480x270), median LASANA length"
+  },
+  {
+   "task": "30-minute video",
+   "input_tokens": 123570,
+   "output_tokens": 88,
+   "source": "the same rate, extrapolated"
+  }
+ ],
+ "water_ml_per_wh_on_site": 1.0833333333333335,
+ "burger": {
+  "item": "a half-pound (227 g) beef burger patty, beef herd",
+  "kg": 0.2268,
+  "kg_co2e_per_kg": 99.48,
+  "litres_withdrawn_per_kg": 1451.2,
+  "source": "Poore and Nemecek 2018, Science 360:987, via Our World in Data (global means; farms vary widely; full life cycle; water is freshwater withdrawals)"
+ }
 }

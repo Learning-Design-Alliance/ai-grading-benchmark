@@ -19,6 +19,44 @@ Output tokens drive most of the energy. A grading's output is short, so its ener
 chat query than to a long one. Reasoning models also spend hidden reasoning tokens, which the 90th
 percentile partly reflects. One model's full leaderboard run is about 3,250 gradings.
 
+## By task
+
+A grading's energy depends mostly on how many tokens it reads and writes. A per-token model was fitted to the
+three prompt sizes in Jegham et al. 2025 (Table 4), for a small, a mid-size and a large model, and applied
+to the median tokens each task uses on this benchmark (`docs/energy.json`, `public_data.py energy_tasks`).
+Carbon and streaming are for the mid-size model.
+
+| task | tokens in / out | small model | mid-size model | large model | as streaming video | carbon | gradings with the carbon of one half-pound beef burger |
+|---|---|---|---|---|---|---|---|
+| short answer | 166 / 46 | 0.02 Wh | 0.19 Wh | 0.27 Wh | 9 s | 0.07 g | about 300,000 |
+| maths working | 450 / 72 | 0.03 Wh | 0.25 Wh | 0.38 Wh | 12 s | 0.10 g | about 230,000 |
+| essay | 1,951 / 91 | 0.06 Wh | 0.46 Wh | 0.65 Wh | 22 s | 0.19 g | about 120,000 |
+| code | 2,162 / 135 | 0.07 Wh | 0.53 Wh | 0.80 Wh | 25 s | 0.21 g | about 110,000 |
+| code, reasoning-heavy model | 2,162 / 3,602 | 0.57 Wh | 3.9 Wh | 10.2 Wh | 3 min | 1.5 g | about 15,000 |
+| 3-minute video | 12,357 / 88 | 0.29 Wh | 1.8 Wh | 2.2 Wh | 85 s | 0.73 g | about 31,000 |
+| 30-minute video | 123,570 / 88 | 2.7 Wh | 16 Wh | 19 Wh | 13 min | 6.6 g | about 3,400 |
+
+- **Long work costs most.** A 30-minute video costs about 90 times a short answer, because the grader reads
+  about 4,000 tokens a minute of footage. This is extrapolated far beyond the 10,000-token prompts the model
+  was fitted on, so it is likely an underestimate.
+- **Reasoning is the other multiplier.** A model that writes 3,600 reasoning tokens on a code answer uses
+  about 7 times the energy of one that writes 135.
+- **A model's size** changes the figure about tenfold between the small and the mid-size model.
+
+## A burger for scale
+
+A half-pound (227 g) beef burger patty from a beef herd carries about 22.6 kg CO2e and 330 litres of
+freshwater withdrawn, over its whole life cycle (Poore and Nemecek 2018, *Science*, global means via Our
+World in Data; farms vary widely). By carbon, that is about 300,000 short-answer gradings, or 3,400 gradings
+of a 30-minute video, by a mid-size model.
+
+The two are not measured the same way, and the comparison should be read with that in mind:
+- the burger's figures cover its whole life cycle; the grading figures cover running the model, not
+  building the chips or the data centre;
+- the burger's water is freshwater withdrawn, mostly for feed; the grading's is water evaporated on site;
+- one burger is one meal; gradings run by the billion across all uses of AI, so totals matter as well as
+  the unit cost.
+
 ## Published figures per query
 
 | source | who | what it counts | energy per query | carbon | water |
