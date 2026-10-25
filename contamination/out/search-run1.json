@@ -1,0 +1,151 @@
+{
+ "design": "contamination/search.py docstring",
+ "indexes": {
+  "v4_olmo-2-0325-32b-instruct_llama": {
+   "floor": {
+    "positive_found": 0.65,
+    "negative_found": 0.0,
+    "n": [
+     40,
+     40
+    ],
+    "passes": false
+   },
+   "corpora": {
+    "mohler": {
+     "cases": 100,
+     "eligible": 60,
+     "found": 1,
+     "share": 0.016666666666666666,
+     "ci95": [
+      0.002948083860873682,
+      0.08855338226779477
+     ],
+     "verdict": "UNMEASURED",
+     "questions": {
+      "eligible": 13,
+      "found": 2
+     }
+    },
+    "asap2": {
+     "cases": 100,
+     "eligible": 100,
+     "found": 3,
+     "share": 0.03,
+     "ci95": [
+      0.010254338223414816,
+      0.08452078080402699
+     ],
+     "verdict": "UNMEASURED",
+     "questions": {
+      "eligible": 7,
+      "found": 0
+     }
+    },
+    "code": {
+     "cases": 100,
+     "eligible": 42,
+     "found": 0,
+     "share": 0.0,
+     "ci95": [
+      0.0,
+      0.08380161250916197
+     ],
+     "verdict": "UNMEASURED",
+     "questions": {
+      "eligible": 3,
+      "found": 0
+     }
+    },
+    "maths": {
+     "cases": 200,
+     "eligible": 200,
+     "found": 13,
+     "share": 0.065,
+     "ci95": [
+      0.03837598764975976,
+      0.10802003749917945
+     ],
+     "verdict": "UNMEASURED",
+     "questions": {
+      "eligible": 178,
+      "found": 178
+     }
+    }
+   }
+  },
+  "v4_dclm-baseline_llama": {
+   "floor": {
+    "positive_found": 0.625,
+    "negative_found": 0.0,
+    "n": [
+     40,
+     40
+    ],
+    "passes": false
+   },
+   "corpora": {
+    "mohler": {
+     "cases": 100,
+     "eligible": 60,
+     "found": 1,
+     "share": 0.016666666666666666,
+     "ci95": [
+      0.002948083860873682,
+      0.08855338226779477
+     ],
+     "verdict": "UNMEASURED",
+     "questions": {
+      "eligible": 13,
+      "found": 0
+     }
+    },
+    "asap2": {
+     "cases": 100,
+     "eligible": 100,
+     "found": 3,
+     "share": 0.03,
+     "ci95": [
+      0.010254338223414816,
+      0.08452078080402699
+     ],
+     "verdict": "UNMEASURED",
+     "questions": {
+      "eligible": 7,
+      "found": 0
+     }
+    },
+    "code": {
+     "cases": 100,
+     "eligible": 42,
+     "found": 0,
+     "share": 0.0,
+     "ci95": [
+      0.0,
+      0.08380161250916197
+     ],
+     "verdict": "UNMEASURED",
+     "questions": {
+      "eligible": 3,
+      "found": 0
+     }
+    },
+    "maths": {
+     "cases": 200,
+     "eligible": 200,
+     "found": 0,
+     "share": 0.0,
+     "ci95": [
+      0.0,
+      0.018846005918320894
+     ],
+     "verdict": "UNMEASURED",
+     "questions": {
+      "eligible": 178,
+      "found": 4
+     }
+    }
+   }
+  }
+ }
+}

@@ -18,8 +18,8 @@ solutions as written; the other versions are rearrangements of the same text).
 
 SPANS. 13 consecutive words, the overlap length GPT-3's contamination analysis used (Brown et al. 2020).
 From each case's response text, two spans at positions drawn at random (seed 7), each taken as the exact
-characters of 13 whitespace-separated words within one line. A response with fewer than 13 words on any
-line is not eligible, and the count of eligible cases is reported. A case is FOUND if either span occurs
+characters of 13 whitespace-separated words within one line. A response with fewer than 14 words on any
+line is not eligible (CHANGE 1), and the count of eligible cases is reported. A case is FOUND if either span occurs
 at least once in the index.
 
 CONTROLS (the floor, run before the benchmark's texts are queried, in the same session):
@@ -36,6 +36,18 @@ STATISTIC AND VERDICTS (per corpus and index): the share of eligible cases FOUND
                          at least 5%
   NOT DETECTED           otherwise; the upper bound is reported as the largest share not ruled out
 Also the question texts (prompts), reported descriptively: a public question is expected to be on the web.
+
+CHANGE 1 (2026-10-25, after the first run). The first run FAILED its floor: only 62-65% of the positive-
+control spans were found. The cause is the tokenizer: after a line break, the first word is encoded without
+the leading-space marker it carries inside a sentence. So a span starting a line has different tokens from
+the same words mid-sentence, and only matches text that also starts a line there. This affects the
+benchmark's texts exactly as it does the controls. Spans now start at a line's second word or later, for
+the controls and the cases alike. The first run's case counts had been printed (1-3% of answers found;
+maths 6% in OLMo 2's data) before the cause was found; the change is mechanical and applies to every span,
+and the first run's output is kept beside the second (out/search-run1.json). The positive control had a
+second fault of its own: it joined the API's document pieces without the spaces between them. It now takes
+its spans from within one piece. With both fixes, a trial of 30 positive spans on new random documents
+(seed 11) found 26 and 24 of 30 before the second fix; the second run reports the floor as registered.
 
     python3 contamination/search.py --cases-dir <dir> --out contamination/out/search.json
 
@@ -92,7 +104,7 @@ def spans(text, rng, k=PER_CASE):
     cands = []
     for line in (text or "").split("\n"):
         ws = list(re.finditer(r"\S+", line))
-        for i in range(len(ws) - SPAN + 1):
+        for i in range(1, len(ws) - SPAN + 1):  # CHANGE 1: never the line's first word
             cands.append(line[ws[i].start():ws[i + SPAN - 1].end()])
     if not cands:
         return []
@@ -118,7 +130,10 @@ def positive_spans(index, rng, n=40):
         s, a, b = rng.choice(shards)
         doc = post({"index": index, "query_type": "get_doc_by_rank", "query": probe, "s": s, "rank": rng.randrange(a, b),
                     "max_disp_len": 200})
-        text = "".join(t for t, _ in doc["spans"]).replace("\xa0", " ")
+        # CHANGE 1: only from the text between matches of the probe phrase. The API returns the document in
+        # pieces split at each match, without the spaces around it, so joining them glued words together.
+        pieces = [x.replace("\xa0", " ") for x, lab in doc["spans"] if lab is None]
+        text = max(pieces, key=len) if pieces else ""
         sp = spans(text, rng, 1)
         if sp:
             out.append(sp[0])
