@@ -235,6 +235,112 @@
     "given_minimum": 4
    }
   },
+  "video-google_gemini-3.8-flash": {
+   "model": "google/gemini-3.8-flash",
+   "video_frames": 0,
+   "base": {
+    "n": 100,
+    "qwk": 0.29294338061128267,
+    "beyond_length": 0.3300937096349548,
+    "beyond_length_ci95": [
+     0.06193635982383121,
+     0.5398900720154091
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": 0.24980342857724355,
+     "CircleCutting": 0.051667147491018965,
+     "BalloonResection": 0.5717717463778994,
+     "SutureAndKnot": 0.1014814322373235
+    }
+   },
+   "text_only": {
+    "n": 100,
+    "qwk": 0.28804175327166526,
+    "beyond_length": 0.25382710404099723,
+    "beyond_length_ci95": [
+     0.031735052082344305,
+     0.5042964074587942
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": 0.3629790179950418,
+     "CircleCutting": 0.14138984874256916,
+     "BalloonResection": 0.25389716942795193,
+     "SutureAndKnot": 0.267872413363743
+    }
+   },
+   "verdict": "WATCHES THE RECORDING",
+   "blank": {
+    "null_black": {
+     "n": 30,
+     "credited": 30,
+     "declined": 0
+    },
+    "null_still": {
+     "n": 30,
+     "credited": 30,
+     "declined": 0
+    }
+   },
+   "median_prompt_tokens": 12803,
+   "failed_attempts": {
+    "n": 7,
+    "graded": 7,
+    "given_minimum": 0
+   }
+  },
+  "video-qwen_qwen3.8-27b": {
+   "model": "qwen/qwen3.8-27b",
+   "video_frames": 0,
+   "base": {
+    "n": 85,
+    "qwk": 0.13022815849167602,
+    "beyond_length": -0.09080305376571735,
+    "beyond_length_ci95": [
+     -0.3026495317184583,
+     0.1617521217722635
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": -0.22074940095420714,
+     "CircleCutting": -0.010108379169278644,
+     "BalloonResection": -0.19597435310903508,
+     "SutureAndKnot": 0.2005562567667629
+    }
+   },
+   "text_only": {
+    "n": 98,
+    "qwk": -0.07640524124631767,
+    "beyond_length": -0.15380730135094975,
+    "beyond_length_ci95": [
+     -0.3749358846766051,
+     0.0838864960070832
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": -0.2550000059978243,
+     "CircleCutting": -0.12303523106127195,
+     "BalloonResection": -0.20157496032407096,
+     "SutureAndKnot": 0.12926693326583533
+    }
+   },
+   "verdict": "ADDS NOTHING TO THE STOPWATCH",
+   "blank": {
+    "null_black": {
+     "n": 30,
+     "credited": 0,
+     "declined": 0
+    },
+    "null_still": {
+     "n": 30,
+     "credited": 8,
+     "declined": 3
+    }
+   },
+   "median_prompt_tokens": 12731,
+   "failed_attempts": {
+    "n": 7,
+    "graded": 6,
+    "given_minimum": 2
+   }
+  },
   "video-amazon_nova-2-lite-v1": {
    "model": "amazon/nova-2-lite-v1",
    "video_frames": 0,
@@ -420,6 +526,59 @@
    "failed_attempts": {
     "n": 7,
     "graded": 6,
+    "given_minimum": 0
+   }
+  },
+  "video16f-google_gemini-3.8-flash": {
+   "model": "google/gemini-3.8-flash",
+   "video_frames": 16,
+   "base": {
+    "n": 99,
+    "qwk": 0.12993435192763503,
+    "beyond_length": 0.25409734170760206,
+    "beyond_length_ci95": [
+     0.038403241110329084,
+     0.4445537371943471
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": -0.011894732105503122,
+     "CircleCutting": 0.4707371609183697,
+     "BalloonResection": 0.42691134900686634,
+     "SutureAndKnot": 0.0491121254472734
+    }
+   },
+   "text_only": {
+    "n": 100,
+    "qwk": 0.2163245000352438,
+    "beyond_length": -0.060059931425020856,
+    "beyond_length_ci95": [
+     -0.2683472204497072,
+     0.17947619583108984
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": 0.1854114961925571,
+     "CircleCutting": 0.032939709215740805,
+     "BalloonResection": -0.24521919494207264,
+     "SutureAndKnot": 0.07703557313402105
+    }
+   },
+   "verdict": "WATCHES THE RECORDING",
+   "blank": {
+    "null_black": {
+     "n": 30,
+     "credited": 30,
+     "declined": 0
+    },
+    "null_still": {
+     "n": 30,
+     "credited": 30,
+     "declined": 0
+    }
+   },
+   "median_prompt_tokens": 18062,
+   "failed_attempts": {
+    "n": 7,
+    "graded": 7,
     "given_minimum": 0
    }
   }

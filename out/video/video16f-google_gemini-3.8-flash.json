@@ -1,0 +1,381 @@
+{
+ "n_cases": 100,
+ "scale": [
+  4,
+  20
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "low_res",
+  "null_black",
+  "null_still",
+  "off_task",
+  "other_camera",
+  "retest",
+  "text_only"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 1,
+   "of": 100,
+   "share": 0.01
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 100
+   },
+   "ctx_low": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 100
+   },
+   "retest": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 100
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.12993435192763503,
+    "ci95": [
+     0.019801032447904474,
+     0.23218356524635841
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.24548173596845704,
+    "ci95": [
+     0.02958592719908054,
+     0.46576175931546654
+    ]
+   },
+   "bias": {
+    "estimate": 0.02441077441077436,
+    "ci95": [
+     -0.6153409090909091,
+     0.6515572390572387
+    ],
+    "n": 99,
+    "flag": false,
+    "mdc80": 0.9172511300209555
+   },
+   "sd_ratio": 0.45099367353243536,
+   "n": 99,
+   "raters": [
+    "rater0",
+    "rater1",
+    "rater2",
+    "rater3"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5733233997053897,
+    "ci95": [
+     0.41965879374296716,
+     0.6457784221344647
+    ]
+   },
+   "n": 99
+  },
+  "share_of_ceiling": {
+   "estimate": 0.22663361027023077,
+   "ci95": [
+    0.038630271254368936,
+    0.41759862569429756
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 12.0,
+   "machine_passes_of_human_passes": 0.8392857142857143,
+   "machine_fails_of_human_fails": 0.32558139534883723,
+   "n_pass": 56,
+   "n_fail": 43,
+   "kappa": {
+    "estimate": 0.21616202593073436,
+    "ci95": [
+     0.07173394737736309,
+     0.359352963153106
+    ]
+   },
+   "ceiling_kappa": {
+    "estimate": 0.44403508748137394,
+    "ci95": [
+     0.321501912527571,
+     0.5603535209919296
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.4868129389432581,
+    "ci95": [
+     0.1695309491510711,
+     0.8153618791966386
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 1.2525252525252526,
+   "ci95": [
+    0.9191919191919192,
+    1.595959595959596
+   ],
+   "n": 99,
+   "flag": true,
+   "mdc80": 0.4642246658171291,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.1111111111111111,
+   "ci95": [
+    -0.08080808080808081,
+    0.32323232323232326
+   ],
+   "n": 99,
+   "flag": false,
+   "mdc80": 0.2895873452475041,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.4375,
+   "reaches_midpoint": 0.69,
+   "n": 100
+  },
+  "null_answers": {
+   "credited": 1.0,
+   "by_kind": {
+    "null_black": {
+     "credited": 1.0,
+     "n": 30
+    },
+    "null_still": {
+     "credited": 1.0,
+     "n": 30
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.7144002994492272,
+    "ci95": [
+     0.5590734990276243,
+     0.8253800475225969
+    ]
+   },
+   "exact_agreement": 0.5408163265306123,
+   "mean_abs_change": 0.6428571428571429,
+   "signed_change": {
+    "estimate": 0.19387755102040816,
+    "ci95": [
+     0.0,
+     0.3979591836734694
+    ],
+    "n": 98,
+    "flag": false,
+    "mdc80": 0.2947182145789918
+   },
+   "n": 98
+  },
+  "low_res": {
+   "estimate": 0.0707070707070707,
+   "ci95": [
+    -0.2628787878787879,
+    0.42424242424242425
+   ],
+   "n": 99,
+   "flag": false,
+   "mdc80": 0.4944173597889205,
+   "expect": "about the same"
+  },
+  "other_camera": {
+   "estimate": 0.10101010101010101,
+   "ci95": [
+    -0.15151515151515152,
+    0.35353535353535354
+   ],
+   "n": 99,
+   "flag": false,
+   "mdc80": 0.36291735875370695,
+   "expect": "about the same"
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 1.6666666666666667,
+    "ci95": [
+     1.434090909090909,
+     1.9090909090909092
+    ],
+    "n": 99,
+    "flag": true,
+    "mdc80": 0.35505014583943784
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "task": {
+    "levels": {
+     "BalloonResection": {
+      "residual": 1.83,
+      "human_mean": 10.97,
+      "n": 25,
+      "vs_rest": {
+       "estimate": 2.4155855855855854,
+       "ci95": [
+        0.9126716504834352,
+        3.9940628815628774
+       ],
+       "flag": true
+      }
+     },
+     "CircleCutting": {
+      "residual": -1.2533333333333332,
+      "human_mean": 13.173333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": -1.709414414414414,
+       "ci95": [
+        -2.8013233061228116,
+        -0.5544623806370582
+       ],
+       "flag": true
+      }
+     },
+     "PegTransfer": {
+      "residual": 0.026666666666666606,
+      "human_mean": 12.493333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": 0.0030180180180180045,
+       "ci95": [
+        -1.2730684635254146,
+        1.2259914738224587
+       ],
+       "flag": false
+      }
+     },
+     "SutureAndKnot": {
+      "residual": -0.5277777777777779,
+      "human_mean": 12.194444444444445,
+      "n": 24,
+      "vs_rest": {
+       "estimate": -0.728888888888889,
+       "ci95": [
+        -2.4776327128043376,
+        0.9287310884672136
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 4
+   }
+  }
+ },
+ "feedback": {
+  "generic": 0.3941146026894825,
+  "same_opening": 0.013623188405797102,
+  "varied_by_quality": 0.0664211108133323,
+  "words": 18.494949494949495,
+  "self_per100": 0.0,
+  "task_per100": 0.0,
+  "action_per100": 0.0,
+  "coherence": -0.5226418260913551,
+  "n": 99,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1060,
+  "calls_failed": 4,
+  "per_grading": {
+   "prompt_tokens": 16346.060606060606,
+   "completion_tokens": 751.3238636363636,
+   "reasoning_tokens": 673.3125
+  },
+  "latency_s": {
+   "median": 8.93604564666748,
+   "p90": 14.490019106864928,
+   "n": 364
+  },
+  "served_models": [
+   "google/gemini-3.8-flash"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (1056 of 1056 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 14.82906505681818,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-25T01:49:44Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemini-3.8-flash",
+  "request_template": {
+   "model": "google/gemini-3.8-flash",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "video.txt",
+  "prompt_path": "prompts/video.txt",
+  "prompt_sha256": "1f7750894a4a450761f7c22e875305b502257ad40ac0f367895121efd56b8ea6",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "data/lasana/lasana.jsonl",
+  "cases_sha256": "30a3e52f459284b40728233461dd8fff7d1ab7e89582b9cbc2ce51fb156fb204",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "ctx_low",
+   "ctx_high",
+   "off_task",
+   "injection",
+   "forged",
+   "null_black",
+   "null_still",
+   "low_res",
+   "other_camera",
+   "text_only"
+  ],
+  "video_frames": 16
+ }
+}

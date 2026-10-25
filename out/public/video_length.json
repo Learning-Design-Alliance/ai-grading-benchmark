@@ -15,6 +15,21 @@
 "verdict": "NO DETECTABLE EFFECT"
 },
 {
+"key": "vlen-google_gemini-3.8-flash",
+"model": "Gemini 3.8 Flash",
+"bal_x1": 0.693,
+"bal_x4": 0.629,
+"sens_x1": 0.658,
+"sens_x4": 0.831,
+"spec_x1": 0.728,
+"spec_x4": 0.426,
+"change": -0.064,
+"change_lo": -0.131,
+"change_hi": 0.004,
+"failed": 10,
+"verdict": "NO DETECTABLE EFFECT"
+},
+{
 "key": "vlen-google_gemini-3.5-flash-lite",
 "model": "Gemini 3.5 Flash Lite",
 "bal_x1": 0.556,

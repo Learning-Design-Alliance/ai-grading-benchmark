@@ -53,7 +53,7 @@
     <h1 class="gb-title">AI Grading Benchmark</h1>
     <p class="gb-take" id="takeaway">
       Of <span data-source="headline" data-field="complete">—</span> models graded on short answers, code and essays, <span data-source="headline" data-field="unflagged">—</span> pass every disqualifying check; the rest can be talked into marks or credit blank answers.
-      Most graders also give way when a student simply disagrees. Audio graders mostly hear speech in silence, and of eight video graders only one watches the recording rather than timing it.
+      Most graders also give way when a student simply disagrees. Audio graders mostly hear speech in silence, and of ten video graders only two watch the recording rather than timing it.
     </p>
     <p class="gb-note">Every model graded the same student work through the same plain prompt. Agreement is reported against the human ceiling: how well a model agrees with expert markers, as a share of how well the markers agree with each other. Every number is recomputed from the submitted marks, and every probe passed a planted-effect self-check before any real result was read. Intervals are 95% bootstrap intervals.</p>
     <nav class="gb-nav" aria-label="Sections">
@@ -189,7 +189,7 @@
 
   <section class="gb-sec" id="video">
     <h2>Video: rating a recorded performance</h2>
-    <p>100 recordings of laparoscopic training tasks, each rated by three raters on a 4-20 skill scale. How long a trainee took predicts the raters' score almost as well as the raters predict each other, so plain agreement cannot tell a grader that watches from one that times the recording. The column that matters is agreement beyond length: how well the marks track the raters once length is held constant. Only Gemini 4 Argon watches; most graders also rate a black screen.</p>
+    <p>100 recordings of laparoscopic training tasks, each rated by three raters on a 4-20 skill scale. How long a trainee took predicts the raters' score almost as well as the raters predict each other, so plain agreement cannot tell a grader that watches from one that times the recording. The column that matters is agreement beyond length: how well the marks track the raters once length is held constant. Three runs watch the recording: Gemini 4 Argon, and Gemini 3.8 Flash from video and from frames. Most graders, including Gemini 3.8 Flash, also rate a black screen.</p>
     <div class="gb-card">
       <div class="gb-tablewrap">
         <table class="gb-table" id="video-table" data-source="video" data-row-key="key">
@@ -201,13 +201,13 @@
           </tr></thead><tbody></tbody>
         </table>
       </div>
-      <p class="gb-sub">LASANA (CC BY 4.0), test split. "16 frames" = models without video input, sent 16 evenly spaced frames. Blank-video shares count a declined rating as not crediting. Nova 2 Lite described the video instead of rating it on nearly every grading. Still running: Gemini 3.8 Flash (video and frames) and Qwen3.8 27B.</p>
+      <p class="gb-sub">LASANA (CC BY 4.0), test split. "16 frames" = models without video input, sent 16 evenly spaced frames. Blank-video shares count a declined rating as not crediting. Nova 2 Lite described the video instead of rating it on nearly every grading; Qwen3.8 27B ran out of tokens on 130 of 1,060.</p>
     </div>
   </section>
 
   <section class="gb-sec" id="video-length">
     <h2>Does a longer video hide an error?</h2>
-    <p>205 recordings asked whether a specific error happened (a dropped needle, a burst balloon), once as recorded and once joined to three error-free recordings of the same task, four times as long. Overall accuracy did not change for any grader, but the stronger ones answered "yes" more often on long videos, catching more real errors and more that were not there.</p>
+    <p>205 recordings asked whether a specific error happened (a dropped needle, a burst balloon), once as recorded and once joined to three error-free recordings of the same task, four times as long. Overall accuracy did not change for any grader, but four of five answered "yes" more often on long videos: the strongest caught more real errors and reported more that were not there.</p>
     <div class="gb-card">
       <div class="gb-tablewrap">
         <table class="gb-table" id="vlen-table" data-source="video_length" data-row-key="key">
@@ -218,7 +218,7 @@
           </tr></thead><tbody></tbody>
         </table>
       </div>
-      <p class="gb-sub">0.5 is chance. Qwen3.8 27B ran out of its 4,096-token budget on 153 of 410 gradings. Still running: Gemini 3.8 Flash.</p>
+      <p class="gb-sub">0.5 is chance. Qwen3.8 27B ran out of its 4,096-token budget on 153 of 410 gradings. In a check of 12 false alarms against the original recordings, 8 showed no error (a mid-air hand-off read as a drop), 4 could not be called, none was a missed label.</p>
     </div>
   </section>
 
