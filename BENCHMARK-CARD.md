@@ -151,7 +151,7 @@ page shows every strand and module.
 - **Data and retention:** no student identities are used. Every corpus is public and licensed for this use,
   and calls are made with zero data retention.
 - **Fairness findings** are reported with their replications: the first ELLIPSE signal only partly held.
-- **Conflict of interest:** the maintainers develop a grading product (Lazuli). No product prompt or result
+- **Conflict of interest:** the maintainers develop a grading product. No product prompt or result
   enters this repository; a check in CI refuses them. Product comparisons are kept separately and are not
   part of the benchmark.
 
