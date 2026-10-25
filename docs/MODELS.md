@@ -4,7 +4,7 @@ Each model's licence, size, training cutoff and data, and the evaluations its ow
 sources read on 2026-10-25. The machine-readable summary the report uses is `models.json`. A vendor's claim
 is printed beside the benchmark's measurement, never in place of it.
 
-**What the cards show, across all 18 models:**
+**What the cards show, across all 22 models** (four added on 2026-10-25, below):
 - **No card evaluates education or grading.** Gemma and Olmo list education as an intended use only.
 - **Sycophancy** is reported by Anthropic only, qualitatively. Our pushback test measures it directly. Opus
   5.5 holds; Fable 5.1 and Haiku 5.5, whose cards say they improved, still give way by 3.5-3.7% of the scale.
@@ -23,7 +23,9 @@ is printed beside the benchmark's measurement, never in place of it.
 - **Training on users' data:**
   - Opus 5.5 and Haiku 5.5: explicitly opt-in.
   - OpenAI's GPT-5 family and Gemini: stated, without saying whether it is opt-in.
-  - DeepSeek: employees' and partners' sessions, returned voluntarily.
+  - DeepSeek: users' interactions, de-identified, with an opt-out (its EU training-content summaries for V4
+    and V4.1); also employees' and partners' sessions, returned voluntarily.
+  - Z.ai (GLM 5.3): only from users who opted in. GLM 5.3 Flash: not stated.
   - The rest: not stated.
 - **Trained on other models' outputs:** Phi-4 (GPT-4o), Llama 3.2 (Llama 3.1), Ministral (Mistral Small and
   Medium), Qwen3 (Qwen2.5, QwQ), Olmo (GPT-4.1, QwQ, DeepSeek R1, Qwen3); DeepSeek and Gemma 3 name no
@@ -238,3 +240,29 @@ All accessed 2026-10-25.
 - Ministral 3 paper: https://arxiv.org/abs/2601.08584 ; HF card https://huggingface.co/mistralai/Ministral-3-8B-Instruct-2512
 - Qwen3 Technical Report: https://arxiv.org/abs/2505.09388
 - Olmo 3 report: https://arxiv.org/abs/2512.13961 ; HF card https://huggingface.co/allenai/Olmo-3.1-32B-Instruct
+
+## Added 2026-10-25: DeepSeek V4 Pro, DeepSeek V4.1 Flash (17 Oct snapshot), GLM 5.3, GLM 5.3 Flash
+
+Compiled by an agent from the Hugging Face cards and API, the licence files, the vendors' reports, blogs and
+privacy terms, and both vendors' public summaries of training content under the EU AI Act. Sources per fact
+are in `models.json` (`training_refs`).
+
+| model | licence | params | cutoff | tokens | user data | distilled from | retention (vendor's own API) |
+|---|---|---|---|---|---|---|---|
+| DeepSeek V4.1 Flash, 17 Oct snapshot | MIT, identical to V4.1 Flash | same weights layout as V4.1 Flash (763B in the files) | "approximately no later than May 2025" for some data, but crawling ran 2024-2026 (summary) | 45T (parent) | yes, de-identified, opt-out | over 40 unnamed teachers (parent) | no zero-retention option; kept "as long as necessary" |
+| DeepSeek V4 Pro (0813) | MIT | 1.6T total, 49B active (V4 preview report; card silent) | as above, crawling to December 2025 | 33T | yes, de-identified, opt-out | in-house expert models; DeepSeek V3.2 synthetic data | as above |
+| GLM 5.3 | **custom GLM-5.3 licence**: MIT-style, but a model-as-a-service company with group revenue over US$10 billion must pass Z.ai's security review before commercial use | not stated (card: "same base model as GLM-5.2"; 753B in the files) | "approximately no later than June 2026" | "more than 10 trillion" (family summary) | only from users who opted in | multi-teacher on-policy distillation, teachers not named | API content "not saved on our servers" (data processing addendum s4(b)), by default |
+| GLM 5.3 Flash | MIT | 320B total, 18B active | not stated | 30T, multimodal | not stated | not stated (new base model) | as GLM 5.3 |
+
+- **None of the four reports a sycophancy, prompt-injection or bias evaluation, or any energy figure.** The
+  only education result is indirect: DeepSeek's V4 report compares Chinese functional writing with Gemini
+  3.1 Pro, including 159 "education" prompts (Table 12, p.57). Nothing tests grading or tutoring.
+- **Decontamination of training data** is not stated by either vendor. Z.ai describes contamination-resistant
+  evaluation sets only.
+- **The 17 Oct DeepSeek snapshot is undocumented beyond "minor update"** and an 11-row benchmark table. The
+  board measures it directly against the 10 Sep version (drift, `docs/DRIFT.md`).
+- **GLM 5.3's weights were held back** until "safety evaluation and hardening are complete", citing cyber
+  capability; no safety results were published.
+- **Correction (2026-10-25):** the DeepSeek V4.1 Flash row above said user data was limited to employees' and
+  partners' sessions. DeepSeek's training-content summary also lists users' interactions, de-identified, with
+  an opt-out. `models.json` is corrected.
