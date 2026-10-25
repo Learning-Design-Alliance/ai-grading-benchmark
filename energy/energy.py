@@ -17,7 +17,11 @@ the board's instead (descriptive, below).
 HARDWARE AND SERVING. One NVIDIA A100 80GB PCIe on RunPod (community cloud), the cheapest GPU that holds every
 model unquantised, so every figure comes from the same hardware. vLLM v0.32.0 (the vllm/vllm-openai:v0.32.0
 image), bf16 weights except GPT-OSS's native MXFP4, max model length 16,384, its default scheduler and
-prefix caching (as anyone would serve it). gpu/controller.py on the pod. bench.py runs on the pod itself
+prefix caching (as anyone would serve it). Olmo's chat template fails vLLM 0.32's start-up check (it applies
+`tojson` to `tools`, which that check leaves undefined), so it is served with the same template preceded by
+`{%- set tools = tools if tools is defined else none -%}`; real requests pass tools = none, and the two templates
+were checked to render identical prompts. The first pod's host restarted the container five times, so Olmo
+ran on a second pod with the same GPU model (secure cloud). gpu/controller.py on the pod. bench.py runs on the pod itself
 against localhost, so the network does not pace the GPU.
 
 RUNS, per model (`measure`, on the pod):
@@ -124,7 +128,8 @@ MODELS = {
     "mistralai_ministral-8b-2512": ("mistralai/ministral-8b-2512", "mistralai/Ministral-3-8B-Instruct-2512", "5b26027e7b19eeb4b7352e1fed3926375dd2cb4d",
                                     ["--tokenizer-mode", "mistral", "--config-format", "mistral", "--load-format", "mistral"]),
     "openai_gpt-oss-20b": ("openai/gpt-oss-20b", "openai/gpt-oss-20b", "6cee5e81ee83917806bbde320786a8fb61efebee", []),
-    "allenai_olmo-3.1-32b-instruct": ("allenai/olmo-3.1-32b-instruct", "allenai/Olmo-3.1-32B-Instruct", "ac0587e4a7744a551c059d8cd17ba220bc940dae", []),
+    "allenai_olmo-3.1-32b-instruct": ("allenai/olmo-3.1-32b-instruct", "allenai/Olmo-3.1-32B-Instruct", "ac0587e4a7744a551c059d8cd17ba220bc940dae",
+                                      ["--chat-template", "/workspace/olmo-chat-template.jinja"]),
 }
 OVERHEAD = 1 / 0.58  # Elsworth et al. 2025, Table 1: active accelerators are 58% of the comprehensive figure
 POLL, WINDOWS, IDLE_S = 1, 20, 60
