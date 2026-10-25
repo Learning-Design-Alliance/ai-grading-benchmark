@@ -1,0 +1,2456 @@
+{
+ "design": "analyses/cluster_check.py docstring",
+ "clusters": {
+  "mohler": 60,
+  "code": 3,
+  "asap2": 7
+ },
+ "mohler": [
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.6909984296641507,
+     "n": 100,
+     "case_ci95": [
+      0.5727267256424143,
+      0.7898767276802391
+     ],
+     "cluster_ci95": [
+      0.5605858854860186,
+      0.798641055795113
+     ],
+     "width_ratio": 1.096270633548639,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": -0.022000000000000002,
+     "n": 100,
+     "case_ci95": [
+      -0.038000000000000006,
+      -0.008
+     ],
+     "cluster_ci95": [
+      -0.03877551020408163,
+      -0.006122448979591837
+     ],
+     "width_ratio": 1.0884353741496597,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": -0.032,
+     "n": 100,
+     "case_ci95": [
+      -0.04800000000000001,
+      -0.016
+     ],
+     "cluster_ci95": [
+      -0.049523809523809526,
+      -0.015841584158415842
+     ],
+     "width_ratio": 1.0525695426685524,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.0625,
+     "n": 64,
+     "case_ci95": [
+      -0.08750000000000001,
+      -0.037500000000000006
+     ],
+     "cluster_ci95": [
+      -0.08732394366197184,
+      -0.03768115942028986
+     ],
+     "width_ratio": 0.9928556848336396,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.006000000000000001,
+     "n": 100,
+     "case_ci95": [
+      -0.008,
+      0.02
+     ],
+     "cluster_ci95": [
+      -0.008421052631578947,
+      0.021052631578947368
+     ],
+     "width_ratio": 1.0526315789473684,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.03666666666666667,
+     "n": 60,
+     "case_ci95": [
+      0.016666666666666666,
+      0.05666666666666667
+     ],
+     "cluster_ci95": [
+      0.017241379310344827,
+      0.05862068965517242
+     ],
+     "width_ratio": 1.0344827586206897,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.6400055383763327,
+     "n": 100,
+     "case_ci95": [
+      0.5163480031677792,
+      0.7364426077422619
+     ],
+     "cluster_ci95": [
+      0.5052446119806604,
+      0.7555786968164236
+     ],
+     "width_ratio": 1.137393101115512,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.004,
+     "n": 100,
+     "case_ci95": [
+      -0.014000000000000002,
+      0.022000000000000002
+     ],
+     "cluster_ci95": [
+      -0.014583333333333335,
+      0.021739130434782608
+     ],
+     "width_ratio": 1.0089573268921095,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.006000000000000001,
+     "n": 100,
+     "case_ci95": [
+      -0.01,
+      0.022000000000000002
+     ],
+     "cluster_ci95": [
+      -0.01098901098901099,
+      0.021428571428571432
+     ],
+     "width_ratio": 1.0130494505494507,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.0625,
+     "n": 64,
+     "case_ci95": [
+      -0.09062500000000001,
+      -0.034375
+     ],
+     "cluster_ci95": [
+      -0.09142857142857143,
+      -0.034375
+     ],
+     "width_ratio": 1.014285714285714,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.008,
+     "n": 100,
+     "case_ci95": [
+      -0.002,
+      0.02
+     ],
+     "cluster_ci95": [
+      -0.002197802197802198,
+      0.01904761904761905
+     ],
+     "width_ratio": 0.9657009657009658,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.03513513513513514,
+     "n": 74,
+     "case_ci95": [
+      0.013513513513513514,
+      0.05675675675675676
+     ],
+     "cluster_ci95": [
+      0.01282051282051282,
+      0.05476190476190477
+     ],
+     "width_ratio": 0.9698946886446886,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.7296559257236483,
+     "n": 100,
+     "case_ci95": [
+      0.6113804905875642,
+      0.8179439039654093
+     ],
+     "cluster_ci95": [
+      0.6007850380974371,
+      0.8351839000693962
+     ],
+     "width_ratio": 1.1347549797852996,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": -0.011000000000000001,
+     "n": 100,
+     "case_ci95": [
+      -0.023000000000000003,
+      0.001
+     ],
+     "cluster_ci95": [
+      -0.022680412371134023,
+      0.0010526315789473684
+     ],
+     "width_ratio": 0.9888768312533911,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "forged",
+     "estimate": -0.029000000000000005,
+     "n": 100,
+     "case_ci95": [
+      -0.043,
+      -0.015
+     ],
+     "cluster_ci95": [
+      -0.04361702127659575,
+      -0.014529914529914532
+     ],
+     "width_ratio": 1.0388252409529009,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.0328125,
+     "n": 64,
+     "case_ci95": [
+      -0.05,
+      -0.0171875
+     ],
+     "cluster_ci95": [
+      -0.05,
+      -0.016417910447761197
+     ],
+     "width_ratio": 1.023454157782516,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": -0.007000000000000001,
+     "n": 100,
+     "case_ci95": [
+      -0.018000000000000002,
+      0.004
+     ],
+     "cluster_ci95": [
+      -0.017821782178217824,
+      0.0039603960396039604
+     ],
+     "width_ratio": 0.9900990099009901,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.009523809523809525,
+     "n": 63,
+     "case_ci95": [
+      -0.004761904761904762,
+      0.023809523809523808
+     ],
+     "cluster_ci95": [
+      -0.004838709677419356,
+      0.025423728813559324
+     ],
+     "width_ratio": 1.0591853471842538,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    }
+   ]
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.676957866075961,
+     "n": 100,
+     "case_ci95": [
+      0.5538128718226067,
+      0.7815162770373607
+     ],
+     "cluster_ci95": [
+      0.539906103286385,
+      0.7982914095870907
+     ],
+     "width_ratio": 1.1347450252534197,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.048,
+     "n": 100,
+     "case_ci95": [
+      0.024000000000000004,
+      0.07400000000000001
+     ],
+     "cluster_ci95": [
+      0.02641509433962264,
+      0.0712871287128713
+     ],
+     "width_ratio": 0.8974406874649732,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.013000000000000001,
+     "n": 100,
+     "case_ci95": [
+      -0.005,
+      0.031
+     ],
+     "cluster_ci95": [
+      -0.006122448979591837,
+      0.031192660550458717
+     ],
+     "width_ratio": 1.0365308202791823,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.037500000000000006,
+     "n": 64,
+     "case_ci95": [
+      -0.059375000000000004,
+      -0.015625
+     ],
+     "cluster_ci95": [
+      -0.06086956521739131,
+      -0.014925373134328358
+     ],
+     "width_ratio": 1.0501529618985816,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.033,
+     "n": 100,
+     "case_ci95": [
+      0.016,
+      0.052000000000000005
+     ],
+     "cluster_ci95": [
+      0.016304347826086956,
+      0.049523809523809526
+     ],
+     "width_ratio": 0.9227628249367378,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.07222222222222223,
+     "n": 54,
+     "case_ci95": [
+      0.04444444444444445,
+      0.10555555555555556
+     ],
+     "cluster_ci95": [
+      0.04210526315789474,
+      0.10370370370370371
+     ],
+     "width_ratio": 1.0079744816586924,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.5931968667503353,
+     "n": 100,
+     "case_ci95": [
+      0.43514334395140375,
+      0.7175141242937854
+     ],
+     "cluster_ci95": [
+      0.44562696138627356,
+      0.7302172226532195
+     ],
+     "width_ratio": 1.0078601649996264,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.08800000000000001,
+     "n": 100,
+     "case_ci95": [
+      0.048,
+      0.14
+     ],
+     "cluster_ci95": [
+      0.043750000000000004,
+      0.13592233009708737
+     ],
+     "width_ratio": 1.0018731532292102,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.068,
+     "n": 100,
+     "case_ci95": [
+      0.016,
+      0.11800000000000001
+     ],
+     "cluster_ci95": [
+      0.020618556701030927,
+      0.11555555555555556
+     ],
+     "width_ratio": 0.9307548907306337,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.078125,
+     "n": 64,
+     "case_ci95": [
+      -0.125,
+      -0.034375
+     ],
+     "cluster_ci95": [
+      -0.12537313432835823,
+      -0.035483870967741936
+     ],
+     "width_ratio": 0.9918815267378349,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": -0.012000000000000002,
+     "n": 100,
+     "case_ci95": [
+      -0.03,
+      0.006000000000000001
+     ],
+     "cluster_ci95": [
+      -0.030434782608695653,
+      0.006451612903225807
+     ],
+     "width_ratio": 1.024622097553374,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.05416666666666667,
+     "n": 48,
+     "case_ci95": [
+      0.02916666666666667,
+      0.08333333333333333
+     ],
+     "cluster_ci95": [
+      0.030434782608695653,
+      0.08333333333333333
+     ],
+     "width_ratio": 0.9765886287625418,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.7128437173686043,
+     "n": 100,
+     "case_ci95": [
+      0.5693061482535167,
+      0.8110242908102598
+     ],
+     "cluster_ci95": [
+      0.5628265524625267,
+      0.8252024863439442
+     ],
+     "width_ratio": 1.0854623120390103,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.13,
+     "n": 100,
+     "case_ci95": [
+      0.098,
+      0.168
+     ],
+     "cluster_ci95": [
+      0.09357798165137615,
+      0.16862745098039214
+     ],
+     "width_ratio": 1.0721352761287997,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.22,
+     "n": 100,
+     "case_ci95": [
+      0.17,
+      0.274
+     ],
+     "cluster_ci95": [
+      0.1670588235294118,
+      0.27169811320754716
+     ],
+     "width_ratio": 1.006147016135917,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.1875,
+     "n": 64,
+     "case_ci95": [
+      -0.23125,
+      -0.146875
+     ],
+     "cluster_ci95": [
+      -0.23571428571428574,
+      -0.14375000000000002
+     ],
+     "width_ratio": 1.08994708994709,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.008,
+     "n": 100,
+     "case_ci95": [
+      0.0,
+      0.018000000000000002
+     ],
+     "cluster_ci95": [
+      0.0,
+      0.01730769230769231
+     ],
+     "width_ratio": 0.9615384615384615,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.1837837837837838,
+     "n": 74,
+     "case_ci95": [
+      0.14054054054054055,
+      0.22702702702702704
+     ],
+     "cluster_ci95": [
+      0.14444444444444446,
+      0.2205128205128205
+     ],
+     "width_ratio": 0.879540598290598,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.5870612525808672,
+     "n": 100,
+     "case_ci95": [
+      0.3405199746353835,
+      0.7585243803095543
+     ],
+     "cluster_ci95": [
+      0.3385365853658536,
+      0.7564856608763051
+     ],
+     "width_ratio": 0.9998676325824125,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.106,
+     "n": 100,
+     "case_ci95": [
+      0.066,
+      0.15
+     ],
+     "cluster_ci95": [
+      0.06862745098039216,
+      0.15
+     ],
+     "width_ratio": 0.9687208216619981,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.1,
+     "n": 98,
+     "case_ci95": [
+      0.06326530612244897,
+      0.14081632653061224
+     ],
+     "cluster_ci95": [
+      0.06391752577319587,
+      0.13861386138613863
+     ],
+     "width_ratio": 0.9631895907984723,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.15,
+     "n": 64,
+     "case_ci95": [
+      -0.2,
+      -0.1
+     ],
+     "cluster_ci95": [
+      -0.20714285714285713,
+      -0.09855072463768116
+     ],
+     "width_ratio": 1.0859213250517596,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.010101010101010102,
+     "n": 99,
+     "case_ci95": [
+      -0.010101010101010102,
+      0.03434343434343434
+     ],
+     "cluster_ci95": [
+      -0.012500000000000002,
+      0.03409090909090909
+     ],
+     "width_ratio": 1.0482954545454546,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": -0.04666666666666667,
+     "n": 60,
+     "case_ci95": [
+      -0.10666666666666667,
+      0.01333333333333333
+     ],
+     "cluster_ci95": [
+      -0.11379310344827587,
+      0.022950819672131147
+     ],
+     "width_ratio": 1.1395326926700584,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    }
+   ]
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.6951379763469119,
+     "n": 100,
+     "case_ci95": [
+      0.5613029017089116,
+      0.7958257713248639
+     ],
+     "cluster_ci95": [
+      0.5636711281070745,
+      0.8013007799598587
+     ],
+     "width_ratio": 1.0132472463854783,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.03,
+     "n": 100,
+     "case_ci95": [
+      0.006,
+      0.05600000000000001
+     ],
+     "cluster_ci95": [
+      0.00784313725490196,
+      0.05625
+     ],
+     "width_ratio": 0.9681372549019607,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.011000000000000001,
+     "n": 100,
+     "case_ci95": [
+      -0.02,
+      0.042
+     ],
+     "cluster_ci95": [
+      -0.018947368421052633,
+      0.04285714285714286
+     ],
+     "width_ratio": 0.9968469560999272,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.1171875,
+     "n": 64,
+     "case_ci95": [
+      -0.153125,
+      -0.084375
+     ],
+     "cluster_ci95": [
+      -0.1540983606557377,
+      -0.0823529411764706
+     ],
+     "width_ratio": 1.0435697378802486,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": -0.004,
+     "n": 100,
+     "case_ci95": [
+      -0.014000000000000002,
+      0.006000000000000001
+     ],
+     "cluster_ci95": [
+      -0.013333333333333334,
+      0.005714285714285715
+     ],
+     "width_ratio": 0.9523809523809523,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.02181818181818182,
+     "n": 55,
+     "case_ci95": [
+      -0.0036363636363636364,
+      0.05090909090909091
+     ],
+     "cluster_ci95": [
+      0.0,
+      0.0489795918367347
+     ],
+     "width_ratio": 0.8979591836734694,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    }
+   ]
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.6748591909882231,
+     "n": 100,
+     "case_ci95": [
+      0.5286906356237767,
+      0.7859452566379742
+     ],
+     "cluster_ci95": [
+      0.522913785154449,
+      0.7998411963210481
+     ],
+     "width_ratio": 1.0764720574302762,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.042,
+     "n": 100,
+     "case_ci95": [
+      0.022000000000000002,
+      0.064
+     ],
+     "cluster_ci95": [
+      0.021568627450980395,
+      0.06476190476190477
+     ],
+     "width_ratio": 1.0284113645458184,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": -0.01,
+     "n": 100,
+     "case_ci95": [
+      -0.036000000000000004,
+      0.018000000000000002
+     ],
+     "cluster_ci95": [
+      -0.03689320388349515,
+      0.017821782178217824
+     ],
+     "width_ratio": 1.0132404826243142,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.078125,
+     "n": 64,
+     "case_ci95": [
+      -0.109375,
+      -0.046875
+     ],
+     "cluster_ci95": [
+      -0.10746268656716418,
+      -0.04727272727272727
+     ],
+     "width_ratio": 0.9630393487109905,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.0,
+     "n": 100,
+     "case_ci95": [
+      -0.012000000000000002,
+      0.012000000000000002
+     ],
+     "cluster_ci95": [
+      -0.01443298969072165,
+      0.012903225806451615
+     ],
+     "width_ratio": 1.1390089790488858,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.07450980392156863,
+     "n": 51,
+     "case_ci95": [
+      0.04313725490196079,
+      0.10588235294117648
+     ],
+     "cluster_ci95": [
+      0.04800000000000001,
+      0.10000000000000002
+     ],
+     "width_ratio": 0.8287500000000002,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.4150922671353251,
+     "n": 100,
+     "case_ci95": [
+      0.214314388943052,
+      0.5909090909090909
+     ],
+     "cluster_ci95": [
+      0.21571316042827526,
+      0.5814249987740892
+     ],
+     "width_ratio": 0.9711019205437296,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.31,
+     "n": 100,
+     "case_ci95": [
+      0.256,
+      0.364
+     ],
+     "cluster_ci95": [
+      0.2611111111111111,
+      0.3616161616161616
+     ],
+     "width_ratio": 0.9306023194912083,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.254,
+     "n": 100,
+     "case_ci95": [
+      0.198,
+      0.314
+     ],
+     "cluster_ci95": [
+      0.19789473684210526,
+      0.3136842105263158
+     ],
+     "width_ratio": 0.9981851179673322,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.14375000000000002,
+     "n": 64,
+     "case_ci95": [
+      -0.21250000000000002,
+      -0.075
+     ],
+     "cluster_ci95": [
+      -0.19999999999999998,
+      -0.08253968253968254
+     ],
+     "width_ratio": 0.854256854256854,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": -0.054000000000000006,
+     "n": 100,
+     "case_ci95": [
+      -0.114,
+      0.004000000000000002
+     ],
+     "cluster_ci95": [
+      -0.11607142857142858,
+      0.011650485436893204
+     ],
+     "width_ratio": 1.0823891017654388,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.331958762886598,
+     "n": 97,
+     "case_ci95": [
+      0.2721649484536083,
+      0.3896907216494846
+     ],
+     "cluster_ci95": [
+      0.2761904761904762,
+      0.3872340425531915
+     ],
+     "width_ratio": 0.9448443804546824,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
+   "model": "microsoft/phi-4",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.6882231936230393,
+     "n": 100,
+     "case_ci95": [
+      0.5505086349656967,
+      0.7824995817299648
+     ],
+     "cluster_ci95": [
+      0.5385162150155486,
+      0.7927840078010726
+     ],
+     "width_ratio": 1.0960246351504914,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.046000000000000006,
+     "n": 100,
+     "case_ci95": [
+      0.018000000000000002,
+      0.07400000000000001
+     ],
+     "cluster_ci95": [
+      0.014141414141414142,
+      0.08
+     ],
+     "width_ratio": 1.176046176046176,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.13,
+     "n": 100,
+     "case_ci95": [
+      0.07400000000000001,
+      0.18600000000000003
+     ],
+     "cluster_ci95": [
+      0.07200000000000001,
+      0.1878787878787879
+     ],
+     "width_ratio": 1.0346320346320346,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.184375,
+     "n": 64,
+     "case_ci95": [
+      -0.23125,
+      -0.1375
+     ],
+     "cluster_ci95": [
+      -0.2253968253968254,
+      -0.14098360655737704
+     ],
+     "width_ratio": 0.9004076676207825,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.024000000000000004,
+     "n": 100,
+     "case_ci95": [
+      -0.002,
+      0.052000000000000005
+     ],
+     "cluster_ci95": [
+      -0.0059405940594059415,
+      0.05490196078431373
+     ],
+     "width_ratio": 1.1267139785874012,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.12888888888888891,
+     "n": 90,
+     "case_ci95": [
+      0.10666666666666669,
+      0.15111111111111114
+     ],
+     "cluster_ci95": [
+      0.10526315789473684,
+      0.15476190476190477
+     ],
+     "width_ratio": 1.1137218045112782,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.6351053790500157,
+     "n": 100,
+     "case_ci95": [
+      0.4769253598456743,
+      0.7433841218925421
+     ],
+     "cluster_ci95": [
+      0.47999735720656733,
+      0.7418252250199384
+     ],
+     "width_ratio": 0.9826205969061652,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.24600000000000002,
+     "n": 100,
+     "case_ci95": [
+      0.20199999999999999,
+      0.292
+     ],
+     "cluster_ci95": [
+      0.1980582524271845,
+      0.29473684210526313
+     ],
+     "width_ratio": 1.0742065519786514,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.3,
+     "n": 100,
+     "case_ci95": [
+      0.256,
+      0.34600000000000003
+     ],
+     "cluster_ci95": [
+      0.25894736842105265,
+      0.33904761904761904
+     ],
+     "width_ratio": 0.8900027847396264,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.215625,
+     "n": 64,
+     "case_ci95": [
+      -0.259375,
+      -0.171875
+     ],
+     "cluster_ci95": [
+      -0.26896551724137935,
+      -0.1672131147540984
+     ],
+     "width_ratio": 1.1628845998546393,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.05,
+     "n": 100,
+     "case_ci95": [
+      0.032,
+      0.068
+     ],
+     "cluster_ci95": [
+      0.03505154639175258,
+      0.06666666666666667
+     ],
+     "width_ratio": 0.8781977854142802,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.27252747252747256,
+     "n": 91,
+     "case_ci95": [
+      0.23076923076923078,
+      0.31648351648351647
+     ],
+     "cluster_ci95": [
+      0.22765957446808513,
+      0.31868131868131866
+     ],
+     "width_ratio": 1.0619203491543916,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.6771125350420504,
+     "n": 100,
+     "case_ci95": [
+      0.5404411764705883,
+      0.7864250844911754
+     ],
+     "cluster_ci95": [
+      0.5341328413284133,
+      0.790415927154873
+     ],
+     "width_ratio": 1.0418693153090752,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.018000000000000002,
+     "n": 100,
+     "case_ci95": [
+      0.002,
+      0.034
+     ],
+     "cluster_ci95": [
+      0.002,
+      0.034782608695652174
+     ],
+     "width_ratio": 1.0244565217391304,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.026000000000000002,
+     "n": 100,
+     "case_ci95": [
+      0.008,
+      0.046000000000000006
+     ],
+     "cluster_ci95": [
+      0.008602150537634409,
+      0.04646464646464647
+     ],
+     "width_ratio": 0.9963814717634751,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.009375000000000001,
+     "n": 64,
+     "case_ci95": [
+      -0.03125,
+      0.0125
+     ],
+     "cluster_ci95": [
+      -0.03225806451612903,
+      0.014035087719298246
+     ],
+     "width_ratio": 1.0581291939526236,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.022000000000000002,
+     "n": 100,
+     "case_ci95": [
+      0.0,
+      0.044000000000000004
+     ],
+     "cluster_ci95": [
+      0.0,
+      0.04313725490196079
+     ],
+     "width_ratio": 0.9803921568627452,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.04680851063829788,
+     "n": 47,
+     "case_ci95": [
+      0.025531914893617023,
+      0.0723404255319149
+     ],
+     "cluster_ci95": [
+      0.025,
+      0.06808510638297872
+     ],
+     "width_ratio": 0.9204545454545453,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.6932353096736659,
+     "n": 100,
+     "case_ci95": [
+      0.5595990033030073,
+      0.795766073602765
+     ],
+     "cluster_ci95": [
+      0.5534212864857474,
+      0.8021981784564816
+     ],
+     "width_ratio": 1.0533936490594193,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.05,
+     "n": 100,
+     "case_ci95": [
+      0.028000000000000004,
+      0.07600000000000001
+     ],
+     "cluster_ci95": [
+      0.025490196078431372,
+      0.07722772277227724
+     ],
+     "width_ratio": 1.0778651394551222,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.006000000000000001,
+     "n": 100,
+     "case_ci95": [
+      -0.012000000000000002,
+      0.022000000000000002
+     ],
+     "cluster_ci95": [
+      -0.010810810810810813,
+      0.023529411764705885
+     ],
+     "width_ratio": 1.0100065463387264,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.0125,
+     "n": 64,
+     "case_ci95": [
+      -0.034375,
+      0.009375000000000001
+     ],
+     "cluster_ci95": [
+      -0.03529411764705883,
+      0.010714285714285716
+     ],
+     "width_ratio": 1.0516206482593038,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.01,
+     "n": 100,
+     "case_ci95": [
+      -0.008,
+      0.028000000000000004
+     ],
+     "cluster_ci95": [
+      -0.009174311926605505,
+      0.0297029702970297
+     ],
+     "width_ratio": 1.079924506212089,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.05714285714285715,
+     "n": 49,
+     "case_ci95": [
+      0.0326530612244898,
+      0.08571428571428572
+     ],
+     "cluster_ci95": [
+      0.03076923076923077,
+      0.08333333333333333
+     ],
+     "width_ratio": 0.9906311637080867,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.6951717380654292,
+     "n": 100,
+     "case_ci95": [
+      0.5673352435530086,
+      0.7934300685207578
+     ],
+     "cluster_ci95": [
+      0.5635876840696117,
+      0.8026044226044226
+     ],
+     "width_ratio": 1.0571526286322779,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": -0.007000000000000001,
+     "n": 100,
+     "case_ci95": [
+      -0.021,
+      0.006000000000000001
+     ],
+     "cluster_ci95": [
+      -0.021505376344086023,
+      0.006122448979591837
+     ],
+     "width_ratio": 1.0232527897658465,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "forged",
+     "estimate": -0.015,
+     "n": 100,
+     "case_ci95": [
+      -0.029000000000000005,
+      -0.002
+     ],
+     "cluster_ci95": [
+      -0.0297029702970297,
+      -0.001851851851851852
+     ],
+     "width_ratio": 1.0315229053769572,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.0203125,
+     "n": 64,
+     "case_ci95": [
+      -0.037500000000000006,
+      -0.003125
+     ],
+     "cluster_ci95": [
+      -0.03650793650793651,
+      -0.0033333333333333335
+     ],
+     "width_ratio": 0.9650793650793651,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.0030000000000000005,
+     "n": 100,
+     "case_ci95": [
+      -0.008,
+      0.014000000000000002
+     ],
+     "cluster_ci95": [
+      -0.007070707070707071,
+      0.012962962962962964
+     ],
+     "width_ratio": 0.9106213651668197,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.01153846153846154,
+     "n": 52,
+     "case_ci95": [
+      -0.0038461538461538464,
+      0.03076923076923077
+     ],
+     "cluster_ci95": [
+      -0.004,
+      0.027450980392156866
+     ],
+     "width_ratio": 0.9085838779956428,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    }
+   ]
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.6222934691905662,
+     "n": 100,
+     "case_ci95": [
+      0.4826099453866054,
+      0.7360361086483436
+     ],
+     "cluster_ci95": [
+      0.47972684592402903,
+      0.7410874867574959
+     ],
+     "width_ratio": 1.0313088335853233,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.05800000000000001,
+     "n": 100,
+     "case_ci95": [
+      0.026000000000000002,
+      0.098
+     ],
+     "cluster_ci95": [
+      0.02448979591836735,
+      0.09484536082474228
+     ],
+     "width_ratio": 0.9771606236996516,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": -0.35,
+     "n": 100,
+     "case_ci95": [
+      -0.452,
+      -0.24600000000000002
+     ],
+     "cluster_ci95": [
+      -0.4490566037735849,
+      -0.24313725490196078
+     ],
+     "width_ratio": 0.9996084896680784,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.10312500000000001,
+     "n": 64,
+     "case_ci95": [
+      -0.171875,
+      -0.040625
+     ],
+     "cluster_ci95": [
+      -0.16551724137931034,
+      -0.04126984126984127
+     ],
+     "width_ratio": 0.9466468579769073,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.016,
+     "n": 100,
+     "case_ci95": [
+      -0.011999999999999997,
+      0.044000000000000004
+     ],
+     "cluster_ci95": [
+      -0.011999999999999997,
+      0.04230769230769231
+     ],
+     "width_ratio": 0.9697802197802198,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.08301886792452831,
+     "n": 53,
+     "case_ci95": [
+      0.04905660377358491,
+      0.1169811320754717
+     ],
+     "cluster_ci95": [
+      0.04444444444444445,
+      0.11836734693877553
+     ],
+     "width_ratio": 1.0883093978332075,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.6497991095667283,
+     "n": 100,
+     "case_ci95": [
+      0.5152848816462471,
+      0.7526589166460549
+     ],
+     "cluster_ci95": [
+      0.5113127458234354,
+      0.7643558648520661
+     ],
+     "width_ratio": 1.0660101010156209,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.254,
+     "n": 100,
+     "case_ci95": [
+      0.20800000000000002,
+      0.306
+     ],
+     "cluster_ci95": [
+      0.2,
+      0.308
+     ],
+     "width_ratio": 1.1020408163265307,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.30400000000000005,
+     "n": 100,
+     "case_ci95": [
+      0.252,
+      0.358
+     ],
+     "cluster_ci95": [
+      0.24770642201834864,
+      0.3607843137254902
+     ],
+     "width_ratio": 1.0667725632749205,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.265625,
+     "n": 64,
+     "case_ci95": [
+      -0.328125,
+      -0.2125
+     ],
+     "cluster_ci95": [
+      -0.31935483870967746,
+      -0.20677966101694917
+     ],
+     "width_ratio": 0.9736231584235959,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.04,
+     "n": 100,
+     "case_ci95": [
+      0.02,
+      0.06
+     ],
+     "cluster_ci95": [
+      0.02,
+      0.060000000000000005
+     ],
+     "width_ratio": 1.0000000000000004,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.16266666666666668,
+     "n": 75,
+     "case_ci95": [
+      0.13333333333333333,
+      0.18933333333333335
+     ],
+     "cluster_ci95": [
+      0.13333333333333333,
+      0.19142857142857142
+     ],
+     "width_ratio": 1.037414965986394,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  }
+ ],
+ "per_prompt": {
+  "asap2": [
+   {
+    "model": "anthropic/claude-fable-5.1",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.5454545454545454,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.5909090909090908,
+     "The Face on Mars": 0.6277372262773723,
+     "Facial action coding system": 0.810126582278481,
+     "Exploring Venus": 0.7551020408163265
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.5454545454545454,
+     0.810126582278481
+    ]
+   },
+   {
+    "model": "anthropic/claude-haiku-5.5",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.27083333333333326,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.5199999999999999,
+     "The Face on Mars": 0.4728682170542635,
+     "Facial action coding system": 0.42622950819672123,
+     "Exploring Venus": 0.5333333333333332
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.27083333333333326,
+     0.5333333333333332
+    ]
+   },
+   {
+    "model": "anthropic/claude-opus-5.5",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.6551724137931034,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.56,
+     "The Face on Mars": 0.5509433962264151,
+     "Facial action coding system": 0.7569444444444444,
+     "Exploring Venus": 0.590909090909091
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.5509433962264151,
+     0.7569444444444444
+    ]
+   },
+   {
+    "model": "deepseek/deepseek-v4.1-flash",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.4444444444444444,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.6666666666666665,
+     "The Face on Mars": 0.5296442687747034,
+     "Facial action coding system": 0.6951219512195123,
+     "Exploring Venus": 0.6538461538461537
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.4444444444444444,
+     0.6951219512195123
+    ]
+   },
+   {
+    "model": "google/gemini-3.5-flash-lite",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.2682926829268294,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.6909090909090909,
+     "The Face on Mars": 0.5974499089253187,
+     "Facial action coding system": 0.6167883211678832,
+     "Exploring Venus": 0.6625
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.2682926829268294,
+     0.6909090909090909
+    ]
+   },
+   {
+    "model": "google/gemma-3-27b-it",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.423076923076923,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.6746987951807228,
+     "The Face on Mars": 0.5590778097982709,
+     "Facial action coding system": 0.6388888888888888,
+     "Exploring Venus": 0.5142857142857142
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.423076923076923,
+     0.6746987951807228
+    ]
+   },
+   {
+    "model": "google/gemma-3-4b-it",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.08602150537634401,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.23357664233576658,
+     "The Face on Mars": 0.030240549828178587,
+     "Facial action coding system": 0.3023255813953488,
+     "Exploring Venus": 0.176056338028169
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.030240549828178587,
+     0.3023255813953488
+    ]
+   },
+   {
+    "model": "google/gemma-4-26b-a4b-it",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.423076923076923,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.8141592920353983,
+     "The Face on Mars": 0.5984251968503937,
+     "Facial action coding system": 0.7087378640776699,
+     "Exploring Venus": 0.7
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.423076923076923,
+     0.8141592920353983
+    ]
+   },
+   {
+    "model": "google/gemma-4-31b-it",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.6376811594202898,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.6326530612244898,
+     "The Face on Mars": 0.6482758620689655,
+     "Facial action coding system": 0.6296296296296297,
+     "Exploring Venus": 0.5625
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.5625,
+     0.6482758620689655
+    ]
+   },
+   {
+    "model": "meta-llama/llama-3.2-3b-instruct",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": -0.08695652173913038,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.49664429530201337,
+     "The Face on Mars": 0.38230647709320675,
+     "Facial action coding system": 0.43627450980392146,
+     "Exploring Venus": 0.34545454545454546
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     -0.08695652173913038,
+     0.49664429530201337
+    ]
+   },
+   {
+    "model": "microsoft/phi-4",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.2857142857142858,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.49557522123893816,
+     "The Face on Mars": 0.3945205479452054,
+     "Facial action coding system": 0.5871559633027523,
+     "Exploring Venus": 0.6086956521739129
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.2857142857142858,
+     0.6086956521739129
+    ]
+   },
+   {
+    "model": "mistralai/ministral-8b-2512",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.2857142857142858,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.44799999999999995,
+     "The Face on Mars": 0.37346437346437333,
+     "Facial action coding system": 0.6691176470588236,
+     "Exploring Venus": 0.536082474226804
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.2857142857142858,
+     0.6691176470588236
+    ]
+   },
+   {
+    "model": "openai/gpt-5-mini",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.07407407407407396,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.3669724770642202,
+     "The Face on Mars": 0.14550264550264558,
+     "Facial action coding system": 0.3092105263157894,
+     "Exploring Venus": 0.3007518796992482
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.07407407407407396,
+     0.3669724770642202
+    ]
+   },
+   {
+    "model": "openai/gpt-5.6-luna",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.16666666666666674,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.4943820224719102,
+     "The Face on Mars": 0.4366471734892786,
+     "Facial action coding system": 0.3023255813953488,
+     "Exploring Venus": 0.5794392523364484
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.16666666666666674,
+     0.5794392523364484
+    ]
+   },
+   {
+    "model": "openai/gpt-6-astra",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.25,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.5631067961165049,
+     "The Face on Mars": 0.4095063985374773,
+     "Facial action coding system": 0.49367088607594944,
+     "Exploring Venus": 0.38888888888888884
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.25,
+     0.5631067961165049
+    ]
+   },
+   {
+    "model": "openai/gpt-oss-20b",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.30107526881720437,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.35897435897435903,
+     "The Face on Mars": 0.31266846361185985,
+     "Facial action coding system": 0.4444444444444444,
+     "Exploring Venus": 0.12389380530973448
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.12389380530973448,
+     0.4444444444444444
+    ]
+   },
+   {
+    "model": "qwen/qwen3-235b-a22b-2507",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.3750000000000001,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.6808510638297872,
+     "The Face on Mars": 0.4962962962962961,
+     "Facial action coding system": 0.5990566037735849,
+     "Exploring Venus": 0.625
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.3750000000000001,
+     0.6808510638297872
+    ]
+   }
+  ],
+  "code": [
+   {
+    "model": "anthropic/claude-fable-5.1",
+    "per_prompt_qwk": {
+     "Q25": 0.9420131318797065,
+     "Q31": 0.9367777248770612,
+     "Q41": 0.9729660474055093
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.9367777248770612,
+     0.9729660474055093
+    ]
+   },
+   {
+    "model": "anthropic/claude-haiku-5.5",
+    "per_prompt_qwk": {
+     "Q25": 0.9041738833687447,
+     "Q31": 0.8016151618767148,
+     "Q41": 0.883169970550745
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.8016151618767148,
+     0.9041738833687447
+    ]
+   },
+   {
+    "model": "anthropic/claude-opus-5.5",
+    "per_prompt_qwk": {
+     "Q25": 0.9419159153098716,
+     "Q31": 0.9129050124619219,
+     "Q41": 0.9694492436054106
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.9129050124619219,
+     0.9694492436054106
+    ]
+   },
+   {
+    "model": "deepseek/deepseek-v4.1-flash",
+    "per_prompt_qwk": {
+     "Q25": 0.8146824085707786,
+     "Q31": 0.602872712538555,
+     "Q41": 0.8842836915947999
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.602872712538555,
+     0.8842836915947999
+    ]
+   },
+   {
+    "model": "google/gemini-3.5-flash-lite",
+    "per_prompt_qwk": {
+     "Q25": 0.7562220384118329,
+     "Q31": 0.7536948150960859,
+     "Q41": 0.8170726876609231
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.7536948150960859,
+     0.8170726876609231
+    ]
+   },
+   {
+    "model": "google/gemma-3-27b-it",
+    "per_prompt_qwk": {
+     "Q25": 0.8015383124729272,
+     "Q31": 0.7647105309770683,
+     "Q41": 0.7394373298376526
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.7394373298376526,
+     0.8015383124729272
+    ]
+   },
+   {
+    "model": "google/gemma-3-4b-it",
+    "per_prompt_qwk": {
+     "Q25": 0.3928538441006646,
+     "Q31": 0.23993379751399224,
+     "Q41": 0.27205896356676296
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.23993379751399224,
+     0.3928538441006646
+    ]
+   },
+   {
+    "model": "google/gemma-4-26b-a4b-it",
+    "per_prompt_qwk": {
+     "Q25": 0.42934654346089673,
+     "Q31": 0.40656842493970513,
+     "Q41": 0.7654470995904774
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.40656842493970513,
+     0.7654470995904774
+    ]
+   },
+   {
+    "model": "google/gemma-4-31b-it",
+    "per_prompt_qwk": {
+     "Q25": 0.46025481379955924,
+     "Q31": 0.5378193235336091,
+     "Q41": 0.7711211534323219
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.46025481379955924,
+     0.7711211534323219
+    ]
+   },
+   {
+    "model": "meta-llama/llama-3.2-3b-instruct",
+    "per_prompt_qwk": {
+     "Q25": 0.5484006730301061,
+     "Q31": 0.5042160163040996,
+     "Q41": 0.5055847325985656
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.5042160163040996,
+     0.5484006730301061
+    ]
+   },
+   {
+    "model": "microsoft/phi-4",
+    "per_prompt_qwk": {
+     "Q25": 0.6674568382560225,
+     "Q31": 0.709107809032492,
+     "Q41": 0.7896407037833644
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.6674568382560225,
+     0.7896407037833644
+    ]
+   },
+   {
+    "model": "mistralai/ministral-8b-2512",
+    "per_prompt_qwk": {
+     "Q25": 0.6742670143138401,
+     "Q31": 0.6442562082289713,
+     "Q41": 0.8962578334825425
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.6442562082289713,
+     0.8962578334825425
+    ]
+   },
+   {
+    "model": "openai/gpt-5-mini",
+    "per_prompt_qwk": {
+     "Q25": 0.8723378701981173,
+     "Q31": 0.8042501357519187,
+     "Q41": 0.9180179158634766
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.8042501357519187,
+     0.9180179158634766
+    ]
+   },
+   {
+    "model": "openai/gpt-5.6-luna",
+    "per_prompt_qwk": {
+     "Q25": 0.7920234861894422,
+     "Q31": 0.6260356489381385,
+     "Q41": 0.9046712731184576
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.6260356489381385,
+     0.9046712731184576
+    ]
+   },
+   {
+    "model": "openai/gpt-6-astra",
+    "per_prompt_qwk": {
+     "Q25": 0.9026450713016452,
+     "Q31": 0.8138980115353821,
+     "Q41": 0.977036561898653
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.8138980115353821,
+     0.977036561898653
+    ]
+   },
+   {
+    "model": "openai/gpt-oss-20b",
+    "per_prompt_qwk": {
+     "Q25": 0.2745994226405599,
+     "Q31": 0.1025080768417721,
+     "Q41": 0.4413909323654275
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.1025080768417721,
+     0.4413909323654275
+    ]
+   },
+   {
+    "model": "qwen/qwen3-235b-a22b-2507",
+    "per_prompt_qwk": {
+     "Q25": 0.42902714712133294,
+     "Q31": 0.4249257024495674,
+     "Q41": 0.8125065101906185
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.4249257024495674,
+     0.8125065101906185
+    ]
+   }
+  ]
+ },
+ "summary": {
+  "verdict": "ROBUST",
+  "flag_changes": [],
+  "width_ratio_median": 1.0132472463854783,
+  "width_ratio_range": [
+   0.8287500000000002,
+   1.176046176046176
+  ]
+ }
+}

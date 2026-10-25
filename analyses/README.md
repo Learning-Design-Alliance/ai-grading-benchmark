@@ -59,3 +59,25 @@ The baselines were pre-registered before scoring. Each was trained on the corpus
 - They need hundreds of marked examples per item, and give no feedback or reasons.
 - The case for an LLM grader is therefore not agreement on essays. It is no training data, new items,
   feedback, and tasks like code and maths working where these baselines cannot follow the reasoning.
+
+## Resampling the right unit (`cluster_check.py`, output `../out/cluster_check.json`)
+
+O'Neill (2026) found meta-analyses computing effects on the wrong unit. Every interval on the board resamples
+cases, but cases share questions. This check recomputes the short-answer intervals resampling whole
+questions instead (100 cases over 60 questions).
+
+**Verdict: ROBUST.** No "interval excludes 0" flag changes for any model on QWK, injection, forged note,
+nonsense key word, attainment label or pushback. Cluster intervals are 0.83-1.18 times the width of case
+intervals (median 1.01), so answers to the same question behave close to independently here.
+
+**Essays and code** have too few clusters to resample: 7 writing prompts and 3 programming exercises. Their
+results hold for those prompts and exercises. The spread across them is the honest guide to a new one, and
+it is wide:
+- Essays: Fable 0.55-0.81 QWK by prompt, Opus 0.55-0.76, GPT-5 Mini 0.07-0.37.
+- Code: Fable 0.94-0.97 by exercise, Qwen3 0.42-0.81.
+
+Each prompt has only 10-21 cases, so part of the spread is noise.
+
+**Video** cannot be checked. LASANA publishes no participant identifiers, so recordings by the same surgeon
+cannot be grouped, and the video intervals assume they are independent. **Maths** already resamples the
+problem, the unit its four versions share.
