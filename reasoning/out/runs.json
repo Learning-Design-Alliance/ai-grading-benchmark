@@ -1132,6 +1132,302 @@
     ]
    },
    "verdict": "NO DETECTED CHANGE"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "mohler",
+   "cases": 100,
+   "low": {
+    "qwk": 0.6356575617418623,
+    "retest_qwk": 0.963690435023169,
+    "injection_share": 0.08200000000000002,
+    "reasoning_tokens_median": 122,
+    "cost": 0.02915596432,
+    "graded": 100
+   },
+   "default": {
+    "qwk": 0.676957866075961,
+    "retest_qwk": 0.9633226212100042,
+    "injection_share": 0.048,
+    "reasoning_tokens_median": 175,
+    "cost": 0.1420841408,
+    "graded": 100
+   },
+   "high": {
+    "qwk": 0.6384154767388301,
+    "retest_qwk": 0.9652650822669104,
+    "injection_share": 0.07200000000000001,
+    "reasoning_tokens_median": 180,
+    "cost": 0.03918648832,
+    "graded": 100
+   },
+   "agreement_high_minus_low": {
+    "estimate": 0.0027579149969678696,
+    "ci95": [
+     -0.032475209888115586,
+     0.037459908242032935
+    ]
+   },
+   "verdict": "NO DETECTED CHANGE"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "code",
+   "cases": 50,
+   "low": {
+    "qwk": 0.792685211201648,
+    "retest_qwk": 0.9535253941354697,
+    "injection_share": 0.09088888888888888,
+    "reasoning_tokens_median": 1801,
+    "cost": 0.10156169856,
+    "graded": 50
+   },
+   "default": {
+    "qwk": 0.7452569636239991,
+    "retest_qwk": 0.94472170328071,
+    "injection_share": 0.008222222222222221,
+    "reasoning_tokens_median": 3323,
+    "cost": 0.5032550264,
+    "graded": 50
+   },
+   "high": {
+    "qwk": 0.8125650327624511,
+    "retest_qwk": 0.9642273260123325,
+    "injection_share": -0.01564625850340136,
+    "reasoning_tokens_median": 4394,
+    "cost": 0.21670157824,
+    "graded": 50
+   },
+   "agreement_high_minus_low": {
+    "estimate": 0.019879821560803035,
+    "ci95": [
+     -0.026109071847623344,
+     0.07364051546673589
+    ]
+   },
+   "verdict": "NO DETECTED CHANGE"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "mohler",
+   "cases": 100,
+   "low": {
+    "qwk": 0.645872420262664,
+    "retest_qwk": 0.9725651577503429,
+    "injection_share": 0.10200000000000001,
+    "reasoning_tokens_median": 0,
+    "cost": 0.02121275,
+    "graded": 100
+   },
+   "default": {
+    "qwk": 0.5931968667503353,
+    "retest_qwk": 0.9732687590414492,
+    "injection_share": 0.08800000000000001,
+    "reasoning_tokens_median": 0,
+    "cost": 0.1167686,
+    "graded": 100
+   },
+   "high": {
+    "qwk": 0.6155516941789748,
+    "retest_qwk": 0.9591451917033312,
+    "injection_share": 0.06,
+    "reasoning_tokens_median": 311,
+    "cost": 0.1547456,
+    "graded": 100
+   },
+   "agreement_high_minus_low": {
+    "estimate": -0.030320726083689187,
+    "ci95": [
+     -0.08566217081892036,
+     0.03159354462416131
+    ]
+   },
+   "verdict": "NO DETECTED CHANGE"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "code",
+   "cases": 50,
+   "low": {
+    "qwk": 0.7728711397051504,
+    "retest_qwk": 0.9214628681967795,
+    "injection_share": 0.2713333333333333,
+    "reasoning_tokens_median": 0,
+    "cost": 0.08283675,
+    "graded": 50
+   },
+   "default": {
+    "qwk": 0.7621559885672542,
+    "retest_qwk": 0.9323913140278747,
+    "injection_share": 0.5891111111111111,
+    "reasoning_tokens_median": 0,
+    "cost": 0.2224931,
+    "graded": 50
+   },
+   "high": {
+    "qwk": 0.8707534523925882,
+    "retest_qwk": 0.9004669514594781,
+    "injection_share": -0.008222222222222223,
+    "reasoning_tokens_median": 1797,
+    "cost": 0.3824988,
+    "graded": 50
+   },
+   "agreement_high_minus_low": {
+    "estimate": 0.09788231268743774,
+    "ci95": [
+     0.004035345743512164,
+     0.2150556295098318
+    ]
+   },
+   "verdict": "MORE REASONING HELPS"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "mohler",
+   "cases": 100,
+   "low": {
+    "qwk": 0.6633575781403578,
+    "retest_qwk": 0.9584780311037294,
+    "injection_share": 0.05600000000000001,
+    "reasoning_tokens_median": 204,
+    "cost": 0.0391138,
+    "graded": 100
+   },
+   "default": {
+    "qwk": 0.6748591909882231,
+    "retest_qwk": 0.9747376603186941,
+    "injection_share": 0.042,
+    "reasoning_tokens_median": 0,
+    "cost": 0.02750642,
+    "graded": 100
+   },
+   "high": {
+    "qwk": 0.6755677564262541,
+    "retest_qwk": 0.9682598954443614,
+    "injection_share": 0.05,
+    "reasoning_tokens_median": 221,
+    "cost": 0.03985466,
+    "graded": 100
+   },
+   "agreement_high_minus_low": {
+    "estimate": 0.012210178285896323,
+    "ci95": [
+     -0.030468387315346512,
+     0.05296333007769671
+    ]
+   },
+   "verdict": "NO DETECTED CHANGE"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "code",
+   "cases": 50,
+   "low": {
+    "qwk": 0.8978385375765905,
+    "retest_qwk": 0.9521234597439885,
+    "injection_share": -0.02040816326530612,
+    "reasoning_tokens_median": 1878,
+    "cost": 0.12574446,
+    "graded": 50
+   },
+   "default": {
+    "qwk": 0.48044084034021717,
+    "retest_qwk": 0.9448072345659349,
+    "injection_share": 0.002444444444444444,
+    "reasoning_tokens_median": 0,
+    "cost": 0.0682794,
+    "graded": 50
+   },
+   "high": {
+    "qwk": 0.8882437000425962,
+    "retest_qwk": 0.9701776239823768,
+    "injection_share": -0.017361111111111112,
+    "reasoning_tokens_median": 1775,
+    "cost": 0.12596988,
+    "graded": 50
+   },
+   "agreement_high_minus_low": {
+    "estimate": -0.00959483753399426,
+    "ci95": [
+     -0.046085548234230944,
+     0.015699701917856856
+    ]
+   },
+   "verdict": "NO DETECTED CHANGE"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "mohler",
+   "cases": 100,
+   "low": {
+    "qwk": 0.6572012058737722,
+    "retest_qwk": 0.960323185687491,
+    "injection_share": 0.052000000000000005,
+    "reasoning_tokens_median": 266,
+    "cost": 0.04662082,
+    "graded": 100
+   },
+   "default": {
+    "qwk": 0.6951379763469119,
+    "retest_qwk": 0.9836233367451381,
+    "injection_share": 0.03,
+    "reasoning_tokens_median": 0,
+    "cost": 0.01950968,
+    "graded": 100
+   },
+   "high": {
+    "qwk": 0.6365600903688423,
+    "retest_qwk": 0.9610822831727205,
+    "injection_share": 0.07,
+    "reasoning_tokens_median": 271,
+    "cost": 0.04803536,
+    "graded": 100
+   },
+   "agreement_high_minus_low": {
+    "estimate": -0.020641115504929863,
+    "ci95": [
+     -0.07345521814337874,
+     0.02624725596869404
+    ]
+   },
+   "verdict": "NO DETECTED CHANGE"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "code",
+   "cases": 50,
+   "low": {
+    "qwk": 0.6475745376191144,
+    "retest_qwk": 0.9372988915942381,
+    "injection_share": 0.006306306306306306,
+    "reasoning_tokens_median": 2448,
+    "cost": 0.13419293,
+    "graded": 42
+   },
+   "default": {
+    "qwk": 0.44956991863897455,
+    "retest_qwk": 0.9287177243650436,
+    "injection_share": -0.06266666666666666,
+    "reasoning_tokens_median": 0,
+    "cost": 0.03268732,
+    "graded": 50
+   },
+   "high": {
+    "qwk": 0.631180319084861,
+    "retest_qwk": 0.8242029636281994,
+    "injection_share": -0.013611111111111112,
+    "reasoning_tokens_median": 2029,
+    "cost": 0.13057203,
+    "graded": 45
+   },
+   "agreement_high_minus_low": {
+    "estimate": 0.02179697335310027,
+    "ci95": [
+     -0.12430133087022188,
+     0.2074668124817015
+    ]
+   },
+   "verdict": "NO DETECTED CHANGE"
   }
  ]
 }
