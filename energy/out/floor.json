@@ -1,6 +1,6 @@
 {
  "worlds": 300,
- "mean_abs_rel_error": 0.007759799999812107,
- "coverage": 0.9233333333333333,
+ "mean_abs_rel_error": 0.004554297928074809,
+ "coverage": 0.9066666666666666,
  "pass": true
 }
