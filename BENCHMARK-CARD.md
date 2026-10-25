@@ -110,8 +110,10 @@ the recording's length.
 ## What it cannot test yet
 
 - Whether feedback helps a student learn.
-- Contamination. The corpora are public and may be in training data. A private held-out set is planned,
-  and for fully open models (OLMo) the published training data can be searched directly.
+- Contamination, for closed models. The corpora are public. An exact search of OLMo 2's full training data
+  found 2-4% of the short answers and essays, none of the code, and 8% of the maths solutions; every maths
+  question was there (`contamination/`). A closed model may have seen more. A private held-out set is
+  planned.
 - Fairness across real student groups. Only the essay corpora carry demographics.
 - Languages other than English.
 - Unscripted speech with several raters per recording.
