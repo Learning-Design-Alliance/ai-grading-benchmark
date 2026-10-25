@@ -46,6 +46,51 @@
    },
    "verdict": "NO DETECTABLE EFFECT"
   },
+  "vlen-google_gemini-3.8-flash": {
+   "model": "google/gemini-3.8-flash",
+   "failed": {
+    "1": 4,
+    "4": 6
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.6578947368421053,
+     "specificity": 0.728,
+     "balanced": 0.6929473684210526
+    },
+    "x4": {
+     "sensitivity": 0.8311688311688312,
+     "specificity": 0.4262295081967213,
+     "balanced": 0.6286991696827763
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      0.1732740943267259,
+      [
+       0.08046722907203119,
+       0.27431850789096124
+      ]
+     ],
+     "specificity": [
+      -0.3017704918032787,
+      [
+       -0.39356250000000004,
+       -0.21610576923076918
+      ]
+     ],
+     "balanced": [
+      -0.06424819873827636,
+      [
+       -0.13056760757490682,
+       0.004256854256854181
+      ]
+     ]
+    }
+   },
+   "verdict": "NO DETECTABLE EFFECT"
+  },
   "vlen-google_gemini-3.5-flash-lite": {
    "model": "google/gemini-3.5-flash-lite",
    "failed": {
