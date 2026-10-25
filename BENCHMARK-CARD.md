@@ -174,6 +174,14 @@ As of 2026-10-25: 17 models, all five tasks, default prompt. Overall scores rang
 `out/leaderboard.json` and `out/overall.json` are rebuilt from `submissions/` on every change. The report
 page shows every strand and module.
 
+## Energy, carbon and water
+
+A grading is short: a median of 44-112 output tokens. Published estimates put an ordinary model at
+0.24-0.42 Wh per query and a reasoning model at about 3.9 Wh. A teacher's term of 1,500 gradings is then
+0.4-0.6 kWh (5-8 hours of streaming video), or about 6 kWh with a reasoning model. One conference flight
+equals millions of ordinary gradings. Vendor and independent figures, who made each and what it counts, are
+in `docs/ENERGY.md`. None is audited, and only open models have been measured directly.
+
 ## Ethics and conflicts of interest
 
 - **Data and retention:** no student identities are used. Every corpus is public and licensed for this use,
