@@ -48,6 +48,9 @@ CHANGE 2 (2026-10-25, before this baseline was trained or scored): a fine-tuned 
   epochs would be 6 steps). Predictions are rescaled, rounded and clipped to the scale, then scored under the
   same probes as the others. Trained on one rented GPU (gpu/pod.py), not a laptop.
   It is the classic strong automated-scoring baseline: item-trained, like tfidf-ridge, with a pretrained reader.
+Implementation fix, before any result: the first run's loss was NaN from the second step. Transformers 5 loads
+this checkpoint in its stored fp16, and AdamW's update underflows. The model is now loaded in fp32, so bf16
+autocast runs over fp32 weights as intended. No prediction was produced or read.
 Expected (written before training): above tfidf-ridge and encoder-ridge on essays and short answers (fine-
 tuned encoders lead the ASAP-style benchmarks); weak on code; blank answers credited, since a regression has no
 floor; and, unlike length, no reliable gain from the padding probes. Run with `--kinds deberta-ft`.
@@ -136,7 +139,9 @@ def deberta(task, train):
     lo, hi = train[0]["scale"]
     dev = "cuda" if torch.cuda.is_available() else "cpu"
     tok = AutoTokenizer.from_pretrained(DEBERTA[0], revision=DEBERTA[1])
-    model = AutoModelForSequenceClassification.from_pretrained(DEBERTA[0], revision=DEBERTA[1], num_labels=1).to(dev)
+    # fp32 weights: transformers 5 otherwise loads the checkpoint's own fp16, and AdamW then turns them to NaN
+    model = AutoModelForSequenceClassification.from_pretrained(DEBERTA[0], revision=DEBERTA[1], num_labels=1,
+                                                               dtype=torch.float32).to(dev)
     texts = [text_of(task, c, c["response"]) for c in train]
     ys = [(target(c) - lo) / (hi - lo) for c in train]
     TRUNCATED[task] = sum(len(tok(t)["input_ids"]) > 512 for t in texts) / len(texts)
