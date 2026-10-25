@@ -27,6 +27,7 @@ import urllib.request
 STATE = os.environ.get("GPU_POD_STATE", os.path.expanduser("~/.gpu-pod.json"))
 IMAGE = "vllm/vllm-openai:v0.32.0"
 REST = "https://rest.runpod.io/v1"
+UA = "grading-benchmark-gpu/1.0"
 
 
 def key():
@@ -38,7 +39,7 @@ def key():
 
 def api(method, path, body=None):
     req = urllib.request.Request(REST + path, method=method, data=None if body is None else json.dumps(body).encode(),
-                                 headers={"Authorization": "Bearer " + key(), "Content-Type": "application/json"})
+                                 headers={"Authorization": "Bearer " + key(), "Content-Type": "application/json", "User-Agent": UA})
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
             t = r.read().decode()
@@ -50,7 +51,7 @@ def api(method, path, body=None):
 def balance():
     req = urllib.request.Request("https://api.runpod.io/graphql", method="POST",
                                  data=json.dumps({"query": "query { myself { clientBalance currentSpendPerHr } }"}).encode(),
-                                 headers={"Authorization": "Bearer " + key(), "Content-Type": "application/json"})
+                                 headers={"Authorization": "Bearer " + key(), "Content-Type": "application/json", "User-Agent": UA})
     with urllib.request.urlopen(req, timeout=60) as r:
         return json.loads(r.read())["data"]["myself"]
 
@@ -68,7 +69,7 @@ def ctl(method, path, body=None, raw=False, timeout=120):
     s = load()
     url = f"https://{s['pod']}-8001.proxy.runpod.net{path}"
     data = body if isinstance(body, (bytes, type(None))) else json.dumps(body).encode()
-    req = urllib.request.Request(url, method=method, data=data, headers={"X-Token": s["token"]})
+    req = urllib.request.Request(url, method=method, data=data, headers={"X-Token": s["token"], "User-Agent": UA})
     with urllib.request.urlopen(req, timeout=timeout) as r:
         b = r.read()
     return b if raw else json.loads(b)
@@ -130,7 +131,7 @@ def cmd_status(a):
 
 
 def cmd_exec(a):
-    j = ctl("POST", "/exec", {"cmd": a.cmd, "cwd": a.cwd})
+    j = ctl("POST", "/exec", {"cmd": a.command, "cwd": a.cwd})
     print("job", j["id"])
     if a.wait:
         wait_job(j["id"], a.timeout)
@@ -209,7 +210,7 @@ def main():
     p = sub.add_parser("serve"); p.add_argument("args", nargs=argparse.REMAINDER)
     p = sub.add_parser("wait-up"); p.add_argument("--timeout", type=int, default=1800)
     p = sub.add_parser("status"); p.add_argument("--chars", type=int, default=3000)
-    p = sub.add_parser("exec"); p.add_argument("cmd"); p.add_argument("--cwd", default="/workspace")
+    p = sub.add_parser("exec"); p.add_argument("command"); p.add_argument("--cwd", default="/workspace")
     p.add_argument("--wait", action="store_true"); p.add_argument("--timeout", type=int, default=3600)
     p = sub.add_parser("job"); p.add_argument("id", type=int); p.add_argument("--wait", action="store_true")
     p.add_argument("--timeout", type=int, default=3600); p.add_argument("--chars", type=int, default=3000)

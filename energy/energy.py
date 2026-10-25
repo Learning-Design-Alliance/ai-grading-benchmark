@@ -31,7 +31,7 @@ RUNS, per model (`measure`, on the pod):
    measures, and it bounds the figure from above.
 
 MEASUREMENT. The GPU's own cumulative energy counter (NVML nvmlDeviceGetTotalEnergyConsumption, mJ), read every
-5 s by the driver on the pod together with the count of gradings completed (bench.py's cache: one file per
+1 s (CHANGE 1) by the driver on the pod together with the count of gradings completed (bench.py's cache: one file per
 completed reply). IDLE POWER = the mean power over the two idle windows (counter difference / time).
 
 STATISTICS, per model and task:
@@ -42,7 +42,8 @@ STATISTICS, per model and task:
   accelerator energy (Elsworth et al. 2025, arXiv 2508.15734, Table 1: active AI accelerators 0.14 of 0.24 Wh,
   58%; the rest is host CPU and memory 25%, idle machines 10%, data-centre overhead 8%). A stated assumption,
   not a measurement of this node.
-- 95% interval: a block bootstrap over 30-s windows (2,000 draws, seed 7), of the ratio sum(net energy) /
+- 95% interval: a block bootstrap over the run's 20 equal windows (2,000 draws, seed 7): the estimate plus or
+  minus t(0.975, windows - 1) times the bootstrap standard error (CHANGE 1), of the ratio sum(net energy) /
   sum(gradings completed) over the resampled windows. It covers the variation of energy over the run, not
   other hardware.
 - Per full leaderboard run: the three tasks' gradings added, as kWh.
@@ -72,7 +73,16 @@ DESCRIPTIVE, no verdict: QWK between the self-hosted base marks and the board's 
 (an identity check for the served weights, beside the board's own retest QWK); output tokens against the
 board's.
 
-CHANGES: none yet.
+CHANGES:
+1. (2026-10-25, after the first model's runs, before any energy figure was read) The runs are far faster than
+   planned: Llama 3.2 3B graded 909 short answers in 22 s at 16 concurrent requests. With 5-s polls and 30-s
+   windows that is one window, and no interval. Now the counter and the completed count are read every 1 s, and
+   each run is cut into 20 windows of equal length for the block bootstrap. The floor is re-run with runs of
+   20-3,000 s. That floor FAILED narrowly (coverage 89.3%, bar 90%; mean error 0.5%; out/floor-change1-
+   percentile-failed.json): a percentile interval from 20 blocks is too narrow. The interval is now the estimate
+   plus or minus t(0.975, 19 df) times the bootstrap standard error, the usual small-sample correction, and the
+   floor was re-run once, unchanged otherwise. Llama's first runs are discarded unread and repeated after a vLLM restart, so the prefix cache
+   starts empty as for every other model.
 
     python3 energy/energy.py floor
     python3 energy/energy.py measure --slug <slug> --model <served name> --cases-dir DIR --runs DIR   # on the pod
@@ -111,7 +121,10 @@ MODELS = {
     "allenai_olmo-3.1-32b-instruct": ("allenai/olmo-3.1-32b-instruct", "allenai/Olmo-3.1-32B-Instruct", "ac0587e4a7744a551c059d8cd17ba220bc940dae", []),
 }
 OVERHEAD = 1 / 0.58  # Elsworth et al. 2025, Table 1: active accelerators are 58% of the comprehensive figure
-POLL, WINDOW, IDLE_S = 5, 30, 60
+POLL, WINDOWS, IDLE_S = 1, 20, 60
+#: Student's t, 97.5th percentile, by degrees of freedom (CHANGE 1)
+T975 = {1: 12.706, 2: 4.303, 3: 3.182, 4: 2.776, 5: 2.571, 6: 2.447, 7: 2.365, 8: 2.306, 9: 2.262, 10: 2.228, 11: 2.201,
+        12: 2.179, 13: 2.160, 14: 2.145, 15: 2.131, 16: 2.120, 17: 2.110, 18: 2.101, 19: 2.093}
 ROUTE = ("self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB PCIe pod; bench.py ran on the pod against "
          "localhost, so no request left it; the pod and its disk were deleted after the run, so nothing is retained")
 
@@ -196,20 +209,16 @@ def cmd_measure(a):
 # ------------------------------------------------------------------ analysis (here)
 
 def windows(polls):
-    """30-s windows: (seconds, joules, gradings) from consecutive polls."""
-    out, cur = [], None
+    """The run cut into WINDOWS windows of equal length: (seconds, joules, gradings) each (CHANGE 1)."""
+    t0, t1 = polls[0]["t"], polls[-1]["t"]
+    edges = [t0 + (t1 - t0) * k / WINDOWS for k in range(WINDOWS + 1)]
+    out = [[0.0, 0.0, 0] for _ in range(WINDOWS)]
     for p0, p1 in zip(polls, polls[1:]):
-        if cur is None:
-            cur = [0.0, 0.0, 0, p0["t"]]
-        cur[0] += p1["t"] - p0["t"]
-        cur[1] += (p1["mj"] - p0["mj"]) / 1000
-        cur[2] += p1["done"] - p0["done"]
-        if p1["t"] - cur[3] >= WINDOW:
-            out.append(tuple(cur[:3]))
-            cur = None
-    if cur:
-        out.append(tuple(cur[:3]))
-    return out
+        k = min(WINDOWS - 1, max(0, sum(1 for e in edges[1:-1] if p0["t"] >= e)))
+        out[k][0] += p1["t"] - p0["t"]
+        out[k][1] += (p1["mj"] - p0["mj"]) / 1000
+        out[k][2] += p1["done"] - p0["done"]
+    return [tuple(w) for w in out if w[0] > 0]
 
 
 def estimate(wins, idle_w, draws=2000, seed=7):
@@ -227,11 +236,13 @@ def estimate(wins, idle_w, draws=2000, seed=7):
         nn = sum(w[2] for w in pick)
         if nn:
             reps.append((sum(w[1] for w in pick) - idle_w * sum(w[0] for w in pick)) / 3600 / nn)
-    reps.sort()
-    return {"net_wh": net, "net_ci95": [reps[int(0.025 * len(reps))], reps[int(0.975 * len(reps)) - 1]],
+    mu = sum(reps) / len(reps)
+    se = math.sqrt(sum((r - mu) ** 2 for r in reps) / (len(reps) - 1)) if len(reps) > 1 else 0.0
+    half = T975.get(len(wins) - 1, 1.96) * se
+    ci = [net - half, net + half]
+    return {"net_wh": net, "net_ci95": ci, "net_se": se, "windows": len(wins),
             "gross_wh": j / 3600 / n, "gradings": n, "seconds": s, "joules": j,
-            "full_stack_wh": net * OVERHEAD, "full_stack_ci95": [reps[int(0.025 * len(reps))] * OVERHEAD,
-                                                                  reps[int(0.975 * len(reps)) - 1] * OVERHEAD]}
+            "full_stack_wh": net * OVERHEAD, "full_stack_ci95": [ci[0] * OVERHEAD, ci[1] * OVERHEAD]}
 
 
 def cmd_floor(a):
@@ -241,7 +252,7 @@ def cmd_floor(a):
         truth = rng.uniform(0.005, 0.5)       # Wh per grading
         idle_w = rng.uniform(40, 80)
         rate = rng.uniform(1, 40)              # gradings per second
-        dur = rng.uniform(300, 3000)
+        dur = rng.uniform(20, 3000)
         polls, t, mj, done = [{"t": 0.0, "mj": 0, "done": 0}], 0.0, 0.0, 0
         while t < dur:
             k = sum(1 for _ in range(int(rate * POLL * 2)) if rng.random() < 0.5)  # completions in this poll
