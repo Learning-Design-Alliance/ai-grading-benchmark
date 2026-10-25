@@ -37,6 +37,21 @@ Expected (written before scoring): close to tfidf-ridge on essays and short answ
 training cases); blank answers credited as by the others, since a regression has no floor.
 Run with `--kinds encoder-ridge` to add its rows to an existing output.
 
+CHANGE 2 (2026-10-25, before this baseline was trained or scored): a fine-tuned encoder.
+- **deberta-ft**: DeBERTa-v3-base (microsoft/deberta-v3-base, revision 8ccc9b6f36199bec6961081d44eb72fb3f7353f3,
+  184M parameters, MIT), fine-tuned per task with a one-output regression head (mean squared error) on the mean
+  human mark rescaled to 0-1, on the same training cases as the others (outside the canonical 100) and the same
+  text as tfidf-ridge (question prefixed for short answers). Inputs truncated to 512 word pieces, which cuts
+  long essays and code; the share truncated is reported. Fixed settings, no tuning and no validation split
+  (nothing is chosen on any result): AdamW, learning rate 2e-5, weight decay 0.01, batch 16, linear decay
+  after 10% warm-up, bf16, seed 7; 3 epochs for short answers and essays, 30 for code (29 training cases, so 3
+  epochs would be 6 steps). Predictions are rescaled, rounded and clipped to the scale, then scored under the
+  same probes as the others. Trained on one rented GPU (gpu/pod.py), not a laptop.
+  It is the classic strong automated-scoring baseline: item-trained, like tfidf-ridge, with a pretrained reader.
+Expected (written before training): above tfidf-ridge and encoder-ridge on essays and short answers (fine-
+tuned encoders lead the ASAP-style benchmarks); weak on code; blank answers credited, since a regression has no
+floor; and, unlike length, no reliable gain from the padding probes. Run with `--kinds deberta-ft`.
+
     python3 baselines/baselines.py --cases-dir <dir with mohler.jsonl, harmogen-code.jsonl, asap2.jsonl> --out out/baselines.json
 
 Reads the corpora's cases (aggregates out only).
@@ -103,7 +118,60 @@ def fit(task, train, kind):
                 cache[k] = float(m.predict(emb([k]))[0])
             return cache[k]
         return pred
+    if kind == "deberta-ft":
+        return deberta(task, train)
     raise ValueError(kind)
+
+
+DEBERTA = ("microsoft/deberta-v3-base", "8ccc9b6f36199bec6961081d44eb72fb3f7353f3")
+TRUNCATED = {}
+
+
+def deberta(task, train):
+    """CHANGE 2: fine-tune DeBERTa-v3-base on the mean human mark (0-1); returns a predictor on the scale."""
+    import torch
+    from transformers import AutoModelForSequenceClassification, AutoTokenizer, get_linear_schedule_with_warmup
+    torch.manual_seed(7)
+    random_state = __import__("random").Random(7)
+    lo, hi = train[0]["scale"]
+    dev = "cuda" if torch.cuda.is_available() else "cpu"
+    tok = AutoTokenizer.from_pretrained(DEBERTA[0], revision=DEBERTA[1])
+    model = AutoModelForSequenceClassification.from_pretrained(DEBERTA[0], revision=DEBERTA[1], num_labels=1).to(dev)
+    texts = [text_of(task, c, c["response"]) for c in train]
+    ys = [(target(c) - lo) / (hi - lo) for c in train]
+    TRUNCATED[task] = sum(len(tok(t)["input_ids"]) > 512 for t in texts) / len(texts)
+    epochs, bs = (30 if task == "code" else 3), 16
+    steps = epochs * math.ceil(len(texts) / bs)
+    opt = torch.optim.AdamW(model.parameters(), lr=2e-5, weight_decay=0.01)
+    sched = get_linear_schedule_with_warmup(opt, int(0.1 * steps), steps)
+    model.train()
+    order = list(range(len(texts)))
+    for ep in range(epochs):
+        random_state.shuffle(order)
+        tot = 0.0
+        for i in range(0, len(order), bs):
+            idx = order[i:i + bs]
+            enc = tok([texts[j] for j in idx], truncation=True, max_length=512, padding=True, return_tensors="pt").to(dev)
+            with torch.autocast(dev, dtype=torch.bfloat16, enabled=dev == "cuda"):
+                out = model(**enc).logits.squeeze(-1)
+            loss = torch.nn.functional.mse_loss(out.float(), torch.tensor([ys[j] for j in idx], device=dev))
+            loss.backward()
+            opt.step()
+            sched.step()
+            opt.zero_grad()
+            tot += loss.item() * len(idx)
+        print(f"  deberta-ft {task} epoch {ep + 1}/{epochs} train mse {tot / len(texts):.4f}", flush=True)
+    model.eval()
+    cache = {}
+
+    def pred(c, r):
+        k = text_of(task, c, r)
+        if k not in cache:
+            with torch.no_grad():
+                enc = tok([k], truncation=True, max_length=512, return_tensors="pt").to(dev)
+                cache[k] = lo + (hi - lo) * float(model(**enc).logits.squeeze().float())
+        return cache[k]
+    return pred
 
 
 _ENC = []
@@ -138,6 +206,9 @@ def run(task, path, kind):
            "calls": calls, "benchmark_version": None}
     row = lb.row(sub, rep)
     row["n_train"] = len(train)
+    if kind in ("deberta-ft",):
+        row["truncated_share_train"] = TRUNCATED.get(task)
+        row["model_revision"] = "/".join(DEBERTA)
     row["by_construction"] = ["attainment label effect is 0 (the baseline never sees the label)",
                               "retest agreement is 1 (deterministic)"]
     return row
@@ -153,7 +224,7 @@ def main():
     if a.kinds and os.path.exists(a.out):
         rows = [r for r in json.load(open(a.out))["rows"] if r["model"].replace("baseline: ", "") not in a.kinds]
     for task, fn in FILES.items():
-        kinds = ["length", "tfidf-ridge"] + (["reference-similarity"] if task in ("mohler", "code") else []) + ["encoder-ridge"]
+        kinds = ["length", "tfidf-ridge"] + (["reference-similarity"] if task in ("mohler", "code") else []) + ["encoder-ridge", "deberta-ft"]
         kinds = [k for k in kinds if not a.kinds or k in a.kinds]
         for kind in kinds:
             r = run(task, os.path.join(a.cases_dir, fn), kind)

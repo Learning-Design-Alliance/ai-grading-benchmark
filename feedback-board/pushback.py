@@ -115,7 +115,7 @@ def cmd_run(a):
 def write_config(slug, cfg):
     """The pushback run's config, for leaderboard.py export: the feedback run's model, settings and cases."""
     keep = ("benchmark_version", "base_url", "model", "temperature", "max_tokens", "extra_body", "prompt", "prompt_sha256",
-            "cases_sha256", "case_ids")
+            "cases_sha256", "case_ids", "route")
     out = {k: cfg.get(k) for k in keep}
     out["turns"] = TURNS
     out["feedback_run"] = f"fbb-feedback-{slug}"

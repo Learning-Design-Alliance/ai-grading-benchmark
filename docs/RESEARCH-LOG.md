@@ -363,6 +363,16 @@ What it shows, briefly:
 - **Refusals:** Fable 5.1 and Haiku 5.5 refuse about 30 of 909 short-answer gradings each, nearly all the
   gibberish answers. A refusal is work sent to a person, not credit.
 
+## Pre-registered: measured energy, Olmo on the board, a fine-tuned encoder (2026-10-25)
+
+Committed before any call or training run:
+- `energy/energy.py`: GPU energy per grading for the eight open models on the board, and for Olmo 3.1 32B
+  Instruct, measured on one rented A100 80GB (RunPod) with vLLM, against docs/ENERGY.md's per-token
+  estimates. Its floor (a simulation of the estimator) passed: mean error 0.8%, interval coverage 92%.
+- Olmo 3.1 32B Instruct on the board: the full battery on the same pod (`gpu/pod.py`, `gpu/controller.py`).
+  The route is recorded in each run's config (`bench.py --route`, carried into the export).
+- `baselines/baselines.py` CHANGE 2: DeBERTa-v3-base fine-tuned per task.
+
 ## Running it
 
 Fetch Mohler or ASAP 2.0 yourself (`data/data-sources.json`: `mohler-asag`, `asap2`, both CC BY 4.0;
