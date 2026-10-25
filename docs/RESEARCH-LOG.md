@@ -373,6 +373,23 @@ Committed before any call or training run:
   The route is recorded in each run's config (`bench.py --route`, carried into the export).
 - `baselines/baselines.py` CHANGE 2: DeBERTa-v3-base fine-tuned per task.
 
+## Results: measured energy, Olmo on the board, the fine-tuned encoder (2026-10-25)
+
+Two RunPod pods with one A100 80GB PCIe each, 4.8 GPU-hours, $6.49 in all; both terminated. The first pod's
+host restarted the container five times, so Olmo and DeBERTa ran on a second pod.
+- **Energy (`energy/`).** Batched 16 at a time, a grading used 0.8-9 mWh of GPU energy above idle for a short
+  answer and up to 29 mWh for code. With a stated ×1.72 for the rest of the data centre, that is below the
+  per-token estimate's small-model tier in all 27 model-task cases, by a median factor of 4. One request at a
+  time costs 4-16 times as much. The eight board models failed the pre-registered idle check (idle 13-26% higher
+  just after work; bar 10%), so their verdicts are UNMEASURED and the figures descriptive. Olmo passed it:
+  BELOW THE SMALL-MODEL ESTIMATE on all three tasks. CHANGE 1 (1-s polls; t-interval after a narrow floor
+  failure) and CHANGE 2 (descriptive verdicts) are in the script.
+- **Olmo 3.1 32B on the board.** Overall 71.6, rank 16 of 18. 103% of the ceiling on short answers; gamed by
+  55% of the scale on essays (the most on the board); credits blank answers; YIELDS TO PUSHBACK by 26% of the
+  scale; reads the maths working. Other models' scores are unchanged.
+- **DeBERTa baseline (CHANGE 2).** Essays: QWK 0.81, above every model on the board. Short answers: 0.36,
+  below every model. Code: 0.01.
+
 ## Running it
 
 Fetch Mohler or ASAP 2.0 yourself (`data/data-sources.json`: `mohler-asag`, `asap2`, both CC BY 4.0;

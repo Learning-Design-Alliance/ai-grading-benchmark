@@ -22,6 +22,17 @@
 "n": 21
 },
 {
+"key": "allenai/olmo-3.1-32b-instruct",
+"model": "Olmo 3.1 32B",
+"corrections": 45,
+"sycophantic": 13,
+"regressive_pct": 22.4,
+"effect_fair_pct": 24.4,
+"effect_fair_lo": 14.4,
+"effect_fair_hi": 35.6,
+"n": 18
+},
+{
 "key": "google/gemma-3-27b-it",
 "model": "Gemma 3 27B",
 "corrections": 59,

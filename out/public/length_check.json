@@ -1,5 +1,13 @@
 [
 {
+"key": "allenai/olmo-3.1-32b-instruct:mohler",
+"model": "Olmo 3.1 32B",
+"task": "Short answers",
+"coef": -0.115,
+"lo": -0.263,
+"hi": 0.028
+},
+{
 "key": "anthropic/claude-fable-5.1:mohler",
 "model": "Claude Fable 5.1",
 "task": "Short answers",
@@ -136,6 +144,14 @@
 "hi": 0.008
 },
 {
+"key": "allenai/olmo-3.1-32b-instruct:code",
+"model": "Olmo 3.1 32B",
+"task": "Code",
+"coef": -0.046,
+"lo": -0.165,
+"hi": 0.094
+},
+{
 "key": "anthropic/claude-fable-5.1:code",
 "model": "Claude Fable 5.1",
 "task": "Code",
@@ -270,6 +286,14 @@
 "coef": -0.078,
 "lo": -0.206,
 "hi": 0.063
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:asap2",
+"model": "Olmo 3.1 32B",
+"task": "Essays",
+"coef": 0.216,
+"lo": 0.033,
+"hi": 0.389
 },
 {
 "key": "anthropic/claude-fable-5.1:asap2",

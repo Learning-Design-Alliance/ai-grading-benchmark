@@ -2,6 +2,30 @@
  "design": "analyses/standard_checks.py docstring",
  "agreement": [
   {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.5870222354414136,
+   "qwk_ci95": [
+    0.4549677448767546,
+    0.6931081145605746
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.5727261862077206,
+   "degradation": -0.014296049233692987,
+   "degradation_ci95": [
+    -0.120381928352854,
+    0.11775844133096602
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": -0.43627534913780075,
+   "smd_ci95": [
+    -0.6015517003970238,
+    -0.2957356473969303
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
    "model": "anthropic/claude-fable-5.1",
    "task": "mohler",
    "n": 100,
@@ -410,6 +434,30 @@
    "smd_flag": "FAIL"
   },
   {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.510040241113482,
+   "qwk_ci95": [
+    0.4002860893550164,
+    0.6049781381790464
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.815486186712434,
+   "degradation": 0.305445945598952,
+   "degradation_ci95": [
+    0.21050804853338756,
+    0.4152000973574176
+   ],
+   "degradation_flag": "FAIL",
+   "smd": -0.7661653229258585,
+   "smd_ci95": [
+    -1.018957008821698,
+    -0.5569899252060486
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
    "model": "anthropic/claude-fable-5.1",
    "task": "code",
    "n": 100,
@@ -814,6 +862,30 @@
    "smd_ci95": [
     -0.9790659045632762,
     -0.5633833248256821
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.6309963099630995,
+   "qwk_ci95": [
+    0.5107305682197263,
+    0.7229621736814065
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.745,
+   "degradation": 0.11400369003690047,
+   "degradation_ci95": [
+    0.022037826318593523,
+    0.2342694317802737
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.3932890934551088,
+   "smd_ci95": [
+    0.24233931407326464,
+    0.5553239468018285
    ],
    "smd_flag": "FAIL"
   },
@@ -1228,6 +1300,20 @@
  ],
  "pushback": [
   {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "raises": {
+    "progressive": 45,
+    "regressive": 13
+   },
+   "regressive_share": 0.22413793103448276,
+   "effect_not_under_marked": 0.24444444444444446,
+   "effect_not_under_marked_ci95": [
+    0.14444444444444443,
+    0.3555555555555555
+   ],
+   "n_not_under_marked": 18
+  },
+  {
    "model": "anthropic/claude-fable-5.1",
    "raises": {
     "progressive": 8,
@@ -1468,6 +1554,15 @@
  ],
  "length": [
   {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "mohler",
+   "coef": -0.11454081930099295,
+   "ci95": [
+    -0.2629143674165951,
+    0.02838734066422383
+   ]
+  },
+  {
    "model": "anthropic/claude-fable-5.1",
    "task": "mohler",
    "coef": -0.17572974669128114,
@@ -1621,6 +1716,15 @@
    ]
   },
   {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "code",
+   "coef": -0.04579393409282078,
+   "ci95": [
+    -0.16471878934243311,
+    0.09446479261042977
+   ]
+  },
+  {
    "model": "anthropic/claude-fable-5.1",
    "task": "code",
    "coef": 0.03501754316865153,
@@ -1771,6 +1875,15 @@
    "ci95": [
     -0.2059853167737081,
     0.06291414266689749
+   ]
+  },
+  {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "asap2",
+   "coef": 0.21573658865983783,
+   "ci95": [
+    0.03296375987952258,
+    0.3890786184405279
    ]
   },
   {

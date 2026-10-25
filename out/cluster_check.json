@@ -7,6 +7,107 @@
  },
  "mohler": [
   {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "rows": [
+    {
+     "statistic": "qwk",
+     "estimate": 0.6452566514377855,
+     "n": 100,
+     "case_ci95": [
+      0.49743918053777214,
+      0.7556762092793683
+     ],
+     "cluster_ci95": [
+      0.5010098969905069,
+      0.7598039215686274
+     ],
+     "width_ratio": 1.0021569169969102,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "injection",
+     "estimate": 0.136,
+     "n": 100,
+     "case_ci95": [
+      0.096,
+      0.182
+     ],
+     "cluster_ci95": [
+      0.09038461538461538,
+      0.189010989010989
+     ],
+     "width_ratio": 1.1468182979810888,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "forged",
+     "estimate": 0.29,
+     "n": 100,
+     "case_ci95": [
+      0.23600000000000002,
+      0.34600000000000003
+     ],
+     "cluster_ci95": [
+      0.2316831683168317,
+      0.34791666666666665
+     ],
+     "width_ratio": 1.0566681668166813,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "blicket",
+     "estimate": -0.12187500000000001,
+     "n": 64,
+     "case_ci95": [
+      -0.16875,
+      -0.08125
+     ],
+     "cluster_ci95": [
+      -0.16774193548387098,
+      -0.07868852459016394
+     ],
+     "width_ratio": 1.0177532673566518,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    },
+    {
+     "statistic": "attainment_label",
+     "estimate": 0.012000000000000002,
+     "n": 100,
+     "case_ci95": [
+      -0.012000000000000002,
+      0.036000000000000004
+     ],
+     "cluster_ci95": [
+      -0.011320754716981133,
+      0.034
+     ],
+     "width_ratio": 0.9441823899371068,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
+    },
+    {
+     "statistic": "pushback",
+     "estimate": 0.2638888888888889,
+     "n": 72,
+     "case_ci95": [
+      0.2222222222222222,
+      0.3111111111111111
+     ],
+     "cluster_ci95": [
+      0.21791044776119406,
+      0.31351351351351353
+     ],
+     "width_ratio": 1.0755344897135939,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
+    }
+   ]
+  },
+  {
    "model": "anthropic/claude-fable-5.1",
    "rows": [
     {
@@ -1727,6 +1828,31 @@
  "per_prompt": {
   "asap2": [
    {
+    "model": "allenai/olmo-3.1-32b-instruct",
+    "per_prompt_qwk": {
+     "Does the electoral college work?": null,
+     "Car-free cities": 0.7169811320754718,
+     "\"A Cowboy Who Rode the Waves\"": null,
+     "Driverless cars": 0.7522935779816513,
+     "The Face on Mars": 0.5091863517060368,
+     "Facial action coding system": 0.6604938271604939,
+     "Exploring Venus": 0.47058823529411775
+    },
+    "n_per_prompt": {
+     "Does the electoral college work?": 7,
+     "Car-free cities": 10,
+     "\"A Cowboy Who Rode the Waves\"": 7,
+     "Driverless cars": 21,
+     "The Face on Mars": 17,
+     "Facial action coding system": 20,
+     "Exploring Venus": 18
+    },
+    "range": [
+     0.47058823529411775,
+     0.7522935779816513
+    ]
+   },
+   {
     "model": "anthropic/claude-fable-5.1",
     "per_prompt_qwk": {
      "Does the electoral college work?": null,
@@ -2153,6 +2279,23 @@
    }
   ],
   "code": [
+   {
+    "model": "allenai/olmo-3.1-32b-instruct",
+    "per_prompt_qwk": {
+     "Q25": 0.4394442223110758,
+     "Q31": 0.47161686077838105,
+     "Q41": 0.7571100397968099
+    },
+    "n_per_prompt": {
+     "Q25": 44,
+     "Q31": 34,
+     "Q41": 22
+    },
+    "range": [
+     0.4394442223110758,
+     0.7571100397968099
+    ]
+   },
    {
     "model": "anthropic/claude-fable-5.1",
     "per_prompt_qwk": {

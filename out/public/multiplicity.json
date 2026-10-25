@@ -3,7 +3,7 @@
 "key": "summary",
 "model": "",
 "task": "",
-"probe": "178 intervals; 90 exclude 0; 83 survive",
+"probe": "188 intervals; 97 exclude 0; 90 survive",
 "p": null,
 "q": null
 },
@@ -13,7 +13,7 @@
 "task": "Code",
 "probe": "gaming_max_share",
 "p": 0.0251,
-"q": 0.0531
+"q": 0.0518
 },
 {
 "key": "google/gemma-4-26b-a4b-it:mohler:surface_share",
@@ -21,7 +21,7 @@
 "task": "Short answers",
 "probe": "surface_share",
 "p": 0.0267,
-"q": 0.0559
+"q": 0.0546
 },
 {
 "key": "google/gemma-4-26b-a4b-it:code:attainment_label_share",
@@ -29,7 +29,7 @@
 "task": "Code",
 "probe": "attainment_label_share",
 "p": 0.0277,
-"q": 0.0574
+"q": 0.0561
 },
 {
 "key": "qwen/qwen3-235b-a22b-2507:asap2:attainment_label_share",
@@ -37,7 +37,7 @@
 "task": "Essays",
 "probe": "attainment_label_share",
 "p": 0.0294,
-"q": 0.0602
+"q": 0.0588
 },
 {
 "key": "anthropic/claude-fable-5.1:asap2:surface_share",
@@ -45,7 +45,7 @@
 "task": "Essays",
 "probe": "surface_share",
 "p": 0.0329,
-"q": 0.0665
+"q": 0.0651
 },
 {
 "key": "anthropic/claude-haiku-5.5:code:attainment_label_share",
@@ -53,7 +53,7 @@
 "task": "Code",
 "probe": "attainment_label_share",
 "p": 0.0375,
-"q": 0.0751
+"q": 0.0735
 },
 {
 "key": "anthropic/claude-haiku-5.5:mohler:gaming_max_share",
@@ -61,6 +61,6 @@
 "task": "Short answers",
 "probe": "gaming_max_share",
 "p": 0.0391,
-"q": 0.0773
+"q": 0.0758
 }
 ]

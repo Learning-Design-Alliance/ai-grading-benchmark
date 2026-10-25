@@ -56,11 +56,12 @@ The baselines were pre-registered before scoring. Each was trained on the corpus
 **The small encoder (CHANGE 1)** did worse than TF-IDF, not "close to" it as expected before scoring. It
 reads at most 256 word pieces, so it sees only the opening of most essays. On short answers, a general
 sentence encoder captures meaning less sharply than the exact words the markers reward. A fine-tuned encoder
-would likely do better, but it needs a GPU and more training than this check allows.
+would likely do better. It was then run (CHANGE 2, `baselines/README.md`): 0.81 on essays, above every model on
+the board, but 0.36 on short answers, below every model.
 
 **Reading.**
 - A classic trained essay scorer matches the best language models on agreement (Fable 0.71, Opus 0.70).
-  Length alone beats 9 of 17 models.
+  Length alone (QWK 0.64) beats 13 of the 18 models on essays (count as of 2026-10-25, with Olmo).
 - The baselines are hard to game, never move with the learner label, and never give way to pushback. All are
   deterministic.
 - But they credit blank answers on short answers and code, because a regression never drops to its floor.

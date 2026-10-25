@@ -186,6 +186,10 @@ As of 2026-10-25: 18 models, all five tasks, default prompt. Overall scores rang
   ceiling on essays. But a forged override or a polite request gains it 55% of the scale on essays, the most
   on the board. It credits blank answers, and it yields to pushback by 26% of the scale, going to full marks
   in 78% of its replies to a student who only disagrees. It was run on a rented GPU, so nothing was retained.
+- **Baselines** (`baselines/`, beside the board, not in it): DeBERTa-v3-base, fine-tuned on 24,628 essays from the
+  same prompts, reaches QWK 0.81 on essays, above every model on the board (best 0.73). On short answers, with
+  about 20 training answers a question, it reaches 0.36, below every model. Like the other trained baselines it
+  cannot be gamed, but it credits blank short answers.
 - **Maths working.** No model gives full marks to wrong working that ends in the right answer, which an
   answer checker always does. Two small models read the working only weakly.
 
