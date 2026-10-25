@@ -33,11 +33,11 @@ Standards 2014 (https://www.aera.net/Standards); Karim et al., EMNLP 2025
 (https://arxiv.org/pdf/2410.19409); Corsi et al., EDM 2026
 (https://educationaldatamining.org/edm2026/proceedings/2026.EDM.poster-demo-papers.391/index.html);
 Hardy, AIME-Con 2026 (https://arxiv.org/abs/2603.04820); Zhao et al., NeurIPS 2025
-(https://arxiv.org/pdf/2507.08794); AAVE math scoring, EDM 2025
+(https://arxiv.org/pdf/2507.08794); Siedahmed et al., EDM 2025 (AAVE and maths scoring)
 (https://educationaldatamining.org/EDM2025/proceedings/2025.EDM.long-papers.195); Meng et al., AIME-Con
 2025 WIP (https://aclanthology.org/2025.aimecon-wip.25); Kwako and Ormerod, BEA 2024
 (https://aclanthology.org/2024.bea-1.7); Bueno et al., Findings of ACL 2026
-(https://preview.aclanthology.org/ingest-acl/2026.findings-acl.375/); Bulut et al., AIME-Con 2026
+(https://aclanthology.org/2026.findings-acl.375/); Bulut et al., AIME-Con 2026
 (https://aclanthology.org/2026.aimecon-sessions.30.pdf); Chamieh, Zesch and Giebermann, BEA 2024
 (https://aclanthology.org/2024.bea-1.25); Johnson, ETS RR-25-03
 (https://www.ets.org/research/policy_research_reports/publications/report/2025/khni.html).

@@ -1,0 +1,866 @@
+{
+ "file": "docs/LITERATURE.md",
+ "design": "scripts/check_citations.py docstring",
+ "counts": {
+  "OK": 47,
+  "UNCHECKED": 15,
+  "MISMATCH": 0,
+  "UNRESOLVED": 0
+ },
+ "citations": [
+  {
+   "url": "https://www.aera.net/Standards",
+   "cited_as": "AERA/APA/NCME Standards 2014 (",
+   "surname": "Standards",
+   "year": 2014,
+   "kind": "url",
+   "verdict": "UNCHECKED",
+   "note": "resolves; not a scholarly record, so author and year not compared"
+  },
+  {
+   "url": "https://arxiv.org/pdf/2509.15926",
+   "cited_as": "Karim et al., EMNLP 2025 (",
+   "surname": "Karim",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "Beyond the Score: Uncertainty-Calibrated LLMs for Automated Essay Assessment",
+   "record_first_authors": [
+    "Karim, Ahmed",
+    "Wang, Qiao",
+    "Yuan, Zheng"
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/pdf/2410.19409",
+   "cited_as": "Kortemeyer and Nohl, PRPER (",
+   "surname": "Kortemeyer",
+   "year": null,
+   "kind": "arxiv",
+   "record_title": "Assessing Confidence in AI-Assisted Grading of Physics Exams through Psychometrics: An Exploratory Study",
+   "record_first_authors": [
+    "Kortemeyer, Gerd",
+    "N\u00f6hl, Julian"
+   ],
+   "record_year": 2024,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://educationaldatamining.org/edm2026/proceedings/2026.EDM.poster-demo-papers.391/index.html",
+   "cited_as": "Corsi et al., EDM 2026 (",
+   "surname": "Corsi",
+   "year": 2026,
+   "kind": "page",
+   "record_title": "Prompt Sensitivity in LLM-Based Essay Scoring is Model-Specific",
+   "record_first_authors": [
+    "Corsi, Giulio",
+    "Marcoci, Alexandru",
+    "Abo-Tabik, Maryam"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2603.04820",
+   "cited_as": "Hardy, AIME-Con 2026 (",
+   "surname": "Hardy",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "Autoscoring Anticlimax: A Meta-analytic Understanding of AI's Short-answer Shortcomings and Wording Weaknesses",
+   "record_first_authors": [
+    "Hardy, Michael"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/pdf/2507.08794",
+   "cited_as": "Zhao et al., NeurIPS 2025 (",
+   "surname": "Zhao",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "One Token to Fool LLM-as-a-Judge",
+   "record_first_authors": [
+    "Zhao, Yulai",
+    "Liu, Haolin",
+    "Yu, Dian"
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://educationaldatamining.org/EDM2025/proceedings/2025.EDM.long-papers.195",
+   "cited_as": "Siedahmed et al., EDM 2025 (AAVE and maths scoring) (",
+   "surname": "Siedahmed",
+   "year": 2025,
+   "kind": "page",
+   "record_title": "Nonstandard English and the Automated Scoring of Open-Ended Math Problems",
+   "record_first_authors": [
+    "Siedahmed, Abubakir",
+    "Ocumpaugh, Jaclyn",
+    "Ferris, Zelda"
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://aclanthology.org/2025.aimecon-wip.25",
+   "cited_as": "Meng et al., AIME-Con 2025 WIP (",
+   "surname": "Meng",
+   "year": 2025,
+   "kind": "page",
+   "record_title": "Identifying Biases in Large Language Model Assessment of Linguistically Diverse Texts",
+   "record_first_authors": [
+    "Lionel Hsien Meng",
+    "Shamya Karumbaiah",
+    "Vivek Saravanan"
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://aclanthology.org/2024.bea-1.7",
+   "cited_as": "Kwako and Ormerod, BEA 2024 (",
+   "surname": "Kwako",
+   "year": 2024,
+   "kind": "page",
+   "record_title": "Can Language Models Guess Your Identity? Analyzing Demographic Biases in AI Essay Scoring",
+   "record_first_authors": [
+    "Alexander Kwako",
+    "Christopher Ormerod"
+   ],
+   "record_year": 2024,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://aclanthology.org/2026.findings-acl.375/",
+   "cited_as": "Bueno et al., Findings of ACL 2026 (",
+   "surname": "Bueno",
+   "year": 2026,
+   "kind": "page",
+   "record_title": "From Scoring to Explanations: Evaluating SHAP and LLM Rationales for Rubric-based Teaching Quality Assessment",
+   "record_first_authors": [
+    "Ivo de Souza Bueno J\u00fanior",
+    "Babette B\u00fchler",
+    "Philipp Stark"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://aclanthology.org/2026.aimecon-sessions.30.pdf",
+   "cited_as": "Bulut et al., AIME-Con 2026 (",
+   "surname": "Bulut",
+   "year": 2026,
+   "kind": "url",
+   "verdict": "UNCHECKED",
+   "note": "resolves; not a scholarly record, so author and year not compared"
+  },
+  {
+   "url": "https://aclanthology.org/2024.bea-1.25",
+   "cited_as": "Chamieh, Zesch and Giebermann, BEA 2024 (",
+   "surname": "Chamieh",
+   "year": 2024,
+   "kind": "page",
+   "record_title": "LLMs in Short Answer Scoring: Limitations and Promise of Zero-Shot and Few-Shot Approaches",
+   "record_first_authors": [
+    "Imran Chamieh",
+    "Torsten Zesch",
+    "Klaus Giebermann"
+   ],
+   "record_year": 2024,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://www.ets.org/research/policy_research_reports/publications/report/2025/khni.html",
+   "cited_as": "Johnson, ETS RR-25-03 (",
+   "surname": "Johnson",
+   "year": null,
+   "kind": "url",
+   "verdict": "UNCHECKED",
+   "note": "resolves; not a scholarly record, so author and year not compared"
+  },
+  {
+   "url": "https://arxiv.org/abs/2501.02334",
+   "cited_as": "Preprints and grey literature: Casabianca et al. 2025 (",
+   "surname": "Casabianca",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "Validity Arguments For Constructed Response Scoring Using Generative Artificial Intelligence Applications",
+   "record_first_authors": [
+    "Casabianca, Jodi M.",
+    "McCaffrey, Daniel F.",
+    "Johnson, Matthew S."
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2505.07247",
+   "cited_as": "SAS-Bench (",
+   "surname": null,
+   "year": null,
+   "kind": "arxiv",
+   "record_title": "SAS-Bench: A Fine-Grained Benchmark for Evaluating Short Answer Scoring with Large Language Models",
+   "record_first_authors": [
+    "Lai, Peichao",
+    "Zhang, Kexuan",
+    "Lin, Yi"
+   ],
+   "record_year": 2025,
+   "verdict": "UNCHECKED"
+  },
+  {
+   "url": "https://arxiv.org/abs/2608.29517",
+   "cited_as": "Sunkavalli 2026 (",
+   "surname": "Sunkavalli",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "LLM Judges as Raters: A Pre-Registered Audit of Severity, Halo, Reliability, and Version Instability in LLM Essay Scoring on Public Corpora",
+   "record_first_authors": [
+    "Sunkavalli, Veerendra Kumar"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2507.19980",
+   "cited_as": "Song, Lee and Jiao 2025 (",
+   "surname": "Song",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "Exploring LLM Autoscoring Reliability in Large-Scale Writing Assessments Using Generalizability Theory",
+   "record_first_authors": [
+    "Song, Dan",
+    "Lee, Won-Chan",
+    "Jiao, Hong"
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2604.00259",
+   "cited_as": "Kucia et al. 2026 (",
+   "surname": "Kucia",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "LLM Essay Scoring Under Holistic and Analytic Rubrics: Prompt Effects and Bias",
+   "record_first_authors": [
+    "Kucia, Filip J.",
+    "Chakraborty, Anirban",
+    "Wr\u00f3blewska, Anna"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/pdf/2607.14605",
+   "cited_as": "TOEFL L1 study (",
+   "surname": null,
+   "year": null,
+   "kind": "arxiv",
+   "record_title": "Investigating first-language bias in LLM-based automated essay scoring: A cross-prompt evaluation of an open-weight AI-model on TOEFL essays",
+   "record_first_authors": [
+    "Gayed, John Maurice"
+   ],
+   "record_year": 2026,
+   "verdict": "UNCHECKED"
+  },
+  {
+   "url": "https://arxiv.org/pdf/2410.21819",
+   "cited_as": "Wataoka et al. (",
+   "surname": "Wataoka",
+   "year": null,
+   "kind": "arxiv",
+   "record_title": "Self-Preference Bias in LLM-as-a-Judge",
+   "record_first_authors": [
+    "Wataoka, Koki",
+    "Takahashi, Tsubasa",
+    "Ri, Ryokan"
+   ],
+   "record_year": 2024,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2603.02353",
+   "cited_as": "Hao et al. 2026 (",
+   "surname": "Hao",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "Detecting AI-Generated Essays in Writing Assessment: Responsible Use and Generalizability Across LLMs",
+   "record_first_authors": [
+    "Hao, Jiangang"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://ofqual.blog.gov.uk/2026/01/14/using-ai-in-marking-why-technical-capability-fairness-and-transparency-all-matter/",
+   "cited_as": "Ofqual, January 2026 (",
+   "surname": "Ofqual",
+   "year": 2026,
+   "kind": "url",
+   "verdict": "UNCHECKED",
+   "note": "resolves; not a scholarly record, so author and year not compared"
+  },
+  {
+   "url": "https://www.apa.org/science/programs/testing/responsible-ai-assessment",
+   "cited_as": "APA, responsible AI in assessment (",
+   "surname": "APA",
+   "year": null,
+   "kind": "url",
+   "verdict": "UNCHECKED",
+   "note": "resolves; not a scholarly record, so author and year not compared"
+  },
+  {
+   "url": "https://arxiv.org/pdf/2509.20241",
+   "cited_as": "energy:",
+   "surname": null,
+   "year": null,
+   "kind": "arxiv",
+   "record_title": "Energy Use of AI Inference, Efficiency Pathways, and Test-Time Scaling",
+   "record_first_authors": [
+    "Oviedo, Felipe",
+    "Kazhamiaka, Fiodar",
+    "Choukse, Esha"
+   ],
+   "record_year": 2025,
+   "verdict": "UNCHECKED"
+  },
+  {
+   "url": "https://arxiv.org/pdf/2601.22076v2",
+   "cited_as": ",",
+   "surname": null,
+   "year": null,
+   "kind": "arxiv",
+   "record_title": "Where Do the Joules Go? Diagnosing Inference Energy Consumption",
+   "record_first_authors": [
+    "Chung, Jae-Won",
+    "Wu, Ruofan",
+    "Ma, Jeff J."
+   ],
+   "record_year": 2026,
+   "verdict": "UNCHECKED"
+  },
+  {
+   "url": "https://arxiv.org/abs/2601.16314",
+   "cited_as": "1. Karjus et al. 2026,",
+   "surname": "Karjus",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "Machine-Assisted Grading of Nationwide School-Leaving Essay Exams with LLMs and Statistical NLP",
+   "record_first_authors": [
+    "Karjus, Andres",
+    "Allkivi, Kais",
+    "Maine, Silvia"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2504.18333",
+   "cited_as": "2. Maloyan & Namiot 2025,",
+   "surname": "Maloyan",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "Adversarial Attacks on LLM-as-a-Judge Systems: Insights from Prompt Injections",
+   "record_first_authors": [
+    "Maloyan, Narek",
+    "Namiot, Dmitry"
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2601.21360",
+   "cited_as": "3. Sahoo et al. 2026,",
+   "surname": "Sahoo",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "The Compliance Paradox: Semantic-Instruction Decoupling in Automated Academic Code Evaluation",
+   "record_first_authors": [
+    "Sahoo, Devanshu",
+    "Prasad, Manish",
+    "Majhi, Vasudev"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2512.10415",
+   "cited_as": "4. Sahoo et al. 2025 (withdrawn),",
+   "surname": "Sahoo",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "How to Trick Your AI TA: A Systematic Study of Academic Jailbreaking in LLM Code Evaluation",
+   "record_first_authors": [
+    "Sahoo, Devanshu",
+    "Majhi, Vasudev",
+    "Neekhra, Arjun"
+   ],
+   "record_year": 2025,
+   "note": "the record says it was withdrawn",
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2503.11519",
+   "cited_as": "5. Cheng et al. 2025,",
+   "surname": "Cheng",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "Exploring Typographic Visual Prompts Injection Threats in Cross-Modality Generation Models",
+   "record_first_authors": [
+    "Cheng, Hao",
+    "Xiao, Erjia",
+    "Wang, Yichi"
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2507.08794",
+   "cited_as": "6. Zhao et al. 2025,",
+   "surname": "Zhao",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "One Token to Fool LLM-as-a-Judge",
+   "record_first_authors": [
+    "Zhao, Yulai",
+    "Liu, Haolin",
+    "Yu, Dian"
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2603.25674",
+   "cited_as": "7. Walsh & Ivan 2026,",
+   "surname": "Walsh",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "Measuring What Matters -- or What's Convenient?: Robustness of LLM-Based Scoring Systems to Construct-Irrelevant Factors",
+   "record_first_authors": [
+    "Walsh, Cole",
+    "Ivan, Rodica"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://act.org/content/dam/act/unsecured/documents/R2100-auto-scoring-standards-2021-07.pdf",
+   "cited_as": "8. Wood, Yao, Haisfield & Lottridge 2021, ACT,",
+   "surname": "Wood",
+   "year": 2021,
+   "kind": "url",
+   "verdict": "UNCHECKED",
+   "note": "resolves; not a scholarly record, so author and year not compared"
+  },
+  {
+   "url": "https://arxiv.org/abs/2504.21330",
+   "cited_as": "9. Yang et al. 2025,",
+   "surname": "Yang",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "Does the Prompt-based Large Language Model Recognize Students' Demographics and Introduce Bias in Essay Scoring?",
+   "record_first_authors": [
+    "Yang, Kaixun",
+    "Rakovi\u0107, Mladen",
+    "Ga\u0161evi\u0107, Dragan"
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2603.18765",
+   "cited_as": "10. Jadhav et al. 2026,",
+   "surname": "Jadhav",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "Implicit Grading Bias in Large Language Models: How Writing Style Affects Automated Assessment Across Math, Programming, and Essay Tasks",
+   "record_first_authors": [
+    "Jadhav, Rudra",
+    "Danve, Janhavi",
+    "Shaw, Sonalika"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2310.13548",
+   "cited_as": "12. Sharma et al. 2023,",
+   "surname": "Sharma",
+   "year": 2023,
+   "kind": "arxiv",
+   "record_title": "Towards Understanding Sycophancy in Language Models",
+   "record_first_authors": [
+    "Sharma, Mrinank",
+    "Tong, Meg",
+    "Korbak, Tomasz"
+   ],
+   "record_year": 2023,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2502.08177",
+   "cited_as": "13. Fanous et al. 2025,",
+   "surname": "Fanous",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "SycEval: Evaluating LLM Sycophancy",
+   "record_first_authors": [
+    "Fanous, Aaron",
+    "Goldberg, Jacob",
+    "Agarwal, Ank A."
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2503.11656",
+   "cited_as": "14. Liu et al. 2025,",
+   "surname": "Liu",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "TRUTH DECAY: Quantifying Multi-Turn Sycophancy in Language Models",
+   "record_first_authors": [
+    "Liu, Joshua",
+    "Jain, Aarav",
+    "Takuri, Soham"
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2504.13557",
+   "cited_as": "15. Aytutuldu et al. 2025,",
+   "surname": "Aytutuldu",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "Integrating LLMs for Grading and Appeal Resolution in Computer Science Education",
+   "record_first_authors": [
+    "Aytutuldu, I.",
+    "Yol, O.",
+    "Akgul, Y. S."
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2411.05231",
+   "cited_as": "16. Caraeni et al. 2024,",
+   "surname": "Caraeni",
+   "year": 2024,
+   "kind": "arxiv",
+   "record_title": "Evaluating GPT-4 at Grading Handwritten Solutions in Math Exams",
+   "record_first_authors": [
+    "Caraeni, Adriana",
+    "Scarlatos, Alexander",
+    "Lan, Andrew"
+   ],
+   "record_year": 2024,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2603.14732",
+   "cited_as": "17. Yeadon et al. 2026,",
+   "surname": "Yeadon",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "LLM-as-a-judge validity is strongly task-dependent across physics assessment formats",
+   "record_first_authors": [
+    "Yeadon, Will",
+    "Hardy, Tom",
+    "Mackay, Paul"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2410.02736",
+   "cited_as": "18. Ye et al. 2024,",
+   "surname": "Ye",
+   "year": 2024,
+   "kind": "arxiv",
+   "record_title": "Justice or Prejudice? Quantifying Biases in LLM-as-a-Judge",
+   "record_first_authors": [
+    "Ye, Jiayi",
+    "Wang, Yanbo",
+    "Huang, Yue"
+   ],
+   "record_year": 2024,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://aclanthology.org/2025.naacl-long.57",
+   "cited_as": "19. Maurya et al. 2025,",
+   "surname": "Maurya",
+   "year": 2025,
+   "kind": "page",
+   "record_title": "Unifying AI Tutor Evaluation: An Evaluation Taxonomy for Pedagogical Ability Assessment of LLM-Powered AI Tutors",
+   "record_first_authors": [
+    "Kaushal Kumar Maurya",
+    "Kv Aditya Srivatsa",
+    "Kseniia Petukhova"
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2406.08402",
+   "cited_as": "20. Kuan et al. 2024,",
+   "surname": "Kuan",
+   "year": 2024,
+   "kind": "arxiv",
+   "record_title": "Understanding Sounds, Missing the Questions: The Challenge of Object Hallucination in Large Audio-Language Models",
+   "record_first_authors": [
+    "Kuan, Chun-Yi",
+    "Huang, Wei-Ping",
+    "Lee, Hung-yi"
+   ],
+   "record_year": 2024,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2402.08021",
+   "cited_as": "21. Koenecke et al. 2024,",
+   "surname": "Koenecke",
+   "year": 2024,
+   "kind": "arxiv",
+   "record_title": "Careless Whisper: Speech-to-Text Hallucination Harms",
+   "record_first_authors": [
+    "Koenecke, Allison",
+    "Choi, Anna Seo Gyeong",
+    "Mei, Katelyn X."
+   ],
+   "record_year": 2024,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2305.10355",
+   "cited_as": "22. Li et al. 2023,",
+   "surname": "Li",
+   "year": 2023,
+   "kind": "arxiv",
+   "record_title": "Evaluating Object Hallucination in Large Vision-Language Models",
+   "record_first_authors": [
+    "Li, Yifan",
+    "Du, Yifan",
+    "Zhou, Kun"
+   ],
+   "record_year": 2023,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2602.09927",
+   "cited_as": "23. Funke et al. 2026,",
+   "surname": "Funke",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "A benchmark for video-based laparoscopic skill analysis and assessment",
+   "record_first_authors": [
+    "Funke, Isabel",
+    "Bodenstedt, Sebastian",
+    "von Bechtolsheim, Felix"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2406.16338",
+   "cited_as": "24. Wang et al. 2024,",
+   "surname": "Wang",
+   "year": 2024,
+   "kind": "arxiv",
+   "record_title": "VideoHallucer: Evaluating Intrinsic and Extrinsic Hallucinations in Large Video-Language Models",
+   "record_first_authors": [
+    "Wang, Yuxuan",
+    "Wang, Yueqian",
+    "Zhao, Dongyan"
+   ],
+   "record_year": 2024,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2307.09009",
+   "cited_as": "25. Chen, Zaharia & Zou 2023,",
+   "surname": "Chen",
+   "year": 2023,
+   "kind": "arxiv",
+   "record_title": "How is ChatGPT's behavior changing over time?",
+   "record_first_authors": [
+    "Chen, Lingjiao",
+    "Zaharia, Matei",
+    "Zou, James"
+   ],
+   "record_year": 2023,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://the-learning-agency.com/the-cutting-ed/article/identifying-limitations-and-bias-in-chatgpt-essay-scores-insights-from-benchmark-data/",
+   "cited_as": "28. Burleigh et al. 2025,",
+   "surname": "Burleigh",
+   "year": 2025,
+   "kind": "url",
+   "verdict": "UNCHECKED",
+   "note": "resolves; not a scholarly record, so author and year not compared"
+  },
+  {
+   "url": "https://hechingerreport.org/proof-points-asian-american-ai-bias/",
+   "cited_as": "29. Barshay 2024 (Hechinger Report), reporting on Johnson & Zhang, ETS,",
+   "surname": "Barshay",
+   "year": 2024,
+   "kind": "url",
+   "verdict": "UNCHECKED",
+   "note": "resolves; not a scholarly record, so author and year not compared"
+  },
+  {
+   "url": "https://infoscience.epfl.ch/handle/20.500.14299/241596",
+   "cited_as": "31. Nazaretsky et al. 2024,",
+   "surname": "Nazaretsky",
+   "year": 2024,
+   "kind": "page",
+   "record_title": "AI or Human? Evaluating Student Feedback Perceptions in Higher Education",
+   "record_first_authors": [
+    "Nazaretsky, Tanya",
+    "Mejia, Paola",
+    "Frej, Jibril Albachir"
+   ],
+   "record_year": 2024,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2507.16013",
+   "cited_as": "32. Jacobsen et al. 2025,",
+   "surname": "Jacobsen",
+   "year": 2025,
+   "kind": "arxiv",
+   "record_title": "AI, Expert or Peer? Provider Biases and Feedback Uptake Among Pre-Service Teachers",
+   "record_first_authors": [
+    "Jacobsen, Lucas Jasper",
+    "Mertens, Ute",
+    "Jansen, Thorben"
+   ],
+   "record_year": 2025,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://research.ou.nl/en/publications/structural-validity-and-invariance-of-the-feedback-perceptions-qu/",
+   "cited_as": "33. Strijbos, Pat-El & Narciss 2021,",
+   "surname": "Strijbos",
+   "year": 2021,
+   "kind": "page",
+   "record_title": "Structural validity and invariance of the Feedback Perceptions Questionnaire",
+   "record_first_authors": [
+    "Jan Willem Strijbos",
+    "R.J. Pat El",
+    "Susanne Narciss"
+   ],
+   "record_year": 2021,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://sparq.stanford.edu/solutions/wise-critiques-help-students-succeed",
+   "cited_as": "34. Yeager et al. 2014, JEP: General 143, 804\u2013824, summary at",
+   "surname": "Yeager",
+   "year": 2014,
+   "kind": "url",
+   "verdict": "UNCHECKED",
+   "note": "resolves; not a scholarly record, so author and year not compared"
+  },
+  {
+   "url": "https://arxiv.org/abs/2603.04417",
+   "cited_as": "35. Lau 2026,",
+   "surname": "Lau",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "Same Input, Different Scores: A Multi Model Study on the Inconsistency of LLM Judge",
+   "record_first_authors": [
+    "Lau, Fiona"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://cran.r-project.org/web/packages/aiDIF/index.html",
+   "cited_as": "36. aiDIF (Hait),",
+   "surname": null,
+   "year": null,
+   "kind": "page",
+   "record_title": "Differential Item Functioning for AI-Scored Assessments [R package aiDIF version 0.3.0]",
+   "record_first_authors": [
+    "Subir Hait"
+   ],
+   "record_year": 2026,
+   "verdict": "UNCHECKED"
+  },
+  {
+   "url": "https://testingstandards.net/open-access-files.html",
+   "cited_as": "37. AERA/APA/NCME 2014 Standards (open access),",
+   "surname": "NCME",
+   "year": 2014,
+   "kind": "url",
+   "verdict": "UNCHECKED",
+   "note": "resolves; not a scholarly record, so author and year not compared"
+  },
+  {
+   "url": "https://arxiv.org/abs/2411.02577",
+   "cited_as": "38. Burstein & LaFlair 2024,",
+   "surname": "Burstein",
+   "year": 2024,
+   "kind": "arxiv",
+   "record_title": "Where Assessment Validation and Responsible AI Meet",
+   "record_first_authors": [
+    "Burstein, Jill",
+    "LaFlair, Geoffrey T."
+   ],
+   "record_year": 2024,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2603.23714",
+   "cited_as": "39. Mathew et al. 2026,",
+   "surname": "Mathew",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "LLMs Do Not Grade Essays Like Humans",
+   "record_first_authors": [
+    "Mathew, Jerin George",
+    "Taher, Sumayya",
+    "Kundu, Anindita"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://arxiv.org/abs/2603.11957",
+   "cited_as": "40. Raikote et al. 2026,",
+   "surname": "Raikote",
+   "year": 2026,
+   "kind": "arxiv",
+   "record_title": "CHiL(L)Grader: Calibrated Human-in-the-Loop Short-Answer Grading",
+   "record_first_authors": [
+    "Raikote, Pranav",
+    "Randl, Korbinian",
+    "Miliou, Ioanna"
+   ],
+   "record_year": 2026,
+   "verdict": "OK"
+  },
+  {
+   "url": "https://papers.nips.cc/paper_files/paper/2024/hash/7f1f0218e45f5414c79c0679633e47bc-Abstract-Conference.html",
+   "cited_as": "41. Panickssery, Bowman & Feng 2024,",
+   "surname": "Panickssery",
+   "year": 2024,
+   "kind": "page",
+   "record_title": "LLM Evaluators Recognize and Favor Their Own Generations",
+   "record_first_authors": [
+    "Panickssery, Arjun",
+    "Bowman, Samuel R.",
+    "Feng, Shi"
+   ],
+   "record_year": 2024,
+   "verdict": "OK"
+  }
+ ]
+}

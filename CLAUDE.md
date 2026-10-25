@@ -27,5 +27,6 @@ The home of all benchmark work (moved from the Learning Design Alliance research
 - **Every request requires zero data retention.** Credentials come from the environment, never a command
   line or a committed file.
 - **Never hand-edit a generated file** (`out/leaderboard.json`, `out/public/`): rebuild it.
-- Before the repository is made public: `python3 scripts/check_private.py --publish` must pass, working files
+- Before the repository is made public: `python3 scripts/check_private.py --publish` and
+  `python3 scripts/check_citations.py docs/LITERATURE.md` must pass, working files
   are cleaned up, and the vendor-facing write-up and the results go out together.
