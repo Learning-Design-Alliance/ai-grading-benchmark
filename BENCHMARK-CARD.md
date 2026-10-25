@@ -11,8 +11,11 @@ agrees with human markers. It is for:
 - vendors improving one;
 - researchers studying automated assessment.
 
-It measures one model with one prompt. A grading product adds instructions, context and interface, and must
-be tested as such; the bring-your-own-prompt track exists for that.
+**A grader is a setup, not a model.** Every result belongs to one model with one prompt, its settings
+(temperature, token limit, reasoning effort) and the provider that served it. "Claude Opus 5.5 scores 95"
+is shorthand for that setup, and the board shows the setup beside the name. A grading product adds
+instructions, context and interface, and must be tested as such; the bring-your-own-prompt track exists for
+that.
 
 It is not:
 - a measure of whether feedback helps students learn;
@@ -55,13 +58,17 @@ each probe is known in advance, so the probes need no new human labels.
 
 ## Data
 
-| task | corpus | licence | raters per item | cases |
-|---|---|---|---|---|
-| Short answers | Mohler ASAG (computer science) | CC BY 4.0 | 2 | 100 |
-| Code | HARMOGEN-R | CC BY 4.0 | 2 | 100 |
-| Essays | ASAP 2.0 | CC BY 4.0 | 1 adjudicated mark; published rater κ 0.745 used as the reference | 100 |
-| Maths working | VtG (GSM8K word problems, solutions written by a language model told to make student-like errors) | CC BY-SA 4.0 | teacher-marked first error | 200 × 4 versions |
-| Pushback | the short-answer cases | CC BY 4.0 | — | the model's own marks below full |
+| task | corpus | whose work | licence | raters per item | cases (items) |
+|---|---|---|---|---|---|
+| Short answers | Mohler ASAG | undergraduates on one US data-structures course | CC BY 4.0 | 2 | 100 (60 questions) |
+| Code | HARMOGEN-R | students on one data-structures and algorithms course (C++, questions in Portuguese) | CC BY 4.0 | 2 | 100 (3 exercises) |
+| Essays | ASAP 2.0 | US students in grades 6-12, on state assessments | CC BY 4.0 | 1 adjudicated mark; published rater κ 0.745 used as the reference | 100 (7 prompts) |
+| Maths working | VtG (GSM8K word problems) | no students: solutions written by a language model told to make student-like errors | CC BY-SA 4.0 | teacher-marked first error | 200 × 4 versions |
+| Pushback | the short-answer cases | as short answers | CC BY 4.0 | — | the model's own marks below full |
+
+Results hold for these populations and items. They are not evidence about other courses, ages, languages or
+countries. With 7 essay prompts and 3 code exercises, agreement varies widely by item; the spread across
+items (`analyses/cluster_check.py`) is the best guide to a new one.
 
 Cases are drawn once (seed 7) and pinned by hash. `fetch_data.py` downloads and checks everything; raw data
 is never committed.
@@ -97,7 +104,8 @@ the recording's length.
 ## What it cannot test yet
 
 - Whether feedback helps a student learn.
-- Contamination. The corpora are public and may be in training data; a private held-out set is planned.
+- Contamination. The corpora are public and may be in training data. A private held-out set is planned,
+  and for fully open models (OLMo) the published training data can be searched directly.
 - Fairness across real student groups. Only the essay corpora carry demographics.
 - Languages other than English.
 - Unscripted speech with several raters per recording.
@@ -108,7 +116,12 @@ the recording's length.
 
 ## Known limitations
 
-- 100 cases per task and one run per model, so intervals are wide.
+- 100 cases per task and one run per model, so intervals are wide. Short-answer intervals were checked by
+  resampling whole questions and hold. Essays and code have too few items to check that way. Video
+  recordings by the same surgeon cannot be grouped (LASANA publishes no participant identifiers), so
+  video intervals assume they are independent.
+- A verdict that finds no effect states the largest effect it cannot rule out. It is not evidence of no
+  effect.
 - One default prompt per task; prompt changes can move results substantially.
 - The essay reference is a published figure, not computed on these cases.
 - The maths "students" are a language model.
@@ -122,6 +135,21 @@ the recording's length.
 3. Open a pull request. CI checks it against the pinned cases and recomputes every number.
 
 Self-reported entries are marked as such until a spot check (`leaderboard.py spotcheck`) re-grades a sample.
+
+## What these results show, and what they do not
+
+They show how a setup marks these cases: agreement with expert markers, and how the mark moves when the
+work, the learner's label or the student's reply changes. They do **not** show:
+- that AI marking helps students learn, or is better or worse for them than a teacher's;
+- that a model "grades as well as teachers". Agreement near the raters' own agreement means it disagrees
+  with them about as often as they disagree with each other, on these cases;
+- how a model will do on another subject, age group or language, or with another prompt;
+- that a model is fair to any group of students. The label probe tests one cue, the stated attainment;
+- that a model with no detected effect has none (see Known limitations).
+
+Please cite a strand and a setup ("with the default prompt, Claude Opus 5.5 held under pushback on
+computer-science short answers"), not the overall score alone. Corrections are logged, dated, in
+`docs/CORRECTIONS.md`, and a corrected result is marked where it is shown.
 
 ## Results
 
