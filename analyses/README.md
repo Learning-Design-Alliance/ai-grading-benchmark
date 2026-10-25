@@ -49,6 +49,14 @@ The baselines were pre-registered before scoring. Each was trained on the corpus
 | Short answers | similarity to the reference | 0.16 | 28% | yes | −3.6% |
 | Short answers | length only | 0.01 | 2% | yes | +0.4% |
 | Code (29 training cases) | all three | ≈ 0 | ≈ 0 | yes | ≈ 0 |
+| Essays | small encoder (MiniLM, 22M parameters) + ridge | 0.48 | 64% of published κ | 80% of blank or junk answers | +0.2% |
+| Short answers | small encoder + ridge | 0.32 | 56% | yes (all) | +1.2% |
+| Code | small encoder + ridge | ≈ 0 | ≈ 0 | yes | ≈ 0 |
+
+**The small encoder (CHANGE 1)** did worse than TF-IDF, not "close to" it as expected before scoring. It
+reads at most 256 word pieces, so it sees only the opening of most essays. On short answers, a general
+sentence encoder captures meaning less sharply than the exact words the markers reward. A fine-tuned encoder
+would likely do better, but it needs a GPU and more training than this check allows.
 
 **Reading.**
 - A classic trained essay scorer matches the best language models on agreement (Fable 0.71, Opus 0.70).
