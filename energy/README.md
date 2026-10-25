@@ -21,10 +21,13 @@ cooling, the chips' manufacture, and loading the model.
 - A simulation of the estimator (`floor`) recovers a planted energy per grading within 0.5% on average, and its
   interval covers it 91% of the time (bar 90%).
 - On the pod, the counter agreed with the integral of the 1-s power readings within 1% for every model.
-- **Every model failed the idle check.** Idle power was 64-67 W before the runs and 73-81 W in the minute
-  after (ratio 1.13-1.26; bar 1.10). A GPU idles higher while it is hot, so the bar was set too tight for a
-  window taken straight after work. Under the pre-registered rule every verdict below is therefore
-  **UNMEASURED**. The figures are shown, labelled as such. Which idle window is subtracted moves the NET figure
+- **The eight board models all failed the idle check.** Idle power was 64-67 W before the runs and 73-81 W
+  in the minute after (ratio 1.13-1.26; bar 1.10). A GPU idles higher while it is hot, so the bar was set too
+  tight for a window taken straight after work. Under the pre-registered rule their verdicts are
+  **UNMEASURED**, and their figures are shown labelled as such.
+- **Olmo 3.1 32B passed it** (109 and 118 W, ratio 1.08). It ran on a second pod, because the first pod's host
+  restarted the container five times. That pod had the same GPU model, but this card idles about 45 W higher.
+  The NET figure removes idle, and the GROSS figures of the two pods do not compare. Which idle window is subtracted moves the NET figure
   by about 5-10%, shown as `net_wh_idle_range` in `out/energy.json`.
 
 ## Results
@@ -41,16 +44,19 @@ Wh are thousandths of a watt-hour here (mWh). One grading, batched at 16 at a ti
 | Gemma 4 26B A4B | 2.7 [2.6-2.9] | 5.7 [5.4-6.0] | 5.6 [5.3-5.9] | 4.7 | 9.8 | 9.7 | 11 Wh | 5x / 4x |
 | Gemma 3 27B | 6.3 [6.0-6.6] | 14.1 [12.7-15.5] | 14.2 [13.5-15.0] | 10.9 | 24.3 | 24.5 | 26 Wh | 16x / 10x |
 | Gemma 4 31B | 7.3 [7.0-7.6] | 19.1 [17.3-20.8] | 16.8 [15.8-17.8] | 12.6 | 32.8 | 29.0 | 33 Wh | 14x / 9x |
-<!-- OLMO_ROW: added after its run -->
+| Olmo 3.1 32B (second pod) | 6.5 [4.9-8.1] | 13.6 [12.4-14.7] | 11.5 [10.8-12.3] | 11.2 | 23.4 | 19.9 | 24 Wh | 12x / 9x |
 
 **Against the estimates** (docs/ENERGY.md's per-token model, at each model's own measured tokens; FULL-STACK
-compared). Every figure is UNMEASURED under the registered rule. Descriptively (CHANGE 2), with either idle window, or with
-nothing subtracted:
-- 23 of the 24 model-task figures are **below the small-model estimate** (Llama 3.1 8B in Jegham et al.), by
+compared).
+- **Olmo 3.1 32B, the one measured verdict: BELOW THE SMALL-MODEL ESTIMATE on all three tasks.** Measured /
+  estimate is 0.74 for short answers, 0.41 for essays and 0.29 for code.
+- The eight board models are UNMEASURED under the registered rule. Descriptively (CHANGE 2), with either idle
+  window, or with nothing subtracted:
+  - 23 of their 24 model-task figures are **below the small-model estimate** (Llama 3.1 8B in Jegham et al.), by
   a factor of 1.3 to 15 (measured / estimate 0.07-0.78; median factor 4).
-- The one exception is Gemma 4 31B's short answers. Taken GROSS, nothing subtracted, it lands just inside the
+  - The one exception is Gemma 4 31B's short answers. Taken GROSS, nothing subtracted, it lands just inside the
   estimates' range (16.9 against 16.1 mWh).
-- All are far below the mid-size estimate (GPT-4o), by 13 to 120 times.
+  - All are far below the mid-size estimate (GPT-4o), by 13 to 120 times.
 So the published per-token model, fitted to API-inferred figures for hosted models with their overheads,
 overstates what an open model up to 32B uses on one modern GPU in a batch, by a factor of about 2.5 to 7 for the middle half of figures.
 
@@ -76,11 +82,12 @@ own retest (0.79 and 0.69 against 0.96 and 0.90), likely different serving defau
 not change its energy.
 
 **Limits.**
+- Olmo's figures come from a second card of the same model.
 - One GPU model, one serving stack, one batch size (plus one at a time). Energy per grading falls with newer
   GPUs and larger batches, and rises with smaller ones.
 - 100 cases per task.
 - The idle check failed. Its consequence, which idle is subtracted, is small beside the gap to the estimates,
-  but it is why no verdict is printed as MEASURED.
+  but it is why only Olmo's verdict stands.
 - Closed models cannot be measured this way.
 
 Output: `out/energy.json` (per model and task: NET, GROSS and FULL-STACK figures, intervals, idle range,
