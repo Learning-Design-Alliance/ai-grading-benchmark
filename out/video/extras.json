@@ -23,109 +23,48 @@
   }
  },
  "runs": {
-  "video-xiaomi_mimo-v2.6-flash": {
-   "model": "xiaomi/mimo-v2.6-flash",
+  "video-amazon_nova-2-lite-v1": {
+   "model": "amazon/nova-2-lite-v1",
    "video_frames": 0,
    "base": {
-    "n": 100,
-    "qwk": 0.12516441489994481,
-    "beyond_length": -0.04450739111310837,
-    "beyond_length_ci95": [
-     -0.2454218298334642,
-     0.1743676051403905
-    ],
-    "beyond_length_by_task": {
-     "PegTransfer": -0.16385902529773233,
-     "CircleCutting": 0.06131235843900913,
-     "BalloonResection": -0.133651158711492,
-     "SutureAndKnot": 0.24161888294208092
-    }
+    "n": 0,
+    "qwk": null,
+    "beyond_length": null,
+    "beyond_length_ci95": null,
+    "beyond_length_by_task": {}
    },
    "text_only": {
-    "n": 97,
-    "qwk": 0.05956826125695114,
-    "beyond_length": 0.013207472496136772,
+    "n": 95,
+    "qwk": -0.07377870830715952,
+    "beyond_length": -0.04976709923975971,
     "beyond_length_ci95": [
-     -0.2137075484150642,
-     0.2574751429877285
+     -0.27983711744745127,
+     0.18422330848173366
     ],
     "beyond_length_by_task": {
-     "PegTransfer": 0.08081388774529397,
-     "CircleCutting": -0.17437751963750198,
-     "BalloonResection": 0.07082465044415656,
-     "SutureAndKnot": 0.00499020348507941
+     "PegTransfer": -0.05707937862248997,
+     "CircleCutting": -0.06610775148897406,
+     "BalloonResection": 0.006400972295400475,
+     "SutureAndKnot": -0.2983281140226755
     }
    },
-   "verdict": "ADDS NOTHING TO THE STOPWATCH",
+   "verdict": null,
    "blank": {
     "null_black": {
      "n": 30,
-     "credited": 29,
-     "declined": 0
-    },
-    "null_still": {
-     "n": 30,
-     "credited": 27,
-     "declined": 1
-    }
-   },
-   "median_prompt_tokens": 2508,
-   "failed_attempts": {
-    "n": 7,
-    "graded": 7,
-    "given_minimum": 1
-   }
-  },
-  "video-perceptron_perceptron-mk1.5": {
-   "model": "perceptron/perceptron-mk1.5",
-   "video_frames": 0,
-   "base": {
-    "n": 100,
-    "qwk": -0.008030510155087961,
-    "beyond_length": 0.0832894369042754,
-    "beyond_length_ci95": [
-     -0.13987644127017188,
-     0.3016508616068184
-    ],
-    "beyond_length_by_task": {
-     "PegTransfer": 0.2431818677870259,
-     "CircleCutting": -0.2457304672381607,
-     "BalloonResection": 0.21330609623782978,
-     "SutureAndKnot": 0.060610741401453526
-    }
-   },
-   "text_only": {
-    "n": 100,
-    "qwk": 0.008737736846789412,
-    "beyond_length": -0.13655611444846524,
-    "beyond_length_ci95": [
-     -0.3371452822021343,
-     0.10768613781292782
-    ],
-    "beyond_length_by_task": {
-     "PegTransfer": -0.4201741671250865,
-     "CircleCutting": 0.19470767790855603,
-     "BalloonResection": -0.2715548542477322,
-     "SutureAndKnot": null
-    }
-   },
-   "verdict": "ADDS NOTHING TO THE STOPWATCH",
-   "blank": {
-    "null_black": {
-     "n": 30,
-     "credited": 0,
-     "declined": 0
+     "credited": 7,
+     "declined": 23
     },
     "null_still": {
      "n": 30,
      "credited": 0,
-     "declined": 0
+     "declined": 30
     }
    },
-   "median_prompt_tokens": 17978,
+   "median_prompt_tokens": 31438,
    "failed_attempts": {
     "n": 7,
-    "graded": 7,
+    "graded": 0,
     "given_minimum": 0
    }
   },
@@ -163,6 +102,9 @@
     }
    },
    "verdict": "ADDS NOTHING TO THE STOPWATCH",
+   "not_ruled_out": {
+    "beyond_length_up_to": 0.3073198092058898
+   },
    "blank": {
     "null_black": {
      "n": 30,
@@ -172,6 +114,59 @@
     "null_still": {
      "n": 30,
      "credited": 16,
+     "declined": 0
+    }
+   },
+   "median_prompt_tokens": 12803,
+   "failed_attempts": {
+    "n": 7,
+    "graded": 7,
+    "given_minimum": 0
+   }
+  },
+  "video-google_gemini-3.8-flash": {
+   "model": "google/gemini-3.8-flash",
+   "video_frames": 0,
+   "base": {
+    "n": 100,
+    "qwk": 0.29294338061128267,
+    "beyond_length": 0.3300937096349548,
+    "beyond_length_ci95": [
+     0.06193635982383121,
+     0.5398900720154091
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": 0.24980342857724355,
+     "CircleCutting": 0.051667147491018965,
+     "BalloonResection": 0.5717717463778994,
+     "SutureAndKnot": 0.1014814322373235
+    }
+   },
+   "text_only": {
+    "n": 100,
+    "qwk": 0.28804175327166526,
+    "beyond_length": 0.25382710404099723,
+    "beyond_length_ci95": [
+     0.031735052082344305,
+     0.5042964074587942
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": 0.3629790179950418,
+     "CircleCutting": 0.14138984874256916,
+     "BalloonResection": 0.25389716942795193,
+     "SutureAndKnot": 0.267872413363743
+    }
+   },
+   "verdict": "WATCHES THE RECORDING",
+   "blank": {
+    "null_black": {
+     "n": 30,
+     "credited": 30,
+     "declined": 0
+    },
+    "null_still": {
+     "n": 30,
+     "credited": 30,
      "declined": 0
     }
    },
@@ -235,53 +230,56 @@
     "given_minimum": 4
    }
   },
-  "video-google_gemini-3.8-flash": {
-   "model": "google/gemini-3.8-flash",
+  "video-perceptron_perceptron-mk1.5": {
+   "model": "perceptron/perceptron-mk1.5",
    "video_frames": 0,
    "base": {
     "n": 100,
-    "qwk": 0.29294338061128267,
-    "beyond_length": 0.3300937096349548,
+    "qwk": -0.008030510155087961,
+    "beyond_length": 0.0832894369042754,
     "beyond_length_ci95": [
-     0.06193635982383121,
-     0.5398900720154091
+     -0.13987644127017188,
+     0.3016508616068184
     ],
     "beyond_length_by_task": {
-     "PegTransfer": 0.24980342857724355,
-     "CircleCutting": 0.051667147491018965,
-     "BalloonResection": 0.5717717463778994,
-     "SutureAndKnot": 0.1014814322373235
+     "PegTransfer": 0.2431818677870259,
+     "CircleCutting": -0.2457304672381607,
+     "BalloonResection": 0.21330609623782978,
+     "SutureAndKnot": 0.060610741401453526
     }
    },
    "text_only": {
     "n": 100,
-    "qwk": 0.28804175327166526,
-    "beyond_length": 0.25382710404099723,
+    "qwk": 0.008737736846789412,
+    "beyond_length": -0.13655611444846524,
     "beyond_length_ci95": [
-     0.031735052082344305,
-     0.5042964074587942
+     -0.3371452822021343,
+     0.10768613781292782
     ],
     "beyond_length_by_task": {
-     "PegTransfer": 0.3629790179950418,
-     "CircleCutting": 0.14138984874256916,
-     "BalloonResection": 0.25389716942795193,
-     "SutureAndKnot": 0.267872413363743
+     "PegTransfer": -0.4201741671250865,
+     "CircleCutting": 0.19470767790855603,
+     "BalloonResection": -0.2715548542477322,
+     "SutureAndKnot": null
     }
    },
-   "verdict": "WATCHES THE RECORDING",
+   "verdict": "ADDS NOTHING TO THE STOPWATCH",
+   "not_ruled_out": {
+    "beyond_length_up_to": 0.3016508616068184
+   },
    "blank": {
     "null_black": {
      "n": 30,
-     "credited": 30,
+     "credited": 0,
      "declined": 0
     },
     "null_still": {
      "n": 30,
-     "credited": 30,
+     "credited": 0,
      "declined": 0
     }
    },
-   "median_prompt_tokens": 12803,
+   "median_prompt_tokens": 17978,
    "failed_attempts": {
     "n": 7,
     "graded": 7,
@@ -322,6 +320,9 @@
     }
    },
    "verdict": "ADDS NOTHING TO THE STOPWATCH",
+   "not_ruled_out": {
+    "beyond_length_up_to": 0.1617521217722635
+   },
    "blank": {
     "null_black": {
      "n": 30,
@@ -341,49 +342,60 @@
     "given_minimum": 2
    }
   },
-  "video-amazon_nova-2-lite-v1": {
-   "model": "amazon/nova-2-lite-v1",
+  "video-xiaomi_mimo-v2.6-flash": {
+   "model": "xiaomi/mimo-v2.6-flash",
    "video_frames": 0,
    "base": {
-    "n": 0,
-    "qwk": null,
-    "beyond_length": null,
-    "beyond_length_ci95": null,
-    "beyond_length_by_task": {}
-   },
-   "text_only": {
-    "n": 95,
-    "qwk": -0.07377870830715952,
-    "beyond_length": -0.04976709923975971,
+    "n": 100,
+    "qwk": 0.12516441489994481,
+    "beyond_length": -0.04450739111310837,
     "beyond_length_ci95": [
-     -0.27983711744745127,
-     0.18422330848173366
+     -0.2454218298334642,
+     0.1743676051403905
     ],
     "beyond_length_by_task": {
-     "PegTransfer": -0.05707937862248997,
-     "CircleCutting": -0.06610775148897406,
-     "BalloonResection": 0.006400972295400475,
-     "SutureAndKnot": -0.2983281140226755
+     "PegTransfer": -0.16385902529773233,
+     "CircleCutting": 0.06131235843900913,
+     "BalloonResection": -0.133651158711492,
+     "SutureAndKnot": 0.24161888294208092
     }
    },
-   "verdict": null,
+   "text_only": {
+    "n": 97,
+    "qwk": 0.05956826125695114,
+    "beyond_length": 0.013207472496136772,
+    "beyond_length_ci95": [
+     -0.2137075484150642,
+     0.2574751429877285
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": 0.08081388774529397,
+     "CircleCutting": -0.17437751963750198,
+     "BalloonResection": 0.07082465044415656,
+     "SutureAndKnot": 0.00499020348507941
+    }
+   },
+   "verdict": "ADDS NOTHING TO THE STOPWATCH",
+   "not_ruled_out": {
+    "beyond_length_up_to": 0.1743676051403905
+   },
    "blank": {
     "null_black": {
      "n": 30,
-     "credited": 7,
-     "declined": 23
+     "credited": 29,
+     "declined": 0
     },
     "null_still": {
      "n": 30,
-     "credited": 0,
-     "declined": 30
+     "credited": 27,
+     "declined": 1
     }
    },
-   "median_prompt_tokens": 31438,
+   "median_prompt_tokens": 2508,
    "failed_attempts": {
     "n": 7,
-    "graded": 0,
-    "given_minimum": 0
+    "graded": 7,
+    "given_minimum": 1
    }
   },
   "video16f-anthropic_claude-haiku-5.5": {
@@ -412,6 +424,9 @@
     "beyond_length_by_task": {}
    },
    "verdict": "ADDS NOTHING TO THE STOPWATCH",
+   "not_ruled_out": {
+    "beyond_length_up_to": 0.2284816097966741
+   },
    "blank": {
     "null_black": {
      "n": 30,
@@ -457,6 +472,9 @@
     "beyond_length_by_task": {}
    },
    "verdict": "ADDS NOTHING TO THE STOPWATCH",
+   "not_ruled_out": {
+    "beyond_length_up_to": 0.2859051263411607
+   },
    "blank": {
     "null_black": {
      "n": 30,
@@ -473,59 +491,6 @@
    "failed_attempts": {
     "n": 7,
     "graded": 7,
-    "given_minimum": 0
-   }
-  },
-  "video16f-openai_gpt-5-mini": {
-   "model": "openai/gpt-5-mini",
-   "video_frames": 16,
-   "base": {
-    "n": 95,
-    "qwk": -0.0329889410777541,
-    "beyond_length": 0.13744851768466318,
-    "beyond_length_ci95": [
-     -0.10214354722799106,
-     0.3844046423791046
-    ],
-    "beyond_length_by_task": {
-     "PegTransfer": 0.29413383834195783,
-     "CircleCutting": 0.24207255213863782,
-     "BalloonResection": 0.15164145912484608,
-     "SutureAndKnot": -0.33064485811111194
-    }
-   },
-   "text_only": {
-    "n": 66,
-    "qwk": -0.010373330385585161,
-    "beyond_length": -0.12203089739156989,
-    "beyond_length_ci95": [
-     -0.36336331901265356,
-     0.20053877238858617
-    ],
-    "beyond_length_by_task": {
-     "PegTransfer": 0.49248718478050957,
-     "CircleCutting": -0.298525602202168,
-     "BalloonResection": -0.3788148574322478,
-     "SutureAndKnot": 0.10413221622105696
-    }
-   },
-   "verdict": "ADDS NOTHING TO THE STOPWATCH",
-   "blank": {
-    "null_black": {
-     "n": 30,
-     "credited": 0,
-     "declined": 0
-    },
-    "null_still": {
-     "n": 30,
-     "credited": 21,
-     "declined": 0
-    }
-   },
-   "median_prompt_tokens": 3066,
-   "failed_attempts": {
-    "n": 7,
-    "graded": 6,
     "given_minimum": 0
    }
   },
@@ -579,6 +544,62 @@
    "failed_attempts": {
     "n": 7,
     "graded": 7,
+    "given_minimum": 0
+   }
+  },
+  "video16f-openai_gpt-5-mini": {
+   "model": "openai/gpt-5-mini",
+   "video_frames": 16,
+   "base": {
+    "n": 95,
+    "qwk": -0.0329889410777541,
+    "beyond_length": 0.13744851768466318,
+    "beyond_length_ci95": [
+     -0.10214354722799106,
+     0.3844046423791046
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": 0.29413383834195783,
+     "CircleCutting": 0.24207255213863782,
+     "BalloonResection": 0.15164145912484608,
+     "SutureAndKnot": -0.33064485811111194
+    }
+   },
+   "text_only": {
+    "n": 66,
+    "qwk": -0.010373330385585161,
+    "beyond_length": -0.12203089739156989,
+    "beyond_length_ci95": [
+     -0.36336331901265356,
+     0.20053877238858617
+    ],
+    "beyond_length_by_task": {
+     "PegTransfer": 0.49248718478050957,
+     "CircleCutting": -0.298525602202168,
+     "BalloonResection": -0.3788148574322478,
+     "SutureAndKnot": 0.10413221622105696
+    }
+   },
+   "verdict": "ADDS NOTHING TO THE STOPWATCH",
+   "not_ruled_out": {
+    "beyond_length_up_to": 0.3844046423791046
+   },
+   "blank": {
+    "null_black": {
+     "n": 30,
+     "credited": 0,
+     "declined": 0
+    },
+    "null_still": {
+     "n": 30,
+     "credited": 21,
+     "declined": 0
+    }
+   },
+   "median_prompt_tokens": 3066,
+   "failed_attempts": {
+    "n": 7,
+    "graded": 6,
     "given_minimum": 0
    }
   }

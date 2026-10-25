@@ -1,50 +1,53 @@
 {
  "design": "video/padding.py docstring",
  "runs": {
-  "vlen-google_gemini-4-argon": {
-   "model": "google/gemini-4-argon",
+  "vlen-google_gemini-3.5-flash-lite": {
+   "model": "google/gemini-3.5-flash-lite",
    "failed": {
-    "1": 0,
-    "4": 0
+    "1": 1,
+    "4": 2
    },
    "by_length": {
     "x1": {
-     "sensitivity": 0.46153846153846156,
-     "specificity": 0.937007874015748,
-     "balanced": 0.6992731677771048
+     "sensitivity": 0.24675324675324675,
+     "specificity": 0.8661417322834646,
+     "balanced": 0.5564474895183557
     },
     "x4": {
-     "sensitivity": 0.6794871794871795,
-     "specificity": 0.7480314960629921,
-     "balanced": 0.7137593377750858
+     "sensitivity": 0.3116883116883117,
+     "specificity": 0.753968253968254,
+     "balanced": 0.5328282828282829
     }
    },
    "change": {
     "x4-x1": {
      "sensitivity": [
-      0.21794871794871795,
+      0.06493506493506493,
       [
-       0.09836065573770492,
-       0.34117647058823536
+       -0.06578947368421054,
+       0.18918918918918917
       ]
      ],
      "specificity": [
-      -0.1889763779527559,
+      -0.11217347831521063,
       [
-       -0.265625,
-       -0.11023622047244097
+       -0.1997359811743098,
+       -0.026283701395474868
       ]
      ],
      "balanced": [
-      0.014486169997981024,
+      -0.02361920669007278,
       [
-       -0.05930165448249325,
-       0.0877450980392156
+       -0.10105631263970005,
+       0.05017507002801125
       ]
      ]
     }
    },
-   "verdict": "NO DETECTABLE EFFECT"
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.10105631263970005
+   }
   },
   "vlen-google_gemini-3.8-flash": {
    "model": "google/gemini-3.8-flash",
@@ -89,52 +92,58 @@
      ]
     }
    },
-   "verdict": "NO DETECTABLE EFFECT"
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.13056760757490682
+   }
   },
-  "vlen-google_gemini-3.5-flash-lite": {
-   "model": "google/gemini-3.5-flash-lite",
+  "vlen-google_gemini-4-argon": {
+   "model": "google/gemini-4-argon",
    "failed": {
-    "1": 1,
-    "4": 2
+    "1": 0,
+    "4": 0
    },
    "by_length": {
     "x1": {
-     "sensitivity": 0.24675324675324675,
-     "specificity": 0.8661417322834646,
-     "balanced": 0.5564474895183557
+     "sensitivity": 0.46153846153846156,
+     "specificity": 0.937007874015748,
+     "balanced": 0.6992731677771048
     },
     "x4": {
-     "sensitivity": 0.3116883116883117,
-     "specificity": 0.753968253968254,
-     "balanced": 0.5328282828282829
+     "sensitivity": 0.6794871794871795,
+     "specificity": 0.7480314960629921,
+     "balanced": 0.7137593377750858
     }
    },
    "change": {
     "x4-x1": {
      "sensitivity": [
-      0.06493506493506493,
+      0.21794871794871795,
       [
-       -0.06578947368421054,
-       0.18918918918918917
+       0.09836065573770492,
+       0.34117647058823536
       ]
      ],
      "specificity": [
-      -0.11217347831521063,
+      -0.1889763779527559,
       [
-       -0.1997359811743098,
-       -0.026283701395474868
+       -0.265625,
+       -0.11023622047244097
       ]
      ],
      "balanced": [
-      -0.02361920669007278,
+      0.014486169997981024,
       [
-       -0.10105631263970005,
-       0.05017507002801125
+       -0.05930165448249325,
+       0.0877450980392156
       ]
      ]
     }
    },
-   "verdict": "NO DETECTABLE EFFECT"
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.05930165448249325
+   }
   },
   "vlen-perceptron_perceptron-mk1.5": {
    "model": "perceptron/perceptron-mk1.5",
@@ -179,7 +188,10 @@
      ]
     }
    },
-   "verdict": "NO DETECTABLE EFFECT"
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.046515345268542174
+   }
   },
   "vlen-qwen_qwen3.8-27b": {
    "model": "qwen/qwen3.8-27b",
@@ -224,7 +236,10 @@
      ]
     }
    },
-   "verdict": "NO DETECTABLE EFFECT"
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.1345619214123987
+   }
   }
  }
 }

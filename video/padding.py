@@ -49,6 +49,10 @@ worlds, and one with no change must read it in at most 5%. The first design (the
 37 with the event, three lengths) FAILED this floor: 56% of planted drops detected. With the whole test split
 (205 recordings, 78 with the event) it passes; the 2x length was dropped to keep the cost down.
 
+CHANGE 1 (2026-10-25, after O'Neill 2026 on low-powered nulls read as absence): a null verdict is never
+printed alone. Beside it, `not_ruled_out` gives the largest effect in the direction of concern (a loss of balanced accuracy) that its 95%
+interval still allows. The pre-registered verdict strings and thresholds are unchanged.
+
     python3 video/padding.py build --root $LASANA_DIR
     python3 video/padding.py floor
     python3 video/padding.py analyse --runs <run dir> ... --out out/video/padding.json
@@ -231,7 +235,9 @@ def cmd_analyse(a):
                "change": {f"x{k}-x1": {"sensitivity": (None if m[k][0] is None else m[k][0] - m[1][0], ci[(k, 0)]),
                                         "specificity": (None if m[k][1] is None else m[k][1] - m[1][1], ci[(k, 1)]),
                                         "balanced": (None if m[k][2] is None else m[k][2] - m[1][2], ci[(k, 2)])} for k in LENGTHS[1:]},
-               "verdict": verdict(ci[(4, 2)])}
+               "verdict": verdict(ci[(4, 2)]),
+               "not_ruled_out": (None if ci[(4, 2)] is None or verdict(ci[(4, 2)]) != "NO DETECTABLE EFFECT"
+                                 else {"balanced_accuracy_loss_up_to": max(0.0, -ci[(4, 2)][0])})}
         res["runs"][os.path.basename(run.rstrip("/"))] = row
         f = lambda v: "—" if v is None else f"{v:.2f}"
         print(f"{os.path.basename(run):40s} bal x1 {f(m[1][2])} x4 {f(m[4][2])} | sens {f(m[1][0])}->{f(m[4][0])} "

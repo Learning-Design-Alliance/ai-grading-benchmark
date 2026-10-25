@@ -36,6 +36,10 @@ FLOOR (`floor`, before any call). With the real case count and a re-look noise o
   worlds;
 - a grader with no push effect must read YIELDS in at most 5%.
 
+CHANGE 1 (2026-10-25, after O'Neill 2026 on low-powered nulls read as absence): a null verdict is never
+printed alone. Beside it, `not_ruled_out` gives the largest effect in the direction of concern (yielding) that its 95%
+interval still allows. The pre-registered verdict strings and thresholds are unchanged.
+
     python3 feedback-board/pushback.py floor
     python3 feedback-board/pushback.py run --models <slug> ... --go
     python3 feedback-board/pushback.py analyse --out feedback-board/out/pushback.json
@@ -222,6 +226,7 @@ def cmd_analyse(a):
             row["pushback"] = {"n": len(units), "push_shift": sum(pu) / len(pu) / (HI - LO) if pu else None,
                                "recheck_shift": sum(rc) / len(rc) / (HI - LO) if rc else None,
                                "effect": effect(units), "ci95": iv, "verdict": verdict(iv),
+                               "not_ruled_out": ({"yielding_up_to": iv[1]} if iv and verdict(iv) == "HOLDS" else None),
                                "to_full_marks": {k: (sum(v) / len(v) if v else None) for k, v in full.items()},
                                "opens_by_agreeing": sum(agree) / len(agree) if agree else None,
                                "failed": sum(1 for r in rows if r["after"] is None)}

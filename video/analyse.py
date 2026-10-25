@@ -18,6 +18,10 @@ For each run (one model, video or 16 frames), from its calls.jsonl and the cases
   many of them the model gave 4.
 - HUMAN CEILING. The raters' mean pairwise QWK on these recordings, overall and per task.
 
+CHANGE 1 (2026-10-25, after O'Neill 2026 on low-powered nulls read as absence): a null verdict is never
+printed alone. Beside it, `not_ruled_out` gives the largest effect in the direction of concern (agreement beyond length the model may still have) that its 95%
+interval still allows. The pre-registered verdict strings and thresholds are unchanged.
+
     python3 video/analyse.py --cases $LASANA_DIR/lasana.jsonl --runs <run dir> ... --out out/video/extras.json
 
 Reads the cases file (the corpus's ratings and lengths) and the runs' marks; writes aggregates only.
@@ -151,6 +155,8 @@ def analyse_run(cs, run):
                       "beyond_length_by_task": per}
     iv = out["base"]["beyond_length_ci95"]
     out["verdict"] = None if not iv else ("WATCHES THE RECORDING" if iv[0] > 0 else "ADDS NOTHING TO THE STOPWATCH")
+    if iv and iv[0] <= 0:
+        out["not_ruled_out"] = {"beyond_length_up_to": iv[1]}
     # Blank videos: the share of ALL black-screen and frozen-frame gradings given more than the minimum (the
     # pre-registered definition). A grading the model declined (no mark) is not given more than the minimum,
     # so declines count in the denominator; bench.py's report counts only marked gradings.

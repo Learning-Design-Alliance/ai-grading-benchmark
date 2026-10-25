@@ -12,21 +12,23 @@ The error and its label are the same at both lengths; only the length changes. T
 call: 84% of planted drops were detected, with 2% false detections. The spend was $51.25 for 2,050
 gradings, at zero data retention.
 
-| model | balanced accuracy, as recorded → 4x | change [95% interval] | errors caught | clean videos cleared | no answer | verdict |
+| model | balanced accuracy, as recorded → 4x | change [95% interval] | errors caught | clean videos cleared | no answer | verdict (pre-registered NO DETECTABLE EFFECT) |
 |---|---|---|---|---|---|---|
-| Gemini 4 Argon | 0.70 → 0.71 | +0.01 [−0.06, +0.09] | 46% → 68% (+22) | 94% → 75% (−19) | 0 | NO DETECTABLE EFFECT |
-| Gemini 3.8 Flash | 0.69 → 0.63 | −0.06 [−0.13, +0.00] | 66% → 83% (+17) | 73% → 43% (−30) | 10 | NO DETECTABLE EFFECT |
-| Qwen3.8 27B | 0.57 → 0.52 | −0.04 [−0.14, +0.05] | 58% → 61% | 55% → 44% (−11) | 153 | NO DETECTABLE EFFECT |
-| Gemini 3.5 Flash Lite | 0.56 → 0.53 | −0.02 [−0.10, +0.05] | 25% → 31% | 87% → 75% (−11) | 3 | NO DETECTABLE EFFECT |
-| Perceptron mk1.5 | 0.51 → 0.51 | −0.00 [−0.05, +0.04] | 14% → 4% (−10) | 88% → 98% (+10) | 0 | NO DETECTABLE EFFECT |
+| Gemini 4 Argon | 0.70 → 0.71 | +0.01 [−0.06, +0.09] | 46% → 68% (+22) | 94% → 75% (−19) | 0 | not detected; a loss up to 0.06 not ruled out |
+| Gemini 3.8 Flash | 0.69 → 0.63 | −0.06 [−0.13, +0.00] | 66% → 83% (+17) | 73% → 43% (−30) | 10 | not detected; a loss up to 0.13 not ruled out |
+| Qwen3.8 27B | 0.57 → 0.52 | −0.04 [−0.13, +0.05] | 58% → 61% | 55% → 44% (−11) | 153 | not detected; a loss up to 0.13 not ruled out |
+| Gemini 3.5 Flash Lite | 0.56 → 0.53 | −0.02 [−0.10, +0.05] | 25% → 31% | 87% → 75% (−11) | 3 | not detected; a loss up to 0.10 not ruled out |
+| Perceptron mk1.5 | 0.51 → 0.51 | −0.00 [−0.05, +0.04] | 14% → 4% (−10) | 88% → 98% (+10) | 0 | not detected; a loss up to 0.05 not ruled out |
 
 Changes in brackets are those whose 95% interval excludes 0. A balanced accuracy of 0.5 is chance.
 
 **Reading.**
-- **Length does not change overall detection** for any grader, by the pre-registered verdict. Gemini 3.8
-  Flash comes nearest to a loss, with an interval reaching 0.
-- **Length makes graders say "yes" more.** Four of five clear fewer clean videos at four times the length,
-  by 11 to 30 points. The two strongest (Argon, Gemini 3.8 Flash) also catch more real errors. On a long
+- **Headline: on longer videos, graders report errors that are not there.** Four of five clear fewer
+  clean videos at four times the length, by 11 to 30 points, each interval excluding 0.
+- **Overall detection: no change was detected, but none is ruled out.** The pre-registered verdict is NO
+  DETECTABLE EFFECT for every grader. The floor shows a 0.125 loss in balanced accuracy is caught 84% of
+  the time. The intervals still allow losses of up to 0.13 (Gemini 3.8 Flash, Qwen) and 0.05-0.10 for the
+  others. Gemini 3.8 Flash's interval reaches 0. The two strongest (Argon, Gemini 3.8 Flash) also catch more real errors. On a long
   recording they report errors that are not there.
   - Either they read more footage as more chances for something to go wrong, or the joined recordings hold
     errors their labels missed. The extra recordings were chosen because their labels say the error did not
