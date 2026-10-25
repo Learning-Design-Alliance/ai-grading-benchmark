@@ -55,8 +55,10 @@ each probe is known in advance, so the probes need no new human labels.
   failed this check is not reported.
 - **Zero data retention** was required on every call, and since 2026-10-25 it is verified. The client
   reads OpenRouter's live list of zero-retention endpoints, pins each request to them, and refuses a model
-  with none. Before that check existed, Claude Fable 5.1's gradings and about half of Claude Haiku 5.5's
-  went to an endpoint that is not on that list. Fable 5.1 cannot currently be run under zero retention
+  with none. The one exception: Claude Fable 5.1's gradings and about half of Claude Haiku 5.5's went
+  through the maintainers' own Anthropic key, under its 30-day safety retention. Fable 5.1 cannot be run
+  under zero retention at all. The maintainer accepted this for public corpora with no student identities,
+  and did not loosen the zero-retention rule, which also governs studies of private data
   (`docs/CORRECTIONS.md`).
 - **Marks only.** Submissions hold marks, never text, and CI recomputes every number from the marks.
 

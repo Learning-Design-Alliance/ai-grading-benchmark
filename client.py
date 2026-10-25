@@ -21,9 +21,10 @@ Rules carried over from `shared/llm.py`, each learned on a real run:
   endpoints (`/api/v1/endpoints/zdr`). It refuses a model with none there, and pins every request to the
   listed endpoints (`provider.only`). A reply served by a provider outside the list is recorded as a failed
   grading. Why: on 2026-10-25 the benchmark found 5,500 Claude Fable 5.1 and 11,300 Claude Haiku 5.5
-  gradings served by Anthropic's own endpoint. It is not on that list today, and Anthropic's documentation
-  says Fable 5.1 requires 30-day retention unless Anthropic authorises otherwise. The `zdr` flag alone had
-  not been verified against the list. The pin is added when the request is sent, not to the cached body,
+  gradings served through the maintainers' own Anthropic key (bring-your-own-key), which carries 30-day
+  safety retention and is not on that list. Anthropic's documentation says Fable 5.1 requires 30-day
+  retention unless Anthropic authorises otherwise. The maintainer accepted that for public corpora; the
+  check stops it from happening unnoticed. The pin is added when the request is sent, not to the cached body,
   so cached replies are still found.
 
 Usage is read from the reply: prompt, completion and (where reported) reasoning tokens, and the
