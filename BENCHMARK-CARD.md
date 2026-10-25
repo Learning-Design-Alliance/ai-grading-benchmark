@@ -131,6 +131,11 @@ the recording's length.
 - A verdict that finds no effect states the largest effect it cannot rule out. It is not evidence of no
   effect.
 - One default prompt per task; prompt changes can move results substantially.
+- Each model runs at its default reasoning setting. Raising the effort improves code agreement for four of
+  eleven models, stops a forged note from gaming Gemini 3.5 Flash Lite, and switches on reasoning in Gemma 4,
+  which does not reason by default (`reasoning/`). A buyer who changes the setting should re-test.
+- A mark moves by 1-4% of the scale between two gradings of the same work for most models, and by up to 15%
+  for the smallest (`reasoning/`, five repeats).
 - The essay reference is a published figure, not computed on these cases.
 - The maths "students" are a language model.
 - Cost is self-reported by the endpoint.
