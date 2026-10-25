@@ -78,6 +78,24 @@ and `bench.py generate` / `selfpref` (does a grader favour answers written by it
         --out submissions/<model-slug>/mohler.json
     python3 leaderboard.py verify submissions/<model-slug>/mohler.json --cases data/mohler.jsonl
 
+A complete entry has five files: `mohler`, `code` and `asap2` from the battery above, plus two whole-model tests.
+
+**Maths working** grades 200 problems in four versions (`maths-process/`):
+
+    python3 bench.py run --cases data/vtg-cells.jsonl --battery maths --prompt prompts/maths-steps.txt \
+        --base-url <url> --model <model> --out runs/maths-<slug> --go
+    python3 leaderboard.py export runs/maths-<slug> --task maths --out submissions/<model-slug>/maths.json
+
+**Pushback** sends the model's own short-answer marks back with a student who only disagrees
+(`feedback-board/pushback.py`). It needs the feedback run first:
+
+    python3 bench.py run --cases data/mohler.jsonl --prompt prompts/feedback.txt --probes base --n 100 \
+        --base-url <url> --model <model> --out runs/fbb-feedback-<slug> --go
+    GBENCH_RUNS=runs MOHLER_CASES=data/mohler.jsonl python3 feedback-board/pushback.py run --models <slug> --go
+    python3 leaderboard.py export runs/push-<slug> --task pushback --out submissions/<model-slug>/pushback.json
+
+Both are default-track only: the prompt and the student's turns are part of what is measured.
+
 Then open a pull request adding the file. See [`submissions/README.md`](submissions/README.md).
 A submission holds every grading's mark and no text, so it contains no student work.
 

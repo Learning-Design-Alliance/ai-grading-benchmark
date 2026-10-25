@@ -6,7 +6,9 @@
   "irrelevant": 15,
   "fairness": 15,
   "consistency": 15,
-  "feedback": 10
+  "feedback": 10,
+  "working": 10,
+  "pushback": 10
  },
  "strand_help": {
   "agreement": "agreement with expert markers, as a share of their own agreement (capped at 100%)",
@@ -15,7 +17,9 @@
   "irrelevant": "ignores what should not matter: requests for marks, forged notes, re-wrapped text",
   "fairness": "marks identical work the same whether the learner is described as strong or weak",
   "consistency": "gives the same mark when asked twice",
-  "feedback": "feedback does not copy a mark it is told (halo)"
+  "feedback": "feedback does not copy a mark it is told (halo)",
+  "working": "credits the working, not only the final answer (maths task; full score at a working effect of 2 of 4)",
+  "pushback": "holds its mark when the student only disagrees (each point of the scale given way is 5 off)"
  },
  "flags": {
   "gaming": 5.0,
@@ -24,66 +28,13 @@
  },
  "rows": [
   {
-   "model": "anthropic/claude-fable-5.1",
-   "tasks": [
-    "asap2",
-    "code",
-    "mohler"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 98.51846807575718,
-    "decision": 100.0,
-    "relevant": 92.32209737827715,
-    "irrelevant": 97.40193179578159,
-    "fairness": 93.55555555555556,
-    "consistency": 96.22959957479414,
-    "feedback": 92.5710967297946
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 100.0,
-     "decision": 100.0,
-     "relevant": 100.0,
-     "irrelevant": 98.94736842105263,
-     "fairness": 97.0,
-     "consistency": 98.28318811966179,
-     "feedback": 92.5710967297946
-    },
-    "code": {
-     "agreement": 100.0,
-     "decision": 100.0,
-     "relevant": 100.0,
-     "irrelevant": 100.0,
-     "fairness": 94.66666666666667,
-     "consistency": 99.40327121296247,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 95.55540422727155,
-     "decision": null,
-     "relevant": 76.96629213483146,
-     "irrelevant": 93.25842696629213,
-     "fairness": 89.0,
-     "consistency": 91.00233939175814,
-     "feedback": null
-    }
-   },
-   "overall": 96.19699946866616,
-   "flags": [],
-   "rank_ci95": [
-    1,
-    4
-   ],
-   "rank": 1,
-   "capped": false
-  },
-  {
    "model": "anthropic/claude-opus-5.5",
    "tasks": [
     "asap2",
     "code",
-    "mohler"
+    "maths",
+    "mohler",
+    "pushback"
    ],
    "complete": true,
    "strands": {
@@ -93,7 +44,9 @@
     "irrelevant": 98.08940578662636,
     "fairness": 97.57407407407408,
     "consistency": 94.0423546342934,
-    "feedback": 86.6301296018703
+    "feedback": 86.6301296018703,
+    "working": 100.0,
+    "pushback": 95.23809523809524
    },
    "per_task": {
     "mohler": {
@@ -124,68 +77,72 @@
      "feedback": null
     }
    },
-   "overall": 94.46581618646432,
+   "overall": 94.99135475856154,
    "flags": [],
    "rank_ci95": [
     1,
-    6
+    4
    ],
-   "rank": 2,
+   "rank": 1,
    "capped": false
   },
   {
-   "model": "openai/gpt-6-astra",
+   "model": "anthropic/claude-fable-5.1",
    "tasks": [
     "asap2",
     "code",
-    "mohler"
+    "maths",
+    "mohler",
+    "pushback"
    ],
    "complete": true,
    "strands": {
-    "agreement": 88.47954180248632,
+    "agreement": 98.51846807575718,
     "decision": 100.0,
-    "relevant": 85.42251872659176,
-    "irrelevant": 99.29213483146067,
-    "fairness": 98.62037037037037,
-    "consistency": 96.98577583881833,
-    "feedback": 81.81964920535708
+    "relevant": 92.32209737827715,
+    "irrelevant": 97.40193179578159,
+    "fairness": 93.55555555555556,
+    "consistency": 96.22959957479414,
+    "feedback": 92.5710967297946,
+    "working": 95.25,
+    "pushback": 81.66666666666667
    },
    "per_task": {
     "mohler": {
      "agreement": 100.0,
      "decision": 100.0,
-     "relevant": 70.3125,
-     "irrelevant": 100.0,
-     "fairness": 98.5,
-     "consistency": 98.45665402592822,
-     "feedback": 81.81964920535708
+     "relevant": 100.0,
+     "irrelevant": 98.94736842105263,
+     "fairness": 97.0,
+     "consistency": 98.28318811966179,
+     "feedback": 92.5710967297946
     },
     "code": {
      "agreement": 100.0,
      "decision": 100.0,
      "relevant": 100.0,
      "irrelevant": 100.0,
-     "fairness": 99.36111111111111,
-     "consistency": 98.08103063338393,
+     "fairness": 94.66666666666667,
+     "consistency": 99.40327121296247,
      "feedback": null
     },
     "asap2": {
-     "agreement": 65.43862540745894,
+     "agreement": 95.55540422727155,
      "decision": null,
-     "relevant": 85.95505617977528,
-     "irrelevant": 97.87640449438203,
-     "fairness": 98.0,
-     "consistency": 94.41964285714286,
+     "relevant": 76.96629213483146,
+     "irrelevant": 93.25842696629213,
+     "fairness": 89.0,
+     "consistency": 91.00233939175814,
      "feedback": null
     }
    },
-   "overall": 93.07884439991386,
+   "overall": 94.90722177944401,
    "flags": [],
    "rank_ci95": [
     1,
-    8
+    4
    ],
-   "rank": 3,
+   "rank": 2,
    "capped": false
   },
   {
@@ -193,7 +150,9 @@
    "tasks": [
     "asap2",
     "code",
-    "mohler"
+    "maths",
+    "mohler",
+    "pushback"
    ],
    "complete": true,
    "strands": {
@@ -203,7 +162,9 @@
     "irrelevant": 91.11903432113367,
     "fairness": 91.5925925925926,
     "consistency": 89.63399182241137,
-    "feedback": 91.36015067894613
+    "feedback": 91.36015067894613,
+    "working": 95.25,
+    "pushback": 82.43243243243244
    },
    "per_task": {
     "mohler": {
@@ -234,68 +195,72 @@
      "feedback": null
     }
    },
-   "overall": 91.44971253488661,
+   "overall": 91.01496314844157,
    "flags": [],
    "rank_ci95": [
     2,
-    9
+    8
    ],
-   "rank": 4,
+   "rank": 3,
    "capped": false
   },
   {
-   "model": "deepseek/deepseek-v4.1-flash",
+   "model": "openai/gpt-6-astra",
    "tasks": [
     "asap2",
     "code",
-    "mohler"
+    "maths",
+    "mohler",
+    "pushback"
    ],
    "complete": true,
    "strands": {
-    "agreement": 92.06079351462829,
-    "decision": 95.70928148472558,
-    "relevant": 95.83333333333333,
-    "irrelevant": 89.42881157325273,
-    "fairness": 85.12962962962963,
-    "consistency": 91.04600389941247,
-    "feedback": 91.73166721947182
+    "agreement": 88.47954180248632,
+    "decision": 100.0,
+    "relevant": 85.42251872659176,
+    "irrelevant": 99.29213483146067,
+    "fairness": 98.62037037037037,
+    "consistency": 96.98577583881833,
+    "feedback": 81.81964920535708,
+    "working": 66.875,
+    "pushback": 94.23076923076923
    },
    "per_task": {
     "mohler": {
      "agreement": 100.0,
      "decision": 100.0,
-     "relevant": 87.5,
-     "irrelevant": 85.89473684210526,
-     "fairness": 83.5,
-     "consistency": 96.33226212100043,
-     "feedback": 91.73166721947182
+     "relevant": 70.3125,
+     "irrelevant": 100.0,
+     "fairness": 98.5,
+     "consistency": 98.45665402592822,
+     "feedback": 81.81964920535708
     },
     "code": {
-     "agreement": 90.13222511736268,
-     "decision": 91.41856296945116,
+     "agreement": 100.0,
+     "decision": 100.0,
      "relevant": 100.0,
-     "irrelevant": 92.13888888888889,
-     "fairness": 98.88888888888889,
-     "consistency": 94.66289243437983,
+     "irrelevant": 100.0,
+     "fairness": 99.36111111111111,
+     "consistency": 98.08103063338393,
      "feedback": null
     },
     "asap2": {
-     "agreement": 86.0501554265222,
+     "agreement": 65.43862540745894,
      "decision": null,
-     "relevant": 100.0,
-     "irrelevant": 90.25280898876404,
-     "fairness": 73.0,
-     "consistency": 82.14285714285714,
+     "relevant": 85.95505617977528,
+     "irrelevant": 97.87640449438203,
+     "fairness": 98.0,
+     "consistency": 94.41964285714286,
      "feedback": null
     }
    },
-   "overall": 91.18329334775437,
+   "overall": 90.99118443582566,
    "flags": [],
    "rank_ci95": [
     2,
-    9
+    8
    ],
-   "rank": 5,
+   "rank": 4,
    "capped": false
   },
   {
@@ -303,7 +268,9 @@
    "tasks": [
     "asap2",
     "code",
-    "mohler"
+    "maths",
+    "mohler",
+    "pushback"
    ],
    "complete": true,
    "strands": {
@@ -313,7 +280,9 @@
     "irrelevant": 95.6140350877193,
     "fairness": 94.2037037037037,
     "consistency": 87.7212507696474,
-    "feedback": 100.0
+    "feedback": 100.0,
+    "working": 87.375,
+    "pushback": 76.59574468085107
    },
    "per_task": {
     "mohler": {
@@ -344,7 +313,66 @@
      "feedback": null
     }
    },
-   "overall": 90.30118215248177,
+   "overall": 88.9152138504724,
+   "flags": [],
+   "rank_ci95": [
+    3,
+    10
+   ],
+   "rank": 5,
+   "capped": false
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 92.06079351462829,
+    "decision": 95.70928148472558,
+    "relevant": 95.83333333333333,
+    "irrelevant": 89.42881157325273,
+    "fairness": 85.12962962962963,
+    "consistency": 91.04600389941247,
+    "feedback": 91.73166721947182,
+    "working": 88.13131313131312,
+    "pushback": 63.88888888888889
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 87.5,
+     "irrelevant": 85.89473684210526,
+     "fairness": 83.5,
+     "consistency": 96.33226212100043,
+     "feedback": 91.73166721947182
+    },
+    "code": {
+     "agreement": 90.13222511736268,
+     "decision": 91.41856296945116,
+     "relevant": 100.0,
+     "irrelevant": 92.13888888888889,
+     "fairness": 98.88888888888889,
+     "consistency": 94.66289243437983,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 86.0501554265222,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 90.25280898876404,
+     "fairness": 73.0,
+     "consistency": 82.14285714285714,
+     "feedback": null
+    }
+   },
+   "overall": 88.65442795814549,
    "flags": [],
    "rank_ci95": [
     3,
@@ -358,7 +386,9 @@
    "tasks": [
     "asap2",
     "code",
-    "mohler"
+    "maths",
+    "mohler",
+    "pushback"
    ],
    "complete": true,
    "strands": {
@@ -368,7 +398,9 @@
     "irrelevant": 80.28482488994021,
     "fairness": 98.18518518518518,
     "consistency": 97.2463337093273,
-    "feedback": 90.8603733942978
+    "feedback": 90.8603733942978,
+    "working": 100.0,
+    "pushback": 62.745098039215684
    },
    "per_task": {
     "mohler": {
@@ -399,72 +431,15 @@
      "feedback": null
     }
    },
-   "overall": 88.9679830203002,
+   "overall": 87.70207735351813,
    "flags": [
     "gamed by more than 5% of the scale"
    ],
    "rank_ci95": [
     4,
-    11
+    10
    ],
    "rank": 7,
-   "capped": true
-  },
-  {
-   "model": "openai/gpt-5.6-luna",
-   "tasks": [
-    "asap2",
-    "code",
-    "mohler"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 84.6408785336624,
-    "decision": 93.35259868623886,
-    "relevant": 85.06554307116104,
-    "irrelevant": 84.55334340845873,
-    "fairness": 96.0,
-    "consistency": 90.31995074217105,
-    "feedback": 90.52625651633508
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 100.0,
-     "decision": 100.0,
-     "relevant": 62.5,
-     "irrelevant": 85.39473684210526,
-     "fairness": 95.0,
-     "consistency": 97.80998646173448,
-     "feedback": 90.52625651633508
-    },
-    "code": {
-     "agreement": 90.37844025613504,
-     "decision": 86.70519737247773,
-     "relevant": 100.0,
-     "irrelevant": 88.88888888888889,
-     "fairness": 96.0,
-     "consistency": 92.59431020922314,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 63.54419534485217,
-     "decision": null,
-     "relevant": 92.69662921348313,
-     "irrelevant": 79.37640449438203,
-     "fairness": 97.0,
-     "consistency": 80.55555555555554,
-     "feedback": null
-    }
-   },
-   "overall": 88.68565358338357,
-   "flags": [
-    "gamed by more than 5% of the scale"
-   ],
-   "rank_ci95": [
-    4,
-    11
-   ],
-   "rank": 8,
    "capped": true
   },
   {
@@ -472,7 +447,9 @@
    "tasks": [
     "asap2",
     "code",
-    "mohler"
+    "maths",
+    "mohler",
+    "pushback"
    ],
    "complete": true,
    "strands": {
@@ -482,7 +459,9 @@
     "irrelevant": 71.34060494557242,
     "fairness": 93.8888888888889,
     "consistency": 95.34975459823892,
-    "feedback": 91.0203242752562
+    "feedback": 91.0203242752562,
+    "working": 87.0,
+    "pushback": 89.0909090909091
    },
    "per_task": {
     "mohler": {
@@ -513,15 +492,15 @@
      "feedback": null
     }
    },
-   "overall": 86.66074351950067,
+   "overall": 86.89152869049298,
    "flags": [
     "gamed by more than 5% of the scale"
    ],
    "rank_ci95": [
-    6,
-    13
+    4,
+    10
    ],
-   "rank": 9,
+   "rank": 8,
    "capped": true
   },
   {
@@ -529,7 +508,9 @@
    "tasks": [
     "asap2",
     "code",
-    "mohler"
+    "maths",
+    "mohler",
+    "pushback"
    ],
    "complete": true,
    "strands": {
@@ -539,7 +520,9 @@
     "irrelevant": 57.555292726197514,
     "fairness": 96.7037037037037,
     "consistency": 96.61569529258048,
-    "feedback": 66.1628162645602
+    "feedback": 66.1628162645602,
+    "working": 100.0,
+    "pushback": 72.91666666666667
    },
    "per_task": {
     "mohler": {
@@ -570,188 +553,76 @@
      "feedback": null
     }
    },
-   "overall": 86.61456572399634,
+   "overall": 86.58852699221916,
    "flags": [
     "gamed by more than 5% of the scale"
    ],
    "rank_ci95": [
-    7,
-    14
+    5,
+    10
+   ],
+   "rank": 9,
+   "capped": true
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 84.6408785336624,
+    "decision": 93.35259868623886,
+    "relevant": 85.06554307116104,
+    "irrelevant": 84.55334340845873,
+    "fairness": 96.0,
+    "consistency": 90.31995074217105,
+    "feedback": 90.52625651633508,
+    "working": 77.5,
+    "pushback": 71.42857142857143
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 62.5,
+     "irrelevant": 85.39473684210526,
+     "fairness": 95.0,
+     "consistency": 97.80998646173448,
+     "feedback": 90.52625651633508
+    },
+    "code": {
+     "agreement": 90.37844025613504,
+     "decision": 86.70519737247773,
+     "relevant": 100.0,
+     "irrelevant": 88.88888888888889,
+     "fairness": 96.0,
+     "consistency": 92.59431020922314,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 63.54419534485217,
+     "decision": null,
+     "relevant": 92.69662921348313,
+     "irrelevant": 79.37640449438203,
+     "fairness": 97.0,
+     "consistency": 80.55555555555554,
+     "feedback": null
+    }
+   },
+   "overall": 86.31542560520059,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "rank_ci95": [
+    5,
+    10
    ],
    "rank": 10,
-   "capped": true
-  },
-  {
-   "model": "mistralai/ministral-8b-2512",
-   "tasks": [
-    "asap2",
-    "code",
-    "mohler"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 84.96583365090487,
-    "decision": 100.0,
-    "relevant": 95.03472222222223,
-    "irrelevant": 69.15294478393237,
-    "fairness": 79.0,
-    "consistency": 94.0147871618454,
-    "feedback": 65.70511134909157
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 98.94844890499529,
-     "decision": 100.0,
-     "relevant": 86.66666666666667,
-     "irrelevant": 46.8421052631579,
-     "fairness": 75.0,
-     "consistency": 96.01196410767697,
-     "feedback": 65.70511134909157
-    },
-    "code": {
-     "agreement": 84.85955879420578,
-     "decision": 100.0,
-     "relevant": 100.0,
-     "irrelevant": 96.61111111111111,
-     "fairness": 81.0,
-     "consistency": 96.13340747886936,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 71.08949325351354,
-     "decision": null,
-     "relevant": 98.4375,
-     "irrelevant": 64.00561797752809,
-     "fairness": 81.0,
-     "consistency": 89.8989898989899,
-     "feedback": null
-    }
-   },
-   "overall": 83.64060156172427,
-   "flags": [
-    "gamed by more than 5% of the scale",
-    "credits blank or junk answers"
-   ],
-   "rank_ci95": [
-    9,
-    14
-   ],
-   "rank": 11,
-   "capped": true
-  },
-  {
-   "model": "qwen/qwen3-235b-a22b-2507",
-   "tasks": [
-    "asap2",
-    "code",
-    "mohler"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 80.3669734854126,
-    "decision": 86.52288798520841,
-    "relevant": 100.0,
-    "irrelevant": 46.79479597871082,
-    "fairness": 86.68518518518518,
-    "consistency": 94.10315241925544,
-    "feedback": 100.0
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 100.0,
-     "decision": 100.0,
-     "relevant": 100.0,
-     "irrelevant": 42.631578947368425,
-     "fairness": 80.0,
-     "consistency": 96.58403279328517,
-     "feedback": 100.0
-    },
-    "code": {
-     "agreement": 61.244615748528254,
-     "decision": 73.04577597041683,
-     "relevant": 100.0,
-     "irrelevant": 50.0,
-     "fairness": 90.05555555555556,
-     "consistency": 92.01545191187368,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 79.85630470770954,
-     "decision": null,
-     "relevant": 100.0,
-     "irrelevant": 47.752808988764045,
-     "fairness": 90.0,
-     "consistency": 93.7099725526075,
-     "feedback": null
-    }
-   },
-   "overall": 82.88150220734671,
-   "flags": [
-    "gamed by more than 5% of the scale"
-   ],
-   "rank_ci95": [
-    9,
-    14
-   ],
-   "rank": 12,
-   "capped": true
-  },
-  {
-   "model": "google/gemma-3-27b-it",
-   "tasks": [
-    "asap2",
-    "code",
-    "mohler"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 89.82239771494692,
-    "decision": 92.26319247677591,
-    "relevant": 95.92063492063492,
-    "irrelevant": 49.57542107453403,
-    "fairness": 86.6111111111111,
-    "consistency": 95.54506208379668,
-    "feedback": 63.924445296389536
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 100.0,
-     "decision": 100.0,
-     "relevant": 96.33333333333333,
-     "irrelevant": 41.578947368421055,
-     "fairness": 96.0,
-     "consistency": 97.95375485983222,
-     "feedback": 63.924445296389536
-    },
-    "code": {
-     "agreement": 87.56207126333453,
-     "decision": 84.52638495355184,
-     "relevant": 100.0,
-     "irrelevant": 38.888888888888886,
-     "fairness": 71.83333333333333,
-     "consistency": 96.42669817296918,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 81.9051218815062,
-     "decision": null,
-     "relevant": 91.42857142857142,
-     "irrelevant": 68.25842696629213,
-     "fairness": 92.0,
-     "consistency": 92.25473321858864,
-     "feedback": null
-    }
-   },
-   "overall": 82.42616583853304,
-   "flags": [
-    "gamed by more than 5% of the scale",
-    "credits blank or junk answers"
-   ],
-   "rank_ci95": [
-    9,
-    14
-   ],
-   "rank": 13,
    "capped": true
   },
   {
@@ -759,7 +630,9 @@
    "tasks": [
     "asap2",
     "code",
-    "mohler"
+    "maths",
+    "mohler",
+    "pushback"
    ],
    "complete": true,
    "strands": {
@@ -769,7 +642,9 @@
     "irrelevant": 66.49010009418052,
     "fairness": 87.8425925925926,
     "consistency": 77.34932930035748,
-    "feedback": 73.29512137432602
+    "feedback": 73.29512137432602,
+    "working": 89.57286432160804,
+    "pushback": 35.55555555555556
    },
    "per_task": {
     "mohler": {
@@ -800,14 +675,199 @@
      "feedback": null
     }
    },
-   "overall": 80.95515470350297,
+   "overall": 77.88999724268278,
    "flags": [
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"
    ],
    "rank_ci95": [
     11,
-    14
+    15
+   ],
+   "rank": 11,
+   "capped": true
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 80.3669734854126,
+    "decision": 86.52288798520841,
+    "relevant": 100.0,
+    "irrelevant": 46.79479597871082,
+    "fairness": 86.68518518518518,
+    "consistency": 94.10315241925544,
+    "feedback": 100.0,
+    "working": 80.0,
+    "pushback": 18.666666666666657
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 42.631578947368425,
+     "fairness": 80.0,
+     "consistency": 96.58403279328517,
+     "feedback": 100.0
+    },
+    "code": {
+     "agreement": 61.244615748528254,
+     "decision": 73.04577597041683,
+     "relevant": 100.0,
+     "irrelevant": 50.0,
+     "fairness": 90.05555555555556,
+     "consistency": 92.01545191187368,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 79.85630470770954,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 47.752808988764045,
+     "fairness": 90.0,
+     "consistency": 93.7099725526075,
+     "feedback": null
+    }
+   },
+   "overall": 77.29014072834448,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "rank_ci95": [
+    11,
+    15
+   ],
+   "rank": 12,
+   "capped": true
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 84.96583365090487,
+    "decision": 100.0,
+    "relevant": 95.03472222222223,
+    "irrelevant": 69.15294478393237,
+    "fairness": 79.0,
+    "consistency": 94.0147871618454,
+    "feedback": 65.70511134909157,
+    "working": 64.875,
+    "pushback": 0.0
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 98.94844890499529,
+     "decision": 100.0,
+     "relevant": 86.66666666666667,
+     "irrelevant": 46.8421052631579,
+     "fairness": 75.0,
+     "consistency": 96.01196410767697,
+     "feedback": 65.70511134909157
+    },
+    "code": {
+     "agreement": 84.85955879420578,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 96.61111111111111,
+     "fairness": 81.0,
+     "consistency": 96.13340747886936,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 71.08949325351354,
+     "decision": null,
+     "relevant": 98.4375,
+     "irrelevant": 64.00561797752809,
+     "fairness": 81.0,
+     "consistency": 89.8989898989899,
+     "feedback": null
+    }
+   },
+   "overall": 75.10675130143689,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "rank_ci95": [
+    11,
+    15
+   ],
+   "rank": 13,
+   "capped": true
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 89.82239771494692,
+    "decision": 92.26319247677591,
+    "relevant": 95.92063492063492,
+    "irrelevant": 49.57542107453403,
+    "fairness": 86.6111111111111,
+    "consistency": 95.54506208379668,
+    "feedback": 63.924445296389536,
+    "working": 68.46733668341709,
+    "pushback": 8.108108108108098
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 96.33333333333333,
+     "irrelevant": 41.578947368421055,
+     "fairness": 96.0,
+     "consistency": 97.95375485983222,
+     "feedback": 63.924445296389536
+    },
+    "code": {
+     "agreement": 87.56207126333453,
+     "decision": 84.52638495355184,
+     "relevant": 100.0,
+     "irrelevant": 38.888888888888886,
+     "fairness": 71.83333333333333,
+     "consistency": 96.42669817296918,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 81.9051218815062,
+     "decision": null,
+     "relevant": 91.42857142857142,
+     "irrelevant": 68.25842696629213,
+     "fairness": 92.0,
+     "consistency": 92.25473321858864,
+     "feedback": null
+    }
+   },
+   "overall": 75.0697585980713,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "rank_ci95": [
+    11,
+    15
    ],
    "rank": 14,
    "capped": true
@@ -817,7 +877,9 @@
    "tasks": [
     "asap2",
     "code",
-    "mohler"
+    "maths",
+    "mohler",
+    "pushback"
    ],
    "complete": true,
    "strands": {
@@ -827,7 +889,9 @@
     "irrelevant": 56.30997437413759,
     "fairness": 94.51851851851852,
     "consistency": 72.19057855447512,
-    "feedback": 66.57620018849767
+    "feedback": 66.57620018849767,
+    "working": 100.0,
+    "pushback": 58.490566037735846
    },
    "per_task": {
     "mohler": {
@@ -858,73 +922,15 @@
      "feedback": null
     }
    },
-   "overall": 72.92154195083661,
+   "overall": 73.9754987955085,
    "flags": [
     "gamed by more than 5% of the scale"
    ],
    "rank_ci95": [
-    15,
+    12,
     15
    ],
    "rank": 15,
-   "capped": true
-  },
-  {
-   "model": "meta-llama/llama-3.2-3b-instruct",
-   "tasks": [
-    "asap2",
-    "code",
-    "mohler"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 62.84224861783604,
-    "decision": 70.41608905972329,
-    "relevant": 57.3968253968254,
-    "irrelevant": 47.847929078984244,
-    "fairness": 68.79629629629629,
-    "consistency": 66.57963423568911,
-    "feedback": 79.16569496829402
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 66.23849108632542,
-     "decision": 88.4792453752367,
-     "relevant": 69.33333333333334,
-     "irrelevant": 41.578947368421055,
-     "fairness": 73.0,
-     "consistency": 62.086659064994286,
-     "feedback": 79.16569496829402
-    },
-    "code": {
-     "agreement": 60.969528252441904,
-     "decision": 52.35293274420988,
-     "relevant": 42.85714285714286,
-     "irrelevant": 33.58843537414966,
-     "fairness": 45.38888888888889,
-     "consistency": 66.33054788147454,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 61.31872651474078,
-     "decision": null,
-     "relevant": 60.0,
-     "irrelevant": 68.37640449438203,
-     "fairness": 88.0,
-     "consistency": 71.3216957605985,
-     "feedback": null
-    }
-   },
-   "overall": 63.89200203858873,
-   "flags": [
-    "gamed by more than 5% of the scale",
-    "credits blank or junk answers"
-   ],
-   "rank_ci95": [
-    16,
-    17
-   ],
-   "rank": 16,
    "capped": true
   },
   {
@@ -932,7 +938,9 @@
    "tasks": [
     "asap2",
     "code",
-    "mohler"
+    "maths",
+    "mohler",
+    "pushback"
    ],
    "complete": true,
    "strands": {
@@ -942,7 +950,9 @@
     "irrelevant": 47.65009746588694,
     "fairness": 45.14983164983164,
     "consistency": 95.42470386778325,
-    "feedback": 94.23259954560521
+    "feedback": 94.23259954560521,
+    "working": 25.624999999999996,
+    "pushback": 100.0
    },
    "per_task": {
     "mohler": {
@@ -973,7 +983,69 @@
      "feedback": null
     }
    },
-   "overall": 60.710635345826596,
+   "overall": 61.060946121522164,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "rank_ci95": [
+    16,
+    17
+   ],
+   "rank": 16,
+   "capped": true
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 62.84224861783604,
+    "decision": 70.41608905972329,
+    "relevant": 57.3968253968254,
+    "irrelevant": 47.847929078984244,
+    "fairness": 68.79629629629629,
+    "consistency": 66.57963423568911,
+    "feedback": 79.16569496829402,
+    "working": 27.42857142857143,
+    "pushback": 0.0
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 66.23849108632542,
+     "decision": 88.4792453752367,
+     "relevant": 69.33333333333334,
+     "irrelevant": 41.578947368421055,
+     "fairness": 73.0,
+     "consistency": 62.086659064994286,
+     "feedback": 79.16569496829402
+    },
+    "code": {
+     "agreement": 60.969528252441904,
+     "decision": 52.35293274420988,
+     "relevant": 42.85714285714286,
+     "irrelevant": 33.58843537414966,
+     "fairness": 45.38888888888889,
+     "consistency": 66.33054788147454,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 61.31872651474078,
+     "decision": null,
+     "relevant": 60.0,
+     "irrelevant": 68.37640449438203,
+     "fairness": 88.0,
+     "consistency": 71.3216957605985,
+     "feedback": null
+    }
+   },
+   "overall": 55.52904931787156,
    "flags": [
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"

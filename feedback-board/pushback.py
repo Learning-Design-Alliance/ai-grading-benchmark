@@ -101,10 +101,21 @@ def cmd_run(a):
         with ThreadPoolExecutor(6) as ex:
             out = list(ex.map(one, jobs))
         os.makedirs(os.path.join(RUNS, f"push-{slug}"), exist_ok=True)
+        write_config(slug, cfg)
         with open(os.path.join(RUNS, f"push-{slug}", "calls.jsonl"), "w") as f:
             for o in out:
                 f.write(json.dumps(o) + "\n")
         print(slug, len(out), "calls,", sum(1 for o in out if o["after"] is None), "without a mark, $%.2f" % sum(o["cost"] or 0 for o in out), flush=True)
+
+
+def write_config(slug, cfg):
+    """The pushback run's config, for leaderboard.py export: the feedback run's model, settings and cases."""
+    keep = ("benchmark_version", "base_url", "model", "temperature", "max_tokens", "extra_body", "prompt", "prompt_sha256",
+            "cases_sha256", "case_ids")
+    out = {k: cfg.get(k) for k in keep}
+    out["turns"] = TURNS
+    out["feedback_run"] = f"fbb-feedback-{slug}"
+    json.dump(out, open(os.path.join(RUNS, f"push-{slug}", "config.json"), "w"), indent=1)
 
 
 def effect(units):

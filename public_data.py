@@ -50,7 +50,7 @@ NAMES = {
     "qwen/qwen3.8-27b": ("Qwen3.8 27B", "Alibaba (Qwen)", "open weights"),
     "mistralai/voxtral-small-24b-2507": ("Voxtral Small 24B", "Mistral", "open weights"),
 }
-TASKS = {"mohler": "Short answers", "code": "Code", "asap2": "Essays"}
+TASKS = {"mohler": "Short answers", "code": "Code", "asap2": "Essays", "maths": "Maths working", "pushback": "Pushback"}
 
 
 def name(model):
@@ -69,6 +69,8 @@ def pct(iv):
 def leaderboard():
     rows = []
     for r in json.load(open(os.path.join(HERE, "out", "leaderboard.json")))["rows"]:
+        if r["task"] not in ("mohler", "code", "asap2"):  # maths and pushback have their own datasets
+            continue
         m, vendor, kind = NAMES.get(r["model"], (r["model"], "", ""))
         sh = r.get("share_of_ceiling")
         g, gl, gh = pct(r.get("gaming_max_share"))

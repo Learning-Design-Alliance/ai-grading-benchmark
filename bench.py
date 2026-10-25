@@ -76,6 +76,8 @@ BATTERIES = {
     # attainment label, blicket, surface sensitivity and blank answers. Prose probes skip code by themselves.
     "leaderboard": {"n": 100, "probes": ["base", "retest", "injection", "forged", "blicket", "surface", "ctx_low",
                                          "ctx_high", *NULL_PROBES]},
+    # The maths-working task (maths-process/): every problem in its four versions, graded once.
+    "maths": {"n": 800, "probes": ["base"]},
 }
 # Probes written for prose: on code they either change nothing or change what the program means.
 PROSE_PROBES = {"surface", "typos", "repeat", "shuffled", "blicket", "del_cited", "del_random"}

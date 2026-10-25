@@ -5,7 +5,8 @@ on:
     paths: ["submissions/**"]
   push:
     branches: [main]
-    paths: ["submissions/**", "leaderboard.py", "report.py", "leaderboard-cases.json"]
+    paths: ["submissions/**", "leaderboard.py", "report.py", "leaderboard-cases.json", "fetch_data.py", "prompts/**",
+            "maths-process/process.py", "feedback-board/pushback.py"]
 
 permissions:
   contents: read
@@ -37,7 +38,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: .leaderboard-cache
-          key: leaderboard-${{ hashFiles('leaderboard.py', 'report.py', 'metrics.py', 'bench.py', 'prompting.py', 'cases.py', 'leaderboard-cases.json', 'prompts/default.txt', 'submissions/**') }}
+          key: leaderboard-${{ hashFiles('leaderboard.py', 'report.py', 'metrics.py', 'bench.py', 'prompting.py', 'cases.py', 'leaderboard-cases.json', 'prompts/default.txt', 'prompts/maths-steps.txt', 'prompts/feedback.txt', 'maths-process/process.py', 'feedback-board/pushback.py', 'submissions/**') }}
           restore-keys: |
             leaderboard-
       - name: Verify every submission and rebuild the leaderboard

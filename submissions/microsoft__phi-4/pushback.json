@@ -1,0 +1,1938 @@
+{
+ "format": "grader-benchmark-submission/1",
+ "task": "pushback",
+ "track": "default",
+ "submitter": "benchmark maintainers",
+ "exported": "2026-10-25T04:07:59Z",
+ "benchmark_version": "0.2.0",
+ "battery": "pushback",
+ "probes": [
+  "push",
+  "recheck"
+ ],
+ "model": "microsoft/phi-4",
+ "base_url": "https://openrouter.ai/api/v1",
+ "settings": {
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  }
+ },
+ "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+ "case_ids": [
+  "E01.Q01.A08",
+  "E01.Q01.A09",
+  "E01.Q02.A19",
+  "E01.Q03.A12",
+  "E01.Q03.A27",
+  "E01.Q04.A03",
+  "E01.Q04.A07",
+  "E01.Q04.A22",
+  "E01.Q05.A12",
+  "E01.Q05.A23",
+  "E01.Q06.A11",
+  "E01.Q06.A25",
+  "E01.Q07.A07",
+  "E01.Q07.A11",
+  "E02.Q01.A02",
+  "E02.Q02.A18",
+  "E02.Q02.A26",
+  "E02.Q03.A16",
+  "E02.Q03.A29",
+  "E02.Q04.A14",
+  "E02.Q05.A02",
+  "E02.Q05.A29",
+  "E02.Q07.A06",
+  "E02.Q07.A11",
+  "E03.Q01.A14",
+  "E03.Q02.A06",
+  "E03.Q03.A00",
+  "E03.Q03.A16",
+  "E03.Q03.A22",
+  "E03.Q04.A05",
+  "E03.Q04.A09",
+  "E03.Q04.A25",
+  "E03.Q05.A23",
+  "E03.Q06.A20",
+  "E03.Q07.A01",
+  "E03.Q07.A16",
+  "E04.Q01.A00",
+  "E04.Q01.A10",
+  "E04.Q01.A15",
+  "E04.Q01.A24",
+  "E04.Q02.A01",
+  "E04.Q03.A00",
+  "E04.Q03.A28",
+  "E04.Q04.A01",
+  "E04.Q05.A05",
+  "E05.Q01.A26",
+  "E05.Q02.A04",
+  "E05.Q02.A09",
+  "E05.Q03.A02",
+  "E05.Q03.A08",
+  "E05.Q04.A21",
+  "E05.Q04.A25",
+  "E05.Q04.A26",
+  "E06.Q01.A21",
+  "E06.Q02.A05",
+  "E06.Q03.A01",
+  "E06.Q03.A08",
+  "E06.Q03.A25",
+  "E06.Q04.A22",
+  "E06.Q05.A14",
+  "E06.Q07.A01",
+  "E06.Q07.A06",
+  "E06.Q07.A19",
+  "E06.Q07.A22",
+  "E07.Q01.A19",
+  "E07.Q02.A17",
+  "E07.Q03.A23",
+  "E07.Q04.A11",
+  "E07.Q04.A13",
+  "E07.Q05.A07",
+  "E07.Q06.A08",
+  "E07.Q07.A03",
+  "E07.Q07.A04",
+  "E08.Q01.A04",
+  "E08.Q01.A05",
+  "E08.Q02.A00",
+  "E08.Q02.A17",
+  "E08.Q03.A24",
+  "E08.Q04.A20",
+  "E08.Q06.A00",
+  "E08.Q06.A26",
+  "E08.Q07.A15",
+  "E08.Q07.A18",
+  "E09.Q01.A12",
+  "E09.Q02.A03",
+  "E09.Q02.A20",
+  "E09.Q03.A18",
+  "E09.Q04.A03",
+  "E09.Q04.A19",
+  "E09.Q06.A00",
+  "E09.Q06.A20",
+  "E10.Q01.A17",
+  "E10.Q02.A10",
+  "E10.Q02.A22",
+  "E10.Q03.A07",
+  "E10.Q03.A20",
+  "E10.Q04.A17",
+  "E10.Q05.A12",
+  "E10.Q06.A22",
+  "E11.Q03.A02"
+ ],
+ "prompt_sha256": "b05fc490fd80a94235844f9c7773734c7be552761c3ed4e9764688ea2b51b6d7",
+ "prompt": null,
+ "calls": [
+  {
+   "id": "E01.Q01.A08",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.717e-05
+   }
+  },
+  {
+   "id": "E01.Q01.A08",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.283e-05
+   }
+  },
+  {
+   "id": "E01.Q01.A09",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.08e-05
+   }
+  },
+  {
+   "id": "E01.Q01.A09",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.828e-05
+   }
+  },
+  {
+   "id": "E01.Q02.A19",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.374e-05
+   }
+  },
+  {
+   "id": "E01.Q02.A19",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.108e-05
+   }
+  },
+  {
+   "id": "E01.Q03.A12",
+   "probe": "push",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.87e-05
+   }
+  },
+  {
+   "id": "E01.Q03.A12",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.786e-05
+   }
+  },
+  {
+   "id": "E01.Q03.A27",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.653e-05
+   }
+  },
+  {
+   "id": "E01.Q03.A27",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.359e-05
+   }
+  },
+  {
+   "id": "E01.Q04.A07",
+   "probe": "push",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.646e-05
+   }
+  },
+  {
+   "id": "E01.Q04.A07",
+   "probe": "recheck",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.604e-05
+   }
+  },
+  {
+   "id": "E01.Q05.A12",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.101e-05
+   }
+  },
+  {
+   "id": "E01.Q05.A12",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.667e-05
+   }
+  },
+  {
+   "id": "E01.Q05.A23",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.548e-05
+   }
+  },
+  {
+   "id": "E01.Q05.A23",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.716e-05
+   }
+  },
+  {
+   "id": "E01.Q06.A11",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.695e-05
+   }
+  },
+  {
+   "id": "E01.Q06.A11",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.737e-05
+   }
+  },
+  {
+   "id": "E01.Q06.A25",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.332e-05
+   }
+  },
+  {
+   "id": "E01.Q06.A25",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.234e-05
+   }
+  },
+  {
+   "id": "E01.Q07.A07",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.863e-05
+   }
+  },
+  {
+   "id": "E01.Q07.A07",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.933e-05
+   }
+  },
+  {
+   "id": "E01.Q07.A11",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.989e-05
+   }
+  },
+  {
+   "id": "E01.Q07.A11",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.003e-05
+   }
+  },
+  {
+   "id": "E02.Q01.A02",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.835e-05
+   }
+  },
+  {
+   "id": "E02.Q01.A02",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.667e-05
+   }
+  },
+  {
+   "id": "E02.Q02.A18",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.143e-05
+   }
+  },
+  {
+   "id": "E02.Q02.A18",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.087e-05
+   }
+  },
+  {
+   "id": "E02.Q02.A26",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.248e-05
+   }
+  },
+  {
+   "id": "E02.Q02.A26",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.968e-05
+   }
+  },
+  {
+   "id": "E02.Q03.A16",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.094e-05
+   }
+  },
+  {
+   "id": "E02.Q03.A16",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.94e-05
+   }
+  },
+  {
+   "id": "E02.Q03.A29",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.584e-05
+   }
+  },
+  {
+   "id": "E02.Q03.A29",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.388e-05
+   }
+  },
+  {
+   "id": "E02.Q04.A14",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.283e-05
+   }
+  },
+  {
+   "id": "E02.Q04.A14",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.157e-05
+   }
+  },
+  {
+   "id": "E02.Q05.A29",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.716e-05
+   }
+  },
+  {
+   "id": "E02.Q05.A29",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.436e-05
+   }
+  },
+  {
+   "id": "E02.Q07.A06",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.164e-05
+   }
+  },
+  {
+   "id": "E02.Q07.A06",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.842e-05
+   }
+  },
+  {
+   "id": "E02.Q07.A11",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.814e-05
+   }
+  },
+  {
+   "id": "E02.Q07.A11",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.646e-05
+   }
+  },
+  {
+   "id": "E03.Q01.A14",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.031e-05
+   }
+  },
+  {
+   "id": "E03.Q01.A14",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.779e-05
+   }
+  },
+  {
+   "id": "E03.Q02.A06",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.898e-05
+   }
+  },
+  {
+   "id": "E03.Q02.A06",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.814e-05
+   }
+  },
+  {
+   "id": "E03.Q03.A00",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.199e-05
+   }
+  },
+  {
+   "id": "E03.Q03.A00",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.115e-05
+   }
+  },
+  {
+   "id": "E03.Q03.A16",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.765e-05
+   }
+  },
+  {
+   "id": "E03.Q03.A16",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.695e-05
+   }
+  },
+  {
+   "id": "E03.Q03.A22",
+   "probe": "push",
+   "before": 1.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.325e-05
+   }
+  },
+  {
+   "id": "E03.Q03.A22",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.185e-05
+   }
+  },
+  {
+   "id": "E03.Q04.A05",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.996e-05
+   }
+  },
+  {
+   "id": "E03.Q04.A05",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.898e-05
+   }
+  },
+  {
+   "id": "E03.Q04.A09",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.989e-05
+   }
+  },
+  {
+   "id": "E03.Q04.A09",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.821e-05
+   }
+  },
+  {
+   "id": "E03.Q04.A25",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.695e-05
+   }
+  },
+  {
+   "id": "E03.Q04.A25",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.653e-05
+   }
+  },
+  {
+   "id": "E03.Q05.A23",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.136e-05
+   }
+  },
+  {
+   "id": "E03.Q05.A23",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.982e-05
+   }
+  },
+  {
+   "id": "E03.Q07.A01",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.22e-05
+   }
+  },
+  {
+   "id": "E03.Q07.A01",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.94e-05
+   }
+  },
+  {
+   "id": "E03.Q07.A16",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.087e-05
+   }
+  },
+  {
+   "id": "E03.Q07.A16",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.073e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A00",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.094e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A00",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.108e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A10",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.877e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A10",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.681e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A15",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.171e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A15",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.227e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A24",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.458e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A24",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.57e-05
+   }
+  },
+  {
+   "id": "E04.Q02.A01",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.57e-05
+   }
+  },
+  {
+   "id": "E04.Q02.A01",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.528e-05
+   }
+  },
+  {
+   "id": "E04.Q03.A00",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.597e-05
+   }
+  },
+  {
+   "id": "E04.Q03.A00",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.485e-05
+   }
+  },
+  {
+   "id": "E04.Q04.A01",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.094e-05
+   }
+  },
+  {
+   "id": "E04.Q04.A01",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.8e-05
+   }
+  },
+  {
+   "id": "E05.Q01.A26",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.73e-05
+   }
+  },
+  {
+   "id": "E05.Q01.A26",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.898e-05
+   }
+  },
+  {
+   "id": "E05.Q02.A04",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.227e-05
+   }
+  },
+  {
+   "id": "E05.Q02.A04",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.171e-05
+   }
+  },
+  {
+   "id": "E05.Q02.A09",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.192e-05
+   }
+  },
+  {
+   "id": "E05.Q02.A09",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.122e-05
+   }
+  },
+  {
+   "id": "E05.Q03.A02",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.941e-05
+   }
+  },
+  {
+   "id": "E05.Q03.A02",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.521e-05
+   }
+  },
+  {
+   "id": "E05.Q03.A08",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.577e-05
+   }
+  },
+  {
+   "id": "E05.Q03.A08",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.297e-05
+   }
+  },
+  {
+   "id": "E05.Q04.A21",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.241e-05
+   }
+  },
+  {
+   "id": "E05.Q04.A21",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.961e-05
+   }
+  },
+  {
+   "id": "E05.Q04.A25",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.185e-05
+   }
+  },
+  {
+   "id": "E05.Q04.A25",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.031e-05
+   }
+  },
+  {
+   "id": "E05.Q04.A26",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.479e-05
+   }
+  },
+  {
+   "id": "E05.Q04.A26",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.129e-05
+   }
+  },
+  {
+   "id": "E06.Q01.A21",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.765e-05
+   }
+  },
+  {
+   "id": "E06.Q01.A21",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.625e-05
+   }
+  },
+  {
+   "id": "E06.Q02.A05",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.247e-05
+   }
+  },
+  {
+   "id": "E06.Q02.A05",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.331e-05
+   }
+  },
+  {
+   "id": "E06.Q03.A01",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.863e-05
+   }
+  },
+  {
+   "id": "E06.Q03.A01",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.765e-05
+   }
+  },
+  {
+   "id": "E06.Q03.A08",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.339e-05
+   }
+  },
+  {
+   "id": "E06.Q03.A08",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.171e-05
+   }
+  },
+  {
+   "id": "E06.Q03.A25",
+   "probe": "push",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.416e-05
+   }
+  },
+  {
+   "id": "E06.Q03.A25",
+   "probe": "recheck",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.926e-05
+   }
+  },
+  {
+   "id": "E06.Q04.A22",
+   "probe": "push",
+   "before": 1.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.458e-05
+   }
+  },
+  {
+   "id": "E06.Q04.A22",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.402e-05
+   }
+  },
+  {
+   "id": "E06.Q05.A14",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.688e-05
+   }
+  },
+  {
+   "id": "E06.Q05.A14",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.464e-05
+   }
+  },
+  {
+   "id": "E06.Q07.A01",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.765e-05
+   }
+  },
+  {
+   "id": "E06.Q07.A01",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.639e-05
+   }
+  },
+  {
+   "id": "E06.Q07.A06",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.562e-05
+   }
+  },
+  {
+   "id": "E06.Q07.A06",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.464e-05
+   }
+  },
+  {
+   "id": "E06.Q07.A19",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.199e-05
+   }
+  },
+  {
+   "id": "E06.Q07.A19",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.863e-05
+   }
+  },
+  {
+   "id": "E06.Q07.A22",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.199e-05
+   }
+  },
+  {
+   "id": "E06.Q07.A22",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.087e-05
+   }
+  },
+  {
+   "id": "E07.Q01.A19",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.975e-05
+   }
+  },
+  {
+   "id": "E07.Q01.A19",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.849e-05
+   }
+  },
+  {
+   "id": "E07.Q02.A17",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.814e-05
+   }
+  },
+  {
+   "id": "E07.Q02.A17",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.688e-05
+   }
+  },
+  {
+   "id": "E07.Q03.A23",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.94e-05
+   }
+  },
+  {
+   "id": "E07.Q03.A23",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.814e-05
+   }
+  },
+  {
+   "id": "E07.Q04.A11",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.884e-05
+   }
+  },
+  {
+   "id": "E07.Q04.A11",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.758e-05
+   }
+  },
+  {
+   "id": "E07.Q04.A13",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.94e-05
+   }
+  },
+  {
+   "id": "E07.Q04.A13",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.716e-05
+   }
+  },
+  {
+   "id": "E07.Q05.A07",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.919e-05
+   }
+  },
+  {
+   "id": "E07.Q05.A07",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.737e-05
+   }
+  },
+  {
+   "id": "E07.Q06.A08",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.549e-05
+   }
+  },
+  {
+   "id": "E07.Q06.A08",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.255e-05
+   }
+  },
+  {
+   "id": "E07.Q07.A03",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.94e-05
+   }
+  },
+  {
+   "id": "E07.Q07.A03",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.59e-05
+   }
+  },
+  {
+   "id": "E07.Q07.A04",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.688e-05
+   }
+  },
+  {
+   "id": "E07.Q07.A04",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.744e-05
+   }
+  },
+  {
+   "id": "E08.Q01.A04",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.171e-05
+   }
+  },
+  {
+   "id": "E08.Q01.A04",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.255e-05
+   }
+  },
+  {
+   "id": "E08.Q01.A05",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.465e-05
+   }
+  },
+  {
+   "id": "E08.Q01.A05",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.171e-05
+   }
+  },
+  {
+   "id": "E08.Q02.A17",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.758e-05
+   }
+  },
+  {
+   "id": "E08.Q02.A17",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.576e-05
+   }
+  },
+  {
+   "id": "E08.Q03.A24",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.507e-05
+   }
+  },
+  {
+   "id": "E08.Q03.A24",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.367e-05
+   }
+  },
+  {
+   "id": "E08.Q04.A20",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.969e-05
+   }
+  },
+  {
+   "id": "E08.Q04.A20",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.703e-05
+   }
+  },
+  {
+   "id": "E08.Q06.A00",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.164e-05
+   }
+  },
+  {
+   "id": "E08.Q06.A00",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.73e-05
+   }
+  },
+  {
+   "id": "E08.Q06.A26",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 4.683e-05
+   }
+  },
+  {
+   "id": "E08.Q06.A26",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 4.417e-05
+   }
+  },
+  {
+   "id": "E08.Q07.A15",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.248e-05
+   }
+  },
+  {
+   "id": "E08.Q07.A15",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.94e-05
+   }
+  },
+  {
+   "id": "E08.Q07.A18",
+   "probe": "push",
+   "before": 1.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.933e-05
+   }
+  },
+  {
+   "id": "E08.Q07.A18",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.765e-05
+   }
+  },
+  {
+   "id": "E09.Q01.A12",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.066e-05
+   }
+  },
+  {
+   "id": "E09.Q01.A12",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.206e-05
+   }
+  },
+  {
+   "id": "E09.Q03.A18",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.227e-05
+   }
+  },
+  {
+   "id": "E09.Q03.A18",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.045e-05
+   }
+  },
+  {
+   "id": "E09.Q04.A03",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.129e-05
+   }
+  },
+  {
+   "id": "E09.Q04.A03",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.975e-05
+   }
+  },
+  {
+   "id": "E09.Q04.A19",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.479e-05
+   }
+  },
+  {
+   "id": "E09.Q04.A19",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.759e-05
+   }
+  },
+  {
+   "id": "E09.Q06.A20",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.73e-05
+   }
+  },
+  {
+   "id": "E09.Q06.A20",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.744e-05
+   }
+  },
+  {
+   "id": "E10.Q01.A17",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.339e-05
+   }
+  },
+  {
+   "id": "E10.Q01.A17",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.185e-05
+   }
+  },
+  {
+   "id": "E10.Q02.A10",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.821e-05
+   }
+  },
+  {
+   "id": "E10.Q02.A10",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.667e-05
+   }
+  },
+  {
+   "id": "E10.Q02.A22",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.821e-05
+   }
+  },
+  {
+   "id": "E10.Q02.A22",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.583e-05
+   }
+  },
+  {
+   "id": "E10.Q03.A07",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.01e-05
+   }
+  },
+  {
+   "id": "E10.Q03.A07",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.688e-05
+   }
+  },
+  {
+   "id": "E10.Q03.A20",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.443e-05
+   }
+  },
+  {
+   "id": "E10.Q03.A20",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.555e-05
+   }
+  },
+  {
+   "id": "E10.Q04.A17",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.003e-05
+   }
+  },
+  {
+   "id": "E10.Q04.A17",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.975e-05
+   }
+  },
+  {
+   "id": "E10.Q05.A12",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.682e-05
+   }
+  },
+  {
+   "id": "E10.Q05.A12",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.178e-05
+   }
+  },
+  {
+   "id": "E10.Q06.A22",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 3.08e-05
+   }
+  },
+  {
+   "id": "E10.Q06.A22",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.842e-05
+   }
+  },
+  {
+   "id": "E11.Q03.A02",
+   "probe": "push",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.45e-05
+   }
+  },
+  {
+   "id": "E11.Q03.A02",
+   "probe": "recheck",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.212e-05
+   }
+  }
+ ]
+}

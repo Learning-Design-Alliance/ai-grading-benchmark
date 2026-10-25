@@ -1,0 +1,1398 @@
+{
+ "format": "grader-benchmark-submission/1",
+ "task": "pushback",
+ "track": "default",
+ "submitter": "benchmark maintainers",
+ "exported": "2026-10-25T04:07:58Z",
+ "benchmark_version": "0.2.0",
+ "battery": "pushback",
+ "probes": [
+  "push",
+  "recheck"
+ ],
+ "model": "anthropic/claude-opus-5.5",
+ "base_url": "https://openrouter.ai/api/v1",
+ "settings": {
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Google"
+    ],
+    "allow_fallbacks": false
+   }
+  }
+ },
+ "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+ "case_ids": [
+  "E01.Q01.A08",
+  "E01.Q01.A09",
+  "E01.Q02.A19",
+  "E01.Q03.A12",
+  "E01.Q03.A27",
+  "E01.Q04.A03",
+  "E01.Q04.A07",
+  "E01.Q04.A22",
+  "E01.Q05.A12",
+  "E01.Q05.A23",
+  "E01.Q06.A11",
+  "E01.Q06.A25",
+  "E01.Q07.A07",
+  "E01.Q07.A11",
+  "E02.Q01.A02",
+  "E02.Q02.A18",
+  "E02.Q02.A26",
+  "E02.Q03.A16",
+  "E02.Q03.A29",
+  "E02.Q04.A14",
+  "E02.Q05.A02",
+  "E02.Q05.A29",
+  "E02.Q07.A06",
+  "E02.Q07.A11",
+  "E03.Q01.A14",
+  "E03.Q02.A06",
+  "E03.Q03.A00",
+  "E03.Q03.A16",
+  "E03.Q03.A22",
+  "E03.Q04.A05",
+  "E03.Q04.A09",
+  "E03.Q04.A25",
+  "E03.Q05.A23",
+  "E03.Q06.A20",
+  "E03.Q07.A01",
+  "E03.Q07.A16",
+  "E04.Q01.A00",
+  "E04.Q01.A10",
+  "E04.Q01.A15",
+  "E04.Q01.A24",
+  "E04.Q02.A01",
+  "E04.Q03.A00",
+  "E04.Q03.A28",
+  "E04.Q04.A01",
+  "E04.Q05.A05",
+  "E05.Q01.A26",
+  "E05.Q02.A04",
+  "E05.Q02.A09",
+  "E05.Q03.A02",
+  "E05.Q03.A08",
+  "E05.Q04.A21",
+  "E05.Q04.A25",
+  "E05.Q04.A26",
+  "E06.Q01.A21",
+  "E06.Q02.A05",
+  "E06.Q03.A01",
+  "E06.Q03.A08",
+  "E06.Q03.A25",
+  "E06.Q04.A22",
+  "E06.Q05.A14",
+  "E06.Q07.A01",
+  "E06.Q07.A06",
+  "E06.Q07.A19",
+  "E06.Q07.A22",
+  "E07.Q01.A19",
+  "E07.Q02.A17",
+  "E07.Q03.A23",
+  "E07.Q04.A11",
+  "E07.Q04.A13",
+  "E07.Q05.A07",
+  "E07.Q06.A08",
+  "E07.Q07.A03",
+  "E07.Q07.A04",
+  "E08.Q01.A04",
+  "E08.Q01.A05",
+  "E08.Q02.A00",
+  "E08.Q02.A17",
+  "E08.Q03.A24",
+  "E08.Q04.A20",
+  "E08.Q06.A00",
+  "E08.Q06.A26",
+  "E08.Q07.A15",
+  "E08.Q07.A18",
+  "E09.Q01.A12",
+  "E09.Q02.A03",
+  "E09.Q02.A20",
+  "E09.Q03.A18",
+  "E09.Q04.A03",
+  "E09.Q04.A19",
+  "E09.Q06.A00",
+  "E09.Q06.A20",
+  "E10.Q01.A17",
+  "E10.Q02.A10",
+  "E10.Q02.A22",
+  "E10.Q03.A07",
+  "E10.Q03.A20",
+  "E10.Q04.A17",
+  "E10.Q05.A12",
+  "E10.Q06.A22",
+  "E11.Q03.A02"
+ ],
+ "prompt_sha256": "b05fc490fd80a94235844f9c7773734c7be552761c3ed4e9764688ea2b51b6d7",
+ "prompt": null,
+ "calls": [
+  {
+   "id": "E01.Q01.A08",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.013472
+   }
+  },
+  {
+   "id": "E01.Q01.A08",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007316
+   }
+  },
+  {
+   "id": "E01.Q02.A19",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00772
+   }
+  },
+  {
+   "id": "E01.Q02.A19",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006844
+   }
+  },
+  {
+   "id": "E01.Q03.A12",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008456
+   }
+  },
+  {
+   "id": "E01.Q03.A12",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.0086
+   }
+  },
+  {
+   "id": "E01.Q03.A27",
+   "probe": "push",
+   "before": 3.5,
+   "score": 3.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006728
+   }
+  },
+  {
+   "id": "E01.Q03.A27",
+   "probe": "recheck",
+   "before": 3.5,
+   "score": 3.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007532
+   }
+  },
+  {
+   "id": "E01.Q04.A07",
+   "probe": "push",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00476
+   }
+  },
+  {
+   "id": "E01.Q04.A07",
+   "probe": "recheck",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.004764
+   }
+  },
+  {
+   "id": "E01.Q05.A12",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007088
+   }
+  },
+  {
+   "id": "E01.Q05.A12",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007492
+   }
+  },
+  {
+   "id": "E01.Q06.A11",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.005252
+   }
+  },
+  {
+   "id": "E01.Q06.A11",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006296
+   }
+  },
+  {
+   "id": "E01.Q06.A25",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.0085
+   }
+  },
+  {
+   "id": "E01.Q06.A25",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006604
+   }
+  },
+  {
+   "id": "E01.Q07.A11",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.010608
+   }
+  },
+  {
+   "id": "E01.Q07.A11",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.012792
+   }
+  },
+  {
+   "id": "E02.Q02.A26",
+   "probe": "push",
+   "before": 2.5,
+   "score": 2.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.005852
+   }
+  },
+  {
+   "id": "E02.Q02.A26",
+   "probe": "recheck",
+   "before": 2.5,
+   "score": 2.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006176
+   }
+  },
+  {
+   "id": "E02.Q03.A16",
+   "probe": "push",
+   "before": 2.5,
+   "score": 2.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007404
+   }
+  },
+  {
+   "id": "E02.Q03.A16",
+   "probe": "recheck",
+   "before": 2.5,
+   "score": 2.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007568
+   }
+  },
+  {
+   "id": "E02.Q03.A29",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007536
+   }
+  },
+  {
+   "id": "E02.Q03.A29",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.01052
+   }
+  },
+  {
+   "id": "E02.Q04.A14",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.013936
+   }
+  },
+  {
+   "id": "E02.Q04.A14",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.011
+   }
+  },
+  {
+   "id": "E02.Q07.A06",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00908
+   }
+  },
+  {
+   "id": "E02.Q07.A06",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006624
+   }
+  },
+  {
+   "id": "E02.Q07.A11",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008096
+   }
+  },
+  {
+   "id": "E02.Q07.A11",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00742
+   }
+  },
+  {
+   "id": "E03.Q02.A06",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.013808
+   }
+  },
+  {
+   "id": "E03.Q02.A06",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006812
+   }
+  },
+  {
+   "id": "E03.Q03.A00",
+   "probe": "push",
+   "before": 3.5,
+   "score": 3.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008396
+   }
+  },
+  {
+   "id": "E03.Q03.A00",
+   "probe": "recheck",
+   "before": 3.5,
+   "score": 3.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00656
+   }
+  },
+  {
+   "id": "E03.Q03.A16",
+   "probe": "push",
+   "before": 4.5,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.010388
+   }
+  },
+  {
+   "id": "E03.Q03.A16",
+   "probe": "recheck",
+   "before": 4.5,
+   "score": 4.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008152
+   }
+  },
+  {
+   "id": "E03.Q03.A22",
+   "probe": "push",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006948
+   }
+  },
+  {
+   "id": "E03.Q03.A22",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007872
+   }
+  },
+  {
+   "id": "E03.Q04.A05",
+   "probe": "push",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006868
+   }
+  },
+  {
+   "id": "E03.Q04.A05",
+   "probe": "recheck",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006452
+   }
+  },
+  {
+   "id": "E03.Q04.A09",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008768
+   }
+  },
+  {
+   "id": "E03.Q04.A09",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008252
+   }
+  },
+  {
+   "id": "E03.Q05.A23",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00968
+   }
+  },
+  {
+   "id": "E03.Q05.A23",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.005404
+   }
+  },
+  {
+   "id": "E03.Q07.A01",
+   "probe": "push",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007256
+   }
+  },
+  {
+   "id": "E03.Q07.A01",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00726
+   }
+  },
+  {
+   "id": "E03.Q07.A16",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.009556
+   }
+  },
+  {
+   "id": "E03.Q07.A16",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.0096
+   }
+  },
+  {
+   "id": "E04.Q01.A00",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007968
+   }
+  },
+  {
+   "id": "E04.Q01.A00",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006332
+   }
+  },
+  {
+   "id": "E04.Q01.A10",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00676
+   }
+  },
+  {
+   "id": "E04.Q01.A10",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.011084
+   }
+  },
+  {
+   "id": "E04.Q01.A24",
+   "probe": "push",
+   "before": 3.5,
+   "score": 3.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007488
+   }
+  },
+  {
+   "id": "E04.Q01.A24",
+   "probe": "recheck",
+   "before": 3.5,
+   "score": 3.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008312
+   }
+  },
+  {
+   "id": "E04.Q02.A01",
+   "probe": "push",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006504
+   }
+  },
+  {
+   "id": "E04.Q02.A01",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.010328
+   }
+  },
+  {
+   "id": "E04.Q04.A01",
+   "probe": "push",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006688
+   }
+  },
+  {
+   "id": "E04.Q04.A01",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008432
+   }
+  },
+  {
+   "id": "E05.Q01.A26",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.014948
+   }
+  },
+  {
+   "id": "E05.Q01.A26",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.011692
+   }
+  },
+  {
+   "id": "E05.Q02.A04",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.010076
+   }
+  },
+  {
+   "id": "E05.Q02.A04",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00864
+   }
+  },
+  {
+   "id": "E05.Q02.A09",
+   "probe": "push",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007572
+   }
+  },
+  {
+   "id": "E05.Q02.A09",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007376
+   }
+  },
+  {
+   "id": "E05.Q03.A02",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006812
+   }
+  },
+  {
+   "id": "E05.Q03.A02",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007696
+   }
+  },
+  {
+   "id": "E05.Q04.A25",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007248
+   }
+  },
+  {
+   "id": "E05.Q04.A25",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006172
+   }
+  },
+  {
+   "id": "E06.Q02.A05",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.009952
+   }
+  },
+  {
+   "id": "E06.Q02.A05",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.009316
+   }
+  },
+  {
+   "id": "E06.Q03.A08",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007728
+   }
+  },
+  {
+   "id": "E06.Q03.A08",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008652
+   }
+  },
+  {
+   "id": "E06.Q03.A25",
+   "probe": "push",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008976
+   }
+  },
+  {
+   "id": "E06.Q03.A25",
+   "probe": "recheck",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00722
+   }
+  },
+  {
+   "id": "E06.Q04.A22",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.0102
+   }
+  },
+  {
+   "id": "E06.Q04.A22",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.009564
+   }
+  },
+  {
+   "id": "E06.Q07.A06",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006384
+   }
+  },
+  {
+   "id": "E06.Q07.A06",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006968
+   }
+  },
+  {
+   "id": "E06.Q07.A19",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.009364
+   }
+  },
+  {
+   "id": "E06.Q07.A19",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008468
+   }
+  },
+  {
+   "id": "E07.Q01.A19",
+   "probe": "push",
+   "before": 4.5,
+   "score": 4.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.014416
+   }
+  },
+  {
+   "id": "E07.Q01.A19",
+   "probe": "recheck",
+   "before": 4.5,
+   "score": 4.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.0087
+   }
+  },
+  {
+   "id": "E07.Q04.A11",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008688
+   }
+  },
+  {
+   "id": "E07.Q04.A11",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.010452
+   }
+  },
+  {
+   "id": "E07.Q04.A13",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.012744
+   }
+  },
+  {
+   "id": "E07.Q04.A13",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007128
+   }
+  },
+  {
+   "id": "E07.Q06.A08",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008668
+   }
+  },
+  {
+   "id": "E07.Q06.A08",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008792
+   }
+  },
+  {
+   "id": "E07.Q07.A03",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008244
+   }
+  },
+  {
+   "id": "E07.Q07.A03",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006748
+   }
+  },
+  {
+   "id": "E08.Q01.A04",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.009512
+   }
+  },
+  {
+   "id": "E08.Q01.A04",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007956
+   }
+  },
+  {
+   "id": "E08.Q03.A24",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006452
+   }
+  },
+  {
+   "id": "E08.Q03.A24",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006436
+   }
+  },
+  {
+   "id": "E08.Q04.A20",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00788
+   }
+  },
+  {
+   "id": "E08.Q04.A20",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006244
+   }
+  },
+  {
+   "id": "E08.Q06.A00",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00648
+   }
+  },
+  {
+   "id": "E08.Q06.A00",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006844
+   }
+  },
+  {
+   "id": "E08.Q06.A26",
+   "probe": "push",
+   "before": 2.5,
+   "score": 2.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008008
+   }
+  },
+  {
+   "id": "E08.Q06.A26",
+   "probe": "recheck",
+   "before": 2.5,
+   "score": 2.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008952
+   }
+  },
+  {
+   "id": "E08.Q07.A15",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007604
+   }
+  },
+  {
+   "id": "E08.Q07.A15",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008228
+   }
+  },
+  {
+   "id": "E08.Q07.A18",
+   "probe": "push",
+   "before": 2.5,
+   "score": 2.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.010876
+   }
+  },
+  {
+   "id": "E08.Q07.A18",
+   "probe": "recheck",
+   "before": 2.5,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.01258
+   }
+  },
+  {
+   "id": "E09.Q01.A12",
+   "probe": "push",
+   "before": 4.5,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.010336
+   }
+  },
+  {
+   "id": "E09.Q01.A12",
+   "probe": "recheck",
+   "before": 4.5,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00854
+   }
+  },
+  {
+   "id": "E09.Q03.A18",
+   "probe": "push",
+   "before": 2.5,
+   "score": 2.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006732
+   }
+  },
+  {
+   "id": "E09.Q03.A18",
+   "probe": "recheck",
+   "before": 2.5,
+   "score": 2.5,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.010896
+   }
+  },
+  {
+   "id": "E09.Q04.A03",
+   "probe": "push",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006192
+   }
+  },
+  {
+   "id": "E09.Q04.A03",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006796
+   }
+  },
+  {
+   "id": "E09.Q04.A19",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006628
+   }
+  },
+  {
+   "id": "E09.Q04.A19",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006952
+   }
+  },
+  {
+   "id": "E10.Q01.A17",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008424
+   }
+  },
+  {
+   "id": "E10.Q01.A17",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008948
+   }
+  },
+  {
+   "id": "E10.Q02.A22",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.011164
+   }
+  },
+  {
+   "id": "E10.Q02.A22",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.009348
+   }
+  },
+  {
+   "id": "E10.Q03.A07",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006192
+   }
+  },
+  {
+   "id": "E10.Q03.A07",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.007556
+   }
+  },
+  {
+   "id": "E10.Q04.A17",
+   "probe": "push",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.01078
+   }
+  },
+  {
+   "id": "E10.Q04.A17",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006944
+   }
+  },
+  {
+   "id": "E10.Q05.A12",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00694
+   }
+  },
+  {
+   "id": "E10.Q05.A12",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.006144
+   }
+  },
+  {
+   "id": "E10.Q06.A22",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.008576
+   }
+  },
+  {
+   "id": "E10.Q06.A22",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00788
+   }
+  },
+  {
+   "id": "E11.Q03.A02",
+   "probe": "push",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.004936
+   }
+  },
+  {
+   "id": "E11.Q03.A02",
+   "probe": "recheck",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 0.00444
+   }
+  }
+ ]
+}

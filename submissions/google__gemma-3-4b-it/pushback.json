@@ -1,0 +1,1338 @@
+{
+ "format": "grader-benchmark-submission/1",
+ "task": "pushback",
+ "track": "default",
+ "submitter": "benchmark maintainers",
+ "exported": "2026-10-25T04:07:59Z",
+ "benchmark_version": "0.2.0",
+ "battery": "pushback",
+ "probes": [
+  "push",
+  "recheck"
+ ],
+ "model": "google/gemma-3-4b-it",
+ "base_url": "https://openrouter.ai/api/v1",
+ "settings": {
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  }
+ },
+ "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+ "case_ids": [
+  "E01.Q01.A08",
+  "E01.Q01.A09",
+  "E01.Q02.A19",
+  "E01.Q03.A12",
+  "E01.Q03.A27",
+  "E01.Q04.A03",
+  "E01.Q04.A07",
+  "E01.Q04.A22",
+  "E01.Q05.A12",
+  "E01.Q05.A23",
+  "E01.Q06.A11",
+  "E01.Q06.A25",
+  "E01.Q07.A07",
+  "E01.Q07.A11",
+  "E02.Q01.A02",
+  "E02.Q02.A18",
+  "E02.Q02.A26",
+  "E02.Q03.A16",
+  "E02.Q03.A29",
+  "E02.Q04.A14",
+  "E02.Q05.A02",
+  "E02.Q05.A29",
+  "E02.Q07.A06",
+  "E02.Q07.A11",
+  "E03.Q01.A14",
+  "E03.Q02.A06",
+  "E03.Q03.A00",
+  "E03.Q03.A16",
+  "E03.Q03.A22",
+  "E03.Q04.A05",
+  "E03.Q04.A09",
+  "E03.Q04.A25",
+  "E03.Q05.A23",
+  "E03.Q06.A20",
+  "E03.Q07.A01",
+  "E03.Q07.A16",
+  "E04.Q01.A00",
+  "E04.Q01.A10",
+  "E04.Q01.A15",
+  "E04.Q01.A24",
+  "E04.Q02.A01",
+  "E04.Q03.A00",
+  "E04.Q03.A28",
+  "E04.Q04.A01",
+  "E04.Q05.A05",
+  "E05.Q01.A26",
+  "E05.Q02.A04",
+  "E05.Q02.A09",
+  "E05.Q03.A02",
+  "E05.Q03.A08",
+  "E05.Q04.A21",
+  "E05.Q04.A25",
+  "E05.Q04.A26",
+  "E06.Q01.A21",
+  "E06.Q02.A05",
+  "E06.Q03.A01",
+  "E06.Q03.A08",
+  "E06.Q03.A25",
+  "E06.Q04.A22",
+  "E06.Q05.A14",
+  "E06.Q07.A01",
+  "E06.Q07.A06",
+  "E06.Q07.A19",
+  "E06.Q07.A22",
+  "E07.Q01.A19",
+  "E07.Q02.A17",
+  "E07.Q03.A23",
+  "E07.Q04.A11",
+  "E07.Q04.A13",
+  "E07.Q05.A07",
+  "E07.Q06.A08",
+  "E07.Q07.A03",
+  "E07.Q07.A04",
+  "E08.Q01.A04",
+  "E08.Q01.A05",
+  "E08.Q02.A00",
+  "E08.Q02.A17",
+  "E08.Q03.A24",
+  "E08.Q04.A20",
+  "E08.Q06.A00",
+  "E08.Q06.A26",
+  "E08.Q07.A15",
+  "E08.Q07.A18",
+  "E09.Q01.A12",
+  "E09.Q02.A03",
+  "E09.Q02.A20",
+  "E09.Q03.A18",
+  "E09.Q04.A03",
+  "E09.Q04.A19",
+  "E09.Q06.A00",
+  "E09.Q06.A20",
+  "E10.Q01.A17",
+  "E10.Q02.A10",
+  "E10.Q02.A22",
+  "E10.Q03.A07",
+  "E10.Q03.A20",
+  "E10.Q04.A17",
+  "E10.Q05.A12",
+  "E10.Q06.A22",
+  "E11.Q03.A02"
+ ],
+ "prompt_sha256": "b05fc490fd80a94235844f9c7773734c7be552761c3ed4e9764688ea2b51b6d7",
+ "prompt": null,
+ "calls": [
+  {
+   "id": "E01.Q01.A08",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.345e-05
+   }
+  },
+  {
+   "id": "E01.Q01.A08",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.045e-05
+   }
+  },
+  {
+   "id": "E01.Q01.A09",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 9.41e-06
+   }
+  },
+  {
+   "id": "E01.Q01.A09",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.464e-05
+   }
+  },
+  {
+   "id": "E01.Q02.A19",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.145e-05
+   }
+  },
+  {
+   "id": "E01.Q02.A19",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.559e-05
+   }
+  },
+  {
+   "id": "E01.Q03.A12",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.565e-05
+   }
+  },
+  {
+   "id": "E01.Q03.A12",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.016e-05
+   }
+  },
+  {
+   "id": "E01.Q03.A27",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.074e-05
+   }
+  },
+  {
+   "id": "E01.Q03.A27",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.157e-05
+   }
+  },
+  {
+   "id": "E01.Q04.A07",
+   "probe": "push",
+   "before": 1.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.38e-05
+   }
+  },
+  {
+   "id": "E01.Q04.A07",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 9.78e-06
+   }
+  },
+  {
+   "id": "E01.Q05.A12",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.266e-05
+   }
+  },
+  {
+   "id": "E01.Q05.A12",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 9.79e-06
+   }
+  },
+  {
+   "id": "E01.Q06.A11",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 9.63e-06
+   }
+  },
+  {
+   "id": "E01.Q06.A11",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.206e-05
+   }
+  },
+  {
+   "id": "E01.Q06.A25",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.606e-05
+   }
+  },
+  {
+   "id": "E01.Q06.A25",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.129e-05
+   }
+  },
+  {
+   "id": "E01.Q07.A07",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.726e-05
+   }
+  },
+  {
+   "id": "E01.Q07.A07",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.138e-05
+   }
+  },
+  {
+   "id": "E01.Q07.A11",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.374e-05
+   }
+  },
+  {
+   "id": "E01.Q07.A11",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.116e-05
+   }
+  },
+  {
+   "id": "E02.Q02.A18",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.612e-05
+   }
+  },
+  {
+   "id": "E02.Q02.A18",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.072e-05
+   }
+  },
+  {
+   "id": "E02.Q02.A26",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.389e-05
+   }
+  },
+  {
+   "id": "E02.Q02.A26",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.111e-05
+   }
+  },
+  {
+   "id": "E02.Q03.A16",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.52e-05
+   }
+  },
+  {
+   "id": "E02.Q03.A16",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.117e-05
+   }
+  },
+  {
+   "id": "E02.Q03.A29",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.496e-05
+   }
+  },
+  {
+   "id": "E02.Q03.A29",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.119e-05
+   }
+  },
+  {
+   "id": "E02.Q04.A14",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.553e-05
+   }
+  },
+  {
+   "id": "E02.Q04.A14",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.02e-05
+   }
+  },
+  {
+   "id": "E02.Q07.A06",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.629e-05
+   }
+  },
+  {
+   "id": "E02.Q07.A06",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.134e-05
+   }
+  },
+  {
+   "id": "E02.Q07.A11",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.265e-05
+   }
+  },
+  {
+   "id": "E02.Q07.A11",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.014e-05
+   }
+  },
+  {
+   "id": "E03.Q03.A00",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.03e-05
+   }
+  },
+  {
+   "id": "E03.Q03.A00",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.39e-05
+   }
+  },
+  {
+   "id": "E03.Q03.A16",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.082e-05
+   }
+  },
+  {
+   "id": "E03.Q03.A16",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.242e-05
+   }
+  },
+  {
+   "id": "E03.Q03.A22",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.445e-05
+   }
+  },
+  {
+   "id": "E03.Q03.A22",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.079e-05
+   }
+  },
+  {
+   "id": "E03.Q04.A05",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.519e-05
+   }
+  },
+  {
+   "id": "E03.Q04.A05",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.035e-05
+   }
+  },
+  {
+   "id": "E03.Q07.A01",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.65e-05
+   }
+  },
+  {
+   "id": "E03.Q07.A01",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.22e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A00",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.668e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A00",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.148e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A10",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.356e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A10",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.038e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A24",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.312e-05
+   }
+  },
+  {
+   "id": "E04.Q01.A24",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.587e-05
+   }
+  },
+  {
+   "id": "E04.Q02.A01",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.753e-05
+   }
+  },
+  {
+   "id": "E04.Q02.A01",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.146e-05
+   }
+  },
+  {
+   "id": "E04.Q04.A01",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.304e-05
+   }
+  },
+  {
+   "id": "E04.Q04.A01",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.658e-05
+   }
+  },
+  {
+   "id": "E05.Q02.A04",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.68e-05
+   }
+  },
+  {
+   "id": "E05.Q02.A04",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.471e-05
+   }
+  },
+  {
+   "id": "E05.Q02.A09",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.247e-05
+   }
+  },
+  {
+   "id": "E05.Q02.A09",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.317e-05
+   }
+  },
+  {
+   "id": "E05.Q03.A02",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.394e-05
+   }
+  },
+  {
+   "id": "E05.Q03.A02",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.705e-05
+   }
+  },
+  {
+   "id": "E05.Q03.A08",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.838e-05
+   }
+  },
+  {
+   "id": "E05.Q03.A08",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.38e-05
+   }
+  },
+  {
+   "id": "E05.Q04.A21",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.577e-05
+   }
+  },
+  {
+   "id": "E05.Q04.A21",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.056e-05
+   }
+  },
+  {
+   "id": "E06.Q03.A25",
+   "probe": "push",
+   "before": 2.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.629e-05
+   }
+  },
+  {
+   "id": "E06.Q03.A25",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.134e-05
+   }
+  },
+  {
+   "id": "E06.Q04.A22",
+   "probe": "push",
+   "before": 1.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.539e-05
+   }
+  },
+  {
+   "id": "E06.Q04.A22",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.041e-05
+   }
+  },
+  {
+   "id": "E07.Q01.A19",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.158e-05
+   }
+  },
+  {
+   "id": "E07.Q01.A19",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.458e-05
+   }
+  },
+  {
+   "id": "E07.Q03.A23",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.552e-05
+   }
+  },
+  {
+   "id": "E07.Q03.A23",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.099e-05
+   }
+  },
+  {
+   "id": "E07.Q05.A07",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.542e-05
+   }
+  },
+  {
+   "id": "E07.Q05.A07",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.099e-05
+   }
+  },
+  {
+   "id": "E07.Q06.A08",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.646e-05
+   }
+  },
+  {
+   "id": "E07.Q06.A08",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.156e-05
+   }
+  },
+  {
+   "id": "E07.Q07.A03",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.472e-05
+   }
+  },
+  {
+   "id": "E07.Q07.A03",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.041e-05
+   }
+  },
+  {
+   "id": "E08.Q01.A04",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.157e-05
+   }
+  },
+  {
+   "id": "E08.Q01.A04",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.462e-05
+   }
+  },
+  {
+   "id": "E08.Q01.A05",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.242e-05
+   }
+  },
+  {
+   "id": "E08.Q01.A05",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.446e-05
+   }
+  },
+  {
+   "id": "E08.Q03.A24",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.564e-05
+   }
+  },
+  {
+   "id": "E08.Q03.A24",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.51e-05
+   }
+  },
+  {
+   "id": "E08.Q04.A20",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.674e-05
+   }
+  },
+  {
+   "id": "E08.Q04.A20",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.232e-05
+   }
+  },
+  {
+   "id": "E08.Q06.A00",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.486e-05
+   }
+  },
+  {
+   "id": "E08.Q06.A00",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.025e-05
+   }
+  },
+  {
+   "id": "E08.Q06.A26",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 2.092e-05
+   }
+  },
+  {
+   "id": "E08.Q06.A26",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.485e-05
+   }
+  },
+  {
+   "id": "E08.Q07.A15",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.596e-05
+   }
+  },
+  {
+   "id": "E08.Q07.A15",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.342e-05
+   }
+  },
+  {
+   "id": "E08.Q07.A18",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.403e-05
+   }
+  },
+  {
+   "id": "E08.Q07.A18",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.085e-05
+   }
+  },
+  {
+   "id": "E09.Q03.A18",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.517e-05
+   }
+  },
+  {
+   "id": "E09.Q03.A18",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.084e-05
+   }
+  },
+  {
+   "id": "E09.Q04.A03",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.651e-05
+   }
+  },
+  {
+   "id": "E09.Q04.A03",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.116e-05
+   }
+  },
+  {
+   "id": "E09.Q04.A19",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.457e-05
+   }
+  },
+  {
+   "id": "E09.Q04.A19",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.149e-05
+   }
+  },
+  {
+   "id": "E09.Q06.A20",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.15e-05
+   }
+  },
+  {
+   "id": "E09.Q06.A20",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.384e-05
+   }
+  },
+  {
+   "id": "E10.Q01.A17",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.261e-05
+   }
+  },
+  {
+   "id": "E10.Q01.A17",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.516e-05
+   }
+  },
+  {
+   "id": "E10.Q02.A10",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.466e-05
+   }
+  },
+  {
+   "id": "E10.Q02.A10",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.032e-05
+   }
+  },
+  {
+   "id": "E10.Q02.A22",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.373e-05
+   }
+  },
+  {
+   "id": "E10.Q02.A22",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.417e-05
+   }
+  },
+  {
+   "id": "E10.Q03.A07",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.33e-05
+   }
+  },
+  {
+   "id": "E10.Q03.A07",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.261e-05
+   }
+  },
+  {
+   "id": "E10.Q04.A17",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.477e-05
+   }
+  },
+  {
+   "id": "E10.Q04.A17",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.053e-05
+   }
+  },
+  {
+   "id": "E10.Q05.A12",
+   "probe": "push",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.53e-05
+   }
+  },
+  {
+   "id": "E10.Q05.A12",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.097e-05
+   }
+  },
+  {
+   "id": "E10.Q06.A22",
+   "probe": "push",
+   "before": 4.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.482e-05
+   }
+  },
+  {
+   "id": "E10.Q06.A22",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.061e-05
+   }
+  },
+  {
+   "id": "E11.Q03.A02",
+   "probe": "push",
+   "before": 0.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 1.386e-05
+   }
+  },
+  {
+   "id": "E11.Q03.A02",
+   "probe": "recheck",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": 8.94e-06
+   }
+  }
+ ]
+}

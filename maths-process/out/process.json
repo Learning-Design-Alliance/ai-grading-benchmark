@@ -23,6 +23,33 @@
    "verdict": "ANSWER ONLY"
   },
   {
+   "grader": "anthropic/claude-fable-5.1",
+   "reasoning_effect": 1.905,
+   "reasoning_ci95": [
+    1.82,
+    1.9875
+   ],
+   "answer_effect": 1.3,
+   "answer_ci95": [
+    1.25,
+    1.35
+   ],
+   "mean_credit": {
+    "correct": 3.905,
+    "slip": 1.645,
+    "lucky": 1.04,
+    "wrong": 0.7
+   },
+   "lucky_accepted": 0.0,
+   "verdict": "READS THE WORKING",
+   "first_wrong_step_exact": {
+    "wrong": 0.725,
+    "lucky": 0.72,
+    "correct_none_flagged": 0.94
+   },
+   "failed": 0
+  },
+  {
    "grader": "anthropic/claude-haiku-5.5",
    "reasoning_effect": 1.905,
    "reasoning_ci95": [
@@ -131,6 +158,87 @@
    "failed": 0
   },
   {
+   "grader": "google/gemma-3-27b-it",
+   "reasoning_effect": 1.3693467336683418,
+   "reasoning_ci95": [
+    1.3040201005025125,
+    1.434673366834171
+   ],
+   "answer_effect": 0.41959798994974873,
+   "answer_ci95": [
+    0.3869346733668342,
+    0.45
+   ],
+   "mean_credit": {
+    "correct": 3.98,
+    "slip": 3.1055276381909547,
+    "lucky": 2.16,
+    "wrong": 2.195
+   },
+   "lucky_accepted": 0.005,
+   "verdict": "READS THE WORKING",
+   "first_wrong_step_exact": {
+    "wrong": 0.615,
+    "lucky": 0.625,
+    "correct_none_flagged": 0.98
+   },
+   "failed": 1
+  },
+  {
+   "grader": "google/gemma-3-4b-it",
+   "reasoning_effect": 0.5125,
+   "reasoning_ci95": [
+    0.44,
+    0.585
+   ],
+   "answer_effect": 0.0625,
+   "answer_ci95": [
+    0.04,
+    0.0875
+   ],
+   "mean_credit": {
+    "correct": 4.0,
+    "slip": 3.95,
+    "lucky": 3.5,
+    "wrong": 3.425
+   },
+   "lucky_accepted": 0.51,
+   "verdict": "WEAKLY",
+   "first_wrong_step_exact": {
+    "wrong": 0.345,
+    "lucky": 0.32,
+    "correct_none_flagged": 0.995
+   },
+   "failed": 0
+  },
+  {
+   "grader": "google/gemma-4-26b-a4b-it",
+   "reasoning_effect": 1.74,
+   "reasoning_ci95": [
+    1.6575,
+    1.8225
+   ],
+   "answer_effect": 0.84,
+   "answer_ci95": [
+    0.78,
+    0.9
+   ],
+   "mean_credit": {
+    "correct": 3.945,
+    "slip": 2.345,
+    "lucky": 1.445,
+    "wrong": 1.365
+   },
+   "lucky_accepted": 0.015,
+   "verdict": "READS THE WORKING",
+   "first_wrong_step_exact": {
+    "wrong": 0.6733668341708543,
+    "lucky": 0.705,
+    "correct_none_flagged": 0.95
+   },
+   "failed": 0
+  },
+  {
    "grader": "google/gemma-4-31b-it",
    "reasoning_effect": 2.16,
    "reasoning_ci95": [
@@ -158,6 +266,87 @@
    "failed": 0
   },
   {
+   "grader": "meta-llama/llama-3.2-3b-instruct",
+   "reasoning_effect": 0.5485714285714286,
+   "reasoning_ci95": [
+    0.42857142857142855,
+    0.6763005780346821
+   ],
+   "answer_effect": 0.14285714285714285,
+   "answer_ci95": [
+    0.05555555555555555,
+    0.23121387283236994
+   ],
+   "mean_credit": {
+    "correct": 3.8926553672316384,
+    "slip": 3.5,
+    "lucky": 3.100502512562814,
+    "wrong": 3.170854271356784
+   },
+   "lucky_accepted": 0.4020100502512563,
+   "verdict": "WEAKLY",
+   "first_wrong_step_exact": {
+    "wrong": 0.21608040201005024,
+    "lucky": 0.22727272727272727,
+    "correct_none_flagged": 0.9887005649717514
+   },
+   "failed": 27
+  },
+  {
+   "grader": "microsoft/phi-4",
+   "reasoning_effect": 1.7914572864321607,
+   "reasoning_ci95": [
+    1.6758793969849246,
+    1.9065656565656566
+   ],
+   "answer_effect": 0.4045226130653266,
+   "answer_ci95": [
+    0.3409090909090909,
+    0.46733668341708545
+   ],
+   "mean_credit": {
+    "correct": 3.9396984924623117,
+    "slip": 3.13,
+    "lucky": 1.75,
+    "wrong": 1.74
+   },
+   "lucky_accepted": 0.01,
+   "verdict": "READS THE WORKING",
+   "first_wrong_step_exact": {
+    "wrong": 0.625,
+    "lucky": 0.59,
+    "correct_none_flagged": 0.9698492462311558
+   },
+   "failed": 1
+  },
+  {
+   "grader": "mistralai/ministral-8b-2512",
+   "reasoning_effect": 1.2975,
+   "reasoning_ci95": [
+    1.195,
+    1.4
+   ],
+   "answer_effect": 0.4875,
+   "answer_ci95": [
+    0.435,
+    0.5425
+   ],
+   "mean_credit": {
+    "correct": 3.975,
+    "slip": 2.945,
+    "lucky": 2.135,
+    "wrong": 2.19
+   },
+   "lucky_accepted": 0.005,
+   "verdict": "READS THE WORKING",
+   "first_wrong_step_exact": {
+    "wrong": 0.635,
+    "lucky": 0.615,
+    "correct_none_flagged": 0.985
+   },
+   "failed": 0
+  },
+  {
    "grader": "openai/gpt-5-mini",
    "reasoning_effect": 1.7475,
    "reasoning_ci95": [
@@ -181,6 +370,87 @@
     "wrong": 0.69,
     "lucky": 0.685,
     "correct_none_flagged": 0.94
+   },
+   "failed": 0
+  },
+  {
+   "grader": "openai/gpt-5.6-luna",
+   "reasoning_effect": 1.55,
+   "reasoning_ci95": [
+    1.465,
+    1.635
+   ],
+   "answer_effect": 0.595,
+   "answer_ci95": [
+    0.5575,
+    0.6325
+   ],
+   "mean_credit": {
+    "correct": 3.925,
+    "slip": 2.955,
+    "lucky": 2.0,
+    "wrong": 1.78
+   },
+   "lucky_accepted": 0.0,
+   "verdict": "READS THE WORKING",
+   "first_wrong_step_exact": {
+    "wrong": 0.705,
+    "lucky": 0.7,
+    "correct_none_flagged": 0.935
+   },
+   "failed": 0
+  },
+  {
+   "grader": "openai/gpt-6-astra",
+   "reasoning_effect": 1.3375,
+   "reasoning_ci95": [
+    1.255,
+    1.415
+   ],
+   "answer_effect": 0.6025,
+   "answer_ci95": [
+    0.5625,
+    0.64
+   ],
+   "mean_credit": {
+    "correct": 3.91,
+    "slip": 2.97,
+    "lucky": 2.235,
+    "wrong": 1.97
+   },
+   "lucky_accepted": 0.005,
+   "verdict": "READS THE WORKING",
+   "first_wrong_step_exact": {
+    "wrong": 0.69,
+    "lucky": 0.68,
+    "correct_none_flagged": 0.925
+   },
+   "failed": 0
+  },
+  {
+   "grader": "openai/gpt-oss-20b",
+   "reasoning_effect": 2.025,
+   "reasoning_ci95": [
+    1.895,
+    2.1525
+   ],
+   "answer_effect": 0.785,
+   "answer_ci95": [
+    0.705,
+    0.8675
+   ],
+   "mean_credit": {
+    "correct": 3.88,
+    "slip": 2.8,
+    "lucky": 1.56,
+    "wrong": 1.07
+   },
+   "lucky_accepted": 0.005,
+   "verdict": "READS THE WORKING",
+   "first_wrong_step_exact": {
+    "wrong": 0.7236180904522613,
+    "lucky": 0.69,
+    "correct_none_flagged": 0.93
    },
    "failed": 0
   },

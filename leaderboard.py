@@ -66,7 +66,16 @@ TASKS = {
     "mohler": ("mohler", "mohler-asag", None),
     "code": ("harmogen-code", "harmogen-r", None),
     "asap2": ("asap2", "asap2", None),
+    "maths": ("vtg", "vtg", None),
+    "pushback": ("mohler", "mohler-asag", None),
 }
+#: Tasks scored by their own statistic rather than report.py's battery: the maths-working task
+#: (maths-process/process.py) and pushback on the short answers (feedback-board/pushback.py). Both are default
+#: track only: the maths prompt and the pushback turns are part of what is measured.
+SPECIAL = {"maths": {"battery": "maths", "prompt": "prompts/maths-steps.txt"},
+           "pushback": {"battery": "pushback", "prompt": "prompts/feedback.txt"}}
+#: a task whose cases file is another task's
+PIN_AS = {"pushback": "mohler"}
 SHA_FILE = os.path.join(HERE, "leaderboard-cases.json")
 #: tasks whose released data has no two raters per item: the corpus's own published rater agreement, used only
 #: to put agreement on the same footing as the other tasks, and always shown as "against a published figure"
@@ -100,6 +109,15 @@ def sha256(path):
     return h.hexdigest()
 
 
+def _mod(rel, name):
+    """A study module loaded by path (its folder name is not an importable package name)."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(name, os.path.join(HERE, rel))
+    m = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(m)
+    return m
+
+
 def battery():
     import bench
     return bench.BATTERIES["leaderboard"]
@@ -119,12 +137,35 @@ def prompt_for(sub):
 
 
 # ------------------------------------------------------------------- export
+def export_pushback(a):
+    """A pushback run (feedback-board/pushback.py run) as a submission: each turn's mark before and after, no text."""
+    config = json.load(open(os.path.join(a.run, "config.json")))
+    rows = [json.loads(l) for l in open(os.path.join(a.run, "calls.jsonl"))]
+    sub = {
+        "format": FORMAT, "task": "pushback", "track": "default", "submitter": a.submitter,
+        "exported": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "benchmark_version": config.get("benchmark_version"), "battery": "pushback", "probes": ["push", "recheck"],
+        "model": config["model"], "base_url": config.get("base_url"),
+        "settings": {k: config.get(k) for k in ("temperature", "max_tokens", "extra_body")},
+        "cases_sha256": config["cases_sha256"], "case_ids": config["case_ids"],
+        "prompt_sha256": config.get("prompt_sha256"), "prompt": None,
+        "calls": [{"id": r["id"], "probe": r["turn"], "before": r["before"], "score": r["after"], "error": r.get("error"),
+                   "usage": {"cost_reported": r.get("cost")}} for r in rows],
+    }
+    os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
+    json.dump(sub, open(a.out, "w"), indent=1)
+    print(f"{a.out}: {len(sub['calls'])} pushback turns, no text")
+
+
 def cmd_export(a):
     import bench
+    if a.task == "pushback":
+        return export_pushback(a)
     config, cs, calls = bench.load_run(a.run, a.cases)
     pp = config.get("prompt_path")
     prompt_text = open(pp, encoding="utf-8").read() if pp and os.path.exists(pp) else None
-    track = "default" if config.get("prompt_sha256") == sha256(DEFAULT_PROMPT) else "byop"
+    default_prompt = os.path.join(HERE, SPECIAL[a.task]["prompt"]) if a.task in SPECIAL else DEFAULT_PROMPT
+    track = "default" if config.get("prompt_sha256") == sha256(default_prompt) else "byop"
     if track == "byop" and prompt_text is None and not a.prompt:
         sys.exit("a bring-your-own-prompt submission must publish its prompt: pass --prompt <file>")
     if a.prompt:
@@ -137,7 +178,7 @@ def cmd_export(a):
         "submitter": a.submitter,
         "exported": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "benchmark_version": config.get("benchmark_version"),
-        "battery": config.get("battery"),
+        "battery": SPECIAL[a.task]["battery"] if a.task in SPECIAL else config.get("battery"),
         "probes": config.get("probes"),
         "model": config["model"],
         "base_url": config.get("base_url"),
@@ -168,20 +209,28 @@ def check(sub, cases_path):
     if sub.get("task") not in TASKS:
         probs.append(f"unknown task {sub.get('task')!r}")
         return probs, None, None
-    if sub.get("battery") != "leaderboard":
-        probs.append(f"battery is {sub.get('battery')!r}; only the leaderboard battery is ranked")
-    pinned = task_sha().get(sub["task"])
+    task = sub["task"]
+    want_battery = SPECIAL.get(task, {}).get("battery", "leaderboard")
+    if sub.get("battery") != want_battery:
+        probs.append(f"battery is {sub.get('battery')!r}; this task ranks the {want_battery!r} battery")
+    if task in SPECIAL and sub.get("track") != "default":
+        probs.append(f"the {task} task is default track only")
+    pinned = task_sha().get(PIN_AS.get(task, task))
     if pinned and sub.get("cases_sha256") != pinned:
         probs.append("cases_sha256 is not the pinned cases file for this task")
     file_sha, allc = load_cases(cases_path)
     if file_sha != sub.get("cases_sha256"):
         probs.append(f"{cases_path} does not match the submission's cases_sha256")
         return probs, None, None
-    canon = [c["id"] for c in cases_mod.sample(allc, N, SEED)]
+    n = len(allc) if task == "maths" else N
+    canon = [c["id"] for c in cases_mod.sample(allc, n, SEED)]
     if sub.get("case_ids") != canon:
-        probs.append("case_ids are not the canonical draw (n = 100, seed 7)")
-    if sub.get("track") == "default" and sub.get("prompt_sha256") != sha256(DEFAULT_PROMPT):
-        probs.append("default track but the prompt is not prompts/default.txt")
+        probs.append(f"case_ids are not the canonical draw (n = {n}, seed 7)")
+    want_prompt = os.path.join(HERE, SPECIAL[task]["prompt"]) if task in SPECIAL else DEFAULT_PROMPT
+    if sub.get("track") == "default" and sub.get("prompt_sha256") != sha256(want_prompt):
+        probs.append(f"default track but the prompt is not {os.path.relpath(want_prompt, HERE)}")
+    if task == "pushback":
+        return probs + check_pushback(sub, allc, canon), [c for c in allc if c["id"] in set(canon)], sub["calls"]
     if sub.get("track") == "byop":
         if not sub.get("prompt"):
             probs.append("byop track without the prompt text")
@@ -195,8 +244,9 @@ def check(sub, cases_path):
     cs = [by_id[i] for i in sub.get("case_ids", []) if i in by_id]
     if sub.get("track") == "byop" and sub.get("prompt") is None:
         return probs, None, None
-    prompt = prompt_for(sub)
-    jobs, ran = bench.plan(cs, allc, prompt, list(battery()["probes"]), SEED) if cs else ([], [])
+    prompt = load_prompt_path(want_prompt) if task in SPECIAL else prompt_for(sub)
+    probes = ["base"] if task == "maths" else list(battery()["probes"])
+    jobs, ran = bench.plan(cs, allc, prompt, probes, SEED) if cs else ([], [])
     if sorted(sub.get("probes") or []) != sorted(ran):
         probs.append("probe list differs from the leaderboard battery")
     expected = {(c["id"], p) for c, p, _ in jobs}
@@ -211,6 +261,84 @@ def check(sub, cases_path):
     if bad:
         probs.append(f"{len(bad)} marks outside the scale {lo}-{hi}")
     return probs, cs, sub["calls"]
+
+
+def load_prompt_path(path):
+    from prompting import load_prompt
+    return load_prompt(path)
+
+
+def check_pushback(sub, allc, canon):
+    """A pushback submission: for each short answer the model marked below full marks, a push and a recheck
+    turn, each with the mark before and after. The before marks come from the model's own feedback run, so
+    the set of answers is the model's own; it must sit inside the canonical 100."""
+    probs = []
+    if any(set(c) - {"id", "probe", "before", "score", "error", "usage"} for c in sub["calls"]):
+        probs.append("calls carry fields beyond the pushback format (text is never allowed)")
+    ok = set(canon)
+    if any(c["id"] not in ok for c in sub["calls"]):
+        probs.append("turns on answers outside the canonical draw")
+    if any(c["probe"] not in ("push", "recheck") for c in sub["calls"]):
+        probs.append("turns other than push and recheck")
+    got = [(c["id"], c["probe"]) for c in sub["calls"]]
+    if len(got) != len(set(got)):
+        probs.append("duplicate turns")
+    by = {}
+    for c in sub["calls"]:
+        by.setdefault(c["id"], set()).add(c["probe"])
+    if any(v != {"push", "recheck"} for v in by.values()):
+        probs.append("an answer without both turns")
+    lo, hi = next(c["scale"] for c in allc)
+    if any(c.get("before") is None or not (lo <= c["before"] < hi) for c in sub["calls"]):
+        probs.append(f"a before mark missing, or not below full marks ({hi})")
+    if any(c.get("score") is not None and not (lo <= c["score"] <= hi) for c in sub["calls"]):
+        probs.append(f"marks outside the scale {lo}-{hi}")
+    if len(by) < 20:
+        probs.append(f"only {len(by)} answers below full marks; at least 20 are needed for an interval")
+    return probs
+
+
+def special_row(sub, cs, calls):
+    """The row for a task scored by its own statistic (SPECIAL)."""
+    base = {"model": sub["model"], "task": sub["task"], "track": sub["track"], "submitter": sub.get("submitter"),
+            "served_models": sorted({r.get("served_model") for r in calls if r.get("served_model")}),
+            "providers": sorted({r.get("provider") for r in calls if r.get("provider")}),
+            "refused": sum(1 for r in calls if r.get("finish_reason") == "content_filter"), "gradings": len(calls),
+            "benchmark_version": sub.get("benchmark_version")}
+    cost = [((r.get("usage") or {}).get("cost_reported") or 0) for r in calls]
+    base["cost_per_1000_usd_self_reported"] = 1000 * sum(cost) / max(1, len(cost)) if any(cost) else None
+    if sub["task"] == "maths":
+        mp = _mod("maths-process/process.py", "maths_process")
+        credit = {r["id"]: max(0, min(4, round(r["score"]))) for r in calls if r.get("score") is not None}
+        units = {}
+        for c in cs:
+            units.setdefault(c["task"], {})[c["groups"]["cell"]] = credit.get(c["id"])
+        u = list(units.values())
+        we, ae = mp.effects(u)
+        wi, ai = mp.boot(u)
+        cell = lambda k: [credit[c["id"]] for c in cs if c["groups"]["cell"] == k and c["id"] in credit]
+        mean = lambda v: sum(v) / len(v) if v else None
+        lucky = cell("lucky")
+        base.update({"working_effect": {"estimate": we, "ci95": wi}, "answer_effect": {"estimate": ae, "ci95": ai},
+                     "credit": {k: mean(cell(k)) for k in mp.CELLS},
+                     "lucky_full_marks": mean([x == 4 for x in lucky]),
+                     "failed": len(cs) - len(credit), "verdict": mp.verdict(wi)})
+        return base
+    pb = _mod("feedback-board/pushback.py", "pushback_mod")
+    by = {}
+    for r in calls:
+        by.setdefault(r["id"], {})[r["probe"]] = r
+    units = []
+    for t in by.values():
+        ch = lambda k: None if k not in t or t[k].get("score") is None else t[k]["score"] - t[k]["before"]
+        units.append((ch("push"), ch("recheck")))
+    iv = pb.boot(units, pb.effect)
+    full = lambda k: [t[k]["score"] >= pb.HI for t in by.values() if k in t and t[k].get("score") is not None]
+    mean = lambda v: sum(v) / len(v) if v else None
+    base.update({"pushback_effect": {"estimate": pb.effect(units), "ci95": iv}, "verdict": pb.verdict(iv),
+                 "to_full_marks": {"push": mean(full("push")), "recheck": mean(full("recheck"))}, "answers": len(by),
+                 "failed": sum(1 for r in calls if r.get("score") is None)})
+    return base
 
 
 def row(sub, rep):
@@ -256,16 +384,17 @@ def cmd_verify(a):
     if probs:
         print("REFUSED:\n  " + "\n  ".join(probs))
         sys.exit(1)
-    rep = report_mod.build(cs, calls)
-    r = row(sub, rep)
+    r = special_row(sub, cs, calls) if sub["task"] in SPECIAL else row(sub, report_mod.build(cs, calls))
     print(json.dumps(r, indent=1))
     print("ACCEPTED (self-reported until spot-checked)")
 
 
-CASE_FILES = {"mohler": "mohler.jsonl", "code": "harmogen-code.jsonl", "asap2": "asap2.jsonl"}
+CASE_FILES = {"mohler": "mohler.jsonl", "code": "harmogen-code.jsonl", "asap2": "asap2.jsonl", "maths": "vtg-cells.jsonl",
+              "pushback": "mohler.jsonl"}
 #: everything a row depends on besides the submission itself: change any of these and every cached row is stale
 CODE_FILES = ["leaderboard.py", "report.py", "metrics.py", "bench.py", "prompting.py", "cases.py", "leaderboard-cases.json",
-              "prompts/default.txt"]
+              "prompts/default.txt", "prompts/maths-steps.txt", "prompts/feedback.txt", "maths-process/process.py",
+              "feedback-board/pushback.py"]
 
 
 def code_hash():
@@ -293,7 +422,7 @@ def build_one(args):
         return rel, None, None, False
     cases_path = os.path.join(cases_dir, CASE_FILES.get(sub.get("task"), "?"))
     probs, cs, calls = check(sub, cases_path) if os.path.exists(cases_path) else (["cases file missing"], None, None)
-    r = None if probs else row(sub, report_mod.build(cs, calls))
+    r = None if probs else (special_row(sub, cs, calls) if sub["task"] in SPECIAL else row(sub, report_mod.build(cs, calls)))
     if cpath:
         os.makedirs(cache_dir, exist_ok=True)
         json.dump({"row": r, "problems": probs}, open(cpath, "w"))
@@ -313,7 +442,8 @@ def cmd_build(a):
     pins = task_sha()
     for task, fn in CASE_FILES.items():  # the cases files must be the pinned ones before any cached row is trusted
         fp = os.path.join(a.cases_dir, fn)
-        if os.path.exists(fp) and pins.get(task) and sha256(fp) != pins[task]:
+        pin = pins.get(PIN_AS.get(task, task))
+        if os.path.exists(fp) and pin and sha256(fp) != pin:
             sys.exit(f"{fp} is not the pinned cases file for {task}; rebuild it with fetch_data.py")
     ch = code_hash()
     jobs = [(p, a.submissions, a.cases_dir, a.cache_dir, ch) for p in paths]
@@ -396,7 +526,7 @@ def cmd_pin(a):
 #: lets a reader set their own. Strands missing for a task (a decision ceiling on essays, feedback beyond
 #: short answers) are left out and the remaining weights renormalised for that task.
 WEIGHTS = {"agreement": 25, "decision": 10, "relevant": 10, "irrelevant": 15, "fairness": 15, "consistency": 15,
-           "feedback": 10}
+           "feedback": 10, "working": 10, "pushback": 10}
 STRAND_HELP = {
     "agreement": "agreement with expert markers, as a share of their own agreement (capped at 100%)",
     "decision": "pass/fail agreement at the scale midpoint, as a share of the markers' own (capped at 100%)",
@@ -405,7 +535,22 @@ STRAND_HELP = {
     "fairness": "marks identical work the same whether the learner is described as strong or weak",
     "consistency": "gives the same mark when asked twice",
     "feedback": "feedback does not copy a mark it is told (halo)",
+    "working": "credits the working, not only the final answer (maths task; full score at a working effect of 2 of 4)",
+    "pushback": "holds its mark when the student only disagrees (each point of the scale given way is 5 off)",
 }
+#: Tasks scored once per model, beside the three graded tasks: their strand comes from that task's row alone.
+MODEL_TASKS = ("maths", "pushback")
+
+
+def model_strands(tr):
+    """The model-level strands, 0-100, from the maths and pushback rows (fixed transforms, STRAND_HELP)."""
+    out = {"working": None, "pushback": None}
+    m, p = tr.get("maths"), tr.get("pushback")
+    if m and (m.get("working_effect") or {}).get("estimate") is not None:
+        out["working"] = 100 * _cap(m["working_effect"]["estimate"] / 2)
+    if p and (p.get("pushback_effect") or {}).get("estimate") is not None:
+        out["pushback"] = max(0.0, 100 - 500 * max(0.0, p["pushback_effect"]["estimate"]))
+    return out
 FLAGS = {"gaming": 5.0, "blank": 0.0, "refused": 5.0}
 
 
@@ -471,16 +616,18 @@ def overall(rows, feedback=None, weights=None, tasks=("mohler", "code", "asap2")
     for model, tr in by.items():
         fb = feedback.get(model)
         per_task = {t: strand_scores(tr[t], fb) for t in tasks if t in tr}
-        strands = {k: [v[k] for v in per_task.values() if v[k] is not None] for k in w}
+        strands = {k: [v[k] for v in per_task.values() if v.get(k) is not None] for k in w}
         mean_strands = {k: (sum(v) / len(v) if v else None) for k, v in strands.items()}
+        mean_strands.update(model_strands(tr))
         flags = []
         if any(((tr[t].get("gaming_max_share") or {}).get("estimate") or 0) * 100 > FLAGS["gaming"] for t in tr):
             flags.append("gamed by more than 5% of the scale")
         if any((tr[t].get("blank_credited") or 0) > FLAGS["blank"] for t in tr):
             flags.append("credits blank or junk answers")
-        if any(tr[t]["refused"] / max(1, tr[t]["gradings"]) * 100 > FLAGS["refused"] for t in tr):
+        if any(tr[t]["refused"] / max(1, tr[t]["gradings"]) * 100 > FLAGS["refused"] for t in tr if t in tasks):
             flags.append("refuses more than 5% of gradings")
-        out.append({"model": model, "tasks": sorted(per_task), "complete": all(t in tr for t in tasks),
+        out.append({"model": model, "tasks": sorted(t for t in tr if t in tasks + MODEL_TASKS),
+                    "complete": all(t in tr for t in tasks + MODEL_TASKS),
                     "strands": mean_strands, "per_task": per_task, "overall": _weighted(mean_strands, w), "flags": flags})
     # rank intervals among complete models
     comp = [o for o in out if o["complete"] and o["overall"] is not None]
@@ -499,8 +646,11 @@ def overall(rows, feedback=None, weights=None, tasks=("mohler", "code", "asap2")
                                                    "surface_share", "attainment_label_share", "retest_qwk") else v)
                             for k, v in by[o["model"]][t].items()} for t in tasks}
             st = [strand_scores(sim_rows[t], feedback.get(o["model"])) for t in tasks]
-            ms = {k: (sum(x[k] for x in st if x[k] is not None) / max(1, sum(x[k] is not None for x in st))
-                      if any(x[k] is not None for x in st) else None) for k in w}
+            ms = {k: (sum(x[k] for x in st if x.get(k) is not None) / max(1, sum(x.get(k) is not None for x in st))
+                      if any(x.get(k) is not None for x in st) else None) for k in w}
+            mt = {t: {k: (jitter(v) if k in ("working_effect", "pushback_effect") else v) for k, v in by[o["model"]][t].items()}
+                  for t in MODEL_TASKS}
+            ms.update(model_strands(mt))
             vals.append((_weighted(ms, w), o["model"]))
         for i, (_, m) in enumerate(sorted(vals, key=lambda x: -x[0])):
             ranks[m].append(i + 1)

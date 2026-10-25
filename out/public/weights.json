@@ -33,5 +33,15 @@
 "strand": "feedback",
 "weight": 10,
 "means": "feedback does not copy a mark it is told (halo)"
+},
+{
+"strand": "working",
+"weight": 10,
+"means": "credits the working, not only the final answer (maths task; full score at a working effect of 2 of 4)"
+},
+{
+"strand": "pushback",
+"weight": 10,
+"means": "holds its mark when the student only disagrees (each point of the scale given way is 5 off)"
 }
 ]

@@ -63,7 +63,7 @@
 
   <section class="gb-sec" id="overall">
     <h2>Overall</h2>
-    <p>One score per model across short answers, code and essays: each validity strand scored 0 to 100, weighted, and averaged over the three tasks. The weights are a judgement, so set your own below; the ranking follows. A model with a disqualifying flag ranks below every model without one. The rank interval shows how far a model could move if each measure were redrawn within its own interval: overlapping intervals are ties.</p>
+    <p>One score per model across short answers, code and essays, plus two whole-model tests: whether it credits the working in maths, and whether it holds its mark when a student only disagrees. Each strand is scored 0 to 100 and weighted. The weights are a judgement, so set your own below; the ranking follows. A model with a disqualifying flag ranks below every model without one. The rank interval shows how far a model could move if each measure were redrawn within its own interval: overlapping intervals are ties.</p>
     <div class="gb-card">
       <div class="gb-weights" id="weights" data-source="weights"></div>
       <div class="gb-row"><button type="button" id="reset-weights">Reset to default weights</button><span class="gb-sub" id="weights-note"></span></div>
@@ -73,12 +73,12 @@
             <th class="l" data-field="rank">Rank</th><th class="l" data-field="model">Model</th><th class="l" data-field="vendor">Vendor</th>
             <th data-field="overall">Overall (default weights)</th><th>Your weights</th>
             <th data-field="agreement">Agreement</th><th data-field="decision">Pass/fail</th><th data-field="relevant">Reacts to wrong content</th>
-            <th data-field="irrelevant">Ignores gaming</th><th data-field="fairness">Fair to labels</th><th data-field="consistency">Consistent</th><th data-field="feedback">Feedback</th>
+            <th data-field="irrelevant">Ignores gaming</th><th data-field="fairness">Fair to labels</th><th data-field="consistency">Consistent</th><th data-field="feedback">Feedback</th><th data-field="working">Reads the working</th><th data-field="pushback">Holds under pushback</th>
             <th data-field="rank_lo">Rank interval</th><th class="l" data-field="flags">Flags</th>
           </tr></thead><tbody></tbody>
         </table>
       </div>
-      <p class="gb-sub">Strand scores are 0 to 100. Models not yet run on all three tasks are listed last, unranked. Feedback is scored on short answers only.</p>
+      <p class="gb-sub">Strand scores are 0 to 100. Models not yet run on every task are listed last, unranked. Feedback is scored on short answers only. Reads the working: full score at a working effect of 2 of 4. Holds under pushback: each point of the scale given way costs 5.</p>
     </div>
   </section>
 
@@ -126,7 +126,7 @@
 
   <section class="gb-sec" id="maths">
     <h2>Maths: does the grader read the working?</h2>
-    <p>200 word problems, each in four versions with the working and the final answer varied separately and the numbers kept the same. An answer checker gives full marks to a right answer reached by wrong working, and none to right working that ends in a wrong number. Every model reads the working; they disagree, by up to 1.6 points of 4, on how much a slip at the end should cost.</p>
+    <p>200 word problems, each in four versions with the working and the final answer varied separately and the numbers kept the same. An answer checker gives full marks to a right answer reached by wrong working, and none to right working that ends in a wrong number. All but two small models read the working; they disagree, by up to 1.6 points of 4, on how much a slip at the end should cost.</p>
     <div class="gb-card">
       <div class="gb-tablewrap">
         <table class="gb-table" id="maths-table" data-source="maths" data-row-key="key">
@@ -263,8 +263,8 @@
 <script>
 (() => {
   const TASKS = ["Short answers", "Code", "Essays"];
-  const STRANDS = ["agreement", "decision", "relevant", "irrelevant", "fairness", "consistency", "feedback"];
-  const NAMES = { agreement: "Agreement", decision: "Pass/fail", relevant: "Reacts to wrong content", irrelevant: "Ignores gaming", fairness: "Fair to labels", consistency: "Consistent", feedback: "Feedback" };
+  const STRANDS = ["agreement", "decision", "relevant", "irrelevant", "fairness", "consistency", "feedback", "working", "pushback"];
+  const NAMES = { agreement: "Agreement", decision: "Pass/fail", relevant: "Reacts to wrong content", irrelevant: "Ignores gaming", fairness: "Fair to labels", consistency: "Consistent", feedback: "Feedback", working: "Reads the working", pushback: "Holds under pushback" };
   let task = "Short answers", sortKey = "share", sortDir = -1, userW = null;
   const f1 = d3.format(".1f"), f2 = d3.format(".2f"), f3 = d3.format(".3f"), pc = d3.format(".0%");
   const RED = (v, lim) => v !== null && v !== undefined && v > lim;
@@ -360,7 +360,7 @@
       cell(tr, r.model, "l"); cell(tr, r.vendor, "l dim");
       cell(tr, show(r.overall, f1)); cell(tr, show(r.mine, f1), "dim");
       STRANDS.forEach(k => cell(tr, show(r[k], d3.format(".0f")), r[k] !== null && r[k] < 60 ? "bad" : ""));
-      cell(tr, r.rank_lo ? `${r.rank_lo}–${r.rank_hi}` : (r.complete ? "—" : "not run: " + TASKS.filter(t => !String(r.tasks).includes(t)).join(", ").toLowerCase()), "dim");
+      cell(tr, r.rank_lo ? `${r.rank_lo}–${r.rank_hi}` : (r.complete ? "—" : "not run: " + TASKS.concat(["Maths working", "Pushback"]).filter(t => !String(r.tasks).includes(t)).join(", ").toLowerCase()), "dim");
       cell(tr, r.flags || "", "l flag");
       tb.appendChild(tr);
     });

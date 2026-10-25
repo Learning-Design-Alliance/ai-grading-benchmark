@@ -43,6 +43,11 @@ within a point. A correct solution is flagged as error-free 90-99.5% of the time
   to locate it. Most models score lucky solutions only slightly above wrong ones, so the right answer buys
   little once the working is wrong.
 
+**Extended to all 17 leaderboard models (2026-10-25).** The ten added models ran the same pinned cases and
+prompt; the maths task is now part of the overall score as the "reads the working" strand. Two models, Gemma
+3 4B (+0.51) and Llama 3.2 3B (+0.55), read the working only WEAKLY: their intervals reach below 0.5. The
+other fifteen read it. The full table is in `out/process.json`.
+
 **Limits.**
 - The "students" are a language model. This tests whether graders read the working, not grading of real
   students' work.
