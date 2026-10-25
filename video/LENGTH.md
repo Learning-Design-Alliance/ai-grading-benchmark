@@ -30,8 +30,8 @@ Changes in brackets are those whose 95% interval excludes 0. A balanced accuracy
   recording they report errors that are not there.
   - Either they read more footage as more chances for something to go wrong, or the joined recordings hold
     errors their labels missed. The extra recordings were chosen because their labels say the error did not
-    happen, so the second would mean label errors. Checking which needs a person to look at a sample of
-    false alarms.
+    happen, so the second would mean label errors. A check of 12 false alarms, below, points to the
+    first.
 - **For a grader this matters more than the overall figure.** A model that marks students down for errors
   they did not make, more often on longer work, is a fairness problem even when its accuracy holds.
 - **Perceptron leans the other way:** it says "no" almost always, and more so on long videos.
