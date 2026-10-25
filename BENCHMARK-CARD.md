@@ -53,7 +53,11 @@ each probe is known in advance, so the probes need no new human labels.
   and verdict wording are fixed in each script's docstring, and later changes are numbered.
 - **Detection floor.** Each statistic was checked on simulated graders with planted effects. A probe that
   failed this check is not reported.
-- **Zero data retention** was required on every call.
+- **Zero data retention** was required on every call, and since 2026-10-25 it is verified. The client
+  reads OpenRouter's live list of zero-retention endpoints, pins each request to them, and refuses a model
+  with none. Before that check existed, Claude Fable 5.1's gradings and about half of Claude Haiku 5.5's
+  went to an endpoint that is not on that list. Fable 5.1 cannot currently be run under zero retention
+  (`docs/CORRECTIONS.md`).
 - **Marks only.** Submissions hold marks, never text, and CI recomputes every number from the marks.
 
 ## Data

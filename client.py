@@ -16,6 +16,16 @@ Rules carried over from `shared/llm.py`, each learned on a real run:
 - **Transport errors are retried; replies are not.** 408/409/429/5xx and connection errors back off
   and retry. A completed reply with no readable mark is a failed grading, counted, not re-asked.
 
+- **Zero data retention is checked, not assumed** (added 2026-10-25). On OpenRouter, a request must carry
+  `provider.zdr: true`, and before the first call the client reads OpenRouter's live list of zero-retention
+  endpoints (`/api/v1/endpoints/zdr`). It refuses a model with none there, and pins every request to the
+  listed endpoints (`provider.only`). A reply served by a provider outside the list is recorded as a failed
+  grading. Why: on 2026-10-25 the benchmark found 5,500 Claude Fable 5.1 and 11,300 Claude Haiku 5.5
+  gradings served by Anthropic's own endpoint. It is not on that list today, and Anthropic's documentation
+  says Fable 5.1 requires 30-day retention unless Anthropic authorises otherwise. The `zdr` flag alone had
+  not been verified against the list. The pin is added when the request is sent, not to the cached body,
+  so cached replies are still found.
+
 Usage is read from the reply: prompt, completion and (where reported) reasoning tokens, and the
 cost where the endpoint reports one (OpenRouter's `usage.cost`). Nothing is estimated here.
 """
@@ -52,7 +62,23 @@ class OpenAICompatible:
         self.extra = extra or {}
         self.timeout, self.retries, self.cache_dir = timeout, retries, cache_dir
         self.key, self.key_source = load_key(key_env) if key_env else (None, None)
+        self.zdr = None  # (provider names, endpoint tags) from OpenRouter's live list, read before the first call
         os.makedirs(cache_dir, exist_ok=True)
+
+    def zdr_endpoints(self):
+        """OpenRouter only: the model's zero-retention endpoints, or refuse. Other endpoints are not checked."""
+        if "openrouter.ai" not in self.url:
+            return None
+        if self.zdr is None:
+            if not (self.extra.get("provider") or {}).get("zdr"):
+                raise RuntimeError("refused: every request must require zero data retention; "
+                                   'add "provider": {"zdr": true} to the request (--extra-body)')
+            with urllib.request.urlopen("https://openrouter.ai/api/v1/endpoints/zdr", timeout=60) as resp:
+                eps = [e for e in json.loads(resp.read().decode())["data"] if e.get("model_id") == self.model]
+            if not eps:
+                raise RuntimeError(f"refused: OpenRouter lists no zero-retention endpoint for {self.model}")
+            self.zdr = ({e["provider_name"] for e in eps}, sorted({e["tag"] for e in eps if e.get("tag")}))
+        return self.zdr
 
     def body(self, messages):
         b = {"model": self.model, "messages": messages}
@@ -85,6 +111,9 @@ class OpenAICompatible:
         return rec
 
     def _send(self, body):
+        z = self.zdr_endpoints()
+        if z:
+            body = dict(body, provider=dict(body.get("provider") or {}, zdr=True, only=z[1]))
         data = json.dumps(body).encode()
         headers = {"Content-Type": "application/json"}
         if self.key:
@@ -96,7 +125,11 @@ class OpenAICompatible:
                 req = urllib.request.Request(self.url, data=data, headers=headers, method="POST")
                 with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                     reply = json.loads(resp.read().decode())
-                return record(reply, time.time() - t0)
+                rec = record(reply, time.time() - t0)
+                if z and rec["error"] is None and rec.get("provider") not in z[0]:
+                    rec = dict(rec, text=None, error=f"served by {rec.get('provider')!r}, which is not on OpenRouter's "
+                                                    "zero-retention list for this model; reply discarded")
+                return rec
             except urllib.error.HTTPError as e:
                 detail = e.read().decode(errors="replace")[:300]
                 err = f"HTTP {e.code}: {detail}"
