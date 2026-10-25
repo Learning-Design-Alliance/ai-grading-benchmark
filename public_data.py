@@ -13,7 +13,8 @@ regenerated:
 - baselines, agreement_flags, pushback_split, length_check, per_prompt, multiplicity: the reference baselines
   and the standard checks (out/baselines.json, out/standard_checks.json, out/cluster_check.json,
   out/overall.json);
-- corrections.json   docs/CORRECTIONS.md; energy.json from docs/energy.json; models.json from docs/models.json.
+- corrections.json   docs/CORRECTIONS.md; energy.json from docs/energy.json; models.json from docs/models.json;
+- contamination.json from contamination/out/search.json.
 
     python3 public_data.py <out dir>
 
@@ -535,6 +536,25 @@ def models():
     return rows
 
 
+def contamination():
+    """contamination/out/search.json: the benchmark's texts searched for in two open training sets."""
+    d = _load("contamination", "out", "search.json")
+    if not d:
+        return []
+    rows = []
+    for index, r in d["indexes"].items():
+        nm = {"v4_olmo-2-0325-32b-instruct_llama": "OLMo 2 32B Instruct (all training data)",
+              "v4_dclm-baseline_llama": "DCLM-baseline (filtered Common Crawl)"}.get(index, index)
+        fl = r["floor"]
+        for task, c in r["corpora"].items():
+            rows.append({"key": f"{index}:{task}", "index": nm, "task": TASKS.get(task, task), "eligible": c["eligible"],
+                         "found": c["found"], "share": None if c["share"] is None else round(c["share"], 3),
+                         "lo": None if not c["ci95"] else round(c["ci95"][0], 3), "hi": None if not c["ci95"] else round(c["ci95"][1], 3),
+                         "verdict": c["verdict"], "questions_found": c["questions"]["found"], "questions": c["questions"]["eligible"],
+                         "floor_positive": round(fl["positive_found"], 3), "floor_negative": round(fl["negative_found"], 3)})
+    return rows
+
+
 def main(out):
     os.makedirs(out, exist_ok=True)
     for nm, fn in (("leaderboard", leaderboard), ("halo", halo), ("fairness", fairness),
@@ -544,7 +564,7 @@ def main(out):
                    ("images", images_pooled), ("video", video), ("video_length", video_length),
                    ("maths", maths), ("pushback", pushback), ("baselines", baselines), ("agreement_flags", agreement_flags),
                    ("pushback_split", pushback_split), ("length_check", length_check), ("per_prompt", per_prompt),
-                   ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models)):
+                   ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models), ("contamination", contamination)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)
         print(f"{nm}: {len(rows)} rows")
