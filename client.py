@@ -57,18 +57,23 @@ def load_key(env_name):
 
 class OpenAICompatible:
     def __init__(self, base_url, model, key_env, cache_dir, temperature=None, max_tokens=None,
-                 extra=None, timeout=180, retries=6):
+                 extra=None, timeout=180, retries=6, retention_exception=None):
         self.url = base_url.rstrip("/") + "/chat/completions"
         self.model, self.temperature, self.max_tokens = model, temperature, max_tokens
         self.extra = extra or {}
         self.timeout, self.retries, self.cache_dir = timeout, retries, cache_dir
         self.key, self.key_source = load_key(key_env) if key_env else (None, None)
         self.zdr = None  # (provider names, endpoint tags) from OpenRouter's live list, read before the first call
+        # A model with no zero-retention endpoint runs only under a stated exception, recorded in the run's config
+        # (e.g. Claude Fable 5.1 through the maintainers' own key, 30-day safety retention, public corpora only).
+        self.retention_exception = retention_exception
         os.makedirs(cache_dir, exist_ok=True)
 
     def zdr_endpoints(self):
         """OpenRouter only: the model's zero-retention endpoints, or refuse. Other endpoints are not checked."""
         if "openrouter.ai" not in self.url:
+            return None
+        if self.zdr is False:
             return None
         if self.zdr is None:
             if not (self.extra.get("provider") or {}).get("zdr"):
@@ -77,7 +82,11 @@ class OpenAICompatible:
             with urllib.request.urlopen("https://openrouter.ai/api/v1/endpoints/zdr", timeout=60) as resp:
                 eps = [e for e in json.loads(resp.read().decode())["data"] if e.get("model_id") == self.model]
             if not eps:
-                raise RuntimeError(f"refused: OpenRouter lists no zero-retention endpoint for {self.model}")
+                if self.retention_exception:
+                    self.zdr = False
+                    return None
+                raise RuntimeError(f"refused: OpenRouter lists no zero-retention endpoint for {self.model}; "
+                                   "a run without one needs --retention-exception stating the route and its retention")
             self.zdr = ({e["provider_name"] for e in eps}, sorted({e["tag"] for e in eps if e.get("tag")}))
         return self.zdr
 

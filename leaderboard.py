@@ -202,6 +202,7 @@ def cmd_export(a):
         "prompt_sha256": config.get("prompt_sha256"),
         "prompt": prompt_text if track == "byop" else None,
         "prompts_tried": a.prompts_tried if track == "byop" else 1,
+        "retention_exception": config.get("retention_exception"),
         "calls": [{**{k: r.get(k) for k in keep},
                    "usage": {k: (r.get("usage") or {}).get(k) for k in ("prompt_tokens", "completion_tokens",
                                                                          "reasoning_tokens", "cost_reported")}}

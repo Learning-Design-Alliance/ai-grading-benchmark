@@ -254,7 +254,8 @@ def cmd_run(a):
         return
     extra = json.loads(a.extra_body) if a.extra_body else None
     client = OpenAICompatible(a.base_url, a.model, a.key_env, a.cache_dir or os.path.join(a.out, ".cache"),
-                              temperature=a.temperature, max_tokens=a.max_tokens, extra=extra)
+                              temperature=a.temperature, max_tokens=a.max_tokens, extra=extra,
+                              retention_exception=a.retention_exception)
     if a.key_env and not client.key:
         sys.exit(f"no key: set {a.key_env} in the environment or a .env file (never on the command line)")
     print(f"key from {client.key_source}" if client.key_source else "no key sent")
@@ -268,6 +269,7 @@ def cmd_run(a):
         "context_slot": prompt.context_slot, "response_format": bool(getattr(prompt, "response_format", None)), "cases": a.cases,
         "cases_sha256": file_sha256(a.cases), "n": len(cs), "seed": a.seed, "probes": probes,
         "case_ids": [c["id"] for c in cs], "video_frames": a.video_frames,
+        "retention_exception": a.retention_exception,
     }
     with open(os.path.join(a.out, "config.json"), "w") as fh:
         json.dump(config, fh, indent=1)
@@ -648,6 +650,8 @@ def main(argv=None):
     p.add_argument("--workers", type=int, default=4)
     p.add_argument("--max-calls", type=int, default=3000)
     p.add_argument("--max-usd", type=float, help="stop sending once the endpoint-reported cost reaches this")
+    p.add_argument("--retention-exception", help="for a model with no zero-retention endpoint: the route and its "
+                   "retention, recorded in the run (e.g. 'own Anthropic key, 30-day safety retention; public corpora')")
     p.add_argument("--video-frames", type=int, default=0,
                    help="send video work as this many evenly spaced frames, for models without video input (0: the video)")
     p.add_argument("--out", required=True)
