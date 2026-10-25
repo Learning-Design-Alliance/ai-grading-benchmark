@@ -1,0 +1,710 @@
+{
+ "design": "baselines/baselines.py docstring",
+ "rows": [
+  {
+   "model": "baseline: length",
+   "task": "mohler",
+   "track": "baseline",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "baseline:length"
+   ],
+   "providers": [
+    "local"
+   ],
+   "qwk": {
+    "estimate": 0.0105673142475457,
+    "ci95": [
+     0.0,
+     0.03603038155977238
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.018450901149669217,
+    "ci95": [
+     0.0,
+     0.07014363284271384
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 1.0,
+    "ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.004,
+    "ci95": [
+     0.0,
+     0.01
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 1.0,
+   "decision_kappa": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": null,
+   "n_train": 1627,
+   "by_construction": [
+    "attainment label effect is 0 (the baseline never sees the label)",
+    "retest agreement is 1 (deterministic)"
+   ]
+  },
+  {
+   "model": "baseline: tfidf-ridge",
+   "task": "mohler",
+   "track": "baseline",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "baseline:tfidf-ridge"
+   ],
+   "providers": [
+    "local"
+   ],
+   "qwk": {
+    "estimate": 0.41438602866131935,
+    "ci95": [
+     0.19429999779211707,
+     0.6183900555984061
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.7235325337665399,
+    "ci95": [
+     0.32797297868935305,
+     1.1475013597683255
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 1.0,
+    "ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.008,
+    "ci95": [
+     0.002,
+     0.016
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.01875,
+    "ci95": [
+     -0.0375,
+     -0.003125
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 1.0,
+   "decision_kappa": {
+    "estimate": 0.18362677447391232,
+    "ci95": [
+     0.0,
+     0.46888177874359865
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.6457746968075836,
+    "ci95": [
+     0.0,
+     2.729150506478049
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": null,
+   "n_train": 1627,
+   "by_construction": [
+    "attainment label effect is 0 (the baseline never sees the label)",
+    "retest agreement is 1 (deterministic)"
+   ]
+  },
+  {
+   "model": "baseline: reference-similarity",
+   "task": "mohler",
+   "track": "baseline",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "baseline:reference-similarity"
+   ],
+   "providers": [
+    "local"
+   ],
+   "qwk": {
+    "estimate": 0.16119460306104022,
+    "ci95": [
+     0.09951524614728756,
+     0.2347768825708515
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.2814514281743998,
+    "ci95": [
+     0.16220012571747444,
+     0.5096343930541374
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 1.0,
+    "ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": -0.036,
+    "ci95": [
+     -0.052000000000000005,
+     -0.022
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.009375,
+    "ci95": [
+     -0.021875,
+     0.0
+    ],
+    "flag": false
+   },
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 1.0,
+   "decision_kappa": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": null,
+   "n_train": 1627,
+   "by_construction": [
+    "attainment label effect is 0 (the baseline never sees the label)",
+    "retest agreement is 1 (deterministic)"
+   ]
+  },
+  {
+   "model": "baseline: length",
+   "task": "code",
+   "track": "baseline",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "baseline:length"
+   ],
+   "providers": [
+    "local"
+   ],
+   "qwk": {
+    "estimate": 0.04558700252065259,
+    "ci95": [
+     0.02856748591789695,
+     0.06342590066531892
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.05590162440940033,
+    "ci95": [
+     0.0363680678139765,
+     0.0758150999123919
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 1.0,
+    "ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.020888888888888887,
+    "ci95": [
+     0.016555555555555556,
+     0.02622222222222222
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": -0.0022222222222222222,
+    "ci95": [
+     -0.006666666666666666,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 1.0,
+   "decision_kappa": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": null,
+   "n_train": 29,
+   "by_construction": [
+    "attainment label effect is 0 (the baseline never sees the label)",
+    "retest agreement is 1 (deterministic)"
+   ]
+  },
+  {
+   "model": "baseline: tfidf-ridge",
+   "task": "code",
+   "track": "baseline",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "baseline:tfidf-ridge"
+   ],
+   "providers": [
+    "local"
+   ],
+   "qwk": {
+    "estimate": -0.0013517749789378475,
+    "ci95": [
+     -0.007455851748405619,
+     0.004255219097428515
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": -0.0016576307495623172,
+    "ci95": [
+     -0.00916071277186344,
+     0.005181682841967698
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 1.0,
+    "ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.0011111111111111111,
+    "ci95": [
+     0.0005555555555555556,
+     0.0017777777777777779
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 1.0,
+   "decision_kappa": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": null,
+   "n_train": 29,
+   "by_construction": [
+    "attainment label effect is 0 (the baseline never sees the label)",
+    "retest agreement is 1 (deterministic)"
+   ]
+  },
+  {
+   "model": "baseline: reference-similarity",
+   "task": "code",
+   "track": "baseline",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "baseline:reference-similarity"
+   ],
+   "providers": [
+    "local"
+   ],
+   "qwk": {
+    "estimate": 0.0,
+    "ci95": [
+     -5.551115123125783e-17,
+     5.551115123125783e-17
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.0,
+    "ci95": [
+     -7.046298963456308e-17,
+     7.228223854864179e-17
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": NaN,
+    "ci95": [
+     NaN,
+     NaN
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 1.0,
+   "decision_kappa": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": null,
+   "n_train": 29,
+   "by_construction": [
+    "attainment label effect is 0 (the baseline never sees the label)",
+    "retest agreement is 1 (deterministic)"
+   ]
+  },
+  {
+   "model": "baseline: length",
+   "task": "asap2",
+   "track": "baseline",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "baseline:length"
+   ],
+   "providers": [
+    "local"
+   ],
+   "qwk": {
+    "estimate": 0.6361075243573189,
+    "ci95": [
+     0.508279429785782,
+     0.738892617087845
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 1.0,
+    "ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.026000000000000002,
+    "ci95": [
+     0.014000000000000002,
+     0.04
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.5753715498938429,
+    "ci95": [
+     0.3722782356637637,
+     0.7428571428571429
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.8538356031641864,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": null,
+   "n_train": 24628,
+   "by_construction": [
+    "attainment label effect is 0 (the baseline never sees the label)",
+    "retest agreement is 1 (deterministic)"
+   ]
+  },
+  {
+   "model": "baseline: tfidf-ridge",
+   "task": "asap2",
+   "track": "baseline",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "baseline:tfidf-ridge"
+   ],
+   "providers": [
+    "local"
+   ],
+   "qwk": {
+    "estimate": 0.7342230264646008,
+    "ci95": [
+     0.6241933251225408,
+     0.808458960925562
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 1.0,
+    "ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.022,
+    "ci95": [
+     0.012,
+     0.036
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": 0.002247191011235955,
+    "ci95": [
+     -0.00449438202247191,
+     0.011235955056179775
+    ],
+    "flag": false
+   },
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.5972073039742213,
+    "ci95": [
+     0.39999727223131465,
+     0.7639219849670935
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.9855342637108736,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": null,
+   "n_train": 24628,
+   "by_construction": [
+    "attainment label effect is 0 (the baseline never sees the label)",
+    "retest agreement is 1 (deterministic)"
+   ]
+  }
+ ]
+}

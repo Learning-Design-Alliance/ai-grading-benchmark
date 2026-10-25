@@ -1,0 +1,1946 @@
+{
+ "design": "analyses/standard_checks.py docstring",
+ "agreement": [
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6314440105023597,
+   "qwk_ci95": [
+    0.5206413233044969,
+    0.7298061343123026
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077206,
+   "degradation": -0.05871782429463901,
+   "degradation_ci95": [
+    -0.15707994810458192,
+    0.05208486290322378
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.45472305876299335,
+   "smd_ci95": [
+    -0.6105192821342409,
+    -0.32652977583552095
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6028234681207538,
+   "qwk_ci95": [
+    0.49085668763639206,
+    0.6981655031609031
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.03009728191303307,
+   "degradation_ci95": [
+    -0.12543931695318233,
+    0.08186949857132869
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.5432068604980178,
+   "smd_ci95": [
+    -0.7100153306231703,
+    -0.40946440151781294
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6717604315861685,
+   "qwk_ci95": [
+    0.5612178108271617,
+    0.7641206375409377
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.566151603039361,
+   "degradation": -0.10560882854680753,
+   "degradation_ci95": [
+    -0.19796903450157677,
+    0.004933792212199251
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.3846708118532265,
+   "smd_ci95": [
+    -0.5298255634653496,
+    -0.26941409810433503
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.643453677237354,
+   "qwk_ci95": [
+    0.5340959514113057,
+    0.7431761266563561
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.07072749102963327,
+   "degradation_ci95": [
+    -0.17044994044863537,
+    0.03863023479641503
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.37206977564509686,
+   "smd_ci95": [
+    -0.5073942161294785,
+    -0.24729872968006827
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.5470148226052658,
+   "qwk_ci95": [
+    0.4070344107926379,
+    0.667302388977526
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": 0.025711363602454962,
+   "degradation_ci95": [
+    -0.09457620276980527,
+    0.16569177541508284
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": -0.23472588571199404,
+   "smd_ci95": [
+    -0.39284910801453843,
+    -0.07893662992469566
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6393083252380235,
+   "qwk_ci95": [
+    0.507318408154129,
+    0.7433547024956411
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.06658213903030274,
+   "degradation_ci95": [
+    -0.1706285162879203,
+    0.06540777805359177
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.3452465210859275,
+   "smd_ci95": [
+    -0.49321430603063865,
+    -0.21284358636979966
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.5199152774100737,
+   "qwk_ci95": [
+    0.2858225747275434,
+    0.6810916298316694
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": 0.05281090879764705,
+   "degradation_ci95": [
+    -0.10836544362394862,
+    0.28690361148017735
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.3082055792287107,
+   "smd_ci95": [
+    0.13296902719643483,
+    0.5174757668611797
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6378451045970228,
+   "qwk_ci95": [
+    0.5113299180294797,
+    0.7424969635887644
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.06511891838930206,
+   "degradation_ci95": [
+    -0.16977077738104362,
+    0.061396268178241065
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.2743466643597325,
+   "smd_ci95": [
+    -0.4162138200038398,
+    -0.14357294438608448
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6117833753631665,
+   "qwk_ci95": [
+    0.4757020695095511,
+    0.7269012752667005
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.03905718915544576,
+   "degradation_ci95": [
+    -0.1541750890589797,
+    0.09702411669816968
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.23362014512198612,
+   "smd_ci95": [
+    -0.37748841304813757,
+    -0.09220029530529086
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.37936518380025264,
+   "qwk_ci95": [
+    0.19563087830796422,
+    0.5443668537431248
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": 0.19336100240746812,
+   "degradation_ci95": [
+    0.028359332464595988,
+    0.37709530789975654
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": -0.5908914735722438,
+   "smd_ci95": [
+    -0.8166679805939353,
+    -0.39950683902369793
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6330636412203884,
+   "qwk_ci95": [
+    0.5058327731668455,
+    0.7317664756689147
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.06033745501266763,
+   "degradation_ci95": [
+    -0.15904028946119397,
+    0.06689341304087526
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.3818450669109979,
+   "smd_ci95": [
+    -0.546273789755965,
+    -0.24963785098452446
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.5667036777252747,
+   "qwk_ci95": [
+    0.4256965177367748,
+    0.6781131929890933
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": 0.0060225084824460096,
+   "degradation_ci95": [
+    -0.10538700678137258,
+    0.14702966847094595
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": -0.5697217433560962,
+   "smd_ci95": [
+    -0.7654090764841157,
+    -0.40742152071391163
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6303918129661208,
+   "qwk_ci95": [
+    0.5020818300928689,
+    0.7372378531214762
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.057665626758400035,
+   "degradation_ci95": [
+    -0.1645116669137554,
+    0.07064435611485187
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.1875663345475129,
+   "smd_ci95": [
+    -0.3205770519434979,
+    -0.048541571389948676
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6440768768219157,
+   "qwk_ci95": [
+    0.5162489817833223,
+    0.7504677927923901
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.07135069061419497,
+   "degradation_ci95": [
+    -0.1777416065846693,
+    0.05647720442439841
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.2600806801073207,
+   "smd_ci95": [
+    -0.4082976697313732,
+    -0.13197171717935938
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6347730254141846,
+   "qwk_ci95": [
+    0.5137304183048613,
+    0.736743078191545
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5623288697214894,
+   "degradation": -0.07244415569269513,
+   "degradation_ci95": [
+    -0.17441420847005562,
+    0.04859845141662811
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.22700023275948658,
+   "smd_ci95": [
+    -0.36511203938900927,
+    -0.10015115572385316
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.5993530616538965,
+   "qwk_ci95": [
+    0.47306983090370874,
+    0.70914348720157
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.026626875446175702,
+   "degradation_ci95": [
+    -0.1364173009938493,
+    0.09965635530401201
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.3624579522710056,
+   "smd_ci95": [
+    -0.5138656141011438,
+    -0.2280152430647989
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6022729185745839,
+   "qwk_ci95": [
+    0.4834352339785782,
+    0.7023541025276425
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.029546732366863115,
+   "degradation_ci95": [
+    -0.12962791631992177,
+    0.08929095222914257
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.4979971023639827,
+   "smd_ci95": [
+    -0.6619208532070806,
+    -0.3542332218701137
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.8785745826344104,
+   "qwk_ci95": [
+    0.8370263825275756,
+    0.9086022677596938
+   ],
+   "qwk_flag": "PASS",
+   "human_ceiling": 0.815486186712434,
+   "degradation": -0.06308839592197635,
+   "degradation_ci95": [
+    -0.09311608104725977,
+    -0.02154019581514155
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.14140645178205152,
+   "smd_ci95": [
+    -0.20474353254034827,
+    -0.08699294508564061
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.8172558469625353,
+   "qwk_ci95": [
+    0.7513976551448835,
+    0.866811848413362
+   ],
+   "qwk_flag": "PASS",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": -0.0017696602501013903,
+   "degradation_ci95": [
+    -0.051325661700928116,
+    0.06408853156755034
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.27583495703871164,
+   "smd_ci95": [
+    -0.38472393619341694,
+    -0.19074713191276244
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.8773959773096359,
+   "qwk_ci95": [
+    0.836235089544204,
+    0.9078371398607756
+   ],
+   "qwk_flag": "PASS",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": -0.06190979059720203,
+   "degradation_ci95": [
+    -0.09235095314834174,
+    -0.02074890283177011
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.21004928643161774,
+   "smd_ci95": [
+    -0.2798753274200528,
+    -0.15355484350763818
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.7350158456086474,
+   "qwk_ci95": [
+    0.6460343123509578,
+    0.8041974666978072
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": 0.08047034110378648,
+   "degradation_ci95": [
+    0.011288720014626663,
+    0.16945187436147613
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": -0.4389978425188667,
+   "smd_ci95": [
+    -0.5790561652937108,
+    -0.32281657342946946
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.7211538434192186,
+   "qwk_ci95": [
+    0.6338124459988985,
+    0.7887907268264208
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": 0.09433234329321527,
+   "degradation_ci95": [
+    0.026695459886013073,
+    0.18167374071353537
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": -0.304734510336638,
+   "smd_ci95": [
+    -0.4512180254279141,
+    -0.18021931219600695
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.7140565959517906,
+   "qwk_ci95": [
+    0.6111981859611637,
+    0.7892417565353786
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": 0.10142959076064328,
+   "degradation_ci95": [
+    0.026244430177055245,
+    0.20428800075127018
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.31950686197252354,
+   "smd_ci95": [
+    0.20197464163367687,
+    0.44411563348360816
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.29354675848365525,
+   "qwk_ci95": [
+    0.19828982549432,
+    0.39277361842085723
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.8154861867124338,
+   "degradation": 0.5219394282287786,
+   "degradation_ci95": [
+    0.42271256829157655,
+    0.6171963612181137
+   ],
+   "degradation_flag": "FAIL",
+   "smd": 1.4598657936850448,
+   "smd_ci95": [
+    1.2306296451266825,
+    1.7326764032128852
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.4867849026158554,
+   "qwk_ci95": [
+    0.38083539163478325,
+    0.5845079007100746
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.8154861867124338,
+   "degradation": 0.3287012840965784,
+   "degradation_ci95": [
+    0.23097828600235915,
+    0.43465079507765053
+   ],
+   "degradation_flag": "FAIL",
+   "smd": -0.825937275663763,
+   "smd_ci95": [
+    -1.0516886223645667,
+    -0.6422474015690405
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.5281001708658436,
+   "qwk_ci95": [
+    0.4194939457694879,
+    0.6217003199694799
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.815486186712434,
+   "degradation": 0.2873860158465904,
+   "degradation_ci95": [
+    0.19378586674295406,
+    0.3959922409429461
+   ],
+   "degradation_flag": "FAIL",
+   "smd": -0.7765115640433008,
+   "smd_ci95": [
+    -0.9806124849328997,
+    -0.6052955852180375
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.49719808100239854,
+   "qwk_ci95": [
+    0.34702863939064416,
+    0.6302978621255535
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": 0.31828810571003535,
+   "degradation_ci95": [
+    0.1851883245868804,
+    0.46845754732178974
+   ],
+   "degradation_flag": "FAIL",
+   "smd": 0.20734911079685248,
+   "smd_ci95": [
+    0.010648883348031324,
+    0.38780726351622735
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.6781651262743595,
+   "qwk_ci95": [
+    0.5611757344165348,
+    0.7623313005099234
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": 0.13732106043807435,
+   "degradation_ci95": [
+    0.05315488620251052,
+    0.2543104522958991
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.17849149622921104,
+   "smd_ci95": [
+    0.03741824763371783,
+    0.3202275589839001
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.6920179800718645,
+   "qwk_ci95": [
+    0.6020865800610524,
+    0.7656574001778089
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": 0.12346820664056934,
+   "degradation_ci95": [
+    0.04982878653462497,
+    0.21339960665138147
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": -0.528500240875149,
+   "smd_ci95": [
+    -0.712734285608618,
+    -0.3855993546606246
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.8132487077540205,
+   "qwk_ci95": [
+    0.7496680448380151,
+    0.8610005471388362
+   ],
+   "qwk_flag": "PASS",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": 0.002237478958413419,
+   "degradation_ci95": [
+    -0.045514360426402334,
+    0.06581814187441881
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.2737967683576799,
+   "smd_ci95": [
+    -0.3809146106335712,
+    -0.18497298929037867
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.7370236960549309,
+   "qwk_ci95": [
+    0.6597964304926331,
+    0.7992866558347655
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": 0.07846249065750299,
+   "degradation_ci95": [
+    0.016199530877668344,
+    0.15568975621980075
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": -0.475417508699787,
+   "smd_ci95": [
+    -0.6142256184238702,
+    -0.3595336404529433
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.8404815264167566,
+   "qwk_ci95": [
+    0.7860237125731293,
+    0.8813613012869091
+   ],
+   "qwk_flag": "PASS",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": -0.02499533970432266,
+   "degradation_ci95": [
+    -0.06587511457447526,
+    0.029462474139304584
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.2494628457178119,
+   "smd_ci95": [
+    -0.340559130202169,
+    -0.17361549738311943
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.26756242086579957,
+   "qwk_ci95": [
+    0.1487614589665151,
+    0.3874776034090329
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": 0.5479237658466343,
+   "degradation_ci95": [
+    0.42800858330340097,
+    0.6667247277459187
+   ],
+   "degradation_flag": "FAIL",
+   "smd": -1.1900563366211403,
+   "smd_ci95": [
+    -1.5312853019563792,
+    -0.9290360214705287
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.4994413815343558,
+   "qwk_ci95": [
+    0.3652917223707908,
+    0.61895692182889
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": 0.3160448051780781,
+   "degradation_ci95": [
+    0.19652926488354394,
+    0.4501944643416431
+   ],
+   "degradation_flag": "FAIL",
+   "smd": -0.7536550293220828,
+   "smd_ci95": [
+    -0.9790659045632762,
+    -0.5633833248256821
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.711887761493173,
+   "qwk_ci95": [
+    0.6156802459646425,
+    0.7892074198988195
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.745,
+   "degradation": 0.033112238506826985,
+   "degradation_ci95": [
+    -0.04420741989881949,
+    0.12931975403535745
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": -0.04456688116249248,
+   "smd_ci95": [
+    -0.19098395018697215,
+    0.09999688255007311
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.5086973841455318,
+   "qwk_ci95": [
+    0.39279185165839636,
+    0.609181141439206
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.2363026158544682,
+   "degradation_ci95": [
+    0.135818858560794,
+    0.35220814834160363
+   ],
+   "degradation_flag": "FAIL",
+   "smd": -0.37455963611059667,
+   "smd_ci95": [
+    -0.5724605698567589,
+    -0.1814776342597812
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.7013374886378394,
+   "qwk_ci95": [
+    0.60431654676259,
+    0.7787322660419107
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.745,
+   "degradation": 0.043662511362160594,
+   "degradation_ci95": [
+    -0.03373226604191071,
+    0.14068345323741005
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": -0.022679341112859037,
+   "smd_ci95": [
+    -0.1735443662549251,
+    0.136411712619576
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.6410736579275904,
+   "qwk_ci95": [
+    0.529299767294267,
+    0.7329833454018826
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.745,
+   "degradation": 0.10392634207240958,
+   "degradation_ci95": [
+    0.012016654598117404,
+    0.21570023270573302
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.2793631966105019,
+   "smd_ci95": [
+    0.12184153981603438,
+    0.44985211212050813
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.6292409933543197,
+   "qwk_ci95": [
+    0.5251315020455873,
+    0.7150417260329738
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.745,
+   "degradation": 0.11575900664568028,
+   "degradation_ci95": [
+    0.029958273967026217,
+    0.21986849795441266
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.575417031681782,
+   "smd_ci95": [
+    0.43501109292430623,
+    0.7376604274446305
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.6101931580172212,
+   "qwk_ci95": [
+    0.4826694257630626,
+    0.7112704101951414
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.745,
+   "degradation": 0.1348068419827788,
+   "degradation_ci95": [
+    0.03372958980485863,
+    0.2623305742369374
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.27333994511082643,
+   "smd_ci95": [
+    0.10792788901376649,
+    0.4499122459428745
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.15519554738359098,
+   "qwk_ci95": [
+    0.08369503266254574,
+    0.23158708679682982
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.589804452616409,
+   "degradation_ci95": [
+    0.5134129132031702,
+    0.6613049673374543
+   ],
+   "degradation_flag": "FAIL",
+   "smd": 1.7402919194209945,
+   "smd_ci95": [
+    1.4567877758337096,
+    2.0759566407127434
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.7267483048274466,
+   "qwk_ci95": [
+    0.622762148337596,
+    0.8094291159168117
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.745,
+   "degradation": 0.018251695172553428,
+   "degradation_ci95": [
+    -0.06442911591681166,
+    0.12223785166240397
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.1816683665668033,
+   "smd_ci95": [
+    0.038598471296878906,
+    0.3296422492613928
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.6562392574767961,
+   "qwk_ci95": [
+    0.542703429724277,
+    0.7400456505199087
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.745,
+   "degradation": 0.08876074252320387,
+   "degradation_ci95": [
+    0.004954349480091325,
+    0.202296570275723
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.1283409670090765,
+   "smd_ci95": [
+    -0.03352514976822689,
+    0.28429692623741315
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.4568245125348188,
+   "qwk_ci95": [
+    0.3183724832214764,
+    0.5785887205236259
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.2881754874651812,
+   "degradation_ci95": [
+    0.16641127947637413,
+    0.4266275167785236
+   ],
+   "degradation_flag": "FAIL",
+   "smd": -0.10576103320037525,
+   "smd_ci95": [
+    -0.3152584295321919,
+    0.09339414842672124
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.5553717299141763,
+   "qwk_ci95": [
+    0.41884385928821233,
+    0.6585412121786967
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.18962827008582372,
+   "degradation_ci95": [
+    0.08645878782130334,
+    0.32615614071178767
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.28921781534661706,
+   "smd_ci95": [
+    0.10849000442973722,
+    0.47361133042579595
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.5296167247386758,
+   "qwk_ci95": [
+    0.42655491839435355,
+    0.622093023255814
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.21538327526132417,
+   "degradation_ci95": [
+    0.12290697674418605,
+    0.31844508160564644
+   ],
+   "degradation_flag": "FAIL",
+   "smd": -0.5935317259477766,
+   "smd_ci95": [
+    -0.7917917556302322,
+    -0.4148396445267354
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.3022344178753428,
+   "qwk_ci95": [
+    0.20714285714285707,
+    0.3915619245857015
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.4427655821246572,
+   "degradation_ci95": [
+    0.3534380754142985,
+    0.5378571428571429
+   ],
+   "degradation_flag": "FAIL",
+   "smd": 1.2072463935065387,
+   "smd_ci95": [
+    0.9746892430199952,
+    1.481796583281421
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.47340425531914865,
+   "qwk_ci95": [
+    0.3583868010999083,
+    0.569827931172469
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.27159574468085135,
+   "degradation_ci95": [
+    0.175172068827531,
+    0.3866131989000917
+   ],
+   "degradation_flag": "FAIL",
+   "smd": 0.6707634637168737,
+   "smd_ci95": [
+    0.4708210860385689,
+    0.9007355630865421
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.4875177592855692,
+   "qwk_ci95": [
+    0.3918732147793236,
+    0.563732928679818
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.2574822407144308,
+   "degradation_ci95": [
+    0.18126707132018205,
+    0.3531267852206764
+   ],
+   "degradation_flag": "FAIL",
+   "smd": 0.7350525607074087,
+   "smd_ci95": [
+    0.5525488385456097,
+    0.9403372903060061
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.4050082781456954,
+   "qwk_ci95": [
+    0.2479355092410539,
+    0.5417515274949084
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.3399917218543046,
+   "degradation_ci95": [
+    0.2032484725050916,
+    0.4970644907589461
+   ],
+   "degradation_flag": "FAIL",
+   "smd": -0.4813759680664519,
+   "smd_ci95": [
+    -0.6993292481501668,
+    -0.27215941796662707
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.5949294700724361,
+   "qwk_ci95": [
+    0.47005556698909234,
+    0.6958805640033177
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.15007052992756387,
+   "degradation_ci95": [
+    0.04911943599668234,
+    0.27494443301090765
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.48265907942432007,
+   "smd_ci95": [
+    0.3251759093902731,
+    0.6496121981490435
+   ],
+   "smd_flag": "FAIL"
+  }
+ ],
+ "pushback": [
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "raises": {
+    "progressive": 8,
+    "regressive": 4
+   },
+   "regressive_share": 0.3333333333333333,
+   "effect_not_under_marked": 0.07272727272727272,
+   "effect_not_under_marked_ci95": [
+    0.01818181818181818,
+    0.12727272727272726
+   ],
+   "n_not_under_marked": 11
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "raises": {
+    "progressive": 13,
+    "regressive": 2
+   },
+   "regressive_share": 0.13333333333333333,
+   "effect_not_under_marked": 0.05714285714285714,
+   "effect_not_under_marked_ci95": [
+    0.0,
+    0.11428571428571428
+   ],
+   "n_not_under_marked": 7
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "raises": {
+    "progressive": 6,
+    "regressive": 4
+   },
+   "regressive_share": 0.4,
+   "effect_not_under_marked": 0.046153846153846156,
+   "effect_not_under_marked_ci95": [
+    0.0,
+    0.09230769230769231
+   ],
+   "n_not_under_marked": 13
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "raises": {
+    "progressive": 13,
+    "regressive": 0
+   },
+   "regressive_share": 0.0,
+   "effect_not_under_marked": 0.03333333333333333,
+   "effect_not_under_marked_ci95": [
+    0.0,
+    0.1
+   ],
+   "n_not_under_marked": 6
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "raises": {
+    "progressive": 3,
+    "regressive": 6
+   },
+   "regressive_share": 0.6666666666666666,
+   "effect_not_under_marked": 0.12727272727272726,
+   "effect_not_under_marked_ci95": [
+    0.05454545454545454,
+    0.2
+   ],
+   "n_not_under_marked": 11
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "raises": {
+    "progressive": 59,
+    "regressive": 12
+   },
+   "regressive_share": 0.16901408450704225,
+   "effect_not_under_marked": 0.18571428571428572,
+   "effect_not_under_marked_ci95": [
+    0.08571428571428572,
+    0.2857142857142857
+   ],
+   "n_not_under_marked": 14
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "raises": {
+    "progressive": 7,
+    "regressive": 7
+   },
+   "regressive_share": 0.5,
+   "effect_not_under_marked": -0.006896551724137931,
+   "effect_not_under_marked_ci95": [
+    -0.0896551724137931,
+    0.08275862068965517
+   ],
+   "n_not_under_marked": 29
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "raises": {
+    "progressive": 6,
+    "regressive": 3
+   },
+   "regressive_share": 0.3333333333333333,
+   "effect_not_under_marked": 0.1,
+   "effect_not_under_marked_ci95": [
+    0.025,
+    0.2
+   ],
+   "n_not_under_marked": 8
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "raises": {
+    "progressive": 3,
+    "regressive": 3
+   },
+   "regressive_share": 0.5,
+   "effect_not_under_marked": 0.12,
+   "effect_not_under_marked_ci95": [
+    0.04,
+    0.2
+   ],
+   "n_not_under_marked": 10
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "raises": {
+    "progressive": 68,
+    "regressive": 19
+   },
+   "regressive_share": 0.21839080459770116,
+   "effect_not_under_marked": 0.29523809523809524,
+   "effect_not_under_marked_ci95": [
+    0.17142857142857143,
+    0.4095238095238095
+   ],
+   "n_not_under_marked": 21
+  },
+  {
+   "model": "microsoft/phi-4",
+   "raises": {
+    "progressive": 56,
+    "regressive": 9
+   },
+   "regressive_share": 0.13846153846153847,
+   "effect_not_under_marked": 0.09411764705882353,
+   "effect_not_under_marked_ci95": [
+    0.047058823529411764,
+    0.1411764705882353
+   ],
+   "n_not_under_marked": 17
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "raises": {
+    "progressive": 75,
+    "regressive": 14
+   },
+   "regressive_share": 0.15730337078651685,
+   "effect_not_under_marked": 0.4,
+   "effect_not_under_marked_ci95": [
+    0.29333333333333333,
+    0.52
+   ],
+   "n_not_under_marked": 15
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "raises": {
+    "progressive": 5,
+    "regressive": 4
+   },
+   "regressive_share": 0.4444444444444444,
+   "effect_not_under_marked": 0.05333333333333333,
+   "effect_not_under_marked_ci95": [
+    0.013333333333333332,
+    0.10666666666666666
+   ],
+   "n_not_under_marked": 15
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "raises": {
+    "progressive": 10,
+    "regressive": 3
+   },
+   "regressive_share": 0.23076923076923078,
+   "effect_not_under_marked": 0.10909090909090909,
+   "effect_not_under_marked_ci95": [
+    0.03636363636363636,
+    0.2
+   ],
+   "n_not_under_marked": 11
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "raises": {
+    "progressive": 3,
+    "regressive": 2
+   },
+   "regressive_share": 0.4,
+   "effect_not_under_marked": 0.0125,
+   "effect_not_under_marked_ci95": [
+    -0.025,
+    0.05
+   ],
+   "n_not_under_marked": 16
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "raises": {
+    "progressive": 14,
+    "regressive": 1
+   },
+   "regressive_share": 0.06666666666666667,
+   "effect_not_under_marked": 0.06,
+   "effect_not_under_marked_ci95": [
+    -0.04,
+    0.16
+   ],
+   "n_not_under_marked": 10
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "raises": {
+    "progressive": 55,
+    "regressive": 9
+   },
+   "regressive_share": 0.140625,
+   "effect_not_under_marked": 0.15384615384615385,
+   "effect_not_under_marked_ci95": [
+    0.07692307692307693,
+    0.23076923076923075
+   ],
+   "n_not_under_marked": 13
+  }
+ ],
+ "length": [
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "mohler",
+   "coef": -0.17572974669128114,
+   "ci95": [
+    -0.29604655080146663,
+    -0.05338342785972136
+   ]
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "mohler",
+   "coef": -0.20809508528667825,
+   "ci95": [
+    -0.3221206869738377,
+    -0.0727604379265372
+   ]
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "mohler",
+   "coef": -0.14900720586177038,
+   "ci95": [
+    -0.26311574487646894,
+    -0.022949842271006497
+   ]
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "mohler",
+   "coef": -0.1098362976200471,
+   "ci95": [
+    -0.20512313353766065,
+    -0.0013592726579289521
+   ]
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "mohler",
+   "coef": -0.10331200264604644,
+   "ci95": [
+    -0.3023776322944019,
+    0.0985684846834309
+   ]
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "mohler",
+   "coef": -0.12708122832286722,
+   "ci95": [
+    -0.2664902257009842,
+    0.005808399358436358
+   ]
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "mohler",
+   "coef": 0.11320573836126047,
+   "ci95": [
+    -0.0417497433595801,
+    0.23062272971491163
+   ]
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "mohler",
+   "coef": -0.14341730364640598,
+   "ci95": [
+    -0.2769663648431241,
+    -0.004629559512741183
+   ]
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "mohler",
+   "coef": -0.1547596462911276,
+   "ci95": [
+    -0.29743833794922225,
+    -0.0011761914870107402
+   ]
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "mohler",
+   "coef": 0.15843665161676804,
+   "ci95": [
+    -0.028091109291031712,
+    0.35821456173992144
+   ]
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "mohler",
+   "coef": -0.02983138770218021,
+   "ci95": [
+    -0.1495143636296726,
+    0.09260383522467448
+   ]
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "mohler",
+   "coef": -0.10848335789698345,
+   "ci95": [
+    -0.2850353476043729,
+    0.050642563347868326
+   ]
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "mohler",
+   "coef": -0.07883419879875395,
+   "ci95": [
+    -0.19111410738825804,
+    0.037083549456293725
+   ]
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "mohler",
+   "coef": -0.12800986842884057,
+   "ci95": [
+    -0.2235793425262295,
+    -0.027338949983080833
+   ]
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "mohler",
+   "coef": -0.13215335906758874,
+   "ci95": [
+    -0.2610442849588061,
+    0.0036784417392198144
+   ]
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "mohler",
+   "coef": -0.13461584697333107,
+   "ci95": [
+    -0.2886001961314546,
+    0.022402079828001024
+   ]
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "mohler",
+   "coef": -0.11347591293679919,
+   "ci95": [
+    -0.22090660262526218,
+    0.008403926508728822
+   ]
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "code",
+   "coef": 0.03501754316865153,
+   "ci95": [
+    -0.009715458783523352,
+    0.08244175643932009
+   ]
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "code",
+   "coef": -0.021326171346631378,
+   "ci95": [
+    -0.09277922901452688,
+    0.05716515184223565
+   ]
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "code",
+   "coef": -0.0421954999060796,
+   "ci95": [
+    -0.08809342077555796,
+    0.005726026317790367
+   ]
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "code",
+   "coef": -0.0631821357992742,
+   "ci95": [
+    -0.14948246221747066,
+    0.017250615360342794
+   ]
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "code",
+   "coef": 0.004650944749917563,
+   "ci95": [
+    -0.11909785711451615,
+    0.13815221023390967
+   ]
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "code",
+   "coef": 0.2306735391447711,
+   "ci95": [
+    0.11461189109577742,
+    0.3448079672579655
+   ]
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "code",
+   "coef": 0.027978936175391607,
+   "ci95": [
+    -0.22944777259986923,
+    0.26744536203934344
+   ]
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "code",
+   "coef": -0.010289957265207688,
+   "ci95": [
+    -0.12239717420842354,
+    0.10792591654812674
+   ]
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "code",
+   "coef": -0.011586708305398518,
+   "ci95": [
+    -0.14070817509712985,
+    0.12221169896340736
+   ]
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "code",
+   "coef": -0.010438957534879298,
+   "ci95": [
+    -0.27386427440387545,
+    0.23156465458758133
+   ]
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "code",
+   "coef": 0.1580428478464665,
+   "ci95": [
+    0.01629780867367796,
+    0.30818884765479443
+   ]
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "code",
+   "coef": -0.018009734938103865,
+   "ci95": [
+    -0.12297213217018639,
+    0.10104612957654238
+   ]
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "code",
+   "coef": 0.0015258438522464226,
+   "ci95": [
+    -0.08518003511177111,
+    0.09091061935290327
+   ]
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "code",
+   "coef": -0.05503995847258529,
+   "ci95": [
+    -0.13422618512087317,
+    0.03268960571825088
+   ]
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "code",
+   "coef": -0.025025620578536616,
+   "ci95": [
+    -0.09671715668236741,
+    0.050203798470406145
+   ]
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "code",
+   "coef": -0.11054531742539388,
+   "ci95": [
+    -0.27422856125466016,
+    0.058620246666496734
+   ]
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "code",
+   "coef": -0.07835832777347317,
+   "ci95": [
+    -0.2059853167737081,
+    0.06291414266689749
+   ]
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "asap2",
+   "coef": 0.24084664918231538,
+   "ci95": [
+    0.054625391570121536,
+    0.4473355113904489
+   ]
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "asap2",
+   "coef": 0.0882677832955177,
+   "ci95": [
+    -0.12748683542839187,
+    0.31663999053345915
+   ]
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "asap2",
+   "coef": 0.11851242451655329,
+   "ci95": [
+    -0.04013598846081255,
+    0.27374127235661655
+   ]
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "asap2",
+   "coef": 0.19305140342250282,
+   "ci95": [
+    0.018433541410702116,
+    0.35445967757479185
+   ]
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "asap2",
+   "coef": 0.22672760691936897,
+   "ci95": [
+    0.0228853602453244,
+    0.4256570590377968
+   ]
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "asap2",
+   "coef": 0.2220138518961098,
+   "ci95": [
+    0.008630602217084156,
+    0.4364929117019653
+   ]
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "asap2",
+   "coef": 0.19399847048987787,
+   "ci95": [
+    -0.07845417356447534,
+    0.4816175754636791
+   ]
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "asap2",
+   "coef": 0.05355288338165949,
+   "ci95": [
+    -0.1118579201769763,
+    0.24163558013349362
+   ]
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "asap2",
+   "coef": 0.15497198019074776,
+   "ci95": [
+    -0.013166000812805998,
+    0.3269630849676847
+   ]
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "asap2",
+   "coef": 0.12951379218006462,
+   "ci95": [
+    -0.11696110881287652,
+    0.379569956379765
+   ]
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "asap2",
+   "coef": 0.09455898788450703,
+   "ci95": [
+    -0.13179740363991205,
+    0.3131648256468986
+   ]
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "asap2",
+   "coef": 0.2708202638835837,
+   "ci95": [
+    0.07207753782412216,
+    0.4654624651904731
+   ]
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "asap2",
+   "coef": 0.11866579354589464,
+   "ci95": [
+    -0.10421195007793264,
+    0.3534007757159891
+   ]
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "asap2",
+   "coef": 0.1130366635435371,
+   "ci95": [
+    -0.0991832085170972,
+    0.3145026207552738
+   ]
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "asap2",
+   "coef": 0.09181338256274003,
+   "ci95": [
+    -0.09889123865767327,
+    0.29789016925395495
+   ]
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "asap2",
+   "coef": 0.1476202216912897,
+   "ci95": [
+    -0.07514155448758894,
+    0.38600102044180506
+   ]
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "asap2",
+   "coef": 0.10629965075402413,
+   "ci95": [
+    -0.09691731028056791,
+    0.31845887181755006
+   ]
+  }
+ ],
+ "length_human": {
+  "mohler": {
+   "coef": 0.049368205972379064,
+   "ci95": [
+    -0.07466942852508092,
+    0.15822176692196724
+   ]
+  },
+  "code": {
+   "coef": 0.06528237347948737,
+   "ci95": [
+    0.012927472016837761,
+    0.11831948401808907
+   ]
+  }
+ }
+}
