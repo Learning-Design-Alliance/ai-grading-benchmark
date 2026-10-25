@@ -83,6 +83,12 @@ CHANGES:
    plus or minus t(0.975, 19 df) times the bootstrap standard error, the usual small-sample correction, and the
    floor was re-run once, unchanged otherwise. Llama's first runs are discarded unread and repeated after a vLLM restart, so the prefix cache
    starts empty as for every other model.
+2. (2026-10-25, after Llama 3.2 3B's figures were read) Llama failed the idle check: 65.8 W in the idle window
+   before its runs, 77.3 W in the one straight after (ratio 1.17, bar 1.10), while the counter agreed with the
+   integrated power (1.005). The likely cause is heat: a GPU idles higher just after work. The registered rule
+   stands for every model: a model that fails is UNMEASURED, and the protocol is unchanged for the rest. Added,
+   descriptive only and labelled as such: the verdict the FULL-STACK figure would get with each idle window
+   alone, and with the GROSS figure (nothing subtracted, so an upper bound on the GPU's energy).
 
     python3 energy/energy.py floor
     python3 energy/energy.py measure --slug <slug> --model <served name> --cases-dir DIR --runs DIR   # on the pod
@@ -350,7 +356,11 @@ def cmd_analyse(a):
                                       estimate_small_wh=s_, estimate_mid_wh=m_,
                                       ratio_to_small=est["full_stack_wh"] / s_, ratio_to_mid=est["full_stack_wh"] / m_,
                                       verdict=verdict(est["full_stack_ci95"], s_, m_) if chk["pass"] else "UNMEASURED",
-                                      board=board_agreement(slug, task, run_dir))
+                                      board=board_agreement(slug, task, run_dir),
+                                      descriptive_verdicts={  # CHANGE 2: not a verdict
+                                          "idle_before_only": verdict([est["net_wh_idle_range"][0] * OVERHEAD] * 2, s_, m_),
+                                          "idle_after_only": verdict([est["net_wh_idle_range"][1] * OVERHEAD] * 2, s_, m_),
+                                          "gross": verdict([est["gross_wh"] * OVERHEAD] * 2, s_, m_)})
         tot = sum(t["net_wh"] * t["gradings"] for t in row["tasks"].values())
         row["leaderboard_run_kwh_net"] = tot / 1000
         row["leaderboard_run_gradings"] = sum(t["gradings"] for t in row["tasks"].values())
