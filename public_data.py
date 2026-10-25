@@ -56,6 +56,10 @@ NAMES = {
     "amazon/nova-2-lite-v1": ("Nova 2 Lite", "Amazon", "small hosted"),
     "qwen/qwen3.8-27b": ("Qwen3.8 27B", "Alibaba (Qwen)", "open weights"),
     "mistralai/voxtral-small-24b-2507": ("Voxtral Small 24B", "Mistral", "open weights"),
+    "deepseek/deepseek-v4.1-flash-1017": ("DeepSeek V4.1 Flash (Oct 17 snapshot)", "DeepSeek", "open weights"),
+    "deepseek/deepseek-v4-pro-0813": ("DeepSeek V4 Pro", "DeepSeek", "open weights"),
+    "z-ai/glm-5.3": ("GLM 5.3", "Zhipu AI (Z.ai)", "open weights"),
+    "z-ai/glm-5.3-flash": ("GLM 5.3 Flash", "Zhipu AI (Z.ai)", "open weights"),
 }
 TASKS = {"mohler": "Short answers", "code": "Code", "asap2": "Essays", "maths": "Maths working", "pushback": "Pushback"}
 
