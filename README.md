@@ -66,6 +66,9 @@ version control: replies can quote student work.
 `{reference}`, `{rubric}`, `{materials}`, `{response}`, `{scale_min}`, `{scale_max}` and, optionally,
 `{context}` (where the attainment label goes). The reply must contain a JSON object with a numeric
 `"score"`. `bench.py compare runsA runsB` gives the paired difference between two prompts or models.
+When you export a bring-your-own-prompt submission, state `--prompts-tried N`. N counts every prompt or
+prompt version you ran on these cases, including this one. The board shows N beside your row, because the
+best of twenty prompts is selected on the result.
 
 **Other checks** beyond the leaderboard: `--battery full` (every probe), `abstain` (grading each
 answer five times, for routing uncertain work to a person), `faithful` (does the stated reason drive
