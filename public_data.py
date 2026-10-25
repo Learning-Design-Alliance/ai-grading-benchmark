@@ -58,6 +58,13 @@ NAMES = {
 TASKS = {"mohler": "Short answers", "code": "Code", "asap2": "Essays", "maths": "Maths working", "pushback": "Pushback"}
 
 
+# Runs not made under zero data retention, footnoted wherever the model's results are shown.
+RETENTION_NOTES = {
+    "anthropic/claude-fable-5.1": "Run through the maintainers' own Anthropic key, under its 30-day safety retention: Fable 5.1 "
+                                  "has no zero-retention route. Public corpora only, no student identities.",
+}
+
+
 def name(model):
     return NAMES.get(model, (model, "", ""))[0]
 
@@ -191,6 +198,7 @@ def overall():
                "tasks": ", ".join(TASKS.get(t, t) for t in r["tasks"]), "overall": None if r["overall"] is None else round(r["overall"], 1),
                "rank": r.get("rank"), "rank_lo": (r.get("rank_ci95") or [None, None])[0], "rank_hi": (r.get("rank_ci95") or [None, None])[1],
                "flags": "; ".join(r["flags"]),
+               "retention_note": RETENTION_NOTES.get(r["model"]),
                "task_lo": None if not r.get("task_range") else round(r["task_range"][0], 1),
                "task_hi": None if not r.get("task_range") else round(r["task_range"][1], 1)}
         for k, v in r["strands"].items():

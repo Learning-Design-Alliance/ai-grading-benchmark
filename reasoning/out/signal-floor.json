@@ -1,0 +1,16 @@
+{
+ "design": "reasoning/study.py signal-floor",
+ "worlds": 200,
+ "result": {
+  "n=100": {
+   "planted": 0.945,
+   "null": 0.015,
+   "passes": true
+  },
+  "n=60": {
+   "planted": 0.805,
+   "null": 0.03,
+   "passes": true
+  }
+ }
+}
