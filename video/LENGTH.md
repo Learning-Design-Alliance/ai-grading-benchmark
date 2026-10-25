@@ -38,6 +38,33 @@ Changes in brackets are those whose 95% interval excludes 0. A balanced accuracy
 - **Only Argon and Gemini 3.8 Flash detect errors well above chance** (0.69-0.70 as recorded). The others
   are near 0.5 at either length.
 
+**Where the false alarms point (checked after the results; not pre-registered).** The two strongest models
+named a time for most new false alarms, that is "error" at 4x where they had said "no error" for the
+recording alone. Rebuilding each joined video's order (verified frame by frame) places the cited time:
+
+| model | in an added clean recording | in the original recording | no time given |
+|---|---|---|---|
+| Gemini 4 Argon (27) | 22 (+1 citing both) | 4 | 0 |
+| Gemini 3.8 Flash (40) | 26 | 8 | 6 |
+
+For about half of the added-recording cases, the same model had said "no error" when shown that recording
+alone: 14 of 22 for Argon and 8 of 26 for Gemini 3.8 Flash. So the long video changed the model's reading
+of the same footage.
+
+Twelve cases were checked against the original recordings (960 x 540, 3 frames a second, 4 seconds either
+side of the cited time). Each group was sampled at seed 11 and balanced by model: four the model also
+flagged when shown the added recording alone, four it did not, and four in the original recording.
+- **8 show no error.** The models misread ordinary actions. In peg transfer, a mid-air hand-off between
+  graspers was read as a drop. In circle cutting, lifting away the cut-out circle was read as gauze coming
+  off a clip.
+- **4 could not be called.** Three are needle drops too small to see in the frames. One is a gauze edge
+  that may have come loose from its clip.
+- **None is a clear error the labels missed.**
+
+These readings were made by the AI that ran the study, from still frames. They are not a rater's
+judgement, and the four undecided cases need someone who knows the tasks. On this sample, though, the rise
+in false alarms with length is mostly the models seeing errors that are not there, not missing labels.
+
 **Limits.**
 - One length step (4x, about 3 to 40 minutes).
 - The joined recordings show other trainees doing the same task, which a model may notice.
