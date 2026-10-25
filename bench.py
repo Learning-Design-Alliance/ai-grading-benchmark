@@ -269,7 +269,7 @@ def cmd_run(a):
         "context_slot": prompt.context_slot, "response_format": bool(getattr(prompt, "response_format", None)), "cases": a.cases,
         "cases_sha256": file_sha256(a.cases), "n": len(cs), "seed": a.seed, "probes": probes,
         "case_ids": [c["id"] for c in cs], "video_frames": a.video_frames,
-        "retention_exception": a.retention_exception,
+        "retention_exception": a.retention_exception, "route": a.route,
     }
     with open(os.path.join(a.out, "config.json"), "w") as fh:
         json.dump(config, fh, indent=1)
@@ -652,6 +652,8 @@ def main(argv=None):
     p.add_argument("--max-usd", type=float, help="stop sending once the endpoint-reported cost reaches this")
     p.add_argument("--retention-exception", help="for a model with no zero-retention endpoint: the route and its "
                    "retention, recorded in the run (e.g. 'own Anthropic key, 30-day safety retention; public corpora')")
+    p.add_argument("--route", help="where the model ran and what it retains, recorded in the config "
+                                    "(e.g. a self-hosted pod)")
     p.add_argument("--video-frames", type=int, default=0,
                    help="send video work as this many evenly spaced frames, for models without video input (0: the video)")
     p.add_argument("--out", required=True)

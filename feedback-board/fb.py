@@ -77,6 +77,8 @@ def cmd_run(a):
                 cmd += ["--max-tokens", str(cfg["max_tokens"])]
             if cfg.get("temperature") is not None:
                 cmd += ["--temperature", str(cfg["temperature"])]
+            if cfg.get("route"):
+                cmd += ["--route", cfg["route"]]
             if cfg.get("extra_body"):
                 cmd += ["--extra-body", json.dumps(cfg["extra_body"])]
             p = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
