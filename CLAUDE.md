@@ -16,7 +16,7 @@ The home of all benchmark work (moved from the Learning Design Alliance research
 ## Rules
 
 - **Nothing from any product's own prompt or product results enters this repository**, not even while it is
-  private: a committed file stays in git history. `scripts/check_private.py` enforces it in CI. Product
+  private: a committed file stays in git history. `scripts/check_private.py` enforces it in CI; the product is named only in the benchmark card's conflict-of-interest line. Product
   comparisons live in the private research repository.
 - **Raw data never enters it.** Corpora live in local directories; only aggregates are committed. A study
   that reads a corpus says so in its docstring and in `docs/DATA-SOURCES.md`.
