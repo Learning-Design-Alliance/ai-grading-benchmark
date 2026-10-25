@@ -1,0 +1,44 @@
+[
+{
+"key": "World data centres' electricity, 2024",
+"fact": "World data centres' electricity, 2024",
+"value": "415 TWh, about 1.5% of world electricity",
+"source": "IEA, Energy and AI, 2025"
+},
+{
+"key": "Projected, 2030",
+"fact": "Projected, 2030",
+"value": "about 945-950 TWh, just under 3%",
+"source": "IEA 2025; IEA update 2026"
+},
+{
+"key": "Data centres' CO2, all of them",
+"fact": "Data centres' CO2, all of them",
+"value": "about 180 Mt, under 1.5% of energy-sector CO2 (transport: over 20%)",
+"source": "IEA 2025"
+},
+{
+"key": "Ireland, 2024",
+"fact": "Ireland, 2024",
+"value": "data centres used 22% of metered electricity (all urban homes: 18%)",
+"source": "Central Statistics Office Ireland, 2025"
+},
+{
+"key": "Virginia",
+"fact": "Virginia",
+"value": "data centres about 25% of the state's electricity",
+"source": "IEA 2025"
+},
+{
+"key": "One large site's water",
+"fact": "One large site's water",
+"value": "Google, Council Bluffs, Iowa: about 2.8 million gallons a day consumed on site (2024)",
+"source": "Google environmental report 2025"
+},
+{
+"key": "One 100 MW data centre",
+"fact": "One 100 MW data centre",
+"value": "electricity of about 100,000 households",
+"source": "IEA 2025"
+}
+]

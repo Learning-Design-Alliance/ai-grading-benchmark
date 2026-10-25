@@ -591,6 +591,57 @@ def energy_tasks():
     return rows
 
 
+def _lifecycle_task(e, tk):
+    c, a, o = e["per_token_model"]["tiers"]["mid-size model (GPT-4o)"]
+    op = c + a * tk["input_tokens"] / 1000 + o * tk["output_tokens"] / 1000
+    lc = e["lifecycle"]
+    out = {}
+    for case, p in lc["cases"].items():
+        en = op * (1 + p["m"]) * (1 + p["manufacturing_energy_share"])
+        out[case] = {"wh": en, "g": en * p["g_co2_per_wh"] + op * p["embodied_g_per_op_wh"],
+                     "ml": op * (lc["on_site_water_ml_per_wh"] + p["electricity_water_ml_per_wh"]) * (1 + p["m"]) + op * p["chip_water_ml_per_op_wh"]}
+    return op, out
+
+
+def lifecycle_tasks():
+    """docs/energy.json lifecycle: each task's full footprint, low / central / high (docs/LIFECYCLE.md)."""
+    e = _load("docs", "energy.json")
+    if not e or "lifecycle" not in e:
+        return []
+    rows = []
+    for tk in e["tasks"]:
+        op, out = _lifecycle_task(e, tk)
+        row = {"key": tk["task"], "task": tk["task"], "operational_wh": round(op, 3)}
+        for case, v in out.items():
+            row[f"wh_{case}"] = round(v["wh"], 3)
+            row[f"g_{case}"] = round(v["g"], 3)
+            row[f"ml_{case}"] = round(v["ml"], 2)
+        rows.append(row)
+    return rows
+
+
+def lifecycle_compare():
+    """Everyday choices against short-answer gradings (central full life-cycle case)."""
+    e = _load("docs", "energy.json")
+    if not e or "lifecycle" not in e:
+        return []
+    short = [tk for tk in e["tasks"] if tk["task"] == "short answer"][0]
+    g = _lifecycle_task(e, short)[1]["central"]["g"]
+    rows = [{"key": "term", "item": "a teacher's term of short answers (150 students x 10 assignments)", "g_co2e": round(1500 * g, 1),
+             "boundary": "full life cycle, central case (this benchmark's estimate)", "source": "docs/LIFECYCLE.md", "gradings": 1500}]
+    for c in e["lifecycle"]["comparators"]:
+        rows.append({"key": c["item"], "item": c["item"], "g_co2e": c["g_co2e"], "boundary": c["boundary"], "source": c["source"],
+                     "gradings": round(c["g_co2e"] / g)})
+    return rows
+
+
+def footprint_scale():
+    e = _load("docs", "energy.json")
+    if not e or "lifecycle" not in e:
+        return []
+    return [{"key": s["fact"], **s} for s in e["lifecycle"]["scale"]]
+
+
 def main(out):
     os.makedirs(out, exist_ok=True)
     for nm, fn in (("leaderboard", leaderboard), ("halo", halo), ("fairness", fairness),
@@ -600,7 +651,8 @@ def main(out):
                    ("images", images_pooled), ("video", video), ("video_length", video_length),
                    ("maths", maths), ("pushback", pushback), ("baselines", baselines), ("agreement_flags", agreement_flags),
                    ("pushback_split", pushback_split), ("length_check", length_check), ("per_prompt", per_prompt),
-                   ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models), ("contamination", contamination), ("energy_tasks", energy_tasks)):
+                   ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models), ("contamination", contamination), ("energy_tasks", energy_tasks),
+                   ("lifecycle_tasks", lifecycle_tasks), ("lifecycle_compare", lifecycle_compare), ("footprint_scale", footprint_scale)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)
         print(f"{nm}: {len(rows)} rows")

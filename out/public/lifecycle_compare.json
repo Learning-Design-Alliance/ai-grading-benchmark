@@ -1,0 +1,66 @@
+[
+{
+"key": "term",
+"item": "a teacher's term of short answers (150 students x 10 assignments)",
+"g_co2e": 196.0,
+"boundary": "full life cycle, central case (this benchmark's estimate)",
+"source": "docs/LIFECYCLE.md",
+"gradings": 1500
+},
+{
+"key": "driving 1 km in a petrol car (life cycle, Europe)",
+"item": "driving 1 km in a petrol car (life cycle, Europe)",
+"g_co2e": 245,
+"boundary": "vehicle manufacture, fuel production and use, per vehicle-km",
+"source": "ICCT 2021, Global LCA of passenger cars",
+"gradings": 1875
+},
+{
+"key": "driving 1 km in a battery electric car (life cycle, Europe)",
+"item": "driving 1 km in a battery electric car (life cycle, Europe)",
+"g_co2e": 80,
+"boundary": "including battery manufacture; 76-83 g depending on grid",
+"source": "ICCT 2021",
+"gradings": 612
+},
+{
+"key": "streaming video for 1 hour (Europe)",
+"item": "streaming video for 1 hour (Europe)",
+"g_co2e": 55,
+"boundary": "electricity only: data centres about 1%, networks 10%, home router 38%, screen 51%; excludes making the devices",
+"source": "Carbon Trust 2021",
+"gradings": 421
+},
+{
+"key": "a quarter-pound (113 g) beef burger patty",
+"item": "a quarter-pound (113 g) beef burger patty",
+"g_co2e": 11240,
+"boundary": "full life cycle, global mean, beef herd",
+"source": "Poore and Nemecek 2018 via Our World in Data",
+"gradings": 86016
+},
+{
+"key": "a half-pound (227 g) beef burger patty",
+"item": "a half-pound (227 g) beef burger patty",
+"g_co2e": 22560,
+"boundary": "as above",
+"source": "Poore and Nemecek 2018 via Our World in Data",
+"gradings": 172644
+},
+{
+"key": "a quarter-pound tofu patty",
+"item": "a quarter-pound tofu patty",
+"g_co2e": 360,
+"boundary": "full life cycle, global mean",
+"source": "Poore and Nemecek 2018 via Our World in Data",
+"gradings": 2755
+},
+{
+"key": "a 1,000 km return flight, per passenger (2,000 km)",
+"item": "a 1,000 km return flight, per passenger (2,000 km)",
+"g_co2e": 308000,
+"boundary": "short-haul, including non-CO2 effects (x1.9)",
+"source": "UK government factors 2022 via Our World in Data",
+"gradings": 2357018
+}
+]

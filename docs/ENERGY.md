@@ -1,5 +1,8 @@
 # Energy, carbon and water per grading
 
+This page covers running the model. Training, making the chips and buildings, full water, and comparisons on a
+life-cycle basis are in `LIFECYCLE.md`.
+
 No vendor reports the energy of a grading, and no one has measured it for closed models. This page puts
 the published figures side by side, with who produced each and what it counts, and converts them into
 everyday comparisons. Every figure is an estimate. Where vendor and independent figures disagree, both are
