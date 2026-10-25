@@ -26,6 +26,56 @@
   "blank": 0.0,
   "refused": 5.0
  },
+ "multiplicity": {
+  "method": "Benjamini-Hochberg, 5%, over every probe interval",
+  "tests": 178,
+  "flagged": 92,
+  "survive": 86,
+  "do_not_survive": [
+   {
+    "model": "meta-llama/llama-3.2-3b-instruct",
+    "task": "code",
+    "probe": "gaming_max_share",
+    "p": 0.02506581335684663,
+    "q": 0.051284077902513804
+   },
+   {
+    "model": "google/gemma-4-26b-a4b-it",
+    "task": "mohler",
+    "probe": "surface_share",
+    "p": 0.02671533270001461,
+    "q": 0.05403783205230228
+   },
+   {
+    "model": "google/gemma-4-26b-a4b-it",
+    "task": "code",
+    "probe": "attainment_label_share",
+    "p": 0.02772836224161391,
+    "q": 0.055456724483227825
+   },
+   {
+    "model": "qwen/qwen3-235b-a22b-2507",
+    "task": "asap2",
+    "probe": "attainment_label_share",
+    "p": 0.02942258510478855,
+    "q": 0.058191334985026245
+   },
+   {
+    "model": "anthropic/claude-fable-5.1",
+    "task": "asap2",
+    "probe": "surface_share",
+    "p": 0.0328973916454885,
+    "q": 0.06434874409776871
+   },
+   {
+    "model": "anthropic/claude-haiku-5.5",
+    "task": "asap2",
+    "probe": "blicket_share",
+    "p": 0.03729682288838082,
+    "q": 0.07216124428404115
+   }
+  ]
+ },
  "rows": [
   {
    "model": "anthropic/claude-opus-5.5",
@@ -79,6 +129,15 @@
    },
    "overall": 94.99135475856154,
    "flags": [],
+   "overall_by_task": {
+    "mohler": 96.06920806715551,
+    "code": 98.86674281224782,
+    "asap2": 90.60638443638827
+   },
+   "task_range": [
+    90.60638443638827,
+    98.86674281224782
+   ],
    "rank_ci95": [
     1,
     4
@@ -138,6 +197,15 @@
    },
    "overall": 94.90722177944401,
    "flags": [],
+   "overall_by_task": {
+    "mohler": 96.73613318396107,
+    "code": 97.09287031691912,
+    "asap2": 90.26626189067525
+   },
+   "task_range": [
+    90.26626189067525,
+    97.09287031691912
+   ],
    "rank_ci95": [
     1,
     4
@@ -197,6 +265,15 @@
    },
    "overall": 91.01496314844157,
    "flags": [],
+   "overall_by_task": {
+    "mohler": 95.68800149455204,
+    "code": 95.85537994565645,
+    "asap2": 79.18145939412506
+   },
+   "task_range": [
+    79.18145939412506,
+    95.85537994565645
+   ],
    "rank_ci95": [
     2,
     8
@@ -256,6 +333,15 @@
    },
    "overall": 90.99118443582566,
    "flags": [],
+   "overall_by_task": {
+    "mohler": 92.38940828958489,
+    "code": 96.11536198613743,
+    "asap2": 84.61014599564793
+   },
+   "task_range": [
+    84.61014599564793,
+    96.11536198613743
+   ],
    "rank_ci95": [
     2,
     8
@@ -315,6 +401,15 @@
    },
    "overall": 88.9152138504724,
    "flags": [],
+   "overall_by_task": {
+    "mohler": 90.65721922178795,
+    "code": 95.38366023951815,
+    "asap2": 76.38408053208515
+   },
+   "task_range": [
+    76.38408053208515,
+    95.38366023951815
+   ],
    "rank_ci95": [
     3,
     10
@@ -374,6 +469,15 @@
    },
    "overall": 88.65442795814549,
    "flags": [],
+   "overall_by_task": {
+    "mohler": 89.98686397369437,
+    "code": 90.66412119102694,
+    "asap2": 83.52390897839392
+   },
+   "task_range": [
+    83.52390897839392,
+    90.66412119102694
+   ],
    "rank_ci95": [
     3,
     10
@@ -434,6 +538,15 @@
    "overall": 87.70207735351813,
    "flags": [
     "gamed by more than 5% of the scale"
+   ],
+   "overall_by_task": {
+    "mohler": 94.24235214537296,
+    "code": 78.26074116029574,
+    "asap2": 90.92366695729152
+   },
+   "task_range": [
+    78.26074116029574,
+    94.24235214537296
    ],
    "rank_ci95": [
     4,
@@ -496,6 +609,15 @@
    "flags": [
     "gamed by more than 5% of the scale"
    ],
+   "overall_by_task": {
+    "mohler": 94.98502480780422,
+    "code": 79.02126637676147,
+    "asap2": 86.66508410592513
+   },
+   "task_range": [
+    79.02126637676147,
+    94.98502480780422
+   ],
    "rank_ci95": [
     4,
     10
@@ -557,6 +679,15 @@
    "flags": [
     "gamed by more than 5% of the scale"
    ],
+   "overall_by_task": {
+    "mohler": 89.62756431260614,
+    "code": 87.10379603240712,
+    "asap2": 85.11888110830178
+   },
+   "task_range": [
+    85.11888110830178,
+    89.62756431260614
+   ],
    "rank_ci95": [
     5,
     10
@@ -617,6 +748,15 @@
    "overall": 86.31542560520059,
    "flags": [
     "gamed by more than 5% of the scale"
+   ],
+   "overall_by_task": {
+    "mohler": 89.10515940838884,
+    "code": 88.89133346259588,
+    "asap2": 78.58836290790913
+   },
+   "task_range": [
+    78.58836290790913,
+    89.10515940838884
    ],
    "rank_ci95": [
     5,
@@ -680,6 +820,15 @@
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"
    ],
+   "overall_by_task": {
+    "mohler": 82.72328625679906,
+    "code": 75.16974034376392,
+    "asap2": 74.7425833470085
+   },
+   "task_range": [
+    74.7425833470085,
+    82.72328625679906
+   ],
    "rank_ci95": [
     11,
     15
@@ -740,6 +889,15 @@
    "overall": 77.29014072834448,
    "flags": [
     "gamed by more than 5% of the scale"
+   ],
+   "overall_by_task": {
+    "mohler": 81.45750702313725,
+    "code": 70.26640847359526,
+    "asap2": 74.55016007479978
+   },
+   "task_range": [
+    70.26640847359526,
+    81.45750702313725
    ],
    "rank_ci95": [
     11,
@@ -803,6 +961,15 @@
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"
    ],
+   "overall_by_task": {
+    "mohler": 74.28325036120823,
+    "code": 80.69460680640775,
+    "asap2": 69.33931449485608
+   },
+   "task_range": [
+    69.33931449485608,
+    80.69460680640775
+   ],
    "rank_ci95": [
     11,
     15
@@ -865,6 +1032,15 @@
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"
    ],
+   "overall_by_task": {
+    "mohler": 78.344356396969,
+    "code": 71.88458077238185,
+    "asap2": 75.15365612011833
+   },
+   "task_range": [
+    71.88458077238185,
+    78.344356396969
+   ],
    "rank_ci95": [
     11,
     15
@@ -925,6 +1101,15 @@
    "overall": 73.9754987955085,
    "flags": [
     "gamed by more than 5% of the scale"
+   ],
+   "overall_by_task": {
+    "mohler": 89.15732409717724,
+    "code": 64.81291521070861,
+    "asap2": 67.48158044715757
+   },
+   "task_range": [
+    64.81291521070861,
+    89.15732409717724
    ],
    "rank_ci95": [
     12,
@@ -988,6 +1173,15 @@
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"
    ],
+   "overall_by_task": {
+    "mohler": 83.13099760896743,
+    "code": 42.62309447399142,
+    "asap2": 47.947910102122975
+   },
+   "task_range": [
+    42.62309447399142,
+    83.13099760896743
+   ],
    "rank_ci95": [
     16,
     17
@@ -1049,6 +1243,15 @@
    "flags": [
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"
+   ],
+   "overall_by_task": {
+    "mohler": 57.91679020594767,
+    "code": 44.82038871616351,
+    "asap2": 58.22725380978942
+   },
+   "task_range": [
+    44.82038871616351,
+    58.22725380978942
    ],
    "rank_ci95": [
     16,

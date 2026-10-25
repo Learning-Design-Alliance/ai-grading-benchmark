@@ -1,18 +1,19 @@
 [
 {
-"key": "vlen-google_gemini-4-argon",
-"model": "Gemini 4 Argon",
-"bal_x1": 0.699,
-"bal_x4": 0.714,
-"sens_x1": 0.462,
-"sens_x4": 0.679,
-"spec_x1": 0.937,
-"spec_x4": 0.748,
-"change": 0.014,
-"change_lo": -0.059,
-"change_hi": 0.088,
-"failed": 0,
-"verdict": "NO DETECTABLE EFFECT"
+"key": "vlen-google_gemini-3.5-flash-lite",
+"model": "Gemini 3.5 Flash Lite",
+"bal_x1": 0.556,
+"bal_x4": 0.533,
+"sens_x1": 0.247,
+"sens_x4": 0.312,
+"spec_x1": 0.866,
+"spec_x4": 0.754,
+"change": -0.024,
+"change_lo": -0.101,
+"change_hi": 0.05,
+"failed": 3,
+"verdict": "NO DETECTABLE EFFECT",
+"loss_not_ruled_out": 0.1
 },
 {
 "key": "vlen-google_gemini-3.8-flash",
@@ -27,22 +28,24 @@
 "change_lo": -0.131,
 "change_hi": 0.004,
 "failed": 10,
-"verdict": "NO DETECTABLE EFFECT"
+"verdict": "NO DETECTABLE EFFECT",
+"loss_not_ruled_out": 0.13
 },
 {
-"key": "vlen-google_gemini-3.5-flash-lite",
-"model": "Gemini 3.5 Flash Lite",
-"bal_x1": 0.556,
-"bal_x4": 0.533,
-"sens_x1": 0.247,
-"sens_x4": 0.312,
-"spec_x1": 0.866,
-"spec_x4": 0.754,
-"change": -0.024,
-"change_lo": -0.101,
-"change_hi": 0.05,
-"failed": 3,
-"verdict": "NO DETECTABLE EFFECT"
+"key": "vlen-google_gemini-4-argon",
+"model": "Gemini 4 Argon",
+"bal_x1": 0.699,
+"bal_x4": 0.714,
+"sens_x1": 0.462,
+"sens_x4": 0.679,
+"spec_x1": 0.937,
+"spec_x4": 0.748,
+"change": 0.014,
+"change_lo": -0.059,
+"change_hi": 0.088,
+"failed": 0,
+"verdict": "NO DETECTABLE EFFECT",
+"loss_not_ruled_out": 0.06
 },
 {
 "key": "vlen-perceptron_perceptron-mk1.5",
@@ -57,7 +60,8 @@
 "change_lo": -0.047,
 "change_hi": 0.043,
 "failed": 0,
-"verdict": "NO DETECTABLE EFFECT"
+"verdict": "NO DETECTABLE EFFECT",
+"loss_not_ruled_out": 0.05
 },
 {
 "key": "vlen-qwen_qwen3.8-27b",
@@ -72,6 +76,7 @@
 "change_lo": -0.135,
 "change_hi": 0.045,
 "failed": 153,
-"verdict": "NO DETECTABLE EFFECT"
+"verdict": "NO DETECTABLE EFFECT",
+"loss_not_ruled_out": 0.13
 }
 ]

@@ -1,0 +1,1362 @@
+[
+{
+"key": "anthropic/claude-fable-5.1:asap2:Does the electoral college work?",
+"model": "Claude Fable 5.1",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "anthropic/claude-fable-5.1:asap2:Car-free cities",
+"model": "Claude Fable 5.1",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.545
+},
+{
+"key": "anthropic/claude-fable-5.1:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Claude Fable 5.1",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "anthropic/claude-fable-5.1:asap2:Driverless cars",
+"model": "Claude Fable 5.1",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.591
+},
+{
+"key": "anthropic/claude-fable-5.1:asap2:The Face on Mars",
+"model": "Claude Fable 5.1",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.628
+},
+{
+"key": "anthropic/claude-fable-5.1:asap2:Facial action coding system",
+"model": "Claude Fable 5.1",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.81
+},
+{
+"key": "anthropic/claude-fable-5.1:asap2:Exploring Venus",
+"model": "Claude Fable 5.1",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.755
+},
+{
+"key": "anthropic/claude-haiku-5.5:asap2:Does the electoral college work?",
+"model": "Claude Haiku 5.5",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "anthropic/claude-haiku-5.5:asap2:Car-free cities",
+"model": "Claude Haiku 5.5",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.271
+},
+{
+"key": "anthropic/claude-haiku-5.5:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Claude Haiku 5.5",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "anthropic/claude-haiku-5.5:asap2:Driverless cars",
+"model": "Claude Haiku 5.5",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.52
+},
+{
+"key": "anthropic/claude-haiku-5.5:asap2:The Face on Mars",
+"model": "Claude Haiku 5.5",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.473
+},
+{
+"key": "anthropic/claude-haiku-5.5:asap2:Facial action coding system",
+"model": "Claude Haiku 5.5",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.426
+},
+{
+"key": "anthropic/claude-haiku-5.5:asap2:Exploring Venus",
+"model": "Claude Haiku 5.5",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.533
+},
+{
+"key": "anthropic/claude-opus-5.5:asap2:Does the electoral college work?",
+"model": "Claude Opus 5.5",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "anthropic/claude-opus-5.5:asap2:Car-free cities",
+"model": "Claude Opus 5.5",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.655
+},
+{
+"key": "anthropic/claude-opus-5.5:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Claude Opus 5.5",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "anthropic/claude-opus-5.5:asap2:Driverless cars",
+"model": "Claude Opus 5.5",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.56
+},
+{
+"key": "anthropic/claude-opus-5.5:asap2:The Face on Mars",
+"model": "Claude Opus 5.5",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.551
+},
+{
+"key": "anthropic/claude-opus-5.5:asap2:Facial action coding system",
+"model": "Claude Opus 5.5",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.757
+},
+{
+"key": "anthropic/claude-opus-5.5:asap2:Exploring Venus",
+"model": "Claude Opus 5.5",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.591
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:asap2:Does the electoral college work?",
+"model": "DeepSeek V4.1 Flash",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:asap2:Car-free cities",
+"model": "DeepSeek V4.1 Flash",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.444
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "DeepSeek V4.1 Flash",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:asap2:Driverless cars",
+"model": "DeepSeek V4.1 Flash",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.667
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:asap2:The Face on Mars",
+"model": "DeepSeek V4.1 Flash",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.53
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:asap2:Facial action coding system",
+"model": "DeepSeek V4.1 Flash",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.695
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:asap2:Exploring Venus",
+"model": "DeepSeek V4.1 Flash",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.654
+},
+{
+"key": "google/gemini-3.5-flash-lite:asap2:Does the electoral college work?",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "google/gemini-3.5-flash-lite:asap2:Car-free cities",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.268
+},
+{
+"key": "google/gemini-3.5-flash-lite:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "google/gemini-3.5-flash-lite:asap2:Driverless cars",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.691
+},
+{
+"key": "google/gemini-3.5-flash-lite:asap2:The Face on Mars",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.597
+},
+{
+"key": "google/gemini-3.5-flash-lite:asap2:Facial action coding system",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.617
+},
+{
+"key": "google/gemini-3.5-flash-lite:asap2:Exploring Venus",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.662
+},
+{
+"key": "google/gemma-3-27b-it:asap2:Does the electoral college work?",
+"model": "Gemma 3 27B",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "google/gemma-3-27b-it:asap2:Car-free cities",
+"model": "Gemma 3 27B",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.423
+},
+{
+"key": "google/gemma-3-27b-it:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Gemma 3 27B",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "google/gemma-3-27b-it:asap2:Driverless cars",
+"model": "Gemma 3 27B",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.675
+},
+{
+"key": "google/gemma-3-27b-it:asap2:The Face on Mars",
+"model": "Gemma 3 27B",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.559
+},
+{
+"key": "google/gemma-3-27b-it:asap2:Facial action coding system",
+"model": "Gemma 3 27B",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.639
+},
+{
+"key": "google/gemma-3-27b-it:asap2:Exploring Venus",
+"model": "Gemma 3 27B",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.514
+},
+{
+"key": "google/gemma-3-4b-it:asap2:Does the electoral college work?",
+"model": "Gemma 3 4B",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "google/gemma-3-4b-it:asap2:Car-free cities",
+"model": "Gemma 3 4B",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.086
+},
+{
+"key": "google/gemma-3-4b-it:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Gemma 3 4B",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "google/gemma-3-4b-it:asap2:Driverless cars",
+"model": "Gemma 3 4B",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.234
+},
+{
+"key": "google/gemma-3-4b-it:asap2:The Face on Mars",
+"model": "Gemma 3 4B",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.03
+},
+{
+"key": "google/gemma-3-4b-it:asap2:Facial action coding system",
+"model": "Gemma 3 4B",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.302
+},
+{
+"key": "google/gemma-3-4b-it:asap2:Exploring Venus",
+"model": "Gemma 3 4B",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.176
+},
+{
+"key": "google/gemma-4-26b-a4b-it:asap2:Does the electoral college work?",
+"model": "Gemma 4 26B A4B",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "google/gemma-4-26b-a4b-it:asap2:Car-free cities",
+"model": "Gemma 4 26B A4B",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.423
+},
+{
+"key": "google/gemma-4-26b-a4b-it:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Gemma 4 26B A4B",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "google/gemma-4-26b-a4b-it:asap2:Driverless cars",
+"model": "Gemma 4 26B A4B",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.814
+},
+{
+"key": "google/gemma-4-26b-a4b-it:asap2:The Face on Mars",
+"model": "Gemma 4 26B A4B",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.598
+},
+{
+"key": "google/gemma-4-26b-a4b-it:asap2:Facial action coding system",
+"model": "Gemma 4 26B A4B",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.709
+},
+{
+"key": "google/gemma-4-26b-a4b-it:asap2:Exploring Venus",
+"model": "Gemma 4 26B A4B",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.7
+},
+{
+"key": "google/gemma-4-31b-it:asap2:Does the electoral college work?",
+"model": "Gemma 4 31B",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "google/gemma-4-31b-it:asap2:Car-free cities",
+"model": "Gemma 4 31B",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.638
+},
+{
+"key": "google/gemma-4-31b-it:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Gemma 4 31B",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "google/gemma-4-31b-it:asap2:Driverless cars",
+"model": "Gemma 4 31B",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.633
+},
+{
+"key": "google/gemma-4-31b-it:asap2:The Face on Mars",
+"model": "Gemma 4 31B",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.648
+},
+{
+"key": "google/gemma-4-31b-it:asap2:Facial action coding system",
+"model": "Gemma 4 31B",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.63
+},
+{
+"key": "google/gemma-4-31b-it:asap2:Exploring Venus",
+"model": "Gemma 4 31B",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.562
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:asap2:Does the electoral college work?",
+"model": "Llama 3.2 3B",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:asap2:Car-free cities",
+"model": "Llama 3.2 3B",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": -0.087
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Llama 3.2 3B",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:asap2:Driverless cars",
+"model": "Llama 3.2 3B",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.497
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:asap2:The Face on Mars",
+"model": "Llama 3.2 3B",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.382
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:asap2:Facial action coding system",
+"model": "Llama 3.2 3B",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.436
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:asap2:Exploring Venus",
+"model": "Llama 3.2 3B",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.345
+},
+{
+"key": "microsoft/phi-4:asap2:Does the electoral college work?",
+"model": "Phi-4",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "microsoft/phi-4:asap2:Car-free cities",
+"model": "Phi-4",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.286
+},
+{
+"key": "microsoft/phi-4:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Phi-4",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "microsoft/phi-4:asap2:Driverless cars",
+"model": "Phi-4",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.496
+},
+{
+"key": "microsoft/phi-4:asap2:The Face on Mars",
+"model": "Phi-4",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.395
+},
+{
+"key": "microsoft/phi-4:asap2:Facial action coding system",
+"model": "Phi-4",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.587
+},
+{
+"key": "microsoft/phi-4:asap2:Exploring Venus",
+"model": "Phi-4",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.609
+},
+{
+"key": "mistralai/ministral-8b-2512:asap2:Does the electoral college work?",
+"model": "Ministral 8B",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "mistralai/ministral-8b-2512:asap2:Car-free cities",
+"model": "Ministral 8B",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.286
+},
+{
+"key": "mistralai/ministral-8b-2512:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Ministral 8B",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "mistralai/ministral-8b-2512:asap2:Driverless cars",
+"model": "Ministral 8B",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.448
+},
+{
+"key": "mistralai/ministral-8b-2512:asap2:The Face on Mars",
+"model": "Ministral 8B",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.373
+},
+{
+"key": "mistralai/ministral-8b-2512:asap2:Facial action coding system",
+"model": "Ministral 8B",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.669
+},
+{
+"key": "mistralai/ministral-8b-2512:asap2:Exploring Venus",
+"model": "Ministral 8B",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.536
+},
+{
+"key": "openai/gpt-5-mini:asap2:Does the electoral college work?",
+"model": "GPT-5 Mini",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "openai/gpt-5-mini:asap2:Car-free cities",
+"model": "GPT-5 Mini",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.074
+},
+{
+"key": "openai/gpt-5-mini:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "GPT-5 Mini",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "openai/gpt-5-mini:asap2:Driverless cars",
+"model": "GPT-5 Mini",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.367
+},
+{
+"key": "openai/gpt-5-mini:asap2:The Face on Mars",
+"model": "GPT-5 Mini",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.146
+},
+{
+"key": "openai/gpt-5-mini:asap2:Facial action coding system",
+"model": "GPT-5 Mini",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.309
+},
+{
+"key": "openai/gpt-5-mini:asap2:Exploring Venus",
+"model": "GPT-5 Mini",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.301
+},
+{
+"key": "openai/gpt-5.6-luna:asap2:Does the electoral college work?",
+"model": "GPT-5.6 Luna",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "openai/gpt-5.6-luna:asap2:Car-free cities",
+"model": "GPT-5.6 Luna",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.167
+},
+{
+"key": "openai/gpt-5.6-luna:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "GPT-5.6 Luna",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "openai/gpt-5.6-luna:asap2:Driverless cars",
+"model": "GPT-5.6 Luna",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.494
+},
+{
+"key": "openai/gpt-5.6-luna:asap2:The Face on Mars",
+"model": "GPT-5.6 Luna",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.437
+},
+{
+"key": "openai/gpt-5.6-luna:asap2:Facial action coding system",
+"model": "GPT-5.6 Luna",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.302
+},
+{
+"key": "openai/gpt-5.6-luna:asap2:Exploring Venus",
+"model": "GPT-5.6 Luna",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.579
+},
+{
+"key": "openai/gpt-6-astra:asap2:Does the electoral college work?",
+"model": "GPT-6 Astra",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "openai/gpt-6-astra:asap2:Car-free cities",
+"model": "GPT-6 Astra",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.25
+},
+{
+"key": "openai/gpt-6-astra:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "GPT-6 Astra",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "openai/gpt-6-astra:asap2:Driverless cars",
+"model": "GPT-6 Astra",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.563
+},
+{
+"key": "openai/gpt-6-astra:asap2:The Face on Mars",
+"model": "GPT-6 Astra",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.41
+},
+{
+"key": "openai/gpt-6-astra:asap2:Facial action coding system",
+"model": "GPT-6 Astra",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.494
+},
+{
+"key": "openai/gpt-6-astra:asap2:Exploring Venus",
+"model": "GPT-6 Astra",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.389
+},
+{
+"key": "openai/gpt-oss-20b:asap2:Does the electoral college work?",
+"model": "GPT-OSS 20B",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "openai/gpt-oss-20b:asap2:Car-free cities",
+"model": "GPT-OSS 20B",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.301
+},
+{
+"key": "openai/gpt-oss-20b:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "GPT-OSS 20B",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "openai/gpt-oss-20b:asap2:Driverless cars",
+"model": "GPT-OSS 20B",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.359
+},
+{
+"key": "openai/gpt-oss-20b:asap2:The Face on Mars",
+"model": "GPT-OSS 20B",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.313
+},
+{
+"key": "openai/gpt-oss-20b:asap2:Facial action coding system",
+"model": "GPT-OSS 20B",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.444
+},
+{
+"key": "openai/gpt-oss-20b:asap2:Exploring Venus",
+"model": "GPT-OSS 20B",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.124
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:asap2:Does the electoral college work?",
+"model": "Qwen3 235B",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:asap2:Car-free cities",
+"model": "Qwen3 235B",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.375
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Qwen3 235B",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:asap2:Driverless cars",
+"model": "Qwen3 235B",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.681
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:asap2:The Face on Mars",
+"model": "Qwen3 235B",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.496
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:asap2:Facial action coding system",
+"model": "Qwen3 235B",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.599
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:asap2:Exploring Venus",
+"model": "Qwen3 235B",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.625
+},
+{
+"key": "anthropic/claude-fable-5.1:code:Q25",
+"model": "Claude Fable 5.1",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.942
+},
+{
+"key": "anthropic/claude-fable-5.1:code:Q31",
+"model": "Claude Fable 5.1",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.937
+},
+{
+"key": "anthropic/claude-fable-5.1:code:Q41",
+"model": "Claude Fable 5.1",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.973
+},
+{
+"key": "anthropic/claude-haiku-5.5:code:Q25",
+"model": "Claude Haiku 5.5",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.904
+},
+{
+"key": "anthropic/claude-haiku-5.5:code:Q31",
+"model": "Claude Haiku 5.5",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.802
+},
+{
+"key": "anthropic/claude-haiku-5.5:code:Q41",
+"model": "Claude Haiku 5.5",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.883
+},
+{
+"key": "anthropic/claude-opus-5.5:code:Q25",
+"model": "Claude Opus 5.5",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.942
+},
+{
+"key": "anthropic/claude-opus-5.5:code:Q31",
+"model": "Claude Opus 5.5",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.913
+},
+{
+"key": "anthropic/claude-opus-5.5:code:Q41",
+"model": "Claude Opus 5.5",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.969
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:code:Q25",
+"model": "DeepSeek V4.1 Flash",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.815
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:code:Q31",
+"model": "DeepSeek V4.1 Flash",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.603
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:code:Q41",
+"model": "DeepSeek V4.1 Flash",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.884
+},
+{
+"key": "google/gemini-3.5-flash-lite:code:Q25",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.756
+},
+{
+"key": "google/gemini-3.5-flash-lite:code:Q31",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.754
+},
+{
+"key": "google/gemini-3.5-flash-lite:code:Q41",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.817
+},
+{
+"key": "google/gemma-3-27b-it:code:Q25",
+"model": "Gemma 3 27B",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.802
+},
+{
+"key": "google/gemma-3-27b-it:code:Q31",
+"model": "Gemma 3 27B",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.765
+},
+{
+"key": "google/gemma-3-27b-it:code:Q41",
+"model": "Gemma 3 27B",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.739
+},
+{
+"key": "google/gemma-3-4b-it:code:Q25",
+"model": "Gemma 3 4B",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.393
+},
+{
+"key": "google/gemma-3-4b-it:code:Q31",
+"model": "Gemma 3 4B",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.24
+},
+{
+"key": "google/gemma-3-4b-it:code:Q41",
+"model": "Gemma 3 4B",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.272
+},
+{
+"key": "google/gemma-4-26b-a4b-it:code:Q25",
+"model": "Gemma 4 26B A4B",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.429
+},
+{
+"key": "google/gemma-4-26b-a4b-it:code:Q31",
+"model": "Gemma 4 26B A4B",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.407
+},
+{
+"key": "google/gemma-4-26b-a4b-it:code:Q41",
+"model": "Gemma 4 26B A4B",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.765
+},
+{
+"key": "google/gemma-4-31b-it:code:Q25",
+"model": "Gemma 4 31B",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.46
+},
+{
+"key": "google/gemma-4-31b-it:code:Q31",
+"model": "Gemma 4 31B",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.538
+},
+{
+"key": "google/gemma-4-31b-it:code:Q41",
+"model": "Gemma 4 31B",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.771
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:code:Q25",
+"model": "Llama 3.2 3B",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.548
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:code:Q31",
+"model": "Llama 3.2 3B",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.504
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:code:Q41",
+"model": "Llama 3.2 3B",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.506
+},
+{
+"key": "microsoft/phi-4:code:Q25",
+"model": "Phi-4",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.667
+},
+{
+"key": "microsoft/phi-4:code:Q31",
+"model": "Phi-4",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.709
+},
+{
+"key": "microsoft/phi-4:code:Q41",
+"model": "Phi-4",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.79
+},
+{
+"key": "mistralai/ministral-8b-2512:code:Q25",
+"model": "Ministral 8B",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.674
+},
+{
+"key": "mistralai/ministral-8b-2512:code:Q31",
+"model": "Ministral 8B",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.644
+},
+{
+"key": "mistralai/ministral-8b-2512:code:Q41",
+"model": "Ministral 8B",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.896
+},
+{
+"key": "openai/gpt-5-mini:code:Q25",
+"model": "GPT-5 Mini",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.872
+},
+{
+"key": "openai/gpt-5-mini:code:Q31",
+"model": "GPT-5 Mini",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.804
+},
+{
+"key": "openai/gpt-5-mini:code:Q41",
+"model": "GPT-5 Mini",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.918
+},
+{
+"key": "openai/gpt-5.6-luna:code:Q25",
+"model": "GPT-5.6 Luna",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.792
+},
+{
+"key": "openai/gpt-5.6-luna:code:Q31",
+"model": "GPT-5.6 Luna",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.626
+},
+{
+"key": "openai/gpt-5.6-luna:code:Q41",
+"model": "GPT-5.6 Luna",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.905
+},
+{
+"key": "openai/gpt-6-astra:code:Q25",
+"model": "GPT-6 Astra",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.903
+},
+{
+"key": "openai/gpt-6-astra:code:Q31",
+"model": "GPT-6 Astra",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.814
+},
+{
+"key": "openai/gpt-6-astra:code:Q41",
+"model": "GPT-6 Astra",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.977
+},
+{
+"key": "openai/gpt-oss-20b:code:Q25",
+"model": "GPT-OSS 20B",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.275
+},
+{
+"key": "openai/gpt-oss-20b:code:Q31",
+"model": "GPT-OSS 20B",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.103
+},
+{
+"key": "openai/gpt-oss-20b:code:Q41",
+"model": "GPT-OSS 20B",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.441
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:code:Q25",
+"model": "Qwen3 235B",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.429
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:code:Q31",
+"model": "Qwen3 235B",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.425
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:code:Q41",
+"model": "Qwen3 235B",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.813
+}
+]

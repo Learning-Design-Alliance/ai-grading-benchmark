@@ -1,0 +1,47 @@
+[
+{
+"key": "2026-10-25:0",
+"date": "2026-10-25",
+"what": "Length study: Qwen3.8 27B's interval for the change in balanced accuracy",
+"was": "[\u22120.14, +0.05]",
+"now": "[\u22120.13, +0.05]",
+"why": "the lower bound, \u22120.1346, was rounded wrongly",
+"where": "video/LENGTH.md"
+},
+{
+"key": "2026-10-25:1",
+"date": "2026-10-25",
+"what": "Null verdicts on video, length and pushback now print the largest effect they cannot rule out",
+"was": "\"adds nothing to a stopwatch\"; \"NO DETECTABLE EFFECT\"; \"HOLDS\"",
+"now": "the same verdicts, each with its bound (e.g. agreement beyond length up to 0.16-0.38 not ruled out)",
+"why": "a null from a test of limited power is not evidence of no effect (O'Neill 2026). Verdict strings and thresholds are unchanged",
+"where": "video/README.md, video/LENGTH.md, feedback-board/PUSHBACK.md; CHANGE 1 in each script"
+},
+{
+"key": "2026-10-25:2",
+"date": "2026-10-25",
+"what": "Length study headline",
+"was": "\"length does not change detection\"",
+"now": "\"on longer videos, graders report errors that are not there\" (specificity \u221211 to \u221230 points for four of five)",
+"why": "the headline led with a null and put the significant effect second",
+"where": "video/LENGTH.md"
+},
+{
+"key": "2026-10-25:3",
+"date": "2026-10-25",
+"what": "Benchmark card, conflict of interest",
+"was": "\"a grading product\"",
+"now": "names the product",
+"why": "a conflict-of-interest statement should name the interest",
+"where": "BENCHMARK-CARD.md"
+},
+{
+"key": "2026-10-24:4",
+"date": "2026-10-24",
+"what": "Feedback strand of the overall score",
+"was": "halo and \"gives away the answer\"",
+"now": "halo only; gives-away shown, not scored",
+"why": "the gives-away evaluator was validated on tutoring and ranked the least explicit feedback best",
+"where": "feedback-board/fb.py CHANGE 1"
+}
+]

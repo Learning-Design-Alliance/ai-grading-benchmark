@@ -1,0 +1,426 @@
+[
+{
+"key": "anthropic/claude-fable-5.1:mohler",
+"model": "Claude Fable 5.1",
+"task": "Short answers",
+"coef": -0.176,
+"lo": -0.296,
+"hi": -0.053
+},
+{
+"key": "anthropic/claude-haiku-5.5:mohler",
+"model": "Claude Haiku 5.5",
+"task": "Short answers",
+"coef": -0.208,
+"lo": -0.322,
+"hi": -0.073
+},
+{
+"key": "anthropic/claude-opus-5.5:mohler",
+"model": "Claude Opus 5.5",
+"task": "Short answers",
+"coef": -0.149,
+"lo": -0.263,
+"hi": -0.023
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:mohler",
+"model": "DeepSeek V4.1 Flash",
+"task": "Short answers",
+"coef": -0.11,
+"lo": -0.205,
+"hi": -0.001
+},
+{
+"key": "google/gemini-3.5-flash-lite:mohler",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Short answers",
+"coef": -0.103,
+"lo": -0.302,
+"hi": 0.099
+},
+{
+"key": "google/gemma-3-27b-it:mohler",
+"model": "Gemma 3 27B",
+"task": "Short answers",
+"coef": -0.127,
+"lo": -0.266,
+"hi": 0.006
+},
+{
+"key": "google/gemma-3-4b-it:mohler",
+"model": "Gemma 3 4B",
+"task": "Short answers",
+"coef": 0.113,
+"lo": -0.042,
+"hi": 0.231
+},
+{
+"key": "google/gemma-4-26b-a4b-it:mohler",
+"model": "Gemma 4 26B A4B",
+"task": "Short answers",
+"coef": -0.143,
+"lo": -0.277,
+"hi": -0.005
+},
+{
+"key": "google/gemma-4-31b-it:mohler",
+"model": "Gemma 4 31B",
+"task": "Short answers",
+"coef": -0.155,
+"lo": -0.297,
+"hi": -0.001
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:mohler",
+"model": "Llama 3.2 3B",
+"task": "Short answers",
+"coef": 0.158,
+"lo": -0.028,
+"hi": 0.358
+},
+{
+"key": "microsoft/phi-4:mohler",
+"model": "Phi-4",
+"task": "Short answers",
+"coef": -0.03,
+"lo": -0.15,
+"hi": 0.093
+},
+{
+"key": "mistralai/ministral-8b-2512:mohler",
+"model": "Ministral 8B",
+"task": "Short answers",
+"coef": -0.108,
+"lo": -0.285,
+"hi": 0.051
+},
+{
+"key": "openai/gpt-5-mini:mohler",
+"model": "GPT-5 Mini",
+"task": "Short answers",
+"coef": -0.079,
+"lo": -0.191,
+"hi": 0.037
+},
+{
+"key": "openai/gpt-5.6-luna:mohler",
+"model": "GPT-5.6 Luna",
+"task": "Short answers",
+"coef": -0.128,
+"lo": -0.224,
+"hi": -0.027
+},
+{
+"key": "openai/gpt-6-astra:mohler",
+"model": "GPT-6 Astra",
+"task": "Short answers",
+"coef": -0.132,
+"lo": -0.261,
+"hi": 0.004
+},
+{
+"key": "openai/gpt-oss-20b:mohler",
+"model": "GPT-OSS 20B",
+"task": "Short answers",
+"coef": -0.135,
+"lo": -0.289,
+"hi": 0.022
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:mohler",
+"model": "Qwen3 235B",
+"task": "Short answers",
+"coef": -0.113,
+"lo": -0.221,
+"hi": 0.008
+},
+{
+"key": "anthropic/claude-fable-5.1:code",
+"model": "Claude Fable 5.1",
+"task": "Code",
+"coef": 0.035,
+"lo": -0.01,
+"hi": 0.082
+},
+{
+"key": "anthropic/claude-haiku-5.5:code",
+"model": "Claude Haiku 5.5",
+"task": "Code",
+"coef": -0.021,
+"lo": -0.093,
+"hi": 0.057
+},
+{
+"key": "anthropic/claude-opus-5.5:code",
+"model": "Claude Opus 5.5",
+"task": "Code",
+"coef": -0.042,
+"lo": -0.088,
+"hi": 0.006
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:code",
+"model": "DeepSeek V4.1 Flash",
+"task": "Code",
+"coef": -0.063,
+"lo": -0.149,
+"hi": 0.017
+},
+{
+"key": "google/gemini-3.5-flash-lite:code",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Code",
+"coef": 0.005,
+"lo": -0.119,
+"hi": 0.138
+},
+{
+"key": "google/gemma-3-27b-it:code",
+"model": "Gemma 3 27B",
+"task": "Code",
+"coef": 0.231,
+"lo": 0.115,
+"hi": 0.345
+},
+{
+"key": "google/gemma-3-4b-it:code",
+"model": "Gemma 3 4B",
+"task": "Code",
+"coef": 0.028,
+"lo": -0.229,
+"hi": 0.267
+},
+{
+"key": "google/gemma-4-26b-a4b-it:code",
+"model": "Gemma 4 26B A4B",
+"task": "Code",
+"coef": -0.01,
+"lo": -0.122,
+"hi": 0.108
+},
+{
+"key": "google/gemma-4-31b-it:code",
+"model": "Gemma 4 31B",
+"task": "Code",
+"coef": -0.012,
+"lo": -0.141,
+"hi": 0.122
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:code",
+"model": "Llama 3.2 3B",
+"task": "Code",
+"coef": -0.01,
+"lo": -0.274,
+"hi": 0.232
+},
+{
+"key": "microsoft/phi-4:code",
+"model": "Phi-4",
+"task": "Code",
+"coef": 0.158,
+"lo": 0.016,
+"hi": 0.308
+},
+{
+"key": "mistralai/ministral-8b-2512:code",
+"model": "Ministral 8B",
+"task": "Code",
+"coef": -0.018,
+"lo": -0.123,
+"hi": 0.101
+},
+{
+"key": "openai/gpt-5-mini:code",
+"model": "GPT-5 Mini",
+"task": "Code",
+"coef": 0.002,
+"lo": -0.085,
+"hi": 0.091
+},
+{
+"key": "openai/gpt-5.6-luna:code",
+"model": "GPT-5.6 Luna",
+"task": "Code",
+"coef": -0.055,
+"lo": -0.134,
+"hi": 0.033
+},
+{
+"key": "openai/gpt-6-astra:code",
+"model": "GPT-6 Astra",
+"task": "Code",
+"coef": -0.025,
+"lo": -0.097,
+"hi": 0.05
+},
+{
+"key": "openai/gpt-oss-20b:code",
+"model": "GPT-OSS 20B",
+"task": "Code",
+"coef": -0.111,
+"lo": -0.274,
+"hi": 0.059
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:code",
+"model": "Qwen3 235B",
+"task": "Code",
+"coef": -0.078,
+"lo": -0.206,
+"hi": 0.063
+},
+{
+"key": "anthropic/claude-fable-5.1:asap2",
+"model": "Claude Fable 5.1",
+"task": "Essays",
+"coef": 0.241,
+"lo": 0.055,
+"hi": 0.447
+},
+{
+"key": "anthropic/claude-haiku-5.5:asap2",
+"model": "Claude Haiku 5.5",
+"task": "Essays",
+"coef": 0.088,
+"lo": -0.127,
+"hi": 0.317
+},
+{
+"key": "anthropic/claude-opus-5.5:asap2",
+"model": "Claude Opus 5.5",
+"task": "Essays",
+"coef": 0.119,
+"lo": -0.04,
+"hi": 0.274
+},
+{
+"key": "deepseek/deepseek-v4.1-flash:asap2",
+"model": "DeepSeek V4.1 Flash",
+"task": "Essays",
+"coef": 0.193,
+"lo": 0.018,
+"hi": 0.354
+},
+{
+"key": "google/gemini-3.5-flash-lite:asap2",
+"model": "Gemini 3.5 Flash Lite",
+"task": "Essays",
+"coef": 0.227,
+"lo": 0.023,
+"hi": 0.426
+},
+{
+"key": "google/gemma-3-27b-it:asap2",
+"model": "Gemma 3 27B",
+"task": "Essays",
+"coef": 0.222,
+"lo": 0.009,
+"hi": 0.436
+},
+{
+"key": "google/gemma-3-4b-it:asap2",
+"model": "Gemma 3 4B",
+"task": "Essays",
+"coef": 0.194,
+"lo": -0.078,
+"hi": 0.482
+},
+{
+"key": "google/gemma-4-26b-a4b-it:asap2",
+"model": "Gemma 4 26B A4B",
+"task": "Essays",
+"coef": 0.054,
+"lo": -0.112,
+"hi": 0.242
+},
+{
+"key": "google/gemma-4-31b-it:asap2",
+"model": "Gemma 4 31B",
+"task": "Essays",
+"coef": 0.155,
+"lo": -0.013,
+"hi": 0.327
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:asap2",
+"model": "Llama 3.2 3B",
+"task": "Essays",
+"coef": 0.13,
+"lo": -0.117,
+"hi": 0.38
+},
+{
+"key": "microsoft/phi-4:asap2",
+"model": "Phi-4",
+"task": "Essays",
+"coef": 0.095,
+"lo": -0.132,
+"hi": 0.313
+},
+{
+"key": "mistralai/ministral-8b-2512:asap2",
+"model": "Ministral 8B",
+"task": "Essays",
+"coef": 0.271,
+"lo": 0.072,
+"hi": 0.465
+},
+{
+"key": "openai/gpt-5-mini:asap2",
+"model": "GPT-5 Mini",
+"task": "Essays",
+"coef": 0.119,
+"lo": -0.104,
+"hi": 0.353
+},
+{
+"key": "openai/gpt-5.6-luna:asap2",
+"model": "GPT-5.6 Luna",
+"task": "Essays",
+"coef": 0.113,
+"lo": -0.099,
+"hi": 0.315
+},
+{
+"key": "openai/gpt-6-astra:asap2",
+"model": "GPT-6 Astra",
+"task": "Essays",
+"coef": 0.092,
+"lo": -0.099,
+"hi": 0.298
+},
+{
+"key": "openai/gpt-oss-20b:asap2",
+"model": "GPT-OSS 20B",
+"task": "Essays",
+"coef": 0.148,
+"lo": -0.075,
+"hi": 0.386
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507:asap2",
+"model": "Qwen3 235B",
+"task": "Essays",
+"coef": 0.106,
+"lo": -0.097,
+"hi": 0.318
+},
+{
+"key": "raters:mohler",
+"model": "Raters (reference)",
+"task": "Short answers",
+"coef": 0.049,
+"lo": -0.075,
+"hi": 0.158
+},
+{
+"key": "raters:code",
+"model": "Raters (reference)",
+"task": "Code",
+"coef": 0.065,
+"lo": 0.013,
+"hi": 0.118
+}
+]

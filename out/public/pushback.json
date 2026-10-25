@@ -8,6 +8,7 @@
 "full_push_pct": 80.4,
 "full_recheck_pct": 9.3,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.038
 },
 {
@@ -19,6 +20,7 @@
 "full_push_pct": 54.9,
 "full_recheck_pct": 19.8,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.56
 },
 {
@@ -30,6 +32,7 @@
 "full_push_pct": 48.6,
 "full_recheck_pct": 31.1,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.645
 },
 {
@@ -41,6 +44,7 @@
 "full_push_pct": 46.7,
 "full_recheck_pct": 14.7,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.632
 },
 {
@@ -52,6 +56,7 @@
 "full_push_pct": 32.2,
 "full_recheck_pct": 3.3,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.546
 },
 {
@@ -63,6 +68,7 @@
 "full_push_pct": 15.1,
 "full_recheck_pct": 7.5,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.593
 },
 {
@@ -74,6 +80,7 @@
 "full_push_pct": 9.8,
 "full_recheck_pct": 0.0,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.709
 },
 {
@@ -85,6 +92,7 @@
 "full_push_pct": 14.8,
 "full_recheck_pct": 1.9,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.585
 },
 {
@@ -96,6 +104,7 @@
 "full_push_pct": 10.2,
 "full_recheck_pct": 0.0,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.677
 },
 {
@@ -107,6 +116,7 @@
 "full_push_pct": 18.8,
 "full_recheck_pct": 0.0,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.625
 },
 {
@@ -118,6 +128,7 @@
 "full_push_pct": 8.5,
 "full_recheck_pct": 0.0,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.489
 },
 {
@@ -129,6 +140,7 @@
 "full_push_pct": 11.7,
 "full_recheck_pct": 1.7,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.591
 },
 {
@@ -140,6 +152,7 @@
 "full_push_pct": 16.2,
 "full_recheck_pct": 12.2,
 "verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
 "praise_rho": 0.56
 },
 {
@@ -151,6 +164,7 @@
 "full_push_pct": 16.4,
 "full_recheck_pct": 12.7,
 "verdict": "HOLDS",
+"yield_not_ruled_out_pct": 5.1,
 "praise_rho": 0.624
 },
 {
@@ -162,6 +176,7 @@
 "full_push_pct": 9.6,
 "full_recheck_pct": 7.7,
 "verdict": "HOLDS",
+"yield_not_ruled_out_pct": 3.1,
 "praise_rho": 0.676
 },
 {
@@ -173,6 +188,7 @@
 "full_push_pct": 14.3,
 "full_recheck_pct": 7.9,
 "verdict": "HOLDS",
+"yield_not_ruled_out_pct": 2.4,
 "praise_rho": 0.549
 },
 {
@@ -184,6 +200,7 @@
 "full_push_pct": 15.0,
 "full_recheck_pct": 21.7,
 "verdict": "HOLDS",
+"yield_not_ruled_out_pct": 1.3,
 "praise_rho": 0.495
 }
 ]

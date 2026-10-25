@@ -9,7 +9,11 @@ regenerated:
 - fairness.json      fairness-ellipse/out/result.json, rep-result.json and disability/out/result.json;
 - feedback_checks.json  feedback-validity/out/result.json and lc-result.json;
 - drift.json         out/lineage-2026-10-23/drift.txt;
-- floor.json         out/floor.json.
+- floor.json         out/floor.json;
+- baselines, agreement_flags, pushback_split, length_check, per_prompt, multiplicity: the reference baselines
+  and the standard checks (out/baselines.json, out/standard_checks.json, out/cluster_check.json,
+  out/overall.json);
+- corrections.json   docs/CORRECTIONS.md; energy.json from docs/energy.json.
 
     python3 public_data.py <out dir>
 
@@ -185,7 +189,9 @@ def overall():
         row = {"key": r["model"], "model": m, "vendor": vendor, "kind": kind, "complete": r["complete"],
                "tasks": ", ".join(TASKS.get(t, t) for t in r["tasks"]), "overall": None if r["overall"] is None else round(r["overall"], 1),
                "rank": r.get("rank"), "rank_lo": (r.get("rank_ci95") or [None, None])[0], "rank_hi": (r.get("rank_ci95") or [None, None])[1],
-               "flags": "; ".join(r["flags"])}
+               "flags": "; ".join(r["flags"]),
+               "task_lo": None if not r.get("task_range") else round(r["task_range"][0], 1),
+               "task_hi": None if not r.get("task_range") else round(r["task_range"][1], 1)}
         for k, v in r["strands"].items():
             row[k] = None if v is None else round(v, 1)
         rows.append(row)
@@ -307,6 +313,7 @@ def video():
                      "beyond_lo": None if not bl["beyond_length_ci95"] else round(bl["beyond_length_ci95"][0], 3),
                      "beyond_hi": None if not bl["beyond_length_ci95"] else round(bl["beyond_length_ci95"][1], 3),
                      "verdict": e["verdict"] or ("DID NOT RATE" if nb < 50 else None),
+                     "not_ruled_out": None if not e.get("not_ruled_out") else round(e["not_ruled_out"]["beyond_length_up_to"], 2),
                      "black_pct": share("null_black"), "still_pct": share("null_still"),
                      "gaming_pct": pc(gm), "label_pct": pc((fa.get("attainment") or {}).get("label_effect")),
                      "lowres_pct": pc(rl.get("low_res")), "camera_pct": pc(rl.get("other_camera")),
@@ -337,7 +344,8 @@ def video_length():
                      "sens_x1": r1(b1["sensitivity"]), "sens_x4": r1(b4["sensitivity"]),
                      "spec_x1": r1(b1["specificity"]), "spec_x4": r1(b4["specificity"]),
                      "change": r1(ch[0]), "change_lo": r1(ch[1][0]), "change_hi": r1(ch[1][1]),
-                     "failed": sum(e["failed"].values()), "verdict": e["verdict"]})
+                     "failed": sum(e["failed"].values()), "verdict": e["verdict"],
+                     "loss_not_ruled_out": None if not e.get("not_ruled_out") else round(e["not_ruled_out"]["balanced_accuracy_loss_up_to"], 2)})
     return rows
 
 
@@ -372,8 +380,133 @@ def pushback():
                      "effect_lo": round(100 * pb["ci95"][0], 1), "effect_hi": round(100 * pb["ci95"][1], 1),
                      "full_push_pct": round(100 * pb["to_full_marks"]["push"], 1),
                      "full_recheck_pct": round(100 * pb["to_full_marks"]["recheck"], 1), "verdict": pb["verdict"],
+                     "yield_not_ruled_out_pct": None if not pb.get("not_ruled_out") else round(100 * pb["not_ruled_out"]["yielding_up_to"], 1),
                      "praise_rho": None if pc.get("spearman_tone_vs_experts") is None else round(pc["spearman_tone_vs_experts"], 3)})
     rows.sort(key=lambda x: -x["effect_pct"])
+    return rows
+
+
+def _load(*parts):
+    p = os.path.join(HERE, *parts)
+    return json.load(open(p)) if os.path.exists(p) else None
+
+
+def baselines():
+    """out/baselines.json: classic non-LLM scorers on the same cases and probes, as reference rows."""
+    d = _load("out", "baselines.json")
+    if not d:
+        return []
+    rows = []
+    for r in d["rows"]:
+        sh = (r.get("share_of_ceiling") or {}).get("estimate")
+        g = (r.get("gaming_max_share") or {}).get("estimate")
+        rows.append({"key": f"{r['task']}:{r['model']}", "task": TASKS.get(r["task"], r["task"]), "baseline": r["model"].replace("baseline: ", ""),
+                     "qwk": round(r["qwk"]["estimate"], 3), "qwk_lo": round(r["qwk"]["ci95"][0], 3), "qwk_hi": round(r["qwk"]["ci95"][1], 3),
+                     "share": None if sh is None else round(sh, 3),
+                     "share_published": None if r.get("share_of_published_ceiling") is None else round(r["share_of_published_ceiling"], 3),
+                     "blank_pct": None if r.get("blank_credited") is None else round(100 * r["blank_credited"], 1),
+                     "gaming_pct": None if g is None else round(100 * g, 1), "n_train": r["n_train"]})
+    return rows
+
+
+def agreement_flags():
+    """analyses/standard_checks.py: Williamson, Xi and Breyer flags per model and task."""
+    d = _load("out", "standard_checks.json")
+    if not d:
+        return []
+    r3 = lambda x: None if x is None else round(x, 3)
+    return [{"key": f"{r['model']}:{r['task']}", "model": name(r["model"]), "task": TASKS.get(r["task"], r["task"]),
+             "qwk": r3(r["qwk"]), "qwk_flag": r["qwk_flag"], "degradation": r3(r["degradation"]), "degradation_flag": r["degradation_flag"],
+             "smd": r3(r["smd"]), "smd_lo": r3((r["smd_ci95"] or [None])[0]), "smd_hi": r3((r["smd_ci95"] or [None, None])[1]),
+             "smd_flag": r["smd_flag"]} for r in d["agreement"]]
+
+
+def pushback_split():
+    d = _load("out", "standard_checks.json")
+    if not d:
+        return []
+    out = []
+    for r in d["pushback"]:
+        iv = r["effect_not_under_marked_ci95"]
+        out.append({"key": r["model"], "model": name(r["model"]), "corrections": r["raises"]["progressive"],
+                    "sycophantic": r["raises"]["regressive"],
+                    "regressive_pct": None if r["regressive_share"] is None else round(100 * r["regressive_share"], 1),
+                    "effect_fair_pct": None if r["effect_not_under_marked"] is None else round(100 * r["effect_not_under_marked"], 1),
+                    "effect_fair_lo": None if not iv else round(100 * iv[0], 1), "effect_fair_hi": None if not iv else round(100 * iv[1], 1),
+                    "n": r["n_not_under_marked"]})
+    return sorted(out, key=lambda x: -(x["effect_fair_pct"] or -99))
+
+
+def length_check():
+    d = _load("out", "standard_checks.json")
+    if not d:
+        return []
+    rows = [{"key": f"{r['model']}:{r['task']}", "model": name(r["model"]), "task": TASKS.get(r["task"], r["task"]),
+             "coef": None if r["coef"] is None else round(r["coef"], 3), "lo": None if not r["ci95"] else round(r["ci95"][0], 3),
+             "hi": None if not r["ci95"] else round(r["ci95"][1], 3)} for r in d["length"]]
+    for t, v in d["length_human"].items():
+        rows.append({"key": f"raters:{t}", "model": "Raters (reference)", "task": TASKS.get(t, t),
+                     "coef": None if v["coef"] is None else round(v["coef"], 3),
+                     "lo": None if not v["ci95"] else round(v["ci95"][0], 3), "hi": None if not v["ci95"] else round(v["ci95"][1], 3)})
+    return rows
+
+
+def per_prompt():
+    """analyses/cluster_check.py: agreement per essay prompt and per code exercise."""
+    d = _load("out", "cluster_check.json")
+    if not d:
+        return []
+    rows = []
+    for task, out in d["per_prompt"].items():
+        for o in out:
+            for item, q in o["per_prompt_qwk"].items():
+                rows.append({"key": f"{o['model']}:{task}:{item}", "model": name(o["model"]), "task": TASKS.get(task, task),
+                             "item": item, "n": o["n_per_prompt"][item], "qwk": None if q is None else round(q, 3)})
+    return rows
+
+
+def multiplicity():
+    o = _load("out", "overall.json")
+    if not o or "multiplicity" not in o:
+        return []
+    mu = o["multiplicity"]
+    rows = [{"key": "summary", "model": "", "task": "", "probe": f"{mu['tests']} intervals; {mu['flagged']} exclude 0; {mu['survive']} survive",
+             "p": None, "q": None}]
+    rows += [{"key": f"{x['model']}:{x['task']}:{x['probe']}", "model": name(x["model"]), "task": TASKS.get(x["task"], x["task"]),
+              "probe": x["probe"], "p": round(x["p"], 4), "q": round(x["q"], 4)} for x in mu["do_not_survive"]]
+    return rows
+
+
+def corrections():
+    p = os.path.join(HERE, "docs", "CORRECTIONS.md")
+    if not os.path.exists(p):
+        return []
+    rows = []
+    for line in open(p, encoding="utf-8"):
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if len(cells) == 6 and re.match(r"\d{4}-\d{2}-\d{2}$", cells[0]):
+            rows.append({"key": f"{cells[0]}:{len(rows)}", "date": cells[0], "what": cells[1], "was": cells[2], "now": cells[3],
+                         "why": cells[4], "where": cells[5].replace("`", "")})
+    return rows
+
+
+def energy():
+    e = _load("docs", "energy.json")
+    if not e:
+        return []
+    q = e["per_query_wh"]
+    rows = []
+    for s in e["scenarios"]:
+        n = s["gradings"]
+        for kind, lo, hi in (("ordinary model", q["ordinary_low"], q["ordinary_high"]), ("reasoning model", q["reasoning"], q["reasoning"])):
+            kwh = (n * lo / 1000, n * hi / 1000)
+            co2 = tuple(k * e["grid_kg_co2_per_kwh"] for k in kwh)
+            rows.append({"key": f"{s['name']}:{kind}", "scenario": s["name"], "model_kind": kind,
+                         "wh_lo": round(1000 * kwh[0], 2), "wh_hi": round(1000 * kwh[1], 2),
+                         "stream_hours_lo": round(kwh[0] / e["streaming_kwh_per_hour"], 3), "stream_hours_hi": round(kwh[1] / e["streaming_kwh_per_hour"], 3),
+                         "co2_g_lo": round(1000 * co2[0], 2), "co2_g_hi": round(1000 * co2[1], 2),
+                         "car_km_lo": round(1000 * co2[0] / e["petrol_car_g_per_km"], 4), "car_km_hi": round(1000 * co2[1] / e["petrol_car_g_per_km"], 4),
+                         "water_ml_lo": round(n * e["water_ml_per_query"]["low"], 2), "water_ml_hi": round(n * e["water_ml_per_query"]["high_high"], 1)})
     return rows
 
 
@@ -384,7 +517,9 @@ def main(out):
                    ("overall", overall), ("weights", weights), ("feedback_board", feedback_board),
                    ("speech", lambda: modality("speech", "Speech (pronunciation)", "speech")),
                    ("images", images_pooled), ("video", video), ("video_length", video_length),
-                   ("maths", maths), ("pushback", pushback)):
+                   ("maths", maths), ("pushback", pushback), ("baselines", baselines), ("agreement_flags", agreement_flags),
+                   ("pushback_split", pushback_split), ("length_check", length_check), ("per_prompt", per_prompt),
+                   ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)
         print(f"{nm}: {len(rows)} rows")

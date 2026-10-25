@@ -20,6 +20,18 @@ sha256). A submission that differs in any of these is refused, not adjusted.
 TRACKS. "default": the fixed prompt, so rows compare models. "byop": any prompt, which must be published
 in the submission (its text, not only its hash), so rows compare prompts and anyone can rerun them.
 
+PROMPTS TRIED (added 2026-10-25). A submitter who tries twenty prompts and submits the best has selected on
+the result, the leaderboard's version of publication bias (O'Neill 2026). A byop submission must state
+`prompts_tried`: how many prompts, or prompt versions, were run on any of these cases before this one was
+chosen, counting this one. It is shown beside the row. A default-track submission tried one prompt.
+
+ACROSS TASKS AND MANY TESTS (added 2026-10-25). The overall score averages unlike tasks, so `overall` also
+gives each model's score computed on each task alone and their range: the spread is the honest guide to a
+new task. And with 17 models, three tasks and several probes, some "interval excludes 0" flags will trip by
+chance. `overall` reports which survive a Benjamini-Hochberg false-discovery-rate correction at 5% over
+every probe interval on the board (p from the interval by a normal approximation). Scores use the
+estimates, not the flags, so the correction changes no score; it says which detected effects to trust.
+
 WHAT A ROW SHOWS, and why each column is there (README, "What goes on the leaderboard"):
 - agreement: machine QWK and, where the task has two or more raters, its share of the human ceiling;
 - consistency: QWK between two gradings of the same work;
@@ -170,6 +182,8 @@ def cmd_export(a):
         sys.exit("a bring-your-own-prompt submission must publish its prompt: pass --prompt <file>")
     if a.prompt:
         prompt_text = open(a.prompt).read()
+    if track == "byop" and not a.prompts_tried:
+        sys.exit("a bring-your-own-prompt submission must state --prompts-tried: how many prompts were run on these cases")
     keep = ("id", "probe", "score", "finish_reason", "served_model", "provider", "error")
     sub = {
         "format": FORMAT,
@@ -187,6 +201,7 @@ def cmd_export(a):
         "case_ids": config["case_ids"],
         "prompt_sha256": config.get("prompt_sha256"),
         "prompt": prompt_text if track == "byop" else None,
+        "prompts_tried": a.prompts_tried if track == "byop" else 1,
         "calls": [{**{k: r.get(k) for k in keep},
                    "usage": {k: (r.get("usage") or {}).get(k) for k in ("prompt_tokens", "completion_tokens",
                                                                          "reasoning_tokens", "cost_reported")}}
@@ -232,6 +247,8 @@ def check(sub, cases_path):
     if task == "pushback":
         return probs + check_pushback(sub, allc, canon), [c for c in allc if c["id"] in set(canon)], sub["calls"]
     if sub.get("track") == "byop":
+        if not isinstance(sub.get("prompts_tried"), int) or sub["prompts_tried"] < 1:
+            probs.append("byop track without prompts_tried (how many prompts were run on these cases)")
         if not sub.get("prompt"):
             probs.append("byop track without the prompt text")
         else:
@@ -356,6 +373,7 @@ def row(sub, rep):
     refused = sum(x["content_filter"] for x in fails.values())
     return {
         "model": sub["model"], "task": sub["task"], "track": sub["track"], "submitter": sub.get("submitter"),
+        "prompts_tried": sub.get("prompts_tried", 1 if sub.get("track") == "default" else None),
         "served_models": sorted({r.get("served_model") for r in sub["calls"] if r.get("served_model")}),
         "providers": sorted({r.get("provider") for r in sub["calls"] if r.get("provider")}),
         "qwk": v["agreement"]["qwk"], "share_of_ceiling": v.get("share_of_ceiling"),
@@ -626,9 +644,13 @@ def overall(rows, feedback=None, weights=None, tasks=("mohler", "code", "asap2")
             flags.append("credits blank or junk answers")
         if any(tr[t]["refused"] / max(1, tr[t]["gradings"]) * 100 > FLAGS["refused"] for t in tr if t in tasks):
             flags.append("refuses more than 5% of gradings")
+        ms_only = model_strands(tr)
+        by_task = {t: _weighted({**{k: v for k, v in per_task[t].items() if k in w}, **ms_only}, w) for t in per_task}
+        vals = [v for v in by_task.values() if v is not None]
         out.append({"model": model, "tasks": sorted(t for t in tr if t in tasks + MODEL_TASKS),
                     "complete": all(t in tr for t in tasks + MODEL_TASKS),
-                    "strands": mean_strands, "per_task": per_task, "overall": _weighted(mean_strands, w), "flags": flags})
+                    "strands": mean_strands, "per_task": per_task, "overall": _weighted(mean_strands, w), "flags": flags,
+                    "overall_by_task": by_task, "task_range": [min(vals), max(vals)] if vals else None})
     # rank intervals among complete models
     comp = [o for o in out if o["complete"] and o["overall"] is not None]
     rng = random.Random(seed)
@@ -662,7 +684,40 @@ def overall(rows, feedback=None, weights=None, tasks=("mohler", "code", "asap2")
     for i, o in enumerate(comp):
         o["rank"] = i + 1
         o["capped"] = bool(o["flags"])
-    return {"weights": w, "strand_help": STRAND_HELP, "flags": FLAGS, "rows": sorted(out, key=lambda o: (not o["complete"], o.get("rank") or 999, -(o["overall"] or 0)))}
+    return {"weights": w, "strand_help": STRAND_HELP, "flags": FLAGS, "multiplicity": multiplicity(rows), "rows": sorted(out, key=lambda o: (not o["complete"], o.get("rank") or 999, -(o["overall"] or 0)))}
+
+
+PROBE_FIELDS = ("gaming_max_share", "attainment_label_share", "blicket_share", "surface_share")
+
+
+def multiplicity(rows, alpha=0.05):
+    """Benjamini-Hochberg over every probe interval on the board. p from the interval, normal approximation."""
+    import math
+    tests = []
+    for r in rows:
+        for f in PROBE_FIELDS:
+            iv = r.get(f)
+            if not iv or not iv.get("ci95"):
+                continue
+            lo, hi = iv["ci95"]
+            se = (hi - lo) / 3.92
+            if se <= 0:
+                continue
+            z = abs(iv["estimate"]) / se
+            p = math.erfc(z / math.sqrt(2))
+            tests.append({"model": r["model"], "task": r["task"], "probe": f, "p": p, "excludes_0": lo > 0 or hi < 0})
+    tests.sort(key=lambda x: x["p"])
+    m = len(tests)
+    q = 1.0
+    for i in range(m - 1, -1, -1):  # step-up adjusted q-values
+        q = min(q, tests[i]["p"] * m / (i + 1))
+        tests[i]["q"] = q
+    for x in tests:
+        x["survives_fdr"] = x["q"] < alpha
+    flagged = [x for x in tests if x["excludes_0"]]
+    return {"method": "Benjamini-Hochberg, 5%, over every probe interval", "tests": m,
+            "flagged": len(flagged), "survive": sum(x["survives_fdr"] for x in flagged),
+            "do_not_survive": [{k: x[k] for k in ("model", "task", "probe", "p", "q")} for x in flagged if not x["survives_fdr"]]}
 
 
 def cmd_overall(a):
@@ -673,8 +728,10 @@ def cmd_overall(a):
             fb[m] = {"halo": (v.get("halo") or {}).get("halo"), "gives_away": (v.get("gives_away") or {}).get("share")}
     res = overall(lb["rows"], fb)
     json.dump(res, open(a.out, "w"), indent=1)
+    mu = res["multiplicity"]
+    print(f"probe intervals: {mu['tests']}; excluding 0: {mu['flagged']}; surviving FDR 5%: {mu['survive']}")
     for o in res["rows"]:
-        print(f"{o.get('rank', '—')!s:>3} {o['model'][:34]:34s} {o['overall'] or 0:5.1f} rank {o['rank_ci95']} "
+        print(f"{o.get('rank', '—')!s:>3} {o['model'][:34]:34s} {o['overall'] or 0:5.1f} tasks {o['task_range'] and [round(x, 1) for x in o['task_range']]} rank {o['rank_ci95']} "
               f"{'' if o['complete'] else '(incomplete: ' + ','.join(o['tasks']) + ')'} {'; '.join(o['flags'])}")
 
 
@@ -683,6 +740,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("export"); p.add_argument("run"); p.add_argument("--task", required=True, choices=sorted(TASKS))
     p.add_argument("--out", required=True); p.add_argument("--submitter"); p.add_argument("--cases"); p.add_argument("--prompt")
+    p.add_argument("--prompts-tried", type=int, help="byop: prompts or prompt versions run on these cases, counting this one")
     p = sub.add_parser("verify"); p.add_argument("submission"); p.add_argument("--cases", required=True)
     p = sub.add_parser("build"); p.add_argument("submissions"); p.add_argument("--cases-dir", required=True)
     p.add_argument("--out", default="leaderboard.json"); p.add_argument("--strict", action="store_true")
