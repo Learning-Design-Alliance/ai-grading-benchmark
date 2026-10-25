@@ -55,11 +55,11 @@ each probe is known in advance, so the probes need no new human labels.
   failed this check is not reported.
 - **Zero data retention** was required on every call, and since 2026-10-25 it is verified. The client
   reads OpenRouter's live list of zero-retention endpoints, pins each request to them, and refuses a model
-  with none. The one exception: Claude Fable 5.1's gradings and about half of Claude Haiku 5.5's went
-  through the maintainers' own Anthropic key, under its 30-day safety retention. Fable 5.1 cannot be run
-  under zero retention at all. The maintainer accepted this for public corpora with no student identities,
-  and did not loosen the zero-retention rule, which also governs studies of private data
-  (`docs/CORRECTIONS.md`).
+  with none. The one exception is Claude Fable 5.1, which has no zero-retention route: it runs through the
+  maintainers' own Anthropic key, under its 30-day safety retention, recorded in each run and footnoted
+  wherever its results appear. The maintainer accepted this for public corpora with no student identities,
+  and did not loosen the zero-retention rule, which also governs studies of private data. Claude Haiku 5.5,
+  half of whose gradings had gone the same way, was re-run under zero retention (`docs/CORRECTIONS.md`).
 - **Marks only.** Submissions hold marks, never text, and CI recomputes every number from the marks.
 
 ## Data
@@ -167,7 +167,7 @@ As of 2026-10-25: 17 models, all five tasks, default prompt. Overall scores rang
 |---|---|---|---|
 | 1 | Claude Opus 5.5 | 95.0 | 1-4 |
 | 2 | Claude Fable 5.1 | 94.9 | 1-4 |
-| 3 | Claude Haiku 5.5 | 91.0 | 2-8 |
+| 3 | Claude Haiku 5.5 | 91.4 | 2-8 |
 | 4 | GPT-6 Astra | 91.0 | 2-8 |
 | 5 | GPT-5 Mini | 88.9 | 3-10 |
 | 6 | DeepSeek V4.1 Flash | 88.7 | 3-10 |

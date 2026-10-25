@@ -29,50 +29,57 @@
  "multiplicity": {
   "method": "Benjamini-Hochberg, 5%, over every probe interval",
   "tests": 178,
-  "flagged": 92,
-  "survive": 86,
+  "flagged": 90,
+  "survive": 83,
   "do_not_survive": [
    {
     "model": "meta-llama/llama-3.2-3b-instruct",
     "task": "code",
     "probe": "gaming_max_share",
     "p": 0.02506581335684663,
-    "q": 0.051284077902513804
+    "q": 0.05311565211331787
    },
    {
     "model": "google/gemma-4-26b-a4b-it",
     "task": "mohler",
     "probe": "surface_share",
     "p": 0.02671533270001461,
-    "q": 0.05403783205230228
+    "q": 0.055945049654148246
    },
    {
     "model": "google/gemma-4-26b-a4b-it",
     "task": "code",
     "probe": "attainment_label_share",
     "p": 0.02772836224161391,
-    "q": 0.055456724483227825
+    "q": 0.057391261383805535
    },
    {
     "model": "qwen/qwen3-235b-a22b-2507",
     "task": "asap2",
     "probe": "attainment_label_share",
     "p": 0.02942258510478855,
-    "q": 0.058191334985026245
+    "q": 0.0601979327431306
    },
    {
     "model": "anthropic/claude-fable-5.1",
     "task": "asap2",
     "probe": "surface_share",
     "p": 0.0328973916454885,
-    "q": 0.06434874409776871
+    "q": 0.06654245128291993
    },
    {
     "model": "anthropic/claude-haiku-5.5",
-    "task": "asap2",
-    "probe": "blicket_share",
-    "p": 0.03729682288838082,
-    "q": 0.07216124428404115
+    "task": "code",
+    "probe": "attainment_label_share",
+    "p": 0.03752553286987552,
+    "q": 0.07505106573975104
+   },
+   {
+    "model": "anthropic/claude-haiku-5.5",
+    "task": "mohler",
+    "probe": "gaming_max_share",
+    "p": 0.039097629083996735,
+    "q": 0.07732642196612688
    }
   ]
  },
@@ -224,55 +231,55 @@
    ],
    "complete": true,
    "strands": {
-    "agreement": 90.20289543403136,
-    "decision": 99.33858070790802,
-    "relevant": 89.77272727272727,
-    "irrelevant": 91.11903432113367,
-    "fairness": 91.5925925925926,
-    "consistency": 89.63399182241137,
-    "feedback": 91.36015067894613,
-    "working": 95.25,
-    "pushback": 82.43243243243244
+    "agreement": 92.509301572092,
+    "decision": 97.03375837463157,
+    "relevant": 91.19318181818181,
+    "irrelevant": 93.14571150097466,
+    "fairness": 90.92592592592592,
+    "consistency": 90.59177285850224,
+    "feedback": 88.78299264701327,
+    "working": 92.75,
+    "pushback": 84.28571428571428
    },
    "per_task": {
     "mohler": {
      "agreement": 100.0,
-     "decision": 98.67716141581604,
-     "relevant": 100.0,
-     "irrelevant": 93.76315789473685,
-     "fairness": 96.0,
-     "consistency": 97.26102437688304,
-     "feedback": 91.36015067894613
+     "decision": 100.0,
+     "relevant": 78.125,
+     "irrelevant": 87.63157894736842,
+     "fairness": 94.0,
+     "consistency": 97.07556733993606,
+     "feedback": 88.78299264701327
     },
     "code": {
-     "agreement": 100.0,
-     "decision": 100.0,
+     "agreement": 97.40353356747441,
+     "decision": 94.06751674926315,
      "relevant": 100.0,
-     "irrelevant": 98.88888888888889,
-     "fairness": 90.27777777777777,
-     "consistency": 95.31783131319234,
+     "irrelevant": 95.30555555555556,
+     "fairness": 92.77777777777777,
+     "consistency": 91.56671307406951,
      "feedback": null
     },
     "asap2": {
-     "agreement": 70.60868630209409,
+     "agreement": 80.12437114880156,
      "decision": null,
-     "relevant": 69.31818181818181,
-     "irrelevant": 80.70505617977528,
-     "fairness": 88.5,
-     "consistency": 76.32311977715877,
+     "relevant": 95.45454545454545,
+     "irrelevant": 96.5,
+     "fairness": 86.0,
+     "consistency": 83.13303816150116,
      "feedback": null
     }
    },
-   "overall": 91.01496314844157,
+   "overall": 91.4428347069896,
    "flags": [],
    "overall_by_task": {
-    "mohler": 95.68800149455204,
-    "code": 95.85537994565645,
-    "asap2": 79.18145939412506
+    "mohler": 92.66703553030702,
+    "code": 94.00792132406978,
+    "asap2": 87.12507448545153
    },
    "task_range": [
-    79.18145939412506,
-    95.85537994565645
+    87.12507448545153,
+    94.00792132406978
    ],
    "rank_ci95": [
     2,

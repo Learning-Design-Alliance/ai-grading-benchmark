@@ -39,57 +39,57 @@
   {
    "model": "anthropic/claude-haiku-5.5",
    "task": "asap2",
-   "reasoning_reported": 0.99,
+   "reasoning_reported": 0.97,
    "retest_change": {
-    "auc": 0.5592818428184282,
+    "auc": 0.6674107142857143,
     "ci95": [
-     0.42150297619047616,
-     0.6790123456790124
+     0.5067934782608695,
+     0.8114617940199336
     ],
     "n": 100,
-    "positives": 18
+    "positives": 16
    },
    "large_error": {
-    "auc": 0.7083333333333334,
+    "auc": 0.5859929078014184,
     "ci95": [
-     0.4787234042553192,
-     0.9192708333333334
+     0.29081632653061223,
+     0.84375
     ],
     "n": 100,
     "positives": 6
-   },
-   "verdict": "NO SIGNAL DETECTED",
-   "usable": true
-  },
-  {
-   "model": "anthropic/claude-haiku-5.5",
-   "task": "code",
-   "reasoning_reported": 0.98,
-   "retest_change": {
-    "auc": 0.7256433823529411,
-    "ci95": [
-     0.6047794117647058,
-     0.8338999514327343
-    ],
-    "n": 100,
-    "positives": 68
-   },
-   "large_error": {
-    "auc": 0.5916666666666667,
-    "ci95": [
-     0.4147368421052632,
-     0.7641843971631206
-    ],
-    "n": 100,
-    "positives": 10
    },
    "verdict": "NO SIGNAL DETECTED",
    "usable": false
   },
   {
    "model": "anthropic/claude-haiku-5.5",
+   "task": "code",
+   "reasoning_reported": 0.96,
+   "retest_change": {
+    "auc": 0.7478571428571429,
+    "ci95": [
+     0.6387733887733887,
+     0.8496155585707824
+    ],
+    "n": 100,
+    "positives": 70
+   },
+   "large_error": {
+    "auc": 0.6964705882352941,
+    "ci95": [
+     0.5584313725490196,
+     0.8200757575757576
+    ],
+    "n": 100,
+    "positives": 15
+   },
+   "verdict": "FLAGS ITS OWN ERRORS",
+   "usable": false
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
    "task": "mohler",
-   "reasoning_reported": 0.65
+   "reasoning_reported": 0.6
   },
   {
    "model": "anthropic/claude-opus-5.5",

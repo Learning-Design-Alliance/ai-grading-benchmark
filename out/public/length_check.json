@@ -11,9 +11,9 @@
 "key": "anthropic/claude-haiku-5.5:mohler",
 "model": "Claude Haiku 5.5",
 "task": "Short answers",
-"coef": -0.208,
-"lo": -0.322,
-"hi": -0.073
+"coef": -0.187,
+"lo": -0.308,
+"hi": -0.04
 },
 {
 "key": "anthropic/claude-opus-5.5:mohler",
@@ -147,9 +147,9 @@
 "key": "anthropic/claude-haiku-5.5:code",
 "model": "Claude Haiku 5.5",
 "task": "Code",
-"coef": -0.021,
-"lo": -0.093,
-"hi": 0.057
+"coef": -0.011,
+"lo": -0.089,
+"hi": 0.073
 },
 {
 "key": "anthropic/claude-opus-5.5:code",
@@ -283,9 +283,9 @@
 "key": "anthropic/claude-haiku-5.5:asap2",
 "model": "Claude Haiku 5.5",
 "task": "Essays",
-"coef": 0.088,
-"lo": -0.127,
-"hi": 0.317
+"coef": 0.074,
+"lo": -0.131,
+"hi": 0.297
 },
 {
 "key": "anthropic/claude-opus-5.5:asap2",

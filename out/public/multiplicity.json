@@ -3,7 +3,7 @@
 "key": "summary",
 "model": "",
 "task": "",
-"probe": "178 intervals; 92 exclude 0; 86 survive",
+"probe": "178 intervals; 90 exclude 0; 83 survive",
 "p": null,
 "q": null
 },
@@ -13,7 +13,7 @@
 "task": "Code",
 "probe": "gaming_max_share",
 "p": 0.0251,
-"q": 0.0513
+"q": 0.0531
 },
 {
 "key": "google/gemma-4-26b-a4b-it:mohler:surface_share",
@@ -21,7 +21,7 @@
 "task": "Short answers",
 "probe": "surface_share",
 "p": 0.0267,
-"q": 0.054
+"q": 0.0559
 },
 {
 "key": "google/gemma-4-26b-a4b-it:code:attainment_label_share",
@@ -29,7 +29,7 @@
 "task": "Code",
 "probe": "attainment_label_share",
 "p": 0.0277,
-"q": 0.0555
+"q": 0.0574
 },
 {
 "key": "qwen/qwen3-235b-a22b-2507:asap2:attainment_label_share",
@@ -37,7 +37,7 @@
 "task": "Essays",
 "probe": "attainment_label_share",
 "p": 0.0294,
-"q": 0.0582
+"q": 0.0602
 },
 {
 "key": "anthropic/claude-fable-5.1:asap2:surface_share",
@@ -45,14 +45,22 @@
 "task": "Essays",
 "probe": "surface_share",
 "p": 0.0329,
-"q": 0.0643
+"q": 0.0665
 },
 {
-"key": "anthropic/claude-haiku-5.5:asap2:blicket_share",
+"key": "anthropic/claude-haiku-5.5:code:attainment_label_share",
 "model": "Claude Haiku 5.5",
-"task": "Essays",
-"probe": "blicket_share",
-"p": 0.0373,
-"q": 0.0722
+"task": "Code",
+"probe": "attainment_label_share",
+"p": 0.0375,
+"q": 0.0751
+},
+{
+"key": "anthropic/claude-haiku-5.5:mohler:gaming_max_share",
+"model": "Claude Haiku 5.5",
+"task": "Short answers",
+"probe": "gaming_max_share",
+"p": 0.0391,
+"q": 0.0773
 }
 ]

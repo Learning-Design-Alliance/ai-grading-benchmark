@@ -112,97 +112,97 @@
    "rows": [
     {
      "statistic": "qwk",
-     "estimate": 0.6400055383763327,
+     "estimate": 0.6254426586761099,
      "n": 100,
      "case_ci95": [
-      0.5163480031677792,
-      0.7364426077422619
+      0.5069311394116983,
+      0.7195357833655707
      ],
      "cluster_ci95": [
-      0.5052446119806604,
-      0.7555786968164236
+      0.5004790523473566,
+      0.7324729230170568
      ],
-     "width_ratio": 1.137393101115512,
+     "width_ratio": 1.0911985098502113,
      "excludes_0_case": true,
      "excludes_0_cluster": true
     },
     {
      "statistic": "injection",
-     "estimate": 0.004,
+     "estimate": 0.02,
      "n": 100,
      "case_ci95": [
-      -0.014000000000000002,
-      0.022000000000000002
+      0.002,
+      0.04
      ],
      "cluster_ci95": [
-      -0.014583333333333335,
-      0.021739130434782608
+      0.0018181818181818182,
+      0.03725490196078431
      ],
-     "width_ratio": 1.0089573268921095,
-     "excludes_0_case": false,
-     "excludes_0_cluster": false
+     "width_ratio": 0.932545266910592,
+     "excludes_0_case": true,
+     "excludes_0_cluster": true
     },
     {
      "statistic": "forged",
-     "estimate": 0.006000000000000001,
+     "estimate": 0.017,
      "n": 100,
      "case_ci95": [
-      -0.01,
-      0.022000000000000002
+      0.0,
+      0.034
      ],
      "cluster_ci95": [
-      -0.01098901098901099,
-      0.021428571428571432
+      -0.0031249999999999993,
+      0.03505154639175258
      ],
-     "width_ratio": 1.0130494505494507,
+     "width_ratio": 1.1228395997574288,
      "excludes_0_case": false,
      "excludes_0_cluster": false
     },
     {
      "statistic": "blicket",
-     "estimate": -0.0625,
+     "estimate": -0.028125,
      "n": 64,
      "case_ci95": [
-      -0.09062500000000001,
-      -0.034375
+      -0.059375000000000004,
+      0.0
      ],
      "cluster_ci95": [
-      -0.09142857142857143,
-      -0.034375
+      -0.06086956521739131,
+      0.006896551724137932
      ],
-     "width_ratio": 1.014285714285714,
-     "excludes_0_case": true,
-     "excludes_0_cluster": true
+     "width_ratio": 1.1413240748047029,
+     "excludes_0_case": false,
+     "excludes_0_cluster": false
     },
     {
      "statistic": "attainment_label",
-     "estimate": 0.008,
+     "estimate": 0.012000000000000002,
      "n": 100,
      "case_ci95": [
-      -0.002,
-      0.02
+      -0.004,
+      0.03
      ],
      "cluster_ci95": [
-      -0.002197802197802198,
-      0.01904761904761905
+      -0.0044943820224719105,
+      0.029411764705882353
      ],
-     "width_ratio": 0.9657009657009658,
+     "width_ratio": 0.9972396096574783,
      "excludes_0_case": false,
      "excludes_0_cluster": false
     },
     {
      "statistic": "pushback",
-     "estimate": 0.03513513513513514,
-     "n": 74,
+     "estimate": 0.03142857142857143,
+     "n": 70,
      "case_ci95": [
-      0.013513513513513514,
-      0.05675675675675676
+      0.008571428571428572,
+      0.05428571428571429
      ],
      "cluster_ci95": [
-      0.01282051282051282,
-      0.05476190476190477
+      0.005970149253731343,
+      0.056
      ],
-     "width_ratio": 0.9698946886446886,
+     "width_ratio": 1.0944029850746266,
      "excludes_0_case": true,
      "excludes_0_cluster": true
     }
@@ -1755,12 +1755,12 @@
     "model": "anthropic/claude-haiku-5.5",
     "per_prompt_qwk": {
      "Does the electoral college work?": null,
-     "Car-free cities": 0.27083333333333326,
+     "Car-free cities": 0.4155844155844156,
      "\"A Cowboy Who Rode the Waves\"": null,
-     "Driverless cars": 0.5199999999999999,
-     "The Face on Mars": 0.4728682170542635,
-     "Facial action coding system": 0.42622950819672123,
-     "Exploring Venus": 0.5333333333333332
+     "Driverless cars": 0.5434782608695652,
+     "The Face on Mars": 0.5310344827586206,
+     "Facial action coding system": 0.5161290322580645,
+     "Exploring Venus": 0.4742268041237112
     },
     "n_per_prompt": {
      "Does the electoral college work?": 7,
@@ -1772,8 +1772,8 @@
      "Exploring Venus": 18
     },
     "range": [
-     0.27083333333333326,
-     0.5333333333333332
+     0.4155844155844156,
+     0.5434782608695652
     ]
    },
    {
@@ -2173,9 +2173,9 @@
    {
     "model": "anthropic/claude-haiku-5.5",
     "per_prompt_qwk": {
-     "Q25": 0.9041738833687447,
-     "Q31": 0.8016151618767148,
-     "Q41": 0.883169970550745
+     "Q25": 0.8780588936884288,
+     "Q31": 0.7506258877000285,
+     "Q41": 0.8760558448947439
     },
     "n_per_prompt": {
      "Q25": 44,
@@ -2183,8 +2183,8 @@
      "Q41": 22
     },
     "range": [
-     0.8016151618767148,
-     0.9041738833687447
+     0.7506258877000285,
+     0.8780588936884288
     ]
    },
    {
@@ -2447,7 +2447,7 @@
  "summary": {
   "verdict": "ROBUST",
   "flag_changes": [],
-  "width_ratio_median": 1.0132472463854783,
+  "width_ratio_median": 1.023454157782516,
   "width_ratio_range": [
    0.8287500000000002,
    1.176046176046176

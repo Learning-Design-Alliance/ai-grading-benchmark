@@ -69,7 +69,7 @@
 "task": "Essays",
 "item": "Car-free cities",
 "n": 10,
-"qwk": 0.271
+"qwk": 0.416
 },
 {
 "key": "anthropic/claude-haiku-5.5:asap2:\"A Cowboy Who Rode the Waves\"",
@@ -85,7 +85,7 @@
 "task": "Essays",
 "item": "Driverless cars",
 "n": 21,
-"qwk": 0.52
+"qwk": 0.543
 },
 {
 "key": "anthropic/claude-haiku-5.5:asap2:The Face on Mars",
@@ -93,7 +93,7 @@
 "task": "Essays",
 "item": "The Face on Mars",
 "n": 17,
-"qwk": 0.473
+"qwk": 0.531
 },
 {
 "key": "anthropic/claude-haiku-5.5:asap2:Facial action coding system",
@@ -101,7 +101,7 @@
 "task": "Essays",
 "item": "Facial action coding system",
 "n": 20,
-"qwk": 0.426
+"qwk": 0.516
 },
 {
 "key": "anthropic/claude-haiku-5.5:asap2:Exploring Venus",
@@ -109,7 +109,7 @@
 "task": "Essays",
 "item": "Exploring Venus",
 "n": 18,
-"qwk": 0.533
+"qwk": 0.474
 },
 {
 "key": "anthropic/claude-opus-5.5:asap2:Does the electoral college work?",
@@ -981,7 +981,7 @@
 "task": "Code",
 "item": "Q25",
 "n": 44,
-"qwk": 0.904
+"qwk": 0.878
 },
 {
 "key": "anthropic/claude-haiku-5.5:code:Q31",
@@ -989,7 +989,7 @@
 "task": "Code",
 "item": "Q31",
 "n": 34,
-"qwk": 0.802
+"qwk": 0.751
 },
 {
 "key": "anthropic/claude-haiku-5.5:code:Q41",
@@ -997,7 +997,7 @@
 "task": "Code",
 "item": "Q41",
 "n": 22,
-"qwk": 0.883
+"qwk": 0.876
 },
 {
 "key": "anthropic/claude-opus-5.5:code:Q25",
