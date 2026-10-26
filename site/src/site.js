@@ -38,6 +38,16 @@ const TASKS = ["Short answers", "Code", "Essays"];
 const MODELS = D.models || [], OVERALL = D.overall || [], LB = D.leaderboard || [];
 const byName = {}; OVERALL.forEach(r => byName[r.model] = r);
 const kindOf = name => (byName[name] || {}).kind || ((LB.find(r => r.model === name) || {}).kind) || null;
+const INPUTS = Object.fromEntries((D.model_inputs || []).map(r => [r.model, r]));
+const COVER_TASKS = ["Short answers", "Code", "Essays", "Maths working", "Pushback", "Handwritten work", "Video", "Speech"];
+const takes = name => { const r = INPUTS[name]; return r ? el("span", { class: "takes" }, ["text", "image", "video", "audio"].map(m =>
+  el("span", { class: "pill " + (r.inputs.includes(m) ? "" : "off"), title: r.inputs.includes(m) ? "takes " + m : "cannot take " + m }, m))) : "—"; };
+// The vendor-documentation fields are research notes; a table cell shows the first clause, the full note on hover
+// and on the model's page.
+const shortFact = v => { if (nul(v)) return "—"; const s = String(v).replace(/^['"]|['"]$/g, ""); const cut = s.split(/\s\(|;|\. /)[0];
+  const short = trunc(cut, 42); return short === s ? s : el("span", { title: s }, short + (short.endsWith("…") ? "" : " …")); };
+const takesShort = name => { const r = INPUTS[name]; return r ? el("span", { class: "takes" }, r.inputs.map(m => el("span", { class: "pill" }, m))) : "—"; };
+const coverPill = v => v === "ran" ? el("span", { class: "pill ok" }, "ran") : /cannot/.test(v) ? el("span", { class: "pill off" }, v.replace("cannot take ", "no ")) : el("span", { class: "pill" }, "not yet");
 const modelLink = name => { const o = byName[name]; return o ? el("a", { href: "#model-" + slug(o.key) }, name) : name; };
 
 // ------------------------------------------------------------------ tooltip
@@ -395,15 +405,19 @@ function scatterCost(rows, ceil) {
 function drawModels() {
   const rows = MODELS.map(m => ({ ...m, ov: byName[m.model] || {} }));
   table("t-models", rows, [
-    { k: "model", h: "Model", c: "name", f: v => modelLink(v) },
+    { k: "model", h: "Model", c: "name", f: (v, r) => el("span", { class: "namecell" }, modelLink(v),
+        r.ov.flags ? el("span", { class: "flags" }, r.ov.flags.split("; ").map(x => el("span", { class: "flag" }, x))) : "") },
     { k: "vendor", h: "Vendor", c: "l dim" },
     { k: "kind", h: "Group", c: "l", sort: r => r.ov.kind, f: (v, r) => r.ov.kind || "candidate" },
+    { k: "takes", h: "Takes", c: "l", sort: r => (INPUTS[r.model] || { inputs: [] }).inputs.length, f: (v, r) => takesShort(r.model) },
     { k: "weights", h: "Open weights?", c: "l", f: v => /open/i.test(v || "") ? "yes" : "no" },
-    { k: "params", h: "Size", c: "l dim", f: v => trunc(v || "—", 24) },
-    { k: "cutoff", h: "Training cutoff", c: "l", f: v => trunc(v || "—", 18) },
+    { k: "params", h: "Size", c: "t dim narrow", f: v => shortFact(v) },
+    { k: "cutoff", h: "Training cutoff", c: "t narrow", f: v => shortFact(v) },
     { k: "overall", h: "Overall", sort: r => r.ov.overall, f: (v, r) => f1(r.ov.overall) },
-    { k: "flags", h: "Flags", c: "l", sort: r => r.ov.flags || "", f: (v, r) => r.ov.flags ? el("span", {}, r.ov.flags.split("; ").map(x => el("span", { class: "flag" }, x))) : (r.ov.complete ? el("span", { class: "pill ok" }, "none") : "") },
   ], { sort: "overall" });
+  const cov = (D.model_inputs || []).filter(r => r.on_board);
+  table("t-coverage", cov, [{ k: "model", h: "Model", c: "name", f: v => modelLink(v) },
+    ...COVER_TASKS.map(t => ({ k: "cover_" + t, h: t, sort: false, c: "l", f: v => coverPill(v) }))], { sort: "model", dir: 1 });
 }
 function drawModel(token) {
   const o = OVERALL.find(r => "model-" + slug(r.key) === token);
@@ -428,6 +442,9 @@ function drawModel(token) {
     fact("Maths working", maths ? `working effect ${f2(maths.working)} of 4 ${iv(maths.working_lo, maths.working_hi, f2)}` : "not run"),
     fact("Feedback halo", fb ? `${signed(2)(fb.halo)} ${iv(fb.halo_lo, fb.halo_hi, f2)}` : "not run"),
     fact("States the answer", fb ? pct1(fb.gives_away_pct) + " of feedback below full marks" : "not run"));
+  const inp = INPUTS[o.model];
+  const cover = inp ? el("div", { class: "facts" }, fact("Takes", takes(o.model)),
+    ...COVER_TASKS.map(t => fact(t, coverPill(inp["cover_" + t])))) : el("p", { class: "sub" }, "Input types not recorded.");
   const docs = el("dl", { class: "facts" },
     fact("Weights", m.weights), fact("Licence", m.licence), fact("Size", m.params), fact("Cutoff", m.cutoff),
     fact("Training data", m.training_data), fact("Tokens", m.training_tokens), fact("Sources", m.training_sources),
@@ -439,6 +456,7 @@ function drawModel(token) {
     el("div", { class: "block" }, el("h3", {}, "Strand scores"), el("p", { class: "sub" }, "0 to 100; under 60 is marked."), strands),
     el("div", { class: "block" }, el("h3", {}, "By task"), tbl),
     el("div", { class: "block" }, el("h3", {}, "Whole-model tests"), other),
+    el("div", { class: "block" }, el("h3", {}, "Inputs and tasks"), el("p", { class: "sub" }, `What the model can take as input (OpenRouter's model list, read ${inp ? inp.read : "—"}), and which of the benchmark's tasks it was run on. "No image" or "no audio" means it cannot take that input; "not yet" means it can and has not been run.`), cover),
     el("div", { class: "block" }, el("h3", {}, "What the vendor documents"), el("p", { class: "sub" }, "From the vendor's card, licence and retention pages, read on 2026-10-25. \"Not stated\" is silence, not a no."), docs)));
   table("t-mtask", tasks, [
     { k: "task", h: "Task", c: "l" }, { k: "qwk", h: "QWK", f: (v, r) => `${f3(v)} ${iv(r.qwk_lo, r.qwk_hi, f2)}` },
@@ -490,7 +508,15 @@ function drawFeedback() {
   const fb = D.feedback_board || [];
   intervalChart("c-halo", fb.map(r => ({ label: r.model, est: r.halo, lo: r.halo_lo, hi: r.halo_hi, kind: kindOf(r.model) })).sort((a, b) => Math.abs(a.est) - Math.abs(b.est)), { refs: [{ v: 0 }], zero: true, valFmt: signed(2), order: "Best at the top: nearest 0", aria: "Feedback halo" });
   intervalChart("c-gives", fb.map(r => ({ label: r.model, est: r.gives_away_pct, lo: r.gives_away_lo, hi: r.gives_away_hi, kind: kindOf(r.model) })).sort((a, b) => b.est - a.est), { domain: [0, 100], valFmt: v => f0(v) + "%", tickFmt: v => f0(v) + "%", order: "Not ranked: whether stating the answer is wanted depends on the use", aria: "Feedback states the answer" });
-  table("t-fbchecks", D.feedback_checks || [], [{ k: "label", h: "Measure", c: "l" }, { k: "by", h: "From", c: "t dim" }, { k: "auc", h: "AUC vs annotators", f: (v, r) => `${f2(v)} ${iv(r.lo, r.hi, f2)}` }, { k: "length_auc", h: "Length alone", f: f2 }, { k: "verdict", h: "Verdict", c: "l", f: v => el("span", { class: "pill " + (/NOT/.test(v) ? "bad" : "ok") }, v.toLowerCase()) }], { sortable: false });
+  const USED = { "rule|TONE": "Board 1 (halo), scored", "lc|WITHHOLD": "Board 2, shown" };
+  table("t-fbchecks", D.feedback_checks || [], [
+    { k: "measure", h: "Measure", c: "t", f: (v, r) => el("span", { class: "namecell" }, el("span", {}, v), el("span", { class: "how" }, r.by)) },
+    { k: "label", h: "What the annotators judged", c: "t" },
+    { k: "auc", h: "AUC against the annotators", f: (v, r) => `${f2(v)} ${iv(r.lo, r.hi, f2)}` },
+    { k: "length_auc", h: "Length alone", f: f2 },
+    { k: "verdict", h: "Verdict", c: "l", f: v => el("span", { class: "pill " + (v === "VALIDATED" ? "ok" : /NOT/.test(v) ? "bad" : "") }, v.toLowerCase()) },
+    { k: "used", h: "Used here as", c: "l", sort: false, f: (v, r) => USED[r.key] ? el("b", {}, USED[r.key]) : el("span", { class: "dim" }, "not used") },
+  ], { sortable: false });
 }
 function drawFairness() {
   const rows = (D.fairness || []).map(r => ({ label: `${r.test.replace(/^(ELLIPSE|ASAP 2.0): /, "")} · ${r.grader}`, est: r.gap, lo: r.lo, hi: r.hi, kind: r.grader === "second human rater" ? "baseline" : kindOf(r.grader), base: /human/i.test(r.grader),
@@ -531,7 +557,18 @@ function drawMedia() {
     { k: "spec_x1", h: "Clean cleared", f: pct }, { k: "spec_x4", h: "Clean cleared, 4×", f: pct }, { k: "loss_not_ruled_out", h: "Loss not ruled out", f: f2 },
   ], { sortable: false });
 }
-function showMedium() { document.querySelectorAll("[data-media]").forEach(b => b.hidden = b.dataset.media !== MEDIUM); }
+function showMedium() {
+  document.querySelectorAll("[data-media]").forEach(b => b.hidden = b.dataset.media !== MEDIUM);
+  const task = { speech: "Speech", handwriting: "Handwritten work", video: "Video" }[MEDIUM];
+  const board = (D.model_inputs || []).filter(r => r.on_board);
+  const cannot = board.filter(r => /cannot/.test(r["cover_" + task])).map(r => r.model);
+  const notyet = board.filter(r => r["cover_" + task] === "not run yet").map(r => r.model);
+  const box = $("#media-coverage"); box.innerHTML = "";
+  box.append(el("b", {}, "Which board models are here. "),
+    `${board.length - cannot.length} of ${board.length} models on the board can take ${MEDIUM === "speech" ? "audio" : MEDIUM === "video" ? "video, or images as 16 frames" : "images"}. `,
+    cannot.length ? `Cannot: ${cannot.join(", ")}. ` : "",
+    notyet.length ? `Can, not run yet: ${notyet.join(", ")}.` : "", MEDIUM === "speech" ? " The other audio graders here are specialist audio models not on the board." : "");
+}
 
 // ================================================================== SETTINGS
 function drawSettings() {

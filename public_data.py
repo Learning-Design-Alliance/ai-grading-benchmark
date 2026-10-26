@@ -275,6 +275,44 @@ def scoring():
     return rows
 
 
+#: What each task needs as input. Video can also be graded from 16 frames, so any model that takes images can do it.
+TASK_INPUTS = [("Short answers", "text"), ("Code", "text"), ("Essays", "text"), ("Maths working", "text"), ("Pushback", "text"),
+               ("Handwritten work", "image"), ("Video", "video or image"), ("Speech", "audio")]
+
+
+def model_inputs():
+    """docs/model-inputs.json (scripts/model_inputs.py) beside what each model has been run on: for every model and
+    task, ran / cannot take the input / not run yet, so a missing result is never left unexplained."""
+    d = _load("docs", "model-inputs.json")
+    if not d:
+        return []
+    ov = {r["model"]: r for r in (_load("out", "overall.json") or {"rows": []})["rows"]}
+    pub = lambda n: _load("out", "public", n + ".json") or []
+    images = {r["model"] for r in pub("images")}
+    video = {r["model"] for r in pub("video")}
+    speech = {r["model"] for r in pub("speech")}
+    rows = []
+    for mid, v in d["models"].items():
+        inputs = v["inputs"] or []
+        disp = name(mid) if mid in NAMES else mid.split("/")[-1]
+        ran = set()
+        if mid in ov:
+            ran |= {TASKS.get(t, t) for t in ov[mid]["tasks"]}
+        if disp in images:
+            ran.add("Handwritten work")
+        if disp in video:
+            ran.add("Video")
+        if disp in speech:
+            ran.add("Speech")
+        cover = {}
+        for task, need in TASK_INPUTS:
+            can = ("image" in inputs or "video" in inputs) if need == "video or image" else need in inputs
+            cover[task] = "ran" if task in ran else ("not run yet" if can else "cannot take " + need.split(" or ")[0])
+        rows.append({"key": mid, "model": disp, "on_board": mid in ov, "inputs": inputs, "inputs_from": v["from"],
+                     "inputs_why": v.get("why"), "read": d["read"], **{"cover_" + t: c for t, c in cover.items()}})
+    return rows
+
+
 def weights():
     p = os.path.join(HERE, "out", "overall.json")
     if not os.path.exists(p):
@@ -818,7 +856,7 @@ def main(out):
                    ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models), ("contamination", contamination), ("energy_tasks", energy_tasks),
                    ("energy_measured", energy_measured), ("setups", setups), ("hosting", hosting), ("paraphrase", paraphrase),
                    ("essays_finetune", essays_finetune), ("length_partial", length_partial),
-                   ("scoring", scoring), ("lifecycle_tasks", lifecycle_tasks), ("lifecycle_compare", lifecycle_compare), ("footprint_scale", footprint_scale)):
+                   ("scoring", scoring), ("model_inputs", model_inputs), ("lifecycle_tasks", lifecycle_tasks), ("lifecycle_compare", lifecycle_compare), ("footprint_scale", footprint_scale)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)
         print(f"{nm}: {len(rows)} rows")

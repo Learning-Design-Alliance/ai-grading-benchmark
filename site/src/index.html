@@ -156,6 +156,11 @@
       <p class="lede">Every model on the board, with what its vendor documents and what this benchmark measured. Choose a model for its full page.</p>
     </div>
     <div class="tbl" id="t-models"></div>
+    <div class="block">
+      <h3>What each model was run on</h3>
+      <p class="sub">The benchmark's tasks need different inputs: text for short answers, code, essays, maths working and pushback; images for handwritten work; video, or images as 16 frames, for video; audio for speech. "No image" or "no audio" means the model cannot take that input; "not yet" means it can and has not been run. Input types are from OpenRouter's model list.</p>
+      <div class="tbl" id="t-coverage"></div>
+    </div>
     <p class="sub">From each vendor's card, licence and retention pages, read on 2026-10-25. "Not stated" is silence, not a no. Open-weight models can run on an institution's own servers, so student work need not leave it.</p>
   </section>
 
@@ -211,22 +216,28 @@
     <div class="head">
       <div class="eyebrow">How graders fail</div>
       <h2>Feedback</h2>
-      <p class="lede">Each model also wrote feedback on the same 100 short answers, measured with the two measures that passed validation against trained annotators.</p>
+      <p class="lede">Each model also wrote feedback on the same 100 short answers. Feedback quality is hard to measure automatically, so the benchmark scores feedback only with measures that were first checked against trained human annotators, and shows which measures passed.</p>
     </div>
+
     <div class="block">
-      <h3>Feedback copies a mark it is told</h3>
-      <p class="sub">Correlation of the feedback's tone with the teacher's mark when it is shown, minus when it is hidden. 0 is independent; above 0, the feedback follows a mark the model was told rather than the work.</p>
-      <div class="chart" id="c-halo"></div>
-    </div>
-    <div class="block">
-      <h3>Feedback states the answer</h3>
-      <p class="sub">Share of feedback on answers below full marks that Learning Commons' Withholding Answers evaluator says does the work for the student. Higher means more explicit; whether that is wanted depends on the use, so it is shown, not scored.</p>
-      <div class="chart" id="c-gives"></div>
-    </div>
-    <div class="block">
-      <h3>Which feedback measures passed validation</h3>
+      <h3>How the feedback measures were checked</h3>
+      <p class="sub">Every candidate measure was run on MRBench (Maurya et al., NAACL 2025): 1,655 replies from seven AI tutors and a human expert to a student's maths mistake, each labelled by trained annotators, for example whether the reply reveals the answer, whether it gives an actionable next step, and whether its tone is encouraging. The annotators agree with each other at κ 0.65 to 0.71, the ceiling for any automatic measure.</p>
+      <p class="sub">For each measure the question is whether it separates the replies the annotators labelled yes from those labelled no. That is measured by the AUC: 0.5 is a coin toss and 1.0 is perfect separation (for Learning Commons' evaluators, which answer yes or no, the equivalent balanced accuracy). Long replies tend to differ from short ones, so a measure is also compared with reply length alone: a measure no better than length is tracking length, not the quality it names. Before any label was read, the rule was set: a measure is <b>validated</b> when the lower end of its 95% interval is above 0.60 and it beats length. Only validated measures are used below. Learning Commons designed its evaluators for feedback on students' writing in grades 6 to 12, not maths tutoring, so they are marked out of scope here: a pass shows the measure carries over; a failure would say nothing against it in its own setting.</p>
       <div class="tbl" id="t-fbchecks"></div>
     </div>
+
+    <div class="block">
+      <h3>Board 1. Feedback copies a grade it is told (scored)</h3>
+      <p class="sub">Built on the validated <b>tone</b> measure. Each model wrote feedback twice on the same answers: once with the teacher's grade shown to it, once without. If the feedback's tone follows the grade it was told rather than the work, the correlation between tone and grade rises when the grade is shown. That rise, the halo, is shown here; 0 means the feedback is independent of the told grade. It is the Feedback strand of the whole-task score. Tone itself is not ranked: warmer feedback is not better feedback, so only its independence from a told grade is scored.</p>
+      <div class="chart" id="c-halo"></div>
+    </div>
+
+    <div class="block">
+      <h3>Board 2. Feedback states the answer (shown, not ranked)</h3>
+      <p class="sub">Built on the validated <b>Withholding Answers</b> evaluator from Learning Commons: the share of feedback on answers below full marks that it says does the work for the student. It was validated on tutoring, where withholding the answer is the aim. This benchmark's prompt asks feedback to name what was missing and a next step, and in grading, unlike tutoring, saying what was missing is often the point. So a higher share is not clearly worse, and it is shown for readers to judge, not ranked.</p>
+      <div class="chart" id="c-gives"></div>
+    </div>
+    <p class="sub">Not measured: whether any of this feedback helps a student learn. That needs students, and a study is planned under independent ethics review.</p>
   </section>
 
   <!-- ================================================================ FAIRNESS -->
@@ -255,6 +266,7 @@
       <p class="lede">Graders that take a recording or a scan can report what they did not hear or see. Five of six audio models mark a silent recording, and of ten video graders only three watch the recording rather than timing it.</p>
     </div>
     <div class="controls"><div class="seg" id="media-tabs" role="group" aria-label="Medium"></div></div>
+    <div class="note" id="media-coverage"></div>
     <div class="block" data-media="speech">
       <h3>Speech: grading a recording</h3>
       <p class="sub">Sentences read aloud by children and adults learning English, each scored for pronunciation by five experts (speechocean762, CC BY 4.0). Noise and telephone audio should not change the mark: the experts scored the clean recording.</p>

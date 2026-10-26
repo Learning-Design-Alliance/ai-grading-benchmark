@@ -1,0 +1,229 @@
+{
+ "source": "https://openrouter.ai/api/v1/models",
+ "field": "architecture.input_modalities",
+ "read": "2026-10-26",
+ "note": "'file' (document upload) is dropped: no task here sends one.",
+ "models": {
+  "allenai/olmo-3.1-32b-instruct": {
+   "inputs": [
+    "text"
+   ],
+   "from": "override",
+   "why": "run on the maintainers' own GPU; a text-only model per its card"
+  },
+  "amazon/nova-2-lite-v1": {
+   "inputs": [
+    "text",
+    "image",
+    "video"
+   ],
+   "from": "openrouter"
+  },
+  "anthropic/claude-fable-5.1": {
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "from": "openrouter"
+  },
+  "anthropic/claude-haiku-5.5": {
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "from": "openrouter"
+  },
+  "anthropic/claude-opus-5.5": {
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "from": "openrouter"
+  },
+  "deepseek/deepseek-v4-pro-0813": {
+   "inputs": [
+    "text"
+   ],
+   "from": "openrouter"
+  },
+  "deepseek/deepseek-v4.1-flash": {
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "from": "openrouter"
+  },
+  "deepseek/deepseek-v4.1-flash-1017": {
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "from": "openrouter"
+  },
+  "google/gemini-3.5-flash-lite": {
+   "inputs": [
+    "text",
+    "image",
+    "video",
+    "audio"
+   ],
+   "from": "openrouter"
+  },
+  "google/gemini-3.8-flash": {
+   "inputs": [
+    "text",
+    "image",
+    "video",
+    "audio"
+   ],
+   "from": "openrouter"
+  },
+  "google/gemini-4-argon": {
+   "inputs": [
+    "text",
+    "image",
+    "video",
+    "audio"
+   ],
+   "from": "openrouter"
+  },
+  "google/gemma-3-27b-it": {
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "from": "openrouter"
+  },
+  "google/gemma-3-4b-it": {
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "from": "openrouter"
+  },
+  "google/gemma-4-26b-a4b-it": {
+   "inputs": [
+    "text",
+    "image",
+    "video"
+   ],
+   "from": "openrouter"
+  },
+  "google/gemma-4-31b-it": {
+   "inputs": [
+    "text",
+    "image",
+    "video"
+   ],
+   "from": "openrouter"
+  },
+  "meta-llama/llama-3.2-3b-instruct": {
+   "inputs": [
+    "text"
+   ],
+   "from": "openrouter"
+  },
+  "meta/muse-spark-open": {
+   "inputs": [
+    "text",
+    "image",
+    "video",
+    "audio"
+   ],
+   "from": "openrouter"
+  },
+  "microsoft/phi-4": {
+   "inputs": [
+    "text"
+   ],
+   "from": "openrouter"
+  },
+  "mistralai/ministral-8b-2512": {
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "from": "openrouter"
+  },
+  "mistralai/voxtral-small-24b-2507": {
+   "inputs": [
+    "text",
+    "audio"
+   ],
+   "from": "openrouter"
+  },
+  "openai/gpt-5-mini": {
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "from": "openrouter"
+  },
+  "openai/gpt-5.6-luna": {
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "from": "openrouter"
+  },
+  "openai/gpt-6-astra": {
+   "inputs": [
+    "text",
+    "image"
+   ],
+   "from": "openrouter"
+  },
+  "openai/gpt-oss-20b": {
+   "inputs": [
+    "text"
+   ],
+   "from": "openrouter"
+  },
+  "perceptron/perceptron-mk1.5": {
+   "inputs": [
+    "text",
+    "image",
+    "video",
+    "audio"
+   ],
+   "from": "openrouter"
+  },
+  "qwen/qwen3-235b-a22b-2507": {
+   "inputs": [
+    "text"
+   ],
+   "from": "openrouter"
+  },
+  "qwen/qwen3.8-27b": {
+   "inputs": [
+    "text",
+    "image",
+    "video"
+   ],
+   "from": "openrouter"
+  },
+  "xiaomi/mimo-v2.6-flash": {
+   "inputs": [
+    "text",
+    "image",
+    "video",
+    "audio"
+   ],
+   "from": "openrouter"
+  },
+  "z-ai/glm-5.3": {
+   "inputs": [
+    "text"
+   ],
+   "from": "openrouter"
+  },
+  "z-ai/glm-5.3-flash": {
+   "inputs": [
+    "text",
+    "image",
+    "video"
+   ],
+   "from": "openrouter"
+  }
+ }
+}

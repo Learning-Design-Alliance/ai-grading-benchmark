@@ -1,0 +1,612 @@
+[
+{
+"key": "allenai/olmo-3.1-32b-instruct",
+"model": "Olmo 3.1 32B",
+"on_board": true,
+"inputs": [
+"text"
+],
+"inputs_from": "override",
+"inputs_why": "run on the maintainers' own GPU; a text-only model per its card",
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "cannot take image",
+"cover_Video": "cannot take video",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "amazon/nova-2-lite-v1",
+"model": "Nova 2 Lite",
+"on_board": false,
+"inputs": [
+"text",
+"image",
+"video"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "not run yet",
+"cover_Code": "not run yet",
+"cover_Essays": "not run yet",
+"cover_Maths working": "not run yet",
+"cover_Pushback": "not run yet",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "ran",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "anthropic/claude-fable-5.1",
+"model": "Claude Fable 5.1",
+"on_board": true,
+"inputs": [
+"text",
+"image"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "not run yet",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "anthropic/claude-haiku-5.5",
+"model": "Claude Haiku 5.5",
+"on_board": true,
+"inputs": [
+"text",
+"image"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "ran",
+"cover_Video": "ran",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "anthropic/claude-opus-5.5",
+"model": "Claude Opus 5.5",
+"on_board": true,
+"inputs": [
+"text",
+"image"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "ran",
+"cover_Video": "ran",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813",
+"model": "DeepSeek V4 Pro",
+"on_board": true,
+"inputs": [
+"text"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "cannot take image",
+"cover_Video": "cannot take video",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "deepseek/deepseek-v4.1-flash",
+"model": "DeepSeek V4.1 Flash",
+"on_board": true,
+"inputs": [
+"text",
+"image"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "not run yet",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"on_board": true,
+"inputs": [
+"text",
+"image"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "not run yet",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "google/gemini-3.5-flash-lite",
+"model": "Gemini 3.5 Flash Lite",
+"on_board": true,
+"inputs": [
+"text",
+"image",
+"video",
+"audio"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "ran",
+"cover_Video": "ran",
+"cover_Speech": "not run yet"
+},
+{
+"key": "google/gemini-3.8-flash",
+"model": "Gemini 3.8 Flash",
+"on_board": false,
+"inputs": [
+"text",
+"image",
+"video",
+"audio"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "not run yet",
+"cover_Code": "not run yet",
+"cover_Essays": "not run yet",
+"cover_Maths working": "not run yet",
+"cover_Pushback": "not run yet",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "ran",
+"cover_Speech": "ran"
+},
+{
+"key": "google/gemini-4-argon",
+"model": "Gemini 4 Argon",
+"on_board": false,
+"inputs": [
+"text",
+"image",
+"video",
+"audio"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "not run yet",
+"cover_Code": "not run yet",
+"cover_Essays": "not run yet",
+"cover_Maths working": "not run yet",
+"cover_Pushback": "not run yet",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "ran",
+"cover_Speech": "ran"
+},
+{
+"key": "google/gemma-3-27b-it",
+"model": "Gemma 3 27B",
+"on_board": true,
+"inputs": [
+"text",
+"image"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "not run yet",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "google/gemma-3-4b-it",
+"model": "Gemma 3 4B",
+"on_board": true,
+"inputs": [
+"text",
+"image"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "not run yet",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "google/gemma-4-26b-a4b-it",
+"model": "Gemma 4 26B A4B",
+"on_board": true,
+"inputs": [
+"text",
+"image",
+"video"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "not run yet",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "google/gemma-4-31b-it",
+"model": "Gemma 4 31B",
+"on_board": true,
+"inputs": [
+"text",
+"image",
+"video"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "ran",
+"cover_Video": "not run yet",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct",
+"model": "Llama 3.2 3B",
+"on_board": true,
+"inputs": [
+"text"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "cannot take image",
+"cover_Video": "cannot take video",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "meta/muse-spark-open",
+"model": "Muse Spark Open",
+"on_board": false,
+"inputs": [
+"text",
+"image",
+"video",
+"audio"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "not run yet",
+"cover_Code": "not run yet",
+"cover_Essays": "not run yet",
+"cover_Maths working": "not run yet",
+"cover_Pushback": "not run yet",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "not run yet",
+"cover_Speech": "ran"
+},
+{
+"key": "microsoft/phi-4",
+"model": "Phi-4",
+"on_board": true,
+"inputs": [
+"text"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "cannot take image",
+"cover_Video": "cannot take video",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "mistralai/ministral-8b-2512",
+"model": "Ministral 8B",
+"on_board": true,
+"inputs": [
+"text",
+"image"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "not run yet",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "mistralai/voxtral-small-24b-2507",
+"model": "Voxtral Small 24B",
+"on_board": false,
+"inputs": [
+"text",
+"audio"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "not run yet",
+"cover_Code": "not run yet",
+"cover_Essays": "not run yet",
+"cover_Maths working": "not run yet",
+"cover_Pushback": "not run yet",
+"cover_Handwritten work": "cannot take image",
+"cover_Video": "cannot take video",
+"cover_Speech": "ran"
+},
+{
+"key": "openai/gpt-5-mini",
+"model": "GPT-5 Mini",
+"on_board": true,
+"inputs": [
+"text",
+"image"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "ran",
+"cover_Video": "ran",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "openai/gpt-5.6-luna",
+"model": "GPT-5.6 Luna",
+"on_board": true,
+"inputs": [
+"text",
+"image"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "not run yet",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "openai/gpt-6-astra",
+"model": "GPT-6 Astra",
+"on_board": true,
+"inputs": [
+"text",
+"image"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "not run yet",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "openai/gpt-oss-20b",
+"model": "GPT-OSS 20B",
+"on_board": true,
+"inputs": [
+"text"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "cannot take image",
+"cover_Video": "cannot take video",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "perceptron/perceptron-mk1.5",
+"model": "Perceptron mk1.5",
+"on_board": false,
+"inputs": [
+"text",
+"image",
+"video",
+"audio"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "not run yet",
+"cover_Code": "not run yet",
+"cover_Essays": "not run yet",
+"cover_Maths working": "not run yet",
+"cover_Pushback": "not run yet",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "ran",
+"cover_Speech": "ran"
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507",
+"model": "Qwen3 235B",
+"on_board": true,
+"inputs": [
+"text"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "cannot take image",
+"cover_Video": "cannot take video",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "qwen/qwen3.8-27b",
+"model": "Qwen3.8 27B",
+"on_board": false,
+"inputs": [
+"text",
+"image",
+"video"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "not run yet",
+"cover_Code": "not run yet",
+"cover_Essays": "not run yet",
+"cover_Maths working": "not run yet",
+"cover_Pushback": "not run yet",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "ran",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "xiaomi/mimo-v2.6-flash",
+"model": "MiMo v2.6 Flash",
+"on_board": false,
+"inputs": [
+"text",
+"image",
+"video",
+"audio"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "not run yet",
+"cover_Code": "not run yet",
+"cover_Essays": "not run yet",
+"cover_Maths working": "not run yet",
+"cover_Pushback": "not run yet",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "ran",
+"cover_Speech": "ran"
+},
+{
+"key": "z-ai/glm-5.3",
+"model": "GLM 5.3",
+"on_board": true,
+"inputs": [
+"text"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "cannot take image",
+"cover_Video": "cannot take video",
+"cover_Speech": "cannot take audio"
+},
+{
+"key": "z-ai/glm-5.3-flash",
+"model": "GLM 5.3 Flash",
+"on_board": true,
+"inputs": [
+"text",
+"image",
+"video"
+],
+"inputs_from": "openrouter",
+"inputs_why": null,
+"read": "2026-10-26",
+"cover_Short answers": "ran",
+"cover_Code": "ran",
+"cover_Essays": "ran",
+"cover_Maths working": "ran",
+"cover_Pushback": "ran",
+"cover_Handwritten work": "not run yet",
+"cover_Video": "not run yet",
+"cover_Speech": "cannot take audio"
+}
+]
