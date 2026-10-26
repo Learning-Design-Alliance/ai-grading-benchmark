@@ -16,6 +16,7 @@ deadline stops and records its fold as not run. Nothing is truncated silently.
 """
 
 import argparse
+import gc
 import json
 import math
 import os
@@ -277,7 +278,8 @@ def main():
             r["board"][probe] = predict(pairs)
         r["battery"] = {p: predict(pairs) for p, pairs in battery_pairs(board, cs).items()}
         save()
-        del model
+        del predict, model  # predict's closure holds the model too: free both before the next load
+        gc.collect()
         torch.cuda.empty_cache()
     if a.only == "same":
         print("done", a.kind, flush=True)
@@ -298,11 +300,13 @@ def main():
             r["not_run"][f"cross {p}"] = f"GPU cap: {e}"
             print("not run:", e, flush=True)
             save()
+            gc.collect()
             torch.cuda.empty_cache()
             continue
         r["cross"][p] = predict([(c["id"], text(c, c["response"])) for c in test if c["task"] == p])
         save()
-        del model
+        del predict, model  # predict's closure holds the model too: free both before the next load
+        gc.collect()
         torch.cuda.empty_cache()
     print("done", a.kind, flush=True)
 
