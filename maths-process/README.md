@@ -32,8 +32,10 @@ interval lies above 0.5 of 4). The spend was $6.30 for 5,600 gradings, at zero d
 within a point. A correct solution is flagged as error-free 90-99.5% of the time.
 
 **Reading.**
-- **No model is fooled by a right answer with wrong working.** At most 2% of lucky solutions get full
-  credit, against 100% from the answer checker. This is where an LLM grader earns its cost over a
+- **Few models are fooled by a right answer with wrong working.** Among the first seven models, at most 2% of
+  lucky solutions got full credit, against 100% from the answer checker. Across all 22 (`out/process.json`),
+  most give full credit to 0-2.5%; the two that read the working only weakly, Gemma 3 4B and Llama 3.2 3B, to 51%
+  and 40%. This is where an LLM grader earns its cost over a
   deterministic check.
 - **Models disagree on a slip.** The same correct working ending in a wrong number gets 3.2 of 4 from
   Gemini 3.5 Flash Lite, but about 1.6-1.9 from Claude Haiku, Claude Opus and Qwen. (Claude Haiku 5.5's row is from its 2026-10-25 re-run under verified zero retention.) No human scored these
