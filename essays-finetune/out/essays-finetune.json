@@ -1,0 +1,1461 @@
+{
+ "design": "essays-finetune/study.py docstring",
+ "floor": {
+  "sd_for_qwk_0.80": 0.6867621553828942,
+  "sd_for_qwk_0.84": 0.5911128655774518,
+  "draws": 200,
+  "power": 0.93,
+  "false_positive": 0.045,
+  "passes": true
+ },
+ "arms": {
+  "deberta same-prompt": {
+   "estimate": 0.8042243219881943,
+   "ci95": [
+    0.7805518402932581,
+    0.8266975971004421
+   ],
+   "n": 1000
+  },
+  "deberta cross-prompt": {
+   "estimate": 0.7414362499456175,
+   "ci95": [
+    0.7094077406329324,
+    0.7696248633240783
+   ],
+   "n": 1000
+  },
+  "qwen same-prompt": {
+   "estimate": 0.7979671748729484,
+   "ci95": [
+    0.7737955023280901,
+    0.8200603226346976
+   ],
+   "n": 1000
+  },
+  "qwen cross-prompt": {
+   "estimate": 0.7554174277032222,
+   "ci95": [
+    0.7278450740499467,
+    0.7818061340401363
+   ],
+   "n": 1000
+  },
+  "claude-haiku-5.5 zero": {
+   "estimate": 0.514209980867347,
+   "ci95": [
+    0.4699112856711253,
+    0.5555194389448697
+   ],
+   "n": 1000
+  },
+  "claude-haiku-5.5 anchored": {
+   "estimate": 0.5890643893591294,
+   "ci95": [
+    0.5471680078379363,
+    0.6256206892100127
+   ],
+   "n": 1000
+  },
+  "glm-5.3-flash zero": {
+   "estimate": 0.563908909265195,
+   "ci95": [
+    0.5193482688391038,
+    0.6038208197961633
+   ],
+   "n": 996
+  },
+  "glm-5.3-flash anchored": {
+   "estimate": 0.6543274654840119,
+   "ci95": [
+    0.6164353566465706,
+    0.6897640952335296
+   ],
+   "n": 997
+  },
+  "claude-opus-5.5 zero": {
+   "estimate": 0.6248593562070793,
+   "ci95": [
+    0.5768866994077273,
+    0.6697782963827303
+   ],
+   "n": 495
+  },
+  "claude-opus-5.5 anchored": {
+   "estimate": 0.7080165553502913,
+   "ci95": [
+    0.6648370001895872,
+    0.7465793340063858
+   ],
+   "n": 500
+  }
+ },
+ "comparisons": {
+  "C1": {
+   "estimate": -0.006257147115245831,
+   "ci95": [
+    -0.023038212674798886,
+    0.01131918770810103
+   ],
+   "n": 1000,
+   "verdict": "NO DIFFERENCE DETECTED",
+   "not_ruled_out": 0.023038212674798886,
+   "a": "qwen same-prompt",
+   "b": "deberta same-prompt"
+  },
+  "C2": {
+   "estimate": -0.09455743284139817,
+   "ci95": [
+    -0.13034254770713272,
+    -0.0594894600910888
+   ],
+   "n": 500,
+   "verdict": "deberta same-prompt EXCEEDS claude-opus-5.5 anchored",
+   "not_ruled_out": 0.13034254770713272,
+   "a": "claude-opus-5.5 anchored",
+   "b": "deberta same-prompt"
+  },
+  "C3 claude-haiku-5.5": {
+   "estimate": 0.07485440849178238,
+   "ci95": [
+    0.04260936133974136,
+    0.1070441160770279
+   ],
+   "n": 1000,
+   "verdict": "claude-haiku-5.5 anchored EXCEEDS claude-haiku-5.5 zero",
+   "not_ruled_out": 0.1070441160770279,
+   "a": "claude-haiku-5.5 anchored",
+   "b": "claude-haiku-5.5 zero"
+  },
+  "C3 glm-5.3-flash": {
+   "estimate": 0.09133974992855465,
+   "ci95": [
+    0.06078371284665973,
+    0.1219819702654441
+   ],
+   "n": 993,
+   "verdict": "glm-5.3-flash anchored EXCEEDS glm-5.3-flash zero",
+   "not_ruled_out": 0.1219819702654441,
+   "a": "glm-5.3-flash anchored",
+   "b": "glm-5.3-flash zero"
+  },
+  "C3 claude-opus-5.5": {
+   "estimate": 0.083581584393709,
+   "ci95": [
+    0.049129498477994304,
+    0.1210984346582521
+   ],
+   "n": 495,
+   "verdict": "claude-opus-5.5 anchored EXCEEDS claude-opus-5.5 zero",
+   "not_ruled_out": 0.1210984346582521,
+   "a": "claude-opus-5.5 anchored",
+   "b": "claude-opus-5.5 zero"
+  },
+  "C5 vs deberta": {
+   "estimate": -0.09193842259902907,
+   "ci95": [
+    -0.14846698203080966,
+    -0.037196307129970796
+   ],
+   "n": 495,
+   "verdict": "deberta cross-prompt EXCEEDS claude-opus-5.5 zero",
+   "not_ruled_out": 0.14846698203080966,
+   "a": "claude-opus-5.5 zero",
+   "b": "deberta cross-prompt"
+  },
+  "C5 vs qwen": {
+   "estimate": -0.12047826437169873,
+   "ci95": [
+    -0.16538179981676238,
+    -0.07568476217630238
+   ],
+   "n": 495,
+   "verdict": "qwen cross-prompt EXCEEDS claude-opus-5.5 zero",
+   "not_ruled_out": 0.16538179981676238,
+   "a": "claude-opus-5.5 zero",
+   "b": "qwen cross-prompt"
+  },
+  "C4": {
+   "estimate": 0.013981177757604657,
+   "ci95": [
+    -0.011611850499884557,
+    0.03981311745298388
+   ],
+   "n": 1000,
+   "verdict": "NO DIFFERENCE DETECTED",
+   "not_ruled_out": 0.03981311745298388,
+   "a": "qwen cross-prompt",
+   "b": "deberta cross-prompt"
+  },
+  "C6 deberta": {
+   "estimate": 0.06278807204257675,
+   "ci95": [
+    0.03992245712128695,
+    0.08706428043529124
+   ],
+   "n": 1000,
+   "verdict": "deberta same-prompt EXCEEDS deberta cross-prompt",
+   "not_ruled_out": 0.08706428043529124,
+   "a": "deberta same-prompt",
+   "b": "deberta cross-prompt"
+  },
+  "C6 qwen": {
+   "estimate": 0.04254974716972626,
+   "ci95": [
+    0.02139874794069052,
+    0.06403596447915172
+   ],
+   "n": 1000,
+   "verdict": "qwen same-prompt EXCEEDS qwen cross-prompt",
+   "not_ruled_out": 0.06403596447915172,
+   "a": "qwen same-prompt",
+   "b": "qwen cross-prompt"
+  }
+ },
+ "board_checks": {
+  "deberta": {
+   "qwk": {
+    "estimate": 0.7795738427626746,
+    "ci95": [
+     0.6902847207128885,
+     0.8447893569844789
+    ],
+    "n": 100
+   },
+   "injection": {
+    "estimate": 0.003154296875,
+    "ci95": [
+     0.00099609375,
+     0.005263671875
+    ],
+    "n": 100
+   },
+   "forged": {
+    "estimate": 0.005526123046875,
+    "ci95": [
+     0.003154296875,
+     0.007958984375
+    ],
+    "n": 100
+   },
+   "vouched": {
+    "estimate": 0.00503326416015625,
+    "ci95": [
+     0.0022076416015625,
+     0.00793121337890625
+    ],
+    "n": 100
+   },
+   "padding": {
+    "estimate": 0.017545166015625,
+    "ci95": [
+     0.014267578125,
+     0.020572509765625
+    ],
+    "n": 100
+   },
+   "null_credited": 0.084,
+   "flag": true
+  },
+  "qwen": {
+   "qwk": {
+    "estimate": 0.8336844439516575,
+    "ci95": [
+     0.7600767754318618,
+     0.887589928057554
+    ],
+    "n": 100
+   },
+   "injection": {
+    "estimate": -0.045382080078125,
+    "ci95": [
+     -0.05057373046875,
+     -0.04044189453125
+    ],
+    "n": 100
+   },
+   "forged": {
+    "estimate": -0.046724700927734376,
+    "ci95": [
+     -0.05277206420898437,
+     -0.040944366455078124
+    ],
+    "n": 100
+   },
+   "vouched": {
+    "estimate": -0.054964599609375,
+    "ci95": [
+     -0.060343017578125,
+     -0.0498077392578125
+    ],
+    "n": 100
+   },
+   "padding": {
+    "estimate": -0.0327813720703125,
+    "ci95": [
+     -0.039637451171875,
+     -0.026248779296875
+    ],
+    "n": 100
+   },
+   "null_credited": 0.288,
+   "flag": true
+  }
+ },
+ "fairness": {
+  "deberta same-prompt": {
+   "ell=No": {
+    "estimate": 0.014750506057312596,
+    "ci95": [
+     -0.09254772025959873,
+     0.12142549475013878
+    ],
+    "n": 843,
+    "verdict": "NO GAP DETECTED"
+   },
+   "ell=Yes": {
+    "estimate": -0.014750506057312596,
+    "ci95": [
+     -0.11642871075132262,
+     0.09359496284230162
+    ],
+    "n": 140,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Not economically disadvantaged": {
+    "estimate": -0.006376582867503283,
+    "ci95": [
+     -0.08180336577187781,
+     0.06894198019911897
+    ],
+    "n": 319,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Economically disadvantaged": {
+    "estimate": 0.006376582867503283,
+    "ci95": [
+     -0.06968478563302621,
+     0.08117134667084565
+    ],
+    "n": 519,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Not identified as having disability": {
+    "estimate": 0.0032318538343402703,
+    "ci95": [
+     -0.10786244164050465,
+     0.1108183954803037
+    ],
+    "n": 710,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Identified as having disability": {
+    "estimate": -0.0032318538343402703,
+    "ci95": [
+     -0.11623706011704996,
+     0.11096355814329337
+    ],
+    "n": 128,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Hispanic/Latino": {
+    "estimate": 0.07065518448396901,
+    "ci95": [
+     -0.0035036393622754902,
+     0.14763338772704554
+    ],
+    "n": 296,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Black/African American": {
+    "estimate": -0.09535577523804725,
+    "ci95": [
+     -0.18965046693284923,
+     -0.0027647193197273823
+    ],
+    "n": 166,
+    "verdict": "WIDENS"
+   },
+   "race=White": {
+    "estimate": 0.031002031939346614,
+    "ci95": [
+     -0.041424747540724755,
+     0.10105846666805535
+    ],
+    "n": 411,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Two or more races/Other": {
+    "estimate": -0.01751877091055351,
+    "ci95": [
+     -0.17999776935678957,
+     0.15072854136506586
+    ],
+    "n": 60,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Asian/Pacific Islander": {
+    "estimate": -0.109565286415307,
+    "ci95": [
+     -0.26810813387168786,
+     0.04165736387542046
+    ],
+    "n": 56,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=M": {
+    "estimate": 0.027325858762128258,
+    "ci95": [
+     -0.042001467585662866,
+     0.09586365101897727
+    ],
+    "n": 508,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=F": {
+    "estimate": -0.027325858762128258,
+    "ci95": [
+     -0.09309682546309982,
+     0.04229460018376033
+    ],
+    "n": 492,
+    "verdict": "NO GAP DETECTED"
+   }
+  },
+  "deberta cross-prompt": {
+   "ell=No": {
+    "estimate": -0.15468844950471847,
+    "ci95": [
+     -0.2749929624944395,
+     -0.04005926688471764
+    ],
+    "n": 843,
+    "verdict": "WIDENS"
+   },
+   "ell=Yes": {
+    "estimate": 0.15468844950471847,
+    "ci95": [
+     0.035253202913171494,
+     0.27784482370572783
+    ],
+    "n": 140,
+    "verdict": "WIDENS"
+   },
+   "economic=Not economically disadvantaged": {
+    "estimate": -0.05049350467171089,
+    "ci95": [
+     -0.1359109216283009,
+     0.03876110110567253
+    ],
+    "n": 319,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Economically disadvantaged": {
+    "estimate": 0.05049350467171089,
+    "ci95": [
+     -0.03953708786904826,
+     0.135433747264509
+    ],
+    "n": 519,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Not identified as having disability": {
+    "estimate": -0.09106188492036202,
+    "ci95": [
+     -0.2248671679429605,
+     0.03499042349801937
+    ],
+    "n": 710,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Identified as having disability": {
+    "estimate": 0.09106188492036202,
+    "ci95": [
+     -0.03485935372366032,
+     0.22484374247806171
+    ],
+    "n": 128,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Hispanic/Latino": {
+    "estimate": 0.147634666301787,
+    "ci95": [
+     0.060901972850729014,
+     0.23874869421230438
+    ],
+    "n": 296,
+    "verdict": "WIDENS"
+   },
+   "race=Black/African American": {
+    "estimate": -0.06909699826843389,
+    "ci95": [
+     -0.1684750436789927,
+     0.036941094208767844
+    ],
+    "n": 166,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=White": {
+    "estimate": -0.016349060188913633,
+    "ci95": [
+     -0.09863843140757671,
+     0.06395939759200897
+    ],
+    "n": 411,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Two or more races/Other": {
+    "estimate": -0.17918913072417464,
+    "ci95": [
+     -0.35429068698415866,
+     0.014930902223109693
+    ],
+    "n": 60,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Asian/Pacific Islander": {
+    "estimate": -0.09088994213856093,
+    "ci95": [
+     -0.2714945922167333,
+     0.08834841178774996
+    ],
+    "n": 56,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=M": {
+    "estimate": -0.002431509185101377,
+    "ci95": [
+     -0.08156806892564496,
+     0.07626269903220223
+    ],
+    "n": 508,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=F": {
+    "estimate": 0.002431509185101377,
+    "ci95": [
+     -0.07274633790625401,
+     0.08104337991775894
+    ],
+    "n": 492,
+    "verdict": "NO GAP DETECTED"
+   }
+  },
+  "qwen same-prompt": {
+   "ell=No": {
+    "estimate": -0.0248556476147614,
+    "ci95": [
+     -0.12660653043694262,
+     0.07511428551155921
+    ],
+    "n": 843,
+    "verdict": "NO GAP DETECTED"
+   },
+   "ell=Yes": {
+    "estimate": 0.0248556476147614,
+    "ci95": [
+     -0.07541885337189605,
+     0.12371262493951303
+    ],
+    "n": 140,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Not economically disadvantaged": {
+    "estimate": -0.001780939692887465,
+    "ci95": [
+     -0.07461637287654975,
+     0.075958149650917
+    ],
+    "n": 319,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Economically disadvantaged": {
+    "estimate": 0.001780939692887465,
+    "ci95": [
+     -0.07504079708831357,
+     0.07574478945620167
+    ],
+    "n": 519,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Not identified as having disability": {
+    "estimate": -0.05739188933036697,
+    "ci95": [
+     -0.17178810818094603,
+     0.054079262639435244
+    ],
+    "n": 710,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Identified as having disability": {
+    "estimate": 0.05739188933036697,
+    "ci95": [
+     -0.05766718152543189,
+     0.1761678265853667
+    ],
+    "n": 128,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Hispanic/Latino": {
+    "estimate": 0.06714696870589494,
+    "ci95": [
+     -0.0035934285452830506,
+     0.14247506848439723
+    ],
+    "n": 296,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Black/African American": {
+    "estimate": -0.03866282826548353,
+    "ci95": [
+     -0.12771327042559305,
+     0.054500885444539265
+    ],
+    "n": 166,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=White": {
+    "estimate": 0.022697727554361443,
+    "ci95": [
+     -0.04853649755961206,
+     0.08956978772009631
+    ],
+    "n": 411,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Two or more races/Other": {
+    "estimate": -0.1247696589103268,
+    "ci95": [
+     -0.27835200658113685,
+     0.049472978650825346
+    ],
+    "n": 60,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Asian/Pacific Islander": {
+    "estimate": -0.11275191957924226,
+    "ci95": [
+     -0.2574942591262214,
+     0.029882242924840933
+    ],
+    "n": 56,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=M": {
+    "estimate": 0.021027980330933466,
+    "ci95": [
+     -0.047941929383922284,
+     0.09156045656672483
+    ],
+    "n": 508,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=F": {
+    "estimate": -0.021027980330933466,
+    "ci95": [
+     -0.08557932041540134,
+     0.0460090659185314
+    ],
+    "n": 492,
+    "verdict": "NO GAP DETECTED"
+   }
+  },
+  "qwen cross-prompt": {
+   "ell=No": {
+    "estimate": -0.17510320821509,
+    "ci95": [
+     -0.28327768568547373,
+     -0.07179502129372935
+    ],
+    "n": 843,
+    "verdict": "WIDENS"
+   },
+   "ell=Yes": {
+    "estimate": 0.17510320821509,
+    "ci95": [
+     0.06868629604249743,
+     0.2854681560941075
+    ],
+    "n": 140,
+    "verdict": "WIDENS"
+   },
+   "economic=Not economically disadvantaged": {
+    "estimate": -0.027989220712373863,
+    "ci95": [
+     -0.11561227456383144,
+     0.06426095002577176
+    ],
+    "n": 319,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Economically disadvantaged": {
+    "estimate": 0.027989220712373863,
+    "ci95": [
+     -0.05999354484495848,
+     0.1159733604372029
+    ],
+    "n": 519,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Not identified as having disability": {
+    "estimate": -0.1487766427053532,
+    "ci95": [
+     -0.28211131028726066,
+     -0.018046150744800836
+    ],
+    "n": 710,
+    "verdict": "WIDENS"
+   },
+   "disability=Identified as having disability": {
+    "estimate": 0.1487766427053532,
+    "ci95": [
+     0.013751059518733497,
+     0.28171496324136225
+    ],
+    "n": 128,
+    "verdict": "WIDENS"
+   },
+   "race=Hispanic/Latino": {
+    "estimate": 0.1345477585772193,
+    "ci95": [
+     0.046010371461871,
+     0.22729635442134158
+    ],
+    "n": 296,
+    "verdict": "WIDENS"
+   },
+   "race=Black/African American": {
+    "estimate": -0.062064790707086676,
+    "ci95": [
+     -0.15957190319769662,
+     0.044063330369092296
+    ],
+    "n": 166,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=White": {
+    "estimate": -0.025348042605963746,
+    "ci95": [
+     -0.11066572921527901,
+     0.0582052706559286
+    ],
+    "n": 411,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Two or more races/Other": {
+    "estimate": -0.17304099248494076,
+    "ci95": [
+     -0.36640185598875136,
+     0.05577982129634251
+    ],
+    "n": 60,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Asian/Pacific Islander": {
+    "estimate": -0.05086213186859562,
+    "ci95": [
+     -0.23471072572159996,
+     0.13178202203323833
+    ],
+    "n": 56,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=M": {
+    "estimate": 0.019706289439002638,
+    "ci95": [
+     -0.05786634503432878,
+     0.09939993466452413
+    ],
+    "n": 508,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=F": {
+    "estimate": -0.019706289439002638,
+    "ci95": [
+     -0.09783191020338707,
+     0.06136886814508889
+    ],
+    "n": 492,
+    "verdict": "NO GAP DETECTED"
+   }
+  },
+  "claude-haiku-5.5 zero": {
+   "ell=No": {
+    "estimate": -0.18727334350110153,
+    "ci95": [
+     -0.3276817488561261,
+     -0.038637519064565334
+    ],
+    "n": 843,
+    "verdict": "WIDENS"
+   },
+   "ell=Yes": {
+    "estimate": 0.18727334350110153,
+    "ci95": [
+     0.043407896966615844,
+     0.3312913065582105
+    ],
+    "n": 140,
+    "verdict": "WIDENS"
+   },
+   "economic=Not economically disadvantaged": {
+    "estimate": -0.12864744716448923,
+    "ci95": [
+     -0.2465314899040233,
+     -0.01151237308303285
+    ],
+    "n": 319,
+    "verdict": "WIDENS"
+   },
+   "economic=Economically disadvantaged": {
+    "estimate": 0.12864744716448923,
+    "ci95": [
+     0.007658808535826678,
+     0.25064477745362734
+    ],
+    "n": 519,
+    "verdict": "WIDENS"
+   },
+   "disability=Not identified as having disability": {
+    "estimate": -0.1022887323943662,
+    "ci95": [
+     -0.2654489436619718,
+     0.05497359154929578
+    ],
+    "n": 710,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Identified as having disability": {
+    "estimate": 0.1022887323943662,
+    "ci95": [
+     -0.06214788732394366,
+     0.26866197183098595
+    ],
+    "n": 128,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Hispanic/Latino": {
+    "estimate": 0.09903982930298719,
+    "ci95": [
+     -0.012091038406827903,
+     0.2155049786628734
+    ],
+    "n": 296,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Black/African American": {
+    "estimate": 0.09798377182198181,
+    "ci95": [
+     -0.046442673454924116,
+     0.24123143233196892
+    ],
+    "n": 166,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=White": {
+    "estimate": -0.10097323600973238,
+    "ci95": [
+     -0.2079795421818362,
+     0.0011172352152540033
+    ],
+    "n": 411,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Two or more races/Other": {
+    "estimate": -0.026730564430244935,
+    "ci95": [
+     -0.25015974440894573,
+     0.21123535676251332
+    ],
+    "n": 60,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Asian/Pacific Islander": {
+    "estimate": -0.11994394788668386,
+    "ci95": [
+     -0.40247689743978177,
+     0.13569913649447052
+    ],
+    "n": 56,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=M": {
+    "estimate": 0.0946802381409641,
+    "ci95": [
+     -0.011250880225337684,
+     0.2000512131105563
+    ],
+    "n": 508,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=F": {
+    "estimate": -0.0946802381409641,
+    "ci95": [
+     -0.20213174572690606,
+     0.017220408424556688
+    ],
+    "n": 492,
+    "verdict": "NO GAP DETECTED"
+   }
+  },
+  "claude-haiku-5.5 anchored": {
+   "ell=No": {
+    "estimate": -0.17136078630740553,
+    "ci95": [
+     -0.31050669378071516,
+     -0.027266564988984915
+    ],
+    "n": 843,
+    "verdict": "WIDENS"
+   },
+   "ell=Yes": {
+    "estimate": 0.17136078630740553,
+    "ci95": [
+     0.032630062701237084,
+     0.3147093712930012
+    ],
+    "n": 140,
+    "verdict": "WIDENS"
+   },
+   "economic=Not economically disadvantaged": {
+    "estimate": -0.13922964949474814,
+    "ci95": [
+     -0.2510736224110751,
+     -0.032676777743550725
+    ],
+    "n": 319,
+    "verdict": "WIDENS"
+   },
+   "economic=Economically disadvantaged": {
+    "estimate": 0.13922964949474814,
+    "ci95": [
+     0.024510603342574627,
+     0.25731301453844807
+    ],
+    "n": 519,
+    "verdict": "WIDENS"
+   },
+   "disability=Not identified as having disability": {
+    "estimate": -0.06131161971830987,
+    "ci95": [
+     -0.21615316901408452,
+     0.08765404929577464
+    ],
+    "n": 710,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Identified as having disability": {
+    "estimate": 0.06131161971830987,
+    "ci95": [
+     -0.09892165492957747,
+     0.2211487676056338
+    ],
+    "n": 128,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Hispanic/Latino": {
+    "estimate": 0.08561522048364154,
+    "ci95": [
+     -0.02107041251778094,
+     0.19701280227596016
+    ],
+    "n": 296,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Black/African American": {
+    "estimate": 0.05538842042841233,
+    "ci95": [
+     -0.0829488421874774,
+     0.1901676333183876
+    ],
+    "n": 166,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=White": {
+    "estimate": -0.07647475048413524,
+    "ci95": [
+     -0.18192313421719053,
+     0.02164953572669942
+    ],
+    "n": 411,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Two or more races/Other": {
+    "estimate": -0.017731629392971238,
+    "ci95": [
+     -0.23865814696485627,
+     0.2062300319488818
+    ],
+    "n": 60,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Asian/Pacific Islander": {
+    "estimate": -0.10719966671716405,
+    "ci95": [
+     -0.3428647174670505,
+     0.12386380851386154
+    ],
+    "n": 56,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=M": {
+    "estimate": 0.05834293579156263,
+    "ci95": [
+     -0.04448338774726329,
+     0.16529831636899045
+    ],
+    "n": 508,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=F": {
+    "estimate": -0.05834293579156263,
+    "ci95": [
+     -0.1539834197554574,
+     0.04542762947314513
+    ],
+    "n": 492,
+    "verdict": "NO GAP DETECTED"
+   }
+  },
+  "glm-5.3-flash zero": {
+   "ell=No": {
+    "estimate": 0.19324025200068112,
+    "ci95": [
+     0.0479567512344628,
+     0.33139792269708834
+    ],
+    "n": 839,
+    "verdict": "WIDENS"
+   },
+   "ell=Yes": {
+    "estimate": -0.19324025200068112,
+    "ci95": [
+     -0.3325557636642261,
+     -0.04560701515409499
+    ],
+    "n": 140,
+    "verdict": "WIDENS"
+   },
+   "economic=Not economically disadvantaged": {
+    "estimate": -0.01467351430667646,
+    "ci95": [
+     -0.14153271526712466,
+     0.11812179016874541
+    ],
+    "n": 319,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Economically disadvantaged": {
+    "estimate": 0.01467351430667646,
+    "ci95": [
+     -0.10851730807710264,
+     0.14420062695924765
+    ],
+    "n": 517,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Not identified as having disability": {
+    "estimate": 0.010107697740112997,
+    "ci95": [
+     -0.16565148305084748,
+     0.18595515536723162
+    ],
+    "n": 708,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Identified as having disability": {
+    "estimate": -0.010107697740112997,
+    "ci95": [
+     -0.1866172316384181,
+     0.16799081920903952
+    ],
+    "n": 128,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Hispanic/Latino": {
+    "estimate": -0.06180674837695421,
+    "ci95": [
+     -0.18097081914078042,
+     0.05449940318495444
+    ],
+    "n": 294,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Black/African American": {
+    "estimate": -0.03336984300839724,
+    "ci95": [
+     -0.1782767433369843,
+     0.10960204454180356
+    ],
+    "n": 165,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=White": {
+    "estimate": 0.08603293725244948,
+    "ci95": [
+     -0.02916406087137796,
+     0.19949968730456533
+    ],
+    "n": 410,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Two or more races/Other": {
+    "estimate": 0.15418894830659535,
+    "ci95": [
+     -0.08707664884135474,
+     0.41167557932263815
+    ],
+    "n": 60,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Asian/Pacific Islander": {
+    "estimate": -0.2110337745321771,
+    "ci95": [
+     -0.47349003499163245,
+     0.050433591967138314
+    ],
+    "n": 56,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=M": {
+    "estimate": -0.02134387351778655,
+    "ci95": [
+     -0.13654916512059367,
+     0.08750504154230862
+    ],
+    "n": 506,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=F": {
+    "estimate": 0.02134387351778655,
+    "ci95": [
+     -0.08844881826248285,
+     0.13019278857788177
+    ],
+    "n": 490,
+    "verdict": "NO GAP DETECTED"
+   }
+  },
+  "glm-5.3-flash anchored": {
+   "ell=No": {
+    "estimate": 0.14624596568710718,
+    "ci95": [
+     0.014166808221505012,
+     0.27361984032614234
+    ],
+    "n": 841,
+    "verdict": "WIDENS"
+   },
+   "ell=Yes": {
+    "estimate": -0.14624596568710718,
+    "ci95": [
+     -0.2724732461355529,
+     -0.01527942925089179
+    ],
+    "n": 140,
+    "verdict": "WIDENS"
+   },
+   "economic=Not economically disadvantaged": {
+    "estimate": 0.06501589466889152,
+    "ci95": [
+     -0.056648356332898914,
+     0.18083992058755466
+    ],
+    "n": 317,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Economically disadvantaged": {
+    "estimate": -0.06501589466889152,
+    "ci95": [
+     -0.19087000475013094,
+     0.05754357331644398
+    ],
+    "n": 518,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Not identified as having disability": {
+    "estimate": 0.1611783946251768,
+    "ci95": [
+     0.019205268741159826,
+     0.30247745756718525
+    ],
+    "n": 707,
+    "verdict": "WIDENS"
+   },
+   "disability=Identified as having disability": {
+    "estimate": -0.1611783946251768,
+    "ci95": [
+     -0.3071958981612447,
+     -0.015028288543140034
+    ],
+    "n": 128,
+    "verdict": "WIDENS"
+   },
+   "race=Hispanic/Latino": {
+    "estimate": -0.019420849420849415,
+    "ci95": [
+     -0.12826254826254826,
+     0.09969111969111968
+    ],
+    "n": 296,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Black/African American": {
+    "estimate": -0.13223936112022755,
+    "ci95": [
+     -0.27244283995186525,
+     0.011705502680231919
+    ],
+    "n": 165,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=White": {
+    "estimate": 0.0835984777590617,
+    "ci95": [
+     -0.03382619003056961,
+     0.18926944912346372
+    ],
+    "n": 411,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Two or more races/Other": {
+    "estimate": 0.1696724128574788,
+    "ci95": [
+     -0.09297614094748838,
+     0.44205271059819473
+    ],
+    "n": 59,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Asian/Pacific Islander": {
+    "estimate": -0.11678098734421793,
+    "ci95": [
+     -0.3296493092454835,
+     0.09927543232537919
+    ],
+    "n": 55,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=M": {
+    "estimate": -0.02897605590712203,
+    "ci95": [
+     -0.1399207767740689,
+     0.08204515079786806
+    ],
+    "n": 508,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=F": {
+    "estimate": 0.02897605590712203,
+    "ci95": [
+     -0.08089786322721931,
+     0.1287981256944109
+    ],
+    "n": 489,
+    "verdict": "NO GAP DETECTED"
+   }
+  },
+  "claude-opus-5.5 zero": {
+   "ell=No": {
+    "estimate": -0.16021265895538472,
+    "ci95": [
+     -0.4194266829513615,
+     0.11121488612687692
+    ],
+    "n": 449,
+    "verdict": "NO GAP DETECTED"
+   },
+   "ell=Yes": {
+    "estimate": 0.16021265895538472,
+    "ci95": [
+     -0.0856383360873626,
+     0.4161218478338961
+    ],
+    "n": 31,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Not economically disadvantaged": {
+    "estimate": 0.050941780821917804,
+    "ci95": [
+     -0.11565353881278538,
+     0.21040239726027396
+    ],
+    "n": 146,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Economically disadvantaged": {
+    "estimate": -0.050941780821917804,
+    "ci95": [
+     -0.21425513698630136,
+     0.11265696347031963
+    ],
+    "n": 192,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Not identified as having disability": {
+    "estimate": 0.05750798722044728,
+    "ci95": [
+     -0.30095846645367413,
+     0.40472843450479234
+    ],
+    "n": 313,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Hispanic/Latino": {
+    "estimate": 0.07268933136249021,
+    "ci95": [
+     -0.08340579080079993,
+     0.21800278236675072
+    ],
+    "n": 124,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Black/African American": {
+    "estimate": -0.014003431671002379,
+    "ci95": [
+     -0.19502407704654895,
+     0.15284773343665245
+    ],
+    "n": 89,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=White": {
+    "estimate": 0.05585424133811231,
+    "ci95": [
+     -0.08094384707287933,
+     0.19160692951015534
+    ],
+    "n": 216,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Two or more races/Other": {
+    "estimate": -0.03757763975155279,
+    "ci95": [
+     -0.3167701863354037,
+     0.21925465838509317
+    ],
+    "n": 35,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=M": {
+    "estimate": 0.07441929037119549,
+    "ci95": [
+     -0.05913573370900632,
+     0.21275759263506208
+    ],
+    "n": 233,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=F": {
+    "estimate": -0.07441929037119549,
+    "ci95": [
+     -0.2032074173574026,
+     0.06246109491203354
+    ],
+    "n": 262,
+    "verdict": "NO GAP DETECTED"
+   }
+  },
+  "claude-opus-5.5 anchored": {
+   "ell=No": {
+    "estimate": -0.036663350859741366,
+    "ci95": [
+     -0.25145658661361375,
+     0.17528776467244564
+    ],
+    "n": 454,
+    "verdict": "NO GAP DETECTED"
+   },
+   "ell=Yes": {
+    "estimate": 0.036663350859741366,
+    "ci95": [
+     -0.18111411112690068,
+     0.25522239590734686
+    ],
+    "n": 31,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Not economically disadvantaged": {
+    "estimate": 0.05971746575342465,
+    "ci95": [
+     -0.09674657534246575,
+     0.21068778538812785
+    ],
+    "n": 146,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Economically disadvantaged": {
+    "estimate": -0.05971746575342465,
+    "ci95": [
+     -0.20904680365296802,
+     0.09510559360730593
+    ],
+    "n": 192,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Not identified as having disability": {
+    "estimate": 0.0015335463258785917,
+    "ci95": [
+     -0.3136102236421725,
+     0.32626198083067093
+    ],
+    "n": 313,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Hispanic/Latino": {
+    "estimate": 0.08764111705288176,
+    "ci95": [
+     -0.0522875816993464,
+     0.23075290722349545
+    ],
+    "n": 126,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Black/African American": {
+    "estimate": -0.12330623306233061,
+    "ci95": [
+     -0.28644986449864496,
+     0.044715447154471545
+    ],
+    "n": 90,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=White": {
+    "estimate": 0.09092979374064676,
+    "ci95": [
+     -0.031491964343808965,
+     0.21709284924198063
+    ],
+    "n": 218,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Two or more races/Other": {
+    "estimate": -0.05069124423963133,
+    "ci95": [
+     -0.34070660522273427,
+     0.2565284178187404
+    ],
+    "n": 35,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=M": {
+    "estimate": -0.0211864406779661,
+    "ci95": [
+     -0.14381099126861838,
+     0.10657421674370827
+    ],
+    "n": 236,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=F": {
+    "estimate": 0.0211864406779661,
+    "ci95": [
+     -0.1027221366204417,
+     0.14201335387776065
+    ],
+    "n": 264,
+    "verdict": "NO GAP DETECTED"
+   }
+  }
+ }
+}
