@@ -46,7 +46,7 @@ CHANGES:
    and the floor plants 2% on those, 200 draws. The 30-case anchor month is kept as drift/out/2026-10-26-anchor/
    and a new baseline month is run with this battery. Measure, verdicts and material threshold as in CHANGE 1.
 
-COST. About $11 a month across the board at current prices; a cap of $15 a run (--max-usd per model, from what
+COST. About $13-15 a month (GPT-6 Astra alone about $7), cap $20 a run; across the board at current prices; a cap of $15 a run (--max-usd per model, from what
 is left).
 
 Usage:
@@ -74,7 +74,7 @@ FILES = {"mohler": "mohler.jsonl", "code": "harmogen-code.jsonl", "asap2": "asap
 PROBES = ("base",)  # CHANGE 2: one grading of each of the board's 100 cases
 EXCLUDE = {"anthropic/claude-fable-5.1", "allenai/olmo-3.1-32b-instruct"}
 BASE_URL = "https://openrouter.ai/api/v1"
-CAP = 15.0
+CAP = 20.0
 SHIFT, SEED, REPS = 0.02, 7, 2000
 # The board's settings per model, so a fresh session without the board's run folders uses the same requests.
 EXTRA = {"usage": {"include": True}, "provider": {"zdr": True}}
@@ -137,7 +137,9 @@ def cmd_run(a):
                                   "failed": sum(1 for c in calls if c.get("score") is None)}
             print(f"{model} {task}: {len(calls)} gradings, {rec['tasks'][task]['failed']} without a mark", flush=True)
         if a.go and rec["tasks"]:
-            json.dump(rec, open(dest, "w"), indent=1, sort_keys=True)
+            with open(dest + ".tmp", "w") as fh:  # atomic: a crash never leaves a half-written month
+                json.dump(rec, fh, indent=1, sort_keys=True)
+            os.replace(dest + ".tmp", dest)
     print(f"spent ${spent:.2f} (cap ${CAP:.0f})")
 
 
