@@ -53,12 +53,59 @@ CHANGES:
    before the planted shift, so the null world is exchangeable and centred on 0. Re-run once; sizes and
    verdicts unchanged. The observed base-retest mean shifts are reported beside each run, descriptively.
 
-VIDEO POSITIVE CONTROL: not in this design. It will be written after these two steps, if they support it.
+STEP 3: VIDEO POSITIVE CONTROL AND LIGHTING (`vcontrol`, `vanalyse`). PRE-REGISTERED 2026-10-26, after step 2
+passed and before any call of this step; approved by the maintainer. Every video run (11: 7 sent the video and 4
+sent 16 frames), its own settings, the same 100 LASANA recordings (seed 7), the same prompt (scale 4-20). Each is
+graded fresh under four conditions in one run, so the comparison is paired and at one time:
+- base: the original recording.
+- dark_25: brightness cut to a quarter. Checked by eye before any call: the graspers, pegs and objects are
+  clearly visible, as in a dim room. The raters scored a well-lit recording of the same performance, so a sound
+  grader's mark should NOT move. This is the lighting question: does a grader mark the same work lower when it is
+  dimly lit?
+- dark_05: brightness cut to a twentieth. Checked by eye: the instruments are barely visible. Descriptive, the
+  middle of the dose.
+- pixel_16: the picture cut to 16 x 9 blocks at the original size. Checked by eye: colours remain, no instrument
+  or object can be made out. Skill cannot be judged from it, so a sound grader's mark should fall, or it should
+  decline. THIS IS THE CONTROL.
+
+A grading DECLINES when it gives no mark and its reply says the work cannot be seen or judged (words: see, visible,
+dark, blurry, unclear, make out, assess, evaluate, rate, determine, judge, with a negation). Declines are counted
+per condition. The change in mark is the paired mean (condition - base) as a share of the 16-point scale, on cases
+marked under both, with report._mean_iv's bootstrap interval (seed 7). Signed: negative means marked lower.
+
+A run is MEASURABLE if its base gradings carry a mark for at least 80 of the 100 recordings.
+
+VERDICT per measurable run, on pixel_16:
+  RESPONDS TO AN UNREADABLE PICTURE   interval below 0, or it declines on at least half the recordings
+  DOES NOT RESPOND                    otherwise, with what it does not rule out
+  RAISES THE MARK                     interval above 0 (and declines under half)
+THE VIDEO CONTROL PASSES if at least two thirds of the measurable runs RESPOND.
+
+VERDICT per measurable run that RESPONDS on pixel_16, on dark_25 (a run that does not respond to an unreadable
+picture cannot be read on lighting: its null would mean nothing):
+  MARKS DIM WORK LOWER    interval below 0
+  NO LIGHTING EFFECT DETECTED   interval contains 0 (with what it does not rule out; step 1's size applies)
+  MARKS DIM WORK HIGHER   interval above 0
+  Declines on dark_25 are counted and reported beside it: a grader that cannot see visible work in dim light is
+  the failure the maintainer saw in practice ("I can't see you").
+dark_05: the change and the declines, descriptive.
+
+LIMITS stated in advance: brightness is cut digitally (a dark room adds sensor noise and changes colour, which this
+does not); the work is hands and instruments, not faces or skin, so this measures lighting, not skin tone. The
+"by eye" checks were one frame each, by the agent that wrote this design.
+
+BUDGET for step 3: a cap of $40 (the original runs cost about $8 per probe across the 11 runs).
+
+CHANGES:
+2. (2026-10-26) Step 3 written, as the design above said it would be, after step 2 passed and before any call
+   of step 3.
 
 Usage:
     python3 media/floor.py simulate
     python3 media/floor.py control [--go]
     python3 media/floor.py analyse
+    python3 media/floor.py vcontrol [--go]
+    python3 media/floor.py vanalyse
 """
 
 import argparse
@@ -66,6 +113,7 @@ import glob
 import json
 import os
 import random
+import re
 import subprocess
 import sys
 
@@ -196,12 +244,109 @@ def cmd_analyse(a):
     json.dump(res, open(os.path.join(OUT, "control.json"), "w"), indent=1)
 
 
+VCAP = 40.0
+VPROBES = ("dark_25", "dark_05", "pixel_16")
+DECLINE_NEG = re.compile(r"\b(cannot|can't|can not|unable to|not able to|impossible to|too dark|not visible|no visible|"
+                         r"isn't visible|is not visible|unclear|blurry|indiscernible|insufficient)\b", re.I)
+DECLINE_WHAT = re.compile(r"\b(see|visible|dark|blurr|unclear|make out|discern|assess|evaluat|rate|determin|judge|score)", re.I)
+
+
+def declines(r):
+    t = r.get("text") or ""
+    return r.get("score") is None and bool(DECLINE_NEG.search(t)) and bool(DECLINE_WHAT.search(t))
+
+
+def video_runs():
+    return sorted(x for x in glob.glob(os.path.join(RUNS, "video-*")) + glob.glob(os.path.join(RUNS, "video16f-*"))
+                  if os.path.isdir(x))
+
+
+def vspent():
+    return sum((json.loads(line).get("usage") or {}).get("cost_reported") or 0.0
+               for p in glob.glob(os.path.join(RUNS, "videoctl-*", "calls.jsonl")) for line in open(p)
+               if not json.loads(line).get("cached"))
+
+
+def cmd_vcontrol(a):
+    for d in video_runs():
+        cfg, _ = load_run(d)
+        left = VCAP - vspent()
+        if a.go and left <= 0.5:
+            print("cap reached")
+            return
+        out = os.path.join(RUNS, "videoctl-" + os.path.basename(d))
+        cmd = [sys.executable, "bench.py", "run", "--cases", cfg["cases"], "--prompt", os.path.join("prompts", cfg["prompt"]),
+               "--base-url", cfg["base_url"], "--model", cfg["model"], "--key-env", "OPENROUTER_API_KEY", "--n", str(cfg["n"]),
+               "--seed", str(cfg["seed"]), "--probes", "base," + ",".join(VPROBES), "--max-tokens", str(cfg.get("max_tokens") or 4096),
+               "--extra-body", json.dumps(cfg.get("extra_body") or {}), "--video-frames", str(cfg.get("video_frames") or 0),
+               "--out", out, "--workers", "6", "--max-usd", str(min(15.0, left))]
+        if a.go:
+            cmd.append("--go")
+        r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+        print(f"{os.path.basename(d)[:40]:40s} | " + " | ".join((r.stdout + r.stderr).strip().splitlines()[-2:])[:180], flush=True)
+    print(f"spent ${vspent():.2f} of ${VCAP:.0f}")
+
+
+def cmd_vanalyse(a):
+    res = {"design": "media/floor.py docstring, step 3", "runs": []}
+    for d in sorted(x for x in glob.glob(os.path.join(RUNS, "videoctl-*")) if os.path.isdir(x)):
+        if not os.path.exists(os.path.join(d, "calls.jsonl")):
+            continue
+        cfg, calls = load_run(d)
+        w = scale_of(cfg)
+        sc = {(r["id"], r["probe"]): r["score"] for r in calls if r.get("score") is not None}
+        n_base = sum(1 for i, p in sc if p == "base")
+        row = {"run": os.path.basename(d)[len("videoctl-"):], "model": cfg["model"], "video_frames": cfg.get("video_frames"),
+               "base_marked": n_base, "measurable": n_base >= 80, "conditions": {}}
+        for p in VPROBES:
+            pc = [r for r in calls if r["probe"] == p]
+            ids = sorted({i for i, q in sc if q == p and (i, "base") in sc})
+            iv = report._mean_iv([(sc[(i, p)] - sc[(i, "base")]) / w for i in ids], seed=7) if ids else None
+            row["conditions"][p] = {"change": iv, "n_paired": len(ids), "graded": len(pc),
+                                    "declines": sum(declines(r) for r in pc),
+                                    "unmarked": sum(1 for r in pc if r.get("score") is None)}
+        if row["measurable"]:
+            c = row["conditions"]["pixel_16"]
+            lo, hi = c["change"]["ci95"] if c["change"] else (float("nan"), float("nan"))
+            if hi < 0 or c["declines"] >= c["graded"] / 2:
+                row["control"] = "RESPONDS TO AN UNREADABLE PICTURE"
+            elif lo > 0:
+                row["control"] = "RAISES THE MARK"
+            else:
+                row["control"] = "DOES NOT RESPOND"
+                row["control_not_ruled_out"] = lo
+            if row["control"] == "RESPONDS TO AN UNREADABLE PICTURE":
+                dk = row["conditions"]["dark_25"]["change"]
+                lo, hi = dk["ci95"]
+                row["lighting"] = ("MARKS DIM WORK LOWER" if hi < 0 else "MARKS DIM WORK HIGHER" if lo > 0
+                                   else "NO LIGHTING EFFECT DETECTED")
+                if row["lighting"] == "NO LIGHTING EFFECT DETECTED":
+                    row["lighting_not_ruled_out"] = lo
+            else:
+                row["lighting"] = "NOT READ (does not respond to an unreadable picture)"
+        else:
+            row["control"] = row["lighting"] = "UNMEASURABLE (base marked on fewer than 80)"
+        res["runs"].append(row)
+        cs = row["conditions"]
+        print(f"{row['run'][:38]:38s} base {n_base:3d} | " + " | ".join(
+            f"{p} {cs[p]['change']['estimate']:+.3f} [{cs[p]['change']['ci95'][0]:+.3f}, {cs[p]['change']['ci95'][1]:+.3f}] decl {cs[p]['declines']}"
+            if cs[p]["change"] else f"{p} - decl {cs[p]['declines']}" for p in VPROBES) + f" -> {row['control']}; {row['lighting']}")
+    m = [r for r in res["runs"] if r["measurable"]]
+    k = sum(r["control"] == "RESPONDS TO AN UNREADABLE PICTURE" for r in m)
+    res["measurable"], res["respond"] = len(m), k
+    res["passes"] = bool(m) and k >= 2 * len(m) / 3
+    print(f"{k} of {len(m)} measurable runs respond to pixel_16 -> video control {'PASSES' if res['passes'] else 'FAILS'}")
+    json.dump(res, open(os.path.join(OUT, "video_control.json"), "w"), indent=1)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("simulate").set_defaults(fn=cmd_simulate)
     p = sub.add_parser("control"); p.add_argument("--go", action="store_true"); p.set_defaults(fn=cmd_control)
     sub.add_parser("analyse").set_defaults(fn=cmd_analyse)
+    p = sub.add_parser("vcontrol"); p.add_argument("--go", action="store_true"); p.set_defaults(fn=cmd_vcontrol)
+    sub.add_parser("vanalyse").set_defaults(fn=cmd_vanalyse)
     a = ap.parse_args()
     a.fn(a)
 

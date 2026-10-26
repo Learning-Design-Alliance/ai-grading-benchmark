@@ -88,7 +88,8 @@ PROBES = ("base", "retest", "surface", "typos", "padding", "repeat", "injection"
           "shuffled", "blicket", "ctx_neutral", "ctx_low", "ctx_high",
           "null_blank", "null_dot", "null_think", "null_restate", "null_gibberish",
           "retest2", "retest3", "retest4", "del_cited", "del_random", "vouched", "null_silence", "null_tone", "noise_10db", "phone_band",
-          "null_black", "null_still", "low_res", "other_camera", "text_only", "noise_0db", "noise_m10db")
+          "null_black", "null_still", "low_res", "other_camera", "text_only", "noise_0db", "noise_m10db",
+          "dark_25", "dark_05", "pixel_16")
 CONTEXT_PROBES = ("ctx_neutral", "ctx_low", "ctx_high")
 # Master-key answers (Zhao et al. 2025): nothing in them deserves credit. Run on a capped subset of
 # cases (NULL_CASES), since five per case would buy nothing: the answer does not depend on the case.
@@ -108,11 +109,14 @@ AUDIO_CONTROL_PROBES = ("noise_0db", "noise_m10db")
 #: video-quality probes: the raters scored the full-quality left camera, so a sound grader's mark should not move
 #: on a low-resolution copy, or on the same performance from the stereo pair's other camera
 VIDEO_QUALITY_PROBES = ("low_res", "other_camera")
+#: Video positive control and lighting probes (media/floor.py step 3, 2026-10-26): the picture at a quarter and a
+#: twentieth of its brightness, and cut to 16 x 9 blocks. Not in any default battery.
+VIDEO_CONTROL_PROBES = ("dark_25", "dark_05", "pixel_16")
 #: Video sent as N evenly spaced frames (images) instead of a video part, for models without video input.
 #: 0 sends the video itself. Set by bench.py --video-frames.
 VIDEO_FRAMES = 0
 MEDIA_PROBES = ("base", "ctx_neutral", "ctx_low", "ctx_high", "off_task", "injection", "forged",
-                "retest", "retest2", "retest3", "retest4", "text_only") + MEDIA_NULL_PROBES + AUDIO_QUALITY_PROBES + AUDIO_CONTROL_PROBES + VIDEO_QUALITY_PROBES
+                "retest", "retest2", "retest3", "retest4", "text_only") + MEDIA_NULL_PROBES + AUDIO_QUALITY_PROBES + AUDIO_CONTROL_PROBES + VIDEO_QUALITY_PROBES + VIDEO_CONTROL_PROBES
 NULL_CASES = 30
 # Repeated identical calls for selective scoring: base, retest and these three give k = 5 samples.
 REPEAT_PROBES = ("retest", "retest2", "retest3", "retest4")
@@ -189,7 +193,7 @@ def probe_input(case, probe, off_task_response=None, seed=0):
         if probe in CONTEXT:
             return r, CONTEXT[probe]
         return r, ""  # the work itself changes through probe_media
-    if probe in MEDIA_NULL_PROBES + AUDIO_QUALITY_PROBES + AUDIO_CONTROL_PROBES + VIDEO_QUALITY_PROBES + ("text_only",):
+    if probe in MEDIA_NULL_PROBES + AUDIO_QUALITY_PROBES + AUDIO_CONTROL_PROBES + VIDEO_QUALITY_PROBES + VIDEO_CONTROL_PROBES + ("text_only",):
         return None
     if probe in ("base",) + REPEAT_PROBES:
         return r, ""
@@ -350,6 +354,11 @@ def _video_variant(path, probe, alt=None):
     elif probe == "low_res":  # a poor recording: a sixth of the pixels, heavily compressed
         _ffmpeg(["-i", path, "-vf", "scale=160:90", "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "42",
                  "-pix_fmt", "yuv420p", "-movflags", "+faststart", tmp])
+    elif probe in ("dark_25", "dark_05"):  # the same picture with the light cut to a quarter or a twentieth
+        k = 0.25 if probe == "dark_25" else 0.05
+        _ffmpeg(["-i", path, "-vf", f"colorchannelmixer=rr={k}:gg={k}:bb={k}"] + enc + [tmp])
+    elif probe == "pixel_16":  # 16 x 9 blocks at the original size: the colours are there, the skill is not
+        _ffmpeg(["-i", path, "-vf", "scale=16:9:flags=area,scale=480:270:flags=neighbor"] + enc + [tmp])
     elif probe == "other_camera":
         return open(alt, "rb").read()
     elif probe in ("injection", "forged"):
@@ -400,7 +409,7 @@ def probe_media(case, probe, off_task_case=None, seed=0):
     if probe == "text_only":  # the prompt alone, without the work: what the text gives away (a video's length, say)
         return []
     video = bool(media) and media[0]["kind"] == "video"
-    if probe in VIDEO_NULL_PROBES + VIDEO_QUALITY_PROBES:
+    if probe in VIDEO_NULL_PROBES + VIDEO_QUALITY_PROBES + VIDEO_CONTROL_PROBES:
         if not video or (probe == "other_camera" and not media[0].get("alt_view")):
             return None
         return [("video", _video_variant(media[0]["path"], probe, media[0].get("alt_view")), "mp4")]
