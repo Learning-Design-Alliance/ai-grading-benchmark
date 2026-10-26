@@ -103,3 +103,18 @@ raters marked the attempt failed. There are few such recordings, so it is report
 
 **Budget.** About 1,060 gradings a grader. At the smoke run's token counts, the whole set is about $90-100, with
 a spend cap on each run.
+
+## CHANGE 1 (2026-10-26, after the first eleven runs' results were read; before any call for the graders it adds)
+
+Added under the maintainer's coverage rule (2026-10-26: every leaderboard model runs every task its inputs
+allow), not because of any result. Every leaderboard model that takes video or images and has no run yet:
+- **Sent the video** (they take video): Gemma 4 31B, Gemma 4 26B A4B, GLM 5.3 Flash.
+- **Sent 16 evenly spaced frames** (`--video-frames 16`): Claude Fable 5.1, GPT-6 Astra, GPT-5.6 Luna, DeepSeek
+  V4.1 Flash, DeepSeek V4.1 Flash (10-17), Gemma 3 27B, Gemma 3 4B, Ministral 8B.
+
+Cases, prompt, probes, seed and max_tokens 4096 are unchanged; each model keeps its leaderboard host pin and
+zero retention. Claude Fable 5.1 runs only under the board's stated exception (the maintainers' own Anthropic
+key, 30-day safety retention, public corpora only), recorded in its run. If a video model's zero-retention
+endpoint refuses video, it is run on 16 frames instead and its row says so. Verdict strings and thresholds are
+unchanged. Budget: about $100 (Fable and Astra most of it), within the coverage work's $300 cap, with a spend
+cap on each run.

@@ -72,7 +72,20 @@ that contrast is reported as below the floor, not as a finding.
 
 No essay text or per-essay mark is committed: out/ holds the draw summary, the floor and the aggregates.
 
-CHANGES: none yet.
+CHANGES:
+1. (2026-10-26, after the four graders' results were read; before any call for the graders it adds) Added under
+   the maintainer's coverage rule (2026-10-26: every leaderboard model runs every task its inputs allow), not
+   because of any result. Every other leaderboard model with a hosted zero-retention route grades the same union
+   (2,962 essays), default prompt, base probe, with its leaderboard settings (max_tokens and host pin) and zero
+   retention: GPT-OSS 20B, Llama 3.2 3B, Gemma 3 4B, Phi-4, Gemma 3 27B, DeepSeek V4.1 Flash, Ministral 8B,
+   Gemma 4 26B A4B, DeepSeek V4.1 Flash (10-17), GPT-5.6 Luna, Gemma 4 31B, GLM 5.3, DeepSeek V4 Pro, GLM 5.3
+   Flash, Claude Opus 5.5, GPT-6 Astra, and Claude Fable 5.1 (no zero-retention route: only under the board's
+   stated exception, the maintainers' own Anthropic key with 30-day safety retention, public corpora only). Olmo
+   3.1 32B has no hosted route (the board's runs were on the maintainers' own GPU) and is not added. The models
+   run cheapest first within a BUDGET of the coverage work's $300 cap, shared with the media tasks, which run first;
+   the most expensive (Opus, Astra, Fable, about $50-120 each here) are run only if the cap allows, and any not run
+   are listed. Draw, statistics, verdicts, thresholds and floor are unchanged. Each added grader's verdict is
+   reported per grader; nothing pooled across graders changes.
 """
 
 import argparse

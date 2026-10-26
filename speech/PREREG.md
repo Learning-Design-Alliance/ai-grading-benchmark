@@ -31,3 +31,10 @@ max_tokens 4096.
 Every probe effect is signed with a 95% bootstrap interval, as for the text tasks; the same planted-effect
 floor covers these paired statistics (`floor.py`: surface, padding and the null answers). Recording-quality
 probes are reported, not ranked, until a floor with degraded audio is built.
+
+## CHANGE 1 (2026-10-26, after the six graders' results were read; before any call for the grader it adds)
+
+Added under the maintainer's coverage rule (2026-10-26: every leaderboard model runs every task its inputs
+allow), not because of any result: Gemini 3.5 Flash Lite, the one leaderboard model that takes audio (it has a
+zero-retention endpoint; it was not among the graders chosen on 2026-10-24). Cases, prompt, probes, seed and
+max_tokens 4096 unchanged; zero retention. Budget: about $1.

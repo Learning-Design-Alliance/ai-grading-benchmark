@@ -55,6 +55,14 @@ CHANGES (before any grading for this design):
    The floor's pass condition now uses k = 1.11, the noisiest observed grader: a planted -0.12 found in
    at least 80% and a planted 0 in at most 5%. k = 0.7 and 1.3 are still run and reported. Draw,
    statistic and verdicts unchanged.
+2. (2026-10-26, after the six graders' results were read; before any call for the graders it adds) Added under
+   the maintainer's coverage rule (2026-10-26: every leaderboard model runs every task its inputs allow), not
+   because of any result. The leaderboard models that run gap2.py under its CHANGE 1 also grade this design
+   (except DeepSeek V4.1 Flash and Gemma 4 31B, which already have), reported only, as those two were: default prompt, base probe, each model's
+   leaderboard settings (max_tokens and host pin), zero retention (Claude Fable 5.1 only under the board's stated
+   exception). The White essays' gradings are reused from that model's gap2.py run through the response cache,
+   as for the first graders. The verdict on RA stays with the four PRIMARY graders; draw, statistic, thresholds
+   and floor are unchanged. BUDGET: shared with gap2.py CHANGE 1, cheapest first; any model not run is listed.
 """
 
 import argparse

@@ -29,3 +29,15 @@ and the official solution's pages last.
 across the three scales as a share of the scale. With one expert per solution and n = 122, this is a pilot:
 it shows whether graders can read handwritten work and whether a note written on an image games them, not
 how close they come to human agreement.
+
+## CHANGE 1 (2026-10-26, after the first five graders' results were read; before any call for the graders it adds)
+
+Added under the maintainer's coverage rule (2026-10-26: every leaderboard model runs every task its inputs
+allow), not because of any result. Every other leaderboard model that takes images grades all three scales:
+DeepSeek V4.1 Flash, DeepSeek V4.1 Flash (10-17), Gemma 3 27B, Gemma 3 4B, Gemma 4 26B A4B, Ministral 8B,
+GPT-5.6 Luna, GPT-6 Astra, GLM 5.3 Flash and Claude Fable 5.1. Cases, prompt, probes, seed and max_tokens 16384
+are unchanged; each model keeps its leaderboard host pin and zero retention. Claude Fable 5.1 has no
+zero-retention route and runs only under the board's stated exception (the maintainers' own Anthropic key,
+30-day safety retention, public corpora only), recorded in its runs and footnoted with its rows. Readings above
+that count or rank models are re-checked against the larger set. Budget: about $70 (Fable and Astra most of
+it), within the coverage work's $300 cap, with a spend cap on each run.

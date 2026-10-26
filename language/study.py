@@ -62,6 +62,12 @@ CHANGES:
    would stop the dearer models partway, leaving some languages ungraded, which would bias the tier comparison.
    The cap is now $65, each model may spend up to $40, and the models run cheapest first. Design, measures,
    verdicts and floor are unchanged.
+2. (2026-10-26, after the other six models' results were read; before any call for the model it adds) Gemini
+   3.5 Flash Lite is added under the maintainer's coverage rule (2026-10-26: every leaderboard model runs every
+   task its inputs allow), not because of any result: it is the one leaderboard model that takes audio, and it
+   joins the speech task under speech/PREREG.md CHANGE 1. It is run with the identical arguments (cases, prompt,
+   base probe, seed 7, max tokens 4096, zero retention, workers 8). Estimated at about $1, within the $65 cap.
+   Design, measures, verdicts and floor are unchanged.
 
 Usage:
     python3 language/study.py prepare --dir <local dir>      # downloads the dev split for the 18 languages
@@ -204,7 +210,8 @@ def cmd_floor(a):
 
 # ------------------------------------------------------------------ runs
 ORDER = ["xiaomi/mimo-v2.6-flash", "perceptron/perceptron-mk1.5", "mistralai/voxtral-small-24b-2507",
-         "google/gemini-3.8-flash", "google/gemini-4-argon", "meta/muse-spark-open"]  # cheapest first (CHANGE 1)
+         "google/gemini-3.5-flash-lite", "google/gemini-3.8-flash", "google/gemini-4-argon",
+         "meta/muse-spark-open"]  # cheapest first (CHANGE 1); Gemini 3.5 Flash Lite added by CHANGE 2
 
 
 def speech_models():

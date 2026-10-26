@@ -53,6 +53,25 @@ CHANGE 1 (2026-10-25, after O'Neill 2026 on low-powered nulls read as absence): 
 printed alone. Beside it, `not_ruled_out` gives the largest effect in the direction of concern (a loss of balanced accuracy) that its 95%
 interval still allows. The pre-registered verdict strings and thresholds are unchanged.
 
+CHANGE 2 (2026-10-26, after the first five graders' results were read; written before any call for the graders
+it adds): added under the maintainer's coverage rule (2026-10-26: every board model runs every task its inputs
+allow), not because of any result. Every leaderboard model that can take video or images is added, as in the video
+task:
+  - sent the joined video (they take video): Gemma 4 31B, Gemma 4 26B A4B, GLM 5.3 Flash;
+  - sent 16 evenly spaced frames of it (`bench.py --video-frames 16`; they take images, not video): Claude Opus
+    5.5, Claude Haiku 5.5, Claude Fable 5.1, GPT-5 Mini, GPT-5.6 Luna, GPT-6 Astra, DeepSeek V4.1 Flash and its
+    10-17 snapshot, Gemma 3 27B, Gemma 3 4B, Ministral 8B.
+  Gemini 3.5 Flash Lite is already in. Cases, prompt, seed, base probe, max_tokens 4096, verdicts, thresholds and
+  floor are unchanged. Each model keeps its leaderboard host pin and zero retention; Claude Fable 5.1, which has no
+  zero-retention route, runs under the board's stated exception (the maintainers' own Anthropic key, 30-day
+  safety retention, public corpora only), recorded in its run. A model that answers in no readable format is
+  kept and its failures reported, not excluded after the fact.
+  CAVEAT for the frames rows, stated before any call: 16 frames from a recording four times as long are four
+  times as sparse, so a frames model's x4 change mixes length with sampling density. Those rows are labelled
+  "16 frames" and read as what a frames-only grader would do with a long recording, not as the length effect alone.
+  BUDGET: estimated at $60 (most of it Fable and Astra), within the coverage work's $300 cap, with a spend cap on
+  each run.
+
     python3 video/padding.py build --root $LASANA_DIR
     python3 video/padding.py floor
     python3 video/padding.py analyse --runs <run dir> ... --out out/video/padding.json
