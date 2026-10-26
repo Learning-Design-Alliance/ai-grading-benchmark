@@ -214,5 +214,53 @@
 "gives_away_lo": 64.8,
 "gives_away_hi": 87.0,
 "n": 54
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813",
+"model": "DeepSeek V4 Pro",
+"vendor": "DeepSeek",
+"halo": 0.033,
+"halo_lo": -0.185,
+"halo_hi": 0.244,
+"gives_away_pct": 98.1,
+"gives_away_lo": 94.4,
+"gives_away_hi": 100.0,
+"n": 54
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"vendor": "DeepSeek",
+"halo": 0.071,
+"halo_lo": -0.083,
+"halo_hi": 0.251,
+"gives_away_pct": 98.1,
+"gives_away_lo": 94.4,
+"gives_away_hi": 100.0,
+"n": 54
+},
+{
+"key": "z-ai/glm-5.3",
+"model": "GLM 5.3",
+"vendor": "Zhipu AI (Z.ai)",
+"halo": 0.027,
+"halo_lo": -0.069,
+"halo_hi": 0.147,
+"gives_away_pct": 96.3,
+"gives_away_lo": 90.7,
+"gives_away_hi": 100.0,
+"n": 54
+},
+{
+"key": "z-ai/glm-5.3-flash",
+"model": "GLM 5.3 Flash",
+"vendor": "Zhipu AI (Z.ai)",
+"halo": 0.035,
+"halo_lo": -0.164,
+"halo_hi": 0.226,
+"gives_away_pct": 96.3,
+"gives_away_lo": 90.7,
+"gives_away_hi": 100.0,
+"n": 54
 }
 ]

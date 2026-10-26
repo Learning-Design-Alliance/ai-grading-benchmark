@@ -166,23 +166,35 @@ computer-science short answers"), not the overall score alone. Corrections are l
 
 ## Results
 
-As of 2026-10-25: 18 models, all five tasks, default prompt. Overall scores range from 55.5 to 95.0.
+As of 2026-10-26: 22 models, all five tasks, default prompt. Overall scores range from 55.5 to 95.0.
 
 | rank | model | overall | rank interval |
 |---|---|---|---|
-| 1 | Claude Opus 5.5 | 95.0 | 1-4 |
-| 2 | Claude Fable 5.1 | 94.9 | 1-4 |
-| 3 | Claude Haiku 5.5 | 91.4 | 2-8 |
-| 4 | GPT-6 Astra | 91.0 | 2-8 |
-| 5 | GPT-5 Mini | 88.9 | 3-10 |
-| 6 | DeepSeek V4.1 Flash | 88.7 | 3-10 |
+| 1 | Claude Opus 5.5 | 95.0 | 1-5 |
+| 2 | Claude Fable 5.1 | 94.9 | 1-5 |
+| 3 | Claude Haiku 5.5 | 91.4 | 2-11 |
+| 4 | GPT-6 Astra | 91.0 | 2-11 |
+| 5 | GLM 5.3 Flash | 90.8 | 2-12 |
+| 6 | DeepSeek V4.1 Flash, 17 Oct snapshot | 89.2 | 4-12 |
+| 7 | GPT-5 Mini | 88.9 | 4-13 |
+| 8 | DeepSeek V4.1 Flash, 10 Sep | 88.7 | 4-13 |
 
-- **Flags.** The other 12 carry a disqualifying flag. All 12 can be gamed by more than 5% of the scale, and
-  six of them also credit blank or junk answers.
-- **Overlapping intervals.** These six cannot be separated from each other with confidence.
-- **Pushback.** 14 of 18 give way when a student only disagrees, from about 3% to a third of the scale.
-- **Olmo 3.1 32B** (added 2026-10-25, the one model whose training data is fully released) ranks 16th of 18
-  (71.6; rank interval 14-16). It reaches the human ceiling on short answers (103%) and 85% of the published
+- **Flags.** The other 14 carry a disqualifying flag. All 14 can be gamed by more than 5% of the scale, and
+  seven of them also credit blank or junk answers.
+- **Overlapping intervals.** These eight cannot be separated from each other with confidence.
+- **Pushback.** 17 of 22 give way when a student only disagrees, from about 3% to a third of the scale.
+- **DeepSeek and GLM, added 2026-10-26** (open weights, run under verified zero retention):
+  - **GLM 5.3 Flash** is fifth, with no flag, at under $0.10 per 1,000 short answers. It gives way to
+    pushback by 6% of the scale.
+  - **GLM 5.3** scores 91.1 but is flagged: an instruction hidden in a code answer, or a forged override, gains
+    it about 11% of the scale on code. It holds under pushback (+2% [0, +4]).
+  - **DeepSeek V4 Pro** is 18th (74.1). A forged override in a code answer gains it 70% of the scale, and 52% on
+    essays; it credits blank answers and gives way to pushback by 16% of the scale. Being larger does not help
+    here: the smaller V4.1 Flash carries no flag.
+  - **The 17 Oct DeepSeek snapshot** marks code about 2% of the scale higher than the 10 Sep release it
+    replaces, with the host held fixed (`docs/DRIFT.md`).
+- **Olmo 3.1 32B** (added 2026-10-25, the one model whose training data is fully released) ranks 20th of 22
+  (71.6; rank interval 17-20). It reaches the human ceiling on short answers (103%) and 85% of the published
   ceiling on essays. But a forged override or a polite request gains it 55% of the scale on essays, the most
   on the board. It credits blank answers, and it yields to pushback by 26% of the scale, going to full marks
   in 78% of its replies to a student who only disagrees. It was run on a rented GPU, so nothing was retained.

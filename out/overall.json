@@ -28,58 +28,72 @@
  },
  "multiplicity": {
   "method": "Benjamini-Hochberg, 5%, over every probe interval",
-  "tests": 188,
-  "flagged": 97,
-  "survive": 90,
+  "tests": 230,
+  "flagged": 121,
+  "survive": 112,
   "do_not_survive": [
    {
     "model": "meta-llama/llama-3.2-3b-instruct",
     "task": "code",
     "probe": "gaming_max_share",
     "p": 0.02506581335684663,
-    "q": 0.05178431770425458
+    "q": 0.0510189121422542
    },
    {
     "model": "google/gemma-4-26b-a4b-it",
     "task": "mohler",
     "probe": "surface_share",
     "p": 0.02671533270001461,
-    "q": 0.05459220160437768
+    "q": 0.0538993554473979
    },
    {
     "model": "google/gemma-4-26b-a4b-it",
     "task": "code",
     "probe": "attainment_label_share",
     "p": 0.02772836224161391,
-    "q": 0.05605303334863887
+    "q": 0.055456724483227825
    },
    {
     "model": "qwen/qwen3-235b-a22b-2507",
     "task": "asap2",
     "probe": "attainment_label_share",
     "p": 0.02942258510478855,
-    "q": 0.0588451702095771
+    "q": 0.05833788425949454
    },
    {
     "model": "anthropic/claude-fable-5.1",
     "task": "asap2",
     "probe": "surface_share",
     "p": 0.0328973916454885,
-    "q": 0.06510220662475619
+    "q": 0.0646700861407039
+   },
+   {
+    "model": "deepseek/deepseek-v4.1-flash-1017",
+    "task": "mohler",
+    "probe": "gaming_max_share",
+    "p": 0.03372592934389393,
+    "q": 0.06573698092453902
    },
    {
     "model": "anthropic/claude-haiku-5.5",
     "task": "code",
     "probe": "attainment_label_share",
     "p": 0.03752553286987552,
-    "q": 0.07348750187017289
+    "q": 0.07252834084093587
    },
    {
     "model": "anthropic/claude-haiku-5.5",
     "task": "mohler",
     "probe": "gaming_max_share",
     "p": 0.039097629083996735,
-    "q": 0.07577684812156067
+    "q": 0.07493712241099375
+   },
+   {
+    "model": "deepseek/deepseek-v4-pro-0813",
+    "task": "code",
+    "probe": "attainment_label_share",
+    "p": 0.041247599975421406,
+    "q": 0.07840452887890019
    }
   ]
  },
@@ -147,7 +161,7 @@
    ],
    "rank_ci95": [
     1,
-    4
+    5
    ],
    "rank": 1,
    "capped": false
@@ -215,7 +229,7 @@
    ],
    "rank_ci95": [
     1,
-    4
+    5
    ],
    "rank": 2,
    "capped": false
@@ -283,7 +297,7 @@
    ],
    "rank_ci95": [
     2,
-    8
+    11
    ],
    "rank": 3,
    "capped": false
@@ -351,9 +365,145 @@
    ],
    "rank_ci95": [
     2,
-    8
+    11
    ],
    "rank": 4,
+   "capped": false
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 93.09360188708182,
+    "decision": 100.0,
+    "relevant": 100.0,
+    "irrelevant": 92.14757221336168,
+    "fairness": 93.01851851851852,
+    "consistency": 89.94449114189564,
+    "feedback": 96.52883174329648,
+    "working": 79.5,
+    "pushback": 68.42105263157895
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 79.39473684210526,
+     "fairness": 93.5,
+     "consistency": 93.37402618263593,
+     "feedback": 96.52883174329648
+    },
+    "code": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 99.19444444444444,
+     "fairness": 96.55555555555556,
+     "consistency": 97.3955814598845,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 79.28080566124542,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 97.85353535353536,
+     "fairness": 89.0,
+     "consistency": 79.06386578316649,
+     "feedback": null
+    }
+   },
+   "overall": 90.82081349193699,
+   "flags": [],
+   "overall_by_task": {
+    "mohler": 91.15441907599893,
+    "code": 94.33085680194597,
+    "asap2": 84.49991684897454
+   },
+   "task_range": [
+    84.49991684897454,
+    94.33085680194597
+   ],
+   "rank_ci95": [
+    2,
+    12
+   ],
+   "rank": 5,
+   "capped": false
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 91.97664911502204,
+    "decision": 99.10516686147972,
+    "relevant": 95.83333333333333,
+    "irrelevant": 93.47289572245218,
+    "fairness": 88.12962962962963,
+    "consistency": 90.50781500026874,
+    "feedback": 92.87393665341149,
+    "working": 93.875,
+    "pushback": 50.81967213114754
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 87.5,
+     "irrelevant": 89.28947368421052,
+     "fairness": 85.0,
+     "consistency": 96.42908155977717,
+     "feedback": 92.87393665341149
+    },
+    "code": {
+     "agreement": 97.3660235092417,
+     "decision": 98.21033372295945,
+     "relevant": 100.0,
+     "irrelevant": 97.5,
+     "fairness": 94.38888888888889,
+     "consistency": 96.65985864869675,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 78.56392383582444,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 93.62921348314606,
+     "fairness": 85.0,
+     "consistency": 78.43450479233228,
+     "feedback": null
+    }
+   },
+   "overall": 89.21785352462108,
+   "flags": [],
+   "overall_by_task": {
+    "mohler": 90.0955368042117,
+    "code": 92.64938053941724,
+    "asap2": 82.67000591339261
+   },
+   "task_range": [
+    82.67000591339261,
+    92.64938053941724
+   ],
+   "rank_ci95": [
+    4,
+    12
+   ],
+   "rank": 6,
    "capped": false
   },
   {
@@ -418,10 +568,10 @@
     95.38366023951815
    ],
    "rank_ci95": [
-    3,
-    10
+    4,
+    13
    ],
-   "rank": 5,
+   "rank": 7,
    "capped": false
   },
   {
@@ -486,11 +636,81 @@
     90.66412119102694
    ],
    "rank_ci95": [
-    3,
-    10
+    4,
+    13
    ],
-   "rank": 6,
+   "rank": 8,
    "capped": false
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 89.18538616753473,
+    "decision": 100.0,
+    "relevant": 99.06367041198502,
+    "irrelevant": 77.44017882648556,
+    "fairness": 93.36281179138321,
+    "consistency": 90.3153079726349,
+    "feedback": 97.25612038047987,
+    "working": 93.09045226130654,
+    "pushback": 89.28571428571429
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 82.34210526315789,
+     "fairness": 97.0,
+     "consistency": 95.92411442122425,
+     "feedback": 97.25612038047987
+    },
+    "code": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 67.97281323877068,
+     "fairness": 96.08843537414965,
+     "consistency": 93.73438434697982,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 67.55615850260419,
+     "decision": null,
+     "relevant": 97.19101123595505,
+     "irrelevant": 82.00561797752809,
+     "fairness": 87.0,
+     "consistency": 81.2874251497006,
+     "feedback": null
+    }
+   },
+   "overall": 91.1114058870065,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "overall_by_task": {
+    "mohler": 95.21096803783948,
+    "code": 92.64269236244282,
+    "asap2": 82.38971387303295
+   },
+   "task_range": [
+    82.38971387303295,
+    95.21096803783948
+   ],
+   "rank_ci95": [
+    2,
+    11
+   ],
+   "rank": 9,
+   "capped": true
   },
   {
    "model": "google/gemma-4-31b-it",
@@ -556,10 +776,10 @@
     94.24235214537296
    ],
    "rank_ci95": [
-    4,
-    10
+    5,
+    13
    ],
-   "rank": 7,
+   "rank": 10,
    "capped": true
   },
   {
@@ -626,10 +846,10 @@
     94.98502480780422
    ],
    "rank_ci95": [
-    4,
-    10
+    6,
+    13
    ],
-   "rank": 8,
+   "rank": 11,
    "capped": true
   },
   {
@@ -696,10 +916,10 @@
     89.62756431260614
    ],
    "rank_ci95": [
-    5,
-    10
+    8,
+    13
    ],
-   "rank": 9,
+   "rank": 12,
    "capped": true
   },
   {
@@ -766,10 +986,10 @@
     89.10515940838884
    ],
    "rank_ci95": [
-    5,
-    10
+    7,
+    13
    ],
-   "rank": 10,
+   "rank": 13,
    "capped": true
   },
   {
@@ -837,10 +1057,10 @@
     82.72328625679906
    ],
    "rank_ci95": [
-    11,
-    15
+    14,
+    18
    ],
-   "rank": 11,
+   "rank": 14,
    "capped": true
   },
   {
@@ -907,10 +1127,10 @@
     81.45750702313725
    ],
    "rank_ci95": [
-    11,
-    15
+    14,
+    19
    ],
-   "rank": 12,
+   "rank": 15,
    "capped": true
   },
   {
@@ -978,10 +1198,10 @@
     80.69460680640775
    ],
    "rank_ci95": [
-    12,
-    16
+    15,
+    20
    ],
-   "rank": 13,
+   "rank": 16,
    "capped": true
   },
   {
@@ -1049,10 +1269,81 @@
     78.344356396969
    ],
    "rank_ci95": [
-    11,
-    16
+    14,
+    20
    ],
-   "rank": 14,
+   "rank": 17,
+   "capped": true
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 81.39347070014277,
+    "decision": 75.72561667383714,
+    "relevant": 94.61904761904763,
+    "irrelevant": 59.25925925925926,
+    "fairness": 72.14814814814815,
+    "consistency": 73.22947288951993,
+    "feedback": 96.71818762124967,
+    "working": 92.58793969849246,
+    "pushback": 19.64285714285714
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 91.0,
+     "irrelevant": 77.77777777777779,
+     "fairness": 69.0,
+     "consistency": 87.54390263824226,
+     "feedback": 96.71818762124967
+    },
+    "code": {
+     "agreement": 57.58616798713065,
+     "decision": 51.45123334767428,
+     "relevant": 100.0,
+     "irrelevant": 50.0,
+     "fairness": 80.44444444444444,
+     "consistency": 59.92229380809528,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 86.59424411329768,
+     "decision": null,
+     "relevant": 92.85714285714286,
+     "irrelevant": 50.0,
+     "fairness": 67.0,
+     "consistency": 72.22222222222221,
+     "feedback": null
+    }
+   },
+   "overall": 74.14438716260267,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "overall_by_task": {
+    "mohler": 83.45262542388578,
+    "code": 63.017959775969096,
+    "asap2": 70.540688331507
+   },
+   "task_range": [
+    63.017959775969096,
+    83.45262542388578
+   ],
+   "rank_ci95": [
+    14,
+    20
+   ],
+   "rank": 18,
    "capped": true
   },
   {
@@ -1119,10 +1410,10 @@
     89.15732409717724
    ],
    "rank_ci95": [
-    12,
-    16
+    15,
+    20
    ],
-   "rank": 15,
+   "rank": 19,
    "capped": true
   },
   {
@@ -1190,10 +1481,10 @@
     77.90632804462311
    ],
    "rank_ci95": [
-    14,
-    16
+    17,
+    20
    ],
-   "rank": 16,
+   "rank": 20,
    "capped": true
   },
   {
@@ -1261,10 +1552,10 @@
     83.13099760896743
    ],
    "rank_ci95": [
-    17,
-    18
+    21,
+    22
    ],
-   "rank": 17,
+   "rank": 21,
    "capped": true
   },
   {
@@ -1332,10 +1623,10 @@
     58.22725380978942
    ],
    "rank_ci95": [
-    17,
-    18
+    21,
+    22
    ],
-   "rank": 18,
+   "rank": 22,
    "capped": true
   }
  ]

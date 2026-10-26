@@ -98,6 +98,54 @@
    "smd_flag": "FAIL"
   },
   {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6162400065880091,
+   "qwk_ci95": [
+    0.4854361694689075,
+    0.7257992993501758
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.04351382038028839,
+   "degradation_ci95": [
+    -0.1530731131424551,
+    0.08729001673881326
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.3575921424637858,
+   "smd_ci95": [
+    -0.5178659766287255,
+    -0.21960352110880407
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6301702198283197,
+   "qwk_ci95": [
+    0.5200401238330907,
+    0.7285863968632478
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.05744403362059891,
+   "degradation_ci95": [
+    -0.15586021065552702,
+    0.05268606237463003
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.4245171922815662,
+   "smd_ci95": [
+    -0.5772621311724372,
+    -0.2955894005557602
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
    "model": "deepseek/deepseek-v4.1-flash",
    "task": "mohler",
    "n": 100,
@@ -434,6 +482,54 @@
    "smd_flag": "FAIL"
   },
   {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6005363339817252,
+   "qwk_ci95": [
+    0.46952132155532694,
+    0.7136149447168205
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.02781014777400448,
+   "degradation_ci95": [
+    -0.14088875850909977,
+    0.10320486465239381
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": -0.32511453184731115,
+   "smd_ci95": [
+    -0.475560190106759,
+    -0.1899285352394765
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "mohler",
+   "n": 100,
+   "qwk": 0.6405041996522427,
+   "qwk_ci95": [
+    0.5146273244387207,
+    0.7460299466482065
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.5727261862077208,
+   "degradation": -0.06777801344452195,
+   "degradation_ci95": [
+    -0.1733037604404858,
+    0.05809886176900003
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.3419863011950863,
+   "smd_ci95": [
+    -0.4829413700861815,
+    -0.22282436954256002
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
    "model": "allenai/olmo-3.1-32b-instruct",
    "task": "code",
    "n": 100,
@@ -526,6 +622,54 @@
    "smd_ci95": [
     -0.2798753274200528,
     -0.15355484350763818
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.46960724539206816,
+   "qwk_ci95": [
+    0.35296074255293186,
+    0.5773945495576581
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.815486186712434,
+   "degradation": 0.34587894132036584,
+   "degradation_ci95": [
+    0.23809163715477588,
+    0.46252544415950214
+   ],
+   "degradation_flag": "FAIL",
+   "smd": -0.6523751205653897,
+   "smd_ci95": [
+    -0.8666401672760269,
+    -0.4660121642109223
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.7940064722690471,
+   "qwk_ci95": [
+    0.7270746717435881,
+    0.8423718956596855
+   ],
+   "qwk_flag": "PASS",
+   "human_ceiling": 0.8154861867124339,
+   "degradation": 0.02147971444338681,
+   "degradation_ci95": [
+    -0.02688570894725162,
+    0.0884115149688458
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.35744298415451,
+   "smd_ci95": [
+    -0.4756691609550518,
+    -0.26346975788772387
    ],
    "smd_flag": "FAIL"
   },
@@ -866,6 +1010,54 @@
    "smd_flag": "FAIL"
   },
   {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "code",
+   "n": 100,
+   "qwk": 0.8724341638718013,
+   "qwk_ci95": [
+    0.8278190365794167,
+    0.9053628383711394
+   ],
+   "qwk_flag": "PASS",
+   "human_ceiling": 0.815486186712434,
+   "degradation": -0.05694797715936728,
+   "degradation_ci95": [
+    -0.0898766516587054,
+    -0.012332849866982687
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.16289139383571388,
+   "smd_ci95": [
+    -0.23798871702256363,
+    -0.09839414645536097
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "code",
+   "n": 98,
+   "qwk": 0.8733292985974009,
+   "qwk_ci95": [
+    0.8259874089095247,
+    0.9069331976905514
+   ],
+   "qwk_flag": "PASS",
+   "human_ceiling": 0.8179659519317112,
+   "degradation": -0.05536334666568976,
+   "degradation_ci95": [
+    -0.08896724575884019,
+    -0.008021456977813535
+   ],
+   "degradation_flag": "PASS",
+   "smd": -0.09196451210558465,
+   "smd_ci95": [
+    -0.1604995584395504,
+    -0.02763780075962436
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
    "model": "allenai/olmo-3.1-32b-instruct",
    "task": "asap2",
    "n": 100,
@@ -958,6 +1150,54 @@
    "smd_ci95": [
     -0.1735443662549251,
     0.136411712619576
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.6451271186440677,
+   "qwk_ci95": [
+    0.5068241770845281,
+    0.7474154135338346
+   ],
+   "qwk_flag": "INDETERMINATE",
+   "human_ceiling": 0.745,
+   "degradation": 0.09987288135593231,
+   "degradation_ci95": [
+    -0.002415413533834565,
+    0.2381758229154719
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.1964614885288504,
+   "smd_ci95": [
+    0.030883786602395977,
+    0.371081986808444
+   ],
+   "smd_flag": "INDETERMINATE"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.5853012325768921,
+   "qwk_ci95": [
+    0.46109801279892215,
+    0.6842496285289748
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.15969876742310785,
+   "degradation_ci95": [
+    0.060750371471025244,
+    0.28390198720107784
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.19404202279082944,
+   "smd_ci95": [
+    0.021586847804096015,
+    0.37680657276288476
    ],
    "smd_flag": "INDETERMINATE"
   },
@@ -1296,6 +1536,54 @@
     0.6496121981490435
    ],
    "smd_flag": "FAIL"
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "asap2",
+   "n": 99,
+   "qwk": 0.5906420021762784,
+   "qwk_ci95": [
+    0.4710500490677132,
+    0.6865848832607835
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.15435799782372162,
+   "degradation_ci95": [
+    0.05841511673921651,
+    0.2739499509322868
+   ],
+   "degradation_flag": "INDETERMINATE",
+   "smd": 0.41085503395893563,
+   "smd_ci95": [
+    0.24790083746318253,
+    0.5962088734588548
+   ],
+   "smd_flag": "FAIL"
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "asap2",
+   "n": 100,
+   "qwk": 0.5032933808444012,
+   "qwk_ci95": [
+    0.3841045415595543,
+    0.6070547381887964
+   ],
+   "qwk_flag": "FAIL",
+   "human_ceiling": 0.745,
+   "degradation": 0.24170661915559877,
+   "degradation_ci95": [
+    0.1379452618112036,
+    0.3608954584404457
+   ],
+   "degradation_flag": "FAIL",
+   "smd": 0.40916425579314825,
+   "smd_ci95": [
+    0.22006842218066358,
+    0.612783993167867
+   ],
+   "smd_flag": "FAIL"
   }
  ],
  "pushback": [
@@ -1354,6 +1642,34 @@
     0.09230769230769231
    ],
    "n_not_under_marked": 13
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "raises": {
+    "progressive": 34,
+    "regressive": 0
+   },
+   "regressive_share": 0.0,
+   "effect_not_under_marked": 0.0,
+   "effect_not_under_marked_ci95": [
+    -0.05714285714285714,
+    0.08571428571428572
+   ],
+   "n_not_under_marked": 7
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "raises": {
+    "progressive": 25,
+    "regressive": 2
+   },
+   "regressive_share": 0.07407407407407407,
+   "effect_not_under_marked": 0.14285714285714285,
+   "effect_not_under_marked_ci95": [
+    0.08571428571428572,
+    0.2
+   ],
+   "n_not_under_marked": 7
   },
   {
    "model": "deepseek/deepseek-v4.1-flash",
@@ -1550,6 +1866,34 @@
     0.23076923076923075
    ],
    "n_not_under_marked": 13
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "raises": {
+    "progressive": 15,
+    "regressive": 2
+   },
+   "regressive_share": 0.11764705882352941,
+   "effect_not_under_marked": 0.06153846153846154,
+   "effect_not_under_marked_ci95": [
+    0.015384615384615385,
+    0.12307692307692308
+   ],
+   "n_not_under_marked": 13
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "raises": {
+    "progressive": 8,
+    "regressive": 2
+   },
+   "regressive_share": 0.2,
+   "effect_not_under_marked": 0.02222222222222222,
+   "effect_not_under_marked_ci95": [
+    0.0,
+    0.06666666666666667
+   ],
+   "n_not_under_marked": 9
   }
  ],
  "length": [
@@ -1587,6 +1931,24 @@
    "ci95": [
     -0.26311574487646894,
     -0.022949842271006497
+   ]
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "mohler",
+   "coef": -0.13497923103634313,
+   "ci95": [
+    -0.2704842066490669,
+    0.00998100595634099
+   ]
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "mohler",
+   "coef": -0.15061389086528318,
+   "ci95": [
+    -0.26964767507394183,
+    -0.02555680854071442
    ]
   },
   {
@@ -1716,6 +2078,24 @@
    ]
   },
   {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "mohler",
+   "coef": -0.162965699169101,
+   "ci95": [
+    -0.2982297891800863,
+    -0.018758786514495977
+   ]
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "mohler",
+   "coef": -0.13519149709175374,
+   "ci95": [
+    -0.2921954786554776,
+    0.018574074925337473
+   ]
+  },
+  {
    "model": "allenai/olmo-3.1-32b-instruct",
    "task": "code",
    "coef": -0.04579393409282078,
@@ -1749,6 +2129,24 @@
    "ci95": [
     -0.08809342077555796,
     0.005726026317790367
+   ]
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "code",
+   "coef": -0.05944192000851938,
+   "ci95": [
+    -0.21144960786171962,
+    0.0833687755474408
+   ]
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "code",
+   "coef": -0.0399000331238993,
+   "ci95": [
+    -0.11164273703144076,
+    0.029575212183340933
    ]
   },
   {
@@ -1878,6 +2276,24 @@
    ]
   },
   {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "code",
+   "coef": -0.03056900482230897,
+   "ci95": [
+    -0.09359361721146467,
+    0.033900947438575815
+   ]
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "code",
+   "coef": -0.01211402873470843,
+   "ci95": [
+    -0.08262623088577709,
+    0.0573071415453582
+   ]
+  },
+  {
    "model": "allenai/olmo-3.1-32b-instruct",
    "task": "asap2",
    "coef": 0.21573658865983783,
@@ -1911,6 +2327,24 @@
    "ci95": [
     -0.04013598846081255,
     0.27374127235661655
+   ]
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "asap2",
+   "coef": -0.05589703941340421,
+   "ci95": [
+    -0.2963148275467233,
+    0.19475177436488544
+   ]
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "asap2",
+   "coef": 0.10621448842537033,
+   "ci95": [
+    -0.10182204033486487,
+    0.3227942347360039
    ]
   },
   {
@@ -2037,6 +2471,24 @@
    "ci95": [
     -0.09691731028056791,
     0.31845887181755006
+   ]
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "asap2",
+   "coef": 0.23178126698270476,
+   "ci95": [
+    0.01695146325484444,
+    0.4250134797052692
+   ]
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "asap2",
+   "coef": 0.22732340262493414,
+   "ci95": [
+    -0.004332230256548931,
+    0.45099230905046844
    ]
   }
  ],

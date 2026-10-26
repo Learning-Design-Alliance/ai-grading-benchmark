@@ -480,6 +480,114 @@
     "correct_none_flagged": 0.965
    },
    "failed": 0
+  },
+  {
+   "grader": "deepseek/deepseek-v4.1-flash-1017",
+   "reasoning_effect": 1.8775,
+   "reasoning_ci95": [
+    1.7875,
+    1.9675
+   ],
+   "answer_effect": 0.6475,
+   "answer_ci95": [
+    0.6025,
+    0.69
+   ],
+   "mean_credit": {
+    "correct": 3.92,
+    "slip": 2.87,
+    "lucky": 1.64,
+    "wrong": 1.395
+   },
+   "lucky_accepted": 0.005,
+   "verdict": "READS THE WORKING",
+   "first_wrong_step_exact": {
+    "wrong": 0.715,
+    "lucky": 0.68,
+    "correct_none_flagged": 0.945
+   },
+   "failed": 0
+  },
+  {
+   "grader": "deepseek/deepseek-v4-pro-0813",
+   "reasoning_effect": 1.8517587939698492,
+   "reasoning_ci95": [
+    1.733502538071066,
+    1.9698492462311559
+   ],
+   "answer_effect": 0.4547738693467337,
+   "answer_ci95": [
+    0.35678391959798994,
+    0.553030303030303
+   ],
+   "mean_credit": {
+    "correct": 3.9,
+    "slip": 2.909547738693467,
+    "lucky": 1.51,
+    "wrong": 1.585
+   },
+   "lucky_accepted": 0.005,
+   "verdict": "READS THE WORKING",
+   "first_wrong_step_exact": {
+    "wrong": 0.705,
+    "lucky": 0.7135678391959799,
+    "correct_none_flagged": 0.945
+   },
+   "failed": 1
+  },
+  {
+   "grader": "z-ai/glm-5.3",
+   "reasoning_effect": 1.8618090452261307,
+   "reasoning_ci95": [
+    1.7626262626262625,
+    1.9568527918781726
+   ],
+   "answer_effect": 0.8567839195979899,
+   "answer_ci95": [
+    0.7969543147208121,
+    0.9221105527638191
+   ],
+   "mean_credit": {
+    "correct": 3.975,
+    "slip": 2.695,
+    "lucky": 1.7,
+    "wrong": 1.2613065326633166
+   },
+   "lucky_accepted": 0.02,
+   "verdict": "READS THE WORKING",
+   "first_wrong_step_exact": {
+    "wrong": 0.7070707070707071,
+    "lucky": 0.705,
+    "correct_none_flagged": 0.98
+   },
+   "failed": 1
+  },
+  {
+   "grader": "z-ai/glm-5.3-flash",
+   "reasoning_effect": 1.59,
+   "reasoning_ci95": [
+    1.5025,
+    1.6725
+   ],
+   "answer_effect": 0.92,
+   "answer_ci95": [
+    0.86,
+    0.9825
+   ],
+   "mean_credit": {
+    "correct": 3.94,
+    "slip": 2.335,
+    "lucky": 1.665,
+    "wrong": 1.43
+   },
+   "lucky_accepted": 0.005,
+   "verdict": "READS THE WORKING",
+   "first_wrong_step_exact": {
+    "wrong": 0.7,
+    "lucky": 0.695,
+    "correct_none_flagged": 0.96
+   },
+   "failed": 0
   }
  ]
 }

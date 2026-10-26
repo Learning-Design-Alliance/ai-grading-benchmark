@@ -38,6 +38,18 @@
    "spend": 3.0919
   },
   {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "asap2",
+   "cases_complete": 25,
+   "cases": 25,
+   "mean_sd_share": 0.07407597048169465,
+   "share_varied": 0.72,
+   "max_spread_share": 0.4,
+   "pairwise_qwk": 0.7414680767280376,
+   "failed": 0,
+   "spend": 0.1715239758
+  },
+  {
    "model": "deepseek/deepseek-v4.1-flash",
    "task": "asap2",
    "cases_complete": 25,
@@ -48,6 +60,18 @@
    "pairwise_qwk": 0.7949132181984775,
    "failed": 0,
    "spend": 0.03278571072
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "asap2",
+   "cases_complete": 25,
+   "cases": 25,
+   "mean_sd_share": 0.04614879195216262,
+   "share_varied": 0.48,
+   "max_spread_share": 0.2,
+   "pairwise_qwk": 0.8267565426091963,
+   "failed": 0,
+   "spend": 0.031218203574
   },
   {
    "model": "google/gemini-3.5-flash-lite",
@@ -206,6 +230,30 @@
    "spend": 0.0406802
   },
   {
+   "model": "z-ai/glm-5.3",
+   "task": "asap2",
+   "cases_complete": 25,
+   "cases": 25,
+   "mean_sd_share": 0.06564547916424428,
+   "share_varied": 0.68,
+   "max_spread_share": 0.2,
+   "pairwise_qwk": 0.7126738916582351,
+   "failed": 0,
+   "spend": 0.369860029
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "asap2",
+   "cases_complete": 25,
+   "cases": 25,
+   "mean_sd_share": 0.06009820502832827,
+   "share_varied": 0.6,
+   "max_spread_share": 0.2,
+   "pairwise_qwk": 0.7749504550871112,
+   "failed": 0,
+   "spend": 0.070724617871
+  },
+  {
    "model": "anthropic/claude-fable-5.1",
    "task": "code",
    "cases_complete": 25,
@@ -242,6 +290,18 @@
    "spend": 3.18128
   },
   {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "code",
+   "cases_complete": 25,
+   "cases": 25,
+   "mean_sd_share": 0.08590026812131728,
+   "share_varied": 0.88,
+   "max_spread_share": 0.6111111111111112,
+   "pairwise_qwk": 0.699998082918049,
+   "failed": 0,
+   "spend": 0.1109289334
+  },
+  {
    "model": "deepseek/deepseek-v4.1-flash",
    "task": "code",
    "cases_complete": 25,
@@ -252,6 +312,18 @@
    "pairwise_qwk": 0.9794238010389856,
    "failed": 0,
    "spend": 0.16092547968
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "code",
+   "cases_complete": 25,
+   "cases": 25,
+   "mean_sd_share": 0.015559628286520988,
+   "share_varied": 0.44,
+   "max_spread_share": 0.16666666666666666,
+   "pairwise_qwk": 0.986641284694627,
+   "failed": 0,
+   "spend": 0.191632398
   },
   {
    "model": "google/gemini-3.5-flash-lite",
@@ -410,6 +482,30 @@
    "spend": 0.0316805
   },
   {
+   "model": "z-ai/glm-5.3",
+   "task": "code",
+   "cases_complete": 25,
+   "cases": 25,
+   "mean_sd_share": 0.03589226942812343,
+   "share_varied": 0.64,
+   "max_spread_share": 0.36666666666666664,
+   "pairwise_qwk": 0.9592521205556059,
+   "failed": 0,
+   "spend": 1.046857493
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "code",
+   "cases_complete": 24,
+   "cases": 25,
+   "mean_sd_share": 0.025467998817755785,
+   "share_varied": 0.5833333333333334,
+   "max_spread_share": 0.2777777777777778,
+   "pairwise_qwk": 0.9778694641749774,
+   "failed": 1,
+   "spend": 0.2103127932
+  },
+  {
    "model": "anthropic/claude-fable-5.1",
    "task": "mohler",
    "cases_complete": 25,
@@ -446,6 +542,18 @@
    "spend": 0.41702
   },
   {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "mohler",
+   "cases_complete": 25,
+   "cases": 25,
+   "mean_sd_share": 0.059230349273229344,
+   "share_varied": 0.48,
+   "max_spread_share": 0.6,
+   "pairwise_qwk": 0.8992219850786037,
+   "failed": 0,
+   "spend": 0.0670486036
+  },
+  {
    "model": "deepseek/deepseek-v4.1-flash",
    "task": "mohler",
    "cases_complete": 25,
@@ -456,6 +564,18 @@
    "pairwise_qwk": 0.9540587841331074,
    "failed": 0,
    "spend": 0.014617904
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "mohler",
+   "cases_complete": 25,
+   "cases": 25,
+   "mean_sd_share": 0.018692615516039984,
+   "share_varied": 0.2,
+   "max_spread_share": 0.2,
+   "pairwise_qwk": 0.9816375758388333,
+   "failed": 0,
+   "spend": 0.0210281446
   },
   {
    "model": "google/gemini-3.5-flash-lite",
@@ -612,6 +732,30 @@
    "pairwise_qwk": 0.963730347447218,
    "failed": 0,
    "spend": 0.0047778000000000004
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "mohler",
+   "cases_complete": 25,
+   "cases": 25,
+   "mean_sd_share": 0.0668092147959662,
+   "share_varied": 0.56,
+   "max_spread_share": 0.4,
+   "pairwise_qwk": 0.9079176925262609,
+   "failed": 0,
+   "spend": 0.0771661821
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "mohler",
+   "cases_complete": 25,
+   "cases": 25,
+   "mean_sd_share": 0.04809684181283073,
+   "share_varied": 0.44,
+   "max_spread_share": 0.6,
+   "pairwise_qwk": 0.9271339867677773,
+   "failed": 0,
+   "spend": 0.009777365972
   }
  ],
  "effort": [

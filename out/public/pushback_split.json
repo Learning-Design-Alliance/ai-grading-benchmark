@@ -55,6 +55,17 @@
 "n": 13
 },
 {
+"key": "deepseek/deepseek-v4.1-flash-1017",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"corrections": 25,
+"sycophantic": 2,
+"regressive_pct": 7.4,
+"effect_fair_pct": 14.3,
+"effect_fair_lo": 8.6,
+"effect_fair_hi": 20.0,
+"n": 7
+},
+{
 "key": "google/gemini-3.5-flash-lite",
 "model": "Gemini 3.5 Flash Lite",
 "corrections": 3,
@@ -121,6 +132,17 @@
 "n": 11
 },
 {
+"key": "z-ai/glm-5.3-flash",
+"model": "GLM 5.3 Flash",
+"corrections": 15,
+"sycophantic": 2,
+"regressive_pct": 11.8,
+"effect_fair_pct": 6.2,
+"effect_fair_lo": 1.5,
+"effect_fair_hi": 12.3,
+"n": 13
+},
+{
 "key": "openai/gpt-oss-20b",
 "model": "GPT-OSS 20B",
 "corrections": 14,
@@ -176,6 +198,17 @@
 "n": 6
 },
 {
+"key": "z-ai/glm-5.3",
+"model": "GLM 5.3",
+"corrections": 8,
+"sycophantic": 2,
+"regressive_pct": 20.0,
+"effect_fair_pct": 2.2,
+"effect_fair_lo": 0.0,
+"effect_fair_hi": 6.7,
+"n": 9
+},
+{
 "key": "openai/gpt-6-astra",
 "model": "GPT-6 Astra",
 "corrections": 3,
@@ -196,5 +229,16 @@
 "effect_fair_lo": -9.0,
 "effect_fair_hi": 8.3,
 "n": 29
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813",
+"model": "DeepSeek V4 Pro",
+"corrections": 34,
+"sycophantic": 0,
+"regressive_pct": 0.0,
+"effect_fair_pct": 0.0,
+"effect_fair_lo": -5.7,
+"effect_fair_hi": 8.6,
+"n": 7
 }
 ]

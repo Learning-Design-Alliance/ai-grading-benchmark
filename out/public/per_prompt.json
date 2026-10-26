@@ -224,6 +224,118 @@
 "qwk": 0.591
 },
 {
+"key": "deepseek/deepseek-v4-pro-0813:asap2:Does the electoral college work?",
+"model": "DeepSeek V4 Pro",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:asap2:Car-free cities",
+"model": "DeepSeek V4 Pro",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.576
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "DeepSeek V4 Pro",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:asap2:Driverless cars",
+"model": "DeepSeek V4 Pro",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.554
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:asap2:The Face on Mars",
+"model": "DeepSeek V4 Pro",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.581
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:asap2:Facial action coding system",
+"model": "DeepSeek V4 Pro",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.731
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:asap2:Exploring Venus",
+"model": "DeepSeek V4 Pro",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.538
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:asap2:Does the electoral college work?",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:asap2:Car-free cities",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.167
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:asap2:Driverless cars",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.374
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:asap2:The Face on Mars",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.584
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:asap2:Facial action coding system",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.651
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:asap2:Exploring Venus",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.609
+},
+{
 "key": "deepseek/deepseek-v4.1-flash:asap2:Does the electoral college work?",
 "model": "DeepSeek V4.1 Flash",
 "task": "Essays",
@@ -1008,6 +1120,118 @@
 "qwk": 0.625
 },
 {
+"key": "z-ai/glm-5.3-flash:asap2:Does the electoral college work?",
+"model": "GLM 5.3 Flash",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "z-ai/glm-5.3-flash:asap2:Car-free cities",
+"model": "GLM 5.3 Flash",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.528
+},
+{
+"key": "z-ai/glm-5.3-flash:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "GLM 5.3 Flash",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "z-ai/glm-5.3-flash:asap2:Driverless cars",
+"model": "GLM 5.3 Flash",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 20,
+"qwk": 0.538
+},
+{
+"key": "z-ai/glm-5.3-flash:asap2:The Face on Mars",
+"model": "GLM 5.3 Flash",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.598
+},
+{
+"key": "z-ai/glm-5.3-flash:asap2:Facial action coding system",
+"model": "GLM 5.3 Flash",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.713
+},
+{
+"key": "z-ai/glm-5.3-flash:asap2:Exploring Venus",
+"model": "GLM 5.3 Flash",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.538
+},
+{
+"key": "z-ai/glm-5.3:asap2:Does the electoral college work?",
+"model": "GLM 5.3",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "z-ai/glm-5.3:asap2:Car-free cities",
+"model": "GLM 5.3",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.576
+},
+{
+"key": "z-ai/glm-5.3:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "GLM 5.3",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "z-ai/glm-5.3:asap2:Driverless cars",
+"model": "GLM 5.3",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.478
+},
+{
+"key": "z-ai/glm-5.3:asap2:The Face on Mars",
+"model": "GLM 5.3",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.424
+},
+{
+"key": "z-ai/glm-5.3:asap2:Facial action coding system",
+"model": "GLM 5.3",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.62
+},
+{
+"key": "z-ai/glm-5.3:asap2:Exploring Venus",
+"model": "GLM 5.3",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.387
+},
+{
 "key": "allenai/olmo-3.1-32b-instruct:code:Q25",
 "model": "Olmo 3.1 32B",
 "task": "Code",
@@ -1102,6 +1326,54 @@
 "item": "Q41",
 "n": 22,
 "qwk": 0.969
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:code:Q25",
+"model": "DeepSeek V4 Pro",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.458
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:code:Q31",
+"model": "DeepSeek V4 Pro",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.465
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:code:Q41",
+"model": "DeepSeek V4 Pro",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.594
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:code:Q25",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.832
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:code:Q31",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.755
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:code:Q41",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.954
 },
 {
 "key": "deepseek/deepseek-v4.1-flash:code:Q25",
@@ -1438,5 +1710,53 @@
 "item": "Q41",
 "n": 22,
 "qwk": 0.813
+},
+{
+"key": "z-ai/glm-5.3-flash:code:Q25",
+"model": "GLM 5.3 Flash",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.916
+},
+{
+"key": "z-ai/glm-5.3-flash:code:Q31",
+"model": "GLM 5.3 Flash",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.919
+},
+{
+"key": "z-ai/glm-5.3-flash:code:Q41",
+"model": "GLM 5.3 Flash",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.983
+},
+{
+"key": "z-ai/glm-5.3:code:Q25",
+"model": "GLM 5.3",
+"task": "Code",
+"item": "Q25",
+"n": 42,
+"qwk": 0.907
+},
+{
+"key": "z-ai/glm-5.3:code:Q31",
+"model": "GLM 5.3",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.941
+},
+{
+"key": "z-ai/glm-5.3:code:Q41",
+"model": "GLM 5.3",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.988
 }
 ]

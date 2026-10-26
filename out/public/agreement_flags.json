@@ -52,6 +52,32 @@
 "smd_flag": "FAIL"
 },
 {
+"key": "deepseek/deepseek-v4-pro-0813:mohler",
+"model": "DeepSeek V4 Pro",
+"task": "Short answers",
+"qwk": 0.616,
+"qwk_flag": "INDETERMINATE",
+"degradation": -0.044,
+"degradation_flag": "PASS",
+"smd": -0.358,
+"smd_lo": -0.518,
+"smd_hi": -0.22,
+"smd_flag": "FAIL"
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:mohler",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Short answers",
+"qwk": 0.63,
+"qwk_flag": "INDETERMINATE",
+"degradation": -0.057,
+"degradation_flag": "PASS",
+"smd": -0.425,
+"smd_lo": -0.577,
+"smd_hi": -0.296,
+"smd_flag": "FAIL"
+},
+{
 "key": "deepseek/deepseek-v4.1-flash:mohler",
 "model": "DeepSeek V4.1 Flash",
 "task": "Short answers",
@@ -234,6 +260,32 @@
 "smd_flag": "FAIL"
 },
 {
+"key": "z-ai/glm-5.3-flash:mohler",
+"model": "GLM 5.3 Flash",
+"task": "Short answers",
+"qwk": 0.601,
+"qwk_flag": "INDETERMINATE",
+"degradation": -0.028,
+"degradation_flag": "INDETERMINATE",
+"smd": -0.325,
+"smd_lo": -0.476,
+"smd_hi": -0.19,
+"smd_flag": "FAIL"
+},
+{
+"key": "z-ai/glm-5.3:mohler",
+"model": "GLM 5.3",
+"task": "Short answers",
+"qwk": 0.641,
+"qwk_flag": "INDETERMINATE",
+"degradation": -0.068,
+"degradation_flag": "PASS",
+"smd": -0.342,
+"smd_lo": -0.483,
+"smd_hi": -0.223,
+"smd_flag": "FAIL"
+},
+{
 "key": "allenai/olmo-3.1-32b-instruct:code",
 "model": "Olmo 3.1 32B",
 "task": "Code",
@@ -283,6 +335,32 @@
 "smd": -0.21,
 "smd_lo": -0.28,
 "smd_hi": -0.154,
+"smd_flag": "FAIL"
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:code",
+"model": "DeepSeek V4 Pro",
+"task": "Code",
+"qwk": 0.47,
+"qwk_flag": "FAIL",
+"degradation": 0.346,
+"degradation_flag": "FAIL",
+"smd": -0.652,
+"smd_lo": -0.867,
+"smd_hi": -0.466,
+"smd_flag": "FAIL"
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:code",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Code",
+"qwk": 0.794,
+"qwk_flag": "PASS",
+"degradation": 0.021,
+"degradation_flag": "PASS",
+"smd": -0.357,
+"smd_lo": -0.476,
+"smd_hi": -0.263,
 "smd_flag": "FAIL"
 },
 {
@@ -468,6 +546,32 @@
 "smd_flag": "FAIL"
 },
 {
+"key": "z-ai/glm-5.3-flash:code",
+"model": "GLM 5.3 Flash",
+"task": "Code",
+"qwk": 0.872,
+"qwk_flag": "PASS",
+"degradation": -0.057,
+"degradation_flag": "PASS",
+"smd": -0.163,
+"smd_lo": -0.238,
+"smd_hi": -0.098,
+"smd_flag": "INDETERMINATE"
+},
+{
+"key": "z-ai/glm-5.3:code",
+"model": "GLM 5.3",
+"task": "Code",
+"qwk": 0.873,
+"qwk_flag": "PASS",
+"degradation": -0.055,
+"degradation_flag": "PASS",
+"smd": -0.092,
+"smd_lo": -0.16,
+"smd_hi": -0.028,
+"smd_flag": "INDETERMINATE"
+},
+{
 "key": "allenai/olmo-3.1-32b-instruct:asap2",
 "model": "Olmo 3.1 32B",
 "task": "Essays",
@@ -517,6 +621,32 @@
 "smd": -0.023,
 "smd_lo": -0.174,
 "smd_hi": 0.136,
+"smd_flag": "INDETERMINATE"
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:asap2",
+"model": "DeepSeek V4 Pro",
+"task": "Essays",
+"qwk": 0.645,
+"qwk_flag": "INDETERMINATE",
+"degradation": 0.1,
+"degradation_flag": "INDETERMINATE",
+"smd": 0.196,
+"smd_lo": 0.031,
+"smd_hi": 0.371,
+"smd_flag": "INDETERMINATE"
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:asap2",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Essays",
+"qwk": 0.585,
+"qwk_flag": "FAIL",
+"degradation": 0.16,
+"degradation_flag": "INDETERMINATE",
+"smd": 0.194,
+"smd_lo": 0.022,
+"smd_hi": 0.377,
 "smd_flag": "INDETERMINATE"
 },
 {
@@ -699,6 +829,32 @@
 "smd": 0.483,
 "smd_lo": 0.325,
 "smd_hi": 0.65,
+"smd_flag": "FAIL"
+},
+{
+"key": "z-ai/glm-5.3-flash:asap2",
+"model": "GLM 5.3 Flash",
+"task": "Essays",
+"qwk": 0.591,
+"qwk_flag": "FAIL",
+"degradation": 0.154,
+"degradation_flag": "INDETERMINATE",
+"smd": 0.411,
+"smd_lo": 0.248,
+"smd_hi": 0.596,
+"smd_flag": "FAIL"
+},
+{
+"key": "z-ai/glm-5.3:asap2",
+"model": "GLM 5.3",
+"task": "Essays",
+"qwk": 0.503,
+"qwk_flag": "FAIL",
+"degradation": 0.242,
+"degradation_flag": "FAIL",
+"smd": 0.409,
+"smd_lo": 0.22,
+"smd_hi": 0.613,
 "smd_flag": "FAIL"
 }
 ]

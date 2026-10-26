@@ -32,6 +32,22 @@
 "hi": -0.023
 },
 {
+"key": "deepseek/deepseek-v4-pro-0813:mohler",
+"model": "DeepSeek V4 Pro",
+"task": "Short answers",
+"coef": -0.135,
+"lo": -0.27,
+"hi": 0.01
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:mohler",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Short answers",
+"coef": -0.151,
+"lo": -0.27,
+"hi": -0.026
+},
+{
 "key": "deepseek/deepseek-v4.1-flash:mohler",
 "model": "DeepSeek V4.1 Flash",
 "task": "Short answers",
@@ -144,6 +160,22 @@
 "hi": 0.008
 },
 {
+"key": "z-ai/glm-5.3-flash:mohler",
+"model": "GLM 5.3 Flash",
+"task": "Short answers",
+"coef": -0.163,
+"lo": -0.298,
+"hi": -0.019
+},
+{
+"key": "z-ai/glm-5.3:mohler",
+"model": "GLM 5.3",
+"task": "Short answers",
+"coef": -0.135,
+"lo": -0.292,
+"hi": 0.019
+},
+{
 "key": "allenai/olmo-3.1-32b-instruct:code",
 "model": "Olmo 3.1 32B",
 "task": "Code",
@@ -174,6 +206,22 @@
 "coef": -0.042,
 "lo": -0.088,
 "hi": 0.006
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:code",
+"model": "DeepSeek V4 Pro",
+"task": "Code",
+"coef": -0.059,
+"lo": -0.211,
+"hi": 0.083
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:code",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Code",
+"coef": -0.04,
+"lo": -0.112,
+"hi": 0.03
 },
 {
 "key": "deepseek/deepseek-v4.1-flash:code",
@@ -288,6 +336,22 @@
 "hi": 0.063
 },
 {
+"key": "z-ai/glm-5.3-flash:code",
+"model": "GLM 5.3 Flash",
+"task": "Code",
+"coef": -0.031,
+"lo": -0.094,
+"hi": 0.034
+},
+{
+"key": "z-ai/glm-5.3:code",
+"model": "GLM 5.3",
+"task": "Code",
+"coef": -0.012,
+"lo": -0.083,
+"hi": 0.057
+},
+{
 "key": "allenai/olmo-3.1-32b-instruct:asap2",
 "model": "Olmo 3.1 32B",
 "task": "Essays",
@@ -318,6 +382,22 @@
 "coef": 0.119,
 "lo": -0.04,
 "hi": 0.274
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813:asap2",
+"model": "DeepSeek V4 Pro",
+"task": "Essays",
+"coef": -0.056,
+"lo": -0.296,
+"hi": 0.195
+},
+{
+"key": "deepseek/deepseek-v4.1-flash-1017:asap2",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Essays",
+"coef": 0.106,
+"lo": -0.102,
+"hi": 0.323
 },
 {
 "key": "deepseek/deepseek-v4.1-flash:asap2",
@@ -430,6 +510,22 @@
 "coef": 0.106,
 "lo": -0.097,
 "hi": 0.318
+},
+{
+"key": "z-ai/glm-5.3-flash:asap2",
+"model": "GLM 5.3 Flash",
+"task": "Essays",
+"coef": 0.232,
+"lo": 0.017,
+"hi": 0.425
+},
+{
+"key": "z-ai/glm-5.3:asap2",
+"model": "GLM 5.3",
+"task": "Essays",
+"coef": 0.227,
+"lo": -0.004,
+"hi": 0.451
 },
 {
 "key": "raters:mohler",
