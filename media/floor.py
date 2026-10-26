@@ -42,6 +42,14 @@ THE CONTROL PASSES, and the audio-quality probes can be ranked at the size step 
 six graders RESPOND at -10 dB. If fewer do, the graders are not using the audio closely enough for a quality probe
 to mean anything, and the probes stay reported, not ranked.
 
+CHANGES:
+1. (2026-10-26, after step 1's first run, before any real quality-probe result was read and before any call)
+   Step 1's false-alarm rate was 10-40% for half the runs (out/simulate-run1-failed.json). A resampled world
+   keeps the run's own observed mean of (retest - base), so d = 0 is not a null world whenever that sample
+   mean differs from 0. Now each case's two gradings are swapped at random (a fair coin per case per world)
+   before the planted shift, so the null world is exchangeable and centred on 0. Re-run once; sizes and
+   verdicts unchanged. The observed base-retest mean shifts are reported beside each run, descriptively.
+
 VIDEO POSITIVE CONTROL: not in this design. It will be written after these two steps, if they support it.
 
 Usage:
@@ -100,13 +108,17 @@ def cmd_simulate(a):
                 sc.setdefault(r["id"], {})[r["probe"]] = r["score"]
         ids = [i for i, v in sc.items() if len(v) == 2]
         out = {"run": os.path.basename(d), "model": cfg["model"], "task": "speech" if "speech" in d else "video",
-               "cases": len(ids), "detection": {}}
+               "cases": len(ids), "detection": {},
+               "observed_retest_minus_base": (sum(sc[i]["retest"] - sc[i]["base"] for i in ids) / len(ids) / w) if ids else None}
         for dsz in SIZES:
             hits = 0
             for k in range(WORLDS):
                 rnd = random.Random(1000 * k + int(abs(dsz) * 100))
                 world = [rnd.choice(ids) for _ in ids]
-                diffs = [sc[i]["retest"] + dsz * w - sc[i]["base"] for i in world]
+                diffs = []
+                for i in world:  # CHANGE 1: a fair coin decides which grading plays the base
+                    b, rt = (sc[i]["base"], sc[i]["retest"]) if rnd.random() < 0.5 else (sc[i]["retest"], sc[i]["base"])
+                    diffs.append(rt + dsz * w - b)
                 iv = report._mean_iv(diffs, seed=k)
                 if iv is None:
                     continue
