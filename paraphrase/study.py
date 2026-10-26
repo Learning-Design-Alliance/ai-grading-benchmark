@@ -17,9 +17,9 @@ DESIGN.
   asked twice), read from submissions/. Same settings and zero-retention routing as the board.
 
 MEASURES per model and task (marks rounded to the scale):
-- retest flip rate: share of cases whose default mark changes when asked again (the noise floor);
+- re-ask flip rate: per case, the share of five default-prompt re-asks whose mark differs from the base (CHANGE 1);
 - paraphrase flip rate: per case, the share of the six paraphrases giving a different mark from the default base;
-- EXCESS: mean over cases of (paraphrase flip share - retest flip), 95% bootstrap interval over cases (2,000
+- EXCESS: mean over cases of (paraphrase flip share - re-ask flip share), 95% bootstrap interval over cases (2,000
   draws, seed 7). Signed: positive = rewording moves marks more than asking again;
 - QWK with the experts under each of the seven prompts; the spread (max - min);
 - mean shift of each paraphrase's marks from the default, as a share of the scale (signed).
@@ -36,7 +36,22 @@ grader = expert mean + Gaussian noise (sd 0.6 marks), rounded; retest and paraph
 (about 10 points more flips), it must be called in at least 80% (detection). If the floor fails, verdicts read
 UNMEASURED.
 
-BUDGET. $15 cap.
+CHANGES:
+1. (2026-10-26, after the floor and before any call) The floor FAILED: detection 26% (bar 80%), false positive 2.5%
+   (out/floor-run1-failed.json). One retest per case is a single 0/1 draw, too noisy a reference for a share
+   over six paraphrases. The reference is now the default prompt asked FIVE times besides the base (the board's
+   retest, and four new asks: probes retest, retest2, retest3, retest4 in a new run), and EXCESS is the mean over
+   cases of (paraphrase flip share - default re-ask flip share). The floor simulates the same five re-asks and
+   is re-run once, unchanged otherwise. Cost about doubles; the cap rises to $25.
+   RESULT: the floor FAILED again: detection 63%, false positive 2% (out/floor-change1-failed.json).
+2. (2026-10-26, after CHANGE 1's floor and before any call) The planted effect is NOT changed. Two changes to the
+   reading instead: (a) the verdict is per MODEL, pooling its three tasks (300 cases), with per-task figures
+   descriptive; (b) a mark counts as changed only when it moves by more than 5% of the scale width (any whole
+   mark on short answers and essays; more than 4.5 points on the 0-90 code scale, where nearly every re-ask
+   moves by a point or two). The floor simulates 300 cases (the 100 short-answer cases drawn three times) and is
+   re-run once. If it fails, every verdict reads UNMEASURED and the figures are reported descriptively.
+
+BUDGET. $25 cap.
 
 Usage:
     python3 paraphrase/study.py floor --cases-dir <dir>
@@ -67,7 +82,7 @@ FILES = {"mohler": "mohler.jsonl", "code": "harmogen-code.jsonl", "asap2": "asap
 SUBSET = {"mohler": "mohler-first100.jsonl", "code": "code-first100.jsonl", "asap2": "asap2-first100.jsonl"}
 MODELS = ["anthropic/claude-haiku-5.5", "z-ai/glm-5.3-flash", "openai/gpt-5-mini", "google/gemma-4-31b-it"]
 PARA = [f"p{i}" for i in range(1, 7)]
-CAP = 15.0
+CAP = 25.0
 
 
 def slug(m):
@@ -84,15 +99,15 @@ def cmd_run(a):
     for model in MODELS:
         for task in FILES:
             s = json.load(open(os.path.join(ROOT, "submissions", model.replace("/", "__"), f"{task}.json")))["settings"]
-            for p in PARA:
+            for p in PARA + ["default"]:
                 left = CAP - spent()
                 if a.go and left <= 0.5:
                     print("cap reached")
                     return
                 cmd = [sys.executable, os.path.join(ROOT, "bench.py"), "run", "--cases", os.path.join(a.subsets, SUBSET[task]),
-                       "--prompt", os.path.join(ROOT, "prompts", "paraphrase", f"{p}.txt"), "--base-url",
+                       "--prompt", os.path.join(ROOT, "prompts", "default.txt") if p == "default" else os.path.join(ROOT, "prompts", "paraphrase", f"{p}.txt"), "--base-url",
                        "https://openrouter.ai/api/v1", "--model", model, "--key-env", "OPENROUTER_API_KEY", "--n", "100",
-                       "--seed", "7", "--probes", "base", "--max-tokens", str(s.get("max_tokens") or 16384),
+                       "--seed", "7", "--probes", "retest,retest2,retest3,retest4" if p == "default" else "base", "--max-tokens", str(s.get("max_tokens") or 16384),
                        "--extra-body", json.dumps(s.get("extra_body") or {"usage": {"include": True}, "provider": {"zdr": True}}),
                        "--out", os.path.join(RUNS, f"para-{p}-{task}-{slug(model)}"), "--workers", "8",
                        "--max-usd", str(min(2.0, left))]
@@ -130,10 +145,14 @@ def cmd_floor(a):
     for d in range(200):
         r = random.Random(d)
         g = lambda sd: [rnd_mark(x + r.gauss(0, sd), lo, hi) for x in h]
-        base, retest = g(0.6), g(0.6)
+        h3 = h * 3
+        g = lambda sd: [rnd_mark(x + r.gauss(0, sd), lo, hi) for x in h3]
+        base = g(0.6)
+        reasks = [g(0.6) for _ in range(5)]
         for sd_p, kind in ((0.6, "null"), (0.9, "planted")):
             paras = [g(sd_p) for _ in PARA]
-            pc = [(int(base[i] != retest[i]), mean([int(p[i] != base[i]) for p in paras])) for i in range(len(h))]
+            pc = [(mean([int(abs(x[i] - base[i]) > 0.05 * (hi - lo)) for x in reasks]),
+                   mean([int(abs(p[i] - base[i]) > 0.05 * (hi - lo)) for p in paras])) for i in range(len(h3))]
             v = verdict(boot(pc, lambda u: mean([p - q for q, p in u]), reps=500, seed=d)) == "PROMPT-SENSITIVE"
             fp += v and kind == "null"
             det += v and kind == "planted"
@@ -145,7 +164,8 @@ def cmd_floor(a):
 
 def cmd_analyse(a):
     floor = json.load(open(os.path.join(OUT, "floor.json")))
-    res = {"design": "paraphrase/study.py docstring", "floor": floor, "rows": []}
+    res = {"design": "paraphrase/study.py docstring", "floor": floor, "rows": [], "models": {}}
+    pooled = {}
     for model in MODELS:
         for task in FILES:
             cs = {c["id"]: c for c in cases_mod.sample(cases_mod.load(os.path.join(a.cases_dir, FILES[task])), lb.N, lb.SEED)}
@@ -157,12 +177,20 @@ def cmd_analyse(a):
                 f = os.path.join(RUNS, f"para-{p}-{task}-{slug(model)}", "calls.jsonl")
                 if os.path.exists(f):
                     paras[p] = {r["id"]: r["score"] for r in map(json.loads, open(f)) if r.get("score") is not None}
-            if len(paras) < len(PARA):
+            f = os.path.join(RUNS, f"para-default-{task}-{slug(model)}", "calls.jsonl")
+            if len(paras) < len(PARA) or not os.path.exists(f):
                 continue
-            ids = [i for i in cs if (i, "base") in sc and (i, "retest") in sc and all(i in paras[p] for p in PARA)]
+            re = {}
+            for r in map(json.loads, open(f)):
+                if r.get("score") is not None:
+                    re.setdefault(r["id"], []).append(r["score"])
+            ids = [i for i in cs if (i, "base") in sc and (i, "retest") in sc and len(re.get(i, [])) == 4
+                   and all(i in paras[p] for p in PARA)]
             R = lambda x: rnd_mark(x, lo, hi)
-            pc = [(int(R(sc[(i, "retest")]) != R(sc[(i, "base")])), mean([int(R(paras[p][i]) != R(sc[(i, "base")])) for p in PARA]))
-                  for i in ids]
+            tol = 0.05 * (hi - lo)
+            ch = lambda x, i: int(abs(x - sc[(i, "base")]) > tol)
+            pc = [(mean([ch(x, i) for x in [sc[(i, "retest")]] + re[i]]), mean([ch(paras[p][i], i) for p in PARA])) for i in ids]
+            pooled.setdefault(model, []).extend(pc)
             iv = excess(pc)
 
             def q(marks):
@@ -177,15 +205,19 @@ def cmd_analyse(a):
             shifts = {p: mean([(paras[p][i] - default[i]) / (hi - lo) for i in ids]) for p in PARA}
             row = {"model": model, "task": task, "n": len(ids), "retest_flip": mean([r for r, _ in pc]),
                    "paraphrase_flip": mean([p for _, p in pc]), "excess": iv,
-                   "verdict": verdict(iv) if floor["passes"] else "UNMEASURED", "qwk": qwks,
+                   "verdict": "descriptive (CHANGE 2)", "qwk": qwks,
                    "qwk_spread": max(qwks.values()) - min(qwks.values()), "shift_share": shifts}
             res["rows"].append(row)
             print(f"{model[:26]:26s} {task:6s} retest flip {row['retest_flip']:.2f} para flip {row['paraphrase_flip']:.2f} "
                   f"excess {iv['estimate']:+.3f} [{iv['ci95'][0]:+.3f}, {iv['ci95'][1]:+.3f}] QWK {min(qwks.values()):.2f}-"
                   f"{max(qwks.values()):.2f} -> {row['verdict']}")
-    res["prompt_sensitive"] = sum(r["verdict"] == "PROMPT-SENSITIVE" for r in res["rows"])
+    for model, pc in pooled.items():
+        iv = excess(pc)
+        res["models"][model] = {"excess": iv, "verdict": verdict(iv) if floor["passes"] else "UNMEASURED"}
+        print(f"POOLED {model}: excess {iv['estimate']:+.3f} [{iv['ci95'][0]:+.3f}, {iv['ci95'][1]:+.3f}] -> {res['models'][model]['verdict']}")
+    res["prompt_sensitive"] = sum(m["verdict"] == "PROMPT-SENSITIVE" for m in res["models"].values())
     res["max_qwk_spread"] = max((r["qwk_spread"] for r in res["rows"]), default=None)
-    print(f"{res['prompt_sensitive']} of {len(res['rows'])} pairs PROMPT-SENSITIVE; largest QWK spread {res['max_qwk_spread']}")
+    print(f"{res['prompt_sensitive']} of {len(res['models'])} models PROMPT-SENSITIVE; largest QWK spread {res['max_qwk_spread']}")
     json.dump(res, open(os.path.join(OUT, "paraphrase.json"), "w"), indent=1)
 
 

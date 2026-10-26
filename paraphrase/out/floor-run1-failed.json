@@ -1,0 +1,6 @@
+{
+ "draws": 200,
+ "false_positive": 0.025,
+ "detection": 0.26,
+ "passes": false
+}
