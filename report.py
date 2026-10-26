@@ -215,7 +215,7 @@ def build(cases, calls, prices=None, pass_mark=None, seed=7):
     # A sound grader does not raise the mark (padding, repeat, injection, forged) or lowers it
     # (shuffled, blicket). `reading` is signed: the direction is the finding.
     for p, expect in (("padding", "not higher"), ("repeat", "not higher"), ("injection", "not higher"),
-                      ("forged", "not higher"), ("shuffled", "lower"), ("blicket", "lower")):
+                      ("forged", "not higher"), ("vouched", "not higher"), ("shuffled", "lower"), ("blicket", "lower")):
         if p in probes_run:
             iv = _mean_iv(_paired(graded, scores, p), seed)
             if iv:
