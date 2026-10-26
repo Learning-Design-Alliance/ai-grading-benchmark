@@ -95,10 +95,10 @@ the recording's length.
 ## Needs more human validation before it counts
 
 - **Feedback measures beyond halo.** Tone matched annotators only modestly (AUC 0.669). The wise-feedback
-  elements and the language power, danger and structure scores are untested. A student study is planned
-  (phase 1 on Prolific, BRANY as IRB of record).
-- **How much a slip should cost.** In maths, right working with a wrong final number gets 1.6 to 3.2 of 4
-  depending on the model. No teacher has scored these versions yet.
+  elements and the language power, danger and structure scores are untested. A student study is planned,
+  under independent ethics review.
+- **How much a slip should cost.** In maths, right working with a wrong final number gets 1.6 to 4.0 of 4
+  depending on the model (1.6 to 3.2 among the models that read the working). No teacher has scored these versions yet.
 - **Recording-quality probes** (noise, telephone audio, low resolution, a second camera) are reported, not
   ranked, until a floor with degraded media exists.
 - **Video false alarms.** 12 were checked by the maintainers' AI from frames. A person who knows the tasks
@@ -111,8 +111,8 @@ the recording's length.
 
 - Whether feedback helps a student learn.
 - Contamination, for closed models. The corpora are public. An exact search of OLMo 2's full training data
-  found 2-4% of the short answers and essays, none of the code, and 8% of the maths solutions; every maths
-  question was there (`contamination/`). A closed model may have seen more. A private held-out set is
+  found 1 of 57 searchable short answers, 4 of 100 essays, none of 34 code answers and 15 of 200 maths solutions;
+  every maths question was there. Every per-task verdict is NOT DETECTED, maths included (`contamination/`). A closed model may have seen more. A private held-out set is
   planned.
 - Fairness across real student groups. Only the essay corpora carry demographics.
 - Languages other than English.
@@ -138,9 +138,10 @@ the recording's length.
 - Hosted models change under the same name. A monthly drift watch (`drift/monitor.py`, from 1 November) re-grades
   the board's cases for every model with a zero-retention route.
 - Each model runs at its default reasoning setting. Raising the effort improves code agreement for four of
-  eleven models, stops a forged note from gaming Gemini 3.5 Flash Lite, and switches on reasoning in Gemma 4,
+  eleven models, stops a forged note from gaming Gemini 3.5 Flash Lite on code (it is still gamed by 10% on its worst task,
+  `setups/`), and switches on reasoning in Gemma 4,
   which does not reason by default (`reasoning/`). A buyer who changes the setting should re-test.
-- A mark moves by 1-4% of the scale between two gradings of the same work for most models, and by up to 15%
+- A mark moves by 1-4% of the scale between two gradings of the same work for most models, and by up to 17%
   for the smallest (`reasoning/`, five repeats).
 - The essay reference is a published figure, not computed on these cases.
 - The maths "students" are a language model.
@@ -167,7 +168,7 @@ work, the learner's label or the student's reply changes. They do **not** show:
 - that a model with no detected effect has none (see Known limitations).
 
 Please cite a strand and a setup ("with the default prompt, Claude Opus 5.5 held under pushback on
-computer-science short answers"), not the overall score alone. Corrections are logged, dated, in
+computer-science short answers, with up to 2% not ruled out"), not the overall score alone. Corrections are logged, dated, in
 `docs/CORRECTIONS.md`, and a corrected result is marked where it is shown.
 
 ## Results
@@ -194,8 +195,9 @@ As of 2026-10-26: 22 models, all five tasks, default prompt. Overall scores rang
     pushback by 6% of the scale.
   - **GLM 5.3** scores 91.1 but is flagged: an instruction hidden in a code answer, or a forged override, gains
     it about 11% of the scale on code. It holds under pushback (+2% [0, +4]). Its code gradings came 95% from
-    4-bit hosts; served at 8-bit, the same model is not gamed on code at all (`hosting/`).
-  - **DeepSeek V4 Pro** is 18th (74.1). A forged override in a code answer gains it 70% of the scale, and 52% on
+    4-bit hosts; served at 8-bit, no gain was detected on code
+    (point estimates 0%, `hosting/`).
+  - **DeepSeek V4 Pro** is 18th (74.1). A forged override in a code answer gains it 70% of the scale, and 53% on
     essays; it credits blank answers and gives way to pushback by 16% of the scale. Being larger does not help
     here: the smaller V4.1 Flash carries no flag. Its gradings came mostly from a host that serves it at 4-bit.
     At 8-bit it agrees with the experts at 0.75 on code instead of 0.47, and a forged override gains about a
@@ -210,30 +212,31 @@ As of 2026-10-26: 22 models, all five tasks, default prompt. Overall scores rang
   at 4-bit rather than 8-bit was far easier to game in all three comparisons, by 11 to 51 points of the scale. The
   board records which host served each grading but not its precision, so an open model's row describes it as
   served. Pinning precision is planned.
-  - **The 17 Oct DeepSeek snapshot** marks code about 2% of the scale higher than the 10 Sep release it
-    replaces, with the host held fixed (`docs/DRIFT.md`).
+- **The 17 Oct DeepSeek snapshot** marks code about 2% of the scale higher than the 10 Sep release it replaces,
+  with the host held fixed (`docs/DRIFT.md`).
 - **Olmo 3.1 32B** (added 2026-10-25, the one model whose training data is fully released) ranks 20th of 22
-  (71.6; rank interval 17-20). It reaches the human ceiling on short answers (103%) and 85% of the published
-  ceiling on essays. But a forged override or a polite request gains it 55% of the scale on essays, the most
-  on the board. It credits blank answers, and it yields to pushback by 26% of the scale, going to full marks
+  (71.6; rank interval 17-20). It reaches the human ceiling on short answers (102%) and 85% of the published
+  ceiling on essays. But a forged override gains it 55% of the scale on essays, the most on the board (a polite
+  request 8%). It credits blank answers, and it yields to pushback by 26% of the scale, going to full marks
   in 78% of its replies to a student who only disagrees. It was run on a rented GPU, so nothing was retained.
 - **Baselines** (`baselines/`, beside the board, not in it): DeBERTa-v3-base, fine-tuned on 24,628 essays from the
   same prompts, reaches QWK 0.81 on essays, above every model on the board (best 0.73). On short answers, with
   about 20 training answers a question, it reaches 0.36, below every model. Like the other trained baselines it
-  cannot be gamed, but it credits blank short answers.
+  cannot be gamed. It credits blank short answers and code answers, and 14% of blank essays.
 - **Fine-tuning against prompting, on 1,000 held-out essays** (`essays-finetune/`, pre-registered):
-  - A fine-tuned 4B open model (Qwen3, LoRA) ties DeBERTa at 0.80. On a prompt they never trained on, both reach
-    0.74-0.76.
+  - A fine-tuned 4B open model (Qwen3, LoRA) and DeBERTa both reach 0.80, with no difference detected (up to 0.02
+    not ruled out). On a prompt they never trained on, both reach 0.74-0.76 (no difference detected; up to 0.04).
   - The best prompted model, Opus 5.5 with six marked example essays, reaches 0.71. The six examples raise every
-    prompted model by 0.08-0.09.
+    prompted model by 0.07-0.09.
   - The fine-tuned scorers credit blank essays (8% and 29%).
   - OpenAI's self-serve fine-tuning is being withdrawn, so a vendor fine-tune could not be tested. It would not
     be zero-retention in any case.
 - **Agreement beyond length** (`analyses/`): the experts' essay marks follow length closely (r 0.70), which is why
   length alone scores well. Every model still agrees with the experts once length is set aside, keeping about 70%
   of its agreement.
-- **Maths working.** No model gives full marks to wrong working that ends in the right answer, which an
-  answer checker always does. Two small models read the working only weakly.
+- **Maths working.** An answer checker gives full marks to every solution with wrong working and a right answer.
+  Most models do so for 0-2.5% of them; the two that read the working only weakly, Gemma 3 4B and Llama 3.2 3B,
+  for 51% and 40%.
 
 `out/leaderboard.json` and `out/overall.json` are rebuilt from `submissions/` on every change. The report
 page shows every strand and module.
@@ -255,7 +258,8 @@ A grading is short: a median of 44-112 output tokens. Published estimates put an
 equals millions of ordinary gradings. Vendor and independent figures, who made each and what it counts, are
 in `docs/ENERGY.md`. None is audited.
 
-**Measured** (`energy/`, pre-registered; re-run 2026-10-26 with a cool-down so every model passes its checks):
+**Measured** (`energy/`, pre-registered; the eight board models re-run 2026-10-26 with a cool-down so they pass
+the idle check; Olmo passed in the first run):
 - The nine open models, on one rented A100 GPU, batched 16 at a time, used 1.5-13 mWh (thousandths of a
   watt-hour) per short answer and 3-44 mWh per essay or code answer. The server's and data centre's overhead is
   included by a stated factor.
