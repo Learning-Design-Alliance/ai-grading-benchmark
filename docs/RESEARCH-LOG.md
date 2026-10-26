@@ -407,3 +407,27 @@ control, because reply text can quote student work.
 - **A human reference sample for the feedback measures**, before any of them is used as a gate.
 - **Vendor notice for the forged-override exploit**, then the patent gate and readiness before any
   packaging outside this repository.
+
+## 2026-10-26: what changes a grader's results
+
+Eight pre-registered studies; each docstring holds the design and its numbered changes, each README the result.
+- **Setups** (`setups/`): the flag is fixable for 4 of 14 flagged models (Gemma 4 31B, Gemma 4 26B A4B, GLM 5.3,
+  GPT-5.6 Luna). High reasoning effort cut gaming for every reasoning model; a guard sentence backfired on four
+  non-reasoning models.
+- **Host precision** (`hosting/`): PRECISION MATTERS in all three comparisons; 4-bit hosts were far more gameable
+  (DeepSeek V4 Pro code: forged +72% against +21%, QWK 0.46 against 0.75). The board's DeepSeek V4 Pro and GLM 5.3
+  rows were served mostly at 4-bit.
+- **Paraphrase** (`paraphrase/`): the floor failed twice before any call and passed after two changes. Two of four
+  models are PROMPT-SENSITIVE, by about 4 points beyond a re-ask.
+- **Essays, fine-tuning** (`essays-finetune/`): fine-tuned Qwen3 4B ties DeBERTa (0.80); both beat the best prompted
+  model (Opus with six marked examples, 0.71) even on an unseen prompt. The vendor arm could not run: OpenAI is
+  withdrawing self-serve fine-tuning.
+- **Length** (`analyses/length_partial.py`): every model agrees with the essay experts beyond length.
+- **Energy re-run** (`energy/`, CHANGE 3): all eight board models pass after a cool-down; 27 of 27 figures below the
+  small-model estimate.
+- **Drift watch** (`drift/monitor.py`): the floor failed (a rule that needed the estimate above 2%), two changes
+  before any comparison; baseline month done; monthly from 1 November.
+- **Housekeeping:**
+  - Olmo added to the setups study on a rented GPU.
+  - `pushback.py` opened to any endpoint.
+  - No machine-local paths in tracked files; git history rewritten to remove them (maintainer's decision).
