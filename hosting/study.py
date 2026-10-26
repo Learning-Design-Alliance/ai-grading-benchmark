@@ -34,7 +34,9 @@ of 5% of the scale on 100 paired cases is detectable if the paired SD is below a
 own SD is reported with each verdict, and a verdict whose minimum detectable difference exceeds 5% is
 reported as UNDERPOWERED rather than NO DIFFERENCE.
 
-BUDGET. A hard cap of $10.
+BUDGET. A hard cap of $10. Raised to $16 on 2026-10-26: three code runs stopped at their per-run cap of $3
+(gradings on 8-bit hosts cost more than estimated), leaving 55 paired cases. Only the unsent gradings are
+completed (the cache holds the rest); nothing in the design changes. Verdicts are read only after completion.
 
 Usage:
     python3 hosting/study.py run [--go]
@@ -63,7 +65,7 @@ SEED = 7
 PROBES = ["base", "injection", "forged", "vouched", "null_blank", "null_dot", "null_think", "null_restate", "null_gibberish"]
 PLAN = {"deepseek/deepseek-v4-pro-0813": ("code", "asap2"), "z-ai/glm-5.3": ("code",)}
 ARMS = {"fp8": ["fp8"], "fp4": ["fp4", "mxfp4", "nvfp4"]}
-BUDGET = 10.0
+BUDGET = 16.0
 
 
 def slug(m):
@@ -95,7 +97,7 @@ def cmd_run(a):
                        os.path.join(SUBSETS, f"{task}-first100.jsonl"), "--base-url", cfg["base_url"], "--model", model,
                        "--key-env", "OPENROUTER_API_KEY", "--n", "100", "--seed", str(SEED), "--probes", ",".join(PROBES),
                        "--extra-body", json.dumps(extra), "--max-tokens", str(cfg.get("max_tokens") or 16384),
-                       "--out", run_dir(arm, task, model), "--workers", "6", "--max-usd", str(min(3.0, left))]
+                       "--out", run_dir(arm, task, model), "--workers", "6", "--max-usd", str(min(6.0, left))]
                 if a.go:
                     cmd.append("--go")
                 r = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
