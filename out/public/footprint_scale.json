@@ -1,7 +1,7 @@
 [
 {
-"key": "World data centres' electricity, 2024",
-"fact": "World data centres' electricity, 2024",
+"key": "World data centers' electricity, 2024",
+"fact": "World data centers' electricity, 2024",
 "value": "415 TWh, about 1.5% of world electricity",
 "source": "IEA, Energy and AI, 2025"
 },
@@ -20,13 +20,13 @@
 {
 "key": "Ireland, 2024",
 "fact": "Ireland, 2024",
-"value": "data centres used 22% of metered electricity (all urban homes: 18%)",
+"value": "data centers used 22% of metered electricity (all urban homes: 18%)",
 "source": "Central Statistics Office Ireland, 2025"
 },
 {
 "key": "Virginia",
 "fact": "Virginia",
-"value": "data centres about 25% of the state's electricity",
+"value": "data centers about 25% of the state's electricity",
 "source": "IEA 2025"
 },
 {
@@ -36,8 +36,8 @@
 "source": "Google environmental report 2025"
 },
 {
-"key": "One 100 MW data centre",
-"fact": "One 100 MW data centre",
+"key": "One 100 MW data center",
+"fact": "One 100 MW data center",
 "value": "electricity of about 100,000 households",
 "source": "IEA 2025"
 }

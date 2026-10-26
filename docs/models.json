@@ -1,5 +1,5 @@
 {
- "note": "What each vendor documents about the models on the board, from primary sources read 2026-10-25 (cards, licences, retention pages). A vendor's claims are shown beside the benchmark's measurements, never in place of them. 'not reported' means a keyword search of the card found no such evaluation. Sources: docs/MODELS.md. Training-data fields (tokens, sources, user data, decontamination, distillation, education data) were read from each card or technical report on 2026-10-25; 'Not stated' means the document is silent, not that the answer is no.",
+ "note": "What each vendor documents about the models on the board, from primary sources read 2026-10-25 (cards, licenses, retention pages). A vendor's claims are shown beside the benchmark's measurements, never in place of them. 'not reported' means a keyword search of the card found no such evaluation. Sources: docs/MODELS.md. Training-data fields (tokens, sources, user data, decontamination, distillation, education data) were read from each card or technical report on 2026-10-25; 'Not stated' means the document is silent, not that the answer is no.",
  "models": [
   {
    "model": "anthropic/claude-opus-5.5",
@@ -10,7 +10,7 @@
    "training_data": "described, not released",
    "card": "https://www.anthropic.com/claude-opus-5-5-system-card",
    "card_date": "2026-09-22",
-   "sycophancy_eval": "reported (behavioural audit; strongest or tied on most honesty metrics)",
+   "sycophancy_eval": "reported (behavioral audit; strongest or tied on most honesty metrics)",
    "injection_eval": "reported (11.13% attack success, coding, with probes)",
    "bias_eval": "BBQ reported",
    "education_eval": "not reported",
@@ -90,7 +90,7 @@
    "user_data": "Not stated in s2; bio safety training includes 'production' examples; opt-in or opt-out not stated",
    "decontamination": "Not stated for training data. Some bio/cyber evals described as uncontaminated in-house sets",
    "distilled_from": "Not stated",
-   "education_data": "Not stated (only under-18 safety behaviour)",
+   "education_data": "Not stated (only under-18 safety behavior)",
    "training_refs": "GPT-6 Astra system card s2 (Model Data and Training); bio and chem safety training section"
   },
   {
@@ -303,7 +303,7 @@
   {
    "model": "meta-llama/llama-3.2-3b-instruct",
    "weights": "open",
-   "licence": "Llama 3.2 Community Licence (separate licence above 700M monthly users; 'Built with Llama'; acceptable-use policy)",
+   "licence": "Llama 3.2 Community License (separate license above 700M monthly users; 'Built with Llama'; acceptable-use policy)",
    "params": "3.2B",
    "cutoff": "December 2023",
    "training_data": "described, not released",
@@ -469,7 +469,7 @@
    "training_sources": "Common Crawl and Stack Exchange named; mathematical content, code, web pages, long documents (scientific papers, technical reports), multilingual data, agentic data at mid-training; licensed and private third-party data; DeepseekBot crawl; synthetic data from own models incl. DeepSeek-V3.2 (V4 summary §2; report §4.1 p24)",
    "user_data": "Yes: V4 summary §2.4 ticks user-interaction data (text) used to train, de-identified, with opt-out",
    "decontamination": "not stated",
-   "distilled_from": "Multi-teacher on-policy distillation from in-house domain expert models (maths, coding, agent, instruction following) into one student (report §1 p5, §5.1.2 pp32-33); synthetic data from DeepSeek models incl. DeepSeek-V3.2 (summary §2.5). 0813-specific post-training not described",
+   "distilled_from": "Multi-teacher on-policy distillation from in-house domain expert models (math, coding, agent, instruction following) into one student (report §1 p5, §5.1.2 pp32-33); synthetic data from DeepSeek models incl. DeepSeek-V3.2 (summary §2.5). 0813-specific post-training not described",
    "education_data": "not stated",
    "training_refs": {
     "card": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813/raw/main/README.md (Introduction: 'official release of DeepSeek-V4-Pro, superseding the preview version'; links arXiv 2606.19348)",

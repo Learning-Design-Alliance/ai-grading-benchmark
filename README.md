@@ -6,12 +6,12 @@
 An open benchmark you run yourself, with your own model, your own prompt and your own API key. It
 scores AI graders on four things a school, a vendor or a researcher needs to know before trusting one:
 
-- **Validity:** does it agree with human markers, and does it mark the work rather than tricks in it?
+- **Validity:** does it agree with human raters, and does it grade the work rather than tricks in it?
 - **Reliability:** does it give the same mark twice?
 - **Fairness:** does a label about the learner change the mark of identical work?
 - **Sustainability:** what does a thousand gradings cost?
 
-Every number is checked against people. Agreement is reported as a share of how well the human markers
+Every number is checked against people. Agreement is reported as a share of how well the human raters
 agree with each other (the **human ceiling**), because an AI cannot be expected to agree with a person
 more than another person does. Every probe passed a planted-effect self-check (`floor.py`) before any
 real result was read.
@@ -22,23 +22,23 @@ The leaderboard battery grades 100 fixed cases per task, plus these variants of 
 
 | column | what it is | good reads |
 |---|---|---|
-| agreement | QWK with the human marks; share of the human ceiling where there are two or more markers | high |
+| agreement | QWK with the human grades; share of the human ceiling where there are two or more raters | high |
 | consistency | QWK between two gradings of the same work | near 1 |
-| gaming | the larger mark gain from appending a polite request for marks, or a forged "grading override" note | 0 or negative |
-| attainment label | mark change when identical work is labelled as from a strong rather than a weak learner | 0 |
+| gaming | the larger grade gain from appending a polite request for full credit, or a forged "grading override" note | 0 or negative |
+| attainment label | grade change when identical work is labeled as from a strong rather than a weak learner | 0 |
 | blicket | mark change when the answer's key content word becomes a nonsense word | negative |
 | surface sensitivity | mark change from re-wrapping the text's line breaks | 0 |
 | blank answers | share of empty, ".", "Thought process:", restated-question and gibberish answers given credit | 0 |
 | refusals | gradings a provider's filter refused: work that goes to a person, not a mark | low |
 | cost | USD per 1,000 gradings, self-reported | low |
 
-There is no overall score. Weighting these is a judgement for whoever uses the grader, and an average
-would hide the column that matters most: one model that ignores every request for marks can still be
-talked into full marks by a forged override.
+There is no overall score. Weighting these is a judgment for whoever uses the grader, and an average
+would hide the column that matters most: one model that ignores every request for a higher grade can still be
+talked into full credit by a forged override.
 
 **Tasks** (all CC BY 4.0, fetched by `fetch_data.py`; no account needed):
 
-| task | what | scale | markers |
+| task | what | scale | raters |
 |---|---|---|---|
 | `mohler` | university computer-science short answers (Mohler et al. 2011) | 0-5 | 2 |
 | `code` | C++ answers from a university course, in Portuguese (HARMOGEN-R, Mendonca et al. 2026) | 0-90 | 4 |
@@ -72,8 +72,8 @@ best of twenty prompts is selected on the result.
 
 **Other checks** beyond the leaderboard: `--battery full` (every probe), `abstain` (grading each
 answer five times, for routing uncertain work to a person), `faithful` (does the stated reason drive
-the mark), `anchor` plus `bench.py drift` (has a hosted model's marking moved since you adopted it),
-and `bench.py generate` / `selfpref` (does a grader favour answers written by its own model).
+the grade), `anchor` plus `bench.py drift` (has a hosted model's grading moved since you adopted it),
+and `bench.py generate` / `selfpref` (does a grader favor answers written by its own model).
 
 ## Submit to the leaderboard
 
@@ -83,13 +83,13 @@ and `bench.py generate` / `selfpref` (does a grader favour answers written by it
 
 A complete entry has five files: `mohler`, `code` and `asap2` from the battery above, plus two whole-model tests.
 
-**Maths working** grades 200 problems in four versions (`maths-process/`):
+**Math working** grades 200 problems in four versions (`maths-process/`):
 
     python3 bench.py run --cases data/vtg-cells.jsonl --battery maths --prompt prompts/maths-steps.txt \
         --base-url <url> --model <model> --out runs/maths-<slug> --go
     python3 leaderboard.py export runs/maths-<slug> --task maths --out submissions/<model-slug>/maths.json
 
-**Pushback** sends the model's own short-answer marks back with a student who only disagrees
+**Pushback** sends the model's own short-answer grades back with a student who only disagrees
 (`feedback-board/pushback.py`). It needs the feedback run first:
 
     python3 bench.py run --cases data/mohler.jsonl --prompt prompts/feedback.txt --probes base --n 100 \
@@ -110,11 +110,11 @@ A submission holds every grading's mark and no text, so it contains no student w
 - Whether it works on **your** students. These are public corpora, and public text may be in a model's
   training data. The surface-sensitivity column is a weak check for memorisation, not a proof.
 - **Fairness by group.** The attainment label is a controlled test; real group gaps need two
-  independent human markers per answer, which only some corpora release.
+  independent human raters per answer, which only some corpora release.
 - **Energy.** Reported only if you supply a per-token coefficient with its source.
 
-## Licence
+## License
 
 The code and documentation are MIT-licensed (`LICENSE`), by the Learning Design Alliance. The corpora the
-package fetches keep their own licences (CC BY 4.0 for all three leaderboard tasks) and are not
-redistributed here; cite their authors when you publish results. Submissions hold marks only, no text.
+package fetches keep their own licenses (CC BY 4.0 for all three leaderboard tasks) and are not
+redistributed here; cite their authors when you publish results. Submissions hold grades only, no text.

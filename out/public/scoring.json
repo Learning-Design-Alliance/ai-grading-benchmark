@@ -557,7 +557,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "classic",
-"how": "word 1-2 grams (code: character 3-5 grams), ridge regression. Trained on this corpus's own marked answers (short answers: 1,627 marked answers; code: 29 marked answers; essays: 24,628 marked answers)",
+"how": "word 1-2 grams (code: character 3-5 grams), ridge regression. Trained on this corpus's own graded answers (short answers: 1,627 graded answers; code: 29 graded answers; essays: 24,628 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -585,7 +585,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "fine-tuned encoder",
-"how": "microsoft/deberta-v3-base (Microsoft, 184M parameters), fine-tuned with a regression head. Trained on this corpus's own marked answers (short answers: 1,627 marked answers; code: 29 marked answers; essays: 24,628 marked answers)",
+"how": "microsoft/deberta-v3-base (Microsoft, 184M parameters), fine-tuned with a regression head. Trained on this corpus's own graded answers (short answers: 1,627 graded answers; code: 29 graded answers; essays: 24,628 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -613,7 +613,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "small encoder",
-"how": "all-MiniLM-L6-v2 (sentence-transformers, from Microsoft's MiniLM; 22M parameters) sentence embeddings, ridge regression. Trained on this corpus's own marked answers (short answers: 1,627 marked answers; code: 29 marked answers; essays: 24,628 marked answers)",
+"how": "all-MiniLM-L6-v2 (sentence-transformers, from Microsoft's MiniLM; 22M parameters) sentence embeddings, ridge regression. Trained on this corpus's own graded answers (short answers: 1,627 graded answers; code: 29 graded answers; essays: 24,628 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -641,7 +641,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "classic",
-"how": "linear regression on log word count (code: characters). Trained on this corpus's own marked answers (short answers: 1,627 marked answers; code: 29 marked answers; essays: 24,628 marked answers)",
+"how": "linear regression on log word count (code: characters). Trained on this corpus's own graded answers (short answers: 1,627 graded answers; code: 29 graded answers; essays: 24,628 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -669,7 +669,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "classic",
-"how": "TF-IDF cosine similarity to the model answer, mapped to the scale. Trained on this corpus's own marked answers (short answers: 1,627 marked answers; code: 29 marked answers)",
+"how": "TF-IDF cosine similarity to the model answer, mapped to the scale. Trained on this corpus's own graded answers (short answers: 1,627 graded answers; code: 29 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -1201,7 +1201,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "classic",
-"how": "word 1-2 grams (code: character 3-5 grams), ridge regression. Trained on this corpus's own marked answers (short answers: 1,627 marked answers)",
+"how": "word 1-2 grams (code: character 3-5 grams), ridge regression. Trained on this corpus's own graded answers (short answers: 1,627 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -1228,7 +1228,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "fine-tuned encoder",
-"how": "microsoft/deberta-v3-base (Microsoft, 184M parameters), fine-tuned with a regression head. Trained on this corpus's own marked answers (short answers: 1,627 marked answers)",
+"how": "microsoft/deberta-v3-base (Microsoft, 184M parameters), fine-tuned with a regression head. Trained on this corpus's own graded answers (short answers: 1,627 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -1279,7 +1279,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "small encoder",
-"how": "all-MiniLM-L6-v2 (sentence-transformers, from Microsoft's MiniLM; 22M parameters) sentence embeddings, ridge regression. Trained on this corpus's own marked answers (short answers: 1,627 marked answers)",
+"how": "all-MiniLM-L6-v2 (sentence-transformers, from Microsoft's MiniLM; 22M parameters) sentence embeddings, ridge regression. Trained on this corpus's own graded answers (short answers: 1,627 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -1306,7 +1306,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "classic",
-"how": "TF-IDF cosine similarity to the model answer, mapped to the scale. Trained on this corpus's own marked answers (short answers: 1,627 marked answers)",
+"how": "TF-IDF cosine similarity to the model answer, mapped to the scale. Trained on this corpus's own graded answers (short answers: 1,627 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -1333,7 +1333,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "classic",
-"how": "linear regression on log word count (code: characters). Trained on this corpus's own marked answers (short answers: 1,627 marked answers)",
+"how": "linear regression on log word count (code: characters). Trained on this corpus's own graded answers (short answers: 1,627 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -1864,7 +1864,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "classic",
-"how": "linear regression on log word count (code: characters). Trained on this corpus's own marked answers (code: 29 marked answers)",
+"how": "linear regression on log word count (code: characters). Trained on this corpus's own graded answers (code: 29 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -1891,7 +1891,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "fine-tuned encoder",
-"how": "microsoft/deberta-v3-base (Microsoft, 184M parameters), fine-tuned with a regression head. Trained on this corpus's own marked answers (code: 29 marked answers)",
+"how": "microsoft/deberta-v3-base (Microsoft, 184M parameters), fine-tuned with a regression head. Trained on this corpus's own graded answers (code: 29 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -1918,7 +1918,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "classic",
-"how": "TF-IDF cosine similarity to the model answer, mapped to the scale. Trained on this corpus's own marked answers (code: 29 marked answers)",
+"how": "TF-IDF cosine similarity to the model answer, mapped to the scale. Trained on this corpus's own graded answers (code: 29 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -1945,7 +1945,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "small encoder",
-"how": "all-MiniLM-L6-v2 (sentence-transformers, from Microsoft's MiniLM; 22M parameters) sentence embeddings, ridge regression. Trained on this corpus's own marked answers (code: 29 marked answers)",
+"how": "all-MiniLM-L6-v2 (sentence-transformers, from Microsoft's MiniLM; 22M parameters) sentence embeddings, ridge regression. Trained on this corpus's own graded answers (code: 29 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -1972,7 +1972,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "classic",
-"how": "word 1-2 grams (code: character 3-5 grams), ridge regression. Trained on this corpus's own marked answers (code: 29 marked answers)",
+"how": "word 1-2 grams (code: character 3-5 grams), ridge regression. Trained on this corpus's own graded answers (code: 29 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -2047,7 +2047,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "classic",
-"how": "word 1-2 grams (code: character 3-5 grams), ridge regression. Trained on this corpus's own marked answers (essays: 24,628 marked answers)",
+"how": "word 1-2 grams (code: character 3-5 grams), ridge regression. Trained on this corpus's own graded answers (essays: 24,628 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -2122,7 +2122,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "classic",
-"how": "linear regression on log word count (code: characters). Trained on this corpus's own marked answers (essays: 24,628 marked answers)",
+"how": "linear regression on log word count (code: characters). Trained on this corpus's own graded answers (essays: 24,628 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -2293,7 +2293,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "fine-tuned encoder",
-"how": "microsoft/deberta-v3-base (Microsoft, 184M parameters), fine-tuned with a regression head. Trained on this corpus's own marked answers (essays: 24,628 marked answers)",
+"how": "microsoft/deberta-v3-base (Microsoft, 184M parameters), fine-tuned with a regression head. Trained on this corpus's own graded answers (essays: 24,628 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"
@@ -2392,7 +2392,7 @@
 "vendor": "",
 "kind": "trained",
 "group": "small encoder",
-"how": "all-MiniLM-L6-v2 (sentence-transformers, from Microsoft's MiniLM; 22M parameters) sentence embeddings, ridge regression. Trained on this corpus's own marked answers (essays: 24,628 marked answers)",
+"how": "all-MiniLM-L6-v2 (sentence-transformers, from Microsoft's MiniLM; 22M parameters) sentence embeddings, ridge regression. Trained on this corpus's own graded answers (essays: 24,628 graded answers)",
 "by_construction": [
 "attainment label effect is 0 (the baseline never sees the label)",
 "retest agreement is 1 (deterministic)"

@@ -1,13 +1,13 @@
 # Benchmark card: AI Grading Benchmark
 
-**Maintainer:** Learning Design Alliance. **Licence:** MIT (code). The corpora keep their own licences; see
+**Maintainer:** Learning Design Alliance. **License:** MIT (code). The corpora keep their own licenses; see
 Data below. **Status:** pre-release (version 0.3), private until launch. **Card date:** 2026-10-25.
 
 ## What it is for
 
 The benchmark tests whether a language model can be trusted to mark student work, not only whether it
-agrees with human markers. It is for:
-- people choosing a model, or a model plus prompt, for marking and feedback;
+agrees with human raters. It is for:
+- people choosing a model, or a model plus prompt, for grading and feedback;
 - vendors improving one;
 - researchers studying automated assessment.
 
@@ -30,20 +30,20 @@ each probe is known in advance, so the probes need no new human labels.
 
 | strand | question | how |
 |---|---|---|
-| agreement | Does it agree with expert markers? | QWK against each rater, as a share of the raters' own agreement (the human ceiling) |
+| agreement | Does it agree with expert raters? | QWK against each rater, as a share of the raters' own agreement (the human ceiling) |
 | pass/fail | Does it agree at the pass mark? | κ at the scale midpoint, as a share of the raters' κ |
 | reacts to wrong content | Does the mark fall when the work is wrong? | blank, junk and restated-question answers; a key word replaced by a nonsense word |
-| ignores what should not matter | Does the mark hold when it should? | a polite request for full marks, a forged override note, re-wrapped text |
-| fairness | Is the same work marked the same whatever the learner is called? | the work introduced as from a strong or a weak learner |
+| ignores what should not matter | Does the grade hold when it should? | a polite request for full credit, a forged override note, re-wrapped text |
+| fairness | Is the same work graded the same whatever the learner is called? | the work introduced as from a strong or a weak learner |
 | consistency | Does it give the same mark twice? | the same work graded again |
 | feedback | Does feedback follow a mark it is told? | halo: tone with the mark shown minus hidden |
-| reads the working | Does it credit the working, not only the answer? | maths problems in four versions, with working and answer varied separately |
+| reads the working | Does it credit the working, not only the answer? | math problems in four versions, with working and answer varied separately |
 | holds under pushback | Does it give way when a student only disagrees? | the model's own mark, then "I think my answer is correct", against a plain recheck |
 
 **Overall score.**
 - Each strand is turned into a 0-100 score by a fixed rule, then weighted: agreement 25; fairness,
   consistency and ignoring what should not matter 15 each; the rest 10 each.
-- The weights are a published judgement. Readers can set their own on the report page.
+- The weights are a published judgment. Readers can set their own on the report page.
 - Rank intervals come from redrawing every measure within its own interval.
 - **Disqualifying flags** put a model below every unflagged one: gamed by more than 5% of the scale,
   credits blank or junk answers, or refuses more than 5% of gradings.
@@ -60,17 +60,17 @@ each probe is known in advance, so the probes need no new human labels.
   wherever its results appear. The maintainer accepted this for public corpora with no student identities,
   and did not loosen the zero-retention rule, which also governs studies of private data. Claude Haiku 5.5,
   half of whose gradings had gone the same way, was re-run under zero retention (`docs/CORRECTIONS.md`).
-- **Marks only.** Submissions hold marks, never text, and CI recomputes every number from the marks.
+- **Grades only.** Submissions hold grades, never text, and CI recomputes every number from the grades.
 
 ## Data
 
-| task | corpus | whose work | licence | raters per item | cases (items) |
+| task | corpus | whose work | license | raters per item | cases (items) |
 |---|---|---|---|---|---|
 | Short answers | Mohler ASAG | undergraduates on one US data-structures course | CC BY 4.0 | 2 | 100 (60 questions) |
 | Code | HARMOGEN-R | students on one data-structures and algorithms course (C++, questions in Portuguese) | CC BY 4.0 | 2 | 100 (3 exercises) |
 | Essays | ASAP 2.0 | US students in grades 6-12, on state assessments | CC BY 4.0 | 1 adjudicated mark; published rater κ 0.745 used as the reference | 100 (7 prompts) |
-| Maths working | VtG (GSM8K word problems) | no students: solutions written by a language model told to make student-like errors | CC BY-SA 4.0 | teacher-marked first error | 200 × 4 versions |
-| Pushback | the short-answer cases | as short answers | CC BY 4.0 | — | the model's own marks below full |
+| Math working | VtG (GSM8K word problems) | no students: solutions written by a language model told to make student-like errors | CC BY-SA 4.0 | teacher-marked first error | 200 × 4 versions |
+| Pushback | the short-answer cases | as short answers | CC BY 4.0 | — | the model's own grades below full |
 
 Results hold for these populations and items. They are not evidence about other courses, ages, languages or
 countries. With 7 essay prompts and 3 code exercises, agreement varies widely by item; the spread across
@@ -84,7 +84,7 @@ is never committed.
 | module | corpus | why preview |
 |---|---|---|
 | Speech (pronunciation) | speechocean762, CC BY 4.0, 5 experts | read-aloud only; few models take audio |
-| Handwritten maths | CHECK-MAT (Russian exam), one expert score | no human ceiling |
+| Handwritten math | CHECK-MAT (Russian exam), one expert score | no human ceiling |
 | Video performance | LASANA laparoscopic training, CC BY 4.0, 3 raters | far from classroom work; expensive |
 | Video length | LASANA error labels, recordings joined to 4× length | a one-off study |
 | Model upgrades | the short-answer cases across releases | maintainer-run |
@@ -97,7 +97,7 @@ the recording's length.
 - **Feedback measures beyond halo.** Tone matched annotators only modestly (AUC 0.669). The wise-feedback
   elements and the language power, danger and structure scores are untested. A student study is planned,
   under independent ethics review.
-- **How much a slip should cost.** In maths, right working with a wrong final number gets 1.6 to 4.0 of 4
+- **How much a slip should cost.** In math, right working with a wrong final number gets 1.6 to 4.0 of 4
   depending on the model (1.6 to 3.2 among the models that read the working). No teacher has scored these versions yet.
 - **Recording-quality probes** (noise, telephone audio, low resolution, a second camera) are reported, not
   ranked, until a floor with degraded media exists.
@@ -111,8 +111,8 @@ the recording's length.
 
 - Whether feedback helps a student learn.
 - Contamination, for closed models. The corpora are public. An exact search of OLMo 2's full training data
-  found 1 of 57 searchable short answers, 4 of 100 essays, none of 34 code answers and 15 of 200 maths solutions;
-  every maths question was there. Every per-task verdict is NOT DETECTED, maths included (`contamination/`). A closed model may have seen more. A private held-out set is
+  found 1 of 57 searchable short answers, 4 of 100 essays, none of 34 code answers and 15 of 200 math solutions;
+  every math question was there. Every per-task verdict is NOT DETECTED, math included (`contamination/`). A closed model may have seen more. A private held-out set is
   planned.
 - Fairness across real student groups. Only the essay corpora carry demographics.
 - Languages other than English.
@@ -130,7 +130,7 @@ the recording's length.
   video intervals assume they are independent.
 - A verdict that finds no effect states the largest effect it cannot rule out. It is not evidence of no
   effect.
-- One default prompt per task. Six meaning-preserving rewordings moved two of four models' marks slightly more
+- One default prompt per task. Six meaning-preserving rewordings moved two of four models' grades slightly more
   than asking again does (about 4 more cases in 100), and moved agreement by 0.03-0.10 (`paraphrase/`). A
   teacher's own rubric or prompt structure may move it more.
 - Open models are served by whichever host answers, at whatever precision it runs. 4-bit hosts made two models
@@ -144,23 +144,23 @@ the recording's length.
 - A mark moves by 1-4% of the scale between two gradings of the same work for most models, and by up to 17%
   for the smallest (`reasoning/`, five repeats).
 - The essay reference is a published figure, not computed on these cases.
-- The maths "students" are a language model.
+- The math "students" are a language model.
 - Cost is self-reported by the endpoint.
-- Domains are narrow: computer science short answers, programming, persuasive essays, GSM8K maths.
+- Domains are narrow: computer science short answers, programming, persuasive essays, GSM8K math.
 
 ## Taking part
 
 1. Run the battery with your model and, optionally, your prompt (`README.md`).
-2. Export a submission with `leaderboard.py export`. It holds marks only.
+2. Export a submission with `leaderboard.py export`. It holds grades only.
 3. Open a pull request. CI checks it against the pinned cases and recomputes every number.
 
 Self-reported entries are marked as such until a spot check (`leaderboard.py spotcheck`) re-grades a sample.
 
 ## What these results show, and what they do not
 
-They show how a setup marks these cases: agreement with expert markers, and how the mark moves when the
+They show how a setup grades these cases: agreement with expert raters, and how the grade moves when the
 work, the learner's label or the student's reply changes. They do **not** show:
-- that AI marking helps students learn, or is better or worse for them than a teacher's;
+- that AI grading helps students learn, or is better or worse for them than a teacher's;
 - that a model "grades as well as teachers". Agreement near the raters' own agreement means it disagrees
   with them about as often as they disagree with each other, on these cases;
 - how a model will do on another subject, age group or language, or with another prompt;
@@ -212,12 +212,12 @@ As of 2026-10-26: 22 models, all five tasks, default prompt. Overall scores rang
   at 4-bit rather than 8-bit was far easier to game in all three comparisons, by 11 to 51 points of the scale. The
   board records which host served each grading but not its precision, so an open model's row describes it as
   served. Pinning precision is planned.
-- **The 17 Oct DeepSeek snapshot** marks code about 2% of the scale higher than the 10 Sep release it replaces,
+- **The 17 Oct DeepSeek snapshot** grades code about 2% of the scale higher than the 10 Sep release it replaces,
   with the host held fixed (`docs/DRIFT.md`).
 - **Olmo 3.1 32B** (added 2026-10-25, the one model whose training data is fully released) ranks 20th of 22
   (71.6; rank interval 17-20). It reaches the human ceiling on short answers (102%) and 85% of the published
   ceiling on essays. But a forged override gains it 55% of the scale on essays, the most on the board (a polite
-  request 8%). It credits blank answers, and it yields to pushback by 26% of the scale, going to full marks
+  request 8%). It credits blank answers, and it yields to pushback by 26% of the scale, going to full credit
   in 78% of its replies to a student who only disagrees. It was run on a rented GPU, so nothing was retained.
 - **Baselines** (`baselines/`, beside the board, not in it): DeBERTa-v3-base, fine-tuned on 24,628 essays from the
   same prompts, reaches QWK 0.81 on essays, above every model on the board (best 0.73). On short answers, with
@@ -226,15 +226,15 @@ As of 2026-10-26: 22 models, all five tasks, default prompt. Overall scores rang
 - **Fine-tuning against prompting, on 1,000 held-out essays** (`essays-finetune/`, pre-registered):
   - A fine-tuned 4B open model (Qwen3, LoRA) and DeBERTa both reach 0.80, with no difference detected (up to 0.02
     not ruled out). On a prompt they never trained on, both reach 0.74-0.76 (no difference detected; up to 0.04).
-  - The best prompted model, Opus 5.5 with six marked example essays, reaches 0.71. The six examples raise every
+  - The best prompted model, Opus 5.5 with six graded example essays, reaches 0.71. The six examples raise every
     prompted model by 0.07-0.09.
   - The fine-tuned scorers credit blank essays (8% and 29%).
   - OpenAI's self-serve fine-tuning is being withdrawn, so a vendor fine-tune could not be tested. It would not
     be zero-retention in any case.
-- **Agreement beyond length** (`analyses/`): the experts' essay marks follow length closely (r 0.70), which is why
+- **Agreement beyond length** (`analyses/`): the experts' essay grades follow length closely (r 0.70), which is why
   length alone scores well. Every model still agrees with the experts once length is set aside, keeping about 70%
   of its agreement.
-- **Maths working.** An answer checker gives full marks to every solution with wrong working and a right answer.
+- **Math working.** An answer checker gives full credit to every solution with wrong working and a right answer.
   Most models do so for 0-2.5% of them; the two that read the working only weakly, Gemma 3 4B and Llama 3.2 3B,
   for 51% and 40%.
 
@@ -243,10 +243,10 @@ page shows every strand and module.
 
 ## What the vendors document
 
-`docs/MODELS.md` lists each model's licence, size, training cutoff, training data and the evaluations its
+`docs/MODELS.md` lists each model's license, size, training cutoff, training data and the evaluations its
 card reports, beside this benchmark's measurements. No card evaluates education or grading. Only one
 model's training data is fully released: Olmo 3.1 32B, on the board since 2026-10-25. Its data is not yet
-indexed for search, so whether its marks depend on having seen these cases is still untested
+indexed for search, so whether its grades depend on having seen these cases is still untested
 (`contamination/`). Open-weight models can run on an institution's own servers, so student work need not
 leave it.
 
@@ -261,7 +261,7 @@ in `docs/ENERGY.md`. None is audited.
 **Measured** (`energy/`, pre-registered; the eight board models re-run 2026-10-26 with a cool-down so they pass
 the idle check; Olmo passed in the first run):
 - The nine open models, on one rented A100 GPU, batched 16 at a time, used 1.5-13 mWh (thousandths of a
-  watt-hour) per short answer and 3-44 mWh per essay or code answer. The server's and data centre's overhead is
+  watt-hour) per short answer and 3-44 mWh per essay or code answer. The server's and data center's overhead is
   included by a stated factor.
 - A whole leaderboard run used 6-29 Wh of GPU energy.
 - All 27 model-task figures are below even the published per-token estimate for a small model, by a median

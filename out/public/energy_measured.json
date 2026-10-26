@@ -31,7 +31,7 @@
 },
 "one_at_a_time_mwh": 15.32,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -66,7 +66,7 @@
 },
 "one_at_a_time_mwh": 40.35,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -101,7 +101,7 @@
 },
 "one_at_a_time_mwh": null,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -136,7 +136,7 @@
 },
 "one_at_a_time_mwh": 80.66,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -171,7 +171,7 @@
 },
 "one_at_a_time_mwh": 114.12,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -206,7 +206,7 @@
 },
 "one_at_a_time_mwh": null,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -241,7 +241,7 @@
 },
 "one_at_a_time_mwh": 14.39,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -276,7 +276,7 @@
 },
 "one_at_a_time_mwh": 23.78,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -311,7 +311,7 @@
 },
 "one_at_a_time_mwh": null,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -346,7 +346,7 @@
 },
 "one_at_a_time_mwh": 92.98,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -381,7 +381,7 @@
 },
 "one_at_a_time_mwh": 150.52,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -416,7 +416,7 @@
 },
 "one_at_a_time_mwh": null,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -451,7 +451,7 @@
 },
 "one_at_a_time_mwh": 11.08,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -486,7 +486,7 @@
 },
 "one_at_a_time_mwh": 16.25,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -521,7 +521,7 @@
 },
 "one_at_a_time_mwh": null,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -556,7 +556,7 @@
 },
 "one_at_a_time_mwh": 44.99,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -591,7 +591,7 @@
 },
 "one_at_a_time_mwh": 66.92,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -626,7 +626,7 @@
 },
 "one_at_a_time_mwh": null,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -661,7 +661,7 @@
 },
 "one_at_a_time_mwh": 18.8,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -696,7 +696,7 @@
 },
 "one_at_a_time_mwh": 24.6,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -731,7 +731,7 @@
 },
 "one_at_a_time_mwh": null,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -766,7 +766,7 @@
 },
 "one_at_a_time_mwh": 52.49,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -801,7 +801,7 @@
 },
 "one_at_a_time_mwh": 62.54,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -836,7 +836,7 @@
 },
 "one_at_a_time_mwh": null,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -871,7 +871,7 @@
 },
 "one_at_a_time_mwh": 77.24,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -906,7 +906,7 @@
 },
 "one_at_a_time_mwh": 125.95,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 },
 {
@@ -941,7 +941,7 @@
 },
 "one_at_a_time_mwh": null,
 "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
 "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud."
 }
 ]

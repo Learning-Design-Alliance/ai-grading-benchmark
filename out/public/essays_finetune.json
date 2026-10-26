@@ -33,7 +33,7 @@
 },
 {
 "key": "claude-opus-5.5 anchored",
-"arm": "Claude Opus 5.5, six marked examples",
+"arm": "Claude Opus 5.5, six graded examples",
 "qwk": 0.7080165553502913,
 "qwk_lo": 0.6648370001895872,
 "qwk_hi": 0.7465793340063858,
@@ -41,7 +41,7 @@
 },
 {
 "key": "glm-5.3-flash anchored",
-"arm": "GLM 5.3 Flash, six marked examples",
+"arm": "GLM 5.3 Flash, six graded examples",
 "qwk": 0.6543274654840119,
 "qwk_lo": 0.6164353566465706,
 "qwk_hi": 0.6897640952335296,
@@ -57,7 +57,7 @@
 },
 {
 "key": "claude-haiku-5.5 anchored",
-"arm": "Claude Haiku 5.5, six marked examples",
+"arm": "Claude Haiku 5.5, six graded examples",
 "qwk": 0.5890643893591294,
 "qwk_lo": 0.5471680078379363,
 "qwk_hi": 0.6256206892100127,

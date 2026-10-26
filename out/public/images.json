@@ -1,7 +1,7 @@
 [
 {
 "key": "Claude Haiku 5.5",
-"task": "Handwritten maths (images)",
+"task": "Handwritten math (images)",
 "model": "Claude Haiku 5.5",
 "vendor": "Anthropic",
 "n": 122,
@@ -17,7 +17,7 @@
 },
 {
 "key": "Claude Opus 5.5",
-"task": "Handwritten maths (images)",
+"task": "Handwritten math (images)",
 "model": "Claude Opus 5.5",
 "vendor": "Anthropic",
 "n": 122,
@@ -33,7 +33,7 @@
 },
 {
 "key": "Gemini 3.5 Flash Lite",
-"task": "Handwritten maths (images)",
+"task": "Handwritten math (images)",
 "model": "Gemini 3.5 Flash Lite",
 "vendor": "Google",
 "n": 122,
@@ -49,7 +49,7 @@
 },
 {
 "key": "Gemma 3 4B",
-"task": "Handwritten maths (images)",
+"task": "Handwritten math (images)",
 "model": "Gemma 3 4B",
 "vendor": "Google",
 "n": 121,
@@ -65,7 +65,7 @@
 },
 {
 "key": "Gemma 4 26B A4B",
-"task": "Handwritten maths (images)",
+"task": "Handwritten math (images)",
 "model": "Gemma 4 26B A4B",
 "vendor": "Google",
 "n": 122,
@@ -81,7 +81,7 @@
 },
 {
 "key": "Gemma 4 31B",
-"task": "Handwritten maths (images)",
+"task": "Handwritten math (images)",
 "model": "Gemma 4 31B",
 "vendor": "Google",
 "n": 122,
@@ -97,7 +97,7 @@
 },
 {
 "key": "Ministral 8B",
-"task": "Handwritten maths (images)",
+"task": "Handwritten math (images)",
 "model": "Ministral 8B",
 "vendor": "Mistral",
 "n": 122,
@@ -113,7 +113,7 @@
 },
 {
 "key": "GPT-5 Mini",
-"task": "Handwritten maths (images)",
+"task": "Handwritten math (images)",
 "model": "GPT-5 Mini",
 "vendor": "OpenAI",
 "n": 122,
@@ -129,7 +129,7 @@
 },
 {
 "key": "GPT-6 Astra",
-"task": "Handwritten maths (images)",
+"task": "Handwritten math (images)",
 "model": "GPT-6 Astra",
 "vendor": "OpenAI",
 "n": 122,

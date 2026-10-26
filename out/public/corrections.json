@@ -31,7 +31,7 @@
 "date": "2026-10-25",
 "what": "Data retention for Claude Fable 5.1 and Claude Haiku 5.5",
 "was": "every request asked for zero retention (`provider.zdr`)",
-"now": "Fable's gradings and about half of Haiku's (5,517 and 11,313 across all runs; 99% through the maintainers' own Anthropic key) went to Anthropic's endpoint under that key's 30-day safety retention. OpenRouter does not offer zero retention for that route, and Fable 5.1 requires 30-day retention. The maintainer accepted this for public corpora with no student identities, rather than loosen the organisation's zero-retention rule, which also governs studies of private data. Results are unchanged",
+"now": "Fable's gradings and about half of Haiku's (5,517 and 11,313 across all runs; 99% through the maintainers' own Anthropic key) went to Anthropic's endpoint under that key's 30-day safety retention. OpenRouter does not offer zero retention for that route, and Fable 5.1 requires 30-day retention. The maintainer accepted this for public corpora with no student identities, rather than loosen the organization's zero-retention rule, which also governs studies of private data. Results are unchanged",
 "why": "the retention of the key's route had not been recorded",
 "where": "client.py now checks OpenRouter's live zero-retention list and refuses a model with none; docs/MODELS.md records each model's retention"
 },

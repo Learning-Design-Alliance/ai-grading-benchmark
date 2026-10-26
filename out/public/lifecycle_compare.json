@@ -11,11 +11,11 @@
 "water_boundary": "water evaporated on site, used to make the electricity and to make the chips",
 "wh": 473.5,
 "gradings_energy": 1500,
-"energy_boundary": "running the model, a share of training and making the hardware, with data-centre overhead"
+"energy_boundary": "running the model, a share of training and making the hardware, with data-center overhead"
 },
 {
-"key": "driving 1 km in a petrol car (life cycle, Europe)",
-"item": "driving 1 km in a petrol car (life cycle, Europe)",
+"key": "driving 1 km in a gasoline car (life cycle, Europe)",
+"item": "driving 1 km in a gasoline car (life cycle, Europe)",
 "g_co2e": 245,
 "boundary": "vehicle manufacture, fuel production and use, per vehicle-km",
 "source": "ICCT 2021, Global LCA of passenger cars",
@@ -25,7 +25,7 @@
 "water_boundary": null,
 "wh": 632,
 "gradings_energy": 2002,
-"energy_boundary": "fuel energy, not electricity: 7.1 L per 100 km, average lower-medium petrol car in Europe, real-world (ICCT 2021, Table A.2), at 33.7 kWh per US gallon (EPA's MPGe equivalence)"
+"energy_boundary": "fuel energy, not electricity: 7.1 L per 100 km, average lower-medium gasoline car in Europe, real-world (ICCT 2021, Table A.2), at 33.7 kWh per US gallon (EPA's MPGe equivalence)"
 },
 {
 "key": "driving 1 km in a battery electric car (life cycle, Europe)",
@@ -45,7 +45,7 @@
 "key": "streaming video for 1 hour (Europe)",
 "item": "streaming video for 1 hour (Europe)",
 "g_co2e": 55,
-"boundary": "electricity only: data centres about 1%, networks 10%, home router 38%, screen 51%; excludes making the devices",
+"boundary": "electricity only: data centers about 1%, networks 10%, home router 38%, screen 51%; excludes making the devices",
 "source": "Carbon Trust 2021",
 "gradings": 421,
 "ml_water": null,
@@ -53,7 +53,7 @@
 "water_boundary": null,
 "wh": 77,
 "gradings_energy": 244,
-"energy_boundary": "electricity: data centres, networks, home router and screen"
+"energy_boundary": "electricity: data centers, networks, home router and screen"
 },
 {
 "key": "a quarter-pound (113 g) beef burger patty",

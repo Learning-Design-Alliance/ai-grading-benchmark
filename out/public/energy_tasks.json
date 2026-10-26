@@ -13,8 +13,8 @@
 "per_burger_mid": 301561
 },
 {
-"key": "maths working",
-"task": "maths working",
+"key": "math working",
+"task": "math working",
 "input_tokens": 450,
 "output_tokens": 72,
 "wh_small": 0.027,

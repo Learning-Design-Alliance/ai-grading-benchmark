@@ -46,7 +46,7 @@
   },
   {
    "figure": "0.42 Wh short query; over 29 Wh per long prompt for the heaviest models",
-   "who": "University of Rhode Island, independent (modelled)",
+   "who": "University of Rhode Island, independent (modeled)",
    "ref": "Jegham et al. 2025, arXiv 2505.09598 v6"
   },
   {
@@ -75,7 +75,7 @@
    "ref": "Kamiya 2020, IEA commentary (2019 data)"
   },
   {
-   "figure": "petrol car 170 g/km; domestic flight 246 g/pkm",
+   "figure": "gasoline car 170 g/km; domestic flight 246 g/pkm",
    "who": "UK government factors 2022",
    "ref": "Our World in Data"
   }
@@ -108,10 +108,10 @@
    "source": "median over the board's models (lb-mohler runs)"
   },
   {
-   "task": "maths working",
+   "task": "math working",
    "input_tokens": 450,
    "output_tokens": 72,
-   "source": "median, maths runs"
+   "source": "median, math runs"
   },
   {
    "task": "essay",
@@ -186,12 +186,12 @@
   "on_site_water_ml_per_wh": 1.15,
   "comparators": [
    {
-    "item": "driving 1 km in a petrol car (life cycle, Europe)",
+    "item": "driving 1 km in a gasoline car (life cycle, Europe)",
     "g_co2e": 245,
     "boundary": "vehicle manufacture, fuel production and use, per vehicle-km",
     "source": "ICCT 2021, Global LCA of passenger cars",
     "wh": 632,
-    "energy_boundary": "fuel energy, not electricity: 7.1 L per 100 km, average lower-medium petrol car in Europe, real-world (ICCT 2021, Table A.2), at 33.7 kWh per US gallon (EPA's MPGe equivalence)"
+    "energy_boundary": "fuel energy, not electricity: 7.1 L per 100 km, average lower-medium gasoline car in Europe, real-world (ICCT 2021, Table A.2), at 33.7 kWh per US gallon (EPA's MPGe equivalence)"
    },
    {
     "item": "driving 1 km in a battery electric car (life cycle, Europe)",
@@ -204,10 +204,10 @@
    {
     "item": "streaming video for 1 hour (Europe)",
     "g_co2e": 55,
-    "boundary": "electricity only: data centres about 1%, networks 10%, home router 38%, screen 51%; excludes making the devices",
+    "boundary": "electricity only: data centers about 1%, networks 10%, home router 38%, screen 51%; excludes making the devices",
     "source": "Carbon Trust 2021",
     "wh": 77,
-    "energy_boundary": "electricity: data centres, networks, home router and screen"
+    "energy_boundary": "electricity: data centers, networks, home router and screen"
    },
    {
     "item": "a quarter-pound (113 g) beef burger patty",
@@ -288,7 +288,7 @@
   ],
   "scale": [
    {
-    "fact": "World data centres' electricity, 2024",
+    "fact": "World data centers' electricity, 2024",
     "value": "415 TWh, about 1.5% of world electricity",
     "source": "IEA, Energy and AI, 2025"
    },
@@ -304,12 +304,12 @@
    },
    {
     "fact": "Ireland, 2024",
-    "value": "data centres used 22% of metered electricity (all urban homes: 18%)",
+    "value": "data centers used 22% of metered electricity (all urban homes: 18%)",
     "source": "Central Statistics Office Ireland, 2025"
    },
    {
     "fact": "Virginia",
-    "value": "data centres about 25% of the state's electricity",
+    "value": "data centers about 25% of the state's electricity",
     "source": "IEA 2025"
    },
    {
@@ -318,7 +318,7 @@
     "source": "Google environmental report 2025"
    },
    {
-    "fact": "One 100 MW data centre",
+    "fact": "One 100 MW data center",
     "value": "electricity of about 100,000 households",
     "source": "IEA 2025"
    }
@@ -327,7 +327,7 @@
  "measured": {
   "note": "Measured GPU energy per grading for open models (energy/, pre-registered), beside the per-token estimates, which stay as they are. NET = GPU energy above idle; FULL-STACK = NET x 1.72 (Elsworth et al. 2025, accelerators 58% of the total). Eight of the nine models failed the pre-registered idle check, so their verdicts are UNMEASURED and their figures descriptive; Olmo 3.1 32B, run on a second pod, passed it. Each row's verdict says which.",
   "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
-  "boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+  "boundary": "GPU only (NET), or GPU x 1.72 for node and data center (FULL-STACK)",
   "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud.",
   "serving": "vLLM v0.32.0, 16 concurrent requests",
   "overhead_factor": 1.724,

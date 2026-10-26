@@ -62,7 +62,7 @@ NAMES = {
     "z-ai/glm-5.3": ("GLM 5.3", "Zhipu AI (Z.ai)", "open weights"),
     "z-ai/glm-5.3-flash": ("GLM 5.3 Flash", "Zhipu AI (Z.ai)", "open weights"),
 }
-TASKS = {"mohler": "Short answers", "code": "Code", "asap2": "Essays", "maths": "Maths working", "pushback": "Pushback"}
+TASKS = {"mohler": "Short answers", "code": "Code", "asap2": "Essays", "maths": "Math working", "pushback": "Pushback"}
 
 
 # Runs not made under zero data retention, footnoted wherever the model's results are shown.
@@ -232,8 +232,8 @@ def _trained_label(model, n_train):
     """A trained grader's display name, group and a description with what it learned from."""
     label, group, how = TRAINED.get(model, (model, "trained", ""))
     n = {TASKS.get(t, t): v for t, v in (n_train or {}).items() if v}
-    learned = "; ".join(f"{k.lower()}: {v:,} marked answers" for k, v in n.items())
-    return label, group, how + (f". Trained on this corpus's own marked answers ({learned})" if learned else "")
+    learned = "; ".join(f"{k.lower()}: {v:,} graded answers" for k, v in n.items())
+    return label, group, how + (f". Trained on this corpus's own graded answers ({learned})" if learned else "")
 
 
 def scoring():
@@ -277,7 +277,7 @@ def scoring():
 
 
 #: What each task needs as input. Video can also be graded from 16 frames, so any model that takes images can do it.
-TASK_INPUTS = [("Short answers", "text"), ("Code", "text"), ("Essays", "text"), ("Maths working", "text"), ("Pushback", "text"),
+TASK_INPUTS = [("Short answers", "text"), ("Code", "text"), ("Essays", "text"), ("Math working", "text"), ("Pushback", "text"),
                ("Handwritten work", "image"), ("Video", "video or image"), ("Speech", "audio")]
 
 
@@ -426,7 +426,7 @@ def feedback_board():
 def images_pooled():
     """The image task's three mark scales pooled per model, weighting each scale by its number of solutions.
     Intervals are not pooled (shown per scale in out/images/); the pooled row carries point estimates only."""
-    rows = modality("image", "Handwritten maths (images)", "images")
+    rows = modality("image", "Handwritten math (images)", "images")
     by = {}
     for r in rows:
         n = json.load(open(os.path.join(HERE, "out", "images", r["key"])))["validity"]["agreement"]["n"]
@@ -436,7 +436,7 @@ def images_pooled():
         tot = sum(n for n, _ in rs)
         avg = lambda k: None if any(r[k] is None for _, r in rs) else round(sum(n * r[k] for n, r in rs) / tot, 3)
         worst = max(rs, key=lambda x: x[1]["gaming_pct"] if x[1]["gaming_pct"] is not None else -1e9)[1]
-        out.append({"key": m, "task": "Handwritten maths (images)", "model": m, "vendor": rs[0][1]["vendor"], "n": tot,
+        out.append({"key": m, "task": "Handwritten math (images)", "model": m, "vendor": rs[0][1]["vendor"], "n": tot,
                     "qwk": avg("qwk"), "retest": avg("retest"), "gaming_pct": avg("gaming_pct"),
                     "gaming_worst_scale_pct": worst["gaming_pct"], "gaming_worst_lo": worst["gaming_lo"],
                     "gaming_worst_hi": worst["gaming_hi"], "label_pct": avg("label_pct"), "offtask_pct": avg("offtask_pct"),
@@ -812,7 +812,7 @@ def lifecycle_compare():
              "ml_water": round(1500 * ml), "gradings_water": 1500,
              "water_boundary": "water evaporated on site, used to make the electricity and to make the chips",
              "wh": round(1500 * wh, 1), "gradings_energy": 1500,
-             "energy_boundary": "running the model, a share of training and making the hardware, with data-centre overhead"}]
+             "energy_boundary": "running the model, a share of training and making the hardware, with data-center overhead"}]
     for c in e["lifecycle"]["comparators"]:
         w, en, co2 = c.get("ml_water"), c.get("wh"), c.get("g_co2e")
         rows.append({"key": c["item"], "item": c["item"], "g_co2e": co2, "boundary": c.get("boundary"), "source": c["source"],
@@ -888,7 +888,7 @@ def essays_finetune():
         if arm not in label:
             m, cond = arm.rsplit(" ", 1)
             label[arm] = {"claude-haiku-5.5": "Claude Haiku 5.5", "glm-5.3-flash": "GLM 5.3 Flash",
-                          "claude-opus-5.5": "Claude Opus 5.5"}.get(m, m) + (", six marked examples" if cond == "anchored" else ", zero-shot")
+                          "claude-opus-5.5": "Claude Opus 5.5"}.get(m, m) + (", six graded examples" if cond == "anchored" else ", zero-shot")
         rows.append({"key": arm, "arm": label[arm], "qwk": v["estimate"], "qwk_lo": v["ci95"][0], "qwk_hi": v["ci95"][1], "essays": v["n"]})
     return sorted(rows, key=lambda r: -r["qwk"])
 

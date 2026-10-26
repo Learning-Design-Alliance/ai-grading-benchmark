@@ -47,7 +47,7 @@
 {
 "key": "v4_olmo-2-0325-32b-instruct_llama:maths",
 "index": "OLMo 2 32B Instruct (all training data)",
-"task": "Maths working",
+"task": "Math working",
 "eligible": 200,
 "found": 15,
 "share": 0.075,
@@ -107,7 +107,7 @@
 {
 "key": "v4_dclm-baseline_llama:maths",
 "index": "DCLM-baseline (filtered Common Crawl)",
-"task": "Maths working",
+"task": "Math working",
 "eligible": 200,
 "found": 0,
 "share": 0.0,
