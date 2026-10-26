@@ -116,19 +116,20 @@ function table(id, rows, cols, opts = {}) {
     box.innerHTML = "";
     const t = el("table"), thead = el("thead"), tr = el("tr");
     cols.forEach(c => {
-      const th = el("th", { class: typeof c.c === "string" ? c.c.split(" ").map(x => x === "name" ? "l" : x).filter(x => ["l", "t"].includes(x)).join(" ") || null : null, title: c.title, scope: "col" });
+      const th = el("th", { class: typeof c.c === "string" ? c.c.split(" ").map(x => x === "name" ? "l" : x).filter(x => ["l", "t"].includes(x)).join(" ") || null : null, scope: "col" });
       const tipText = c.title || TIPS[c.h];
-      if (c.sort !== false && opts.sortable !== false) {
-        th.append(el("button", { type: "button", onclick: () => { if (sortK === c.k) dir = -dir; else { sortK = c.k; dir = typeof c.c === "string" && /\b(l|t|name)\b/.test(c.c) ? 1 : -1; } draw(); } }, c.h));
-        th.setAttribute("aria-sort", sortK === c.k ? (dir > 0 ? "ascending" : "descending") : "none");
-      } else th.append(c.h);
+      // A heading with an explanation is a glossary term, as in the reports: dotted underline, the explanation on
+      // hover or keyboard focus in the same box the charts use (fixed, so the table's scroll box never clips it).
+      const label = tipText ? el("span", { class: "gl", tabindex: "0", "aria-label": c.h + ": " + tipText }, c.h) : c.h;
       if (tipText) {
-        const ic = el("span", { class: "info", tabindex: "0", role: "button", "aria-label": "About " + c.h + ": " + tipText }, "i");
-        const show = ev => { const r = ic.getBoundingClientRect(); showTip({ clientX: r.left, clientY: r.bottom }, `<b>${esc(c.h)}</b><br>${esc(tipText)}`); };
-        ic.addEventListener("mouseenter", show); ic.addEventListener("focus", show); ic.addEventListener("click", ev => { ev.stopPropagation(); show(ev); });
-        ic.addEventListener("mouseleave", hideTip); ic.addEventListener("blur", hideTip);
-        th.append(" ", ic);
+        const show = () => { const r = label.getBoundingClientRect(); showTip({ clientX: r.left, clientY: r.bottom }, esc(tipText)); };
+        label.addEventListener("mouseenter", show); label.addEventListener("focus", show);
+        label.addEventListener("mouseleave", hideTip); label.addEventListener("blur", hideTip);
       }
+      if (c.sort !== false && opts.sortable !== false) {
+        th.append(el("button", { type: "button", onclick: () => { if (sortK === c.k) dir = -dir; else { sortK = c.k; dir = typeof c.c === "string" && /\b(l|t|name)\b/.test(c.c) ? 1 : -1; } draw(); } }, label));
+        th.setAttribute("aria-sort", sortK === c.k ? (dir > 0 ? "ascending" : "descending") : "none");
+      } else th.append(label);
       tr.append(th);
     });
     thead.append(tr); t.append(thead);
