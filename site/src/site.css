@@ -145,6 +145,7 @@ td.name a { color: var(--ink); text-decoration: none; } td.name a:hover { color:
 td.dim, .dim { color: var(--muted); }
 td.bad { color: var(--warn); font-weight: 600; }
 td.good { color: var(--ok); }
+tr.sep td { background: var(--accent-soft); color: var(--accent); font: 500 13px/1.4 var(--text); white-space: normal; padding-top: 10px; }
 tr.baseline td { background: color-mix(in srgb, var(--accent-soft) 45%, transparent); }
 tr.baseline td.name { font-weight: 400; font-style: italic; }
 .move { font: 400 12px/1 var(--mono); }

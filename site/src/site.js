@@ -144,7 +144,12 @@ function table(id, rows, cols, opts = {}) {
       });
     }
     const tb = el("tbody");
+    let sepDone = false;
     rs.forEach(r => {
+      if (opts.pinBottom && opts.pinLabel && opts.pinBottom(r) && !sepDone) {
+        sepDone = true;
+        tb.append(el("tr", { class: "sep" }, el("td", { colspan: String(cols.length), class: "l" }, opts.pinLabel)));
+      }
       const row = el("tr", { class: opts.rowClass ? opts.rowClass(r) : null });
       cols.forEach(c => {
         const v = c.f ? c.f(r[c.k], r) : r[c.k];
@@ -386,7 +391,7 @@ function drawOverallTable() {
     ...strandCols,
     ...(per || BOARD === "beyond" ? [] : [{ k: "rank_lo", h: "Rank range", c: "dim n", f: (v, r) => v ? `${v}–${r.rank_hi}` : (r.complete ? "—" : "not run on every task") }]),
     ...(BOARD === "full" ? [{ k: "task_lo", h: "Range across tasks", c: "dim n", f: (v, r) => nul(v) ? "—" : `${f1(v)}–${f1(r.task_hi)}` }] : []),
-  ], { sort: "myRank", dir: 1, pinBottom: r => !r.complete, rowClass: r => r.kind === "trained" ? "baseline" : null });
+  ], { sort: "myRank", dir: 1, pinBottom: r => !r.complete || !!r.reference, pinLabel: BOARD === "scoring" ? "For comparison: methods trained on teachers' graded answers. They give a grade only (no feedback, explanation or reasoning) and need hundreds of graded answers for every new question, so they are not ranked." : null, rowClass: r => r.kind === "trained" ? "baseline" : null });
   const notes = {
     scoring: "Each part is scored from 0 to 100; below 60 is shown in red. A model that failed a basic safety check (a request or fake instruction raised its grade by more than 5% of the scale, or it gave credit to a blank answer) is ranked below every model that passed. Shaded rows marked ref are older automatic grading methods, shown for comparison and not ranked: they learned the teachers' grading from thousands of already-graded answers to the same questions, which an AI model never sees, and they produce only a grade. * They score 100 on \"same work, same grade\" and \"consistent\" automatically, because they are never told how strong the student is and always give the same grade. \"Rank range\": how far a model could move if each measurement were taken again; models whose ranges overlap are effectively tied.",
     beyond: "Feedback is tested on short answers only. \"Credits reasoning\" reaches full marks when the reasoning moves the grade by at least 2 points out of 4. \"Stands firm\" loses 5 points for each 1% of the scale the model gives way. The older automatic grading methods write no feedback and cannot follow reasoning, so they are not shown here.",
@@ -418,11 +423,13 @@ function drawTaskViews() {
     .concat(bases.map(b => ({ label: "Trained · " + (BNAME[b.baseline] || b.baseline), est: b.qwk, lo: b.qwk_lo, hi: b.qwk_hi, base: true,
       tip: `<b>${esc(BNAME[b.baseline] || b.baseline)}</b><br>trained on this task's ${f0(b.n_train)} marked answers, not prompted<br>QWK ${f3(b.qwk)} ${iv(b.qwk_lo, b.qwk_hi, f2)}<br>Trained on ${f0(b.n_train)} marked answers · credits blank answers ${pct1(b.blank_pct)}` })))
     .sort((a, b) => b.est - a.est);
-  intervalChart("c-agree", pts, { domain: [Math.min(0, ...pts.map(p => p.lo ?? p.est)), 1], refs: ceil ? [{ v: ceil, text: "experts with each other" }] : [], valFmt: f2, order: "Best at the top: higher agreement", aria: "Agreement with experts by model and baseline" });
+  const DIVIDER = { heading: true, label: "For comparison: methods trained on teachers' graded answers (grade only: no feedback, explanation or reasoning)" };
+  const split = arr => arr.filter(p => !p.base).concat(arr.some(p => p.base) ? [DIVIDER] : [], arr.filter(p => p.base));
+  intervalChart("c-agree", split(pts), { domain: [Math.min(0, ...pts.map(p => p.lo ?? p.est)), 1], refs: ceil ? [{ v: ceil, text: "experts with each other" }] : [], valFmt: f2, order: "Best at the top: higher agreement", aria: "Agreement with experts by model and baseline" });
   const gpts = rows.filter(r => !nul(r.gaming_pct)).map(r => ({ label: r.model, est: r.gaming_pct, lo: r.gaming_lo, hi: r.gaming_hi, kind: r.kind, href: "model-" + slug((byName[r.model] || {}).key || r.model) }))
     .concat(bases.filter(b => !nul(b.gaming_pct)).map(b => ({ label: "Trained · " + (BNAME[b.baseline] || b.baseline), est: b.gaming_pct, base: true })))
     .sort((a, b) => a.est - b.est);
-  intervalChart("c-gaming", gpts, { refs: [{ v: 0 }, { v: 5, text: "5% flag" }], zero: true, valFmt: v => f1(v) + "%", tickFmt: v => f0(v) + "%", order: "Best at the top: smallest gain", aria: "Gain from gaming, % of scale" });
+  intervalChart("c-gaming", split(gpts), { refs: [{ v: 0 }, { v: 5, text: "5% flag" }], zero: true, valFmt: v => f1(v) + "%", tickFmt: v => f0(v) + "%", order: "Best at the top: smallest gain", aria: "Gain from gaming, % of scale" });
   scatterCost(rows, ceil);
   const essays = TASK === "Essays";
   const brow = bases.map(b => ({ model: "Trained · " + (BNAME[b.baseline] || b.baseline), _base: true, kind: "baseline", share: essays ? null : b.share, published_share: essays ? b.share_published : null,
@@ -441,7 +448,7 @@ function drawTaskViews() {
     { k: "retest", h: "Same grade twice", f: f2 },
     { k: "refused", h: "Refused to grade", f: f0 },
     { k: "cost_per_1k", h: "$ / 1,000", f: money },
-  ], { sort: "qwk", rowClass: r => r._base ? "baseline" : null });
+  ], { sort: "qwk", pinBottom: r => !!r._base, pinLabel: "For comparison: methods trained on teachers' graded answers. They give a grade only: no feedback, explanation or reasoning, and they need hundreds of graded answers for every new question.", rowClass: r => r._base ? "baseline" : null });
 }
 function scatterCost(rows, ceil) {
   const box = $("#c-cost"); box.innerHTML = "";
