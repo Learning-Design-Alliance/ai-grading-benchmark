@@ -35,7 +35,9 @@ screen recordings, speech, video) works through the checklist in `docs/METHODOLO
   agreement figure. Sign every effect: say which direction it points.
 - **Every request requires zero data retention.** Credentials come from the environment, never a command
   line or a committed file.
+- **Cite where a dataset or method comes from.** Add it to `docs/SOURCES.md` (the site's Sources page is built from
+  it) and cite it in the site's text with `<cite data-ref="key"></cite>`.
 - **Never hand-edit a generated file** (`out/leaderboard.json`, `out/public/`): rebuild it.
 - Before the repository is made public: `python3 scripts/check_private.py --publish` and
-  `python3 scripts/check_citations.py docs/LITERATURE.md` must pass, working files
+  `python3 scripts/check_citations.py docs/LITERATURE.md` and `docs/SOURCES.md` must pass, working files
   are cleaned up, and the vendor-facing write-up and the results go out together.

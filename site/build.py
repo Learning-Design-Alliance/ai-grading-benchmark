@@ -13,6 +13,7 @@ import argparse
 import glob
 import json
 import os
+import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -37,6 +38,14 @@ def main():
                 "scale": scale.replace("{scale_min}", "[min]").replace("{scale_max}", "[max]")}
     data["paraphrase_prompts"] = [dict(name="Standard instructions (used for every result on this site)", **instr(os.path.join(ROOT, "prompts", "default.txt")))] + \
         [dict(name=f"Rewording {i}", **instr(os.path.join(ROOT, "prompts", "paraphrase", f"p{i}.txt"))) for i in range(1, 7)]
+    # Where the datasets and methods come from: docs/SOURCES.md, one "- [key] reference URL — used for: ..." per line.
+    data["sources"], sec = [], None
+    for line in open(os.path.join(ROOT, "docs", "SOURCES.md"), encoding="utf-8"):
+        if line.startswith("## "):
+            sec = line[3:].strip()
+        m = re.match(r"- \[(\w+)\] (.+?) (https?://\S+) — used for: (.+)", line.strip())
+        if m:
+            data["sources"].append({"key": m.group(1), "section": sec, "ref": m.group(2), "url": m.group(3), "used": m.group(4)})
     d = open(os.path.join(SRC, "monogram-path.txt")).read().strip()
     page = open(os.path.join(SRC, "index.html")).read()
     for k, v in (("{{HEAD}}", open(os.path.join(SRC, "head.html")).read().strip()),

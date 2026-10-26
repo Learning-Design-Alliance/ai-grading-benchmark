@@ -9,7 +9,8 @@ For every URL in the file:
 - arXiv: the abstract page is fetched; the cited first-author surname must be among the record's authors,
   and the cited year must be within one year of first submission (a preprint is often cited by the year of
   its final version).
-- DOI (doi.org/...): Crossref's record, checked the same way.
+- DOI (doi.org/...): Crossref's record, or DataCite's for a dataset DOI, checked the same way.
+- a GitHub repository: it must exist (`git ls-remote`; GitHub refuses scripted page requests).
 - a landing page carrying citation_author metadata (ACL Anthology, most journals): checked the same way.
 - anything else: the URL must resolve (HTTP status below 400).
 The cited names and year are read from the text before the URL, back to the previous URL, semicolon or
@@ -70,10 +71,30 @@ def arxiv(aid):
             "year": int(sub.group(2)) if sub else None, "withdrawn": withdrawn}
 
 
+def datacite(doi):
+    """Dataset DOIs (Zenodo, OPARA and most repositories) are registered with DataCite, not Crossref."""
+    st, t = get(f"https://api.datacite.org/dois/{doi}")
+    if st != 200:
+        return None
+    m = json.loads(t)["data"]["attributes"]
+    return {"title": (m.get("titles") or [{}])[0].get("title"), "authors": [c.get("name", "") for c in m.get("creators", [])],
+            "year": m.get("publicationYear"), "withdrawn": False}
+
+
+def github(url):
+    """A GitHub repository, by git rather than the web page, which refuses scripted requests."""
+    import subprocess
+    repo = re.match(r"https://github\.com/[^/]+/[^/#?]+", url)
+    if not repo:
+        return None
+    r = subprocess.run(["git", "ls-remote", repo.group(0), "HEAD"], capture_output=True, text=True, timeout=60)
+    return {"status": 200, "head": r.stdout.split()[0]} if r.returncode == 0 and r.stdout else None
+
+
 def crossref(doi):
     st, t = get(f"https://api.crossref.org/works/{doi}")
     if st != 200:
-        return None
+        return datacite(doi)
     m = json.loads(t)["message"]
     year = (m.get("issued") or {}).get("date-parts", [[None]])[0][0]
     return {"title": (m.get("title") or [None])[0], "authors": [f"{a.get('family', '')}, {a.get('given', '')}" for a in m.get("author", [])],
@@ -121,6 +142,8 @@ def main():
             kind, rec = "arxiv", arxiv(ax.group(1))
         elif dx:
             kind, rec = "doi", crossref(dx.group(1))
+        elif "github.com/" in url:
+            rec = github(url)
         else:
             st, body = get(url)
             rec = None

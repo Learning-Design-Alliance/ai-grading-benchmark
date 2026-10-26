@@ -912,7 +912,7 @@ function drawMethod() {
   const lede = $("#multi-lede");
   if (sum && lede && !lede.childElementCount) {
     const setting = unsure.filter(r => r.sets_flag), backed = unsure.filter(r => r.above_line && !r.sets_flag);
-    lede.append(`Each test of whether something moves a grade (a request for full marks, being told the student is strong or weak, a key word made nonsense, changed line breaks) gives an estimate from about 100 answers, with a range the true value is likely to fall in. Across every model on short answers, code and essays there are ${sum.tests} of these. In ${sum.flagged}, the range does not include zero, so we report that the change moved the grade. But with ${sum.tests} tests, a few will look like an effect by luck alone, the way that flipping a coin enough times will eventually give five heads in a row. A standard correction for running many tests (the Benjamini–Hochberg method, at 5%) allows for this, and ${sum.survive} of the ${sum.flagged} still stand. The ${sum.flagged - sum.survive} below might be chance. `,
+    lede.append(`Each test of whether something moves a grade (a request for full marks, being told the student is strong or weak, a key word made nonsense, changed line breaks) gives an estimate from about 100 answers, with a range the true value is likely to fall in. Across every model on short answers, code and essays there are ${sum.tests} of these. In ${sum.flagged}, the range does not include zero, so we report that the change moved the grade. But with ${sum.tests} tests, a few will look like an effect by luck alone, the way that flipping a coin enough times will eventually give five heads in a row. A standard correction for running many tests (the Benjamini–Hochberg method, at 5%`, el("cite", { "data-ref": "bh" }), `) allows for this, and ${sum.survive} of the ${sum.flagged} still stand. The ${sum.flagged - sum.survive} below might be chance. `,
       setting.length ? `${setting.map(r => r.model).join(", ")}'s warning flag rests on one of these alone, so it might be chance. ` : "No model's warning flag rests on one of these alone. ",
       backed.map(r => `${r.model}'s ${r.task.toLowerCase()} result is above the line for a flag, but its flag also rests on other tasks whose results are not in doubt. `).join(""),
       "The scores use the measured values either way.");
@@ -920,6 +920,34 @@ function drawMethod() {
   table("t-multi", unsure, [{ k: "model", h: "Model", c: "name" }, { k: "task", h: "Task", c: "l" },
     { k: "probe", h: "What the result says", c: "t", f: v => PROBE_NAMES[v] || v, title: "The change that was measured. It may be chance, whichever way it points." },
     { k: "q", h: "Chance-adjusted q", f: f3, title: "The result's significance after allowing for the many tests run. Below 0.05 we treat it as real; these are all just above, so they might be chance." }], { sortable: false });
+}
+// ------------------------------------------------------------------ sources
+// docs/SOURCES.md, embedded by build.py. A <cite data-ref="key"> in the page becomes a short author-year link to the
+// Sources page, with the full reference on hover or focus.
+const SOURCES = Object.fromEntries((D.sources || []).map(s => [s.key, s]));
+function shortCite(s) {
+  const m = s.ref.match(/^(.+?) ((?:19|20)\d\d)\./); if (!m) return s.key;
+  const names = m[1].replace(/ et al\.?$/, "").split(/, | & /);
+  const who = /et al/.test(m[1]) || names.length > 2 ? names[0] + " et al." : names.join(" and ");
+  return `${who}, ${m[2]}`;
+}
+function drawCites() {
+  document.querySelectorAll("cite[data-ref]").forEach(c => {
+    const s = SOURCES[c.dataset.ref]; if (!s || c.childElementCount) return;
+    const a = el("a", { href: "#ref-" + s.key, class: "cite", "aria-label": s.ref }, `(${shortCite(s)})`);
+    const show = () => { const r = a.getBoundingClientRect(); showTip({ clientX: r.left, clientY: r.bottom }, `${esc(s.ref)}<br><span class="dim">${esc(s.used)}</span>`); };
+    a.addEventListener("mouseenter", show); a.addEventListener("focus", show);
+    a.addEventListener("mouseleave", hideTip); a.addEventListener("blur", hideTip);
+    c.replaceChildren(a);
+  });
+}
+function drawSources() {
+  const box = $("#sources-list"); if (!box || box.childElementCount) return;
+  const secs = [...new Set((D.sources || []).map(s => s.section))];
+  secs.forEach(sec => box.append(el("div", { class: "block" }, el("h3", {}, sec),
+    el("ul", { class: "refs" }, ...(D.sources || []).filter(s => s.section === sec).map(s =>
+      el("li", { id: "ref-" + s.key }, s.ref, " ", el("a", { href: s.url, target: "_blank", rel: "noopener" }, s.url.replace(/^https?:\/\//, "")),
+        el("div", { class: "dim" }, "Used for: " + s.used)))))));
 }
 function drawCorrections() {
   table("t-corrections", D.corrections || [], [{ k: "date", h: "Date", c: "l n" }, { k: "what", h: "What changed", c: "t" }, { k: "was", h: "Was", c: "t dim" }, { k: "now", h: "Now", c: "t" }, { k: "why", h: "Why", c: "t" }], { sortable: false });
@@ -1005,6 +1033,7 @@ const METHODS = [
     bad: "Gives credit to blank essays 29% of the time, more than DeBERTa. Needs thousands of graded essays and a graphics card to train. Only tested on essays. Produces a grade only.",
     when: "Much as for DeBERTa. This study found no advantage for the larger model; a fine-tuned Gemma 4 26B is being tested next." },
 ];
+const REFS = { "encoder-ridge": ["sbert", "minilm"], "deberta-ft": ["deberta"] };
 function drawMethods() {
   const box = $("#method-cards"); box.innerHTML = "";
   const B = D.baselines || [], FT = D.essays_finetune || [];
@@ -1014,7 +1043,7 @@ function drawMethods() {
       : B.filter(b => b.baseline === m.key).map(b => ({ task: b.task, qwk: b.qwk, lo: b.qwk_lo, hi: b.qwk_hi, share: b.task === "Essays" ? b.share_published : b.share, blank: b.blank_pct, gaming: b.gaming_pct, n: b.n_train }));
     const tbl = el("div", { class: "tbl" });
     const card = el("article", { class: "mcard", id: "method-" + m.key },
-      el("h3", {}, m.name), el("p", { class: "lede" }, m.what),
+      el("h3", {}, m.name), el("p", { class: "lede" }, m.what, ...(REFS[m.key] || []).map(k => [" ", el("cite", { "data-ref": k })]).flat()),
       el("dl", { class: "facts" }, fact("How it works", m.how), fact("Good at", m.good), fact("Watch out for", m.bad), fact("When it might make sense", m.when)),
       el("h4", {}, "Measured results"), tbl);
     box.append(card);
@@ -1031,20 +1060,21 @@ function drawMethods() {
 
 // ================================================================== router
 const DRAW = { overview: drawOverview, leaderboard: drawLeaderboard, tasks: drawTasks, models: drawModels, progress: drawProgress, methods: drawMethods, robustness: drawRobustness, maths: drawMaths,
-  feedback: drawFeedback, fairness: drawFairness, media: drawMedia, settings: drawSettings, training: drawTraining, footprint: drawFootprint, method: drawMethod, corrections: drawCorrections };
+  feedback: drawFeedback, fairness: drawFairness, media: drawMedia, settings: drawSettings, training: drawTraining, footprint: drawFootprint, method: drawMethod, sources: drawSources, corrections: drawCorrections };
 const drawn = new Set();
 function route() {
   const h = (location.hash || "#overview").slice(1);
-  const view = h.startsWith("model-") ? "model" : h.startsWith("method-") ? "methods" : (DRAW[h] ? h : "overview");
+  const view = h.startsWith("model-") ? "model" : h.startsWith("method-") ? "methods" : h.startsWith("ref-") ? "sources" : (DRAW[h] ? h : "overview");
   document.querySelectorAll(".view[data-view]").forEach(v => v.hidden = v.dataset.view !== view);
   document.querySelectorAll("nav.rail a").forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + (view === "model" ? "models" : view) ? "page" : "false"));
   hideTip();
   if (view === "model") drawModel(h);
-  else if (!drawn.has(view)) { DRAW[view](); drawn.add(view); }
-  if (view === "methods" && h.startsWith("method-")) { const c = document.getElementById(h); if (c) c.scrollIntoView(); }
+  else if (!drawn.has(view)) { DRAW[view](); drawn.add(view); drawCites(); }
+  if ((view === "methods" && h.startsWith("method-")) || (view === "sources" && h.startsWith("ref-"))) { const c = document.getElementById(h); if (c) { c.scrollIntoView({ block: "center" }); c.classList.add("hit"); setTimeout(() => c.classList.remove("hit"), 1600); } }
   else if (view !== "model") scrollTo(0, 0);
   const cur = document.querySelector('nav.rail a[aria-current="page"]'); if (cur && cur.scrollIntoView && innerWidth < 900) cur.scrollIntoView({ block: "nearest", inline: "center" });
 }
+drawCites();
 addEventListener("hashchange", route);
 addEventListener("scroll", hideTip, { passive: true });
 route();

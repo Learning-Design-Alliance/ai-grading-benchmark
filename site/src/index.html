@@ -33,6 +33,7 @@
     <a href="#footprint">Energy and footprint</a>
     <div class="grp">About</div>
     <a href="#method">Method and limits</a>
+    <a href="#sources">Sources</a>
     <a href="#corrections">Corrections</a>
   </nav>
 
@@ -127,6 +128,7 @@
       <div class="eyebrow">Results</div>
       <h2>By task, beside classic automated scoring</h2>
       <p class="lede">How closely each AI model's grades match the expert teachers' grades, task by task. For comparison, the charts also show older automatic grading methods (gray diamonds). Unlike the AI models, these were trained on thousands of answers that teachers had already graded for the same questions, so they are not a like-for-like comparison; they show what is possible when such graded examples exist.</p>
+      <p class="sub">The student work: short answers from a university computer science course <cite data-ref="mohler"></cite>, students' programming exercises <cite data-ref="harmogen"></cite>, and essays by US students in grades 6 to 12 <cite data-ref="asap2"></cite>. Each was graded by experienced teachers, two per answer for the short answers and code. <b>Why math is not here:</b> this page compares the AI's grades with teachers' grades on real student work, and no public math dataset we found has that. The math solutions we use were written by an AI imitating students' mistakes, and teachers marked where each first went wrong rather than grading it. They are good for testing whether a model credits reasoning (see <a href="#maths">Math working</a>), not for measuring agreement with teachers.</p>
     </div>
     <div class="controls">
       <span class="ctl-label">Task</span>
@@ -236,7 +238,7 @@
     </div>
     <div class="block">
       <h3>Standard checks from the automated-scoring literature</h3>
-      <p class="sub">Testing organizations that use automated scoring have long applied three checks before trusting a machine's grades (Williamson, Xi and Breyer, 2012): its agreement with teachers must reach at least 0.70; it must not agree with teachers much less than teachers agree with each other (no more than 0.10 lower); and its average grade must be close to the teachers' average. No model passes all three on any task. The most common failure is grading too harshly: on short answers and code almost every model grades lower than the teachers did.</p>
+      <p class="sub">Testing organizations that use automated scoring have long applied three checks before trusting a machine's grades <cite data-ref="williamson"></cite>: its agreement with teachers must reach at least 0.70; it must not agree with teachers much less than teachers agree with each other (no more than 0.10 lower); and its average grade must be close to the teachers' average. No model passes all three on any task. The most common failure is grading too harshly: on short answers and code almost every model grades lower than the teachers did.</p>
       <div class="controls"><span class="ctl-label">Task</span><div class="seg" id="flag-tabs" role="group" aria-label="Task"></div></div>
       <div class="tbl" id="t-flags"></div>
       <p class="sub">"Unclear" means the result is too close to the line to call either way with this many answers. A negative average difference means the model grades lower than the teachers. On short answers the two teachers themselves only agree at about 0.56, so no grader could reach the 0.70 bar there.</p>
@@ -257,7 +259,7 @@
     </div>
     <div class="chart" id="c-maths"></div>
     <div class="tbl" id="t-maths"></div>
-    <p class="sub">Average credit out of 4. "Reasoning effect" is how much the grade depends on whether the reasoning is right, with the final answer held the same; a grader that only checks answers scores 0. The "students" here are an AI model told to make the kinds of mistakes students make, and teachers marked where each solution first went wrong (the VtG dataset).</p>
+    <p class="sub">Average credit out of 4. "Reasoning effect" is how much the grade depends on whether the reasoning is right, with the final answer held the same; a grader that only checks answers scores 0. The "students" here are an AI model told to make the kinds of mistakes students make, and teachers marked where each solution first went wrong (the VtG dataset <cite data-ref="vtg"></cite>, built from MathDial <cite data-ref="mathdial"></cite> and the GSM8K problems <cite data-ref="gsm8k"></cite>).</p>
   </section>
 
   <!-- ================================================================ FEEDBACK -->
@@ -270,7 +272,7 @@
 
     <div class="block">
       <h3>How the feedback measures were checked</h3>
-      <p class="sub">Every candidate measure was run on MRBench (Maurya et al., NAACL 2025): 1,655 replies from seven AI tutors and a human expert to a student's maths mistake, each labelled by trained annotators, for example whether the reply reveals the answer, whether it gives an actionable next step, and whether its tone is encouraging. The annotators agree with each other at κ 0.65 to 0.71, the ceiling for any automatic measure.</p>
+      <p class="sub">We tested six automatic measures of feedback. Four are simple word rules we wrote ourselves (for example, counting praise and criticism words for tone). Two are evaluators published by Learning Commons, a nonprofit that builds open tools for education <cite data-ref="lc"></cite>; they use an AI model (GPT-5.4) to judge the feedback. Each measure was run on MRBench <cite data-ref="mrbench"></cite>: 1,655 replies from seven AI tutors and a human expert to a student's maths mistake, each labelled by trained annotators, for example whether the reply reveals the answer, whether it gives an actionable next step, and whether its tone is encouraging. The annotators agree with each other at κ 0.65 to 0.71, the ceiling for any automatic measure.</p>
       <p class="sub">For each measure the question is whether it separates the replies the annotators labelled yes from those labelled no. That is measured by the AUC: 0.5 is a coin toss and 1.0 is perfect separation (for Learning Commons' evaluators, which answer yes or no, the equivalent balanced accuracy). Long replies tend to differ from short ones, so a measure is also compared with reply length alone: a measure no better than length is tracking length, not the quality it names. Before any label was read, the rule was set: a measure is <b>validated</b> when the lower end of its 95% interval is above 0.60 and it beats length. Only validated measures are used in the two tests below. Learning Commons designed its evaluators for feedback on students' writing in grades 6 to 12, not maths tutoring, so they are marked out of scope here: a pass shows the measure carries over; a failure would say nothing against it in its own setting.</p>
       <div class="tbl" id="t-fbchecks"></div>
     </div>
@@ -294,7 +296,7 @@
     <div class="head">
       <div class="eyebrow">How graders fail</div>
       <h2>Fairness by group</h2>
-      <p class="lede">Do the AI models grade some groups of students differently from others, when teachers gave their work the same grade? For one set of essays (ELLIPSE) each essay was graded by two teachers independently, so we can compare a model's gap with the gap between the two teachers themselves. For the other set (ASAP 2.0) each essay has one final grade, so the gap can only be compared with that grade.</p>
+      <p class="lede">Do the AI models grade some groups of students differently from others, when teachers gave their work the same grade? For one set of essays (ELLIPSE <cite data-ref="ellipse"></cite>) each essay was graded by two teachers independently, so we can compare a model's gap with the gap between the two teachers themselves. For the other set (ASAP 2.0 <cite data-ref="asap2"></cite>) each essay has one final grade, so the gap can only be compared with that grade.</p>
     </div>
     <div class="block">
       <div class="chart" id="c-fair"></div>
@@ -313,17 +315,17 @@
     <div class="note" id="media-coverage"></div>
     <div class="block" data-media="speech">
       <h3>Speech: grading a recording</h3>
-      <p class="sub">Sentences read aloud by children and adults learning English, each graded for pronunciation by five experts (the speechocean762 dataset). Background noise and phone-quality audio should not change the grade, because the experts graded the clean recording.</p>
+      <p class="sub">Sentences read aloud by children and adults learning English, each graded for pronunciation by five experts (the speechocean762 dataset <cite data-ref="speechocean"></cite>). Background noise and phone-quality audio should not change the grade, because the experts graded the clean recording.</p>
       <div class="tbl" id="t-speech"></div>
     </div>
     <div class="block" data-media="handwriting">
       <h3>Handwritten work: grading a scanned page</h3>
-      <p class="sub">122 photos of handwritten solutions to exam math problems from Russia, each with one official grade (the CHECK-MAT dataset). Because there is only one grade per solution, we cannot say how well two teachers would agree. The requests for full marks were written onto the student's page itself; some models that ignore such a request in typed text are swayed by it when it appears as handwriting.</p>
+      <p class="sub">122 photos of handwritten solutions to exam math problems from Russia, each with one official grade (the CHECK-MAT dataset <cite data-ref="checkmat"></cite>). Because there is only one grade per solution, we cannot say how well two teachers would agree. The requests for full marks were written onto the student's page itself; some models that ignore such a request in typed text are swayed by it when it appears as handwriting.</p>
       <div class="tbl" id="t-images"></div>
     </div>
     <div class="block" data-media="video">
       <h3>Video: rating a recorded performance</h3>
-      <p class="sub">100 videos of trainees practicing keyhole-surgery tasks, each rated by three experts on a skill scale from 4 to 20 (the LASANA dataset). How long a trainee took predicts the experts' rating almost as well as the experts predict each other, so a model could score well just by noticing the video's length. The column that matters is "beyond length": how well the model tracks the experts once length is taken into account. Most models also give a rating to a completely black screen.</p>
+      <p class="sub">100 videos of trainees practicing keyhole-surgery tasks, each rated by three experts on a skill scale from 4 to 20 (the LASANA dataset <cite data-ref="lasana"></cite>). How long a trainee took predicts the experts' rating almost as well as the experts predict each other, so a model could score well just by noticing the video's length. The column that matters is "beyond length": how well the model tracks the experts once length is taken into account. Most models also give a rating to a completely black screen.</p>
       <div class="tbl" id="t-video"></div>
       <p class="sub">"16 frames": models that cannot take video were sent 16 still images spread evenly through it. "Not shown" means we could not tell that model apart from a stopwatch with 100 videos. The dataset does not say which trainee made which video, so the uncertainty ranges assume each video is independent.</p>
       <h3>Does a longer video hide an error?</h3>
@@ -376,12 +378,12 @@
     </div>
     <div class="block">
       <h3>Are the student texts in open training data?</h3>
-      <p class="sub">For two AI models whose full training data is public, we searched that data for two 13-word passages from each student answer. Finding none does not clear the other models, whose training data is secret and may include more. One of the two searches (DCLM) failed our own accuracy check, so its results are not used.</p>
+      <p class="sub">For two AI models whose full training data is public, we searched that data for two 13-word passages from each student answer. Finding none does not clear the other models, whose training data is secret and may include more. The search used infini-gram <cite data-ref="infinigram"></cite>. One of the two searches (DCLM <cite data-ref="dclm"></cite>) failed our own accuracy check, so its results are not used.</p>
       <div class="tbl" id="t-contam"></div>
     </div>
     <div class="block">
       <h3>What the cards claim, beside what was measured</h3>
-      <p class="sub">What each company says its own testing found, beside what we measured. Companies test whether their models follow instructions hidden in web pages or code, but not instructions hidden inside work the model is asked to grade. Each model's training data, license and data-retention terms are on its own page. FMTI is Stanford's Foundation Model Transparency Index (December 2025), which scores how much each company discloses.</p>
+      <p class="sub">What each company says its own testing found, beside what we measured. Companies test whether their models follow instructions hidden in web pages or code, but not instructions hidden inside work the model is asked to grade. Each model's training data, license and data-retention terms are on its own page. FMTI is Stanford's Foundation Model Transparency Index <cite data-ref="fmti"></cite> (December 2025), which scores how much each company discloses.</p>
       <div class="tbl" id="t-claims"></div>
     </div>
   </section>
@@ -449,6 +451,16 @@
         <li><b>How much energy closed models use.</b> Their makers do not publish it and we cannot run them ourselves, so their figures are estimates.</li>
       </ul>
     </div>
+  </section>
+
+  <!-- ================================================================ SOURCES -->
+  <section class="view" id="v-sources" data-view="sources" hidden>
+    <div class="head">
+      <div class="eyebrow">About</div>
+      <h2>Sources</h2>
+      <p class="lede">Where the student work and the methods on this site come from. Every reference was checked against its original record (the publisher, arXiv, Crossref or DataCite). The benchmark's research report, when it is released, gives the full method and the wider research it builds on.</p>
+    </div>
+    <div id="sources-list"></div>
   </section>
 
   <!-- ================================================================ CORRECTIONS -->
