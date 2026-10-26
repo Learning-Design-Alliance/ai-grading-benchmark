@@ -278,6 +278,16 @@ CHANGES:
    stratum. Reason: the test records showed Gemma 4 31B answering audible "no" (it takes no audio) and so, as the
    prompt allows, withholding the mark; a step-2 floor that assumed every video rated would pass a measure resting
    on a few marks. The prompt, measures and verdicts are unchanged.
+3. (2026-10-26, during the run, before any group comparison was read; batch 1 graded by the two Gemma models, 69
+   records of Qwen3.8 27B) Two readings tightened at the coordinator's request:
+   - REFUSAL now counts a reply only when it lacks the structured speaker_visible field (no parseable JSON with it).
+     A phrase such as "cannot evaluate" inside an otherwise complete reply is not a refusal: the test records showed
+     such phrases in complete replies that explained a withheld mark (no audio). The REFUSE phrase list is no
+     longer used. Applied to every record, including those screened before this change.
+   - Delivery rating: none of the three models takes audio, so most marks are likely withheld (the prompt asks for
+     null when the student cannot be heard). The rating measure is reported descriptively unless the per-model
+     floor at the realised rated share (FLOOR step 2, CHANGE 2) passes; only then does it carry a verdict.
+   The can't-see measure and the controls are unchanged.
 
 Usage (every command that reads CCv2 files is run with `python3 -I`):
     python3 -I perception/study.py sample   --ann CCv2.json --dir DIR       # the draw, to DIR/sample.json
@@ -805,7 +815,7 @@ def screen(text):
             else:
                 rec["feedback"] = fb[:300]
     rec["cannot_see"] = rec["speaker_visible"] is False or any(p in low for p in CANNOT_SEE)
-    rec["refusal"] = (not rec["parsed"]) or any(p in low for p in REFUSE)
+    rec["refusal"] = not rec["parsed"]  # CHANGE 3: only a reply without the structured speaker_visible field
     return rec
 
 
@@ -990,6 +1000,9 @@ def cmd_analyse(a):
         for line in open(path, encoding="utf-8"):
             r = json.loads(line)
             recs[r["id"]] = r  # the last record per id (a failed transport, then a reply)
+        for r in recs.values():  # CHANGE 3, applied to records screened before it
+            if not r.get("error"):
+                r["refusal"] = not r.get("parsed", False)
         ctrl = [r for k, r in recs.items() if k.startswith("control:")]
         vids = [recs.get(v["video_name"]) for v in sample]
         sent = [r for r in vids if r and not r.get("error")]
