@@ -270,6 +270,7 @@ def cmd_run(a):
         "cases_sha256": file_sha256(a.cases), "n": len(cs), "seed": a.seed, "probes": probes,
         "case_ids": [c["id"] for c in cs], "video_frames": a.video_frames,
         "retention_exception": a.retention_exception, "route": a.route,
+        "key_env": a.key_env,  # the variable's name only, never its value
     }
     with open(os.path.join(a.out, "config.json"), "w") as fh:
         json.dump(config, fh, indent=1)

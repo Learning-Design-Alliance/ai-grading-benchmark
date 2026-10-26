@@ -42,6 +42,12 @@ interval still allows. The pre-registered verdict strings and thresholds are unc
 
     python3 feedback-board/pushback.py floor
     python3 feedback-board/pushback.py run --models <slug> ... --go
+
+FOR OUTSIDE SUBMITTERS (2026-10-26). Any OpenAI-compatible endpoint works. Run the feedback pass with bench.py
+(README), then point this at that run: --runs DIR (or GBENCH_RUNS) holding fbb-feedback-<slug>/, --cases (or
+MOHLER_CASES) for the Mohler file from fetch_data.py, and --key-env for the variable holding your key (by default
+the one the feedback run recorded, else OPENROUTER_API_KEY). The feedback run's settings, route and any retention
+exception are carried over unchanged, so the pushback turns are asked exactly as the feedback was.
     python3 feedback-board/pushback.py analyse --out feedback-board/out/pushback.json
 """
 import argparse
@@ -75,14 +81,21 @@ def cmd_run(a):
     import cases as cases_mod
     import prompting
     from client import OpenAICompatible
-    cs = {c["id"]: c for c in cases_mod.load(CASES)}
+    global RUNS
+    RUNS = a.runs or RUNS
+    cs = {c["id"]: c for c in cases_mod.load(a.cases or CASES)}
     for slug in a.models:
         d = run_dir(slug)
         cfg = json.load(open(os.path.join(d, "config.json")))
-        prompt = bench.load_prompt(cfg["prompt_path"])
+        pp = cfg.get("prompt_path") or ""
+        prompt = bench.load_prompt(pp if os.path.exists(pp) else os.path.join(ROOT, "prompts", cfg["prompt"]))
         calls = [json.loads(l) for l in open(os.path.join(d, "calls.jsonl"))]
-        cl = OpenAICompatible(cfg["base_url"], cfg["model"], "OPENROUTER_API_KEY", os.path.join(RUNS, f"push-{slug}", ".cache"),
-                              temperature=cfg.get("temperature"), max_tokens=cfg.get("max_tokens"), extra=cfg.get("extra_body"))
+        key_env = a.key_env or cfg.get("key_env") or "OPENROUTER_API_KEY"
+        cl = OpenAICompatible(cfg["base_url"], cfg["model"], key_env, os.path.join(RUNS, f"push-{slug}", ".cache"),
+                              temperature=cfg.get("temperature"), max_tokens=cfg.get("max_tokens"), extra=cfg.get("extra_body"),
+                              retention_exception=cfg.get("retention_exception"))
+        if key_env and not cl.key and a.go:
+            sys.exit(f"no key: set {key_env} in the environment (never on the command line)")
         jobs = []
         for r in calls:
             if r["probe"] != "base" or r.get("score") is None or r.get("text") is None or float(r["score"]) >= HI:
@@ -102,7 +115,7 @@ def cmd_run(a):
             score = prompt.parse(rec["text"], LO, HI) if rec["error"] is None else None
             return {"id": r["id"], "turn": turn, "before": float(r["score"]), "after": score, "text": rec["text"],
                     "error": rec["error"], "cost": (rec.get("usage") or {}).get("cost_reported")}
-        with ThreadPoolExecutor(6) as ex:
+        with ThreadPoolExecutor(a.workers) as ex:
             out = list(ex.map(one, jobs))
         os.makedirs(os.path.join(RUNS, f"push-{slug}"), exist_ok=True)
         write_config(slug, cfg)
@@ -115,7 +128,7 @@ def cmd_run(a):
 def write_config(slug, cfg):
     """The pushback run's config, for leaderboard.py export: the feedback run's model, settings and cases."""
     keep = ("benchmark_version", "base_url", "model", "temperature", "max_tokens", "extra_body", "prompt", "prompt_sha256",
-            "cases_sha256", "case_ids", "route")
+            "cases_sha256", "case_ids", "route", "retention_exception")
     out = {k: cfg.get(k) for k in keep}
     out["turns"] = TURNS
     out["feedback_run"] = f"fbb-feedback-{slug}"
@@ -246,6 +259,10 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("floor"); p.add_argument("--worlds", type=int, default=300)
     p = sub.add_parser("run"); p.add_argument("--models", nargs="+", required=True); p.add_argument("--go", action="store_true")
+    p.add_argument("--runs", help="folder holding fbb-feedback-<slug>/ (default GBENCH_RUNS)")
+    p.add_argument("--cases", help="the Mohler cases file (default MOHLER_CASES)")
+    p.add_argument("--key-env", help="variable holding the key (default: the feedback run's, else OPENROUTER_API_KEY)")
+    p.add_argument("--workers", type=int, default=6)
     p = sub.add_parser("analyse"); p.add_argument("--out", default=os.path.join(HERE, "out", "pushback.json"))
     p.add_argument("--merge", action="store_true", help="keep the existing output's rows and add or replace the models found in RUNS")
     a = ap.parse_args()

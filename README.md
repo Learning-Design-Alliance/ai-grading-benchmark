@@ -94,10 +94,11 @@ A complete entry has five files: `mohler`, `code` and `asap2` from the battery a
 
     python3 bench.py run --cases data/mohler.jsonl --prompt prompts/feedback.txt --probes base --n 100 \
         --base-url <url> --model <model> --out runs/fbb-feedback-<slug> --go
-    GBENCH_RUNS=runs MOHLER_CASES=data/mohler.jsonl python3 feedback-board/pushback.py run --models <slug> --go
+    python3 feedback-board/pushback.py run --models <slug> --runs runs --cases data/mohler.jsonl --key-env <YOUR_KEY_VAR> --go
     python3 leaderboard.py export runs/push-<slug> --task pushback --out submissions/<model-slug>/pushback.json
 
-Both are default-track only: the prompt and the student's turns are part of what is measured.
+Both are default-track only: the prompt and the student's turns are part of what is measured. Any
+OpenAI-compatible endpoint works; the pushback turns reuse the feedback run's endpoint, settings and route.
 
 Then open a pull request adding the file. See [`submissions/README.md`](submissions/README.md).
 A submission holds every grading's mark and no text, so it contains no student work.
