@@ -54,8 +54,30 @@ CHANGES:
 3. (2026-10-26, implementation, no change to the design) bench.py refuses a run without the base probe, so the
    default re-ask runs also grade base once; that extra grading is not used. The re-asks are the board's retest
    and the new run's retest, retest2, retest3 and retest4, as CHANGE 1 says.
+4. (2026-10-26, AFTER the first four models' results were read) Coverage only. The remaining 18 board models (the
+   `model` keys in out/overall.json, 22 in all) are added under the maintainer's decision of 2026-10-26: whether
+   rewording matters for some models and not others is the useful finding, and showing four is not fair to the
+   rest. Design, prompts, cases, measures, the floor (passed, CHANGE 2) and the verdict strings are unchanged; no
+   multiplicity correction is added (the README states how many PROMPT-SENSITIVE verdicts the floor's
+   false-positive rate would give by chance). Each model runs with its own board settings, read from
+   submissions/<owner>__<model>/<task>.json "settings" (max_tokens, extra_body) and "base_url"; every request is
+   zero-retention as on the board (client.py enforces it), with two recorded exceptions taken from the board:
+   - Claude Fable 5.1 has no zero-retention route. As on the board it runs through OpenRouter on the maintainers'
+     own Anthropic key (bring-your-own-key: 30-day safety retention; public corpora only), recorded in each run
+     with bench.py --retention-exception.
+   - Olmo 3.1 32B has no hosted zero-retention route. As on the board it runs self-hosted (vLLM on a rented GPU
+     pod, bench.py on the pod against localhost, pod and disk deleted after), recorded with bench.py --route.
+   Cost estimate: each model's board cost per base/retest grading on the same 300 cases x 1,100 gradings per
+   task (the estimator gives $1.60 and $5.06 for Haiku 5.5 and GPT-5 Mini, which cost $1.61 and $5.04 here).
+   The 18: about $274 (Claude Fable 5.1 $137, GPT-6 Astra $56, Claude Opus 5.5 $52, the other 15 about $30, Olmo's
+   GPU time about $3). Models run cheapest first, each run with its own --max-usd (1.5 x its estimate, never above
+   what is left of the cap), so no run can overrun; a model that would not fit is left and named. On this
+   estimate GPT-6 Astra and Claude Fable 5.1 do not fit and are left. Spend is now counted from cost_reported on
+   every recorded grading of the para-* runs (cached gradings carry the cost paid when they were sent; the
+   uncached-only count read the first four models' $8.38 as $3.57), plus Olmo's GPU time.
 
-BUDGET. $25 cap.
+BUDGET. $25 cap for the first four models ($8.38 spent). CHANGE 4: $120 for the 18 added models, so the study's
+cap is $128.38.
 
 Usage:
     python3 paraphrase/study.py floor --cases-dir <dir>
