@@ -36,6 +36,28 @@ on the human mark plus log length. The raters' own reference is +0.05 on short a
 - **Short answers.** Most models mark longer answers down, beyond the raters: Haiku −0.19, Fable −0.18,
   Opus −0.15.
 
+## Agreement beyond length (`length_partial.py`, output `../out/length_partial.json`)
+
+Pre-registered 2026-10-26. Why does length alone agree with the essay experts better than 16 of 22 models? This
+sets length aside: the PARTIAL correlation of each model's mark with the experts' mean, with log(1 + words)
+removed from both, on the board's 100 cases per task. The floor passed first: a length-only grader was called
+"beyond length" in at most 6% of synthetic draws, and a real grader at r 0.60 in 100%.
+
+| task | experts' marks vs length, r | models agreeing beyond length | median share of agreement beyond length |
+|---|---|---|---|
+| Short answers | +0.13 | 22 of 22 | 1.01 |
+| Code | +0.62 | 22 of 22 | 0.92 |
+| Essays | +0.70 | 22 of 22 | 0.71 |
+
+- **Length wins because the experts' own marks follow it.** On essays, length correlates with the experts at
+  +0.70, higher than the median model's +0.66. Length's QWK says how much the experts reward length, not that
+  the models are reading size alone.
+- **Every model carries signal beyond length.** On essays, partial r runs from +0.21 [+0.01, +0.40] (Gemma 3 4B)
+  to +0.60 [+0.43, +0.73] (Gemma 4 26B A4B); Opus 5.5 is +0.59, DeepSeek V4 Pro +0.56. About 70% of a typical
+  model's agreement survives. Within essays of similar length (five bands), the correlations are about the same.
+- **Both findings hold together.** Most models also reward length more than the experts did (above): they
+  read the essay's quality, and overweight its size.
+
 ## Non-LLM baselines (`../baselines/baselines.py`, output `../out/baselines.json`)
 
 The baselines were pre-registered before scoring. Each was trained on the corpus cases outside the canonical

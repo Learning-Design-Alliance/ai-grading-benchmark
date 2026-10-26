@@ -1,0 +1,1035 @@
+{
+ "design": "analyses/length_partial.py docstring",
+ "floor": {
+  "mohler": {
+   "draws": 200,
+   "false_positive": 0.005,
+   "detection": 1.0,
+   "passes": true
+  },
+  "code": {
+   "draws": 200,
+   "false_positive": 0.055,
+   "detection": 1.0,
+   "passes": true
+  },
+  "asap2": {
+   "draws": 200,
+   "false_positive": 0.02,
+   "detection": 1.0,
+   "passes": true
+  }
+ },
+ "rows": [
+  {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.70375137768399,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.4928861725411686,
+   "ci95": [
+    0.35103946620432913,
+    0.6179711173242961
+   ],
+   "within_band_r": 0.46381760569155217,
+   "share_beyond_length": 0.7003697444447383,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "code",
+   "n": 100,
+   "r": 0.6884883861263674,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.6144982685251935,
+   "ci95": [
+    0.5026848118292216,
+    0.7065484362926703
+   ],
+   "within_band_r": 0.6200308935155306,
+   "share_beyond_length": 0.8925325116702935,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7332089261971003,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.7418433358682971,
+   "ci95": [
+    0.6177392161751395,
+    0.8327789511392596
+   ],
+   "within_band_r": 0.6911067539860934,
+   "share_beyond_length": 1.0117761927912967,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.7486223828049878,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.5413087577151247,
+   "ci95": [
+    0.3587614460440775,
+    0.6903323847129819
+   ],
+   "within_band_r": 0.5079705678482367,
+   "share_beyond_length": 0.7230731676588579,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "code",
+   "n": 100,
+   "r": 0.9618956617024109,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.9386231218328961,
+   "ci95": [
+    0.9103794587930918,
+    0.9597501563017958
+   ],
+   "within_band_r": 0.9382940855356494,
+   "share_beyond_length": 0.9758055464889758,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.8019112194204869,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.8196274587006585,
+   "ci95": [
+    0.7463335970259861,
+    0.8761023718104493
+   ],
+   "within_band_r": 0.8249269938155166,
+   "share_beyond_length": 1.0220925195347366,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.6527416876200803,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.49253081417757866,
+   "ci95": [
+    0.29393744545146516,
+    0.6430404446475937
+   ],
+   "within_band_r": 0.47304665464588186,
+   "share_beyond_length": 0.7545570070349937,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "code",
+   "n": 100,
+   "r": 0.9043807764147577,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.8593774392991733,
+   "ci95": [
+    0.8114090544161213,
+    0.900861336903845
+   ],
+   "within_band_r": 0.8698834862966361,
+   "share_beyond_length": 0.9502385076184487,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7817040729256526,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.8017852213582886,
+   "ci95": [
+    0.7170743725472757,
+    0.8630217647010745
+   ],
+   "within_band_r": 0.8042598828173846,
+   "share_beyond_length": 1.0256889392394735,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.7498771068327038,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.5858683696267207,
+   "ci95": [
+    0.43682748894390316,
+    0.7047602371367057
+   ],
+   "within_band_r": 0.57497381191198,
+   "share_beyond_length": 0.7812858457584929,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "code",
+   "n": 100,
+   "r": 0.9653075456484731,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.9490944144557041,
+   "ci95": [
+    0.9263415325740695,
+    0.9663570515110869
+   ],
+   "within_band_r": 0.9375996009186037,
+   "share_beyond_length": 0.9832041806097378,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.8277152210869669,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.8405076811304186,
+   "ci95": [
+    0.76773652596604,
+    0.8947673417748289
+   ],
+   "within_band_r": 0.8434787914408126,
+   "share_beyond_length": 1.0154551465498634,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.6629209807208476,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.5556776184896818,
+   "ci95": [
+    0.37476251361934365,
+    0.6991565623936804
+   ],
+   "within_band_r": 0.5371397513088579,
+   "share_beyond_length": 0.8382260248958309,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "code",
+   "n": 100,
+   "r": 0.6141800076834607,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.545198614656766,
+   "ci95": [
+    0.42231218991208075,
+    0.6581738096271935
+   ],
+   "within_band_r": 0.6161683524546536,
+   "share_beyond_length": 0.8876853818689476,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7603871028587952,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.7717409755286833,
+   "ci95": [
+    0.660214786862472,
+    0.8502523659025157
+   ],
+   "within_band_r": 0.7377806929312241,
+   "share_beyond_length": 1.0149317007445304,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.6118429854116301,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.43677685788101567,
+   "ci95": [
+    0.2640423817289538,
+    0.5795793896229697
+   ],
+   "within_band_r": 0.44192078325787437,
+   "share_beyond_length": 0.7138708268219582,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "code",
+   "n": 100,
+   "r": 0.9077851248854785,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.8688319244674334,
+   "ci95": [
+    0.8150045376360603,
+    0.9109423913041177
+   ],
+   "within_band_r": 0.8773862617100064,
+   "share_beyond_length": 0.9570898449972297,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.804113207748735,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.817443458907951,
+   "ci95": [
+    0.7411158707924721,
+    0.877269865160769
+   ],
+   "within_band_r": 0.8254295117632587,
+   "share_beyond_length": 1.016577580160058,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.671754400125162,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.4642169373619832,
+   "ci95": [
+    0.3012840623797803,
+    0.5989631804087833
+   ],
+   "within_band_r": 0.46763697050935893,
+   "share_beyond_length": 0.6910515767004873,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "code",
+   "n": 100,
+   "r": 0.8590686284722427,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.8112890536120066,
+   "ci95": [
+    0.7309934379396765,
+    0.8761800020589237
+   ],
+   "within_band_r": 0.8139384728562495,
+   "share_beyond_length": 0.9443821211988538,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.810096073189949,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.8173837258953072,
+   "ci95": [
+    0.744237045210256,
+    0.8798029507136687
+   ],
+   "within_band_r": 0.8258801294711242,
+   "share_beyond_length": 1.008996035095765,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.7427864059025493,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.538459023823583,
+   "ci95": [
+    0.37337599773649355,
+    0.6702194687874512
+   ],
+   "within_band_r": 0.5396961617175206,
+   "share_beyond_length": 0.7249177146279475,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "code",
+   "n": 100,
+   "r": 0.809528659084403,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.7342753034996163,
+   "ci95": [
+    0.6299353405425546,
+    0.8179683758047536
+   ],
+   "within_band_r": 0.7393115891630202,
+   "share_beyond_length": 0.9070405293990456,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.6815482005946298,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.6891226741054031,
+   "ci95": [
+    0.5514386547047404,
+    0.8048394539722418
+   ],
+   "within_band_r": 0.6922798438464937,
+   "share_beyond_length": 1.0111136285066336,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.6554265963315862,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.43363357875890585,
+   "ci95": [
+    0.23372750822022342,
+    0.6074466756872533
+   ],
+   "within_band_r": 0.43474336884275583,
+   "share_beyond_length": 0.661605099924152,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "code",
+   "n": 100,
+   "r": 0.8110774995509391,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.6875501325473282,
+   "ci95": [
+    0.5537670898600763,
+    0.7904067146399676
+   ],
+   "within_band_r": 0.6653252952152375,
+   "share_beyond_length": 0.8476996747265175,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7750055984859912,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.7850171002409925,
+   "ci95": [
+    0.6628110491325899,
+    0.8678080572167616
+   ],
+   "within_band_r": 0.7473336592616587,
+   "share_beyond_length": 1.0129179734631069,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.4128889340268039,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.21358881378225264,
+   "ci95": [
+    0.0064108035188298355,
+    0.4001829263864846
+   ],
+   "within_band_r": 0.24371356406294797,
+   "share_beyond_length": 0.517303313748745,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "code",
+   "n": 100,
+   "r": 0.6218181319846539,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.5194616118973879,
+   "ci95": [
+    0.3695798048263778,
+    0.654806182228908
+   ],
+   "within_band_r": 0.555632832476253,
+   "share_beyond_length": 0.8353915480711778,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.6182313884149091,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.6100587547808453,
+   "ci95": [
+    0.3859907535001972,
+    0.7750752415512937
+   ],
+   "within_band_r": 0.472832960212643,
+   "share_beyond_length": 0.9867806232630508,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.7407859115784836,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.5979990536985224,
+   "ci95": [
+    0.4315325456042399,
+    0.7278425039057552
+   ],
+   "within_band_r": 0.5795148342180139,
+   "share_beyond_length": 0.8072494959094082,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "code",
+   "n": 100,
+   "r": 0.7283326823589277,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.6450130592385317,
+   "ci95": [
+    0.5467280376794765,
+    0.7313914203749162
+   ],
+   "within_band_r": 0.6677398428399686,
+   "share_beyond_length": 0.8856022458712961,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7718705975145106,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.784415897135131,
+   "ci95": [
+    0.6633553380418058,
+    0.8728752269907069
+   ],
+   "within_band_r": 0.7718477399120766,
+   "share_beyond_length": 1.0162531124530685,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.6758853594109312,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.4844064351009608,
+   "ci95": [
+    0.3303433898545183,
+    0.6183366452357713
+   ],
+   "within_band_r": 0.4677919790260501,
+   "share_beyond_length": 0.7166991093328992,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "code",
+   "n": 100,
+   "r": 0.7590834516789148,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.6796865806768231,
+   "ci95": [
+    0.5917353999752456,
+    0.7548511629583717
+   ],
+   "within_band_r": 0.7020242662192695,
+   "share_beyond_length": 0.8954042920755493,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7397375985077236,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.7545283317560579,
+   "ci95": [
+    0.6091430305364243,
+    0.8577818440109286
+   ],
+   "within_band_r": 0.7397131217927225,
+   "share_beyond_length": 1.019994567368445,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.4595743071926849,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.28464413312496895,
+   "ci95": [
+    0.09230514606369616,
+    0.45489710165861663
+   ],
+   "within_band_r": 0.29973398185314115,
+   "share_beyond_length": 0.619364765762736,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "code",
+   "n": 100,
+   "r": 0.5638827937788803,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.47762955957426695,
+   "ci95": [
+    0.2985830184018735,
+    0.6467269426725928
+   ],
+   "within_band_r": 0.4211749466315567,
+   "share_beyond_length": 0.8470369460529479,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.49893739955950533,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.48677337128462,
+   "ci95": [
+    0.29207291756350934,
+    0.6483920756501853
+   ],
+   "within_band_r": 0.410167600819619,
+   "share_beyond_length": 0.9756201313318574,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.5832525001743999,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.4136370981803456,
+   "ci95": [
+    0.24494688005912627,
+    0.5576823857558972
+   ],
+   "within_band_r": 0.3760657137894693,
+   "share_beyond_length": 0.7091904416297622,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "code",
+   "n": 100,
+   "r": 0.7451510853531421,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.6141384949142521,
+   "ci95": [
+    0.4519206732223546,
+    0.7463222401391714
+   ],
+   "within_band_r": 0.6373009253378188,
+   "share_beyond_length": 0.8241798300853302,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7701447666931158,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.7694702801414335,
+   "ci95": [
+    0.6515144960362693,
+    0.8501208223381179
+   ],
+   "within_band_r": 0.7261501522231766,
+   "share_beyond_length": 0.9991242080958642,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.6893299981320333,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.45329683053657815,
+   "ci95": [
+    0.2909105384431257,
+    0.5860894870952117
+   ],
+   "within_band_r": 0.4136366990566172,
+   "share_beyond_length": 0.6575904599610277,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "code",
+   "n": 100,
+   "r": 0.834826215844251,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.7708321355356008,
+   "ci95": [
+    0.6927054987840606,
+    0.8427325067878418
+   ],
+   "within_band_r": 0.7801139731697003,
+   "share_beyond_length": 0.9233444289432937,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7421148362630199,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.7498301825139937,
+   "ci95": [
+    0.6070656452992282,
+    0.846355060200305
+   ],
+   "within_band_r": 0.7107094896569863,
+   "share_beyond_length": 1.010396431756876,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.5776214386049011,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.3974954703305416,
+   "ci95": [
+    0.19762754754744608,
+    0.5605670721314757
+   ],
+   "within_band_r": 0.38497415950727615,
+   "share_beyond_length": 0.6881591363551042,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "code",
+   "n": 100,
+   "r": 0.9051294665451451,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.8585178269726501,
+   "ci95": [
+    0.8008682262519368,
+    0.905116537871226
+   ],
+   "within_band_r": 0.8557411221110209,
+   "share_beyond_length": 0.9485027929204312,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.759214837400971,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.763133354910032,
+   "ci95": [
+    0.6483077446049533,
+    0.8451039514085386
+   ],
+   "within_band_r": 0.7622350051016279,
+   "share_beyond_length": 1.005161276250179,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.6228004991290159,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.4449694028282672,
+   "ci95": [
+    0.2910494441279252,
+    0.5999820752347244
+   ],
+   "within_band_r": 0.41112552122614254,
+   "share_beyond_length": 0.7144653921288682,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "code",
+   "n": 100,
+   "r": 0.8734997327210091,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.8273866121850849,
+   "ci95": [
+    0.7691483241474343,
+    0.8740397352842161
+   ],
+   "within_band_r": 0.817520033421496,
+   "share_beyond_length": 0.9472087754483006,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7749638435039289,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.7851122508824356,
+   "ci95": [
+    0.6735251430265735,
+    0.8663775957120301
+   ],
+   "within_band_r": 0.7851416796859837,
+   "share_beyond_length": 1.0130953301416252,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.6613679288409159,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.49417261224624853,
+   "ci95": [
+    0.32395059257049436,
+    0.6313457048847435
+   ],
+   "within_band_r": 0.489815803456329,
+   "share_beyond_length": 0.7471977256476793,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "code",
+   "n": 100,
+   "r": 0.9311366495743604,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.8984558862618184,
+   "ci95": [
+    0.8525529427587242,
+    0.9342155333215079
+   ],
+   "within_band_r": 0.8900190411481892,
+   "share_beyond_length": 0.9649022908426159,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7657739691950204,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.7766384930000603,
+   "ci95": [
+    0.6710920021785712,
+    0.853971070572168
+   ],
+   "within_band_r": 0.7638265651394059,
+   "share_beyond_length": 1.0141876379220107,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.4621546972497205,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.27823419004936356,
+   "ci95": [
+    0.06473109134007168,
+    0.4612223404670473
+   ],
+   "within_band_r": 0.2942428488289531,
+   "share_beyond_length": 0.6020369190341098,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "code",
+   "n": 100,
+   "r": 0.4760153144841116,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.43966231714090603,
+   "ci95": [
+    0.2597309262655261,
+    0.5883803157822676
+   ],
+   "within_band_r": 0.49787252155785844,
+   "share_beyond_length": 0.9236306138961019,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7598060180929905,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.7711105009554515,
+   "ci95": [
+    0.6617310453782961,
+    0.8519206371895333
+   ],
+   "within_band_r": 0.7754223929477995,
+   "share_beyond_length": 1.0148781170368113,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.6689775284267859,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.496476926825545,
+   "ci95": [
+    0.3211313903043149,
+    0.6390861422727144
+   ],
+   "within_band_r": 0.48999996448283606,
+   "share_beyond_length": 0.7421429057461686,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "code",
+   "n": 100,
+   "r": 0.6736465084721397,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.6109338872335394,
+   "ci95": [
+    0.4726562540938361,
+    0.7274503332941338
+   ],
+   "within_band_r": 0.6198413813152014,
+   "share_beyond_length": 0.9069057429231907,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7688717022959384,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.7770170069601362,
+   "ci95": [
+    0.6703476796488014,
+    0.8529031834981501
+   ],
+   "within_band_r": 0.766235245184923,
+   "share_beyond_length": 1.010593841130939,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "asap2",
+   "n": 99,
+   "r": 0.654779354310409,
+   "r_length": 0.7084625710472754,
+   "partial_r": 0.4247618324530761,
+   "ci95": [
+    0.256731091217698,
+    0.5663739143118188
+   ],
+   "within_band_r": 0.44446284833926886,
+   "share_beyond_length": 0.6487098740314141,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "code",
+   "n": 100,
+   "r": 0.950302132029207,
+   "r_length": 0.6167042067525085,
+   "partial_r": 0.9262698924456283,
+   "ci95": [
+    0.8927609505241536,
+    0.9526704106836901
+   ],
+   "within_band_r": 0.917164459140913,
+   "share_beyond_length": 0.9747109484725011,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7355985793550002,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.7518578539126378,
+   "ci95": [
+    0.6375940635334741,
+    0.8380276130776757
+   ],
+   "within_band_r": 0.7490569655905432,
+   "share_beyond_length": 1.0221034610641777,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "asap2",
+   "n": 100,
+   "r": 0.5595792172908114,
+   "r_length": 0.7025686518926813,
+   "partial_r": 0.3304129769203357,
+   "ci95": [
+    0.15913790413165713,
+    0.48298968316706964
+   ],
+   "within_band_r": 0.36308338093928805,
+   "share_beyond_length": 0.5904668485009535,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "code",
+   "n": 98,
+   "r": 0.9441315014471048,
+   "r_length": 0.6150291718137407,
+   "partial_r": 0.9156355540168072,
+   "ci95": [
+    0.872616408555532,
+    0.9476098066557452
+   ],
+   "within_band_r": 0.9076409689288223,
+   "share_beyond_length": 0.9698178194598731,
+   "verdict": "AGREES BEYOND LENGTH"
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "mohler",
+   "n": 100,
+   "r": 0.7938583940441808,
+   "r_length": 0.12705276808591934,
+   "partial_r": 0.8048781956670179,
+   "ci95": [
+    0.7090421835525884,
+    0.8778057741141071
+   ],
+   "within_band_r": 0.7996239666474564,
+   "share_beyond_length": 1.0138813190179907,
+   "verdict": "AGREES BEYOND LENGTH"
+  }
+ ],
+ "board": {
+  "mohler": {
+   "models": 22,
+   "r_length": 0.12705276808591934,
+   "beyond_length": 22,
+   "median_share_beyond_length": 1.0138813190179907
+  },
+  "code": {
+   "models": 22,
+   "r_length": 0.6167042067525085,
+   "beyond_length": 22,
+   "median_share_beyond_length": 0.9236306138961019
+  },
+  "asap2": {
+   "models": 22,
+   "r_length": 0.7025686518926813,
+   "beyond_length": 22,
+   "median_share_beyond_length": 0.7138708268219582
+  }
+ }
+}
