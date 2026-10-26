@@ -76,12 +76,80 @@ is public since 2024 and may be in the prompted models' training data, which wou
 
 BUDGET. API: $60 cap (Opus about $25 of it). GPU: $10 cap.
 
+CHANGES:
+1. (2026-10-26, approved by the maintainer; written AFTER every result of arms 1-4 above was read and written up in
+   README.md, and BEFORE Gemma is trained or scored and before any retrained model below exists.) The maintainer
+   asked whether fine-tuning a larger, capable open model does better, above all on an unseen prompt, and for the
+   fine-tuned scorers' full leaderboard-battery results so they can be ranked beside prompted models and classic
+   baselines. Because the other arms' numbers were known when this was written, the choice to add the arm, and of
+   what to compare it with, was made knowing them; what is pre-registered now is everything about the new arm and
+   its comparisons, before any of it is run. C1-C6, their verdicts and the other arms' outputs are unchanged and
+   are not re-run (out/essays-finetune.json stays as it is; this change writes out/essays-finetune-change1.json
+   and out/board_rows.json).
+   ARM 5, GEMMA-LORA: google/gemma-4-26B-A4B-it (Hugging Face), revision 4d7ae4984b7db7de8f8457170b3f1a419ee76d52,
+   the instruction-tuned Gemma 4 26B A4B mixture-of-experts (OpenRouter google/gemma-4-26b-a4b-it). 25.8B
+   parameters in bf16 (about 52 GB), 30 layers, 128 experts per layer of which 8 are active per token (about 4B
+   active). Licence: Apache 2.0, as the model card states (it links Google's Gemma 4 licence page,
+   ai.google.dev/gemma/docs/gemma_4_license); the repository is not gated, so no Hugging Face token is needed.
+   Recipe: QWEN-LORA's as far as it applies. A one-output regression head (linear, no bias, initialised N(0,
+   0.02), trained in full like Qwen's `score`) on the last token (left padding); LoRA r 16, alpha 32, dropout 0.05
+   on the attention projections (q, k, v, o; the full-attention layers share keys and values, so have no v
+   projection) and on each layer's dense MLP (gate, up, down); lr 1e-4, linear schedule with 10% warm-up, AdamW
+   weight decay 0.01, 1 epoch, batch 16 (micro-batch 4 with gradient accumulation), 1,024 tokens, bf16 autocast,
+   seed 7, same input ("prompt title || essay") and target (score rescaled 0-1, MSE). Text only: the checkpoint's
+   vision and audio towers and its LM head are dropped. DEVIATION, stated in advance: the 128 experts of each
+   layer are stored as fused 3-D parameters, not linear layers, so PEFT cannot put LoRA on them; they and the
+   router stay frozen, and LoRA sits on attention plus the dense (shared) MLP only. The experts run with
+   transformers' grouped_mm implementation (the same arithmetic as the eager loop, faster), eager if the stack
+   lacks it; which one ran is recorded in the output.
+   PRECISION, decided before training: bf16 with gradient checkpointing on one A100 80GB. The weights take about
+   52 GB; LoRA, its optimizer state and checkpointed activations at micro-batch 4 x 1,024 tokens take a few GB
+   more. If it runs out of memory, the micro-batch halves (2, then 1), which leaves batch 16 and the recipe as
+   they are; only if micro-batch 1 fails does it switch to 4-bit QLoRA, recorded as a further CHANGE before any
+   prediction is read.
+   Splits: same-prompt on TRAIN; cross-prompt on the same 7 folds of 5,000.
+   NEW COMPARISONS (paired QWK differences on the TEST essays, bootstrap over essays as before; the verdict strings
+   are the study's: "A EXCEEDS B", "B EXCEEDS A", "NO DIFFERENCE DETECTED" with the largest difference not ruled
+   out; a sign on every difference). DEBERTA and QWEN here are the original arms' predictions, the ones reported:
+     C7 same-prompt: GEMMA-LORA vs DEBERTA
+     C8 same-prompt: GEMMA-LORA vs QWEN-LORA
+     C9 cross-prompt: GEMMA-LORA vs DEBERTA, and GEMMA-LORA vs QWEN-LORA
+     C10 GEMMA-LORA's same-prompt minus cross-prompt QWK (the cost of an unseen prompt)
+   The study's FLOOR applies unchanged: these are paired comparisons of two graders on the same 1,000 essays with
+   the same bootstrap, which the floor showed separates QWK 0.84 from 0.80 in 93% of draws with 4.5% false
+   positives (out/floor.json). Differences much under 0.04 can go undetected; the interval says how large.
+   The study's board checks (base QWK on the board's 100, injection, forged, vouched, padding, null answers) and
+   its fairness residuals (descriptive, signed) are also computed for GEMMA-LORA, as for the other fine-tuned arms.
+   FULL BOARD BATTERY for every fine-tuned same-prompt arm (DEBERTA, QWEN, GEMMA): the board's 100 essays scored
+   under exactly the leaderboard battery's probes, built as baselines/baselines.py run() builds them (bench.plan
+   over leaderboard.battery()["probes"] with leaderboard.DEFAULT_PROMPT and leaderboard.SEED, inputs from
+   prompting.probe_input), each mark rounded and clipped to 1-6 as there, then report.build and leaderboard.row
+   with track "fine-tuned" and models "fine-tuned: DeBERTa-v3-base", "fine-tuned: Qwen3 4B LoRA" and "fine-tuned:
+   Gemma 4 26B A4B LoRA". By construction, and stated in each row ("by_construction"): the attainment label effect
+   is 0 (the scorer never sees the label) and retest agreement is 1 (deterministic: each distinct input is scored
+   once). Output: out/board_rows.json, {"design": ..., "rows": [...]}.
+   RETRAINING: the original DeBERTa and Qwen weights were deleted with their pod, and the battery needs probes they
+   were never run on (blicket, surface, retest, the labels). Both are retrained same-prompt only, with the identical
+   recipe and seeds, and their QWK on the 1,000 TEST essays is reported beside the original's (0.804, 0.798) as a
+   reproduction check: REPRODUCED if the two differ by at most 0.02, NOT REPRODUCED otherwise (the software stack
+   may differ; versions are recorded). The battery rows come from the retrained models; C7-C9 use the originals.
+   ORDER AND THE GPU CAP: one A100 80GB pod (gpu/pod.py, its own state file): DeBERTa same-prompt and battery, Qwen
+   same-prompt and battery, Gemma same-prompt and battery, then Gemma's seven cross-prompt folds in the split's
+   order. GPU cap $20 for this change (separate from the $10 above). Training stops at the time the pod's listed
+   hourly rate reaches $19 (the rest for transfers and termination): a fold whose projected end falls later is not
+   started, and one still running then is stopped; both are recorded as not run. If folds are missing, C9 and C10
+   are computed on the prompts whose folds ran, labelled PARTIAL with the prompts named, and the rest is reported
+   as not run. If Gemma's same-prompt run cannot finish, C7, C8, C10 and its battery row are reported as not run.
+   No API spend. Raw essays and all weights live only on the pod and are deleted with it.
+
 Usage:
     python3 essays-finetune/study.py split --corpus <asap2.jsonl> --work <dir>     # ids to out/split.json
     python3 essays-finetune/study.py floor --corpus <asap2.jsonl>
     python3 essays-finetune/study.py prompted --corpus <asap2.jsonl> --work <dir> [--go]
     python3 essays-finetune/train.py ...                                             # on the pod
     python3 essays-finetune/study.py analyse --corpus <asap2.jsonl> --work <dir>
+    python3 essays-finetune/train.py ... --out <work>/finetuned-change1.json          # CHANGE 1, on the pod
+    python3 essays-finetune/study.py change1 --corpus <asap2.jsonl> --work <dir>     # C7-C10, board_rows.json
 """
 
 import argparse
@@ -345,52 +413,213 @@ def cmd_analyse(a):
     for kind in ("deberta", "qwen"):
         if kind not in ft or "board" not in ft[kind]:
             continue
-        b = ft[kind]["board"]
-        base = b["base"]
-        bids = sorted(base)
-        chk = {"qwk": boot(bids, lambda u: qwk_ids(base, {i: byid[i]["human"]["rater"] for i in bids}, u))}
-        for probe in ("injection", "forged", "vouched", "padding"):
-            if probe in b:
-                d = [(b[probe][i] - base[i]) / 5 for i in bids if i in b[probe]]
-                chk[probe] = boot(list(range(len(d))), lambda u, d=d: mean([d[j] for j in u]))
-        nulls = [v for k, v in b.items() if k.startswith("null_") for v in v.values()]
-        chk["null_credited"] = sum(round(v) > 1 for v in nulls) / len(nulls) if nulls else None
-        chk["flag"] = bool((chk["null_credited"] or 0) > 0 or any(chk[p]["estimate"] > 0.05 for p in ("injection", "forged", "vouched", "padding") if p in chk))
+        chk = board_check(ft[kind]["board"], byid)
         res["board_checks"][kind] = chk
         print(f"{kind} board: QWK {chk['qwk']['estimate']:.3f} | " + " ".join(f"{p} {chk[p]['estimate']:+.3f}" for p in ("injection", "forged", "vouched", "padding") if p in chk)
               + f" | nulls credited {chk['null_credited']} -> {'FLAG' if chk['flag'] else 'no flag'}")
     # fairness
     for name, pr in arms.items():
-        ids = sorted(i for i in gold if i in pr)
-        resid = {i: pr[i] - gold[i] for i in ids}
-        res["fairness"][name] = {}
-        for g in GROUPS:
-            vals = defaultdict(list)
-            for i in ids:
-                v = (byid[i].get("groups") or {}).get(g)
-                if v not in (None, ""):
-                    vals[v].append(i)
-            for level, members in vals.items():
-                if len(members) < 30 or len(members) > len(ids) - 30:
-                    continue
-                others = [i for i in ids if i not in set(members) and (byid[i].get("groups") or {}).get(g) not in (None, "")]
-                rnd = random.Random(7)
-                diffs = sorted(mean([resid[rnd.choice(members)] for _ in members]) - mean([resid[rnd.choice(others)] for _ in others])
-                               for _ in range(2000))
-                est = mean([resid[i] for i in members]) - mean([resid[i] for i in others])
-                ci = [diffs[50], diffs[1949]]
-                res["fairness"][name][f"{g}={level}"] = {"estimate": est, "ci95": ci, "n": len(members),
-                                                         "verdict": "WIDENS" if ci[0] > 0 or ci[1] < 0 else "NO GAP DETECTED"}
-        w = {k: v for k, v in res["fairness"][name].items() if v["verdict"] == "WIDENS"}
-        if w:
-            print(f"fairness {name}: " + "; ".join(f"{k} {v['estimate']:+.2f} [{v['ci95'][0]:+.2f}, {v['ci95'][1]:+.2f}]" for k, v in w.items()))
+        res["fairness"][name] = fairness(name, pr, gold, byid)
     json.dump(res, open(os.path.join(OUT, "essays-finetune.json"), "w"), indent=1)
+
+
+def board_check(b, byid):
+    """The study's board checks on the board's 100 essays from one fine-tuned model's marks {probe: {id: mark}}."""
+    base = b["base"]
+    bids = sorted(base)
+    chk = {"qwk": boot(bids, lambda u: qwk_ids(base, {i: byid[i]["human"]["rater"] for i in bids}, u))}
+    for probe in ("injection", "forged", "vouched", "padding"):
+        if probe in b:
+            d = [(b[probe][i] - base[i]) / 5 for i in bids if i in b[probe]]
+            chk[probe] = boot(list(range(len(d))), lambda u, d=d: mean([d[j] for j in u]))
+    nulls = [v for k, v in b.items() if k.startswith("null_") for v in v.values()]
+    chk["null_credited"] = sum(round(v) > 1 for v in nulls) / len(nulls) if nulls else None
+    chk["flag"] = bool((chk["null_credited"] or 0) > 0 or any(chk[p]["estimate"] > 0.05 for p in ("injection", "forged", "vouched", "padding") if p in chk))
+    return chk
+
+
+def fairness(name, pr, gold, byid):
+    """Signed residual gaps by group (descriptive, pre-registered): arm minus human for the group, minus the same
+    for everyone else."""
+    out = {}
+    ids = sorted(i for i in gold if i in pr)
+    resid = {i: pr[i] - gold[i] for i in ids}
+    for g in GROUPS:
+        vals = defaultdict(list)
+        for i in ids:
+            v = (byid[i].get("groups") or {}).get(g)
+            if v not in (None, ""):
+                vals[v].append(i)
+        for level, members in vals.items():
+            if len(members) < 30 or len(members) > len(ids) - 30:
+                continue
+            others = [i for i in ids if i not in set(members) and (byid[i].get("groups") or {}).get(g) not in (None, "")]
+            rnd = random.Random(7)
+            diffs = sorted(mean([resid[rnd.choice(members)] for _ in members]) - mean([resid[rnd.choice(others)] for _ in others])
+                           for _ in range(2000))
+            est = mean([resid[i] for i in members]) - mean([resid[i] for i in others])
+            ci = [diffs[50], diffs[1949]]
+            out[f"{g}={level}"] = {"estimate": est, "ci95": ci, "n": len(members),
+                                   "verdict": "WIDENS" if ci[0] > 0 or ci[1] < 0 else "NO GAP DETECTED"}
+    w = {k: v for k, v in out.items() if v["verdict"] == "WIDENS"}
+    if w:
+        print(f"fairness {name}: " + "; ".join(f"{k} {v['estimate']:+.2f} [{v['ci95'][0]:+.2f}, {v['ci95'][1]:+.2f}]" for k, v in w.items()))
+    return out
+
+
+# ------------------------------------------------------------------ CHANGE 1: Gemma, reproduction, board rows
+NAMES = {"deberta": "fine-tuned: DeBERTa-v3-base", "qwen": "fine-tuned: Qwen3 4B LoRA",
+         "gemma": "fine-tuned: Gemma 4 26B A4B LoRA"}
+ORIGINAL_SAME = {"deberta": 0.804, "qwen": 0.798}  # as reported in README.md (out/essays-finetune.json)
+REPRO_TOL = 0.02
+
+
+def board_rows(cs, f1, n_train):
+    """CHANGE 1: each fine-tuned same-prompt model under the leaderboard battery, as baselines/baselines.py run()."""
+    import bench
+    import prompting
+    import report as report_mod
+    sys.path.insert(0, HERE)
+    import train as train_mod
+    test = cases_mod.sample(cs, lb.N, lb.SEED)
+    lo, hi = test[0]["scale"]
+    prompt = prompting.load_prompt(lb.DEFAULT_PROMPT)
+    jobs, _ = bench.plan(test, cs, prompt, list(lb.battery()["probes"]), lb.SEED)
+    rev = {"deberta": train_mod.DEBERTA, "qwen": train_mod.QWEN, "gemma": train_mod.GEMMA}
+    rows = []
+    for kind in ("deberta", "qwen", "gemma"):
+        bat = (f1.get(kind) or {}).get("battery")
+        if not bat:
+            print(f"board row {kind}: not run")
+            continue
+        calls = []
+        for c, p, _ in jobs:
+            mark = bat[p][c["id"]]  # every planned grading must have been scored on the pod
+            s = max(lo, min(hi, round(mark)))
+            calls.append({"id": c["id"], "task": c["task"], "probe": p, "score": float(s), "text": None, "error": None,
+                          "usage": {}, "finish_reason": "stop", "served_model": f"fine-tuned:{kind}", "provider": "local"})
+        extra = set((p, i) for p, v in bat.items() for i in v) - set((p, c["id"]) for c, p, _ in jobs)
+        assert not extra, f"{kind}: scored gradings the battery does not plan: {sorted(extra)[:5]}"
+        rep = report_mod.build(test, calls)
+        sub = {"model": NAMES[kind], "task": "asap2", "track": "fine-tuned", "submitter": "benchmark maintainers",
+               "calls": calls, "benchmark_version": None}
+        row = lb.row(sub, rep)
+        row["n_train"] = n_train
+        row["model_revision"] = "/".join(rev[kind])
+        row["source"] = "essays-finetune/study.py CHANGE 1 (same-prompt model, trained on the study's TRAIN split)"
+        st = (f1[kind].get("train_stats") or {}).get("runs") or [{}]
+        row["recipe"] = {k: st[0].get(k) for k in ("lr", "epochs", "batch", "micro", "max_len", "experts_implementation")
+                         if st[0].get(k) is not None}
+        row["precision"] = "fp32 weights, bf16 autocast" if kind == "deberta" else "bf16 weights, LoRA, bf16 autocast"
+        row["env"] = f1[kind].get("env")
+        row["by_construction"] = ["attainment label effect is 0 (the scorer never sees the label)",
+                                  "retest agreement is 1 (deterministic: each distinct input is scored once)"]
+        rows.append(row)
+        g = (row.get("gaming_max_share") or {}).get("estimate")
+        print(f"board row {NAMES[kind]}: qwk {row['qwk']['estimate']:.3f} gaming {g} blank {row['blank_credited']} "
+              f"decision {row['decision_share']} blicket {(row['blicket_share'] or {}).get('estimate')} "
+              f"surface {(row['surface_share'] or {}).get('estimate')} gradings {row['gradings']}")
+    return rows
+
+
+def cmd_change1(a):
+    cs = load(a.corpus)
+    byid = {c["id"]: c for c in cs}
+    sp = json.load(open(os.path.join(a.work, "split-full.json")))
+    gold = {i: byid[i]["human"]["rater"] for i in sp["test"]}
+    ft = json.load(open(os.path.join(a.work, "finetuned.json")))  # the original arms
+    f1 = json.load(open(os.path.join(a.work, "finetuned-change1.json")))  # CHANGE 1's pod run
+    floor = json.load(open(os.path.join(OUT, "floor.json")))
+    arms = {}
+    for kind in ("deberta", "qwen"):
+        arms[f"{kind} same-prompt"] = {i: v for i, v in ft[kind]["same"].items() if i in gold}
+        cross = {}
+        for p, preds in ft[kind]["cross"].items():
+            cross.update({i: v for i, v in preds.items() if i in gold and byid[i]["task"] == p})
+        arms[f"{kind} cross-prompt"] = cross
+    g = f1.get("gemma") or {}
+    if "same" in g:
+        arms["gemma same-prompt"] = {i: v for i, v in g["same"].items() if i in gold}
+    folds_run = sorted(g.get("cross") or {})
+    if folds_run:
+        cross = {}
+        for p, preds in g["cross"].items():
+            cross.update({i: v for i, v in preds.items() if i in gold and byid[i]["task"] == p})
+        arms["gemma cross-prompt"] = cross
+    partial = 0 < len(folds_run) < len(sp["folds"])
+    res = {"design": "essays-finetune/study.py docstring, CHANGE 1", "floor": floor, "arms": {}, "comparisons": {},
+           "reproduction": {}, "board_checks": {}, "fairness": {}, "not_run": {k: v.get("not_run") for k, v in f1.items()},
+           "gemma_cross_folds_run": folds_run, "env": {k: v.get("env") for k, v in f1.items()},
+           "train_stats": {k: v.get("train_stats") for k, v in f1.items()}}
+    for name in [n for n in arms if n.startswith("gemma")]:
+        pr = arms[name]
+        ids = sorted(i for i in gold if i in pr)
+        res["arms"][name] = boot(ids, lambda u, pr=pr: qwk_ids(pr, gold, u))
+        x = res["arms"][name]
+        print(f"{name:34s} QWK {x['estimate']:.3f} [{x['ci95'][0]:.3f}, {x['ci95'][1]:.3f}] n {x['n']}")
+
+    def cmp(key, an, bn, restrict_partial=False):
+        if an in arms and bn in arms:
+            ids = sorted(i for i in gold if i in arms[an] and i in arms[bn])
+            c = dict(compare(an, arms[an], bn, arms[bn], gold, ids), a=an, b=bn)
+            if not floor["passes"]:
+                c["verdict"] = "UNDERPOWERED"
+            if restrict_partial and partial:
+                c["verdict"] = f"PARTIAL ({', '.join(folds_run)}): " + c["verdict"]
+            res["comparisons"][key] = c
+            print(f"{key}: {an} - {bn} = {c['estimate']:+.3f} [{c['ci95'][0]:+.3f}, {c['ci95'][1]:+.3f}] n {c['n']} -> {c['verdict']}")
+        else:
+            res["comparisons"][key] = "not run"
+            print(f"{key}: not run")
+    cmp("C7", "gemma same-prompt", "deberta same-prompt")
+    cmp("C8", "gemma same-prompt", "qwen same-prompt")
+    cmp("C9 vs deberta", "gemma cross-prompt", "deberta cross-prompt", True)
+    cmp("C9 vs qwen", "gemma cross-prompt", "qwen cross-prompt", True)
+    if partial:  # same essays as the cross-prompt arm, so the cost is not confounded with which prompts ran
+        arms["gemma same-prompt (prompts with a fold)"] = {i: v for i, v in arms["gemma same-prompt"].items()
+                                                          if i in arms["gemma cross-prompt"]}
+        cmp("C10 gemma", "gemma same-prompt (prompts with a fold)", "gemma cross-prompt", True)
+    else:
+        cmp("C10 gemma", "gemma same-prompt", "gemma cross-prompt")
+    # reproduction of the retrained same-prompt models (the battery rows come from these)
+    for kind in ("deberta", "qwen"):
+        if "same" not in (f1.get(kind) or {}):
+            res["reproduction"][kind] = "not run"
+            continue
+        re_pr = {i: v for i, v in f1[kind]["same"].items() if i in gold}
+        ids = sorted(gold)
+        q_new = boot(ids, lambda u: qwk_ids(re_pr, gold, u))
+        q_orig = qwk_ids(arms[f"{kind} same-prompt"], gold, ids)
+        d = q_new["estimate"] - q_orig
+        res["reproduction"][kind] = {"retrained_qwk": q_new, "original_qwk": q_orig, "difference": d,
+                                     "paired": compare("retrained", re_pr, "original", arms[f"{kind} same-prompt"], gold, ids),
+                                     "verdict": "REPRODUCED" if abs(d) <= REPRO_TOL else "NOT REPRODUCED"}
+        print(f"reproduction {kind}: retrained {q_new['estimate']:.3f} vs original {q_orig:.3f} ({d:+.3f}) -> "
+              f"{res['reproduction'][kind]['verdict']}")
+    for kind in ("deberta", "qwen", "gemma"):
+        if "board" in (f1.get(kind) or {}):
+            res["board_checks"][kind] = chk = board_check(f1[kind]["board"], byid)
+            print(f"{kind} board (CHANGE 1 model): QWK {chk['qwk']['estimate']:.3f} | "
+                  + " ".join(f"{p} {chk[p]['estimate']:+.3f}" for p in ("injection", "forged", "vouched", "padding") if p in chk)
+                  + f" | nulls credited {chk['null_credited']} -> {'FLAG' if chk['flag'] else 'no flag'}")
+    for name in [n for n in arms if n in ("gemma same-prompt", "gemma cross-prompt")]:
+        res["fairness"][name] = fairness(name, arms[name], gold, byid)
+    json.dump(res, open(os.path.join(OUT, "essays-finetune-change1.json"), "w"), indent=1)
+    rows = board_rows(cs, f1, len(sp["train"]))
+    for r in rows:
+        kind = next(k for k, v in NAMES.items() if v == r["model"])
+        if kind in res["reproduction"] and isinstance(res["reproduction"][kind], dict):
+            rp = res["reproduction"][kind]
+            r["reproduction"] = {"retrained_test_qwk": rp["retrained_qwk"]["estimate"], "original_test_qwk": rp["original_qwk"],
+                                 "verdict": rp["verdict"]}
+    json.dump({"design": "essays-finetune/study.py docstring, CHANGE 1 (FULL BOARD BATTERY)", "rows": rows},
+              open(os.path.join(OUT, "board_rows.json"), "w"), indent=1)
 
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
-    for name, fn in (("split", cmd_split), ("prompted", cmd_prompted), ("analyse", cmd_analyse)):
+    for name, fn in (("split", cmd_split), ("prompted", cmd_prompted), ("analyse", cmd_analyse), ("change1", cmd_change1)):
         p = sub.add_parser(name)
         p.add_argument("--corpus", required=True)
         p.add_argument("--work", required=True)
