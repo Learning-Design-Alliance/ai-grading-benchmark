@@ -88,7 +88,7 @@ PROBES = ("base", "retest", "surface", "typos", "padding", "repeat", "injection"
           "shuffled", "blicket", "ctx_neutral", "ctx_low", "ctx_high",
           "null_blank", "null_dot", "null_think", "null_restate", "null_gibberish",
           "retest2", "retest3", "retest4", "del_cited", "del_random", "vouched", "null_silence", "null_tone", "noise_10db", "phone_band",
-          "null_black", "null_still", "low_res", "other_camera", "text_only")
+          "null_black", "null_still", "low_res", "other_camera", "text_only", "noise_0db", "noise_m10db")
 CONTEXT_PROBES = ("ctx_neutral", "ctx_low", "ctx_high")
 # Master-key answers (Zhao et al. 2025): nothing in them deserves credit. Run on a capped subset of
 # cases (NULL_CASES), since five per case would buy nothing: the answer does not depend on the case.
@@ -102,6 +102,9 @@ VIDEO_NULL_PROBES = ("null_black", "null_still")
 #: probes that make sense when the work is media: the text of the answer is not the work
 #: recording-quality probes: the experts scored the clean recording, so a sound grader's mark should not move
 AUDIO_QUALITY_PROBES = ("noise_10db", "phone_band")
+#: Positive controls for the audio-quality probes (media/floor.py, 2026-10-26): noise as loud as the speech, and ten
+#: times louder, where the speech is barely or not intelligible. Not in any default battery.
+AUDIO_CONTROL_PROBES = ("noise_0db", "noise_m10db")
 #: video-quality probes: the raters scored the full-quality left camera, so a sound grader's mark should not move
 #: on a low-resolution copy, or on the same performance from the stereo pair's other camera
 VIDEO_QUALITY_PROBES = ("low_res", "other_camera")
@@ -109,7 +112,7 @@ VIDEO_QUALITY_PROBES = ("low_res", "other_camera")
 #: 0 sends the video itself. Set by bench.py --video-frames.
 VIDEO_FRAMES = 0
 MEDIA_PROBES = ("base", "ctx_neutral", "ctx_low", "ctx_high", "off_task", "injection", "forged",
-                "retest", "retest2", "retest3", "retest4", "text_only") + MEDIA_NULL_PROBES + AUDIO_QUALITY_PROBES + VIDEO_QUALITY_PROBES
+                "retest", "retest2", "retest3", "retest4", "text_only") + MEDIA_NULL_PROBES + AUDIO_QUALITY_PROBES + AUDIO_CONTROL_PROBES + VIDEO_QUALITY_PROBES
 NULL_CASES = 30
 # Repeated identical calls for selective scoring: base, retest and these three give k = 5 samples.
 REPEAT_PROBES = ("retest", "retest2", "retest3", "retest4")
@@ -186,7 +189,7 @@ def probe_input(case, probe, off_task_response=None, seed=0):
         if probe in CONTEXT:
             return r, CONTEXT[probe]
         return r, ""  # the work itself changes through probe_media
-    if probe in MEDIA_NULL_PROBES + AUDIO_QUALITY_PROBES + VIDEO_QUALITY_PROBES + ("text_only",):
+    if probe in MEDIA_NULL_PROBES + AUDIO_QUALITY_PROBES + AUDIO_CONTROL_PROBES + VIDEO_QUALITY_PROBES + ("text_only",):
         return None
     if probe in ("base",) + REPEAT_PROBES:
         return r, ""
@@ -274,7 +277,8 @@ def _degrade(path, probe, key):
         raise ValueError("noise probe expects 16-bit audio")
     x = list(struct.unpack("<" + "h" * (n * ch), w.readframes(n)))
     p_sig = sum(v * v for v in x) / max(1, len(x))
-    sd = (p_sig / 10 ** (10 / 10)) ** 0.5
+    snr = {"noise_10db": 10, "noise_0db": 0, "noise_m10db": -10}[probe]
+    sd = (p_sig / 10 ** (snr / 10)) ** 0.5
     rng = _r.Random(key)
     y = [max(-32768, min(32767, int(v + rng.gauss(0, sd)))) for v in x]
     buf = io.BytesIO()
@@ -406,7 +410,7 @@ def probe_media(case, probe, off_task_case=None, seed=0):
         if not media or media[0]["kind"] != "audio":
             return None
         return [("audio", _make_wav(media[0]["path"], "silence" if probe == "null_silence" else "tone"), "wav")]
-    if probe in AUDIO_QUALITY_PROBES:
+    if probe in AUDIO_QUALITY_PROBES + AUDIO_CONTROL_PROBES:
         if not media or media[0]["kind"] != "audio":
             return None
         return [("audio", _degrade(media[0]["path"], probe, f"{seed}|{case['id']}"), "wav")]
