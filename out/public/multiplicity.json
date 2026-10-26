@@ -5,7 +5,10 @@
 "task": "",
 "probe": "230 intervals; 121 exclude 0; 112 survive",
 "p": null,
-"q": null
+"q": null,
+"tests": 230,
+"flagged": 121,
+"survive": 112
 },
 {
 "key": "meta-llama/llama-3.2-3b-instruct:code:gaming_max_share",
@@ -13,7 +16,9 @@
 "task": "Code",
 "probe": "gaming_max_share",
 "p": 0.0251,
-"q": 0.051
+"q": 0.051,
+"above_line": true,
+"sets_flag": false
 },
 {
 "key": "google/gemma-4-26b-a4b-it:mohler:surface_share",
@@ -21,7 +26,9 @@
 "task": "Short answers",
 "probe": "surface_share",
 "p": 0.0267,
-"q": 0.0539
+"q": 0.0539,
+"above_line": false,
+"sets_flag": false
 },
 {
 "key": "google/gemma-4-26b-a4b-it:code:attainment_label_share",
@@ -29,7 +36,9 @@
 "task": "Code",
 "probe": "attainment_label_share",
 "p": 0.0277,
-"q": 0.0555
+"q": 0.0555,
+"above_line": false,
+"sets_flag": false
 },
 {
 "key": "qwen/qwen3-235b-a22b-2507:asap2:attainment_label_share",
@@ -37,7 +46,9 @@
 "task": "Essays",
 "probe": "attainment_label_share",
 "p": 0.0294,
-"q": 0.0583
+"q": 0.0583,
+"above_line": false,
+"sets_flag": false
 },
 {
 "key": "anthropic/claude-fable-5.1:asap2:surface_share",
@@ -45,7 +56,9 @@
 "task": "Essays",
 "probe": "surface_share",
 "p": 0.0329,
-"q": 0.0647
+"q": 0.0647,
+"above_line": false,
+"sets_flag": false
 },
 {
 "key": "deepseek/deepseek-v4.1-flash-1017:mohler:gaming_max_share",
@@ -53,7 +66,9 @@
 "task": "Short answers",
 "probe": "gaming_max_share",
 "p": 0.0337,
-"q": 0.0657
+"q": 0.0657,
+"above_line": false,
+"sets_flag": false
 },
 {
 "key": "anthropic/claude-haiku-5.5:code:attainment_label_share",
@@ -61,7 +76,9 @@
 "task": "Code",
 "probe": "attainment_label_share",
 "p": 0.0375,
-"q": 0.0725
+"q": 0.0725,
+"above_line": false,
+"sets_flag": false
 },
 {
 "key": "anthropic/claude-haiku-5.5:mohler:gaming_max_share",
@@ -69,7 +86,9 @@
 "task": "Short answers",
 "probe": "gaming_max_share",
 "p": 0.0391,
-"q": 0.0749
+"q": 0.0749,
+"above_line": false,
+"sets_flag": false
 },
 {
 "key": "deepseek/deepseek-v4-pro-0813:code:attainment_label_share",
@@ -77,6 +96,8 @@
 "task": "Code",
 "probe": "attainment_label_share",
 "p": 0.0412,
-"q": 0.0784
+"q": 0.0784,
+"above_line": false,
+"sets_flag": false
 }
 ]

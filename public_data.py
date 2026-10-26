@@ -635,8 +635,19 @@ def multiplicity():
     mu = o["multiplicity"]
     rows = [{"key": "summary", "model": "", "task": "", "probe": f"{mu['tests']} intervals; {mu['flagged']} exclude 0; {mu['survive']} survive",
              "p": None, "q": None}]
+    # Whether the uncertain result is what a model's flag rests on: the gaming flag fires on a task's gain above the
+    # threshold, so an uncertain gaming result above it would be the flag's (only the gaming probe sets a flag).
+    lb = _load("out", "leaderboard.json") or {}
+    est = {(r["model"], r["task"]): ((r.get("gaming_max_share") or {}).get("estimate") or 0)
+           for r in (lb.get("rows", []) if isinstance(lb, dict) else lb)}
+    gate = o.get("flags", {}).get("gaming", 5)
     rows += [{"key": f"{x['model']}:{x['task']}:{x['probe']}", "model": name(x["model"]), "task": TASKS.get(x["task"], x["task"]),
-              "probe": x["probe"], "p": round(x["p"], 4), "q": round(x["q"], 4)} for x in mu["do_not_survive"]]
+              "probe": x["probe"], "p": round(x["p"], 4), "q": round(x["q"], 4),
+              "above_line": (above := x["probe"] == "gaming_max_share" and est.get((x["model"], x["task"]), 0) * 100 > gate),
+              # the flag rests on this result alone when no other of the model's tasks is above the line
+              "sets_flag": above and not any(v * 100 > gate for (m, t), v in est.items() if m == x["model"] and t != x["task"])}
+             for x in mu["do_not_survive"]]
+    rows[0].update(tests=mu["tests"], flagged=mu["flagged"], survive=mu["survive"])
     return rows
 
 
