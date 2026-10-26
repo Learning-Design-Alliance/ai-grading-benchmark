@@ -93,6 +93,17 @@ CHANGES:
    stands for every model: a model that fails is UNMEASURED, and the protocol is unchanged for the rest. Added,
    descriptive only and labelled as such: the verdict the FULL-STACK figure would get with each idle window
    alone, and with the GROSS figure (nothing subtracted, so an upper bound on the GPU's energy).
+3. (2026-10-26, approved by the maintainer, before any new run) A second run of the eight board models, so they can
+   be judged by the registered idle check. In the first run, power fell steadily through every post-run idle window
+   (e.g. GPT-OSS 88, 80 and 76 W in its three 20-s thirds, against 65 W before), which is a GPU cooling down and
+   settling its clocks, not a process left holding power. So after the last task's run, `measure` now waits until
+   the 10-s mean power is at most 1.05 x the pre-run idle (half the check's 10% bar, so the 60-s window that
+   follows stays inside it), polling each second, for at most 600 s. It records how long that took. Only then is
+   the post-run idle window taken. GPU temperature is also logged with each 1-s sample (descriptive), to show the
+   cause. Everything else is unchanged: one A100 80GB PCIe, vLLM v0.32.0, 16 at a time, the leaderboard
+   battery, the sensitivity runs, the x1.72 factor, the floor, the checks and the verdict strings. The first run's
+   figures are kept as `out/energy-run1-idle-failed.json`, the run that failed its idle check. `out/energy.json`
+   holds the second run for the eight models and the first for Olmo, which passed and is not re-run.
 
     python3 energy/energy.py floor
     python3 energy/energy.py measure --slug <slug> --model <served name> --cases-dir DIR --runs DIR   # on the pod
@@ -162,6 +173,17 @@ def idle(seconds):
     return {"t0": a["t"], "t1": b["t"], "j": (b["mj"] - a["mj"]) / 1000, "w": (b["mj"] - a["mj"]) / 1000 / (b["t"] - a["t"])}
 
 
+def cooldown(idle_w, ratio=1.05, cap=600):
+    """CHANGE 3: wait until the 10-s mean power is within `ratio` of the pre-run idle, at most `cap` seconds."""
+    t0, ws = time.time(), []
+    while time.time() - t0 < cap:
+        ws.append(read_energy()["w"])
+        if len(ws) >= 10 and sum(ws[-10:]) / 10 <= ratio * idle_w:
+            return {"seconds": round(time.time() - t0), "reached": True, "target_w": ratio * idle_w, "last_w": sum(ws[-10:]) / 10}
+        time.sleep(1)
+    return {"seconds": round(time.time() - t0), "reached": False, "target_w": ratio * idle_w, "last_w": sum(ws[-10:]) / 10}
+
+
 def monitored(cmd, cache_dir):
     """Runs cmd, polling the energy counter and the count of completed gradings every POLL seconds."""
     polls = []
@@ -201,6 +223,8 @@ def cmd_measure(a):
         res["runs"][task] = monitored(cmd, os.path.join(out, ".cache"))
         print(task, "rc", res["runs"][task]["rc"], res["runs"][task]["log_tail"][-300:], flush=True)
         save()
+    res["cooldown"] = cooldown(res["idle"][0]["w"])  # CHANGE 3
+    print("cool-down", res["cooldown"], flush=True)
     res["idle"].append(idle(IDLE_S))
     save()
     if not a.no_sensitivity:
