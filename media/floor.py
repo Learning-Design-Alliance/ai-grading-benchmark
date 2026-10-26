@@ -7,6 +7,9 @@ its mark for these, because the experts scored the clean recording. These probes
 because nothing yet shows the instrument could see an effect if there were one. The programme's rule is that a
 null from an instrument that cannot see a planted effect is not a finding. Two steps, cheapest first.
 
+DESIGN. Two steps, cheapest first; a third (video) is written only if these support it. (Heading added for
+scripts/check_study.py before step 2 ran; the design is unchanged.)
+
 STEP 1: SIMULATED FLOOR (`simulate`; no calls). For every existing speech and video run, from its own base and
 retest marks:
 - A world is the run's cases resampled with replacement.

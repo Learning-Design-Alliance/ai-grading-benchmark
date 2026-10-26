@@ -1,0 +1,24 @@
+name: studies
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  methodology:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      # docs/METHODOLOGY.md: every study registered from 2026-10-26 must carry its pre-registration sections,
+      # numbered and dated changes, a write-up, and only the verdict strings it registered.
+      - name: Studies follow the methodology
+        run: python3 scripts/check_study.py
+      - name: Nothing private in the repository
+        run: python3 scripts/check_private.py

@@ -249,6 +249,12 @@ def cmd_run(a):
               "(reasoning models can use several times that)")
     if len(jobs) > a.max_calls:
         sys.exit(f"refused: {len(jobs)} calls exceeds --max-calls {a.max_calls}")
+    pin = ((json.loads(a.extra_body) if a.extra_body else {}).get("provider") or {}).get("quantizations")
+    if "openrouter.ai" in a.base_url and not pin:
+        # docs/METHODOLOGY.md 2.2: an open model on a router is served at whatever precision the host runs; at 4-bit
+        # the same model was far easier to game (hosting/). Closed models publish no precision: ignore this for them.
+        print("note: precision not pinned; for an open-weights model add provider.quantizations (e.g. [\"fp8\", "
+              "\"bf16\"]) and a --label")
     if not a.go:
         print("dry run: nothing sent. Add --go to make the calls.")
         return
@@ -271,6 +277,7 @@ def cmd_run(a):
         "case_ids": [c["id"] for c in cs], "video_frames": a.video_frames,
         "retention_exception": a.retention_exception, "route": a.route,
         "key_env": a.key_env,  # the variable's name only, never its value
+        "precision_pin": ((extra or {}).get("provider") or {}).get("quantizations"),  # None: unpinned
         "label": a.label,  # a row name when one model is entered in more than one setup (e.g. "<model>@8bit")
     }
     with open(os.path.join(a.out, "config.json"), "w") as fh:

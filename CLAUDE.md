@@ -13,6 +13,15 @@ The home of all benchmark work (moved from the Learning Design Alliance research
   the pre-registration and the record of changes), a README and `out/`.
 - `docs/`: the research log, drift, the literature review, data sources. `scripts/`: repository checks.
 
+## Methodology
+
+Read `docs/METHODOLOGY.md` before designing or reporting anything: every rule there was learned from a mistake,
+with the incident and how it is enforced. A new study starts from `docs/STUDY-TEMPLATE.md` and must pass
+`python3 scripts/check_study.py` (CI runs it). Before analysing runs: `python3 scripts/check_runs.py <run dirs>`.
+Before anything leaves the team: the independent audit in `docs/AUDIT-PROMPT.md`, and
+`python3 scripts/check_numbers.py <document>` to list every number for checking. A new modality (presentations,
+screen recordings, speech, video) works through the checklist in `docs/METHODOLOGY.md` section 7.
+
 ## Rules
 
 - **Nothing from any product's own prompt or product results enters this repository**, not even while it is

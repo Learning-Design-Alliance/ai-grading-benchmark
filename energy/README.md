@@ -41,15 +41,15 @@ first run, which it passed. `out/energy.json` holds these figures; the first run
 
 | model | short answer, NET mWh [95%] | essay | code | short answer, FULL-STACK | essay | code | full leaderboard run, NET | one at a time vs batched (short / essay) | verdict |
 |---|---|---|---|---|---|---|---|---|---|
-| Llama 3.2 3B | 0.8 [0.8-0.9] | 2.0 [1.8-2.1] | 10.1 [6.4-13.8] | 1.5 | 3.4 | 17.5 | 9 Wh | 13x / 8x | BELOW SMALL on all three |
-| Gemma 3 4B | 1.2 [1.1-1.2] | 3.8 [3.4-4.2] | 3.5 [3.2-3.8] | 2.0 | 6.6 | 6.0 | 6 Wh | 13x / 11x | BELOW SMALL on all three |
-| Ministral 8B | 2.1 [1.2-2.9] | 3.7 [3.4-4.0] | 7.9 [4.8-11.1] | 3.6 | 6.4 | 13.7 | 10 Wh | 9x / 7x | BELOW SMALL on all three |
-| Phi-4 (14B) | 3.1 [3.0-3.2] | 7.0 [6.2-7.8] | 25.5 [21.7-29.4] | 5.4 | 12.1 | 44.0 | 24 Wh | 14x / 10x | BELOW SMALL on all three |
-| GPT-OSS 20B | 7.7 [7.3-8.1] | 10.8 [10.2-11.5] | 19.3 [17.5-21.2] | 13.2 | 18.7 | 33.4 | 28 Wh | 7x / 6x | BELOW SMALL on all three |
-| Gemma 4 26B A4B | 2.5 [2.3-2.6] | 4.9 [4.6-5.1] | 4.9 [4.7-5.1] | 4.2 | 8.4 | 8.4 | 9 Wh | 6x / 5x | BELOW SMALL on all three |
-| Gemma 3 27B | 5.4 [5.2-5.6] | 12.1 [10.9-13.3] | 12.4 [11.6-13.1] | 9.3 | 20.9 | 21.3 | 22 Wh | 15x / 9x | BELOW SMALL on all three |
-| Gemma 4 31B | 6.5 [6.2-6.8] | 16.8 [15.3-18.3] | 14.9 [14.1-15.8] | 11.2 | 28.9 | 25.8 | 29 Wh | 14x / 9x | BELOW SMALL on all three |
-| Olmo 3.1 32B (first run) | 6.5 [4.9-8.1] | 13.6 [12.4-14.7] | 11.5 [10.8-12.3] | 11.2 | 23.4 | 19.9 | 24 Wh | 12x / 9x | BELOW SMALL on all three |
+| Llama 3.2 3B | 0.8 [0.8-0.9] | 2.0 [1.8-2.1] | 10.1 [6.4-13.8] | 1.5 | 3.4 | 17.5 | 9 Wh | 13x / 8x | BELOW THE SMALL-MODEL ESTIMATE on all three |
+| Gemma 3 4B | 1.2 [1.1-1.2] | 3.8 [3.4-4.2] | 3.5 [3.2-3.8] | 2.0 | 6.6 | 6.0 | 6 Wh | 13x / 11x | BELOW THE SMALL-MODEL ESTIMATE on all three |
+| Ministral 8B | 2.1 [1.2-2.9] | 3.7 [3.4-4.0] | 7.9 [4.8-11.1] | 3.6 | 6.4 | 13.7 | 10 Wh | 9x / 7x | BELOW THE SMALL-MODEL ESTIMATE on all three |
+| Phi-4 (14B) | 3.1 [3.0-3.2] | 7.0 [6.2-7.8] | 25.5 [21.7-29.4] | 5.4 | 12.1 | 44.0 | 24 Wh | 14x / 10x | BELOW THE SMALL-MODEL ESTIMATE on all three |
+| GPT-OSS 20B | 7.7 [7.3-8.1] | 10.8 [10.2-11.5] | 19.3 [17.5-21.2] | 13.2 | 18.7 | 33.4 | 28 Wh | 7x / 6x | BELOW THE SMALL-MODEL ESTIMATE on all three |
+| Gemma 4 26B A4B | 2.5 [2.3-2.6] | 4.9 [4.6-5.1] | 4.9 [4.7-5.1] | 4.2 | 8.4 | 8.4 | 9 Wh | 6x / 5x | BELOW THE SMALL-MODEL ESTIMATE on all three |
+| Gemma 3 27B | 5.4 [5.2-5.6] | 12.1 [10.9-13.3] | 12.4 [11.6-13.1] | 9.3 | 20.9 | 21.3 | 22 Wh | 15x / 9x | BELOW THE SMALL-MODEL ESTIMATE on all three |
+| Gemma 4 31B | 6.5 [6.2-6.8] | 16.8 [15.3-18.3] | 14.9 [14.1-15.8] | 11.2 | 28.9 | 25.8 | 29 Wh | 14x / 9x | BELOW THE SMALL-MODEL ESTIMATE on all three |
+| Olmo 3.1 32B (first run) | 6.5 [4.9-8.1] | 13.6 [12.4-14.7] | 11.5 [10.8-12.3] | 11.2 | 23.4 | 19.9 | 24 Wh | 12x / 9x | BELOW THE SMALL-MODEL ESTIMATE on all three |
 
 - **All 27 model-task figures are BELOW THE SMALL-MODEL ESTIMATE** (registered verdicts now, not descriptive), by
   a median factor of 4 (1.4 to 17), and 15 to 128 times below the mid-size estimate.

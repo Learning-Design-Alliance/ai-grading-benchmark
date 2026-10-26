@@ -39,6 +39,10 @@ These are descriptive comparisons of two runs. The paired precision test is host
 grading's host is checked against OpenRouter's precision labels, and any grading from a host with no 8-bit or
 full-precision endpoint for that model is counted and reported.
 
+FLOOR. No new instrument: the board's own probes, floor (floor.py) and verdict rules apply to these rows unchanged.
+
+VERDICT. No new verdict strings: each 8-bit row carries the board's own strand scores, flags and verdicts.
+
 BUDGET. A cap of $35 across the study (per-run caps from what is left).
 
 Usage:

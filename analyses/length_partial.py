@@ -8,6 +8,9 @@ length MORE than the experts did. This asks the converse: once length is set asi
 the experts? A grader whose agreement is mostly length is reading the essay's size, not its quality, and would
 be fooled by padding the experts would not reward.
 
+DESIGN. The board's 100 cases per task and its submissions' base gradings; no new calls. (Heading added
+2026-10-26 for scripts/check_study.py; the design is unchanged.)
+
 MEASURES, per model and task (short answers, code, essays), on the base gradings of the board's 100 cases:
 - r: Pearson correlation of the model's mark with the experts' mean mark;
 - r_length: Pearson correlation of log(1 + words) with the experts' mean (the task's, same for every model);
