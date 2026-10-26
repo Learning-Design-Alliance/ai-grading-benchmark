@@ -21,7 +21,10 @@ ALWAYS = [r"(?i)laz" + r"uli", r"sk-or-v1-[0-9a-f]{8,}", r"sk-ant-[A-Za-z0-9_-]{
 # (file, text the line must contain) where the product name is allowed
 NAME_ALLOWED = [("BENCHMARK-CARD.md", "**Conflict of interest:**")]
 NAME_PATTERN = ALWAYS[0]
-PUBLISH = [r"~", r"scratch", r"\.\./private-analysis-repository", r"(?i)private-research-repository", r"\.\./\.\./\.\./producers"]
+# Built from pieces, so this file never contains the strings it refuses (a history rewrite matching them
+# would otherwise rewrite the check itself).
+PUBLISH = [r"/home/" + r"user", r"/tmp/" + r"claude", r"\.\./grader" + r"-eval", r"(?i)learning-" + r"engineering-research",
+           r"\.\./\.\./\.\./prod" + r"ucers"]
 
 
 def allowed(f, p, line_text):
