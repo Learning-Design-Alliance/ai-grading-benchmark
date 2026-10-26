@@ -74,21 +74,24 @@
       <p class="lede">One score per model across short answers, code and essays, plus two whole-model tests: whether it credits the working in maths, and whether it holds its mark when a student only disagrees. Each of nine strands is scored 0 to 100, and the overall score is their weighted average.</p>
     </div>
 
-    <div class="panel rerank">
-      <div class="controls" style="justify-content:space-between">
-        <h3>Adjust the ranking</h3>
-        <div class="controls">
-          <span class="ctl-label">Presets</span>
-          <div class="seg" id="presets" role="group" aria-label="Weight presets"></div>
-        </div>
+    <details class="panel rerank" id="rerank">
+      <summary>
+        <span class="sum-title">Adjust the ranking</span>
+        <span class="status" id="w-status"></span>
+        <span class="sum-hint" aria-hidden="true"></span>
+      </summary>
+      <div class="rr-body">
+      <div class="controls">
+        <span class="ctl-label">Presets</span>
+        <div class="seg" id="presets" role="group" aria-label="Weight presets"></div>
       </div>
       <p class="why">The weights are a judgement, so you can set your own. Each slider sets how much one strand counts toward the overall score. Changing them re-ranks the models; it hides none and changes no measurement. The <b>Default</b> column keeps the published weights for comparison, and the arrows show how far each model moved.</p>
       <div class="sliders" id="sliders"></div>
-      <div class="controls" style="justify-content:space-between">
-        <span class="status" id="w-status"></span>
+      <div class="controls" style="justify-content:flex-end">
         <button type="button" class="link" id="w-reset">Reset to the default weights</button>
       </div>
-    </div>
+      </div>
+    </details>
 
     <div class="controls">
       <span class="ctl-label">Show</span>

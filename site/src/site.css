@@ -99,7 +99,23 @@ button.link:hover { background: var(--accent-soft); }
 
 /* Re-ranking panel */
 .rerank { display: grid; gap: 14px; }
-.rerank .why { font-size: 14px; color: var(--ink2); }
+.rerank .why { font-size: 14px; color: var(--ink2); max-width: none; }
+.panel p, .note span, .finding p { max-width: none; }
+details.rerank { gap: 0; }
+details.rerank[open] { gap: 14px; }
+details.rerank > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 4px 18px; align-items: center; }
+details.rerank > summary::-webkit-details-marker { display: none; }
+details.rerank[open] > summary { padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+.rr-body { display: grid; gap: 16px; padding-top: 16px; }
+.sum-title { font: 400 22px/1.25 var(--display); color: var(--accent); }
+.sum-hint { font: 500 13.5px/1 var(--text); color: var(--accent); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); border-radius: 999px; padding: 7px 13px; white-space: nowrap; }
+.sum-hint::before { content: "Show the weights ▾"; }
+details.rerank[open] .sum-hint::before { content: "Hide the weights ▴"; }
+details.rerank > summary:hover .sum-hint { background: var(--accent-soft); }
+/* the status line never wraps, so choosing a preset never changes the box's height */
+#w-status { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.slider small { min-height: 2.8em; }
+@media (max-width: 640px) { details.rerank > summary { grid-template-columns: 1fr auto; } #w-status { grid-column: 1 / -1; grid-row: 2; white-space: normal; min-height: 2.9em; } }
 .sliders { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 14px 22px; }
 .slider { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: baseline; }
 .slider span:first-child { font-weight: 500; font-size: 14px; }

@@ -247,8 +247,8 @@ function drawOverallTable() {
   const isDef = STRANDS.every(k => (W[k] || 0) === DEFAULT_W[k]);
   const rows = ranked(W).filter(r => shown.has(r.kind));
   const moved = rows.filter(r => r.complete && r.myRank !== r.rank).length;
-  $("#w-status").innerHTML = isDef ? "Showing the <b>default weights</b>." :
-    `Ranked by <b>your weights</b>${presetName() ? " (" + presetName() + ")" : ""}. ${moved} model${moved === 1 ? "" : "s"} moved; the Default column is unchanged.`;
+  $("#w-status").innerHTML = isDef ? "Ranked by the <b>default weights</b>. Set your own to re-rank." :
+    `Ranked by <b>your weights</b>${presetName() ? " (" + presetName() + ")" : ""}: ${moved} model${moved === 1 ? "" : "s"} moved from the default ranking.`;
   const strandCols = STRANDS.map(k => ({ k, h: SHORT[k] || k, title: (WROWS.find(w => w.strand === k) || {}).means, f: f0, c: v => !nul(v) && v < 60 ? "bad" : "n" }));
   table("t-overall", rows, [
     { k: "myRank", h: isDef ? "Rank" : "Your rank", f: (v, r) => r.complete ? String(v) : "—" },

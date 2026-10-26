@@ -55,7 +55,8 @@ Pre-registered comparisons, paired by essay:
 - **C5. Even on an unseen prompt, both beat prompting.** Against Opus zero-shot, DeBERTa exceeds it by 0.092 and Qwen
   by 0.120.
 - **C6. An unseen prompt costs the fine-tuned models a little:** -0.063 for DeBERTa, -0.043 for Qwen. Both still
-  stay at or above the expert raters' agreement (0.745).
+  stay near the expert raters' agreement (0.745): Qwen above it (0.755), DeBERTa just below (0.741), both
+  intervals containing it.
 
 **The board's checks on the fine-tuned models** (the board's 100 essays):
 
