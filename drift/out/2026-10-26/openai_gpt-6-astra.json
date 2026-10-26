@@ -1,0 +1,8 @@
+{
+ "battery": "anchor",
+ "date": "2026-10-26",
+ "model": "openai/gpt-6-astra",
+ "tasks": {
+  "asap2": {
+   "failed": 7,
+   "hosts": {

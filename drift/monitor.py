@@ -130,7 +130,8 @@ def cmd_run(a):
                 marks.setdefault(c["id"], {})[c["probe"]] = c.get("score")
             hosts = {}
             for c in calls:
-                hosts[c.get("provider")] = hosts.get(c.get("provider"), 0) + 1
+                h = str(c.get("provider"))  # None when a grading failed before any host answered
+                hosts[h] = hosts.get(h, 0) + 1
             rec["tasks"][task] = {"marks": marks, "hosts": hosts,
                                   "served_models": sorted({str(c.get("served_model")) for c in calls if c.get("served_model")}),
                                   "failed": sum(1 for c in calls if c.get("score") is None)}
