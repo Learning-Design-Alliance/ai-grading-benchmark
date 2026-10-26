@@ -46,7 +46,7 @@ Carbon and streaming are for the mid-size model.
   about 7 times the energy of one that writes 135.
 - **A model's size** changes the figure about tenfold between the small and the mid-size model.
 
-## Measured on open models (2026-10-25)
+## Measured on open models (2026-10-25, re-run 2026-10-26)
 
 The estimates above stay as they are. Beside them, the open models on the board were run on a rented GPU and
 their energy read off it (`energy/`, pre-registered): one NVIDIA A100 80GB, vLLM, the leaderboard battery, 16
@@ -54,28 +54,26 @@ gradings at a time. **Boundary:** the GPU's energy above idle, then × 1.72 for 
 data centre (Google's split of its own figure: accelerators 58% of the total; Elsworth et al. 2025), so that
 it compares with the per-token model, which counts them too.
 
-**Status.** The eight board models failed one pre-registered self-check: the GPU idled 13-26% higher in the
-minute after the runs than before them (the bar was 10%). So their comparison below is descriptive. Which idle figure is
-subtracted moves the result by 5-10%. The GPU's energy counter itself agreed with its power readings within 1%.
+**Status: measured, all nine models.** In the first run (2026-10-25) eight models failed a pre-registered
+self-check: the GPU idled 13-26% higher after the runs than before, because it was still cooling. They were re-run
+on 2026-10-26 with a cool-down before the second idle reading (CHANGE 3, pre-registered; 63-97 s per model), and
+all eight passed. Olmo passed in the first run. The first run's figures are kept in
+`energy/out/energy-run1-idle-failed.json`.
 
-| task | measured, full-stack, range over the 8 board models | small-model estimate at the same tokens | mid-size estimate |
+| task | measured, full-stack, range over the 9 models | small-model estimate at the same tokens | mid-size estimate |
 |---|---|---|---|
-| short answer | 1.5-16 mWh (0.0015-0.016 Wh) | 16-47 mWh | 178-386 mWh |
-| essay | 3.9-33 mWh | 59-95 mWh | 435-680 mWh |
-| code | 6.5-51 mWh | 66-136 mWh | 480-950 mWh |
+| short answer | 1.5-13 mWh (0.0015-0.013 Wh) | 15-46 mWh | 173-381 mWh |
+| essay | 3.4-29 mWh | 58-94 mWh | 427-674 mWh |
+| code | 6.0-44 mWh | 66-132 mWh | 480-927 mWh |
 
-Olmo 3.1 32B, the ninth model, ran on a second pod and passed every check. Its measured verdict is **below
-the small-model estimate** on all three tasks: 11, 23 and 20 mWh full-stack for a short answer, an essay and
-code, against estimates of 15, 58 and 68 mWh.
-
-- **Measured is lower than estimated.** For 23 of 24 model-task pairs it is below even the small-model
-  estimate. The median gap is a factor of 4, and up to 15. The per-token model was fitted to figures inferred
-  for hosted APIs, which carry their own overheads and batch sizes. For an open model of up to 32B parameters
-  run in a batch on one modern GPU, it overstates the energy.
-- **One request at a time costs 4-16 times as much** as batching. This is the largest lever, bigger than the
+- **Measured is lower than estimated, for every model and task.** All 27 model-task figures are BELOW THE
+  SMALL-MODEL ESTIMATE, by a median factor of 4 (1.4 to 17), and 15 to 128 times below the mid-size estimate. The
+  per-token model was fitted to figures inferred for hosted APIs, which carry their own overheads and batch
+  sizes. For an open model of up to 32B parameters run in a batch on one modern GPU, it overstates the energy.
+- **One request at a time costs 5-15 times as much** as batching. This is the largest lever, bigger than the
   model's size. AI Energy Score measures this way.
-- **Per model** (`energy/README.md`): a full leaderboard run of 2,342 gradings used 7-34 Wh of GPU energy.
-  That is less than an hour of video streaming for the heaviest model.
+- **Per model** (`energy/README.md`): a full leaderboard run of 2,342 gradings used 6-29 Wh of GPU energy. That is
+  less than half an hour of video streaming for the heaviest model.
 - Closed models cannot be measured. Their estimates above remain the only figures.
 
 ## A burger for scale

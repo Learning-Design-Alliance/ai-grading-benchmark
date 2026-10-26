@@ -270,7 +270,7 @@
   "note": "Measured GPU energy per grading for open models (energy/, pre-registered), beside the per-token estimates, which stay as they are. NET = GPU energy above idle; FULL-STACK = NET x 1.72 (Elsworth et al. 2025, accelerators 58% of the total). Eight of the nine models failed the pre-registered idle check, so their verdicts are UNMEASURED and their figures descriptive; Olmo 3.1 32B, run on a second pod, passed it. Each row's verdict says which.",
   "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
   "boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
-  "hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)",
+  "hardware": "1x NVIDIA A100 80GB PCIe on RunPod. Second run: secure cloud, one pod for seven models and a fresh pod for Gemma 4 31B (the first pod could not start it; its disk most likely full); idle about 97-108 W. Olmo: first run, secure cloud.",
   "serving": "vLLM v0.32.0, 16 concurrent requests",
   "overhead_factor": 1.724,
   "source": "energy/out/energy.json",
@@ -278,86 +278,86 @@
    {
     "model": "google/gemma-3-4b-it",
     "task": "mohler",
-    "net_mwh": 1.18,
+    "net_mwh": 1.167,
     "net_mwh_ci95": [
-     1.13,
-     1.231
+     1.128,
+     1.206
     ],
     "net_mwh_idle_range": [
-     1.12,
-     1.241
+     1.16,
+     1.173
     ],
-    "gross_mwh": 2.183,
-    "full_stack_mwh": 2.035,
+    "gross_mwh": 1.925,
+    "full_stack_mwh": 2.012,
     "full_stack_mwh_ci95": [
-     1.948,
-     2.122
+     1.945,
+     2.079
     ],
     "tokens_in": 174,
     "tokens_out": 41,
-    "estimate_small_mwh": 16.66,
-    "estimate_mid_mwh": 183.06,
-    "verdict": "UNMEASURED",
+    "estimate_small_mwh": 16.61,
+    "estimate_mid_mwh": 182.77,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 15.34
+    "one_at_a_time_mwh": 15.32
    },
    {
     "model": "google/gemma-3-4b-it",
     "task": "asap2",
-    "net_mwh": 4.178,
+    "net_mwh": 3.814,
     "net_mwh_ci95": [
-     3.825,
-     4.53
+     3.429,
+     4.199
     ],
     "net_mwh_idle_range": [
-     4.066,
-     4.289
+     3.793,
+     3.834
     ],
-    "gross_mwh": 6.023,
-    "full_stack_mwh": 7.203,
+    "gross_mwh": 6.099,
+    "full_stack_mwh": 6.576,
     "full_stack_mwh_ci95": [
-     6.596,
-     7.81
+     5.911,
+     7.24
     ],
     "tokens_in": 2058,
     "tokens_out": 98,
-    "estimate_small_mwh": 66.3,
-    "estimate_mid_mwh": 485.02,
-    "verdict": "UNMEASURED",
+    "estimate_small_mwh": 66.23,
+    "estimate_mid_mwh": 484.54,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 39.26
+    "one_at_a_time_mwh": 40.35
    },
    {
     "model": "google/gemma-3-4b-it",
     "task": "code",
-    "net_mwh": 3.746,
+    "net_mwh": 3.508,
     "net_mwh_ci95": [
-     3.467,
-     4.025
+     3.249,
+     3.766
     ],
     "net_mwh_idle_range": [
-     3.643,
-     3.85
+     3.489,
+     3.526
     ],
-    "gross_mwh": 5.461,
-    "full_stack_mwh": 6.459,
+    "gross_mwh": 5.586,
+    "full_stack_mwh": 6.047,
     "full_stack_mwh_ci95": [
-     5.977,
-     6.941
+     5.602,
+     6.493
     ],
     "tokens_in": 2315,
     "tokens_out": 95,
-    "estimate_small_mwh": 71.46,
-    "estimate_mid_mwh": 515.4,
-    "verdict": "UNMEASURED",
+    "estimate_small_mwh": 71.58,
+    "estimate_mid_mwh": 516.21,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
@@ -368,86 +368,86 @@
    {
     "model": "google/gemma-3-27b-it",
     "task": "mohler",
-    "net_mwh": 6.305,
+    "net_mwh": 5.367,
     "net_mwh_ci95": [
-     6.008,
-     6.602
+     5.167,
+     5.566
     ],
     "net_mwh_idle_range": [
-     6.079,
-     6.532
+     5.34,
+     5.394
     ],
-    "gross_mwh": 8.462,
-    "full_stack_mwh": 10.871,
+    "gross_mwh": 8.451,
+    "full_stack_mwh": 9.253,
     "full_stack_mwh_ci95": [
-     10.359,
-     11.383
+     8.909,
+     9.597
     ],
     "tokens_in": 174,
     "tokens_out": 37,
-    "estimate_small_mwh": 16.09,
-    "estimate_mid_mwh": 179.26,
-    "verdict": "UNMEASURED",
+    "estimate_small_mwh": 16.08,
+    "estimate_mid_mwh": 179.14,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 98.26
+    "one_at_a_time_mwh": 80.66
    },
    {
     "model": "google/gemma-3-27b-it",
     "task": "asap2",
-    "net_mwh": 14.095,
+    "net_mwh": 12.098,
     "net_mwh_ci95": [
-     12.717,
-     15.473
+     10.875,
+     13.321
     ],
     "net_mwh_idle_range": [
-     13.596,
-     14.594
+     12.037,
+     12.159
     ],
-    "gross_mwh": 18.848,
-    "full_stack_mwh": 24.302,
+    "gross_mwh": 19.029,
+    "full_stack_mwh": 20.858,
     "full_stack_mwh_ci95": [
-     21.926,
-     26.678
+     18.749,
+     22.967
     ],
     "tokens_in": 2058,
     "tokens_out": 49,
-    "estimate_small_mwh": 59.31,
-    "estimate_mid_mwh": 437.95,
-    "verdict": "UNMEASURED",
+    "estimate_small_mwh": 59.32,
+    "estimate_mid_mwh": 438.06,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 143.67
+    "one_at_a_time_mwh": 114.12
    },
    {
     "model": "google/gemma-3-27b-it",
     "task": "code",
-    "net_mwh": 14.217,
+    "net_mwh": 12.351,
     "net_mwh_ci95": [
-     13.457,
-     14.977
+     11.605,
+     13.097
     ],
     "net_mwh_idle_range": [
-     13.72,
-     14.713
+     12.289,
+     12.413
     ],
-    "gross_mwh": 18.944,
-    "full_stack_mwh": 24.512,
+    "gross_mwh": 19.37,
+    "full_stack_mwh": 21.295,
     "full_stack_mwh_ci95": [
-     23.201,
-     25.822
+     20.008,
+     22.581
     ],
     "tokens_in": 2315,
-    "tokens_out": 65,
-    "estimate_small_mwh": 67.26,
-    "estimate_mid_mwh": 487.1,
-    "verdict": "UNMEASURED",
+    "tokens_out": 67,
+    "estimate_small_mwh": 67.57,
+    "estimate_mid_mwh": 489.2,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
@@ -458,86 +458,86 @@
    {
     "model": "google/gemma-4-26b-a4b-it",
     "task": "mohler",
-    "net_mwh": 2.726,
+    "net_mwh": 2.458,
     "net_mwh_ci95": [
-     2.582,
-     2.87
+     2.348,
+     2.567
     ],
     "net_mwh_idle_range": [
-     2.629,
-     2.823
+     2.442,
+     2.474
     ],
-    "gross_mwh": 3.841,
-    "full_stack_mwh": 4.7,
+    "gross_mwh": 3.94,
+    "full_stack_mwh": 4.237,
     "full_stack_mwh_ci95": [
-     4.451,
-     4.948
+     4.049,
+     4.426
     ],
     "tokens_in": 183,
     "tokens_out": 34,
-    "estimate_small_mwh": 15.89,
-    "estimate_mid_mwh": 177.72,
-    "verdict": "UNMEASURED",
+    "estimate_small_mwh": 15.86,
+    "estimate_mid_mwh": 177.56,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 14.0
+    "one_at_a_time_mwh": 14.39
    },
    {
     "model": "google/gemma-4-26b-a4b-it",
     "task": "asap2",
-    "net_mwh": 5.657,
+    "net_mwh": 4.867,
     "net_mwh_ci95": [
-     5.359,
-     5.956
+     4.584,
+     5.149
     ],
     "net_mwh_idle_range": [
-     5.451,
-     5.864
+     4.836,
+     4.897
     ],
-    "gross_mwh": 8.027,
-    "full_stack_mwh": 9.754,
+    "gross_mwh": 7.704,
+    "full_stack_mwh": 8.391,
     "full_stack_mwh_ci95": [
-     9.239,
-     10.268
+     7.904,
+     8.877
     ],
     "tokens_in": 2067,
     "tokens_out": 50,
     "estimate_small_mwh": 59.61,
-    "estimate_mid_mwh": 439.82,
-    "verdict": "UNMEASURED",
+    "estimate_mid_mwh": 439.85,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 24.29
+    "one_at_a_time_mwh": 23.78
    },
    {
     "model": "google/gemma-4-26b-a4b-it",
     "task": "code",
-    "net_mwh": 5.637,
+    "net_mwh": 4.882,
     "net_mwh_ci95": [
-     5.324,
-     5.949
+     4.653,
+     5.11
     ],
     "net_mwh_idle_range": [
-     5.472,
-     5.802
+     4.851,
+     4.912
     ],
-    "gross_mwh": 7.534,
-    "full_stack_mwh": 9.719,
+    "gross_mwh": 7.684,
+    "full_stack_mwh": 8.416,
     "full_stack_mwh_ci95": [
-     9.18,
-     10.258
+     8.023,
+     8.81
     ],
     "tokens_in": 2324,
     "tokens_out": 57,
-    "estimate_small_mwh": 66.24,
-    "estimate_mid_mwh": 480.04,
-    "verdict": "UNMEASURED",
+    "estimate_small_mwh": 66.27,
+    "estimate_mid_mwh": 480.29,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
@@ -548,86 +548,86 @@
    {
     "model": "google/gemma-4-31b-it",
     "task": "mohler",
-    "net_mwh": 7.289,
+    "net_mwh": 6.484,
     "net_mwh_ci95": [
-     6.967,
-     7.612
+     6.164,
+     6.805
     ],
     "net_mwh_idle_range": [
-     7.044,
-     7.534
+     6.435,
+     6.534
     ],
-    "gross_mwh": 9.804,
-    "full_stack_mwh": 12.568,
+    "gross_mwh": 9.799,
+    "full_stack_mwh": 11.18,
     "full_stack_mwh_ci95": [
-     12.011,
-     13.125
+     10.628,
+     11.732
     ],
     "tokens_in": 183,
     "tokens_out": 35,
-    "estimate_small_mwh": 16.06,
-    "estimate_mid_mwh": 178.86,
-    "verdict": "UNMEASURED",
+    "estimate_small_mwh": 16.05,
+    "estimate_mid_mwh": 178.79,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "WITHIN THE ESTIMATES' RANGE"
     },
-    "one_at_a_time_mwh": 104.61
+    "one_at_a_time_mwh": 92.98
    },
    {
     "model": "google/gemma-4-31b-it",
     "task": "asap2",
-    "net_mwh": 19.051,
+    "net_mwh": 16.79,
     "net_mwh_ci95": [
-     17.258,
-     20.844
+     15.305,
+     18.275
     ],
     "net_mwh_idle_range": [
-     18.425,
-     19.677
+     16.664,
+     16.916
     ],
-    "gross_mwh": 25.477,
-    "full_stack_mwh": 32.847,
+    "gross_mwh": 25.251,
+    "full_stack_mwh": 28.948,
     "full_stack_mwh_ci95": [
-     29.755,
-     35.938
+     26.388,
+     31.509
     ],
     "tokens_in": 2067,
     "tokens_out": 50,
-    "estimate_small_mwh": 59.63,
-    "estimate_mid_mwh": 439.96,
-    "verdict": "UNMEASURED",
+    "estimate_small_mwh": 59.68,
+    "estimate_mid_mwh": 440.28,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 172.95
+    "one_at_a_time_mwh": 150.52
    },
    {
     "model": "google/gemma-4-31b-it",
     "task": "code",
-    "net_mwh": 16.823,
+    "net_mwh": 14.947,
     "net_mwh_ci95": [
-     15.832,
-     17.814
+     14.143,
+     15.752
     ],
     "net_mwh_idle_range": [
-     16.276,
-     17.371
+     14.835,
+     15.06
     ],
-    "gross_mwh": 22.439,
-    "full_stack_mwh": 29.006,
+    "gross_mwh": 22.474,
+    "full_stack_mwh": 25.771,
     "full_stack_mwh_ci95": [
-     27.297,
-     30.714
+     24.384,
+     27.159
     ],
     "tokens_in": 2324,
     "tokens_out": 58,
-    "estimate_small_mwh": 66.45,
-    "estimate_mid_mwh": 481.49,
-    "verdict": "UNMEASURED",
+    "estimate_small_mwh": 66.47,
+    "estimate_mid_mwh": 481.61,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
@@ -638,86 +638,86 @@
    {
     "model": "meta-llama/llama-3.2-3b-instruct",
     "task": "mohler",
-    "net_mwh": 0.849,
+    "net_mwh": 0.845,
     "net_mwh_ci95": [
      0.814,
-     0.885
+     0.875
     ],
     "net_mwh_idle_range": [
-     0.809,
-     0.89
+     0.837,
+     0.852
     ],
-    "gross_mwh": 1.358,
-    "full_stack_mwh": 1.464,
+    "gross_mwh": 1.37,
+    "full_stack_mwh": 1.456,
     "full_stack_mwh_ci95": [
-     1.403,
-     1.525
+     1.404,
+     1.508
     ],
     "tokens_in": 189,
-    "tokens_out": 34,
-    "estimate_small_mwh": 16.0,
-    "estimate_mid_mwh": 178.39,
-    "verdict": "UNMEASURED",
+    "tokens_out": 35,
+    "estimate_small_mwh": 16.11,
+    "estimate_mid_mwh": 179.11,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 11.27
+    "one_at_a_time_mwh": 11.08
    },
    {
     "model": "meta-llama/llama-3.2-3b-instruct",
     "task": "asap2",
-    "net_mwh": 2.265,
+    "net_mwh": 1.966,
     "net_mwh_ci95": [
-     2.08,
-     2.451
+     1.799,
+     2.134
     ],
     "net_mwh_idle_range": [
-     2.192,
-     2.339
+     1.949,
+     1.983
     ],
-    "gross_mwh": 3.186,
-    "full_stack_mwh": 3.906,
+    "gross_mwh": 3.179,
+    "full_stack_mwh": 3.39,
     "full_stack_mwh_ci95": [
-     3.586,
-     4.226
+     3.101,
+     3.679
     ],
     "tokens_in": 2029,
-    "tokens_out": 50,
-    "estimate_small_mwh": 58.72,
-    "estimate_mid_mwh": 434.47,
-    "verdict": "UNMEASURED",
+    "tokens_out": 49,
+    "estimate_small_mwh": 58.71,
+    "estimate_mid_mwh": 434.43,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 17.01
+    "one_at_a_time_mwh": 16.25
    },
    {
     "model": "meta-llama/llama-3.2-3b-instruct",
     "task": "code",
-    "net_mwh": 11.326,
+    "net_mwh": 10.133,
     "net_mwh_ci95": [
-     6.449,
-     16.204
+     6.444,
+     13.821
     ],
     "net_mwh_idle_range": [
-     11.03,
-     11.623
+     10.052,
+     10.214
     ],
-    "gross_mwh": 15.032,
-    "full_stack_mwh": 19.528,
+    "gross_mwh": 15.856,
+    "full_stack_mwh": 17.47,
     "full_stack_mwh_ci95": [
-     11.118,
-     27.938
+     11.11,
+     23.83
     ],
     "tokens_in": 2490,
-    "tokens_out": 240,
-    "estimate_small_mwh": 96.12,
-    "estimate_mid_mwh": 678.46,
-    "verdict": "UNMEASURED",
+    "tokens_out": 268,
+    "estimate_small_mwh": 100.17,
+    "estimate_mid_mwh": 705.69,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
@@ -728,86 +728,86 @@
    {
     "model": "microsoft/phi-4",
     "task": "mohler",
-    "net_mwh": 3.683,
+    "net_mwh": 3.112,
     "net_mwh_ci95": [
-     3.555,
-     3.811
+     2.986,
+     3.238
     ],
     "net_mwh_idle_range": [
-     3.549,
-     3.817
+     3.096,
+     3.128
     ],
-    "gross_mwh": 4.924,
-    "full_stack_mwh": 6.35,
+    "gross_mwh": 4.945,
+    "full_stack_mwh": 5.366,
     "full_stack_mwh_ci95": [
-     6.129,
-     6.571
+     5.149,
+     5.582
     ],
     "tokens_in": 165,
     "tokens_out": 39,
-    "estimate_small_mwh": 16.27,
-    "estimate_mid_mwh": 180.6,
-    "verdict": "UNMEASURED",
+    "estimate_small_mwh": 16.25,
+    "estimate_mid_mwh": 180.47,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 54.62
+    "one_at_a_time_mwh": 44.99
    },
    {
     "model": "microsoft/phi-4",
     "task": "asap2",
-    "net_mwh": 8.203,
+    "net_mwh": 6.992,
     "net_mwh_ci95": [
-     7.283,
-     9.123
+     6.188,
+     7.796
     ],
     "net_mwh_idle_range": [
-     7.9,
-     8.506
+     6.956,
+     7.027
     ],
-    "gross_mwh": 10.999,
-    "full_stack_mwh": 14.143,
+    "gross_mwh": 11.088,
+    "full_stack_mwh": 12.055,
     "full_stack_mwh_ci95": [
-     12.557,
-     15.729
+     10.668,
+     13.441
     ],
     "tokens_in": 2005,
-    "tokens_out": 57,
-    "estimate_small_mwh": 59.21,
-    "estimate_mid_mwh": 438.2,
-    "verdict": "UNMEASURED",
+    "tokens_out": 56,
+    "estimate_small_mwh": 59.15,
+    "estimate_mid_mwh": 437.83,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 80.91
+    "one_at_a_time_mwh": 66.92
    },
    {
     "model": "microsoft/phi-4",
     "task": "code",
-    "net_mwh": 29.4,
+    "net_mwh": 25.529,
     "net_mwh_ci95": [
-     25.618,
-     33.183
+     21.675,
+     29.384
     ],
     "net_mwh_idle_range": [
-     28.364,
-     30.437
+     25.404,
+     25.655
     ],
-    "gross_mwh": 38.972,
-    "full_stack_mwh": 50.69,
+    "gross_mwh": 40.074,
+    "full_stack_mwh": 44.016,
     "full_stack_mwh_ci95": [
-     44.168,
-     57.213
+     37.37,
+     50.662
     ],
     "tokens_in": 2469,
-    "tokens_out": 278,
-    "estimate_small_mwh": 101.02,
-    "estimate_mid_mwh": 711.8,
-    "verdict": "UNMEASURED",
+    "tokens_out": 287,
+    "estimate_small_mwh": 102.3,
+    "estimate_mid_mwh": 720.41,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
@@ -818,26 +818,26 @@
    {
     "model": "mistralai/ministral-8b-2512",
     "task": "mohler",
-    "net_mwh": 1.655,
+    "net_mwh": 2.065,
     "net_mwh_ci95": [
-     1.587,
-     1.723
+     1.248,
+     2.882
     ],
     "net_mwh_idle_range": [
-     1.583,
-     1.727
+     2.053,
+     2.077
     ],
-    "gross_mwh": 2.407,
-    "full_stack_mwh": 2.854,
+    "gross_mwh": 3.291,
+    "full_stack_mwh": 3.56,
     "full_stack_mwh_ci95": [
-     2.737,
-     2.97
+     2.152,
+     4.969
     ],
     "tokens_in": 165,
-    "tokens_out": 42,
-    "estimate_small_mwh": 16.59,
-    "estimate_mid_mwh": 182.74,
-    "verdict": "UNMEASURED",
+    "tokens_out": 43,
+    "estimate_small_mwh": 16.73,
+    "estimate_mid_mwh": 183.68,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
@@ -848,56 +848,56 @@
    {
     "model": "mistralai/ministral-8b-2512",
     "task": "asap2",
-    "net_mwh": 4.826,
+    "net_mwh": 3.717,
     "net_mwh_ci95": [
-     4.033,
-     5.62
+     3.415,
+     4.018
     ],
     "net_mwh_idle_range": [
-     4.661,
-     4.992
+     3.694,
+     3.739
     ],
-    "gross_mwh": 6.565,
-    "full_stack_mwh": 8.321,
+    "gross_mwh": 5.94,
+    "full_stack_mwh": 6.408,
     "full_stack_mwh_ci95": [
-     6.953,
-     9.689
+     5.889,
+     6.928
     ],
     "tokens_in": 2049,
-    "tokens_out": 56,
-    "estimate_small_mwh": 60.06,
-    "estimate_mid_mwh": 443.17,
-    "verdict": "UNMEASURED",
+    "tokens_out": 54,
+    "estimate_small_mwh": 59.73,
+    "estimate_mid_mwh": 440.97,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 25.65
+    "one_at_a_time_mwh": 24.6
    },
    {
     "model": "mistralai/ministral-8b-2512",
     "task": "code",
-    "net_mwh": 9.947,
+    "net_mwh": 7.949,
     "net_mwh_ci95": [
-     6.205,
-     13.689
+     4.756,
+     11.141
     ],
     "net_mwh_idle_range": [
-     9.636,
-     10.257
+     7.903,
+     7.995
     ],
-    "gross_mwh": 13.202,
-    "full_stack_mwh": 17.149,
+    "gross_mwh": 12.493,
+    "full_stack_mwh": 13.705,
     "full_stack_mwh_ci95": [
-     10.698,
-     23.601
+     8.2,
+     19.209
     ],
     "tokens_in": 2411,
-    "tokens_out": 138,
-    "estimate_small_mwh": 79.77,
-    "estimate_mid_mwh": 569.73,
-    "verdict": "UNMEASURED",
+    "tokens_out": 128,
+    "estimate_small_mwh": 78.29,
+    "estimate_mid_mwh": 559.76,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
@@ -908,86 +908,86 @@
    {
     "model": "openai/gpt-oss-20b",
     "task": "mohler",
-    "net_mwh": 9.226,
+    "net_mwh": 7.669,
     "net_mwh_ci95": [
-     8.573,
-     9.879
+     7.26,
+     8.078
     ],
     "net_mwh_idle_range": [
-     8.873,
-     9.579
+     7.622,
+     7.716
     ],
-    "gross_mwh": 12.311,
-    "full_stack_mwh": 15.907,
+    "gross_mwh": 12.068,
+    "full_stack_mwh": 13.222,
     "full_stack_mwh_ci95": [
-     14.781,
-     17.033
+     12.517,
+     13.927
     ],
     "tokens_in": 228,
-    "tokens_out": 244,
-    "estimate_small_mwh": 46.91,
-    "estimate_mid_mwh": 385.89,
-    "verdict": "UNMEASURED",
+    "tokens_out": 239,
+    "estimate_small_mwh": 46.2,
+    "estimate_mid_mwh": 381.08,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 55.22
+    "one_at_a_time_mwh": 52.49
    },
    {
     "model": "openai/gpt-oss-20b",
     "task": "asap2",
-    "net_mwh": 12.948,
+    "net_mwh": 10.845,
     "net_mwh_ci95": [
-     12.198,
-     13.697
+     10.187,
+     11.503
     ],
     "net_mwh_idle_range": [
-     12.456,
-     13.44
+     10.779,
+     10.911
     ],
-    "gross_mwh": 17.248,
-    "full_stack_mwh": 22.324,
+    "gross_mwh": 17.02,
+    "full_stack_mwh": 18.698,
     "full_stack_mwh_ci95": [
-     21.032,
-     23.616
+     17.564,
+     19.833
     ],
     "tokens_in": 2050,
-    "tokens_out": 301,
-    "estimate_small_mwh": 95.16,
-    "estimate_mid_mwh": 679.55,
-    "verdict": "UNMEASURED",
+    "tokens_out": 296,
+    "estimate_small_mwh": 94.38,
+    "estimate_mid_mwh": 674.3,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
     },
-    "one_at_a_time_mwh": 64.75
+    "one_at_a_time_mwh": 62.54
    },
    {
     "model": "openai/gpt-oss-20b",
     "task": "code",
-    "net_mwh": 23.898,
+    "net_mwh": 19.344,
     "net_mwh_ci95": [
-     21.311,
-     26.486
+     17.524,
+     21.164
     ],
     "net_mwh_idle_range": [
-     23.008,
-     24.789
+     19.227,
+     19.46
     ],
-    "gross_mwh": 31.682,
-    "full_stack_mwh": 41.204,
+    "gross_mwh": 30.255,
+    "full_stack_mwh": 33.351,
     "full_stack_mwh_ci95": [
-     36.743,
-     45.665
+     30.213,
+     36.489
     ],
     "tokens_in": 2209,
-    "tokens_out": 562,
-    "estimate_small_mwh": 135.94,
-    "estimate_mid_mwh": 951.42,
-    "verdict": "UNMEASURED",
+    "tokens_out": 537,
+    "estimate_small_mwh": 132.39,
+    "estimate_mid_mwh": 927.48,
+    "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
     "descriptive_verdicts": {
      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",

@@ -30,7 +30,36 @@ cooling, the chips' manufacture, and loading the model.
   The NET figure removes idle, and the GROSS figures of the two pods do not compare. Which idle window is subtracted moves the NET figure
   by about 5-10%, shown as `net_wh_idle_range` in `out/energy.json`.
 
-## Results
+## Second run (2026-10-26, CHANGE 3): every model measured
+
+The eight board models were re-run with a cool-down before the post-run idle reading: power had to fall within 5%
+of the pre-run idle (it took 63-97 s). One A100 80GB PCIe, secure cloud, idle about 97-108 W; Gemma 4 31B ran on
+a fresh pod after the first could not start it (its disk was most likely full after seven models' weights). **All
+eight passed every check** (idle ratio 1.02-1.03; counter against integrated power within 0.4%). Olmo is from the
+first run, which it passed. `out/energy.json` holds these figures; the first run is kept as
+`out/energy-run1-idle-failed.json`.
+
+| model | short answer, NET mWh [95%] | essay | code | short answer, FULL-STACK | essay | code | full leaderboard run, NET | one at a time vs batched (short / essay) | verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| Llama 3.2 3B | 0.8 [0.8-0.9] | 2.0 [1.8-2.1] | 10.1 [6.4-13.8] | 1.5 | 3.4 | 17.5 | 9 Wh | 13x / 8x | BELOW SMALL on all three |
+| Gemma 3 4B | 1.2 [1.1-1.2] | 3.8 [3.4-4.2] | 3.5 [3.2-3.8] | 2.0 | 6.6 | 6.0 | 6 Wh | 13x / 11x | BELOW SMALL on all three |
+| Ministral 8B | 2.1 [1.2-2.9] | 3.7 [3.4-4.0] | 7.9 [4.8-11.1] | 3.6 | 6.4 | 13.7 | 10 Wh | 9x / 7x | BELOW SMALL on all three |
+| Phi-4 (14B) | 3.1 [3.0-3.2] | 7.0 [6.2-7.8] | 25.5 [21.7-29.4] | 5.4 | 12.1 | 44.0 | 24 Wh | 14x / 10x | BELOW SMALL on all three |
+| GPT-OSS 20B | 7.7 [7.3-8.1] | 10.8 [10.2-11.5] | 19.3 [17.5-21.2] | 13.2 | 18.7 | 33.4 | 28 Wh | 7x / 6x | BELOW SMALL on all three |
+| Gemma 4 26B A4B | 2.5 [2.3-2.6] | 4.9 [4.6-5.1] | 4.9 [4.7-5.1] | 4.2 | 8.4 | 8.4 | 9 Wh | 6x / 5x | BELOW SMALL on all three |
+| Gemma 3 27B | 5.4 [5.2-5.6] | 12.1 [10.9-13.3] | 12.4 [11.6-13.1] | 9.3 | 20.9 | 21.3 | 22 Wh | 15x / 9x | BELOW SMALL on all three |
+| Gemma 4 31B | 6.5 [6.2-6.8] | 16.8 [15.3-18.3] | 14.9 [14.1-15.8] | 11.2 | 28.9 | 25.8 | 29 Wh | 14x / 9x | BELOW SMALL on all three |
+| Olmo 3.1 32B (first run) | 6.5 [4.9-8.1] | 13.6 [12.4-14.7] | 11.5 [10.8-12.3] | 11.2 | 23.4 | 19.9 | 24 Wh | 12x / 9x | BELOW SMALL on all three |
+
+- **All 27 model-task figures are BELOW THE SMALL-MODEL ESTIMATE** (registered verdicts now, not descriptive), by
+  a median factor of 4 (1.4 to 17), and 15 to 128 times below the mid-size estimate.
+- **Batching:** one request at a time costs 5-15 times as much per grading.
+- **The second run agrees with the first.** The NET figures moved by a few percent (a different card, and a
+  different idle subtracted); every conclusion of the first run stands, now with its verdicts.
+
+## First run (2026-10-25)
+
+### Results
 
 Wh are thousandths of a watt-hour here (mWh). One grading, batched at 16 at a time, one A100:
 
