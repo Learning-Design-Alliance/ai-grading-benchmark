@@ -50,6 +50,10 @@ CHANGES:
    mark on short answers and essays; more than 4.5 points on the 0-90 code scale, where nearly every re-ask
    moves by a point or two). The floor simulates 300 cases (the 100 short-answer cases drawn three times) and is
    re-run once. If it fails, every verdict reads UNMEASURED and the figures are reported descriptively.
+   RESULT: the floor passed (detection 96%, false positive 2.5%).
+3. (2026-10-26, implementation, no change to the design) bench.py refuses a run without the base probe, so the
+   default re-ask runs also grade base once; that extra grading is not used. The re-asks are the board's retest
+   and the new run's retest, retest2, retest3 and retest4, as CHANGE 1 says.
 
 BUDGET. $25 cap.
 
@@ -107,7 +111,7 @@ def cmd_run(a):
                 cmd = [sys.executable, os.path.join(ROOT, "bench.py"), "run", "--cases", os.path.join(a.subsets, SUBSET[task]),
                        "--prompt", os.path.join(ROOT, "prompts", "default.txt") if p == "default" else os.path.join(ROOT, "prompts", "paraphrase", f"{p}.txt"), "--base-url",
                        "https://openrouter.ai/api/v1", "--model", model, "--key-env", "OPENROUTER_API_KEY", "--n", "100",
-                       "--seed", "7", "--probes", "retest,retest2,retest3,retest4" if p == "default" else "base", "--max-tokens", str(s.get("max_tokens") or 16384),
+                       "--seed", "7", "--probes", "base,retest,retest2,retest3,retest4" if p == "default" else "base", "--max-tokens", str(s.get("max_tokens") or 16384),
                        "--extra-body", json.dumps(s.get("extra_body") or {"usage": {"include": True}, "provider": {"zdr": True}}),
                        "--out", os.path.join(RUNS, f"para-{p}-{task}-{slug(model)}"), "--workers", "8",
                        "--max-usd", str(min(2.0, left))]
@@ -182,7 +186,7 @@ def cmd_analyse(a):
                 continue
             re = {}
             for r in map(json.loads, open(f)):
-                if r.get("score") is not None:
+                if r.get("score") is not None and r["probe"] != "base":  # CHANGE 3
                     re.setdefault(r["id"], []).append(r["score"])
             ids = [i for i in cs if (i, "base") in sc and (i, "retest") in sc and len(re.get(i, [])) == 4
                    and all(i in paras[p] for p in PARA)]
