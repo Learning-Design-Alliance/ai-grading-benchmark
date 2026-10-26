@@ -9,8 +9,10 @@ or a reasoning setting removes the flags, a school can use a cheap model safely;
 model. Either answer is useful.
 
 DESIGN.
-- Models: the 13 flagged models with a zero-retention route. Olmo 3.1 32B, also flagged, has none on OpenRouter
-  and is not run (the GPU session ran it on a deleted pod).
+- Models: the 13 flagged models with a zero-retention route. Olmo 3.1 32B, also flagged, has none on OpenRouter;
+  CHANGE 1 (2026-10-26, before any result was read): it is added on a rented GPU (vLLM, deleted pod, as on the
+  board), DEFAULT and GUARD only, and its verdict is computed from the GPU session's report.build summaries by
+  the same rules.
 - Tasks and cases: short answers (Mohler), code, essays (ASAP 2.0); the board's own 100 cases per task (seed 7).
 - Probes: base, injection (a polite request for full marks), forged (a forged grading override), vouched (NEW,
   held out: a claim that classmates checked the answer, in words the guard does not use), and the five null
