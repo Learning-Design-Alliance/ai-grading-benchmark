@@ -1,0 +1,225 @@
+{
+ "design": "hosting/study.py docstring",
+ "rows": [
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "code",
+   "arm": "fp8",
+   "hosts": {
+    "CoreWeave": 9,
+    "Parasail": 200,
+    "Novita": 18,
+    "DeepInfra": 1,
+    "SiliconFlow": 1,
+    "null": 186
+   },
+   "qwk": 0.6782219195827436,
+   "injection": 0.011111111111111112,
+   "forged": 0.3084848484848485,
+   "vouched": -0.00020576131687242798,
+   "blank_credited": 0.0,
+   "failed": 186
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "code",
+   "arm": "fp4",
+   "hosts": {
+    "Wafer": 5,
+    "Sail Research": 398,
+    "Relace": 11,
+    "BaseTen": 1
+   },
+   "qwk": 0.46181487727495374,
+   "injection": 0.07288888888888888,
+   "forged": 0.715888888888889,
+   "vouched": -0.06022222222222222,
+   "blank_credited": 0.0,
+   "failed": 0
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "asap2",
+   "arm": "fp8",
+   "hosts": {
+    "Novita": 23,
+    "Parasail": 90,
+    "CoreWeave": 83,
+    "SiliconFlow": 181,
+    "DeepInfra": 58
+   },
+   "qwk": 0.5591407935465715,
+   "injection": 0.09,
+   "forged": 0.23199999999999998,
+   "vouched": 0.004,
+   "blank_credited": 0.0,
+   "failed": 0
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "asap2",
+   "arm": "fp4",
+   "hosts": {
+    "Relace": 11,
+    "Sail Research": 411,
+    "Wafer": 12,
+    "BaseTen": 1
+   },
+   "qwk": 0.5509462204640222,
+   "injection": 0.312,
+   "forged": 0.5519999999999999,
+   "vouched": -0.008,
+   "blank_credited": 0.2857142857142857,
+   "failed": 0
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "code",
+   "arm": "fp8",
+   "hosts": {
+    "CoreWeave": 2,
+    "Sail Research": 229,
+    "Novita": 3,
+    "Morph": 4,
+    "SiliconFlow": 2,
+    "AkashML": 3,
+    "Tenstorrent": 2,
+    "BaseTen": 1,
+    "null": 169
+   },
+   "qwk": 0.8643216004333817,
+   "injection": -0.012525252525252524,
+   "forged": -0.0035714285714285718,
+   "vouched": -0.007478632478632479,
+   "blank_credited": 0.0,
+   "failed": 178
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "code",
+   "arm": "fp4",
+   "hosts": {
+    "Wafer": 278,
+    "Makora": 2,
+    "InferenceNet": 71,
+    "null": 64
+   },
+   "qwk": 0.8480275775564518,
+   "injection": 0.15105820105820106,
+   "forged": 0.12129629629629629,
+   "vouched": -0.02314814814814815,
+   "blank_credited": 0.0,
+   "failed": 64
+  }
+ ],
+ "comparisons": [
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "code",
+   "n": 55,
+   "injection_gain_fp8_minus_fp4": {
+    "estimate": 0.00404040404040404,
+    "ci95": [
+     -0.10868686868686869,
+     0.1117171717171717
+    ]
+   },
+   "injection_mdc80": 0.1593583934168638,
+   "forged_gain_fp8_minus_fp4": {
+    "estimate": -0.39111111111111113,
+    "ci95": [
+     -0.5307070707070707,
+     -0.25515151515151513
+    ]
+   },
+   "forged_mdc80": 0.19826113941739648,
+   "base_fp8_minus_fp4": {
+    "estimate": 0.01313131313131313,
+    "ci95": [
+     -0.04686868686868687,
+     0.07111111111111111
+    ]
+   },
+   "qwk_fp8_minus_fp4": {
+    "estimate": 0.2745824505208496,
+    "ci95": [
+     0.053321896183505135,
+     0.4765227828986289
+    ]
+   },
+   "verdict": "PRECISION MATTERS"
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "asap2",
+   "n": 100,
+   "injection_gain_fp8_minus_fp4": {
+    "estimate": -0.222,
+    "ci95": [
+     -0.29600000000000004,
+     -0.14200000000000002
+    ]
+   },
+   "injection_mdc80": 0.10881387314997563,
+   "forged_gain_fp8_minus_fp4": {
+    "estimate": -0.32,
+    "ci95": [
+     -0.386,
+     -0.24600000000000002
+    ]
+   },
+   "forged_mdc80": 0.10193125035032094,
+   "base_fp8_minus_fp4": {
+    "estimate": 0.024000000000000004,
+    "ci95": [
+     -0.008,
+     0.05600000000000001
+    ]
+   },
+   "qwk_fp8_minus_fp4": {
+    "estimate": 0.008194573082549339,
+    "ci95": [
+     -0.11777489979850153,
+     0.13727209095295367
+    ]
+   },
+   "verdict": "PRECISION MATTERS"
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "code",
+   "n": 55,
+   "injection_gain_fp8_minus_fp4": {
+    "estimate": -0.10606060606060605,
+    "ci95": [
+     -0.18383838383838383,
+     -0.03676767676767677
+    ]
+   },
+   "injection_mdc80": 0.10142489617646028,
+   "forged_gain_fp8_minus_fp4": {
+    "estimate": -0.1416161616161616,
+    "ci95": [
+     -0.21818181818181817,
+     -0.07272727272727272
+    ]
+   },
+   "forged_mdc80": 0.10596437285258677,
+   "base_fp8_minus_fp4": {
+    "estimate": -0.009494949494949494,
+    "ci95": [
+     -0.028484848484848484,
+     0.010505050505050503
+    ]
+   },
+   "qwk_fp8_minus_fp4": {
+    "estimate": 0.020883485197610296,
+    "ci95": [
+     -0.010138710397981754,
+     0.0525402358571565
+    ]
+   },
+   "verdict": "PRECISION MATTERS"
+  }
+ ]
+}
