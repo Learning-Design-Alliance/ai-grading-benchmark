@@ -93,8 +93,8 @@ pre-registered label for these was "WIDENS"; since it ignores the sign, each is 
 - **Fine-tuning a small model works, and it doesn't need to be large.** A 184M-parameter encoder and a
   4B-parameter language model reach the same agreement, about 0.80, above the experts' own agreement. They
   stay near it on a prompt they never saw.
-- **Prompting a frontier model does not get there**, even the best one. Six marked examples close about a third
-  of the gap, and they cost a teacher only six marked scripts.
+- **Prompting a frontier model does not get there**, even the best one. Six marked examples close nearly half
+  the gap (Opus: 0.625 to 0.708, against DeBERTa's 0.804), and they cost a teacher only six marked scripts.
 - **The cost is elsewhere.** Fine-tuned scorers give no feedback, need thousands of marked essays, and credit
   blank work unless something else catches it.
 - **Matching the raters more closely means copying their habits.** That includes rewarding length (see
