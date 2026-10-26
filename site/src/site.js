@@ -103,6 +103,7 @@ function intervalChart(id, rows, o = {}) {
   if (!rows.length) { box.append(el("p", { class: "sub" }, "No results yet.")); return; }
   const present = new Set(rows.map(r => r.base ? "baseline" : r.kind).filter(Boolean)); const kinds = KINDS.concat(["baseline"]).filter(k => present.has(k));
   if (o.legend !== false && kinds.length > 1) box.append(legend(kinds));
+  if (o.order) box.append(el("div", { class: "order" }, o.order));
   const W = 780, rowH = 24, top = 26, labW = o.labW || 270, right = 64;
   const H = top + rows.length * rowH + 10;
   const vals = rows.flatMap(r => [r.est, r.lo, r.hi]).filter(v => !nul(v)).concat((o.refs || []).map(r => r.v));
@@ -284,11 +285,11 @@ function drawTaskViews() {
     .concat(bases.map(b => ({ label: "Baseline · " + (BNAME[b.baseline] || b.baseline), est: b.qwk, lo: b.qwk_lo, hi: b.qwk_hi, base: true,
       tip: `<b>${esc(BNAME[b.baseline] || b.baseline)}</b> (non-AI)<br>QWK ${f3(b.qwk)} ${iv(b.qwk_lo, b.qwk_hi, f2)}<br>Trained on ${f0(b.n_train)} marked answers · credits blank answers ${pct1(b.blank_pct)}` })))
     .sort((a, b) => b.est - a.est);
-  intervalChart("c-agree", pts, { domain: [Math.min(0, ...pts.map(p => p.lo ?? p.est)), 1], refs: ceil ? [{ v: ceil, text: "experts with each other" }] : [], valFmt: f2, aria: "Agreement with experts by model and baseline" });
+  intervalChart("c-agree", pts, { domain: [Math.min(0, ...pts.map(p => p.lo ?? p.est)), 1], refs: ceil ? [{ v: ceil, text: "experts with each other" }] : [], valFmt: f2, order: "Best at the top: higher agreement", aria: "Agreement with experts by model and baseline" });
   const gpts = rows.filter(r => !nul(r.gaming_pct)).map(r => ({ label: r.model, est: r.gaming_pct, lo: r.gaming_lo, hi: r.gaming_hi, kind: r.kind, href: "model-" + slug((byName[r.model] || {}).key || r.model) }))
     .concat(bases.filter(b => !nul(b.gaming_pct)).map(b => ({ label: "Baseline · " + (BNAME[b.baseline] || b.baseline), est: b.gaming_pct, base: true })))
-    .sort((a, b) => b.est - a.est);
-  intervalChart("c-gaming", gpts, { refs: [{ v: 0 }, { v: 5, text: "5% flag" }], zero: true, valFmt: v => f1(v) + "%", tickFmt: v => f0(v) + "%", aria: "Gain from gaming, % of scale" });
+    .sort((a, b) => a.est - b.est);
+  intervalChart("c-gaming", gpts, { refs: [{ v: 0 }, { v: 5, text: "5% flag" }], zero: true, valFmt: v => f1(v) + "%", tickFmt: v => f0(v) + "%", order: "Best at the top: smallest gain", aria: "Gain from gaming, % of scale" });
   scatterCost(rows, ceil);
   const essays = TASK === "Essays";
   const brow = bases.map(b => ({ model: "Baseline · " + (BNAME[b.baseline] || b.baseline), _base: true, kind: "baseline", share: essays ? null : b.share, published_share: essays ? b.share_published : null,
@@ -398,13 +399,13 @@ function fact(k, v) { return el("div", {}, el("dt", {}, k), el("dd", {}, nul(v) 
 let FLAGTASK = "Short answers";
 function drawRobustness() {
   const pb = (D.pushback || []).map(r => ({ label: r.model, est: r.effect_pct, lo: r.effect_lo, hi: r.effect_hi, kind: kindOf(r.model), href: "model-" + slug((byName[r.model] || {}).key || ""),
-    tip: `<b>${esc(r.model)}</b><br>${signed(1)(r.effect_pct)}% ${iv(r.effect_lo, r.effect_hi, f1)}<br>${esc(r.verdict)}` })).sort((a, b) => b.est - a.est);
-  intervalChart("c-pushback", pb, { refs: [{ v: 0 }], zero: true, valFmt: v => signed(1)(v) + "%", tickFmt: v => f0(v) + "%", aria: "Pushback effect" });
-  const ps = (D.pushback_split || []).filter(r => !nul(r.effect_fair_pct)).map(r => ({ label: r.model, est: r.effect_fair_pct, lo: r.effect_fair_lo, hi: r.effect_fair_hi, kind: kindOf(r.model) })).sort((a, b) => b.est - a.est);
-  intervalChart("c-pushsplit", ps, { refs: [{ v: 0 }], zero: true, valFmt: v => signed(1)(v) + "%", tickFmt: v => f0(v) + "%", aria: "Pushback on fairly marked answers" });
+    tip: `<b>${esc(r.model)}</b><br>${signed(1)(r.effect_pct)}% ${iv(r.effect_lo, r.effect_hi, f1)}<br>${esc(r.verdict)}` })).sort((a, b) => a.est - b.est);
+  intervalChart("c-pushback", pb, { refs: [{ v: 0 }], zero: true, valFmt: v => signed(1)(v) + "%", tickFmt: v => f0(v) + "%", order: "Best at the top: gives way least", aria: "Pushback effect" });
+  const ps = (D.pushback_split || []).filter(r => !nul(r.effect_fair_pct)).map(r => ({ label: r.model, est: r.effect_fair_pct, lo: r.effect_fair_lo, hi: r.effect_fair_hi, kind: kindOf(r.model) })).sort((a, b) => a.est - b.est);
+  intervalChart("c-pushsplit", ps, { refs: [{ v: 0 }], zero: true, valFmt: v => signed(1)(v) + "%", tickFmt: v => f0(v) + "%", order: "Best at the top: gives way least", aria: "Pushback on fairly marked answers" });
   seg("flag-tabs", TASKS, FLAGTASK, t => { FLAGTASK = t; drawFlags(); }); drawFlags();
   const pp = {}; (D.per_prompt || []).forEach(r => { if (nul(r.qwk)) return; const k = r.model + "|" + r.task; (pp[k] = pp[k] || { model: r.model, task: r.task, lo: 1, hi: -1, n: 0 }); pp[k].lo = Math.min(pp[k].lo, r.qwk); pp[k].hi = Math.max(pp[k].hi, r.qwk); pp[k].n++; });
-  table("t-perprompt", Object.values(pp), [{ k: "model", h: "Model", c: "name", f: v => modelLink(v) }, { k: "task", h: "Task", c: "l" }, { k: "n", h: "Prompts" }, { k: "lo", h: "Lowest QWK", f: f2 }, { k: "hi", h: "Highest QWK", f: f2 }, { k: "spread", h: "Spread", sort: r => r.hi - r.lo, f: (v, r) => f2(r.hi - r.lo) }], { sort: "spread" });
+  table("t-perprompt", Object.values(pp), [{ k: "model", h: "Model", c: "name", f: v => modelLink(v) }, { k: "task", h: "Task", c: "l" }, { k: "n", h: "Prompts" }, { k: "lo", h: "Lowest QWK", f: f2 }, { k: "hi", h: "Highest QWK", f: f2 }, { k: "spread", h: "Spread", sort: r => r.hi - r.lo, f: (v, r) => f2(r.hi - r.lo) }], { sort: "spread", dir: 1 });
 }
 function drawFlags() {
   const P = v => v === "PASS" ? el("span", { class: "pill ok" }, "pass") : v === "FAIL" ? el("span", { class: "pill bad" }, "fail") : el("span", { class: "pill" }, "unclear");
@@ -420,7 +421,7 @@ function drawFlags() {
 function drawMaths() {
   const rows = D.maths || [];
   intervalChart("c-maths", rows.map(r => ({ label: r.model, est: r.working, lo: r.working_lo, hi: r.working_hi, kind: kindOf(r.model), base: /no model/.test(r.model) })).sort((a, b) => b.est - a.est),
-    { domain: [0, 4], refs: [{ v: 2, text: "full strand score" }], valFmt: f2, aria: "Working effect, of 4" });
+    { domain: [0, 4], refs: [{ v: 2, text: "full strand score" }], valFmt: f2, order: "Best at the top: reads the working most", aria: "Working effect, of 4" });
   table("t-maths", rows, [
     { k: "model", h: "Grader", c: "name", f: v => /no model/.test(v) ? v : modelLink(v) },
     { k: "working", h: "Working effect (of 4)", f: (v, r) => `${f2(v)} ${iv(r.working_lo, r.working_hi, f2)}` },
@@ -431,14 +432,17 @@ function drawMaths() {
 }
 function drawFeedback() {
   const fb = D.feedback_board || [];
-  intervalChart("c-halo", fb.map(r => ({ label: r.model, est: r.halo, lo: r.halo_lo, hi: r.halo_hi, kind: kindOf(r.model) })).sort((a, b) => b.est - a.est), { refs: [{ v: 0 }], zero: true, valFmt: signed(2), aria: "Feedback halo" });
-  intervalChart("c-gives", fb.map(r => ({ label: r.model, est: r.gives_away_pct, lo: r.gives_away_lo, hi: r.gives_away_hi, kind: kindOf(r.model) })).sort((a, b) => b.est - a.est), { domain: [0, 100], valFmt: v => f0(v) + "%", tickFmt: v => f0(v) + "%", aria: "Feedback states the answer" });
+  intervalChart("c-halo", fb.map(r => ({ label: r.model, est: r.halo, lo: r.halo_lo, hi: r.halo_hi, kind: kindOf(r.model) })).sort((a, b) => Math.abs(a.est) - Math.abs(b.est)), { refs: [{ v: 0 }], zero: true, valFmt: signed(2), order: "Best at the top: nearest 0", aria: "Feedback halo" });
+  intervalChart("c-gives", fb.map(r => ({ label: r.model, est: r.gives_away_pct, lo: r.gives_away_lo, hi: r.gives_away_hi, kind: kindOf(r.model) })).sort((a, b) => b.est - a.est), { domain: [0, 100], valFmt: v => f0(v) + "%", tickFmt: v => f0(v) + "%", order: "Not ranked: whether stating the answer is wanted depends on the use", aria: "Feedback states the answer" });
   table("t-fbchecks", D.feedback_checks || [], [{ k: "label", h: "Measure", c: "l" }, { k: "by", h: "From", c: "t dim" }, { k: "auc", h: "AUC vs annotators", f: (v, r) => `${f2(v)} ${iv(r.lo, r.hi, f2)}` }, { k: "length_auc", h: "Length alone", f: f2 }, { k: "verdict", h: "Verdict", c: "l", f: v => el("span", { class: "pill " + (/NOT/.test(v) ? "bad" : "ok") }, v.toLowerCase()) }], { sortable: false });
 }
 function drawFairness() {
   const rows = (D.fairness || []).map(r => ({ label: `${r.test.replace(/^(ELLIPSE|ASAP 2.0): /, "")} · ${r.grader}`, est: r.gap, lo: r.lo, hi: r.hi, kind: r.grader === "second human rater" ? "baseline" : kindOf(r.grader), base: /human/i.test(r.grader),
     tip: `<b>${esc(r.test)}</b><br>${esc(r.grader)}: ${signed(3)(r.gap)} ${iv(r.lo, r.hi, f2)}<br>${esc(r.verdict)}` }));
-  intervalChart("c-fair", rows, { refs: [{ v: -0.1, text: "−0.10" }, { v: 0.1, text: "+0.10" }, { v: 0 }], zero: true, labW: 300, valFmt: signed(2), aria: "Gap between groups" });
+  const order = [...new Set((D.fairness || []).map(r => r.test))];
+  rows.forEach((r, i) => r.test = (D.fairness || [])[i].test);
+  rows.sort((a, b) => (order.indexOf(a.test) - order.indexOf(b.test)) || (Math.abs(a.est) - Math.abs(b.est)));
+  intervalChart("c-fair", rows, { refs: [{ v: -0.1, text: "−0.10" }, { v: 0.1, text: "+0.10" }, { v: 0 }], zero: true, labW: 300, valFmt: signed(2), order: "Within each test, best at the top: nearest 0", aria: "Gap between groups" });
   table("t-drift", D.drift || [], [{ k: "from", h: "From", c: "l" }, { k: "to", h: "To", c: "l" }, { k: "shift", h: "Mean shift (marks of 5)", f: (v, r) => `${signed(2)(v)} ${iv(r.lo, r.hi, f2)}` }, { k: "qwk_across", h: "Agreement across versions", f: f3 }, { k: "qwk_within", h: "Within the old version", f: f3 }], { sortable: false });
 }
 
@@ -476,7 +480,7 @@ function showMedium() { document.querySelectorAll("[data-media]").forEach(b => b
 // ================================================================== SETTINGS
 function drawSettings() {
   intervalChart("c-ft", (D.essays_finetune || []).map(r => ({ label: r.arm, est: r.qwk, lo: r.qwk_lo, hi: r.qwk_hi, kind: /DeBERTa|Qwen|fine-tun/i.test(r.arm) ? "open weights" : "frontier" })).sort((a, b) => b.est - a.est),
-    { domain: [0.4, 0.9], refs: [{ v: 0.745, text: "raters with each other" }], labW: 300, valFmt: f3, legend: false, aria: "Essay agreement by approach" });
+    { domain: [0.4, 0.9], refs: [{ v: 0.745, text: "raters with each other" }], labW: 300, valFmt: f3, legend: false, order: "Best at the top: higher agreement", aria: "Essay agreement by approach" });
   const p = v => nul(v) ? "—" : f1(v * 100) + "%";
   const V = v => el("span", { class: "pill " + (/FIXED|NO DIFFERENCE|WITHIN|AGREES/.test(v) ? "ok" : /MATTERS|SENSITIVE|NOT FIXED|WORSE/.test(v) ? "bad" : "") }, String(v).toLowerCase());
   table("t-setups", D.setups || [], [
