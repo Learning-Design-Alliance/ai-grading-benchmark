@@ -213,6 +213,68 @@ def overall():
     return rows
 
 
+#: Non-prompted graders on the scoring board, named by base model, maker, size and what they were trained on, so a
+#: reader always knows what a row is (the maintainer's request, 2026-10-26).
+TRAINED = {
+    "baseline: length": ("Length alone", "classic", "linear regression on log word count (code: characters)"),
+    "baseline: tfidf-ridge": ("Word features (TF-IDF + ridge)", "classic", "word 1-2 grams (code: character 3-5 grams), ridge regression"),
+    "baseline: reference-similarity": ("Similarity to the reference answer", "classic", "TF-IDF cosine similarity to the model answer, mapped to the scale"),
+    "baseline: encoder-ridge": ("MiniLM-L6 embeddings + ridge", "small encoder", "all-MiniLM-L6-v2 (sentence-transformers, from Microsoft's MiniLM; 22M parameters) sentence embeddings, ridge regression"),
+    "baseline: deberta-ft": ("DeBERTa-v3-base, fine-tuned", "fine-tuned encoder", "microsoft/deberta-v3-base (Microsoft, 184M parameters), fine-tuned with a regression head"),
+    "fine-tuned: DeBERTa-v3-base": ("DeBERTa-v3-base, fine-tuned (essay study)", "fine-tuned encoder", "microsoft/deberta-v3-base (Microsoft, 184M parameters), fine-tuned on ASAP 2.0's training essays"),
+    "fine-tuned: Qwen3 4B LoRA": ("Qwen3 4B Instruct, fine-tuned (LoRA)", "fine-tuned language model", "Qwen/Qwen3-4B-Instruct-2507 (Alibaba Qwen, 4B parameters), LoRA and a regression head"),
+    "fine-tuned: Gemma 4 26B A4B LoRA": ("Gemma 4 26B A4B, fine-tuned (LoRA)", "fine-tuned language model", "Gemma 4 26B A4B instruction-tuned (Google, 26B parameters, 4B active), LoRA and a regression head"),
+}
+
+
+def _trained_label(model, n_train):
+    """A trained grader's display name, group and a description with what it learned from."""
+    label, group, how = TRAINED.get(model, (model, "trained", ""))
+    n = {TASKS.get(t, t): v for t, v in (n_train or {}).items() if v}
+    learned = "; ".join(f"{k.lower()}: {v:,} marked answers" for k, v in n.items())
+    return label, group, how + (f". Trained on this corpus's own marked answers ({learned})" if learned else "")
+
+
+def scoring():
+    """out/scoring.json (leaderboard.py scoring): every grader on the six scoring strands, across tasks and by task."""
+    p = os.path.join(HERE, "out", "scoring.json")
+    if not os.path.exists(p):
+        return []
+    o = json.load(open(p))
+    rows = []
+    tracks = {r["model"]: (r.get("track"), r.get("n_train"), r.get("by_construction")) for r in o["rows"]}
+
+    def describe(model, task=None):
+        track, n_train, bc = tracks.get(model, ("prompted", None, None))
+        if track in ("baseline", "fine-tuned"):
+            if task and n_train:
+                n_train = {task: n_train.get(task)}
+            label, group, how = _trained_label(model, n_train)
+            return {"model": label, "vendor": "", "kind": "trained", "group": group, "how": how, "by_construction": bc}
+        m, vendor, kind = NAMES.get(model, (model, "", ""))
+        return {"model": m, "vendor": vendor, "kind": kind, "group": kind, "how": None, "by_construction": None}
+    for r in o["rows"]:
+        row = {"key": "all|" + r["model"], "task": "All tasks", "model_id": r["model"], **describe(r["model"]),
+               "complete": r["complete"], "tasks": ", ".join(TASKS.get(t, t) for t in r["tasks"]),
+               "score": None if r["overall"] is None else round(r["overall"], 1), "rank": r.get("rank"),
+               "rank_lo": (r.get("rank_ci95") or [None, None])[0], "rank_hi": (r.get("rank_ci95") or [None, None])[1],
+               "flags": "; ".join(r["flags"])}
+        for k in o["strands"]:
+            v = r["strands"].get(k)
+            row[k] = None if v is None else round(v, 1)
+        rows.append(row)
+    for t, tr in o["by_task"].items():
+        for r in tr:
+            row = {"key": t + "|" + r["model"], "task": TASKS.get(t, t), "model_id": r["model"], **describe(r["model"], t),
+                   "complete": True, "score": None if r["score"] is None else round(r["score"], 1), "rank": r["rank"],
+                   "rank_lo": None, "rank_hi": None, "flags": "; ".join(r["flags"])}
+            for k in o["strands"]:
+                v = r["strands"].get(k)
+                row[k] = None if v is None else round(v, 1)
+            rows.append(row)
+    return rows
+
+
 def weights():
     p = os.path.join(HERE, "out", "overall.json")
     if not os.path.exists(p):
@@ -756,7 +818,7 @@ def main(out):
                    ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models), ("contamination", contamination), ("energy_tasks", energy_tasks),
                    ("energy_measured", energy_measured), ("setups", setups), ("hosting", hosting), ("paraphrase", paraphrase),
                    ("essays_finetune", essays_finetune), ("length_partial", length_partial),
-                   ("lifecycle_tasks", lifecycle_tasks), ("lifecycle_compare", lifecycle_compare), ("footprint_scale", footprint_scale)):
+                   ("scoring", scoring), ("lifecycle_tasks", lifecycle_tasks), ("lifecycle_compare", lifecycle_compare), ("footprint_scale", footprint_scale)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)
         print(f"{nm}: {len(rows)} rows")

@@ -32,7 +32,7 @@ const sig = (v, n = 2) => nul(v) ? "—" : Number(Number(v).toPrecision(n)).toLo
 const iv = (lo, hi, f = f2) => nul(lo) ? "" : `[${f(lo)}, ${f(hi)}]`;
 const money = v => nul(v) ? "—" : "$" + (v < 0.1 ? fx(3)(v) : f2(v));
 const slug = s => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-const KIND_COLOR = { "frontier": "var(--s1)", "small hosted": "var(--s2)", "open weights": "var(--s3)", "baseline": "var(--base)" };
+const KIND_COLOR = { "frontier": "var(--s1)", "small hosted": "var(--s2)", "open weights": "var(--s3)", "baseline": "var(--base)", "trained": "var(--base)" };
 const KINDS = ["frontier", "small hosted", "open weights"];
 const TASKS = ["Short answers", "Code", "Essays"];
 const MODELS = D.models || [], OVERALL = D.overall || [], LB = D.leaderboard || [];
@@ -141,7 +141,7 @@ function intervalChart(id, rows, o = {}) {
   if (o.axis) box.append(el("p", { class: "sub", style: "margin:4px 0 6px" }, o.axis));
 }
 function legend(kinds) {
-  const names = { "frontier": "Frontier", "small hosted": "Small hosted", "open weights": "Open weights", "baseline": "Non-AI baseline" };
+  const names = { "frontier": "Frontier", "small hosted": "Small hosted", "open weights": "Open weights", "baseline": "Trained scorer (not prompted)" };
   return el("div", { class: "legend" }, kinds.map(k => {
     const s = sv("svg", { viewBox: "0 0 14 14" });
     s.append(k === "baseline" ? sv("path", { d: "M7,1 l6,6 l-6,6 l-6,-6 z", fill: "var(--surface)", stroke: KIND_COLOR[k], "stroke-width": 2 }) : sv("circle", { cx: 7, cy: 7, r: 5, fill: KIND_COLOR[k] }));
@@ -198,75 +198,127 @@ function drawOverview() {
 }
 
 // ================================================================== LEADERBOARD
+// Three boards (2026-10-26): SCORING ranks every grader that returns a mark (prompted models, classic baselines,
+// fine-tuned scorers) on six strands; BEYOND THE MARK shows feedback, maths working and pushback for prompted
+// models; FULL SCORE keeps all nine strands for prompted models.
 const WROWS = D.weights || [];
-const STRANDS = WROWS.map(w => w.strand);
+const ALL_STRANDS = WROWS.map(w => w.strand);
+const SC_STRANDS = ["agreement", "decision", "relevant", "irrelevant", "fairness", "consistency"];
+const BEYOND = ["feedback", "working", "pushback"];
 const SHORT = { agreement: "Agreement", decision: "Pass/fail", relevant: "Wrong content", irrelevant: "Ignores gaming", fairness: "Label fairness",
   consistency: "Consistent", feedback: "Feedback", working: "Reads working", pushback: "Holds under pushback" };
 const DEFAULT_W = Object.fromEntries(WROWS.map(w => [w.strand, w.weight]));
-const PRESETS = {
+const pick = (o, ks) => Object.fromEntries(ks.map(k => [k, o[k] || 0]));
+const PRESETS_FULL = {
   "Default": DEFAULT_W,
-  "Agreement only": Object.fromEntries(STRANDS.map(k => [k, k === "agreement" || k === "decision" ? (k === "agreement" ? 30 : 10) : 0])),
+  "Agreement only": Object.fromEntries(ALL_STRANDS.map(k => [k, k === "agreement" ? 30 : k === "decision" ? 10 : 0])),
   "Robustness first": { agreement: 10, decision: 5, relevant: 20, irrelevant: 25, fairness: 15, consistency: 5, feedback: 5, working: 5, pushback: 20 },
-  "Equal": Object.fromEntries(STRANDS.map(k => [k, 10])),
+  "Equal": Object.fromEntries(ALL_STRANDS.map(k => [k, 10])),
 };
-let W = { ...DEFAULT_W };
-const shown = new Set(KINDS);
-const scoreWith = (r, w) => { let tot = 0, sum = 0; STRANDS.forEach(k => { if (!nul(r[k]) && w[k]) { tot += w[k]; sum += w[k] * r[k]; } }); return tot ? sum / tot : null; };
-function ranked(w) {
-  const rows = OVERALL.map(r => ({ ...r, mine: scoreWith(r, w) }));
+const PRESETS_SC = Object.fromEntries(Object.entries(PRESETS_FULL).map(([n, w]) => [n, pick(w, SC_STRANDS)]));
+const SCORING = D.scoring || [];
+const KIND_NAMES = { "frontier": "Frontier", "small hosted": "Small hosted", "open weights": "Open weights", "trained": "Trained on marked answers" };
+let BOARD = "scoring", SCTASK = "All tasks";
+const Wb = { scoring: pick(DEFAULT_W, SC_STRANDS), full: { ...DEFAULT_W } };
+const shown = new Set(Object.keys(KIND_NAMES));
+const LEDE = {
+  scoring: "How well each grader marks, and how hard it is to fool, on six strands any grader that returns a mark has. Prompted models, classic automated scoring and fine-tuned scorers are ranked together, so a trained scorer can be compared with a prompted model on the same cases.",
+  beyond: "What only a language model can be asked to do: write feedback that does not copy a mark it was told, credit the working in maths rather than only the answer, and hold its mark when a student only disagrees.",
+  full: "All nine strands for the prompted models: the six scoring strands plus feedback, maths working and pushback. Each is scored 0 to 100 and the overall score is their weighted average.",
+};
+const strandsFor = b => b === "scoring" ? SC_STRANDS : b === "full" ? ALL_STRANDS : BEYOND;
+const presetsFor = b => b === "scoring" ? PRESETS_SC : PRESETS_FULL;
+const scoreWith = (r, w, ks) => { let tot = 0, sum = 0; ks.forEach(k => { if (!nul(r[k]) && w[k]) { tot += w[k]; sum += w[k] * r[k]; } }); return tot ? sum / tot : null; };
+
+function boardRows() {
+  if (BOARD === "full") return OVERALL.map(r => ({ ...r, score: r.overall, group: r.kind }));
+  if (BOARD === "beyond") return OVERALL.map(r => ({ ...r, flags: "", group: r.kind, score: scoreWith(r, { feedback: 1, working: 1, pushback: 1 }, BEYOND), complete: BEYOND.every(k => !nul(r[k])) }));
+  return SCORING.filter(r => r.task === SCTASK);
+}
+function ranked(rows, w, ks) {
+  rows = rows.map(r => ({ ...r, mine: BOARD === "beyond" ? r.score : scoreWith(r, w, ks) }));
   const done = rows.filter(r => r.complete).sort((a, b) => (!!a.flags - !!b.flags) || (b.mine - a.mine));
   done.forEach((r, i) => r.myRank = i + 1);
+  if (BOARD === "beyond") done.forEach(r => r.rank = r.myRank);
   return done.concat(rows.filter(r => !r.complete));
 }
 function drawLeaderboard() {
-  seg("presets", Object.keys(PRESETS), presetName(), p => { W = { ...PRESETS[p] }; drawSliders(); drawOverallTable(); });
-  drawSliders(); drawKindFilter(); drawOverallTable();
-  table("t-weights", WROWS, [{ k: "strand", h: "Strand", c: "l", f: v => SHORT[v] || v }, { k: "weight", h: "Default weight" }, { k: "means", h: "What it measures", c: "t" }], { sortable: false });
-  $("#w-reset").onclick = () => { W = { ...DEFAULT_W }; drawLeaderboard(); };
+  seg("board-tabs", [["scoring", "Scoring"], ["beyond", "Beyond the mark"], ["full", "Full score (prompted models)"]], BOARD, b => { BOARD = b; drawBoard(); });
+  seg("sc-task-tabs", ["All tasks"].concat(TASKS), SCTASK, t => { SCTASK = t; drawOverallTable(); });
+  $("#w-reset").onclick = () => { Wb[BOARD] = { ...presetsFor(BOARD).Default }; drawBoard(); };
+  drawKindFilter(); drawBoard();
 }
-function presetName() { return Object.keys(PRESETS).find(p => STRANDS.every(k => (PRESETS[p][k] || 0) === (W[k] || 0))) || null; }
+function drawBoard() {
+  $("#board-lede").textContent = LEDE[BOARD];
+  $("#sc-task-row").hidden = BOARD !== "scoring";
+  $("#rerank").hidden = BOARD === "beyond";
+  const ks = strandsFor(BOARD);
+  table("t-weights", WROWS.filter(w => ks.includes(w.strand)), [{ k: "strand", h: "Strand", c: "l", f: v => SHORT[v] || v }, { k: "weight", h: "Default weight" }, { k: "means", h: "What it measures", c: "t" }], { sortable: false });
+  if (BOARD !== "beyond") { drawPresets(); drawSliders(); }
+  drawOverallTable();
+}
+function presetName() { const P = presetsFor(BOARD), W = Wb[BOARD]; return Object.keys(P).find(p => strandsFor(BOARD).every(k => (P[p][k] || 0) === (W[k] || 0))) || null; }
+function drawPresets() { seg("presets", Object.keys(presetsFor(BOARD)), presetName(), p => { Wb[BOARD] = { ...presetsFor(BOARD)[p] }; drawSliders(); drawOverallTable(); }); }
 function drawSliders() {
-  const box = $("#sliders"); box.innerHTML = "";
-  const total = STRANDS.reduce((a, k) => a + (W[k] || 0), 0) || 1;
-  WROWS.forEach(r => {
+  const box = $("#sliders"); box.innerHTML = ""; const W = Wb[BOARD], ks = strandsFor(BOARD);
+  const total = ks.reduce((a, k) => a + (W[k] || 0), 0) || 1;
+  WROWS.filter(r => ks.includes(r.strand)).forEach(r => {
     const id = "w-" + r.strand;
     const share = el("span", { class: "w" }, `${Math.round((W[r.strand] || 0) / total * 100)}%`);
     const inp = el("input", { type: "range", id, min: 0, max: 40, step: 1, value: W[r.strand] || 0, "aria-describedby": id + "-d" });
-    inp.addEventListener("input", () => { W[r.strand] = +inp.value; drawSliders(); drawOverallTable(); document.getElementById(id).focus(); seg("presets", Object.keys(PRESETS), presetName(), p => { W = { ...PRESETS[p] }; drawSliders(); drawOverallTable(); }); });
+    inp.addEventListener("input", () => { W[r.strand] = +inp.value; drawSliders(); drawPresets(); drawOverallTable(); document.getElementById(id).focus(); });
     box.append(el("label", { class: "slider", for: id }, el("span", {}, SHORT[r.strand] || r.strand), share, inp, el("small", { id: id + "-d" }, r.means)));
   });
 }
 function drawKindFilter() {
   const box = $("#kind-filter"); box.innerHTML = "";
-  KINDS.forEach(k => {
-    const b = el("button", { type: "button", class: "chip", "aria-pressed": String(shown.has(k)) }, el("i", { style: `background:${KIND_COLOR[k]}` }), k[0].toUpperCase() + k.slice(1));
+  Object.entries(KIND_NAMES).forEach(([k, label]) => {
+    const sw = k === "trained" ? (() => { const s = sv("svg", { viewBox: "0 0 12 12", width: 11, height: 11 }); s.append(sv("path", { d: "M6,1 l5,5 l-5,5 l-5,-5 z", fill: "none", stroke: "var(--base)", "stroke-width": 2 })); return s; })() : el("i", { style: `background:${KIND_COLOR[k]}` });
+    const b = el("button", { type: "button", class: "chip", "aria-pressed": String(shown.has(k)) }, sw, label);
     b.onclick = () => { shown.has(k) ? shown.delete(k) : shown.add(k); b.setAttribute("aria-pressed", String(shown.has(k))); drawOverallTable(); };
     box.append(b);
   });
 }
+function nameCell(v, r) {
+  const parts = [el("span", {}, r.kind !== "trained" && byName[v] ? modelLink(v) : v, r.retention_note ? " †" : "")];
+  if (r.kind === "trained") parts.push(el("span", { class: "how" }, r.how || ""));
+  if (r.flags) parts.push(el("span", { class: "flags" }, r.flags.split("; ").map(x => el("span", { class: "flag" }, x))));
+  return el("span", { class: "namecell" }, parts);
+}
 function drawOverallTable() {
-  const isDef = STRANDS.every(k => (W[k] || 0) === DEFAULT_W[k]);
-  const rows = ranked(W).filter(r => shown.has(r.kind));
+  const ks = strandsFor(BOARD), W = Wb[BOARD] || {}, P = presetsFor(BOARD);
+  const isDef = BOARD === "beyond" || ks.every(k => (W[k] || 0) === (P.Default[k] || 0));
+  const rows = ranked(boardRows(), W, ks).filter(r => shown.has(r.kind) || (r.kind === "trained" && shown.has("trained")));
   const moved = rows.filter(r => r.complete && r.myRank !== r.rank).length;
-  $("#w-status").innerHTML = isDef ? "Ranked by the <b>default weights</b>. Set your own to re-rank." :
-    `Ranked by <b>your weights</b>${presetName() ? " (" + presetName() + ")" : ""}: ${moved} model${moved === 1 ? "" : "s"} moved from the default ranking.`;
-  const strandCols = STRANDS.map(k => ({ k, h: SHORT[k] || k, title: (WROWS.find(w => w.strand === k) || {}).means, f: f0, c: v => !nul(v) && v < 60 ? "bad" : "n" }));
+  if (BOARD !== "beyond") $("#w-status").innerHTML = isDef ? "Ranked by the <b>default weights</b>. Set your own to re-rank." :
+    `Ranked by <b>your weights</b>${presetName() ? " (" + presetName() + ")" : ""}: ${moved} grader${moved === 1 ? "" : "s"} moved from the default ranking.`;
+  const strandCols = ks.map(k => ({ k, h: SHORT[k] || k, title: (WROWS.find(w => w.strand === k) || {}).means, f: (v, r) => {
+    const bc = r.kind === "trained" && (k === "fairness" || k === "consistency");
+    return bc ? el("span", { title: "by construction" }, f0(v), el("sup", { class: "dim" }, "*")) : f0(v); }, c: v => !nul(v) && v < 60 ? "bad" : "n" }));
+  const per = BOARD === "scoring" && SCTASK !== "All tasks";
   table("t-overall", rows, [
     { k: "myRank", h: isDef ? "Rank" : "Your rank", f: (v, r) => r.complete ? String(v) : "—" },
     { k: "move", h: "", sort: false, f: (v, r) => { if (!r.complete || isDef) return ""; const d = r.rank - r.myRank; return d === 0 ? el("span", { class: "move dim" }, "·") : el("span", { class: "move " + (d > 0 ? "up" : "down") }, (d > 0 ? "▲" : "▼") + Math.abs(d)); } },
-    { k: "model", h: "Model", c: "name", f: (v, r) => el("span", {}, modelLink(v), r.retention_note ? " †" : "", r.flags ? el("span", { class: "flags" }, r.flags.split("; ").map(x => el("span", { class: "flag" }, x))) : "") },
-    { k: "mine", h: isDef ? "Overall" : "Your score", f: f1 },
-    { k: "overall", h: "Default", f: (v, r) => isDef ? "" : `${f1(v)} (#${r.rank || "—"})`, c: "dim n" },
+    { k: "model", h: BOARD === "scoring" ? "Grader" : "Model", c: "name", f: nameCell },
+    { k: "mine", h: isDef ? (BOARD === "beyond" ? "Mean" : "Score") : "Your score", f: f1 },
+    ...(isDef ? [] : [{ k: "score", h: "Default", f: (v, r) => `${f1(v)} (#${r.rank || "—"})`, c: "dim n" }]),
     ...strandCols,
-    { k: "rank_lo", h: "Rank interval", c: "dim n", f: (v, r) => v ? `${v}–${r.rank_hi}` : (r.complete ? "—" : "not run on every task") },
-    { k: "task_lo", h: "Range across tasks", c: "dim n", f: (v, r) => nul(v) ? "—" : `${f1(v)}–${f1(r.task_hi)}` },
-  ], { sort: "myRank", dir: 1, pinBottom: r => !r.complete });
+    ...(per || BOARD === "beyond" ? [] : [{ k: "rank_lo", h: "Rank interval", c: "dim n", f: (v, r) => v ? `${v}–${r.rank_hi}` : (r.complete ? "—" : "not run on every task") }]),
+    ...(BOARD === "full" ? [{ k: "task_lo", h: "Range across tasks", c: "dim n", f: (v, r) => nul(v) ? "—" : `${f1(v)}–${f1(r.task_hi)}` }] : []),
+  ], { sort: "myRank", dir: 1, pinBottom: r => !r.complete, rowClass: r => r.kind === "trained" ? "baseline" : null });
+  const notes = {
+    scoring: "Strand scores are 0 to 100; under 60 is marked. A disqualifying flag (gamed by more than 5% of the scale, or any credit for a blank answer) ranks a grader below every unflagged one. Trained graders (shaded) learned from the corpus's own marked answers, which a prompted model never sees; * label fairness and consistency are 100 by construction for them (they never see the learner label and give the same mark every time). Rank interval: how far a grader could move if each measure were redrawn within its interval.",
+    beyond: "Feedback is scored on short answers only (the feedback's tone should not follow a mark the model was told). Reads working: full score at a working effect of 2 of 4; an answer checker scores 0. Holds under pushback: each point of the scale given way costs 5. Trained graders write no feedback and cannot read working; their mark cannot be argued with, so they are not shown here.",
+    full: "Strand scores are 0 to 100; under 60 is marked. Range across tasks: the overall score computed on each task separately, the better guide to a new task than the average.",
+  };
+  $("#board-note").textContent = notes[BOARD];
 }
 
 // ================================================================== TASKS (with baselines)
 let TASK = "Short answers";
 const BASE = D.baselines || [];
-const BNAME = { "length": "length alone", "tfidf-ridge": "word features (tf-idf)", "reference-similarity": "similarity to reference", "encoder-ridge": "small sentence encoder", "deberta-ft": "fine-tuned DeBERTa" };
+const BNAME = { "length": "length alone", "tfidf-ridge": "word features (TF-IDF + ridge)", "reference-similarity": "similarity to the reference answer",
+  "encoder-ridge": "MiniLM-L6 embeddings + ridge (22M)", "deberta-ft": "DeBERTa-v3-base, fine-tuned (Microsoft, 184M)" };
 function ceilingFor(task) {
   if (task === "Essays") return 0.745;
   const r = LB.filter(x => x.task === task && !nul(x.share) && x.share > 0).map(x => x.qwk / x.share);
@@ -279,20 +331,20 @@ function drawTasks() {
 function drawTaskViews() {
   const rows = LB.filter(r => r.task === TASK), bases = BASE.filter(b => b.task === TASK), ceil = ceilingFor(TASK);
   $("#agree-title").textContent = `Agreement with the experts: ${TASK.toLowerCase()}`;
-  $("#agree-sub").textContent = `Quadratic weighted kappa with the expert markers' mark, 95% interval. The dashed line is how well the experts agree with each other${TASK === "Essays" ? " (the published rater agreement, κ 0.745)" : ""}: a model near it disagrees with them about as often as they disagree with each other. Diamonds are non-AI baselines.`;
+  $("#agree-sub").textContent = `Quadratic weighted kappa with the expert markers' mark, 95% interval. The dashed line is how well the experts agree with each other${TASK === "Essays" ? " (the published rater agreement, κ 0.745)" : ""}: a model near it disagrees with them about as often as they disagree with each other. Diamonds are trained scorers (not prompted).`;
   const pts = rows.map(r => ({ label: r.model, est: r.qwk, lo: r.qwk_lo, hi: r.qwk_hi, kind: r.kind, href: "model-" + slug((byName[r.model] || {}).key || r.model),
     tip: `<b>${esc(r.model)}</b><br>QWK ${f3(r.qwk)} ${iv(r.qwk_lo, r.qwk_hi, f2)}<br>${TASK === "Essays" ? "Share of published rater agreement " + pct(r.published_share) : "Share of the human ceiling " + pct(r.share)}` }))
-    .concat(bases.map(b => ({ label: "Baseline · " + (BNAME[b.baseline] || b.baseline), est: b.qwk, lo: b.qwk_lo, hi: b.qwk_hi, base: true,
-      tip: `<b>${esc(BNAME[b.baseline] || b.baseline)}</b> (non-AI)<br>QWK ${f3(b.qwk)} ${iv(b.qwk_lo, b.qwk_hi, f2)}<br>Trained on ${f0(b.n_train)} marked answers · credits blank answers ${pct1(b.blank_pct)}` })))
+    .concat(bases.map(b => ({ label: "Trained · " + (BNAME[b.baseline] || b.baseline), est: b.qwk, lo: b.qwk_lo, hi: b.qwk_hi, base: true,
+      tip: `<b>${esc(BNAME[b.baseline] || b.baseline)}</b><br>trained on this task's ${f0(b.n_train)} marked answers, not prompted<br>QWK ${f3(b.qwk)} ${iv(b.qwk_lo, b.qwk_hi, f2)}<br>Trained on ${f0(b.n_train)} marked answers · credits blank answers ${pct1(b.blank_pct)}` })))
     .sort((a, b) => b.est - a.est);
   intervalChart("c-agree", pts, { domain: [Math.min(0, ...pts.map(p => p.lo ?? p.est)), 1], refs: ceil ? [{ v: ceil, text: "experts with each other" }] : [], valFmt: f2, order: "Best at the top: higher agreement", aria: "Agreement with experts by model and baseline" });
   const gpts = rows.filter(r => !nul(r.gaming_pct)).map(r => ({ label: r.model, est: r.gaming_pct, lo: r.gaming_lo, hi: r.gaming_hi, kind: r.kind, href: "model-" + slug((byName[r.model] || {}).key || r.model) }))
-    .concat(bases.filter(b => !nul(b.gaming_pct)).map(b => ({ label: "Baseline · " + (BNAME[b.baseline] || b.baseline), est: b.gaming_pct, base: true })))
+    .concat(bases.filter(b => !nul(b.gaming_pct)).map(b => ({ label: "Trained · " + (BNAME[b.baseline] || b.baseline), est: b.gaming_pct, base: true })))
     .sort((a, b) => a.est - b.est);
   intervalChart("c-gaming", gpts, { refs: [{ v: 0 }, { v: 5, text: "5% flag" }], zero: true, valFmt: v => f1(v) + "%", tickFmt: v => f0(v) + "%", order: "Best at the top: smallest gain", aria: "Gain from gaming, % of scale" });
   scatterCost(rows, ceil);
   const essays = TASK === "Essays";
-  const brow = bases.map(b => ({ model: "Baseline · " + (BNAME[b.baseline] || b.baseline), _base: true, kind: "baseline", share: essays ? null : b.share, published_share: essays ? b.share_published : null,
+  const brow = bases.map(b => ({ model: "Trained · " + (BNAME[b.baseline] || b.baseline), _base: true, kind: "baseline", share: essays ? null : b.share, published_share: essays ? b.share_published : null,
     qwk: b.qwk, qwk_lo: b.qwk_lo, qwk_hi: b.qwk_hi, blank_pct: b.blank_pct, gaming_pct: b.gaming_pct, label_pct: 0, retest: 1, refused: 0, cost_per_1k: null, decision_share: null, blicket_pct: null, surface_pct: null }));
   const R = (v, t) => !nul(v) && v > t;
   table("t-board", rows.concat(brow), [

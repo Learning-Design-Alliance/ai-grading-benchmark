@@ -72,7 +72,15 @@
     <div class="head">
       <div class="eyebrow">Results</div>
       <h2>Leaderboard</h2>
-      <p class="lede">One score per model across short answers, code and essays, plus two whole-model tests: whether it credits the working in maths, and whether it holds its mark when a student only disagrees. Each of nine strands is scored 0 to 100, and the overall score is their weighted average.</p>
+      <p class="lede" id="board-lede"></p>
+    </div>
+    <div class="controls">
+      <span class="ctl-label">Board</span>
+      <div class="seg" id="board-tabs" role="group" aria-label="Board"></div>
+    </div>
+    <div class="controls" id="sc-task-row">
+      <span class="ctl-label">Task</span>
+      <div class="seg" id="sc-task-tabs" role="group" aria-label="Task"></div>
     </div>
 
     <details class="panel rerank" id="rerank">
@@ -100,7 +108,8 @@
       <span class="sub">Hiding a group removes its rows; ranks stay as computed over all models.</span>
     </div>
     <div class="tbl" id="t-overall"></div>
-    <p class="sub">Strand scores are 0 to 100; under 60 is marked. <b>Rank interval</b>: how far a model could move if each measure were redrawn within its own interval; overlapping intervals are ties. <b>Range across tasks</b>: the overall score computed on each task separately, the better guide to a new task than the average. † Claude Fable 5.1 ran through the maintainers' own Anthropic key, under its 30-day safety retention, because it has no zero-retention route; the corpora are public and hold no student identities. Every other model ran under zero data retention.</p>
+    <p class="sub" id="board-note"></p>
+    <p class="sub">† Claude Fable 5.1 ran through the maintainers' own Anthropic key, under its 30-day safety retention, because it has no zero-retention route; the corpora are public and hold no student identities. Every other model ran under zero data retention.</p>
     <details class="more"><summary>What each strand measures</summary><div class="tbl" id="t-weights"></div></details>
   </section>
 
@@ -109,7 +118,7 @@
     <div class="head">
       <div class="eyebrow">Results</div>
       <h2>By task, beside classic automated scoring</h2>
-      <p class="lede">Agreement with the expert markers on each task, with the non-AI baselines drawn on the same scale: length alone, a word-feature regression, similarity to the reference answer, a small sentence encoder and a fine-tuned DeBERTa, each trained on the corpus's other marked answers.</p>
+      <p class="lede">Agreement with the expert markers on each task, with trained scorers drawn on the same scale: length alone, a word-feature regression, similarity to the reference answer, MiniLM-L6 sentence embeddings with a regression, and Microsoft's DeBERTa-v3-base fine-tuned, each trained on the corpus's other marked answers. A prompted model sees none of those marks.</p>
     </div>
     <div class="controls">
       <span class="ctl-label">Task</span>

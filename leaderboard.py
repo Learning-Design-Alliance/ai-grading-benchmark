@@ -624,7 +624,7 @@ def _weighted(strands, w):
     return None if not tot else sum(w[k] * v for k, v in strands.items() if v is not None and k in w) / tot
 
 
-def overall(rows, feedback=None, weights=None, tasks=("mohler", "code", "asap2"), sims=1000, seed=7):
+def overall(rows, feedback=None, weights=None, tasks=("mohler", "code", "asap2"), sims=1000, seed=7, model_tasks=MODEL_TASKS):
     """One row per model: strand scores averaged over tasks, the weighted overall, flags, completeness, and a
     95% rank interval from redrawing every metric within its own interval."""
     w = weights or WEIGHTS
@@ -638,7 +638,8 @@ def overall(rows, feedback=None, weights=None, tasks=("mohler", "code", "asap2")
         per_task = {t: strand_scores(tr[t], fb) for t in tasks if t in tr}
         strands = {k: [v[k] for v in per_task.values() if v.get(k) is not None] for k in w}
         mean_strands = {k: (sum(v) / len(v) if v else None) for k, v in strands.items()}
-        mean_strands.update(model_strands(tr))
+        if model_tasks:
+            mean_strands.update(model_strands(tr))
         flags = []
         if any(((tr[t].get("gaming_max_share") or {}).get("estimate") or 0) * 100 > FLAGS["gaming"] for t in tr):
             flags.append("gamed by more than 5% of the scale")
@@ -646,11 +647,11 @@ def overall(rows, feedback=None, weights=None, tasks=("mohler", "code", "asap2")
             flags.append("credits blank or junk answers")
         if any(tr[t]["refused"] / max(1, tr[t]["gradings"]) * 100 > FLAGS["refused"] for t in tr if t in tasks):
             flags.append("refuses more than 5% of gradings")
-        ms_only = model_strands(tr)
+        ms_only = model_strands(tr) if model_tasks else {}
         by_task = {t: _weighted({**{k: v for k, v in per_task[t].items() if k in w}, **ms_only}, w) for t in per_task}
         vals = [v for v in by_task.values() if v is not None]
-        out.append({"model": model, "tasks": sorted(t for t in tr if t in tasks + MODEL_TASKS),
-                    "complete": all(t in tr for t in tasks + MODEL_TASKS),
+        out.append({"model": model, "tasks": sorted(t for t in tr if t in tasks + tuple(model_tasks)),
+                    "complete": all(t in tr for t in tasks + tuple(model_tasks)),
                     "strands": mean_strands, "per_task": per_task, "overall": _weighted(mean_strands, w), "flags": flags,
                     "overall_by_task": by_task, "task_range": [min(vals), max(vals)] if vals else None})
     # rank intervals among complete models
@@ -672,9 +673,10 @@ def overall(rows, feedback=None, weights=None, tasks=("mohler", "code", "asap2")
             st = [strand_scores(sim_rows[t], feedback.get(o["model"])) for t in tasks]
             ms = {k: (sum(x[k] for x in st if x.get(k) is not None) / max(1, sum(x.get(k) is not None for x in st))
                       if any(x.get(k) is not None for x in st) else None) for k in w}
-            mt = {t: {k: (jitter(v) if k in ("working_effect", "pushback_effect") else v) for k, v in by[o["model"]][t].items()}
-                  for t in MODEL_TASKS}
-            ms.update(model_strands(mt))
+            if model_tasks:
+                mt = {t: {k: (jitter(v) if k in ("working_effect", "pushback_effect") else v) for k, v in by[o["model"]][t].items()}
+                      for t in model_tasks}
+                ms.update(model_strands(mt))
             vals.append((_weighted(ms, w), o["model"]))
         for i, (_, m) in enumerate(sorted(vals, key=lambda x: -x[0])):
             ranks[m].append(i + 1)
@@ -722,6 +724,63 @@ def multiplicity(rows, alpha=0.05):
             "do_not_survive": [{k: x[k] for k in ("model", "task", "probe", "p", "q")} for x in flagged if not x["survives_fdr"]]}
 
 
+#: The scoring board (2026-10-26, the maintainer's decision): the six strands any grader that returns a mark has,
+#: so prompted models, classic baselines and fine-tuned scorers are ranked together. Feedback, maths working and
+#: pushback are reported separately ("beyond the mark"); the full overall score keeps all nine for prompted models.
+SCORING_STRANDS = ("agreement", "decision", "relevant", "irrelevant", "fairness", "consistency")
+SCORING_WEIGHTS = {k: WEIGHTS[k] for k in SCORING_STRANDS}
+
+
+def scoring(rows, extra_rows=(), sims=1000, seed=7):
+    """The scoring board: every grader on the six scoring strands, ranked across tasks (a grader run on every task)
+    and within each task. extra_rows: baseline and fine-tuned rows (track "baseline" / "fine-tuned"), scored by the
+    same row() as a submission."""
+    all_rows = list(rows) + list(extra_rows)
+    res = overall(all_rows, None, SCORING_WEIGHTS, sims=sims, seed=seed, model_tasks=())
+    meta = {r["model"]: r for r in extra_rows}
+    for o in res["rows"]:
+        x = meta.get(o["model"])
+        o["track"] = x.get("track") if x else "prompted"
+        o["by_construction"] = x.get("by_construction") if x else None
+        o["n_train"] = {r["task"]: r.get("n_train") for r in extra_rows if r["model"] == o["model"]} or None
+    by_task = {}
+    for t in ("mohler", "code", "asap2"):
+        tr = []
+        for r in all_rows:
+            if r["task"] != t:
+                continue
+            st = strand_scores(r)
+            flags = []
+            if ((r.get("gaming_max_share") or {}).get("estimate") or 0) * 100 > FLAGS["gaming"]:
+                flags.append("gamed by more than 5% of the scale")
+            if (r.get("blank_credited") or 0) > FLAGS["blank"]:
+                flags.append("credits blank or junk answers")
+            if r["refused"] / max(1, r["gradings"]) * 100 > FLAGS["refused"]:
+                flags.append("refuses more than 5% of gradings")
+            tr.append({"model": r["model"], "strands": {k: st[k] for k in SCORING_STRANDS},
+                       "score": _weighted({k: st[k] for k in SCORING_STRANDS}, SCORING_WEIGHTS), "flags": flags})
+        tr.sort(key=lambda o: (bool(o["flags"]), -(o["score"] or 0)))
+        for i, o in enumerate(tr):
+            o["rank"] = i + 1
+        by_task[t] = tr
+    res["by_task"] = by_task
+    res["strands"] = list(SCORING_STRANDS)
+    return res
+
+
+def cmd_scoring(a):
+    lb = json.load(open(a.leaderboard))
+    extra = []
+    for p in a.extra or []:
+        if os.path.exists(p):
+            extra += json.load(open(p))["rows"]
+    res = scoring(lb["rows"], extra)
+    json.dump(res, open(a.out, "w"), indent=1)
+    for o in res["rows"]:
+        print(f"{o.get('rank', '—')!s:>3} {o['model'][:40]:40s} {o['overall'] or 0:5.1f} rank {o['rank_ci95']} "
+              f"{'' if o['complete'] else '(' + ','.join(o['tasks']) + ' only)'} {'; '.join(o['flags'])}")
+
+
 def cmd_overall(a):
     lb = json.load(open(a.leaderboard))
     fb = {}
@@ -752,10 +811,12 @@ def main():
     p.add_argument("--k", type=int, default=25); p.add_argument("--go", action="store_true")
     p.add_argument("--key-env", default="OPENROUTER_API_KEY"); p.add_argument("--cache-dir", default=".spotcheck-cache")
     p = sub.add_parser("pin"); p.add_argument("files", nargs="+", help="task=path")
+    p = sub.add_parser("scoring"); p.add_argument("leaderboard"); p.add_argument("--extra", nargs="*", help="baseline / fine-tuned rows")
+    p.add_argument("--out", default=os.path.join(HERE, "out", "scoring.json"))
     p = sub.add_parser("overall"); p.add_argument("leaderboard"); p.add_argument("--feedback"); p.add_argument("--out", default="out/overall.json")
     a = ap.parse_args()
     {"export": cmd_export, "verify": cmd_verify, "build": cmd_build, "spotcheck": cmd_spotcheck, "pin": cmd_pin,
-     "overall": cmd_overall}[a.cmd](a)
+     "overall": cmd_overall, "scoring": cmd_scoring}[a.cmd](a)
 
 
 if __name__ == "__main__":

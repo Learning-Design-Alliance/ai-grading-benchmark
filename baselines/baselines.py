@@ -55,6 +55,16 @@ Expected (written before training): above tfidf-ridge and encoder-ridge on essay
 tuned encoders lead the ASAP-style benchmarks); weak on code; blank answers credited, since a regression has no
 floor; and, unlike length, no reliable gain from the padding probes. Run with `--kinds deberta-ft`.
 
+CHANGE 3 (2026-10-26, the maintainer's decision, after every baseline result had been read; no baseline is re-run
+or re-scored): ranked on a scoring board. The design above said baselines are "shown beside the leaderboard, never
+in it". The maintainer split the board instead: a SCORING board ranks every grader that returns a mark on the six
+strands any such grader has (agreement, pass/fail, reacting to wrong content, ignoring gaming, label fairness,
+consistency; leaderboard.py scoring), so prompted models, these baselines and fine-tuned scorers are ranked
+together under the same flags; feedback, maths working and pushback stay with the prompted models. The baselines'
+rows are this script's output, unchanged. Label fairness and consistency are 100 by construction for every
+baseline, which the board marks. Reason: readers want to see where classic and fine-tuned scoring stands among
+the models, task by task.
+
     python3 baselines/baselines.py --cases-dir <dir with mohler.jsonl, harmogen-code.jsonl, asap2.jsonl> --out out/baselines.json
 
 Reads the corpora's cases (aggregates out only).
