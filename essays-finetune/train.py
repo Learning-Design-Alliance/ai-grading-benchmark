@@ -103,6 +103,17 @@ def build(kind, micro=4):
         torch.cuda.empty_cache()
         model, hp = gemma_backbone(backbone, micro)
         model = model.cuda()
+        if impl != "eager":  # grouped_mm can load and still fail at run time on an older torch
+            try:
+                ids = torch.full((2, 16), 2, device="cuda")
+                with torch.autocast("cuda", dtype=torch.bfloat16):
+                    model(input_ids=ids, attention_mask=torch.ones_like(ids)).logits.float().sum().backward()
+                model.zero_grad(set_to_none=True)
+            except Exception as e:
+                print("grouped_mm experts failed at run time:", str(e)[:200], "-> eager", flush=True)
+                model.zero_grad(set_to_none=True)
+                backbone.set_experts_implementation("eager")
+                impl = "eager"
         hp["experts_implementation"] = impl
         n_lora = sum(p.numel() for p in model.parameters() if p.requires_grad)
         print(f"gemma: trainable {n_lora:,} parameters; experts {impl}; GPU memory "
