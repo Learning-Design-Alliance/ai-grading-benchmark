@@ -131,6 +131,8 @@ details.rerank > summary:hover .sum-hint { background: var(--accent-soft); }
 table { border-collapse: collapse; width: 100%; font-size: 14px; }
 th, td { padding: 8px 12px; text-align: right; vertical-align: top; border-bottom: 1px solid var(--rule); font-variant-numeric: tabular-nums; }
 th { font: 500 12.5px/1.3 var(--text); color: var(--accent); vertical-align: bottom; border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); position: sticky; top: 0; background: var(--surface); }
+.info { display: inline-grid; place-items: center; width: 15px; height: 15px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--accent) 50%, transparent); font: 600 10px/1 var(--text); font-style: normal; color: var(--accent); cursor: help; vertical-align: 1px; }
+.info:hover, .info:focus { background: var(--accent); color: var(--surface); outline: none; }
 th button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: inherit; }
 th[aria-sort="ascending"] button::after { content: " ↑"; } th[aria-sort="descending"] button::after { content: " ↓"; }
 tr:last-child td { border-bottom: 0; }
@@ -168,6 +170,7 @@ details.more[open] summary { margin-bottom: 10px; }
 .chart .ax line, .chart .grid line { stroke: var(--rule); }
 .chart .ax text, .chart .tick { fill: var(--muted); font: 400 11px var(--mono); }
 .chart .lab { fill: var(--ink); font: 400 12.5px var(--text); }
+.chart .lab.head { fill: var(--accent); font: 500 13px var(--text); }
 .chart .lab.base { fill: var(--muted); font-style: italic; }
 .chart .ref { stroke: var(--muted); stroke-dasharray: 4 4; }
 .chart .reftext { fill: var(--muted); font: 400 11px var(--mono); }

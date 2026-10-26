@@ -22,6 +22,7 @@ regenerated:
 Only default-prompt results are included: the product prompt's results stay internal. Shares are of the
 scale (marks / scale width), so tasks with different scales sit on one axis.
 """
+import glob
 import json
 import os
 import re
@@ -311,6 +312,53 @@ def model_inputs():
         rows.append({"key": mid, "model": disp, "on_board": mid in ov, "inputs": inputs, "inputs_from": v["from"],
                      "inputs_why": v.get("why"), "read": d["read"], **{"cover_" + t: c for t, c in cover.items()}})
     return rows
+
+
+#: Families whose releases are joined by a line on the timeline: older and newer releases of the same line.
+FAMILIES = {"openai/gpt-4o-mini": "OpenAI small", "openai/gpt-4.1-mini": "OpenAI small", "openai/gpt-5-mini": "OpenAI small",
+            "openai/gpt-5.6-luna": "OpenAI small", "anthropic/claude-haiku-4.5": "Claude Haiku", "anthropic/claude-haiku-5.5": "Claude Haiku",
+            "deepseek/deepseek-chat": "DeepSeek", "deepseek/deepseek-v4.1-flash": "DeepSeek", "deepseek/deepseek-v4.1-flash-1017": "DeepSeek",
+            "qwen/qwen-2.5-72b-instruct": "Qwen", "qwen/qwen3-235b-a22b-2507": "Qwen"}
+LINEAGE_NAMES = {"openai/gpt-4o-mini": "GPT-4o mini", "openai/gpt-4.1-mini": "GPT-4.1 mini", "anthropic/claude-haiku-4.5": "Claude Haiku 4.5",
+                 "deepseek/deepseek-chat": "DeepSeek V3 (chat)", "qwen/qwen-2.5-72b-instruct": "Qwen2.5 72B"}
+
+
+def timeline():
+    """Short-answer agreement, gaming and (for board models) the whole-task score against each model's release date,
+    for the board and the older releases graded in the lineage runs (out/lineage-2026-10-23). Release date: when
+    OpenRouter listed the model (docs/model-dates.json, scripts/model_inputs.py), a stand-in for the vendor's date.
+    Descriptive: no trend is fitted or forecast."""
+    dates = (_load("docs", "model-dates.json") or {}).get("models", {})
+    E = lambda v: v.get("estimate") if isinstance(v, dict) else v
+    ov = {r["model"]: r for r in (_load("out", "overall.json") or {"rows": []})["rows"]}
+    rows = {}
+    for r in (_load("out", "leaderboard.json") or {"rows": []})["rows"]:
+        if r["task"] != "mohler":
+            continue
+        g = E(r.get("gaming_max_share"))
+        rows[r["model"]] = {"key": r["model"], "model": name(r["model"]) if r["model"] in NAMES else r["model"], "on_board": True,
+                            "kind": NAMES.get(r["model"], ("", "", ""))[2], "qwk": E(r["qwk"]), "share": E(r.get("share_of_ceiling")),
+                            "gaming_pct": None if g is None else round(100 * g, 1),
+                            "overall": (ov.get(r["model"]) or {}).get("overall"), "flags": "; ".join((ov.get(r["model"]) or {}).get("flags") or [])}
+    for p in sorted(glob.glob(os.path.join(HERE, "out", "lineage-2026-10-23", "*.json"))):
+        x = json.load(open(p))
+        mid = x["config"]["model"]
+        if mid in rows:
+            continue
+        v, width = x["validity"], x["scale"][1] - x["scale"][0]
+        g = [E(v.get(k)) for k in ("injection", "forged") if E(v.get(k)) is not None]
+        rows[mid] = {"key": mid, "model": LINEAGE_NAMES.get(mid, mid.split("/")[-1]), "on_board": False, "kind": "older release",
+                     "qwk": E(v["agreement"]["qwk"]), "share": E(v.get("share_of_ceiling")),
+                     "gaming_pct": round(100 * max(g) / width, 1) if g else None, "overall": None, "flags": ""}
+    out = []
+    for mid, r in rows.items():
+        dt = dates.get(mid)
+        r.update(release=dt, family=FAMILIES.get(mid))
+        for k in ("qwk", "share", "overall"):
+            if r[k] is not None:
+                r[k] = round(r[k], 3)
+        out.append(r)
+    return sorted(out, key=lambda r: r["release"] or "9999")
 
 
 def weights():
@@ -856,7 +904,7 @@ def main(out):
                    ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models), ("contamination", contamination), ("energy_tasks", energy_tasks),
                    ("energy_measured", energy_measured), ("setups", setups), ("hosting", hosting), ("paraphrase", paraphrase),
                    ("essays_finetune", essays_finetune), ("length_partial", length_partial),
-                   ("scoring", scoring), ("model_inputs", model_inputs), ("lifecycle_tasks", lifecycle_tasks), ("lifecycle_compare", lifecycle_compare), ("footprint_scale", footprint_scale)):
+                   ("scoring", scoring), ("model_inputs", model_inputs), ("timeline", timeline), ("lifecycle_tasks", lifecycle_tasks), ("lifecycle_compare", lifecycle_compare), ("footprint_scale", footprint_scale)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)
         print(f"{nm}: {len(rows)} rows")

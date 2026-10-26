@@ -25,6 +25,10 @@ OVERRIDES = {
 }
 
 
+#: Release dates for models OpenRouter does not list, with their source.
+DATE_OVERRIDES = {"allenai/olmo-3.1-32b-instruct": "2025-12-01"}  # Olmo 3 technical report, arXiv 2512.13961 (December 2025)
+
+
 def model_ids():
     ids = {m["model"] for m in json.load(open(os.path.join(ROOT, "docs", "models.json")))["models"]}
     for p in glob.glob(os.path.join(ROOT, "out", "speech", "*.json")) + glob.glob(os.path.join(ROOT, "out", "images", "*.json")):
@@ -53,6 +57,14 @@ def main():
             continue
         out["models"][mid] = {"inputs": [m for m in ("text", "image", "video", "audio") if m in mods], "from": "openrouter"}
     json.dump(out, open(os.path.join(ROOT, "docs", "model-inputs.json"), "w"), indent=1)
+    # Release dates for the timeline: when OpenRouter listed each model (its `created` field), for the board, the
+    # media models and the older releases in the lineage runs.
+    lineage = [json.load(open(p))["config"]["model"] for p in glob.glob(os.path.join(ROOT, "out", "lineage-2026-10-23", "*.json"))]
+    dates = {mid: datetime.date.fromtimestamp(listed[mid]["created"]).isoformat()
+             for mid in sorted(set(model_ids()) | set(lineage)) if mid in listed and listed[mid].get("created")}
+    dates.update(DATE_OVERRIDES)
+    json.dump({"source": URL, "field": "created (when OpenRouter listed the model; a stand-in for the vendor's release date)",
+               "read": out["read"], "models": dates}, open(os.path.join(ROOT, "docs", "model-dates.json"), "w"), indent=1)
     for k, v in out["models"].items():
         print(f"{k:45s} {v['inputs']} ({v['from']})")
 
