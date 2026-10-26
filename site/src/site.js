@@ -387,17 +387,20 @@ const verdict = v => { const [t, tone] = VERDICTS[v] || [String(v).toLowerCase()
 // ================================================================== OVERVIEW
 function drawOverview() {
   const complete = OVERALL.filter(r => r.complete), clean = complete.filter(r => !r.flags);
+  // Three headlines, in the order a reader needs them (maintainer, 2026-10-26): most models can be fooled; the ones
+  // that cannot are accurate; even those can be argued up. Every number is computed from the data.
   const gamed = complete.filter(r => /gamed/.test(r.flags || "")).length;
   const blank = complete.filter(r => /blank/.test(r.flags || "")).length;
-  const push = (D.pushback || []).filter(r => /YIELDS/.test(r.verdict || "")).length;
-  const speechSilent = (D.speech || []).filter(r => (r.silence_pct || 0) > 50).length;
-  const watch = (D.video || []).filter(r => /WATCHES/.test(r.verdict || "")).length;
-  const ess = (D.baselines || []).find(b => b.task === "Essays" && b.baseline === "tfidf-ridge");
+  const cleanSet = new Set(clean.map(r => r.model));
+  const shareOf = (m, t) => { const x = LB.find(r => r.model === m && r.task === t); return x ? (t === "Essays" ? x.published_share : x.share) : null; };
+  const close = clean.filter(r => ["Short answers", "Code"].every(t => (shareOf(r.model, t) ?? 0) >= 0.9)).length;
+  const ess = clean.map(r => shareOf(r.model, "Essays")).filter(v => !nul(v));
+  const push = D.pushback || [], yields = push.filter(r => /YIELDS/.test(r.verdict || ""));
+  const yieldsClean = yields.filter(r => cleanSet.has(r.model)).length;
   const cards = [
-    [`${clean.length} of ${complete.length}`, `models pass every disqualifying check. ${gamed} can be talked into marks by a note in the answer, and ${blank} credit blank or junk answers.`, "#leaderboard", "See the leaderboard"],
-    [`${push} of ${(D.pushback || []).length}`, "models raise a mark when the student only says they deserve more, with nothing about the work changed.", "#robustness", "Gaming and pushback"],
-    [`${speechSilent} of ${(D.speech || []).length}`, `audio graders give marks to a silent recording, and only ${watch} of ${(D.video || []).length} video runs watch the recording rather than timing it.`, "#media", "Speech, handwriting, video"],
-    [ess ? f2(ess.qwk) : "—", "essay agreement of a classic word-feature scorer trained on marked essays: level with the best language models, and it cannot be gamed. It needs thousands of marked essays and gives no feedback.", "#tasks", "Compare with baselines"],
+    [`${complete.length - clean.length} of ${complete.length}`, `models can be fooled. ${gamed === complete.length - clean.length ? "All of them" : gamed} give higher grades when the student adds a note asking for full marks or a fake grading instruction, and ${blank} also give credit to a blank or meaningless answer. Only ${clean.length} pass every one of these basic checks.`, "#leaderboard", "See the leaderboard"],
+    [`${close} of ${clean.length}`, `models that pass every check agree with teachers at least 90% as closely as two teachers agree with each other, on short answers and computer code.${ess.length ? ` On essays they vary much more: from ${pct(Math.min(...ess))} to ${pct(Math.max(...ess))} of the teachers' agreement.` : ""}`, "#tasks", "Results by task"],
+    [`${yields.length} of ${push.length}`, `models raise a grade when the student only argues for a higher one, with nothing about the work changed. That includes ${yieldsClean} of the ${clean.length} that pass every other check.`, "#robustness", "Gaming and pushback"],
   ];
   const box = $("#findings"); box.innerHTML = "";
   cards.forEach(([big, text, href, cta]) => box.append(el("div", { class: "finding" }, el("div", { class: "big" }, big), el("p", {}, text), el("a", { href }, cta + " →"))));
