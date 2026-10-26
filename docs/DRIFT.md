@@ -82,3 +82,23 @@ less than 4.5 did (0.603 against 0.675), but it no longer responds to a polite r
 Every upgrade agrees with its predecessor less than the predecessor agrees with itself, including
 the three with no significant mean shift. A school that switches model versions under the same
 prompt should expect individual marks to change even where the average does not.
+
+## A snapshot under a new name (2026-10-25)
+
+DeepSeek published a 17 October snapshot of V4.1 Flash (`deepseek/deepseek-v4.1-flash-1017`) described only as a
+"minor update". The board already held the 10 September release, graded on 24 October. The same 100 cases per
+task, default prompt, base probe (`bench.py drift`):
+
+| task | mean shift, 17 Oct − 10 Sep | QWK across versions | QWK within 10 Sep, asked twice |
+|---|---|---|---|
+| short answers (0-5) | −0.07 [−0.16, +0.02] | 0.962 | 0.963 |
+| essays | −0.09 [−0.19, +0.01] | 0.831 | 0.821 |
+| code (0-90) | **+1.69 [+0.67, +2.74]** | 0.957 | 0.947 |
+| code, 17 Oct pinned to DeepInfra | **+1.79 [+0.63, +3.02]** | 0.948 | 0.947 |
+
+- **The snapshot marks code about 2% of the scale higher.** The order of the work is unchanged: the two versions
+  agree with each other as well as one version agrees with itself. Short answers and essays did not move.
+- **It is the model, not the host.** The 10 September run was served by DeepInfra alone and the 17 October run
+  by six hosts, so the 17 October code grading was repeated on DeepInfra alone ($0.07). The shift stayed.
+- DeepSeek's own API serves the snapshot under the plain name `deepseek-flash` (OpenRouter's model page). A school
+  calling that name changed versions with no notice beyond "minor update".
