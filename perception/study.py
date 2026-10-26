@@ -228,7 +228,51 @@ central; about $125 if the models that tokenise by pixels charge four times as m
 at their own OpenRouter prices. The study's records are not bench.py runs, so `scripts/check_runs.py` does not read
 them; `analyse` marks a model with over 2% unsent or failed as incomplete, and reads no gap for it [3.1].
 
-CHANGES: none yet.
+CHANGES:
+1. (2026-10-26, after a one-model pilot on a hosted endpoint, run by the coordinating session with the maintainer's
+   confirmation; before any call of the design below) THE STUDY RUNS ON SELF-HOSTED OPEN MODELS ONLY.
+   - What the pilot saw (MiMo v2.6 Flash through OpenRouter, zero retention, $0.0096, all videos deleted):
+     - On the 10 black, silent control clips it said speaker_visible true on 7 and gave delivery marks of 3 to 5.
+       Those 7 calls cost about $0.00005 each, which suggests the video was dropped and the model answered anyway.
+     - Of 4 real CCv2 videos, 2 (102 MB and 168 MB) were refused with HTTP 413 (request too large) and 2 (46 MB
+       and 57 MB) were graded.
+     - The sample's median video is about 155 MB in every cell (148-159 MB), so most videos cannot be sent inline
+       to hosted endpoints, and the licence bars sending a reduced copy (6.1). Hosted models cannot be fixed without
+       Meta's written permission.
+     These are a pilot observation, not a result: 14 calls, one model, no verdict is read from them.
+   - The maintainer's decision, in their own words: "Start option a. We may need to leave those closed LLMs out of
+     the study with a footnote explaining why."
+   - Models now: the open-weight board models that take video and that we can run ourselves on one rented GPU, with
+     the model's own video input. Checked 2026-10-26 against docs/model-inputs.json, the Hugging Face cards and vLLM:
+       Gemma 4 26B A4B   google/gemma-4-26B-A4B-it @ 4d7ae4984b7db7de8f8457170b3f1a419ee76d52 (Apache 2.0)
+       Gemma 4 31B       google/gemma-4-31B-it     @ 842da3794eaa0b77d5f08bae87a17459d91ff475 (Apache 2.0)
+       Qwen3.8 27B       Qwen/Qwen3.8-27B          @ 1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0 (Apache 2.0)
+     Left out: GLM 5.3 Flash (open weights, but 321B parameters: several GPUs, beyond the GPU budget); MiMo v2.6
+     Flash and Muse Spark Open (no public weights found on Hugging Face). None of the three takes audio, so the
+     `audible` field is descriptive only. Gemma 4's card says its video input covers up to 60 seconds at one frame
+     a second; the model's own processor samples the frames, which is part of what is measured.
+   - Hosted closed models (Gemini 4 Argon, Gemini 3.8 Flash, Gemini 3.5 Flash Lite, Nova 2 Lite, Perceptron mk1.5)
+     are left out. Footnote: "Hosted models are not in this study: their endpoints refuse most full-length videos as
+     too large (a 102 MB and a 168 MB video were refused in a pilot; the sample's median is about 155 MB), and the
+     dataset's licence does not allow sending a reduced copy."
+   - Route: vLLM v0.32.0 on one RunPod A100 80GB pod (secure cloud), rented and terminated by us. Each unmodified
+     video file is uploaded from the study machine to the pod over HTTPS and read by vLLM from the pod's local disk;
+     the inference server decodes and samples it as the model does, and we make no reduced copy. The grading client
+     runs on the pod against localhost (perception/pod_run.py), so no request leaves the pod, and the pod never
+     holds a personal label (its job file carries video names and questions only). No third party receives any
+     video: no model provider sees the data, which settles clause 6.2 for this study. Videos go to the pod in
+     batches, are deleted from it once all three models have graded the batch, and everything on the pod is
+     deleted before it is terminated; the manifest records every file.
+   - Precision: bf16 for all three (the released weights). Rows are labelled "<model>@bf16, self-hosted (vLLM
+     v0.32.0, A100 80GB)" [2.1, 2.2]. Default sampling settings from each model's generation config; max tokens
+     2,048.
+   - Floor: re-checked for three models. The floor is per model, so its pass and fail are unchanged
+     (out/floor.json); with three models instead of eleven, the Benjamini-Hochberg q-values run over 3 models x 3
+     gaps per measure.
+   - Budget: a GPU cap of $80 in all (RunPod's balance, read at pod creation and after termination). The $140 API cap
+     is withdrawn: no API is called.
+   - Unchanged: the sample, the prompt, the measures, the verdict strings, the controls (10 black, silent clips per
+     model, sent first) and the UNMEASURED rules.
 
 Usage (every command that reads CCv2 files is run with `python3 -I`):
     python3 -I perception/study.py sample   --ann CCv2.json --dir DIR       # the draw, to DIR/sample.json
@@ -272,6 +316,12 @@ CAP_USD, CAP_MODEL_USD = 140.0, 40.0
 MAX_TOKENS = 2048
 
 # Every board model with video input (docs/model-inputs.json, read 2026-10-26); True = also takes audio.
+# CHANGE 1: the models actually run, self-hosted (Hugging Face id, revision).
+SELF_HOSTED = {
+    "google/gemma-4-26b-a4b-it": ("google/gemma-4-26B-A4B-it", "4d7ae4984b7db7de8f8457170b3f1a419ee76d52"),
+    "google/gemma-4-31b-it": ("google/gemma-4-31B-it", "842da3794eaa0b77d5f08bae87a17459d91ff475"),
+    "qwen/qwen3.8-27b": ("Qwen/Qwen3.8-27B", "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0"),
+}
 MODELS = {
     "google/gemini-4-argon": True, "google/gemini-3.8-flash": True, "google/gemini-3.5-flash-lite": True,
     "meta/muse-spark-open": True, "perceptron/perceptron-mk1.5": True, "xiaomi/mimo-v2.6-flash": True,
@@ -921,7 +971,7 @@ def cmd_analyse(a):
     w = boot_weights(grp, REPS, BOOT_SEED)
     rdir = os.path.join(a.dir, "runs")
     res = {}
-    for m in MODELS:
+    for m in SELF_HOSTED:
         path = os.path.join(rdir, slug(m) + ".jsonl")
         if not os.path.exists(path):
             continue
