@@ -160,7 +160,7 @@ def export_pushback(a):
         "model": config["model"], "base_url": config.get("base_url"),
         "settings": {k: config.get(k) for k in ("temperature", "max_tokens", "extra_body")},
         "cases_sha256": config["cases_sha256"], "case_ids": config["case_ids"],
-        "prompt_sha256": config.get("prompt_sha256"), "prompt": None,
+        "prompt_sha256": config.get("prompt_sha256"), "prompt": None, "route": config.get("route"),
         "calls": [{"id": r["id"], "probe": r["turn"], "before": r["before"], "score": r["after"], "error": r.get("error"),
                    "usage": {"cost_reported": r.get("cost")}} for r in rows],
     }

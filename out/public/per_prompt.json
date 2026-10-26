@@ -1,5 +1,61 @@
 [
 {
+"key": "allenai/olmo-3.1-32b-instruct:asap2:Does the electoral college work?",
+"model": "Olmo 3.1 32B",
+"task": "Essays",
+"item": "Does the electoral college work?",
+"n": 7,
+"qwk": null
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:asap2:Car-free cities",
+"model": "Olmo 3.1 32B",
+"task": "Essays",
+"item": "Car-free cities",
+"n": 10,
+"qwk": 0.717
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:asap2:\"A Cowboy Who Rode the Waves\"",
+"model": "Olmo 3.1 32B",
+"task": "Essays",
+"item": "\"A Cowboy Who Rode the Waves\"",
+"n": 7,
+"qwk": null
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:asap2:Driverless cars",
+"model": "Olmo 3.1 32B",
+"task": "Essays",
+"item": "Driverless cars",
+"n": 21,
+"qwk": 0.752
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:asap2:The Face on Mars",
+"model": "Olmo 3.1 32B",
+"task": "Essays",
+"item": "The Face on Mars",
+"n": 17,
+"qwk": 0.509
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:asap2:Facial action coding system",
+"model": "Olmo 3.1 32B",
+"task": "Essays",
+"item": "Facial action coding system",
+"n": 20,
+"qwk": 0.66
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:asap2:Exploring Venus",
+"model": "Olmo 3.1 32B",
+"task": "Essays",
+"item": "Exploring Venus",
+"n": 18,
+"qwk": 0.471
+},
+{
 "key": "anthropic/claude-fable-5.1:asap2:Does the electoral college work?",
 "model": "Claude Fable 5.1",
 "task": "Essays",
@@ -950,6 +1006,30 @@
 "item": "Exploring Venus",
 "n": 18,
 "qwk": 0.625
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:code:Q25",
+"model": "Olmo 3.1 32B",
+"task": "Code",
+"item": "Q25",
+"n": 44,
+"qwk": 0.439
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:code:Q31",
+"model": "Olmo 3.1 32B",
+"task": "Code",
+"item": "Q31",
+"n": 34,
+"qwk": 0.472
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:code:Q41",
+"model": "Olmo 3.1 32B",
+"task": "Code",
+"item": "Q41",
+"n": 22,
+"qwk": 0.757
 },
 {
 "key": "anthropic/claude-fable-5.1:code:Q25",

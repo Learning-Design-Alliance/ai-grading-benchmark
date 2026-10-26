@@ -28,58 +28,58 @@
  },
  "multiplicity": {
   "method": "Benjamini-Hochberg, 5%, over every probe interval",
-  "tests": 178,
-  "flagged": 90,
-  "survive": 83,
+  "tests": 188,
+  "flagged": 97,
+  "survive": 90,
   "do_not_survive": [
    {
     "model": "meta-llama/llama-3.2-3b-instruct",
     "task": "code",
     "probe": "gaming_max_share",
     "p": 0.02506581335684663,
-    "q": 0.05311565211331787
+    "q": 0.05178431770425458
    },
    {
     "model": "google/gemma-4-26b-a4b-it",
     "task": "mohler",
     "probe": "surface_share",
     "p": 0.02671533270001461,
-    "q": 0.055945049654148246
+    "q": 0.05459220160437768
    },
    {
     "model": "google/gemma-4-26b-a4b-it",
     "task": "code",
     "probe": "attainment_label_share",
     "p": 0.02772836224161391,
-    "q": 0.057391261383805535
+    "q": 0.05605303334863887
    },
    {
     "model": "qwen/qwen3-235b-a22b-2507",
     "task": "asap2",
     "probe": "attainment_label_share",
     "p": 0.02942258510478855,
-    "q": 0.0601979327431306
+    "q": 0.0588451702095771
    },
    {
     "model": "anthropic/claude-fable-5.1",
     "task": "asap2",
     "probe": "surface_share",
     "p": 0.0328973916454885,
-    "q": 0.06654245128291993
+    "q": 0.06510220662475619
    },
    {
     "model": "anthropic/claude-haiku-5.5",
     "task": "code",
     "probe": "attainment_label_share",
     "p": 0.03752553286987552,
-    "q": 0.07505106573975104
+    "q": 0.07348750187017289
    },
    {
     "model": "anthropic/claude-haiku-5.5",
     "task": "mohler",
     "probe": "gaming_max_share",
     "p": 0.039097629083996735,
-    "q": 0.07732642196612688
+    "q": 0.07577684812156067
    }
   ]
  },
@@ -978,8 +978,8 @@
     80.69460680640775
    ],
    "rank_ci95": [
-    11,
-    15
+    12,
+    16
    ],
    "rank": 13,
    "capped": true
@@ -1050,7 +1050,7 @@
    ],
    "rank_ci95": [
     11,
-    15
+    16
    ],
    "rank": 14,
    "capped": true
@@ -1120,9 +1120,80 @@
    ],
    "rank_ci95": [
     12,
-    15
+    16
    ],
    "rank": 15,
+   "capped": true
+  },
+  {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 82.4139350847345,
+    "decision": 76.57560925647877,
+    "relevant": 92.90123456790123,
+    "irrelevant": 46.77114133648729,
+    "fairness": 85.72222222222223,
+    "consistency": 90.52206470375381,
+    "feedback": 72.24519828124706,
+    "working": 76.375,
+    "pushback": 0.0
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 91.66666666666667,
+     "irrelevant": 43.68421052631579,
+     "fairness": 94.0,
+     "consistency": 92.0418371987267,
+     "feedback": 72.24519828124706
+    },
+    "code": {
+     "agreement": 62.54431398398882,
+     "decision": 53.15121851295754,
+     "relevant": 100.0,
+     "irrelevant": 50.0,
+     "fairness": 85.16666666666667,
+     "consistency": 87.92386821369539,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 84.6974912702147,
+     "decision": null,
+     "relevant": 87.03703703703704,
+     "irrelevant": 46.62921348314607,
+     "fairness": 78.0,
+     "consistency": 91.60048869883934,
+     "feedback": null
+    }
+   },
+   "overall": 71.5545851842632,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "overall_by_task": {
+    "mohler": 77.90632804462311,
+    "code": 65.50207325395206,
+    "asap2": 69.95003184855518
+   },
+   "task_range": [
+    65.50207325395206,
+    77.90632804462311
+   ],
+   "rank_ci95": [
+    14,
+    16
+   ],
+   "rank": 16,
    "capped": true
   },
   {
@@ -1190,10 +1261,10 @@
     83.13099760896743
    ],
    "rank_ci95": [
-    16,
-    17
+    17,
+    18
    ],
-   "rank": 16,
+   "rank": 17,
    "capped": true
   },
   {
@@ -1261,10 +1332,10 @@
     58.22725380978942
    ],
    "rank_ci95": [
-    16,
-    17
+    17,
+    18
    ],
-   "rank": 17,
+   "rank": 18,
    "capped": true
   }
  ]

@@ -2,6 +2,15 @@
 {
 "key": "2026-10-25:0",
 "date": "2026-10-25",
+"what": "DeepSeek V4.1 Flash, training on users' data (vendor documentation, not a result)",
+"was": "employees' and partners' sessions only",
+"now": "also users' interactions, de-identified, with an opt-out",
+"why": "DeepSeek's EU public summary of training content, missed in the first survey",
+"where": "docs/MODELS.md, docs/models.json"
+},
+{
+"key": "2026-10-25:1",
+"date": "2026-10-25",
 "what": "Claude Haiku 5.5, re-run under verified zero retention (all five tasks and feedback)",
 "was": "overall 91.0; pushback +3.5% [+1.4, +5.7]; working effect +1.91",
 "now": "overall 91.4 (rank 3, interval 2-8 unchanged); pushback +3.1% [+0.9, +5.4]; working effect +1.86; halo +0.11; gives-away 98%",
@@ -9,7 +18,7 @@
 "where": "submissions/anthropic__claude-haiku-5.5/"
 },
 {
-"key": "2026-10-25:1",
+"key": "2026-10-25:2",
 "date": "2026-10-25",
 "what": "Data retention for Claude Fable 5.1 and Claude Haiku 5.5",
 "was": "every request asked for zero retention (`provider.zdr`)",
@@ -18,7 +27,7 @@
 "where": "client.py now checks OpenRouter's live zero-retention list and refuses a model with none; docs/MODELS.md records each model's retention"
 },
 {
-"key": "2026-10-25:2",
+"key": "2026-10-25:3",
 "date": "2026-10-25",
 "what": "Length study: Qwen3.8 27B's interval for the change in balanced accuracy",
 "was": "[\u22120.14, +0.05]",
@@ -27,7 +36,7 @@
 "where": "video/LENGTH.md"
 },
 {
-"key": "2026-10-25:3",
+"key": "2026-10-25:4",
 "date": "2026-10-25",
 "what": "Null verdicts on video, length and pushback now print the largest effect they cannot rule out",
 "was": "\"adds nothing to a stopwatch\"; \"NO DETECTABLE EFFECT\"; \"HOLDS\"",
@@ -36,7 +45,7 @@
 "where": "video/README.md, video/LENGTH.md, feedback-board/PUSHBACK.md; CHANGE 1 in each script"
 },
 {
-"key": "2026-10-25:4",
+"key": "2026-10-25:5",
 "date": "2026-10-25",
 "what": "Length study headline",
 "was": "\"length does not change detection\"",
@@ -45,7 +54,7 @@
 "where": "video/LENGTH.md"
 },
 {
-"key": "2026-10-25:5",
+"key": "2026-10-25:6",
 "date": "2026-10-25",
 "what": "Benchmark card, conflict of interest",
 "was": "\"a grading product\"",
@@ -54,7 +63,7 @@
 "where": "BENCHMARK-CARD.md"
 },
 {
-"key": "2026-10-24:6",
+"key": "2026-10-24:7",
 "date": "2026-10-24",
 "what": "Feedback strand of the overall score",
 "was": "halo and \"gives away the answer\"",

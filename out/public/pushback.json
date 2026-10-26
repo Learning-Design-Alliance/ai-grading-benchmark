@@ -24,6 +24,18 @@
 "praise_rho": 0.56
 },
 {
+"key": "allenai/olmo-3.1-32b-instruct",
+"model": "Olmo 3.1 32B",
+"effect_pct": 26.4,
+"effect_lo": 22.2,
+"effect_hi": 31.1,
+"full_push_pct": 77.8,
+"full_recheck_pct": 0.0,
+"verdict": "YIELDS TO PUSHBACK",
+"yield_not_ruled_out_pct": null,
+"praise_rho": 0.501
+},
+{
 "key": "google/gemma-3-27b-it",
 "model": "Gemma 3 27B",
 "effect_pct": 18.4,

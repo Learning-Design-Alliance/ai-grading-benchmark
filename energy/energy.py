@@ -326,7 +326,7 @@ def verdict(ci, small, mid):
 def board_agreement(slug, task, run_dir):
     from metrics import qwk
     sub = os.path.join(ROOT, "submissions", MODELS[slug][0].replace("/", "__"), f"{task}.json")
-    if not os.path.exists(sub):
+    if not os.path.exists(sub) or slug.startswith("allenai"):  # Olmo's board submission is these very runs
         return None
     theirs = {c["id"]: c["score"] for c in json.load(open(sub))["calls"] if c["probe"] == "base" and c.get("score") is not None}
     ours = {c["id"]: c["score"] for c in map(json.loads, open(os.path.join(run_dir, "calls.jsonl")))
@@ -407,9 +407,9 @@ def cmd_to_docs(a):
     doc["measured"] = {
         "note": "Measured GPU energy per grading for open models (energy/, pre-registered), beside the per-token estimates, "
                 "which stay as they are. NET = GPU energy above idle; FULL-STACK = NET x 1.72 (Elsworth et al. 2025, "
-                "accelerators 58% of the total). Every model failed the pre-registered idle check, so every verdict is UNMEASURED; "
-                "the figures are descriptive.",
-        "status": "UNMEASURED (idle check failed); descriptive",
+                "accelerators 58% of the total). Eight of the nine models failed the pre-registered idle check, so their verdicts "
+                "are UNMEASURED and their figures descriptive; Olmo 3.1 32B, run on a second pod, passed it. Each row's verdict says which.",
+        "status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
         "boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
         "hardware": res["hardware"], "serving": res["serving"], "overhead_factor": round(res["overhead_factor"], 3),
         "source": "energy/out/energy.json", "rows": rows}

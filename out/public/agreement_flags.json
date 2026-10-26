@@ -1,5 +1,18 @@
 [
 {
+"key": "allenai/olmo-3.1-32b-instruct:mohler",
+"model": "Olmo 3.1 32B",
+"task": "Short answers",
+"qwk": 0.587,
+"qwk_flag": "FAIL",
+"degradation": -0.014,
+"degradation_flag": "INDETERMINATE",
+"smd": -0.436,
+"smd_lo": -0.602,
+"smd_hi": -0.296,
+"smd_flag": "FAIL"
+},
+{
 "key": "anthropic/claude-fable-5.1:mohler",
 "model": "Claude Fable 5.1",
 "task": "Short answers",
@@ -221,6 +234,19 @@
 "smd_flag": "FAIL"
 },
 {
+"key": "allenai/olmo-3.1-32b-instruct:code",
+"model": "Olmo 3.1 32B",
+"task": "Code",
+"qwk": 0.51,
+"qwk_flag": "FAIL",
+"degradation": 0.305,
+"degradation_flag": "FAIL",
+"smd": -0.766,
+"smd_lo": -1.019,
+"smd_hi": -0.557,
+"smd_flag": "FAIL"
+},
+{
 "key": "anthropic/claude-fable-5.1:code",
 "model": "Claude Fable 5.1",
 "task": "Code",
@@ -439,6 +465,19 @@
 "smd": -0.754,
 "smd_lo": -0.979,
 "smd_hi": -0.563,
+"smd_flag": "FAIL"
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:asap2",
+"model": "Olmo 3.1 32B",
+"task": "Essays",
+"qwk": 0.631,
+"qwk_flag": "INDETERMINATE",
+"degradation": 0.114,
+"degradation_flag": "INDETERMINATE",
+"smd": 0.393,
+"smd_lo": 0.242,
+"smd_hi": 0.555,
 "smd_flag": "FAIL"
 },
 {

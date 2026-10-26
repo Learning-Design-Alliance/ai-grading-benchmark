@@ -645,6 +645,44 @@
     "field": "feedback",
     "note": "rule-coded descriptive measures with no human reference; see feedback.py"
    }
+  },
+  "allenai/olmo-3.1-32b-instruct": {
+   "halo": {
+    "n": 99,
+    "corr_blind": 0.34353289209750554,
+    "corr_shown": 0.621080909285035,
+    "halo": 0.27754801718752947,
+    "ci95": [
+     0.13021971354240813,
+     0.4313004454395779
+    ],
+    "flag": true,
+    "note": "corr(tone, teacher mark) when the mark is shown minus when hidden; rule-coded, descriptive"
+   },
+   "gives_away": {
+    "share": 0.7592592592592593,
+    "ci95": [
+     0.6481481481481481,
+     0.8703703703703703
+    ],
+    "n": 54,
+    "unscored": 0,
+    "evaluator_cost_usd": 0.398985
+   },
+   "feedback_measures_descriptive": {
+    "generic": 0.4044545560511563,
+    "same_opening": 0.03225806451612903,
+    "grounded": 0.7126436781609196,
+    "words": 38.63,
+    "self_per100": 3.372153023268591,
+    "task_per100": 0.39754548548492374,
+    "action_per100": 1.3084807093527804,
+    "leaks_answer": 0.0,
+    "varied_by_quality": 0.051951750278809716,
+    "n": 100,
+    "field": "feedback",
+    "note": "rule-coded descriptive measures with no human reference; see feedback.py"
+   }
   }
  }
 }

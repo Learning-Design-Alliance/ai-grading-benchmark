@@ -1,0 +1,947 @@
+[
+{
+"key": "google/gemma-3-4b-it:mohler",
+"model": "Gemma 3 4B",
+"model_id": "google/gemma-3-4b-it",
+"task": "Short answers",
+"net_mwh": 1.18,
+"net_mwh_ci95": [
+1.13,
+1.231
+],
+"net_mwh_idle_range": [
+1.12,
+1.241
+],
+"gross_mwh": 2.183,
+"full_stack_mwh": 2.035,
+"full_stack_mwh_ci95": [
+1.948,
+2.122
+],
+"tokens_in": 174,
+"tokens_out": 41,
+"estimate_small_mwh": 16.66,
+"estimate_mid_mwh": 183.06,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 15.34,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "google/gemma-3-4b-it:asap2",
+"model": "Gemma 3 4B",
+"model_id": "google/gemma-3-4b-it",
+"task": "Essays",
+"net_mwh": 4.178,
+"net_mwh_ci95": [
+3.825,
+4.53
+],
+"net_mwh_idle_range": [
+4.066,
+4.289
+],
+"gross_mwh": 6.023,
+"full_stack_mwh": 7.203,
+"full_stack_mwh_ci95": [
+6.596,
+7.81
+],
+"tokens_in": 2058,
+"tokens_out": 98,
+"estimate_small_mwh": 66.3,
+"estimate_mid_mwh": 485.02,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 39.26,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "google/gemma-3-4b-it:code",
+"model": "Gemma 3 4B",
+"model_id": "google/gemma-3-4b-it",
+"task": "Code",
+"net_mwh": 3.746,
+"net_mwh_ci95": [
+3.467,
+4.025
+],
+"net_mwh_idle_range": [
+3.643,
+3.85
+],
+"gross_mwh": 5.461,
+"full_stack_mwh": 6.459,
+"full_stack_mwh_ci95": [
+5.977,
+6.941
+],
+"tokens_in": 2315,
+"tokens_out": 95,
+"estimate_small_mwh": 71.46,
+"estimate_mid_mwh": 515.4,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": null,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "google/gemma-3-27b-it:mohler",
+"model": "Gemma 3 27B",
+"model_id": "google/gemma-3-27b-it",
+"task": "Short answers",
+"net_mwh": 6.305,
+"net_mwh_ci95": [
+6.008,
+6.602
+],
+"net_mwh_idle_range": [
+6.079,
+6.532
+],
+"gross_mwh": 8.462,
+"full_stack_mwh": 10.871,
+"full_stack_mwh_ci95": [
+10.359,
+11.383
+],
+"tokens_in": 174,
+"tokens_out": 37,
+"estimate_small_mwh": 16.09,
+"estimate_mid_mwh": 179.26,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 98.26,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "google/gemma-3-27b-it:asap2",
+"model": "Gemma 3 27B",
+"model_id": "google/gemma-3-27b-it",
+"task": "Essays",
+"net_mwh": 14.095,
+"net_mwh_ci95": [
+12.717,
+15.473
+],
+"net_mwh_idle_range": [
+13.596,
+14.594
+],
+"gross_mwh": 18.848,
+"full_stack_mwh": 24.302,
+"full_stack_mwh_ci95": [
+21.926,
+26.678
+],
+"tokens_in": 2058,
+"tokens_out": 49,
+"estimate_small_mwh": 59.31,
+"estimate_mid_mwh": 437.95,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 143.67,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "google/gemma-3-27b-it:code",
+"model": "Gemma 3 27B",
+"model_id": "google/gemma-3-27b-it",
+"task": "Code",
+"net_mwh": 14.217,
+"net_mwh_ci95": [
+13.457,
+14.977
+],
+"net_mwh_idle_range": [
+13.72,
+14.713
+],
+"gross_mwh": 18.944,
+"full_stack_mwh": 24.512,
+"full_stack_mwh_ci95": [
+23.201,
+25.822
+],
+"tokens_in": 2315,
+"tokens_out": 65,
+"estimate_small_mwh": 67.26,
+"estimate_mid_mwh": 487.1,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": null,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "google/gemma-4-26b-a4b-it:mohler",
+"model": "Gemma 4 26B A4B",
+"model_id": "google/gemma-4-26b-a4b-it",
+"task": "Short answers",
+"net_mwh": 2.726,
+"net_mwh_ci95": [
+2.582,
+2.87
+],
+"net_mwh_idle_range": [
+2.629,
+2.823
+],
+"gross_mwh": 3.841,
+"full_stack_mwh": 4.7,
+"full_stack_mwh_ci95": [
+4.451,
+4.948
+],
+"tokens_in": 183,
+"tokens_out": 34,
+"estimate_small_mwh": 15.89,
+"estimate_mid_mwh": 177.72,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 14.0,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "google/gemma-4-26b-a4b-it:asap2",
+"model": "Gemma 4 26B A4B",
+"model_id": "google/gemma-4-26b-a4b-it",
+"task": "Essays",
+"net_mwh": 5.657,
+"net_mwh_ci95": [
+5.359,
+5.956
+],
+"net_mwh_idle_range": [
+5.451,
+5.864
+],
+"gross_mwh": 8.027,
+"full_stack_mwh": 9.754,
+"full_stack_mwh_ci95": [
+9.239,
+10.268
+],
+"tokens_in": 2067,
+"tokens_out": 50,
+"estimate_small_mwh": 59.61,
+"estimate_mid_mwh": 439.82,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 24.29,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "google/gemma-4-26b-a4b-it:code",
+"model": "Gemma 4 26B A4B",
+"model_id": "google/gemma-4-26b-a4b-it",
+"task": "Code",
+"net_mwh": 5.637,
+"net_mwh_ci95": [
+5.324,
+5.949
+],
+"net_mwh_idle_range": [
+5.472,
+5.802
+],
+"gross_mwh": 7.534,
+"full_stack_mwh": 9.719,
+"full_stack_mwh_ci95": [
+9.18,
+10.258
+],
+"tokens_in": 2324,
+"tokens_out": 57,
+"estimate_small_mwh": 66.24,
+"estimate_mid_mwh": 480.04,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": null,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "google/gemma-4-31b-it:mohler",
+"model": "Gemma 4 31B",
+"model_id": "google/gemma-4-31b-it",
+"task": "Short answers",
+"net_mwh": 7.289,
+"net_mwh_ci95": [
+6.967,
+7.612
+],
+"net_mwh_idle_range": [
+7.044,
+7.534
+],
+"gross_mwh": 9.804,
+"full_stack_mwh": 12.568,
+"full_stack_mwh_ci95": [
+12.011,
+13.125
+],
+"tokens_in": 183,
+"tokens_out": 35,
+"estimate_small_mwh": 16.06,
+"estimate_mid_mwh": 178.86,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "WITHIN THE ESTIMATES' RANGE"
+},
+"one_at_a_time_mwh": 104.61,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "google/gemma-4-31b-it:asap2",
+"model": "Gemma 4 31B",
+"model_id": "google/gemma-4-31b-it",
+"task": "Essays",
+"net_mwh": 19.051,
+"net_mwh_ci95": [
+17.258,
+20.844
+],
+"net_mwh_idle_range": [
+18.425,
+19.677
+],
+"gross_mwh": 25.477,
+"full_stack_mwh": 32.847,
+"full_stack_mwh_ci95": [
+29.755,
+35.938
+],
+"tokens_in": 2067,
+"tokens_out": 50,
+"estimate_small_mwh": 59.63,
+"estimate_mid_mwh": 439.96,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 172.95,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "google/gemma-4-31b-it:code",
+"model": "Gemma 4 31B",
+"model_id": "google/gemma-4-31b-it",
+"task": "Code",
+"net_mwh": 16.823,
+"net_mwh_ci95": [
+15.832,
+17.814
+],
+"net_mwh_idle_range": [
+16.276,
+17.371
+],
+"gross_mwh": 22.439,
+"full_stack_mwh": 29.006,
+"full_stack_mwh_ci95": [
+27.297,
+30.714
+],
+"tokens_in": 2324,
+"tokens_out": 58,
+"estimate_small_mwh": 66.45,
+"estimate_mid_mwh": 481.49,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": null,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:mohler",
+"model": "Llama 3.2 3B",
+"model_id": "meta-llama/llama-3.2-3b-instruct",
+"task": "Short answers",
+"net_mwh": 0.849,
+"net_mwh_ci95": [
+0.814,
+0.885
+],
+"net_mwh_idle_range": [
+0.809,
+0.89
+],
+"gross_mwh": 1.358,
+"full_stack_mwh": 1.464,
+"full_stack_mwh_ci95": [
+1.403,
+1.525
+],
+"tokens_in": 189,
+"tokens_out": 34,
+"estimate_small_mwh": 16.0,
+"estimate_mid_mwh": 178.39,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 11.27,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:asap2",
+"model": "Llama 3.2 3B",
+"model_id": "meta-llama/llama-3.2-3b-instruct",
+"task": "Essays",
+"net_mwh": 2.265,
+"net_mwh_ci95": [
+2.08,
+2.451
+],
+"net_mwh_idle_range": [
+2.192,
+2.339
+],
+"gross_mwh": 3.186,
+"full_stack_mwh": 3.906,
+"full_stack_mwh_ci95": [
+3.586,
+4.226
+],
+"tokens_in": 2029,
+"tokens_out": 50,
+"estimate_small_mwh": 58.72,
+"estimate_mid_mwh": 434.47,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 17.01,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct:code",
+"model": "Llama 3.2 3B",
+"model_id": "meta-llama/llama-3.2-3b-instruct",
+"task": "Code",
+"net_mwh": 11.326,
+"net_mwh_ci95": [
+6.449,
+16.204
+],
+"net_mwh_idle_range": [
+11.03,
+11.623
+],
+"gross_mwh": 15.032,
+"full_stack_mwh": 19.528,
+"full_stack_mwh_ci95": [
+11.118,
+27.938
+],
+"tokens_in": 2490,
+"tokens_out": 240,
+"estimate_small_mwh": 96.12,
+"estimate_mid_mwh": 678.46,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": null,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "microsoft/phi-4:mohler",
+"model": "Phi-4",
+"model_id": "microsoft/phi-4",
+"task": "Short answers",
+"net_mwh": 3.683,
+"net_mwh_ci95": [
+3.555,
+3.811
+],
+"net_mwh_idle_range": [
+3.549,
+3.817
+],
+"gross_mwh": 4.924,
+"full_stack_mwh": 6.35,
+"full_stack_mwh_ci95": [
+6.129,
+6.571
+],
+"tokens_in": 165,
+"tokens_out": 39,
+"estimate_small_mwh": 16.27,
+"estimate_mid_mwh": 180.6,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 54.62,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "microsoft/phi-4:asap2",
+"model": "Phi-4",
+"model_id": "microsoft/phi-4",
+"task": "Essays",
+"net_mwh": 8.203,
+"net_mwh_ci95": [
+7.283,
+9.123
+],
+"net_mwh_idle_range": [
+7.9,
+8.506
+],
+"gross_mwh": 10.999,
+"full_stack_mwh": 14.143,
+"full_stack_mwh_ci95": [
+12.557,
+15.729
+],
+"tokens_in": 2005,
+"tokens_out": 57,
+"estimate_small_mwh": 59.21,
+"estimate_mid_mwh": 438.2,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 80.91,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "microsoft/phi-4:code",
+"model": "Phi-4",
+"model_id": "microsoft/phi-4",
+"task": "Code",
+"net_mwh": 29.4,
+"net_mwh_ci95": [
+25.618,
+33.183
+],
+"net_mwh_idle_range": [
+28.364,
+30.437
+],
+"gross_mwh": 38.972,
+"full_stack_mwh": 50.69,
+"full_stack_mwh_ci95": [
+44.168,
+57.213
+],
+"tokens_in": 2469,
+"tokens_out": 278,
+"estimate_small_mwh": 101.02,
+"estimate_mid_mwh": 711.8,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": null,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "mistralai/ministral-8b-2512:mohler",
+"model": "Ministral 8B",
+"model_id": "mistralai/ministral-8b-2512",
+"task": "Short answers",
+"net_mwh": 1.655,
+"net_mwh_ci95": [
+1.587,
+1.723
+],
+"net_mwh_idle_range": [
+1.583,
+1.727
+],
+"gross_mwh": 2.407,
+"full_stack_mwh": 2.854,
+"full_stack_mwh_ci95": [
+2.737,
+2.97
+],
+"tokens_in": 165,
+"tokens_out": 42,
+"estimate_small_mwh": 16.59,
+"estimate_mid_mwh": 182.74,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 18.8,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "mistralai/ministral-8b-2512:asap2",
+"model": "Ministral 8B",
+"model_id": "mistralai/ministral-8b-2512",
+"task": "Essays",
+"net_mwh": 4.826,
+"net_mwh_ci95": [
+4.033,
+5.62
+],
+"net_mwh_idle_range": [
+4.661,
+4.992
+],
+"gross_mwh": 6.565,
+"full_stack_mwh": 8.321,
+"full_stack_mwh_ci95": [
+6.953,
+9.689
+],
+"tokens_in": 2049,
+"tokens_out": 56,
+"estimate_small_mwh": 60.06,
+"estimate_mid_mwh": 443.17,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 25.65,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "mistralai/ministral-8b-2512:code",
+"model": "Ministral 8B",
+"model_id": "mistralai/ministral-8b-2512",
+"task": "Code",
+"net_mwh": 9.947,
+"net_mwh_ci95": [
+6.205,
+13.689
+],
+"net_mwh_idle_range": [
+9.636,
+10.257
+],
+"gross_mwh": 13.202,
+"full_stack_mwh": 17.149,
+"full_stack_mwh_ci95": [
+10.698,
+23.601
+],
+"tokens_in": 2411,
+"tokens_out": 138,
+"estimate_small_mwh": 79.77,
+"estimate_mid_mwh": 569.73,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": null,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "openai/gpt-oss-20b:mohler",
+"model": "GPT-OSS 20B",
+"model_id": "openai/gpt-oss-20b",
+"task": "Short answers",
+"net_mwh": 9.226,
+"net_mwh_ci95": [
+8.573,
+9.879
+],
+"net_mwh_idle_range": [
+8.873,
+9.579
+],
+"gross_mwh": 12.311,
+"full_stack_mwh": 15.907,
+"full_stack_mwh_ci95": [
+14.781,
+17.033
+],
+"tokens_in": 228,
+"tokens_out": 244,
+"estimate_small_mwh": 46.91,
+"estimate_mid_mwh": 385.89,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 55.22,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "openai/gpt-oss-20b:asap2",
+"model": "GPT-OSS 20B",
+"model_id": "openai/gpt-oss-20b",
+"task": "Essays",
+"net_mwh": 12.948,
+"net_mwh_ci95": [
+12.198,
+13.697
+],
+"net_mwh_idle_range": [
+12.456,
+13.44
+],
+"gross_mwh": 17.248,
+"full_stack_mwh": 22.324,
+"full_stack_mwh_ci95": [
+21.032,
+23.616
+],
+"tokens_in": 2050,
+"tokens_out": 301,
+"estimate_small_mwh": 95.16,
+"estimate_mid_mwh": 679.55,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 64.75,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "openai/gpt-oss-20b:code",
+"model": "GPT-OSS 20B",
+"model_id": "openai/gpt-oss-20b",
+"task": "Code",
+"net_mwh": 23.898,
+"net_mwh_ci95": [
+21.311,
+26.486
+],
+"net_mwh_idle_range": [
+23.008,
+24.789
+],
+"gross_mwh": 31.682,
+"full_stack_mwh": 41.204,
+"full_stack_mwh_ci95": [
+36.743,
+45.665
+],
+"tokens_in": 2209,
+"tokens_out": 562,
+"estimate_small_mwh": 135.94,
+"estimate_mid_mwh": 951.42,
+"verdict": "UNMEASURED",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": null,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:mohler",
+"model": "Olmo 3.1 32B",
+"model_id": "allenai/olmo-3.1-32b-instruct",
+"task": "Short answers",
+"net_mwh": 6.489,
+"net_mwh_ci95": [
+4.873,
+8.104
+],
+"net_mwh_idle_range": [
+6.334,
+6.644
+],
+"gross_mwh": 10.548,
+"full_stack_mwh": 11.188,
+"full_stack_mwh_ci95": [
+8.402,
+13.973
+],
+"tokens_in": 167,
+"tokens_out": 31,
+"estimate_small_mwh": 15.12,
+"estimate_mid_mwh": 172.8,
+"verdict": "BELOW THE SMALL-MODEL ESTIMATE",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "WITHIN THE ESTIMATES' RANGE"
+},
+"one_at_a_time_mwh": 77.24,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:asap2",
+"model": "Olmo 3.1 32B",
+"model_id": "allenai/olmo-3.1-32b-instruct",
+"task": "Essays",
+"net_mwh": 13.575,
+"net_mwh_ci95": [
+12.442,
+14.707
+],
+"net_mwh_idle_range": [
+13.252,
+13.898
+],
+"gross_mwh": 22.018,
+"full_stack_mwh": 23.405,
+"full_stack_mwh_ci95": [
+21.452,
+25.357
+],
+"tokens_in": 2007,
+"tokens_out": 45,
+"estimate_small_mwh": 57.59,
+"estimate_mid_mwh": 427.25,
+"verdict": "BELOW THE SMALL-MODEL ESTIMATE",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": 125.95,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct:code",
+"model": "Olmo 3.1 32B",
+"model_id": "allenai/olmo-3.1-32b-instruct",
+"task": "Code",
+"net_mwh": 11.543,
+"net_mwh_ci95": [
+10.801,
+12.285
+],
+"net_mwh_idle_range": [
+11.268,
+11.818
+],
+"gross_mwh": 18.738,
+"full_stack_mwh": 19.902,
+"full_stack_mwh_ci95": [
+18.623,
+21.181
+],
+"tokens_in": 2471,
+"tokens_out": 45,
+"estimate_small_mwh": 67.75,
+"estimate_mid_mwh": 487.71,
+"verdict": "BELOW THE SMALL-MODEL ESTIMATE",
+"descriptive_verdicts": {
+"idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+"gross": "BELOW THE SMALL-MODEL ESTIMATE"
+},
+"one_at_a_time_mwh": null,
+"status": "per row: UNMEASURED (idle check failed) or a pre-registered verdict",
+"boundary": "GPU only (NET), or GPU x 1.72 for node and data centre (FULL-STACK)",
+"hardware": "1x NVIDIA A100 80GB PCIe (RunPod community cloud)"
+}
+]

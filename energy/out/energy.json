@@ -1281,6 +1281,156 @@
    },
    "leaderboard_run_kwh_net": 0.03373004594017074,
    "leaderboard_run_gradings": 2342
+  },
+  "allenai/olmo-3.1-32b-instruct": {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "hf_repo": "allenai/Olmo-3.1-32B-Instruct",
+   "revision": "ac0587e4a7744a551c059d8cd17ba220bc940dae",
+   "instrument": {
+    "counter_vs_power": 0.9995583693143592,
+    "idle_w": [
+     108.9723654489253,
+     117.63964767541248
+    ],
+    "idle_ratio": 1.0795365154347272,
+    "pass": true
+   },
+   "idle_w": 113.30600656216889,
+   "tasks": {
+    "mohler": {
+     "net_wh": 0.006488827054688884,
+     "net_ci95": [
+      0.004873206628523049,
+      0.008104447480854718
+     ],
+     "net_se": 0.0007719161137916074,
+     "windows": 20,
+     "gross_wh": 0.01054798679867987,
+     "gradings": 909,
+     "seconds": 117.23292303085327,
+     "joules": 34517.232,
+     "full_stack_wh": 0.011187632852911869,
+     "full_stack_ci95": [
+      0.008402080394005258,
+      0.01397318531181848
+     ],
+     "net_wh_idle_range": [
+      0.006333575430476614,
+      0.006644078678901152
+     ],
+     "mean_tokens_in": 166.97249724972497,
+     "mean_tokens_out": 31.073707370737075,
+     "calls": 909,
+     "errors": 0,
+     "estimate_small_wh": 0.015116935093509351,
+     "estimate_mid_wh": 0.1727973773377338,
+     "ratio_to_small": 0.7400728245314371,
+     "ratio_to_mid": 0.06474422832845174,
+     "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
+     "board": null,
+     "descriptive_verdicts": {
+      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+      "gross": "WITHIN THE ESTIMATES' RANGE"
+     }
+    },
+    "asap2": {
+     "net_wh": 0.013574633396176048,
+     "net_ci95": [
+      0.012442364022380548,
+      0.014706902769971547
+     ],
+     "net_se": 0.0005409791561373624,
+     "windows": 20,
+     "gross_wh": 0.022018049747164137,
+     "gradings": 813,
+     "seconds": 218.1013321876526,
+     "joules": 64442.428,
+     "full_stack_wh": 0.023404540338234567,
+     "full_stack_ci95": [
+      0.021452351762725082,
+      0.025356728913744048
+     ],
+     "net_wh_idle_range": [
+      0.013251696092628964,
+      0.013897570699723135
+     ],
+     "mean_tokens_in": 2006.9126691266913,
+     "mean_tokens_out": 45.00861008610086,
+     "calls": 813,
+     "errors": 0,
+     "estimate_small_wh": 0.05758830996309963,
+     "estimate_mid_wh": 0.4272488511685117,
+     "ratio_to_small": 0.40641130731621217,
+     "ratio_to_mid": 0.05477964487025281,
+     "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
+     "board": null,
+     "descriptive_verdicts": {
+      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
+     }
+    },
+    "code": {
+     "net_wh": 0.011543135699194514,
+     "net_ci95": [
+      0.010801340691414116,
+      0.012284930706974912
+     ],
+     "net_se": 0.0003544171083518385,
+     "windows": 20,
+     "gross_wh": 0.018737840949820787,
+     "gradings": 620,
+     "seconds": 141.7275447845459,
+     "joules": 41822.861,
+     "full_stack_wh": 0.019901958102059508,
+     "full_stack_ci95": [
+      0.018623001192093307,
+      0.021180915012025712
+     ],
+     "net_wh_idle_range": [
+      0.011267958138729738,
+      0.01181831325965929
+     ],
+     "mean_tokens_in": 2471.367741935484,
+     "mean_tokens_out": 44.61290322580645,
+     "calls": 620,
+     "errors": 0,
+     "estimate_small_wh": 0.06774973548387096,
+     "estimate_mid_wh": 0.4877114,
+     "ratio_to_small": 0.29375698605934075,
+     "ratio_to_mid": 0.04080683392280662,
+     "verdict": "BELOW THE SMALL-MODEL ESTIMATE",
+     "board": null,
+     "descriptive_verdicts": {
+      "idle_before_only": "BELOW THE SMALL-MODEL ESTIMATE",
+      "idle_after_only": "BELOW THE SMALL-MODEL ESTIMATE",
+      "gross": "BELOW THE SMALL-MODEL ESTIMATE"
+     }
+    }
+   },
+   "sensitivity": {
+    "mohler": {
+     "net_wh": 0.07723696662972207,
+     "net_ci95": [
+      0.06787674095861325,
+      0.08659719230083089
+     ],
+     "gradings": 30,
+     "ratio_to_batched": 11.903070613341429
+    },
+    "asap2": {
+     "net_wh": 0.12595394918458785,
+     "net_ci95": [
+      0.107586118074764,
+      0.14432178029441173
+     ],
+     "gradings": 30,
+     "ratio_to_batched": 9.27862620732497
+    }
+   },
+   "leaderboard_run_kwh_net": 0.02409126487730392,
+   "leaderboard_run_gradings": 2342
   }
  }
 }

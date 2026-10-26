@@ -166,7 +166,7 @@ computer-science short answers"), not the overall score alone. Corrections are l
 
 ## Results
 
-As of 2026-10-25: 17 models, all five tasks, default prompt. Overall scores range from 55.5 to 95.0.
+As of 2026-10-25: 18 models, all five tasks, default prompt. Overall scores range from 55.5 to 95.0.
 
 | rank | model | overall | rank interval |
 |---|---|---|---|
@@ -177,10 +177,19 @@ As of 2026-10-25: 17 models, all five tasks, default prompt. Overall scores rang
 | 5 | GPT-5 Mini | 88.9 | 3-10 |
 | 6 | DeepSeek V4.1 Flash | 88.7 | 3-10 |
 
-- **Flags.** The other 11 carry a disqualifying flag. All 11 can be gamed by more than 5% of the scale, and
-  five of them also credit blank or junk answers.
+- **Flags.** The other 12 carry a disqualifying flag. All 12 can be gamed by more than 5% of the scale, and
+  six of them also credit blank or junk answers.
 - **Overlapping intervals.** These six cannot be separated from each other with confidence.
-- **Pushback.** 13 of 17 give way when a student only disagrees, from about 4% to a third of the scale.
+- **Pushback.** 14 of 18 give way when a student only disagrees, from about 3% to a third of the scale.
+- **Olmo 3.1 32B** (added 2026-10-25, the one model whose training data is fully released) ranks 16th of 18
+  (71.6; rank interval 14-16). It reaches the human ceiling on short answers (103%) and 85% of the published
+  ceiling on essays. But a forged override or a polite request gains it 55% of the scale on essays, the most
+  on the board. It credits blank answers, and it yields to pushback by 26% of the scale, going to full marks
+  in 78% of its replies to a student who only disagrees. It was run on a rented GPU, so nothing was retained.
+- **Baselines** (`baselines/`, beside the board, not in it): DeBERTa-v3-base, fine-tuned on 24,628 essays from the
+  same prompts, reaches QWK 0.81 on essays, above every model on the board (best 0.73). On short answers, with
+  about 20 training answers a question, it reaches 0.36, below every model. Like the other trained baselines it
+  cannot be gamed, but it credits blank short answers.
 - **Maths working.** No model gives full marks to wrong working that ends in the right answer, which an
   answer checker always does. Two small models read the working only weakly.
 
@@ -191,8 +200,10 @@ page shows every strand and module.
 
 `docs/MODELS.md` lists each model's licence, size, training cutoff, training data and the evaluations its
 card reports, beside this benchmark's measurements. No card evaluates education or grading. Only one
-model's training data is fully released: Olmo, a candidate for the board. Open-weight models can run on an
-institution's own servers, so student work need not leave it.
+model's training data is fully released: Olmo 3.1 32B, on the board since 2026-10-25. Its data is not yet
+indexed for search, so whether its marks depend on having seen these cases is still untested
+(`contamination/`). Open-weight models can run on an institution's own servers, so student work need not
+leave it.
 
 ## Energy, carbon and water
 
@@ -200,7 +211,14 @@ A grading is short: a median of 44-112 output tokens. Published estimates put an
 0.24-0.42 Wh per query and a reasoning model at about 3.9 Wh. A teacher's term of 1,500 gradings is then
 0.4-0.6 kWh (5-8 hours of streaming video), or about 6 kWh with a reasoning model. One conference flight
 equals millions of ordinary gradings. Vendor and independent figures, who made each and what it counts, are
-in `docs/ENERGY.md`. None is audited, and only open models have been measured directly. With training, manufacturing and full
+in `docs/ENERGY.md`. None is audited.
+
+**Measured** (`energy/`, 2026-10-25): the nine open models, on one rented A100 GPU, batched 16 at a time, used
+1-16 mWh (thousandths of a watt-hour) per short answer and 4-51 mWh per essay or code answer, with the
+server's and data centre's overhead included by a stated factor. A whole leaderboard run used 7-34 Wh of GPU
+energy. That is below even the published per-token estimate for a small model in all 27 model-task cases (26 of
+27 with no idle power subtracted), by a median factor of 4. Sending one request at a time costs 4-16 times as much. Eight of the nine runs failed a
+pre-registered idle-power check, so only Olmo's comparison is a measured verdict; the rest are descriptive. With training, manufacturing and full
 water added (`docs/LIFECYCLE.md`), a short-answer grading is about 0.13 g CO2e in the central case: a term of
 them is roughly a kilometre of driving, and one quarter-pound beef patty equals about 86,000. The concern
 that holds up is the total and the place: data centres use about 1.5% of the world's electricity, but over a

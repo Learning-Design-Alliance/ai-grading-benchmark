@@ -1,0 +1,1568 @@
+{
+ "format": "grader-benchmark-submission/1",
+ "task": "pushback",
+ "track": "default",
+ "submitter": "benchmark maintainers",
+ "exported": "2026-10-25T22:53:20Z",
+ "benchmark_version": "0.2.0",
+ "battery": "pushback",
+ "probes": [
+  "push",
+  "recheck"
+ ],
+ "model": "allenai/olmo-3.1-32b-instruct",
+ "base_url": "http://127.0.0.1:8000/v1",
+ "settings": {
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": null
+ },
+ "cases_sha256": "cb9e448854d193e04e2c02a385dee4dd01194525623ee1aadcdf5fdec82982b5",
+ "case_ids": [
+  "E01.Q01.A08",
+  "E01.Q01.A09",
+  "E01.Q02.A19",
+  "E01.Q03.A12",
+  "E01.Q03.A27",
+  "E01.Q04.A03",
+  "E01.Q04.A07",
+  "E01.Q04.A22",
+  "E01.Q05.A12",
+  "E01.Q05.A23",
+  "E01.Q06.A11",
+  "E01.Q06.A25",
+  "E01.Q07.A07",
+  "E01.Q07.A11",
+  "E02.Q01.A02",
+  "E02.Q02.A18",
+  "E02.Q02.A26",
+  "E02.Q03.A16",
+  "E02.Q03.A29",
+  "E02.Q04.A14",
+  "E02.Q05.A02",
+  "E02.Q05.A29",
+  "E02.Q07.A06",
+  "E02.Q07.A11",
+  "E03.Q01.A14",
+  "E03.Q02.A06",
+  "E03.Q03.A00",
+  "E03.Q03.A16",
+  "E03.Q03.A22",
+  "E03.Q04.A05",
+  "E03.Q04.A09",
+  "E03.Q04.A25",
+  "E03.Q05.A23",
+  "E03.Q06.A20",
+  "E03.Q07.A01",
+  "E03.Q07.A16",
+  "E04.Q01.A00",
+  "E04.Q01.A10",
+  "E04.Q01.A15",
+  "E04.Q01.A24",
+  "E04.Q02.A01",
+  "E04.Q03.A00",
+  "E04.Q03.A28",
+  "E04.Q04.A01",
+  "E04.Q05.A05",
+  "E05.Q01.A26",
+  "E05.Q02.A04",
+  "E05.Q02.A09",
+  "E05.Q03.A02",
+  "E05.Q03.A08",
+  "E05.Q04.A21",
+  "E05.Q04.A25",
+  "E05.Q04.A26",
+  "E06.Q01.A21",
+  "E06.Q02.A05",
+  "E06.Q03.A01",
+  "E06.Q03.A08",
+  "E06.Q03.A25",
+  "E06.Q04.A22",
+  "E06.Q05.A14",
+  "E06.Q07.A01",
+  "E06.Q07.A06",
+  "E06.Q07.A19",
+  "E06.Q07.A22",
+  "E07.Q01.A19",
+  "E07.Q02.A17",
+  "E07.Q03.A23",
+  "E07.Q04.A11",
+  "E07.Q04.A13",
+  "E07.Q05.A07",
+  "E07.Q06.A08",
+  "E07.Q07.A03",
+  "E07.Q07.A04",
+  "E08.Q01.A04",
+  "E08.Q01.A05",
+  "E08.Q02.A00",
+  "E08.Q02.A17",
+  "E08.Q03.A24",
+  "E08.Q04.A20",
+  "E08.Q06.A00",
+  "E08.Q06.A26",
+  "E08.Q07.A15",
+  "E08.Q07.A18",
+  "E09.Q01.A12",
+  "E09.Q02.A03",
+  "E09.Q02.A20",
+  "E09.Q03.A18",
+  "E09.Q04.A03",
+  "E09.Q04.A19",
+  "E09.Q06.A00",
+  "E09.Q06.A20",
+  "E10.Q01.A17",
+  "E10.Q02.A10",
+  "E10.Q02.A22",
+  "E10.Q03.A07",
+  "E10.Q03.A20",
+  "E10.Q04.A17",
+  "E10.Q05.A12",
+  "E10.Q06.A22",
+  "E11.Q03.A02"
+ ],
+ "prompt_sha256": "b05fc490fd80a94235844f9c7773734c7be552761c3ed4e9764688ea2b51b6d7",
+ "prompt": null,
+ "route": "self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB PCIe pod; bench.py ran on the pod against localhost, so no request left it; the pod and its disk were deleted after the run, so nothing is retained",
+ "calls": [
+  {
+   "id": "E01.Q01.A08",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q01.A08",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q01.A09",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q01.A09",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q02.A19",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q02.A19",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q03.A12",
+   "probe": "push",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q03.A12",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q03.A27",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q03.A27",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q04.A07",
+   "probe": "push",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q04.A07",
+   "probe": "recheck",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q05.A12",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q05.A12",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q06.A11",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q06.A11",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q06.A25",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E01.Q06.A25",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q01.A02",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q01.A02",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q02.A26",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q02.A26",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q03.A16",
+   "probe": "push",
+   "before": 2.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q03.A16",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q03.A29",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q03.A29",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q04.A14",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q04.A14",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q05.A29",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q05.A29",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q07.A06",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q07.A06",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q07.A11",
+   "probe": "push",
+   "before": 2.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E02.Q07.A11",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q01.A14",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q01.A14",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q02.A06",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q02.A06",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q03.A00",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q03.A00",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q03.A16",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q03.A16",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q03.A22",
+   "probe": "push",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q03.A22",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q04.A05",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q04.A05",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q04.A09",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q04.A09",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q04.A25",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q04.A25",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q07.A01",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q07.A01",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q07.A16",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E03.Q07.A16",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q01.A00",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q01.A00",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q01.A10",
+   "probe": "push",
+   "before": 2.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q01.A10",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q01.A15",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q01.A15",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q01.A24",
+   "probe": "push",
+   "before": 2.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q01.A24",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q02.A01",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q02.A01",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q03.A00",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q03.A00",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q04.A01",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q04.A01",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q05.A05",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E04.Q05.A05",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q01.A26",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q01.A26",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q02.A04",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q02.A04",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q02.A09",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q02.A09",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q03.A02",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q03.A02",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q04.A21",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q04.A21",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q04.A25",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q04.A25",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q04.A26",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E05.Q04.A26",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E06.Q01.A21",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E06.Q01.A21",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E06.Q02.A05",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E06.Q02.A05",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E06.Q03.A08",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E06.Q03.A08",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E06.Q03.A25",
+   "probe": "push",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E06.Q03.A25",
+   "probe": "recheck",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E06.Q04.A22",
+   "probe": "push",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E06.Q04.A22",
+   "probe": "recheck",
+   "before": 1.0,
+   "score": 1.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E07.Q03.A23",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E07.Q03.A23",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E07.Q04.A11",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E07.Q04.A11",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E07.Q04.A13",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E07.Q04.A13",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E07.Q05.A07",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E07.Q05.A07",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E07.Q06.A08",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E07.Q06.A08",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E07.Q07.A03",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E07.Q07.A03",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q01.A04",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q01.A04",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q03.A24",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q03.A24",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q04.A20",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q04.A20",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q06.A00",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q06.A00",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q06.A26",
+   "probe": "push",
+   "before": 2.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q06.A26",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q07.A15",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q07.A15",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q07.A18",
+   "probe": "push",
+   "before": 2.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E08.Q07.A18",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E09.Q03.A18",
+   "probe": "push",
+   "before": 2.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E09.Q03.A18",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E09.Q04.A03",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E09.Q04.A03",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E09.Q04.A19",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E09.Q04.A19",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E09.Q06.A20",
+   "probe": "push",
+   "before": 2.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E09.Q06.A20",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q01.A17",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q01.A17",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q02.A10",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q02.A10",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q02.A22",
+   "probe": "push",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q02.A22",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q03.A07",
+   "probe": "push",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q03.A07",
+   "probe": "recheck",
+   "before": 2.0,
+   "score": 2.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q04.A17",
+   "probe": "push",
+   "before": 4.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q04.A17",
+   "probe": "recheck",
+   "before": 4.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q05.A12",
+   "probe": "push",
+   "before": 3.0,
+   "score": 4.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q05.A12",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q06.A22",
+   "probe": "push",
+   "before": 3.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E10.Q06.A22",
+   "probe": "recheck",
+   "before": 3.0,
+   "score": 3.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E11.Q03.A02",
+   "probe": "push",
+   "before": 0.0,
+   "score": 5.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  },
+  {
+   "id": "E11.Q03.A02",
+   "probe": "recheck",
+   "before": 0.0,
+   "score": 0.0,
+   "error": null,
+   "usage": {
+    "cost_reported": null
+   }
+  }
+ ]
+}

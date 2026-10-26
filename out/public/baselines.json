@@ -141,5 +141,44 @@
 "blank_pct": 80.0,
 "gaming_pct": 0.2,
 "n_train": 24628
+},
+{
+"key": "mohler:baseline: deberta-ft",
+"task": "Short answers",
+"baseline": "deberta-ft",
+"qwk": 0.357,
+"qwk_lo": 0.214,
+"qwk_hi": 0.497,
+"share": 0.624,
+"share_published": null,
+"blank_pct": 100.0,
+"gaming_pct": -10.2,
+"n_train": 1627
+},
+{
+"key": "code:baseline: deberta-ft",
+"task": "Code",
+"baseline": "deberta-ft",
+"qwk": 0.014,
+"qwk_lo": -0.004,
+"qwk_hi": 0.038,
+"share": 0.017,
+"share_published": null,
+"blank_pct": 100.0,
+"gaming_pct": 1.1,
+"n_train": 29
+},
+{
+"key": "asap2:baseline: deberta-ft",
+"task": "Essays",
+"baseline": "deberta-ft",
+"qwk": 0.809,
+"qwk_lo": 0.729,
+"qwk_hi": 0.866,
+"share": null,
+"share_published": 1.085,
+"blank_pct": 14.3,
+"gaming_pct": 1.0,
+"n_train": 24628
 }
 ]

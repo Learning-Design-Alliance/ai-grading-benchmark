@@ -54,8 +54,8 @@ gradings at a time. **Boundary:** the GPU's energy above idle, then × 1.72 for 
 data centre (Google's split of its own figure: accelerators 58% of the total; Elsworth et al. 2025), so that
 it compares with the per-token model, which counts them too.
 
-**Status.** Every model failed one pre-registered self-check: the GPU idled 13-26% higher in the minute after
-the runs than before them (the bar was 10%). So the comparison below is descriptive. Which idle figure is
+**Status.** The eight board models failed one pre-registered self-check: the GPU idled 13-26% higher in the
+minute after the runs than before them (the bar was 10%). So their comparison below is descriptive. Which idle figure is
 subtracted moves the result by 5-10%. The GPU's energy counter itself agreed with its power readings within 1%.
 
 | task | measured, full-stack, range over the 8 board models | small-model estimate at the same tokens | mid-size estimate |
@@ -64,7 +64,9 @@ subtracted moves the result by 5-10%. The GPU's energy counter itself agreed wit
 | essay | 3.9-33 mWh | 59-95 mWh | 435-680 mWh |
 | code | 6.5-51 mWh | 66-136 mWh | 480-950 mWh |
 
-<!-- OLMO_ENERGY_LINE: added after its run -->
+Olmo 3.1 32B, the ninth model, ran on a second pod and passed every check. Its measured verdict is **below
+the small-model estimate** on all three tasks: 11, 23 and 20 mWh full-stack for a short answer, an essay and
+code, against estimates of 15, 58 and 68 mWh.
 
 - **Measured is lower than estimated.** For 23 of 24 model-task pairs it is below even the small-model
   estimate. The median gap is a factor of 4, and up to 15. The per-token model was fitted to figures inferred
