@@ -94,11 +94,15 @@ LIMITS stated in advance: brightness is cut digitally (a dark room adds sensor n
 does not); the work is hands and instruments, not faces or skin, so this measures lighting, not skin tone. The
 "by eye" checks were one frame each, by the agent that wrote this design.
 
-BUDGET for step 3: a cap of $40 (the original runs cost about $8 per probe across the 11 runs).
+BUDGET for step 3: a cap of $40 (raised to $55 by CHANGE 3) (the original runs cost about $8 per probe across the 11 runs).
 
 CHANGES:
 2. (2026-10-26) Step 3 written, as the design above said it would be, after step 2 passed and before any call
    of step 3.
+3. (2026-10-26, during step 3, before any step-3 result was read) Cap raised from $40 to $55. The first six runs
+   cost $32.65, more than the original runs implied: Gemini 3.8 Flash $7.52 for 400 gradings, against $0.25 for
+   the original run's 1,150. The remaining five, Opus among them, were estimated at $10-11. A cap reached partway
+   would leave a run with fewer recordings, and possibly unmeasurable. Design, measures and verdicts unchanged.
 
 Usage:
     python3 media/floor.py simulate
@@ -244,7 +248,7 @@ def cmd_analyse(a):
     json.dump(res, open(os.path.join(OUT, "control.json"), "w"), indent=1)
 
 
-VCAP = 40.0
+VCAP = 55.0
 VPROBES = ("dark_25", "dark_05", "pixel_16")
 DECLINE_NEG = re.compile(r"\b(cannot|can't|can not|unable to|not able to|impossible to|too dark|not visible|no visible|"
                          r"isn't visible|is not visible|unclear|blurry|indiscernible|insufficient)\b", re.I)
