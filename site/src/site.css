@@ -43,7 +43,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 400; color: var(--accent)
 h1 { font-size: clamp(34px, 5vw, 52px); line-height: 1.05; }
 h2 { font-size: clamp(26px, 3.4vw, 34px); line-height: 1.15; }
 h3 { font-size: 22px; line-height: 1.25; }
-p { margin: 0; max-width: 68ch; }
+p { margin: 0; }
 .eyebrow, .label { font: 400 12px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .num { font-variant-numeric: tabular-nums; }
 
@@ -65,8 +65,8 @@ nav.rail a[aria-current="page"] { background: var(--accent-soft); color: var(--a
 main { min-width: 0; padding-bottom: 48px; }
 .view { display: grid; gap: 28px; }
 .view[hidden] { display: none !important; }
-.lede { font-size: 18px; line-height: 1.55; color: var(--ink2); max-width: 66ch; }
-.sub { font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 72ch; }
+.lede { font-size: 18px; line-height: 1.55; color: var(--ink2); }
+.sub { font-size: 14px; line-height: 1.55; color: var(--muted); }
 .head { display: grid; gap: 12px; padding-top: 8px; }
 
 /* ---------- blocks ---------- */
