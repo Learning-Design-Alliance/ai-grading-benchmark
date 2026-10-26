@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Does an audio grader recognise a correct spoken answer as well in a less common language? PRE-REGISTERED
-2026-10-26, before any call of this design.
+"""Does an audio grader recognise a correct spoken answer as well in a less common language?
+PRE-REGISTERED 2026-10-26, before any call of this design.
 
 WHY. A student may answer orally in their own language, and a grader that understands English, Spanish or Mandarin
 well may fail on Amharic or Lao. The literature shows large per-language gaps in speech recognition (FLEURS, MMS),
