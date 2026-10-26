@@ -240,6 +240,28 @@ function seg(id, options, current, onPick) {
   });
 }
 
+// ------------------------------------------------------------------ verdicts in plain English
+// Each study's verdict is a fixed, pre-registered phrase. Readers see a plain sentence and whether it is good news;
+// hovering shows the official wording.
+const VERDICTS = {
+  "PROMPT-SENSITIVE": ["Rewording the instructions changes its grades", "bad"],
+  "WITHIN RETEST NOISE": ["Rewording changes its grades no more than asking again", "good"],
+  "PRECISION MATTERS": ["Easier to game on 4-bit hosts", "bad"],
+  "FIXED": ["Fixed", "good"], "IMPROVED": ["Better, but not fixed", ""], "NOT FIXED": ["Not fixed", "bad"],
+  "NOT DETECTED": ["Not found in this training data", "good"], "UNMEASURED": ["Could not be measured", ""],
+  "VALIDATED": ["Matches the trained annotators", "good"], "NOT VALIDATED": ["Does not match the annotators", "bad"], "INCONCLUSIVE": ["Unclear", ""],
+  "AGREES BEYOND LENGTH": ["Reads more than length", "good"],
+  "READS THE WORKING": ["Credits the reasoning", "good"], "WEAKLY": ["Credits the reasoning only a little", ""], "ANSWER ONLY": ["Checks only the final answer", "bad"],
+  "HOLDS": ["Stands firm", "good"], "YIELDS TO PUSHBACK": ["Gives in when the student argues", "bad"],
+  "WATCHES THE RECORDING": ["Watches the video", "good"], "ADDS NOTHING TO THE STOPWATCH": ["Not shown to do better than timing the video", "bad"],
+  "DID NOT RATE": ["Did not give ratings", ""], "REFERENCE": ["The human raters (for reference)", ""],
+  "NO MORE THAN A SECOND HUMAN": ["No bigger gap than a second teacher's", "good"], "GAP REPLICATES": ["A gap that held up on new essays", "bad"],
+  "BELOW THE SMALL-MODEL ESTIMATE": ["Below the published estimates", "good"], "NO DETECTABLE EFFECT": ["No change detected", ""],
+};
+const verdict = v => { const [t, tone] = VERDICTS[v] || [String(v).toLowerCase(), ""]; const sp = el("span", { class: "pill " + tone, tabindex: "0" }, t);
+  sp.addEventListener("mouseenter", () => { const r = sp.getBoundingClientRect(); showTip({ clientX: r.left, clientY: r.bottom }, "Official verdict: " + esc(v)); });
+  sp.addEventListener("mouseleave", hideTip); return sp; };
+
 // ================================================================== OVERVIEW
 function drawOverview() {
   const complete = OVERALL.filter(r => r.complete), clean = complete.filter(r => !r.flags);
@@ -593,7 +615,7 @@ function drawFeedback() {
     { k: "label", h: "What the annotators judged", c: "t" },
     { k: "auc", h: "AUC against the annotators", f: (v, r) => `${f2(v)} ${iv(r.lo, r.hi, f2)}` },
     { k: "length_auc", h: "Length alone", f: f2 },
-    { k: "verdict", h: "Verdict", c: "l", f: v => el("span", { class: "pill " + (v === "VALIDATED" ? "ok" : /NOT/.test(v) ? "bad" : "") }, v.toLowerCase()) },
+    { k: "verdict", h: "Result", c: "l", f: verdict },
     { k: "used", h: "Used here as", c: "l", sort: false, f: (v, r) => USED[r.key] ? el("b", {}, USED[r.key]) : el("span", { class: "dim" }, "not used") },
   ], { sortable: false });
 }
@@ -655,27 +677,29 @@ function showMedium() {
 
 // ================================================================== SETTINGS
 function drawSettings() {
-  const ARM = a => a.replace(/same prompts?/i, "same essay assignments").replace(/unseen prompt/i, "new essay assignment").replace(/six marked examples/i, "six graded example essays");
+  const ARM = a => a.replace(/same prompts?/i, "same essay assignments").replace(/unseen prompt/i, "new essay assignment").replace(/six marked examples/i, "shown six graded essays first").replace(/zero-shot/i, "given the essays cold");
   intervalChart("c-ft", (D.essays_finetune || []).map(r => ({ label: ARM(r.arm), est: r.qwk, lo: r.qwk_lo, hi: r.qwk_hi, kind: /DeBERTa|Qwen|fine-tun/i.test(r.arm) ? "open weights" : "frontier" })).sort((a, b) => b.est - a.est),
-    { domain: [0.4, 0.9], refs: [{ v: 0.745, text: "raters with each other" }], labW: 300, valFmt: f3, legend: false, order: "Best at the top: higher agreement", aria: "Essay agreement by approach" });
+    { domain: [0.4, 0.9], refs: [{ v: 0.745, text: "graders with each other" }], labW: 380, labMax: 56, valFmt: f3, legend: false, order: "Best at the top: higher agreement", aria: "Essay agreement by approach" });
   const p = v => nul(v) ? "—" : f1(v * 100) + "%";
-  const V = v => el("span", { class: "pill " + (/FIXED|NO DIFFERENCE|WITHIN|AGREES/.test(v) ? "ok" : /MATTERS|SENSITIVE|NOT FIXED|WORSE/.test(v) ? "bad" : "") }, String(v).toLowerCase());
+  const V = verdict;
   table("t-setups", D.setups || [], [
     { k: "model", h: "Model", c: "name", f: v => modelLink(v) }, { k: "setup", h: "Setup", c: "l" },
     { k: "gaming_default", h: "Gaming, default", f: p }, { k: "gaming", h: "Gaming, this setup", f: p, c: v => v > 0.05 ? "bad" : "n" },
     { k: "vouched", h: "A note it had not seen before", f: p }, { k: "blank_credited", h: "Credit for blank answers", f: p }, { k: "qwk", h: "Agreement (0–1)", title: "quadratic weighted kappa with the teachers' grades: 0 is chance, 1 is perfect", f: (v, r) => `${f2(v)} (was ${f2(r.qwk_default)})` },
-    { k: "verdict", h: "Verdict", c: "l", f: V },
+    { k: "verdict", h: "Result", c: "l", f: V },
   ], { sort: "model", dir: 1 });
   table("t-hosting", D.hosting || [], [
     { k: "model", h: "Model", c: "name", f: v => modelLink(v) }, { k: "task", h: "Task", c: "l" }, { k: "precision", h: "Host precision", c: "l" },
     { k: "qwk", h: "Agreement (0–1)", title: "quadratic weighted kappa with the teachers' grades: 0 is chance, 1 is perfect", f: f2 }, { k: "forged", h: "Fake instruction", f: p, c: v => v > 0.05 ? "bad" : "n" }, { k: "injection", h: "Polite request", f: p },
-    { k: "blank_credited", h: "Credit for blank answers", f: p }, { k: "verdict", h: "Verdict", c: "l", f: V },
+    { k: "blank_credited", h: "Credit for blank answers", f: p }, { k: "verdict", h: "Result", c: "l", f: V },
   ], { sortable: false });
   table("t-paraphrase", D.paraphrase || [], [
-    { k: "model", h: "Model", c: "name", f: v => modelLink(v) }, { k: "reask_changed", h: "Changed by asking again", f: p }, { k: "paraphrase_changed", h: "By a reworded prompt", f: p },
-    { k: "excess", h: "Difference", f: (v, r) => `${signed(1)(v * 100)} pts [${f1(r.excess_lo * 100)}, ${f1(r.excess_hi * 100)}]` }, { k: "qwk_spread_max", h: "QWK range over 7 prompts", f: f2 },
-    { k: "verdict", h: "Verdict", c: "l", f: V },
+    { k: "model", h: "Model", c: "name", f: v => modelLink(v) }, { k: "reask_changed", h: "Grades changed by asking again", f: p, title: "How often the same instructions, asked again, gave a different grade (by more than 5% of the scale)." }, { k: "paraphrase_changed", h: "Grades changed by rewording", f: p, title: "How often a reworded version of the instructions gave a different grade from the standard instructions." },
+    { k: "excess", h: "Extra change from rewording", f: (v, r) => `${signed(1)(v * 100)} points [${f1(r.excess_lo * 100)}, ${f1(r.excess_hi * 100)}]`, title: "Rewording's change minus asking again's, in percentage points, with the range the true value is likely to fall in. Around 0: rewording matters no more than chance." }, { k: "qwk_spread_max", h: "Agreement range across the 7 versions", f: f2, title: "The gap between the model's best and worst agreement with the teachers across the standard instructions and the six rewordings." },
+    { k: "verdict", h: "Result", c: "l", f: V },
   ], { sortable: false });
+  const pp = D.paraphrase_prompts || [];
+  const box = $("#paraphrase-text"); if (box && !box.childElementCount) box.append(...pp.map(x => el("div", { class: "pp" }, el("b", {}, x.name), el("p", {}, x.system), el("p", { class: "dim" }, x.reply), el("p", { class: "dim" }, x.scale))));
   table("t-lpartial", D.length_partial || [], [
     { k: "model", h: "Model", c: "name", f: v => modelLink(v) }, { k: "r", h: "Correlation with experts", f: f2 },
     { k: "partial_r", h: "With length set aside", f: (v, r) => `${f2(v)} ${iv(r.partial_lo, r.partial_hi, f2)}` }, { k: "share_beyond_length", h: "Share beyond length", f: pct },
@@ -687,7 +711,7 @@ function drawTraining() {
   table("t-contam", D.contamination || [], [
     { k: "index", h: "Training set", c: "t" }, { k: "task", h: "Task", c: "l" }, { k: "found", h: "Cases found", f: (v, r) => `${v} of ${r.eligible}` },
     { k: "share", h: "Share", f: (v, r) => `${pct(v)} ${iv(r.lo, r.hi, pct)}` }, { k: "questions_found", h: "Questions found", f: (v, r) => `${v} of ${r.questions}` },
-    { k: "verdict", h: "Verdict", c: "l", f: v => el("span", { class: "pill " + (/NOT DETECTED/.test(v) ? "ok" : /UNMEASURED/.test(v) ? "" : "bad") }, String(v).toLowerCase()) },
+    { k: "verdict", h: "Result", c: "l", f: verdict },
   ], { sortable: false });
   table("t-claims", MODELS, [
     { k: "model", h: "Model", c: "name", f: v => byName[v] ? modelLink(v) : v },

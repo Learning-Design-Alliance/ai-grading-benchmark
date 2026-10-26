@@ -27,6 +27,16 @@ def main():
     ap.add_argument("--out", default=os.path.join(HERE, "dist", "index.html"))
     a = ap.parse_args()
     data = {os.path.basename(p)[:-5]: json.load(open(p)) for p in sorted(glob.glob(os.path.join(ROOT, "out", "public", "*.json")))}
+    # The board's grading instructions and the six rewordings tested in paraphrase/, for the "What changes results" page.
+    def instr(path):
+        txt = open(path).read()
+        # The system block is two paragraphs, the instruction then the reply format; both are reworded.
+        system, reply = txt.split("### system", 1)[1].split("### user", 1)[0].strip().split("\n\n", 1)
+        scale = next((l.strip() for l in txt.splitlines() if "{scale_min}" in l), "")
+        return {"system": system, "reply": reply.split(":", 1)[0] + ".",
+                "scale": scale.replace("{scale_min}", "[min]").replace("{scale_max}", "[max]")}
+    data["paraphrase_prompts"] = [dict(name="Standard instructions (used for every result on this site)", **instr(os.path.join(ROOT, "prompts", "default.txt")))] + \
+        [dict(name=f"Rewording {i}", **instr(os.path.join(ROOT, "prompts", "paraphrase", f"p{i}.txt"))) for i in range(1, 7)]
     d = open(os.path.join(SRC, "monogram-path.txt")).read().strip()
     page = open(os.path.join(SRC, "index.html")).read()
     for k, v in (("{{HEAD}}", open(os.path.join(SRC, "head.html")).read().strip()),

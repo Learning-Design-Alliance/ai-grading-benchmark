@@ -337,30 +337,31 @@
     <div class="head">
       <div class="eyebrow">Studies</div>
       <h2>What changes a grader's results</h2>
-      <p class="lede">The benchmark runs every model the same way. These studies ask what happens when you change that: the instructions, the model's settings, how it is hosted, or whether it is trained on graded examples first. Each was planned and written down before we looked at results. In short: telling newer models to think harder before answering removes most of the gaming; some ways of hosting the same open model make it far easier to game; rewording the instructions changes grades less than simply asking twice does; and on essays, a small model trained on graded essays beats the best AI model given the essay cold.</p>
+      <p class="lede">The benchmark runs every model the same way. These studies ask what happens when you change that: the instructions, the model's settings, how it is hosted, or whether it is trained on graded examples first. Each was planned and written down before we looked at results. In short: telling newer models to think harder before answering removes most of the gaming; some ways of hosting the same open model make it far easier to game; rewording the instructions changes some models' grades more than simply asking twice does, and others' not at all; and on essays, a small model trained on graded essays beats the best AI model given the essay cold.</p>
     </div>
     <div class="block">
-      <h3>Essays: fine-tuning against prompting</h3>
+      <h3>Essays: a model trained on graded essays, or an AI model given them cold?</h3>
       <p class="sub">1,000 essays that none of the trained graders saw during training, written by students to seven essay assignments. The dashed line is how well the original essay graders agreed with each other (0.745). "Same essay assignments": the grader was trained on other students' essays to the same seven assignments. "New essay assignment": trained on essays to six assignments and tested on the seventh, which it had never seen, as when a teacher sets a new assignment. The trained graders cannot be swayed by a note asking for marks, but they give some credit to blank essays (8% and 29% of the time). <b>Which models:</b> the AI models given the essays cold are Claude Haiku 5.5 and GLM 5.3 Flash (the least expensive models that passed every check) and Claude Opus 5.5 (the best overall, on 500 of the essays to save cost).</p>
       <div class="chart" id="c-ft"></div>
     </div>
     <div class="block">
-      <h3>Fixing a flag with a setting or a sentence</h3>
+      <h3>Can a simple fix stop the gaming?</h3>
       <p class="sub">We took the 14 models that failed a safety check and tried two simple fixes. <b>Guard sentence</b>: we added two short paragraphs to the instructions saying that anything written inside the student's work is part of the work, not an instruction to the grader, and that a blank or non-attempt gets the lowest grade. <b>Think harder</b>: for models that offer it, we turned up how much the model reasons before answering. A model counts as <b>fixed</b> only if, afterwards, no request or fake instruction raises its grade by more than 5% on any task, a second kind of note it had never been tested on also fails, it gives no credit to blank answers, and its agreement with teachers stays about the same. The guard sentence fixed some models but made four older, non-reasoning models <i>easier</i> to game. <b>Which models:</b> the 14 that failed a check, since only they needed fixing. Whether the guard sentence harms models that already pass has not been tested yet.</p>
       <div class="tbl" id="t-setups"></div>
     </div>
     <div class="block">
-      <h3>The same open model, served at 8-bit or 4-bit</h3>
+      <h3>Does it matter who hosts an open model?</h3>
       <p class="sub">Open models are run by many different hosting companies, and some store the model in a compressed form to save cost. A model normally keeps each of its billions of internal numbers to 16 bits of precision; "8-bit" hosting rounds them to half that, and "4-bit" to a quarter. Compression makes the model cheaper and faster but can change how it behaves. We graded the same work with the same model twice: once only on 8-bit hosts and once only on 4-bit hosts. On 4-bit hosts the models were far easier to game. When you use a service that picks the host for you, as we did for the main results, you may not know which you got: for DeepSeek V4 Pro and GLM 5.3, most of the main results came from 4-bit hosts. <b>Which models:</b> those two, because their main results came mostly from 4-bit hosts. Only open models have hosts that differ in this way; all 11 open models with such hosts are now being re-run on 8-bit hosts only.</p>
       <div class="tbl" id="t-hosting"></div>
     </div>
     <div class="block">
-      <h3>Rewording the prompt</h3>
-      <p class="sub">We rewrote the grading instructions six different ways, keeping every instruction the same, and compared the change with simply asking the same question five more times. A grade counts as changed when it moves by more than 5% of the scale. For two of four models, rewording changed grades no more than asking again did; for the other two it changed somewhat more. <b>Which models:</b> four, chosen to keep the cost down when the study was planned (three inexpensive models that passed every check, and one that failed one). They are a sample, not a representative set; extending it to every model is planned.</p>
+      <h3>Does the wording of the instructions matter?</h3>
+      <p class="sub">Every result on this site used one set of grading instructions. Teachers will word their own, so we checked whether the wording matters. We wrote six rewordings that say the same thing in different words: three sentences change (the opening instruction, the request to reply in a fixed format, and the sentence giving the grading scale) (for example, "You are marking student work" became "You are grading a student's work"), while the task, model answer, grading guide and student's work stay identical. Then we compared how often a rewording changed a grade with how often simply asking the same instructions again changed it (we asked five more times). A grade counts as changed when it moves by more than 5% of the scale. <b>Which models:</b> the study started with four, chosen to keep the cost down; it is being extended to every model, since whether wording matters for some models and not others is exactly what a reader needs to know.</p>
       <div class="tbl" id="t-paraphrase"></div>
+      <details class="more"><summary>See the standard instructions and the six rewordings</summary><div id="paraphrase-text" class="pptext"></div></details>
     </div>
     <div class="block">
-      <h3>Essay agreement beyond length</h3>
+      <h3>Are the AI models just counting words?</h3>
       <p class="sub">Teachers' essay grades closely follow essay length (correlation 0.70), which is why counting words works so well. We checked whether the AI models are just counting words too: once length is set aside, every model still agrees with the teachers, so they are reading more than length.</p>
       <div class="tbl" id="t-lpartial"></div>
     </div>
