@@ -102,3 +102,12 @@ task, default prompt, base probe (`bench.py drift`):
   by six hosts, so the 17 October code grading was repeated on DeepInfra alone ($0.07). The shift stayed.
 - DeepSeek's own API serves the snapshot under the plain name `deepseek-flash` (OpenRouter's model page). A school
   calling that name changed versions with no notice beyond "minor update".
+
+## Monthly watch (from 2026-11-01)
+
+`drift/monitor.py` (pre-registered; its docstring holds the design and two changes) grades the board's 100 cases per
+task, once, for every board model with a zero-retention route, on the 1st of each month. It keeps only the marks,
+in `drift/out/<date>/`. Each month is compared with the baseline month (2026-10-26). DRIFT means the 95% interval of the
+mean shift excludes 0; a shift of 2% of the scale or more is "material". The floor detects a planted 2% shift in
+85-89% of draws. Claude Fable 5.1 and Olmo 3.1 32B have no hosted zero-retention route and are not watched. About
+$11 a month. Results are added below as they come.
