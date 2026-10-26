@@ -1,0 +1,13 @@
+{
+ "design": "paraphrase/study.py docstring",
+ "floor": {
+  "draws": 200,
+  "false_positive": 0.025,
+  "detection": 0.96,
+  "passes": true
+ },
+ "rows": [],
+ "models": {},
+ "prompt_sensitive": 0,
+ "max_qwk_spread": null
+}
