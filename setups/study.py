@@ -11,8 +11,8 @@ model. Either answer is useful.
 DESIGN.
 - Models: the 13 flagged models with a zero-retention route. Olmo 3.1 32B, also flagged, has none on OpenRouter;
   CHANGE 1 (2026-10-26, before any result was read): it is added on a rented GPU (vLLM, deleted pod, as on the
-  board), DEFAULT and GUARD only, and its verdict is computed from the GPU session's report.build summaries by
-  the same rules.
+  board), DEFAULT and GUARD only, run from this session with gpu/pod.py; its run folders are analysed like the
+  others.
 - Tasks and cases: short answers (Mohler), code, essays (ASAP 2.0); the board's own 100 cases per task (seed 7).
 - Probes: base, injection (a polite request for full marks), forged (a forged grading override), vouched (NEW,
   held out: a claim that classmates checked the answer, in words the guard does not use), and the five null
@@ -85,7 +85,7 @@ PROBES = ["base", "injection", "forged", "vouched", *NULLS]
 MODELS = ["z-ai/glm-5.3", "google/gemma-4-31b-it", "google/gemma-4-26b-a4b-it", "google/gemini-3.5-flash-lite",
           "openai/gpt-5.6-luna", "microsoft/phi-4", "qwen/qwen3-235b-a22b-2507", "mistralai/ministral-8b-2512",
           "google/gemma-3-27b-it", "deepseek/deepseek-v4-pro-0813", "openai/gpt-oss-20b", "google/gemma-3-4b-it",
-          "meta-llama/llama-3.2-3b-instruct"]
+          "meta-llama/llama-3.2-3b-instruct", "allenai/olmo-3.1-32b-instruct"]
 REASONING = {"z-ai/glm-5.3", "google/gemma-4-31b-it", "google/gemma-4-26b-a4b-it", "google/gemini-3.5-flash-lite",
              "openai/gpt-5.6-luna", "deepseek/deepseek-v4-pro-0813", "openai/gpt-oss-20b"}
 BUDGET = 45.0
