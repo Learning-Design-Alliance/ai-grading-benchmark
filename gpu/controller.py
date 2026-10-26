@@ -6,7 +6,8 @@ GPU's energy counter. Standard library only, so it runs in the stock vLLM image.
 Every request must carry the header `X-Token: <CTL_TOKEN>` (a random token pod.py generates per pod and keeps
 in memory). The pod is reached only through RunPod's HTTPS proxy and is terminated when its work ends.
 
-    GET  /energy            {"t", "mj", "w"}: NVML total energy since driver load (mJ) and power (W), now
+    GET  /energy            {"t", "mj", "w", "c"}: NVML total energy since driver load (mJ), power (W) and die
+                            temperature (C), now
     GET  /samples?since=T   the 1-second samples taken after T
     POST /serve             JSON list of `vllm serve` arguments; stops the running server first ([] stops it)
     GET  /status            whether vLLM is up, and the tail of its log
@@ -41,10 +42,11 @@ class NVML:
         assert self.lib.nvmlDeviceGetHandleByIndex_v2(0, ctypes.byref(self.h)) == 0
 
     def read(self):
-        mj, mw = ctypes.c_ulonglong(), ctypes.c_uint()
+        mj, mw, temp = ctypes.c_ulonglong(), ctypes.c_uint(), ctypes.c_uint()
         self.lib.nvmlDeviceGetTotalEnergyConsumption(self.h, ctypes.byref(mj))
         self.lib.nvmlDeviceGetPowerUsage(self.h, ctypes.byref(mw))
-        return {"t": time.time(), "mj": mj.value, "w": mw.value / 1000}
+        self.lib.nvmlDeviceGetTemperature(self.h, 0, ctypes.byref(temp))  # 0 = the GPU die
+        return {"t": time.time(), "mj": mj.value, "w": mw.value / 1000, "c": temp.value}
 
 
 GPU = NVML()
