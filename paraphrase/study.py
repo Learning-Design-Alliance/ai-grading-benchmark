@@ -167,7 +167,7 @@ def cmd_run(a):
                 max_usd = min(1.5 * per_grading(model, task) * n_gradings + 0.05, left)
                 cmd = [sys.executable, os.path.join(ROOT, "bench.py"), "run", "--cases", os.path.join(a.subsets, SUBSET[task]),
                        "--prompt", os.path.join(ROOT, "prompts", "default.txt") if p == "default" else os.path.join(ROOT, "prompts", "paraphrase", f"{p}.txt"), "--base-url",
-                       a.base_url or sub["base_url"], "--model", model, "--key-env", "OPENROUTER_API_KEY", "--n", "100",
+                       a.base_url or sub["base_url"], "--model", model, "--key-env", a.key_env, "--n", "100",
                        "--seed", "7", "--probes", "base,retest,retest2,retest3,retest4" if p == "default" else "base", "--max-tokens", str(s.get("max_tokens") or 16384),
                        "--out", os.path.join(RUNS, f"para-{p}-{task}-{slug(model)}"), "--workers", str(a.workers),
                        "--max-usd", f"{max_usd:.4f}"]
@@ -295,6 +295,7 @@ def main():
     p.add_argument("--models", help="comma-separated; default: every board model not yet run, cheapest first (CHANGE 4)")
     p.add_argument("--base-url", help="override the board's base_url (Olmo: the pod's localhost vLLM)")
     p.add_argument("--route", help="recorded in each run's config (bench.py --route)")
+    p.add_argument("--key-env", default="OPENROUTER_API_KEY", help="the environment variable holding the endpoint's key")
     p.add_argument("--workers", type=int, default=8); p.set_defaults(fn=cmd_run)
     p = sub.add_parser("analyse"); p.add_argument("--cases-dir", required=True); p.set_defaults(fn=cmd_analyse)
     a = ap.parse_args()
