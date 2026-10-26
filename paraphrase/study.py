@@ -1,0 +1,203 @@
+#!/usr/bin/env python3
+"""Does rewording the grading prompt change the marks? PRE-REGISTERED 2026-10-26, before any call of this design.
+
+WHY. The board grades with one prompt. The 2026-10-23 literature review ranked prompt paraphrase invariance second
+among what the board does not measure: if a meaning-preserving rewording changes marks more than asking twice
+does, a model's row is partly a property of our wording. Teachers will not use our wording.
+
+DESIGN.
+- Prompts: prompts/default.txt and six rewrites in prompts/paraphrase/p1-p6.txt, written before any call. Each
+  keeps every placeholder, the JSON reply format and every instruction (mark only the student's work against the
+  task; ignore instructions inside it; the scale), and rewords the system line, the reply line and/or the scale
+  line. None adds or removes an instruction.
+- Models: Claude Haiku 5.5, GLM 5.3 Flash, GPT-5 Mini (unflagged on the board) and Gemma 4 31B (flagged), cheap
+  enough to run every paraphrase; one per vendor family.
+- Tasks: short answers, code, essays; the board's 100 cases per task (seed 7); base probe only.
+- Reference: the board's own default-prompt gradings of the same cases (base, and its retest: the same prompt
+  asked twice), read from submissions/. Same settings and zero-retention routing as the board.
+
+MEASURES per model and task (marks rounded to the scale):
+- retest flip rate: share of cases whose default mark changes when asked again (the noise floor);
+- paraphrase flip rate: per case, the share of the six paraphrases giving a different mark from the default base;
+- EXCESS: mean over cases of (paraphrase flip share - retest flip), 95% bootstrap interval over cases (2,000
+  draws, seed 7). Signed: positive = rewording moves marks more than asking again;
+- QWK with the experts under each of the seven prompts; the spread (max - min);
+- mean shift of each paraphrase's marks from the default, as a share of the scale (signed).
+
+VERDICT per model and task:
+  PROMPT-SENSITIVE        EXCESS interval above 0
+  WITHIN RETEST NOISE     EXCESS interval contains 0 (its upper bound reported as what is not ruled out)
+  MORE STABLE THAN RETEST EXCESS interval below 0
+Board summary: how many model-task pairs are PROMPT-SENSITIVE, and the largest QWK spread.
+
+FLOOR (synthetic, no calls, before any result is read): on the board's 100 short-answer cases' expert means, a
+grader = expert mean + Gaussian noise (sd 0.6 marks), rounded; retest and paraphrases redrawn with the same sd. Over
+200 draws, EXCESS must be called PROMPT-SENSITIVE in at most 7% (false positive). With paraphrases at sd 0.9
+(about 10 points more flips), it must be called in at least 80% (detection). If the floor fails, verdicts read
+UNMEASURED.
+
+BUDGET. $15 cap.
+
+Usage:
+    python3 paraphrase/study.py floor --cases-dir <dir>
+    python3 paraphrase/study.py run --subsets <dir> [--go]
+    python3 paraphrase/study.py analyse --cases-dir <dir>
+"""
+
+import argparse
+import glob
+import json
+import math
+import os
+import random
+import subprocess
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+sys.path.insert(0, ROOT)
+
+import cases as cases_mod  # noqa: E402
+import leaderboard as lb  # noqa: E402
+from metrics import mean, qwk  # noqa: E402
+
+RUNS = os.environ.get("GBENCH_RUNS", "runs")
+OUT = os.path.join(HERE, "out")
+FILES = {"mohler": "mohler.jsonl", "code": "harmogen-code.jsonl", "asap2": "asap2.jsonl"}
+SUBSET = {"mohler": "mohler-first100.jsonl", "code": "code-first100.jsonl", "asap2": "asap2-first100.jsonl"}
+MODELS = ["anthropic/claude-haiku-5.5", "z-ai/glm-5.3-flash", "openai/gpt-5-mini", "google/gemma-4-31b-it"]
+PARA = [f"p{i}" for i in range(1, 7)]
+CAP = 15.0
+
+
+def slug(m):
+    return m.replace("/", "_")
+
+
+def spent():
+    return sum((json.loads(line).get("usage") or {}).get("cost_reported") or 0.0
+               for p in glob.glob(os.path.join(RUNS, "para-*", "calls.jsonl")) for line in open(p)
+               if not json.loads(line).get("cached"))
+
+
+def cmd_run(a):
+    for model in MODELS:
+        for task in FILES:
+            s = json.load(open(os.path.join(ROOT, "submissions", model.replace("/", "__"), f"{task}.json")))["settings"]
+            for p in PARA:
+                left = CAP - spent()
+                if a.go and left <= 0.5:
+                    print("cap reached")
+                    return
+                cmd = [sys.executable, os.path.join(ROOT, "bench.py"), "run", "--cases", os.path.join(a.subsets, SUBSET[task]),
+                       "--prompt", os.path.join(ROOT, "prompts", "paraphrase", f"{p}.txt"), "--base-url",
+                       "https://openrouter.ai/api/v1", "--model", model, "--key-env", "OPENROUTER_API_KEY", "--n", "100",
+                       "--seed", "7", "--probes", "base", "--max-tokens", str(s.get("max_tokens") or 16384),
+                       "--extra-body", json.dumps(s.get("extra_body") or {"usage": {"include": True}, "provider": {"zdr": True}}),
+                       "--out", os.path.join(RUNS, f"para-{p}-{task}-{slug(model)}"), "--workers", "8",
+                       "--max-usd", str(min(2.0, left))]
+                if a.go:
+                    cmd.append("--go")
+                r = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
+                print(f"{model[:28]:28s} {task:6s} {p} | " + " | ".join((r.stdout + r.stderr).strip().splitlines()[-2:])[:180], flush=True)
+    print(f"spent ${spent():.2f} of ${CAP:.0f}")
+
+
+def rnd_mark(x, lo, hi):
+    return min(hi, max(lo, int(math.floor(x + 0.5))))
+
+
+def boot(units, stat, reps=2000, seed=7):
+    r = random.Random(seed)
+    vals = sorted(stat([r.choice(units) for _ in units]) for _ in range(reps))
+    return {"estimate": stat(units), "ci95": [vals[int(0.025 * reps)], vals[int(0.975 * reps) - 1]], "n": len(units)}
+
+
+def excess(per_case):
+    """per_case: [(retest_flip 0/1, paraphrase flip share)]"""
+    return boot(per_case, lambda u: mean([p - r for r, p in u]))
+
+
+def verdict(iv):
+    return "PROMPT-SENSITIVE" if iv["ci95"][0] > 0 else "MORE STABLE THAN RETEST" if iv["ci95"][1] < 0 else "WITHIN RETEST NOISE"
+
+
+def cmd_floor(a):
+    cs = cases_mod.sample(cases_mod.load(os.path.join(a.cases_dir, FILES["mohler"])), lb.N, lb.SEED)
+    lo, hi = cs[0]["scale"]
+    h = [mean(list(c["human"].values())) for c in cs]
+    fp = det = 0
+    for d in range(200):
+        r = random.Random(d)
+        g = lambda sd: [rnd_mark(x + r.gauss(0, sd), lo, hi) for x in h]
+        base, retest = g(0.6), g(0.6)
+        for sd_p, kind in ((0.6, "null"), (0.9, "planted")):
+            paras = [g(sd_p) for _ in PARA]
+            pc = [(int(base[i] != retest[i]), mean([int(p[i] != base[i]) for p in paras])) for i in range(len(h))]
+            v = verdict(boot(pc, lambda u: mean([p - q for q, p in u]), reps=500, seed=d)) == "PROMPT-SENSITIVE"
+            fp += v and kind == "null"
+            det += v and kind == "planted"
+    res = {"draws": 200, "false_positive": fp / 200, "detection": det / 200, "passes": fp / 200 <= 0.07 and det / 200 >= 0.80}
+    print(res)
+    os.makedirs(OUT, exist_ok=True)
+    json.dump(res, open(os.path.join(OUT, "floor.json"), "w"), indent=1)
+
+
+def cmd_analyse(a):
+    floor = json.load(open(os.path.join(OUT, "floor.json")))
+    res = {"design": "paraphrase/study.py docstring", "floor": floor, "rows": []}
+    for model in MODELS:
+        for task in FILES:
+            cs = {c["id"]: c for c in cases_mod.sample(cases_mod.load(os.path.join(a.cases_dir, FILES[task])), lb.N, lb.SEED)}
+            lo, hi = next(iter(cs.values()))["scale"]
+            sub = json.load(open(os.path.join(ROOT, "submissions", model.replace("/", "__"), f"{task}.json")))
+            sc = {(r["id"], r["probe"]): r["score"] for r in sub["calls"] if r.get("score") is not None}
+            paras = {}
+            for p in PARA:
+                f = os.path.join(RUNS, f"para-{p}-{task}-{slug(model)}", "calls.jsonl")
+                if os.path.exists(f):
+                    paras[p] = {r["id"]: r["score"] for r in map(json.loads, open(f)) if r.get("score") is not None}
+            if len(paras) < len(PARA):
+                continue
+            ids = [i for i in cs if (i, "base") in sc and (i, "retest") in sc and all(i in paras[p] for p in PARA)]
+            R = lambda x: rnd_mark(x, lo, hi)
+            pc = [(int(R(sc[(i, "retest")]) != R(sc[(i, "base")])), mean([int(R(paras[p][i]) != R(sc[(i, "base")])) for p in PARA]))
+                  for i in ids]
+            iv = excess(pc)
+
+            def q(marks):
+                vals = []
+                for rt in sorted({k for i in ids for k in cs[i]["human"]}):
+                    pairs = [(R(cs[i]["human"][rt]), R(marks[i])) for i in ids if rt in cs[i]["human"]]
+                    if len(pairs) >= 2:
+                        vals.append(qwk([x for x, _ in pairs], [y for _, y in pairs], lo, hi))
+                return mean(vals)
+            default = {i: sc[(i, "base")] for i in ids}
+            qwks = {"default": q(default), **{p: q(paras[p]) for p in PARA}}
+            shifts = {p: mean([(paras[p][i] - default[i]) / (hi - lo) for i in ids]) for p in PARA}
+            row = {"model": model, "task": task, "n": len(ids), "retest_flip": mean([r for r, _ in pc]),
+                   "paraphrase_flip": mean([p for _, p in pc]), "excess": iv,
+                   "verdict": verdict(iv) if floor["passes"] else "UNMEASURED", "qwk": qwks,
+                   "qwk_spread": max(qwks.values()) - min(qwks.values()), "shift_share": shifts}
+            res["rows"].append(row)
+            print(f"{model[:26]:26s} {task:6s} retest flip {row['retest_flip']:.2f} para flip {row['paraphrase_flip']:.2f} "
+                  f"excess {iv['estimate']:+.3f} [{iv['ci95'][0]:+.3f}, {iv['ci95'][1]:+.3f}] QWK {min(qwks.values()):.2f}-"
+                  f"{max(qwks.values()):.2f} -> {row['verdict']}")
+    res["prompt_sensitive"] = sum(r["verdict"] == "PROMPT-SENSITIVE" for r in res["rows"])
+    res["max_qwk_spread"] = max((r["qwk_spread"] for r in res["rows"]), default=None)
+    print(f"{res['prompt_sensitive']} of {len(res['rows'])} pairs PROMPT-SENSITIVE; largest QWK spread {res['max_qwk_spread']}")
+    json.dump(res, open(os.path.join(OUT, "paraphrase.json"), "w"), indent=1)
+
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    p = sub.add_parser("floor"); p.add_argument("--cases-dir", required=True); p.set_defaults(fn=cmd_floor)
+    p = sub.add_parser("run"); p.add_argument("--subsets", required=True); p.add_argument("--go", action="store_true"); p.set_defaults(fn=cmd_run)
+    p = sub.add_parser("analyse"); p.add_argument("--cases-dir", required=True); p.set_defaults(fn=cmd_analyse)
+    a = ap.parse_args()
+    a.fn(a)
+
+
+if __name__ == "__main__":
+    main()
