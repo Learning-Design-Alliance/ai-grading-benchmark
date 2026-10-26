@@ -189,6 +189,13 @@ details.more[open] summary { margin-bottom: 10px; }
 .tip[hidden] { display: none; }
 .twocol { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 16px; }
 
+/* Trained-method cards */
+.mcards { display: grid; gap: 22px; }
+.mcard { background: var(--surface); border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent); border-radius: var(--r); padding: 20px 22px; display: grid; gap: 12px; scroll-margin-top: 80px; }
+.mcard h4 { font: 400 12px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 6px 0 0; }
+.mcard .facts { grid-template-columns: 1fr; }
+.mcard .facts div { grid-template-columns: 16ch 1fr; }
+
 /* Model page */
 .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 0 28px; }
 .facts div { display: grid; grid-template-columns: 12ch 1fr; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: 14px; }

@@ -20,6 +20,7 @@
     <a href="#tasks">By task, with baselines</a>
     <a href="#models">Models</a>
     <a href="#progress">Progress over time</a>
+    <a href="#methods">Trained grading methods</a>
     <div class="grp">How graders fail</div>
     <a href="#robustness">Gaming and pushback</a>
     <a href="#maths">Maths working</a>
@@ -197,6 +198,17 @@
       <div class="tbl" id="t-drift"></div>
     </div>
     <p class="sub">Release date: when the model first became available on OpenRouter, the service we used to reach most models; this is close to, but not always the same as, the company's own release date. Olmo is not on OpenRouter; its date is from its technical report. "Older releases" were graded on the same 100 short answers and the same checks.</p>
+  </section>
+
+  <!-- ================================================================ TRAINED METHODS -->
+  <section class="view" id="v-methods" data-view="methods" hidden>
+    <div class="head">
+      <div class="eyebrow">Results</div>
+      <h2>Trained grading methods</h2>
+      <p class="lede">Before today's AI models, automatic grading worked by learning from examples: give a program thousands of answers that teachers have already graded, and it learns to predict the grade. These methods appear beside the AI models for comparison. They can match or beat the AI models at producing a grade on essays, but they do only that one thing, and only for questions they were trained on.</p>
+    </div>
+    <div class="note"><b>How they differ from the AI models</b><span>An AI model in this benchmark is given each answer cold, with only the question, the model answer and the grading guide. A trained method has first studied hundreds or thousands of answers to the same question that teachers already graded. It produces a grade and nothing else: no feedback, no explanation, and it cannot follow a student's reasoning in math. Every new question needs a new set of graded answers to train on.</span></div>
+    <div id="method-cards" class="mcards"></div>
   </section>
 
   <!-- ================================================================ ROBUSTNESS -->

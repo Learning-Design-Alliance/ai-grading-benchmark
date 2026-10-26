@@ -368,7 +368,11 @@ function drawKindFilter() {
 }
 function nameCell(v, r) {
   const parts = [el("span", {}, r.kind !== "trained" && byName[v] ? modelLink(v) : v, r.retention_note ? " †" : "")];
-  if (r.kind === "trained") parts.push(el("span", { class: "flags" }, el("span", { class: "pill" }, "marks only: no feedback, explanation or working")), el("span", { class: "how" }, r.how || ""));
+  if (r.kind === "trained") {
+    const mk = (r.model_id || "").replace(/^baseline: /, "").replace(/^fine-tuned: Qwen.*/, "qwen-ft");
+    parts[0] = el("a", { href: "#method-" + mk }, v);
+    parts.push(el("span", { class: "flags" }, el("span", { class: "pill" }, "grade only: no feedback, explanation or reasoning")), el("span", { class: "how" }, r.how || ""));
+  }
   if (r.flags) parts.push(el("span", { class: "flags" }, r.flags.split("; ").map(x => el("span", { class: "flag" }, x))));
   return el("span", { class: "namecell" }, parts);
 }
@@ -422,7 +426,7 @@ function drawTaskViews() {
   const pts = rows.map(r => ({ label: r.model, est: r.qwk, lo: r.qwk_lo, hi: r.qwk_hi, kind: r.kind, href: "model-" + slug((byName[r.model] || {}).key || r.model),
     tip: `<b>${esc(r.model)}</b><br>QWK ${f3(r.qwk)} ${iv(r.qwk_lo, r.qwk_hi, f2)}<br>${TASK === "Essays" ? "Share of published rater agreement " + pct(r.published_share) : "Share of the human ceiling " + pct(r.share)}` }))
     .concat(bases.map(b => ({ label: "Trained · " + (BNAME[b.baseline] || b.baseline), est: b.qwk, lo: b.qwk_lo, hi: b.qwk_hi, base: true,
-      tip: `<b>${esc(BNAME[b.baseline] || b.baseline)}</b><br>trained on this task's ${f0(b.n_train)} marked answers, not prompted<br>QWK ${f3(b.qwk)} ${iv(b.qwk_lo, b.qwk_hi, f2)}<br>Trained on ${f0(b.n_train)} marked answers · credits blank answers ${pct1(b.blank_pct)}` })))
+      href: "method-" + b.baseline, tip: `<b>${esc(BNAME[b.baseline] || b.baseline)}</b><br>trained on this task's ${f0(b.n_train)} marked answers, not prompted<br>QWK ${f3(b.qwk)} ${iv(b.qwk_lo, b.qwk_hi, f2)}<br>Trained on ${f0(b.n_train)} marked answers · credits blank answers ${pct1(b.blank_pct)}` })))
     .sort((a, b) => b.est - a.est);
   const DIVIDER = { heading: true, label: "For comparison: methods trained on teachers' graded answers (grade only: no feedback, explanation or reasoning)" };
   const split = arr => arr.filter(p => !p.base).concat(arr.some(p => p.base) ? [DIVIDER] : [], arr.filter(p => p.base));
@@ -433,11 +437,11 @@ function drawTaskViews() {
   intervalChart("c-gaming", split(gpts), { refs: [{ v: 0 }, { v: 5, text: "5% flag" }], zero: true, valFmt: v => f1(v) + "%", tickFmt: v => f0(v) + "%", order: "Best at the top: smallest gain", aria: "Gain from gaming, % of scale" });
   scatterCost(rows, ceil);
   const essays = TASK === "Essays";
-  const brow = bases.map(b => ({ model: "Trained · " + (BNAME[b.baseline] || b.baseline), _base: true, kind: "baseline", share: essays ? null : b.share, published_share: essays ? b.share_published : null,
+  const brow = bases.map(b => ({ model: "Trained · " + (BNAME[b.baseline] || b.baseline), _base: true, _key: b.baseline, kind: "baseline", share: essays ? null : b.share, published_share: essays ? b.share_published : null,
     qwk: b.qwk, qwk_lo: b.qwk_lo, qwk_hi: b.qwk_hi, blank_pct: b.blank_pct, gaming_pct: b.gaming_pct, label_pct: 0, retest: 1, refused: 0, cost_per_1k: null, decision_share: null, blicket_pct: null, surface_pct: null }));
   const R = (v, t) => !nul(v) && v > t;
   table("t-board", rows.concat(brow), [
-    { k: "model", h: "Model", c: "name", f: (v, r) => r._base ? v : modelLink(v) },
+    { k: "model", h: "Model", c: "name", f: (v, r) => r._base ? el("a", { href: "#method-" + r._key }, v) : modelLink(v) },
     { k: essays ? "published_share" : "share", h: essays ? "Vs. graders' agreement" : "Vs. teachers' agreement", f: pct },
     { k: "qwk", h: "Agreement (0–1)", title: "quadratic weighted kappa with the teachers' grades: 0 is chance, 1 is perfect", f: f3 },
     { k: "decision_share", h: "Pass or fail vs. teachers", f: pct, title: "agreement on pass or fail, compared with the teachers' agreement with each other" },
@@ -805,19 +809,79 @@ function drawProgress() {
   table("t-drift", D.drift || [], [{ k: "from", h: "From", c: "l" }, { k: "to", h: "To", c: "l" }, { k: "shift", h: "Mean shift (marks of 5)", f: (v, r) => `${signed(2)(v)} ${iv(r.lo, r.hi, f2)}` }, { k: "qwk_across", h: "Agreement across versions", f: f3 }, { k: "qwk_within", h: "Within the old version", f: f3 }], { sortable: false });
 }
 
+// ================================================================== TRAINED METHODS
+// One card per method: what it is, how it works, what it is good and bad at, its measured results, and when it might
+// make sense. Results come from out/public/baselines.json and essays_finetune.json; the prose is written here.
+const METHODS = [
+  { key: "length", name: "Length alone", what: "A rule that predicts the grade from how long the answer is.",
+    how: "It counts the words in each answer (characters, for code) and fits a straight line from length to grade on answers teachers already graded. Longer answers get higher grades if, in the training answers, longer answers were graded higher.",
+    good: "Essays, where teachers' grades closely follow length: it reaches about 85% of the agreement between the original essay graders. That makes it a useful warning sign: an AI model that cannot beat it on essays is not reading closely.",
+    bad: "It reads nothing. On short answers and code it is no better than chance. Padding an answer with words raises its grade. It gives credit to blank short answers and blank code, and writes no feedback." ,
+    when: "Never on its own. Useful as a floor: any grader worth using should beat it." },
+  { key: "tfidf-ridge", name: "Word features (TF-IDF + ridge)", what: "A statistical method that learns which words go with high and low grades.",
+    how: "It counts which words and pairs of words appear in each answer, giving more weight to distinctive words (that weighting is called TF-IDF). From the graded examples it then learns a weight for each word: words common in high-graded answers push the grade up. \"Ridge\" is a standard way of stopping any single word from getting too much weight.",
+    good: "Essays on assignments it was trained on: it matches the original essay graders' agreement with each other and is level with the best AI models. It runs instantly on any computer, costs nothing per answer, gives the same grade every time, and cannot be swayed by a note asking for marks.",
+    bad: "It does not understand meaning: an answer with the right words in the wrong order or with wrong logic can score well. It needs hundreds of graded answers for every new question, and a new assignment means retraining. It gives credit to blank short answers and blank code. With only 29 graded code answers to learn from, it learned nothing about code. No feedback.",
+    when: "A second rater for high-volume essay grading on assignments where thousands of graded essays already exist, alongside a person or a model that gives feedback." },
+  { key: "reference-similarity", name: "Similarity to the model answer", what: "A rule that grades by how much the answer overlaps the teacher's model answer.",
+    how: "It measures how many of the same distinctive words the student's answer shares with the teacher's model answer, then maps that overlap to the grading scale using graded examples.",
+    good: "Very little here. It is the simplest form of answer matching that many quiz tools use.",
+    bad: "Correct answers in different words score low; wrong answers that repeat the model answer's words score high. Near chance on short answers and code, and it gives credit to blank answers.",
+    when: "Not as a grader. It shows why word overlap is a poor stand-in for understanding." },
+  { key: "encoder-ridge", name: "MiniLM-L6 embeddings + ridge", what: "A very small AI model that turns each answer into numbers, plus a learned weighting.",
+    how: "A small pretrained AI model (all-MiniLM-L6-v2, 22 million internal numbers, from the sentence-transformers project based on Microsoft's MiniLM) converts each answer into a list of numbers that captures its meaning. Ridge regression then learns from the graded examples how those numbers relate to grades. It reads at most about 256 word pieces, so long essays are cut short.",
+    good: "Understands meaning better than word counting, and runs on an ordinary laptop with no internet connection, so student work never leaves the computer.",
+    bad: "Weaker than word features on these tasks, partly because long essays are cut short. Gives credit to blank answers (80% of blank essays, all blank short answers and code). Needs graded answers for each question. No feedback.",
+    when: "Where work must stay on a local computer and a rough grade is enough; otherwise word features or DeBERTa do better." },
+  { key: "deberta-ft", name: "DeBERTa-v3-base, fine-tuned", what: "A mid-sized AI model from Microsoft, retrained to predict grades.",
+    how: "DeBERTa-v3-base is a pretrained AI model with 184 million internal numbers, made public by Microsoft. \"Fine-tuning\" means continuing its training on the graded answers until it predicts the teachers' grades. It reads at most 512 word pieces, which cut off part of 27% of the training essays and 17% of the code.",
+    good: "The best grader of all on essays from assignments it was trained on: its agreement with the final grade is above the original graders' agreement with each other. It cannot be swayed by a note asking for marks, gives the same grade every time, and once trained runs cheaply on modest hardware.",
+    bad: "Only as good as its training data: with 1,627 graded short answers it is weaker than most AI models, and with 29 graded code answers it learned nothing. Gives credit to blank essays (14%) and to all blank short answers and code. Training needs a graphics card and technical skill. A new assignment means new graded answers and retraining. No feedback or explanation.",
+    when: "When an institution has thousands of graded essays on the same assignments and needs only a grade, for example as a check on human grading. Not for new assignments, short answers with few examples, or anything needing feedback." },
+  { key: "qwen-ft", name: "Qwen3 4B Instruct, fine-tuned", study: true, what: "A small open AI language model, retrained to predict essay grades.",
+    how: "Qwen3-4B-Instruct is a small open AI model (4 billion internal numbers) from Alibaba's Qwen team. It was fine-tuned on about 23,600 graded essays with a light-weight method (LoRA) that trains a small add-on rather than the whole model, plus a final step that outputs a grade. Tested in the essay study, on 1,000 essays it had never seen.",
+    good: "Essays, about as well as DeBERTa, both on assignments it was trained on and on a new assignment it never saw (no difference between the two was detected in either case). Not swayed by notes asking for marks.",
+    bad: "Gives credit to blank essays 29% of the time, more than DeBERTa. Needs thousands of graded essays and a graphics card to train. Only tested on essays. Produces a grade only.",
+    when: "Much as for DeBERTa. This study found no advantage for the larger model; a fine-tuned Gemma 4 26B is being tested next." },
+];
+function drawMethods() {
+  const box = $("#method-cards"); box.innerHTML = "";
+  const B = D.baselines || [], FT = D.essays_finetune || [];
+  METHODS.forEach(m => {
+    const rows = m.study
+      ? FT.filter(r => /Qwen/i.test(r.arm)).map(r => ({ task: /unseen/i.test(r.arm) ? "Essays, new assignment" : "Essays, same assignments", qwk: r.qwk, lo: r.qwk_lo, hi: r.qwk_hi, n: null }))
+      : B.filter(b => b.baseline === m.key).map(b => ({ task: b.task, qwk: b.qwk, lo: b.qwk_lo, hi: b.qwk_hi, share: b.task === "Essays" ? b.share_published : b.share, blank: b.blank_pct, gaming: b.gaming_pct, n: b.n_train }));
+    const tbl = el("div", { class: "tbl" });
+    const card = el("article", { class: "mcard", id: "method-" + m.key },
+      el("h3", {}, m.name), el("p", { class: "lede" }, m.what),
+      el("dl", { class: "facts" }, fact("How it works", m.how), fact("Good at", m.good), fact("Watch out for", m.bad), fact("When it might make sense", m.when)),
+      el("h4", {}, "Measured results"), tbl);
+    box.append(card);
+    table(tbl.id = "t-method-" + m.key, rows, [
+      { k: "task", h: "Task", c: "l" },
+      { k: "qwk", h: "Agreement (0–1)", f: (v, r) => `${f2(v)} ${iv(r.lo, r.hi, f2)}` },
+      ...(m.study ? [] : [{ k: "share", h: "Vs. teachers' agreement", f: pct }, { k: "blank", h: "Credit for blank answers", f: pct1, c: v => !nul(v) && v > 0 ? "bad" : "n" },
+        { k: "gaming", h: "Gain from a request or fake instruction", f: signed(1) }, { k: "n", h: "Graded answers it learned from", f: f0 }]),
+    ], { sortable: false });
+  });
+  const h = location.hash.slice(1);
+  if (h.startsWith("method-")) { const c = document.getElementById(h); if (c) c.scrollIntoView(); }
+}
+
 // ================================================================== router
-const DRAW = { overview: drawOverview, leaderboard: drawLeaderboard, tasks: drawTasks, models: drawModels, progress: drawProgress, robustness: drawRobustness, maths: drawMaths,
+const DRAW = { overview: drawOverview, leaderboard: drawLeaderboard, tasks: drawTasks, models: drawModels, progress: drawProgress, methods: drawMethods, robustness: drawRobustness, maths: drawMaths,
   feedback: drawFeedback, fairness: drawFairness, media: drawMedia, settings: drawSettings, training: drawTraining, footprint: drawFootprint, method: drawMethod, corrections: drawCorrections };
 const drawn = new Set();
 function route() {
   const h = (location.hash || "#overview").slice(1);
-  const view = h.startsWith("model-") ? "model" : (DRAW[h] ? h : "overview");
+  const view = h.startsWith("model-") ? "model" : h.startsWith("method-") ? "methods" : (DRAW[h] ? h : "overview");
   document.querySelectorAll(".view[data-view]").forEach(v => v.hidden = v.dataset.view !== view);
   document.querySelectorAll("nav.rail a").forEach(a => a.setAttribute("aria-current", a.getAttribute("href") === "#" + (view === "model" ? "models" : view) ? "page" : "false"));
   hideTip();
   if (view === "model") drawModel(h);
   else if (!drawn.has(view)) { DRAW[view](); drawn.add(view); }
-  if (view !== "model") scrollTo(0, 0);
+  if (view === "methods" && h.startsWith("method-")) { const c = document.getElementById(h); if (c) c.scrollIntoView(); }
+  else if (view !== "model") scrollTo(0, 0);
   const cur = document.querySelector('nav.rail a[aria-current="page"]'); if (cur && cur.scrollIntoView && innerWidth < 900) cur.scrollIntoView({ block: "nearest", inline: "center" });
 }
 addEventListener("hashchange", route);
