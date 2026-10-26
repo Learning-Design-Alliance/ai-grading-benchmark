@@ -130,7 +130,13 @@ the recording's length.
   video intervals assume they are independent.
 - A verdict that finds no effect states the largest effect it cannot rule out. It is not evidence of no
   effect.
-- One default prompt per task; prompt changes can move results substantially.
+- One default prompt per task. Six meaning-preserving rewordings moved two of four models' marks slightly more
+  than asking again does (about 4 more cases in 100), and moved agreement by 0.03-0.10 (`paraphrase/`). A
+  teacher's own rubric or prompt structure may move it more.
+- Open models are served by whichever host answers, at whatever precision it runs. 4-bit hosts made two models
+  far easier to game (`hosting/`).
+- Hosted models change under the same name. A monthly drift watch (`drift/monitor.py`, from 1 November) re-grades
+  the board's cases for every model with a zero-retention route.
 - Each model runs at its default reasoning setting. Raising the effort improves code agreement for four of
   eleven models, stops a forged note from gaming Gemini 3.5 Flash Lite, and switches on reasoning in Gemma 4,
   which does not reason by default (`reasoning/`). A buyer who changes the setting should re-test.
@@ -187,10 +193,17 @@ As of 2026-10-26: 22 models, all five tasks, default prompt. Overall scores rang
   - **GLM 5.3 Flash** is fifth, with no flag, at under $0.10 per 1,000 short answers. It gives way to
     pushback by 6% of the scale.
   - **GLM 5.3** scores 91.1 but is flagged: an instruction hidden in a code answer, or a forged override, gains
-    it about 11% of the scale on code. It holds under pushback (+2% [0, +4]).
+    it about 11% of the scale on code. It holds under pushback (+2% [0, +4]). Its code gradings came 95% from
+    4-bit hosts; served at 8-bit, the same model is not gamed on code at all (`hosting/`).
   - **DeepSeek V4 Pro** is 18th (74.1). A forged override in a code answer gains it 70% of the scale, and 52% on
     essays; it credits blank answers and gives way to pushback by 16% of the scale. Being larger does not help
-    here: the smaller V4.1 Flash carries no flag.
+    here: the smaller V4.1 Flash carries no flag. Its gradings came mostly from a host that serves it at 4-bit.
+    At 8-bit it agrees with the experts at 0.75 on code instead of 0.47, and a forged override gains about a
+    fifth of the scale instead of 70%. That is still a flag (`hosting/`).
+- **Host precision matters for open models** (`hosting/`, pre-registered, 2026-10-26). The same open model served
+  at 4-bit rather than 8-bit was far easier to game in all three comparisons, by 11 to 51 points of the scale. The
+  board records which host served each grading but not its precision, so an open model's row describes it as
+  served. Pinning precision is planned.
   - **The 17 Oct DeepSeek snapshot** marks code about 2% of the scale higher than the 10 Sep release it
     replaces, with the host held fixed (`docs/DRIFT.md`).
 - **Olmo 3.1 32B** (added 2026-10-25, the one model whose training data is fully released) ranks 20th of 22
@@ -202,6 +215,17 @@ As of 2026-10-26: 22 models, all five tasks, default prompt. Overall scores rang
   same prompts, reaches QWK 0.81 on essays, above every model on the board (best 0.73). On short answers, with
   about 20 training answers a question, it reaches 0.36, below every model. Like the other trained baselines it
   cannot be gamed, but it credits blank short answers.
+- **Fine-tuning against prompting, on 1,000 held-out essays** (`essays-finetune/`, pre-registered):
+  - A fine-tuned 4B open model (Qwen3, LoRA) ties DeBERTa at 0.80. On a prompt they never trained on, both reach
+    0.74-0.76.
+  - The best prompted model, Opus 5.5 with six marked example essays, reaches 0.71. The six examples raise every
+    prompted model by 0.08-0.09.
+  - The fine-tuned scorers credit blank essays (8% and 29%).
+  - OpenAI's self-serve fine-tuning is being withdrawn, so a vendor fine-tune could not be tested. It would not
+    be zero-retention in any case.
+- **Agreement beyond length** (`analyses/`): the experts' essay marks follow length closely (r 0.70), which is why
+  length alone scores well. Every model still agrees with the experts once length is set aside, keeping about 70%
+  of its agreement.
 - **Maths working.** No model gives full marks to wrong working that ends in the right answer, which an
   answer checker always does. Two small models read the working only weakly.
 
@@ -225,12 +249,14 @@ A grading is short: a median of 44-112 output tokens. Published estimates put an
 equals millions of ordinary gradings. Vendor and independent figures, who made each and what it counts, are
 in `docs/ENERGY.md`. None is audited.
 
-**Measured** (`energy/`, 2026-10-25): the nine open models, on one rented A100 GPU, batched 16 at a time, used
-1-16 mWh (thousandths of a watt-hour) per short answer and 4-51 mWh per essay or code answer, with the
-server's and data centre's overhead included by a stated factor. A whole leaderboard run used 7-34 Wh of GPU
-energy. That is below even the published per-token estimate for a small model in all 27 model-task cases (26 of
-27 with no idle power subtracted), by a median factor of 4. Sending one request at a time costs 4-16 times as much. Eight of the nine runs failed a
-pre-registered idle-power check, so only Olmo's comparison is a measured verdict; the rest are descriptive. With training, manufacturing and full
+**Measured** (`energy/`, pre-registered; re-run 2026-10-26 with a cool-down so every model passes its checks):
+- The nine open models, on one rented A100 GPU, batched 16 at a time, used 1.5-13 mWh (thousandths of a
+  watt-hour) per short answer and 3-44 mWh per essay or code answer. The server's and data centre's overhead is
+  included by a stated factor.
+- A whole leaderboard run used 6-29 Wh of GPU energy.
+- All 27 model-task figures are below even the published per-token estimate for a small model, by a median
+  factor of 4.
+- Sending one request at a time costs 5-15 times as much. With training, manufacturing and full
 water added (`docs/LIFECYCLE.md`), a short-answer grading is about 0.13 g CO2e in the central case: a term of
 them is roughly a kilometre of driving, and one quarter-pound beef patty equals about 86,000. The concern
 that holds up is the total and the place: data centres use about 1.5% of the world's electricity, but over a
