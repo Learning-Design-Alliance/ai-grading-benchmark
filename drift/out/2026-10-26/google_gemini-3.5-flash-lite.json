@@ -1,0 +1,490 @@
+{
+ "battery": "anchor",
+ "date": "2026-10-26",
+ "model": "google/gemini-3.5-flash-lite",
+ "tasks": {
+  "asap2": {
+   "failed": 0,
+   "hosts": {
+    "Google": 90
+   },
+   "marks": {
+    "5022023": {
+     "base": 2.0,
+     "retest": 2.0,
+     "retest2": 2.0
+    },
+    "5149435": {
+     "base": 2.0,
+     "retest": 2.0,
+     "retest2": 2.0
+    },
+    "5178823": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "5307166": {
+     "base": 2.0,
+     "retest": 2.0,
+     "retest2": 2.0
+    },
+    "5378268": {
+     "base": 3.0,
+     "retest": 3.0,
+     "retest2": 3.0
+    },
+    "AAAOPP13416000007742": {
+     "base": 4.0,
+     "retest": 4.0,
+     "retest2": 4.0
+    },
+    "AAAOPP13416000014064": {
+     "base": 4.0,
+     "retest": 4.0,
+     "retest2": 4.0
+    },
+    "AAAOPP13416000020221": {
+     "base": 4.0,
+     "retest": 4.0,
+     "retest2": 4.0
+    },
+    "AAAOPP13416000039528": {
+     "base": 3.0,
+     "retest": 3.0,
+     "retest2": 3.0
+    },
+    "AAAOPP13416000039607": {
+     "base": 3.0,
+     "retest": 3.0,
+     "retest2": 3.0
+    },
+    "AAAOPP13416000050308": {
+     "base": 4.0,
+     "retest": 4.0,
+     "retest2": 4.0
+    },
+    "AAAOPP13416000070917": {
+     "base": 4.0,
+     "retest": 4.0,
+     "retest2": 4.0
+    },
+    "AAAOPP13416000101087": {
+     "base": 4.0,
+     "retest": 4.0,
+     "retest2": 4.0
+    },
+    "AAAOPP13416000102735": {
+     "base": 2.0,
+     "retest": 2.0,
+     "retest2": 2.0
+    },
+    "AAAOPP13416000108077": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "AAAOPP13416000109394": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "AAAOPP13416000109544": {
+     "base": 3.0,
+     "retest": 2.0,
+     "retest2": 3.0
+    },
+    "AAAOPP13416000179412": {
+     "base": 5.0,
+     "retest": 4.0,
+     "retest2": 5.0
+    },
+    "AAAOPP13416000181854": {
+     "base": 3.0,
+     "retest": 3.0,
+     "retest2": 3.0
+    },
+    "AAATRP14318000283296": {
+     "base": 4.0,
+     "retest": 4.0,
+     "retest2": 4.0
+    },
+    "AAATRP14318000386854": {
+     "base": 3.0,
+     "retest": 3.0,
+     "retest2": 2.0
+    },
+    "AAATRP14318000651863": {
+     "base": 2.0,
+     "retest": 2.0,
+     "retest2": 2.0
+    },
+    "AAATRP14318000784352": {
+     "base": 2.0,
+     "retest": 2.0,
+     "retest2": 2.0
+    },
+    "AAATRP14318000917352": {
+     "base": 3.0,
+     "retest": 4.0,
+     "retest2": 4.0
+    },
+    "AAAVUP14319000040369": {
+     "base": 3.0,
+     "retest": 3.0,
+     "retest2": 3.0
+    },
+    "AAAVUP14319000048677": {
+     "base": 3.0,
+     "retest": 3.0,
+     "retest2": 3.0
+    },
+    "AAAVUP14319000123555": {
+     "base": 2.0,
+     "retest": 2.0,
+     "retest2": 2.0
+    },
+    "AAAVUP14319000127856": {
+     "base": 2.0,
+     "retest": 2.0,
+     "retest2": 2.0
+    },
+    "AAAVUP14319000134409": {
+     "base": 2.0,
+     "retest": 2.0,
+     "retest2": 2.0
+    },
+    "AAAVUP14319000139242": {
+     "base": 2.0,
+     "retest": 3.0,
+     "retest2": 2.0
+    }
+   },
+   "served_models": [
+    "google/gemini-3.5-flash-lite"
+   ]
+  },
+  "code": {
+   "failed": 0,
+   "hosts": {
+    "Google": 90
+   },
+   "marks": {
+    "hg10": {
+     "base": 0.0,
+     "retest": 0.0,
+     "retest2": 0.0
+    },
+    "hg110": {
+     "base": 73.0,
+     "retest": 73.0,
+     "retest2": 73.0
+    },
+    "hg115": {
+     "base": 15.0,
+     "retest": 26.0,
+     "retest2": 28.0
+    },
+    "hg140": {
+     "base": 43.0,
+     "retest": 43.0,
+     "retest2": 43.0
+    },
+    "hg225": {
+     "base": 40.0,
+     "retest": 46.0,
+     "retest2": 40.0
+    },
+    "hg265": {
+     "base": 75.0,
+     "retest": 73.0,
+     "retest2": 75.0
+    },
+    "hg310": {
+     "base": 30.0,
+     "retest": 35.0,
+     "retest2": 35.0
+    },
+    "hg335": {
+     "base": 22.0,
+     "retest": 23.0,
+     "retest2": 26.0
+    },
+    "hg410": {
+     "base": 75.0,
+     "retest": 75.0,
+     "retest2": 78.0
+    },
+    "hg415": {
+     "base": 51.0,
+     "retest": 45.0,
+     "retest2": 45.0
+    },
+    "hg440": {
+     "base": 25.0,
+     "retest": 21.0,
+     "retest2": 25.0
+    },
+    "hg455": {
+     "base": 45.0,
+     "retest": 45.0,
+     "retest2": 45.0
+    },
+    "hg475": {
+     "base": 60.0,
+     "retest": 75.0,
+     "retest2": 52.0
+    },
+    "hg50": {
+     "base": 10.0,
+     "retest": 8.0,
+     "retest2": 8.0
+    },
+    "hg520": {
+     "base": 12.0,
+     "retest": 27.0,
+     "retest2": 24.0
+    },
+    "hg525": {
+     "base": 15.0,
+     "retest": 15.0,
+     "retest2": 15.0
+    },
+    "hg530": {
+     "base": 0.0,
+     "retest": 0.0,
+     "retest2": 0.0
+    },
+    "hg540": {
+     "base": 15.0,
+     "retest": 15.0,
+     "retest2": 24.0
+    },
+    "hg55": {
+     "base": 67.0,
+     "retest": 46.0,
+     "retest2": 52.0
+    },
+    "hg570": {
+     "base": 38.0,
+     "retest": 26.0,
+     "retest2": 38.0
+    },
+    "hg575": {
+     "base": 24.0,
+     "retest": 24.0,
+     "retest2": 24.0
+    },
+    "hg585": {
+     "base": 75.0,
+     "retest": 75.0,
+     "retest2": 75.0
+    },
+    "hg60": {
+     "base": 8.0,
+     "retest": 19.0,
+     "retest2": 19.0
+    },
+    "hg675": {
+     "base": 71.0,
+     "retest": 75.0,
+     "retest2": 75.0
+    },
+    "hg700": {
+     "base": 5.0,
+     "retest": 2.0,
+     "retest2": 4.0
+    },
+    "hg720": {
+     "base": 5.0,
+     "retest": 8.0,
+     "retest2": 4.0
+    },
+    "hg760": {
+     "base": 0.0,
+     "retest": 0.0,
+     "retest2": 0.0
+    },
+    "hg775": {
+     "base": 34.0,
+     "retest": 38.0,
+     "retest2": 27.0
+    },
+    "hg80": {
+     "base": 28.0,
+     "retest": 25.0,
+     "retest2": 25.0
+    },
+    "hg85": {
+     "base": 39.0,
+     "retest": 52.0,
+     "retest2": 52.0
+    }
+   },
+   "served_models": [
+    "google/gemini-3.5-flash-lite"
+   ]
+  },
+  "mohler": {
+   "failed": 0,
+   "hosts": {
+    "Google": 90
+   },
+   "marks": {
+    "E01.Q02.A06": {
+     "base": 2.0,
+     "retest": 3.0,
+     "retest2": 3.0
+    },
+    "E01.Q04.A07": {
+     "base": 0.0,
+     "retest": 0.0,
+     "retest2": 0.0
+    },
+    "E01.Q05.A23": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E02.Q01.A23": {
+     "base": 4.0,
+     "retest": 4.0,
+     "retest2": 4.0
+    },
+    "E02.Q02.A08": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E02.Q03.A01": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E02.Q03.A21": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E03.Q01.A08": {
+     "base": 4.0,
+     "retest": 3.0,
+     "retest2": 3.0
+    },
+    "E03.Q04.A27": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E03.Q04.A29": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E03.Q06.A07": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E03.Q07.A24": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E04.Q04.A27": {
+     "base": 3.0,
+     "retest": 3.0,
+     "retest2": 3.0
+    },
+    "E05.Q01.A00": {
+     "base": 1.0,
+     "retest": 1.0,
+     "retest2": 1.0
+    },
+    "E05.Q01.A27": {
+     "base": 5.0,
+     "retest": 4.0,
+     "retest2": 5.0
+    },
+    "E05.Q04.A23": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E06.Q02.A24": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E06.Q04.A10": {
+     "base": 0.0,
+     "retest": 0.0,
+     "retest2": 0.0
+    },
+    "E06.Q06.A12": {
+     "base": 0.0,
+     "retest": 0.0,
+     "retest2": 0.0
+    },
+    "E07.Q03.A15": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E07.Q06.A05": {
+     "base": 3.0,
+     "retest": 3.0,
+     "retest2": 3.0
+    },
+    "E08.Q01.A08": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E08.Q03.A10": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E08.Q03.A21": {
+     "base": 3.0,
+     "retest": 3.0,
+     "retest2": 3.0
+    },
+    "E08.Q04.A26": {
+     "base": 1.0,
+     "retest": 1.0,
+     "retest2": 1.0
+    },
+    "E08.Q06.A16": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E09.Q02.A18": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E10.Q03.A00": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E10.Q05.A17": {
+     "base": 5.0,
+     "retest": 5.0,
+     "retest2": 5.0
+    },
+    "E10.Q07.A21": {
+     "base": 0.0,
+     "retest": 0.0,
+     "retest2": 0.0
+    }
+   },
+   "served_models": [
+    "google/gemini-3.5-flash-lite"
+   ]
+  }
+ }
+}
