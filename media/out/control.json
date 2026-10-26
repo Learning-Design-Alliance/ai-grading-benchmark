@@ -1,0 +1,258 @@
+{
+ "design": "media/floor.py docstring, step 2",
+ "models": [
+  {
+   "model": "google/gemini-3.8-flash",
+   "steps": {
+    "10 dB": {
+     "estimate": -0.008,
+     "ci95": [
+      -0.026000000000000002,
+      0.011000000000000001
+     ],
+     "n": 100,
+     "flag": false,
+     "mdc80": 0.026302482887754268
+    },
+    "0 dB": {
+     "estimate": -0.016,
+     "ci95": [
+      -0.037000000000000005,
+      0.005
+     ],
+     "n": 100,
+     "flag": false,
+     "mdc80": 0.030496391573264843
+    },
+    "-10 dB": {
+     "estimate": 0.004000000000000001,
+     "ci95": [
+      -0.034,
+      0.04
+     ],
+     "n": 100,
+     "flag": false,
+     "mdc80": 0.053825246601545376
+    }
+   },
+   "verdict": "DOES NOT RESPOND",
+   "not_ruled_out": -0.034,
+   "failed": {
+    "base": 0,
+    "noise_0db": 0,
+    "noise_m10db": 0
+   }
+  },
+  {
+   "model": "google/gemini-4-argon",
+   "steps": {
+    "10 dB": {
+     "estimate": -0.0025316455696202528,
+     "ci95": [
+      -0.02405063291139241,
+      0.0189873417721519
+     ],
+     "n": 79,
+     "flag": false,
+     "mdc80": 0.031893684911781545
+    },
+    "0 dB": {
+     "estimate": -6.938893903907229e-19,
+     "ci95": [
+      -0.0325,
+      0.034999999999999996
+     ],
+     "n": 80,
+     "flag": false,
+     "mdc80": 0.0475154871487954
+    },
+    "-10 dB": {
+     "estimate": -0.091044776119403,
+     "ci95": [
+      -0.14328358208955225,
+      -0.032835820895522394
+     ],
+     "n": 67,
+     "flag": true,
+     "mdc80": 0.0778072898999233
+    }
+   },
+   "verdict": "RESPONDS TO UNINTELLIGIBLE AUDIO",
+   "not_ruled_out": null,
+   "failed": {
+    "base": 19,
+    "noise_0db": 6,
+    "noise_m10db": 20
+   }
+  },
+  {
+   "model": "meta/muse-spark-open",
+   "steps": {
+    "10 dB": {
+     "estimate": 0.005714285714285715,
+     "ci95": [
+      -0.08571428571428572,
+      0.11142857142857143
+     ],
+     "n": 70,
+     "flag": false,
+     "mdc80": 0.13885160465742563
+    },
+    "0 dB": {
+     "estimate": -0.2153846153846154,
+     "ci95": [
+      -0.31666666666666665,
+      -0.10512820512820512
+     ],
+     "n": 78,
+     "flag": true,
+     "mdc80": 0.1494984742261527
+    },
+    "-10 dB": {
+     "estimate": -0.5621212121212121,
+     "ci95": [
+      -0.6696969696969698,
+      -0.4529924242424244
+     ],
+     "n": 66,
+     "flag": true,
+     "mdc80": 0.15050743676502973
+    }
+   },
+   "verdict": "RESPONDS TO UNINTELLIGIBLE AUDIO",
+   "not_ruled_out": null,
+   "failed": {
+    "base": 13,
+    "noise_0db": 10,
+    "noise_m10db": 22
+   }
+  },
+  {
+   "model": "mistralai/voxtral-small-24b-2507",
+   "steps": {
+    "10 dB": {
+     "estimate": 0.0,
+     "ci95": [
+      -0.011000000000000001,
+      0.011000000000000001
+     ],
+     "n": 100,
+     "flag": false,
+     "mdc80": 0.015918986821218915
+    },
+    "0 dB": {
+     "estimate": -0.013000000000000001,
+     "ci95": [
+      -0.026000000000000002,
+      2.4999999999863575e-05
+     ],
+     "n": 100,
+     "flag": false,
+     "mdc80": 0.018942507380454835
+    },
+    "-10 dB": {
+     "estimate": -0.026000000000000002,
+     "ci95": [
+      -0.037000000000000005,
+      -0.014000000000000002
+     ],
+     "n": 100,
+     "flag": true,
+     "mdc80": 0.017628076778511345
+    }
+   },
+   "verdict": "RESPONDS TO UNINTELLIGIBLE AUDIO",
+   "not_ruled_out": null,
+   "failed": {
+    "base": 0,
+    "noise_0db": 0,
+    "noise_m10db": 0
+   }
+  },
+  {
+   "model": "perceptron/perceptron-mk1.5",
+   "steps": {
+    "10 dB": {
+     "estimate": -0.086,
+     "ci95": [
+      -0.12300000000000001,
+      -0.051000000000000004
+     ],
+     "n": 100,
+     "flag": true,
+     "mdc80": 0.05096873274049215
+    },
+    "0 dB": {
+     "estimate": -0.242,
+     "ci95": [
+      -0.297,
+      -0.19097500000000014
+     ],
+     "n": 100,
+     "flag": true,
+     "mdc80": 0.07242482971741086
+    },
+    "-10 dB": {
+     "estimate": -0.59,
+     "ci95": [
+      -0.648,
+      -0.5309750000000002
+     ],
+     "n": 100,
+     "flag": true,
+     "mdc80": 0.08475085292023361
+    }
+   },
+   "verdict": "RESPONDS TO UNINTELLIGIBLE AUDIO",
+   "not_ruled_out": null,
+   "failed": {
+    "base": 0,
+    "noise_0db": 0,
+    "noise_m10db": 0
+   }
+  },
+  {
+   "model": "xiaomi/mimo-v2.6-flash",
+   "steps": {
+    "10 dB": {
+     "estimate": -0.005999999999999998,
+     "ci95": [
+      -0.035,
+      0.023000000000000003
+     ],
+     "n": 100,
+     "flag": false,
+     "mdc80": 0.040550474844334564
+    },
+    "0 dB": {
+     "estimate": -0.027272727272727275,
+     "ci95": [
+      -0.0595959595959596,
+      0.005050505050505053
+     ],
+     "n": 99,
+     "flag": false,
+     "mdc80": 0.04969696969696969
+    },
+    "-10 dB": {
+     "estimate": -0.245,
+     "ci95": [
+      -0.29402500000000004,
+      -0.19399999999999998
+     ],
+     "n": 100,
+     "flag": true,
+     "mdc80": 0.07320732976494315
+    }
+   },
+   "verdict": "RESPONDS TO UNINTELLIGIBLE AUDIO",
+   "not_ruled_out": null,
+   "failed": {
+    "base": 0,
+    "noise_0db": 1,
+    "noise_m10db": 0
+   }
+  }
+ ],
+ "passes": true
+}
