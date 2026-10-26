@@ -128,7 +128,7 @@ def cmd_run(a):
 def write_config(slug, cfg):
     """The pushback run's config, for leaderboard.py export: the feedback run's model, settings and cases."""
     keep = ("benchmark_version", "base_url", "model", "temperature", "max_tokens", "extra_body", "prompt", "prompt_sha256",
-            "cases_sha256", "case_ids", "route", "retention_exception")
+            "cases_sha256", "case_ids", "route", "retention_exception", "label")
     out = {k: cfg.get(k) for k in keep}
     out["turns"] = TURNS
     out["feedback_run"] = f"fbb-feedback-{slug}"
@@ -201,7 +201,8 @@ def cmd_analyse(a):
         res["models"] = json.load(open(a.out))["models"]
     slugs = sorted(d[len("fbb-feedback-"):] for d in os.listdir(RUNS) if d.startswith("fbb-feedback-"))
     for slug in slugs:
-        model = json.load(open(os.path.join(run_dir(slug), "config.json")))["model"]
+        pcfg = json.load(open(os.path.join(run_dir(slug), "config.json")))
+        model = pcfg.get("label") or pcfg["model"]
         row = {}
         # praise calibration, from the original feedback
         pairs = []

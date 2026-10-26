@@ -81,6 +81,8 @@ def cmd_run(a):
                 cmd += ["--route", cfg["route"]]
             if cfg.get("extra_body"):
                 cmd += ["--extra-body", json.dumps(cfg["extra_body"])]
+            if cfg.get("label"):
+                cmd += ["--label", cfg["label"]]
             p = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
             last = [l for l in (p.stdout + p.stderr).splitlines() if "gradings," in l or "Error" in l or "estimated" in l]
             print(slug, kind, last[-1] if last else p.returncode, flush=True)
@@ -130,7 +132,8 @@ def cmd_analyse(a):
         if not all(os.path.exists(p) for p in paths.values()):
             continue
         calls = {k: [json.loads(l) for l in open(p)] for k, p in paths.items()}
-        model = json.load(open(os.path.join(RUNS, f"fbb-feedback-{slug}", "config.json")))["model"]
+        fcfg = json.load(open(os.path.join(RUNS, f"fbb-feedback-{slug}", "config.json")))
+        model = fcfg.get("label") or fcfg["model"]
         h = fb.halo(cs, calls["blind"], calls["shown"])
         lc = lc_calls(slug, by_id, a.go)
         scored = [x for x in lc if x["score"] is not None]

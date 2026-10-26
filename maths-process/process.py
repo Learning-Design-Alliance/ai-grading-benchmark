@@ -253,7 +253,7 @@ def cmd_analyse(a):
                 continue
             credit[r["id"]] = max(0, min(4, round(r["score"])))
             extra[r["id"]] = parse_extra(r.get("text"))
-        row = summarise(cfg["model"], cs, credit, extra)
+        row = summarise(cfg.get("label") or cfg["model"], cs, credit, extra)
         row["failed"] = failed
         rows.append(row)
     for row in rows:

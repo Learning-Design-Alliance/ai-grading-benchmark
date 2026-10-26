@@ -271,6 +271,7 @@ def cmd_run(a):
         "case_ids": [c["id"] for c in cs], "video_frames": a.video_frames,
         "retention_exception": a.retention_exception, "route": a.route,
         "key_env": a.key_env,  # the variable's name only, never its value
+        "label": a.label,  # a row name when one model is entered in more than one setup (e.g. "<model>@8bit")
     }
     with open(os.path.join(a.out, "config.json"), "w") as fh:
         json.dump(config, fh, indent=1)
@@ -655,6 +656,7 @@ def main(argv=None):
     p.add_argument("--max-usd", type=float, help="stop sending once the endpoint-reported cost reaches this")
     p.add_argument("--retention-exception", help="for a model with no zero-retention endpoint: the route and its "
                    "retention, recorded in the run (e.g. 'own Anthropic key, 30-day safety retention; public corpora')")
+    p.add_argument("--label", help="row name for this setup of the model (recorded in the config; default: the model id)")
     p.add_argument("--route", help="where the model ran and what it retains, recorded in the config "
                                     "(e.g. a self-hosted pod)")
     p.add_argument("--video-frames", type=int, default=0,

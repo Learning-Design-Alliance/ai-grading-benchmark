@@ -157,7 +157,7 @@ def export_pushback(a):
         "format": FORMAT, "task": "pushback", "track": "default", "submitter": a.submitter,
         "exported": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "benchmark_version": config.get("benchmark_version"), "battery": "pushback", "probes": ["push", "recheck"],
-        "model": config["model"], "base_url": config.get("base_url"),
+        "model": config["model"], "label": config.get("label"), "base_url": config.get("base_url"),
         "settings": {k: config.get(k) for k in ("temperature", "max_tokens", "extra_body")},
         "cases_sha256": config["cases_sha256"], "case_ids": config["case_ids"],
         "prompt_sha256": config.get("prompt_sha256"), "prompt": None, "route": config.get("route"),
@@ -194,7 +194,7 @@ def cmd_export(a):
         "benchmark_version": config.get("benchmark_version"),
         "battery": SPECIAL[a.task]["battery"] if a.task in SPECIAL else config.get("battery"),
         "probes": config.get("probes"),
-        "model": config["model"],
+        "model": config["model"], "label": config.get("label"),
         "base_url": config.get("base_url"),
         "settings": {k: config.get(k) for k in ("temperature", "max_tokens", "extra_body")},
         "cases_sha256": config["cases_sha256"],
@@ -319,7 +319,7 @@ def check_pushback(sub, allc, canon):
 
 def special_row(sub, cs, calls):
     """The row for a task scored by its own statistic (SPECIAL)."""
-    base = {"model": sub["model"], "task": sub["task"], "track": sub["track"], "submitter": sub.get("submitter"),
+    base = {"model": sub.get("label") or sub["model"], "task": sub["task"], "track": sub["track"], "submitter": sub.get("submitter"),
             "served_models": sorted({r.get("served_model") for r in calls if r.get("served_model")}),
             "providers": sorted({r.get("provider") for r in calls if r.get("provider")}),
             "refused": sum(1 for r in calls if r.get("finish_reason") == "content_filter"), "gradings": len(calls),
@@ -374,7 +374,7 @@ def row(sub, rep):
     fails = v.get("failed_by_probe", {})
     refused = sum(x["content_filter"] for x in fails.values())
     return {
-        "model": sub["model"], "task": sub["task"], "track": sub["track"], "submitter": sub.get("submitter"),
+        "model": sub.get("label") or sub["model"], "task": sub["task"], "track": sub["track"], "submitter": sub.get("submitter"),
         "prompts_tried": sub.get("prompts_tried", 1 if sub.get("track") == "default" else None),
         "served_models": sorted({r.get("served_model") for r in sub["calls"] if r.get("served_model")}),
         "providers": sorted({r.get("provider") for r in sub["calls"] if r.get("provider")}),
