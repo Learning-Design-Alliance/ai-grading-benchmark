@@ -1,0 +1,226 @@
+{
+ "design": "media/floor.py docstring, step 1",
+ "runs": [
+  {
+   "run": "speech-google_gemini-3.8-flash",
+   "model": "google/gemini-3.8-flash",
+   "task": "speech",
+   "cases": 99,
+   "detection": {
+    "0.0": 0.05,
+    "-0.05": 1.0,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": -0.00909090909090909,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "speech-google_gemini-4-argon",
+   "model": "google/gemini-4-argon",
+   "task": "speech",
+   "cases": 80,
+   "detection": {
+    "0.0": 0.06,
+    "-0.05": 1.0,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": 0.01125,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "speech-meta_muse-spark-open",
+   "model": "meta/muse-spark-open",
+   "task": "speech",
+   "cases": 70,
+   "detection": {
+    "0.0": 0.08,
+    "-0.05": 0.21,
+    "-0.1": 0.525
+   },
+   "observed_retest_minus_base": 0.05714285714285714,
+   "verdict": "CANNOT SEE"
+  },
+  {
+   "run": "speech-mistralai_voxtral-small-24b-2507",
+   "model": "mistralai/voxtral-small-24b-2507",
+   "task": "speech",
+   "cases": 100,
+   "detection": {
+    "0.0": 0.045,
+    "-0.05": 1.0,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": -0.003,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "speech-perceptron_perceptron-mk1.5",
+   "model": "perceptron/perceptron-mk1.5",
+   "task": "speech",
+   "cases": 100,
+   "detection": {
+    "0.0": 0.07,
+    "-0.05": 1.0,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": -0.008,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "speech-xiaomi_mimo-v2.6-flash",
+   "model": "xiaomi/mimo-v2.6-flash",
+   "task": "speech",
+   "cases": 100,
+   "detection": {
+    "0.0": 0.045,
+    "-0.05": 0.965,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": -0.004,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "video-amazon_nova-2-lite-v1",
+   "model": "amazon/nova-2-lite-v1",
+   "task": "video",
+   "cases": 0,
+   "detection": {
+    "0.0": 0.0,
+    "-0.05": 0.0,
+    "-0.1": 0.0
+   },
+   "observed_retest_minus_base": null,
+   "verdict": "CANNOT SEE"
+  },
+  {
+   "run": "video-google_gemini-3.5-flash-lite",
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "video",
+   "cases": 100,
+   "detection": {
+    "0.0": 0.05,
+    "-0.05": 0.99,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": 0.00125,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "video-google_gemini-3.8-flash",
+   "model": "google/gemini-3.8-flash",
+   "task": "video",
+   "cases": 100,
+   "detection": {
+    "0.0": 0.055,
+    "-0.05": 1.0,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": -0.00875,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "video-google_gemini-4-argon",
+   "model": "google/gemini-4-argon",
+   "task": "video",
+   "cases": 100,
+   "detection": {
+    "0.0": 0.04,
+    "-0.05": 1.0,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": 0.003125,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "video-perceptron_perceptron-mk1.5",
+   "model": "perceptron/perceptron-mk1.5",
+   "task": "video",
+   "cases": 100,
+   "detection": {
+    "0.0": 0.065,
+    "-0.05": 1.0,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": -0.008125,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "video-qwen_qwen3.8-27b",
+   "model": "qwen/qwen3.8-27b",
+   "task": "video",
+   "cases": 76,
+   "detection": {
+    "0.0": 0.045,
+    "-0.05": 0.865,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": 0.009868421052631578,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "video-xiaomi_mimo-v2.6-flash",
+   "model": "xiaomi/mimo-v2.6-flash",
+   "task": "video",
+   "cases": 100,
+   "detection": {
+    "0.0": 0.035,
+    "-0.05": 0.51,
+    "-0.1": 0.975
+   },
+   "observed_retest_minus_base": -0.006875,
+   "verdict": "CAN SEE 10%"
+  },
+  {
+   "run": "video16f-anthropic_claude-haiku-5.5",
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "video",
+   "cases": 100,
+   "detection": {
+    "0.0": 0.055,
+    "-0.05": 0.92,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": 0.018125,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "video16f-anthropic_claude-opus-5.5",
+   "model": "anthropic/claude-opus-5.5",
+   "task": "video",
+   "cases": 100,
+   "detection": {
+    "0.0": 0.055,
+    "-0.05": 1.0,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": 0.0,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "video16f-google_gemini-3.8-flash",
+   "model": "google/gemini-3.8-flash",
+   "task": "video",
+   "cases": 98,
+   "detection": {
+    "0.0": 0.045,
+    "-0.05": 1.0,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": 0.01211734693877551,
+   "verdict": "CAN SEE 5%"
+  },
+  {
+   "run": "video16f-openai_gpt-5-mini",
+   "model": "openai/gpt-5-mini",
+   "task": "video",
+   "cases": 95,
+   "detection": {
+    "0.0": 0.055,
+    "-0.05": 0.995,
+    "-0.1": 1.0
+   },
+   "observed_retest_minus_base": -0.005263157894736842,
+   "verdict": "CAN SEE 5%"
+  }
+ ]
+}
