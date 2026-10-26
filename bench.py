@@ -312,7 +312,9 @@ def prices_from(a):
 def cmd_score(a):
     config, cs, calls = load_run(a.run, a.cases)
     rep = report_mod.build(cs, calls, prices_from(a), a.pass_mark)
-    rep["config"] = {k: v for k, v in config.items() if k != "case_ids"}
+    # A report may be committed: keep only the file name of any machine-local path in its config.
+    rep["config"] = {k: (os.path.basename(v) if isinstance(v, str) and os.path.isabs(v) else v)
+                     for k, v in config.items() if k != "case_ids"}
     with open(os.path.join(a.run, "report.json"), "w") as fh:
         json.dump(rep, fh, indent=1)
     md = render_md(rep)

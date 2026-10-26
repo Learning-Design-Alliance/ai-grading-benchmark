@@ -75,7 +75,7 @@ import cases as cases_mod  # noqa: E402
 import leaderboard as lb  # noqa: E402
 from metrics import mean, qwk  # noqa: E402
 
-RUNS = os.environ.get("GB_RUNS", "runs")
+RUNS = os.environ.get("GB_RUNS", os.environ.get("GBENCH_RUNS", "runs"))
 FILES = {"mohler": "mohler.jsonl", "code": "harmogen-code.jsonl", "asap2": "asap2.jsonl"}
 OUT = os.path.join(HERE, "out")
 FABLE = "anthropic/claude-fable-5.1"

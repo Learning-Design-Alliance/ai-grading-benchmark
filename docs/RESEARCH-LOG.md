@@ -77,7 +77,7 @@ rendered prompts. Each world ran on 20 seeds. **FLOOR PASSES.**
 
 ## Things found on the way
 
-- **`(private analysis repository)` gives Mohler a ceiling of 0.503, not 0.519.** It pools
+- **the maintainers' earlier grader-check script (private, not part of this repository) gives Mohler a ceiling of 0.503, not 0.519.** It pools
   both orders of each rater pair. The release counts one order per pair. This package follows the
   release. `grader_check.py` is unchanged, because the fix is a choice for the maintainer.
 - **ASAP 2.0 releases one mark per essay** (adjudicated from two blind expert ratings; the individual
@@ -393,7 +393,7 @@ host restarted the container five times, so Olmo and DeBERTa ran on a second pod
 ## Running it
 
 Fetch Mohler or ASAP 2.0 yourself (`data/data-sources.json`: `mohler-asag`, `asap2`, both CC BY 4.0;
-Mohler's parquet goes through `(private analysis repository)`). Then follow the usage in
+Mohler's parquet goes through a conversion script in the maintainers' private analysis repository). Then follow the usage in
 `bench.py`'s docstring. `run` is a dry run until `--go` is passed. Keep `runs/` out of version
 control, because reply text can quote student work.
 

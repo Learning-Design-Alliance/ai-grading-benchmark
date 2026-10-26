@@ -57,7 +57,7 @@ sys.path.insert(0, ROOT)
 sys.path.insert(0, os.path.join(ROOT, "feedback-validity"))
 
 RUNS = os.environ.get("GBENCH_RUNS", "runs")
-CASES = os.environ.get("MOHLER_CASES", "data/mohler/mohler.jsonl")
+CASES = os.environ.get("MOHLER_CASES", "data/mohler.jsonl")
 PROMPTS = {"feedback": "prompts/feedback.txt", "blind": "prompts/feedback-blind.txt", "shown": "prompts/feedback-shown.txt"}
 
 

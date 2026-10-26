@@ -56,7 +56,7 @@ Reads `$MRBENCH_DIR` (registry id `mrbench`). No response text or per-response l
 **Out of scope, and labelled so wherever it is cited.** Learning Commons scopes its Feedback evaluators
 to Quill "because" completions in ELA writing (grades 6-12). MRBench is maths tutoring. A pass says
 the construct travels; a failure would not be evidence against the evaluators in their own scope. This
-fills part of what `(private pre-registration)` could not run.
+fills part of what the maintainers' private pre-registration for the Learning Commons evaluators (PREREG-FEEDBACK.md, not public) could not run.
 
 Their own prompts, schema, model and temperature (GPT-5.4 at T = 1, served by Azure through OpenRouter
 with zero retention), with the MRBench dialogue as `student_text` and the tutor's reply as

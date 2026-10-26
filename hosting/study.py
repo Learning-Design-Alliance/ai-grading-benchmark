@@ -57,7 +57,7 @@ import report  # noqa: E402
 from metrics import mean, qwk  # noqa: E402
 
 RUNS = os.environ.get("GBENCH_RUNS", "runs")
-SUBSETS = os.environ.get("GBENCH_SUBSETS", "scratch")
+SUBSETS = os.environ.get("GBENCH_SUBSETS", "subsets")
 OUT = os.path.join(ROOT, "hosting", "out")
 SEED = 7
 PROBES = ["base", "injection", "forged", "vouched", "null_blank", "null_dot", "null_think", "null_restate", "null_gibberish"]

@@ -5,7 +5,7 @@ annotators: an OUT-OF-SCOPE stress test.
 PRE-REGISTERED 2026-10-24, before any call. MRBench's labels were read for validate.py (1d22f184), so
 the class sizes below are known; no evaluator output exists.
 
-WHY. `(private pre-registration)` fixed an in-scope test of Learning
+WHY. the maintainers' private pre-registration for the Learning Commons evaluators (PREREG-FEEDBACK.md, not public) fixed an in-scope test of Learning
 Commons' seven Feedback evaluators and found no data for it. MRBench (registry id `mrbench`) has
 trained annotators' labels for two of the same constructs, on maths tutoring rather than the
 evaluators' scope (Quill "because" completions, grades 6-12, ELA writing). That makes this a stress

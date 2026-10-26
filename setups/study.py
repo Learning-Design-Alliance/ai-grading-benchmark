@@ -76,7 +76,7 @@ import cases as cases_mod  # noqa: E402
 import report  # noqa: E402
 
 RUNS = os.environ.get("GBENCH_RUNS", "runs")
-SUBSETS = os.environ.get("GBENCH_SUBSETS", "scratch")
+SUBSETS = os.environ.get("GBENCH_SUBSETS", "subsets")
 OUT = os.path.join(ROOT, "setups", "out")
 SEED = 7
 TASKS = ("mohler", "code", "asap2")

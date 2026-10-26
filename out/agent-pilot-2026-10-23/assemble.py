@@ -1,12 +1,12 @@
 """Turn the Fable subagents' outputs into run folders bench.py can score (agent-harness condition)."""
 import json, os, sys, glob, hashlib, time
-B = "."
+B = os.environ.get("GBENCH_DIR", ".")
 sys.path.insert(0, B)
 from prompting import load_prompt
 FD = os.path.dirname(os.path.abspath(__file__))
-R = "runs"
-CASES = {"mohler": "data/mohler/mohler.jsonl",
-         "code": "data/harmogen/harmogen-code.jsonl"}
+R = os.environ.get("GBENCH_RUNS", "runs")
+CASES = {"mohler": os.path.join(os.environ.get("DATA_DIR", "data"), "mohler.jsonl"),
+         "code": os.path.join(os.environ.get("DATA_DIR", "data"), "harmogen-code.jsonl")}
 prompt = load_prompt(f"{B}/prompts/default.txt")
 keymap = json.load(open(f"{FD}/keys/keymap.json"))
 ids = json.load(open(f"{FD}/keys/ids.json"))
