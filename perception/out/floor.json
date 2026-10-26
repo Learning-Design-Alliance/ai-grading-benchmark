@@ -1,0 +1,179 @@
+{
+ "pre_registered": "2026-10-26",
+ "sample_videos": 1280,
+ "bars": {
+  "detection_at_least": 0.8,
+  "false_alarm_at_most": 0.07
+ },
+ "cannot_see": {
+  "base_lit": 0.03,
+  "base_dark": 0.05,
+  "planted_gap_dark": 0.1,
+  "worlds": 1000,
+  "bootstrap_draws": 1000,
+  "seed": 11,
+  "measure": "cannot_see",
+  "results": {
+   "null": {
+    "GAP_LIT": {
+     "non_null_share": 0.085,
+     "right_direction_share": 0.012,
+     "mean_estimate": -0.0012173160173160164
+    },
+    "GAP_DARK": {
+     "non_null_share": 0.065,
+     "right_direction_share": 0.025,
+     "mean_estimate": 0.0012909090909090915
+    },
+    "INTERACTION": {
+     "non_null_share": 0.051,
+     "right_direction_share": 0.023,
+     "mean_estimate": 0.002508225108225108
+    }
+   },
+   "planted": {
+    "GAP_LIT": {
+     "non_null_share": 0.08,
+     "right_direction_share": 0.018,
+     "mean_estimate": 0.00022727272727272825
+    },
+    "GAP_DARK": {
+     "non_null_share": 0.848,
+     "right_direction_share": 0.848,
+     "mean_estimate": 0.09943852813852815
+    },
+    "INTERACTION": {
+     "non_null_share": 0.71,
+     "right_direction_share": 0.71,
+     "mean_estimate": 0.0992112554112554
+    }
+   }
+  },
+  "verdict": {
+   "GAP_LIT": {
+    "detection": null,
+    "false_alarm": 0.085,
+    "pass": false
+   },
+   "GAP_DARK": {
+    "detection": 0.848,
+    "false_alarm": 0.065,
+    "pass": true
+   },
+   "INTERACTION": {
+    "detection": 0.71,
+    "false_alarm": 0.051,
+    "pass": false
+   }
+  }
+ },
+ "rating": {
+  "mean_lit": 3.5,
+  "mean_dark": 3.3,
+  "planted_gap_dark_points": -0.4,
+  "planted_gap_dark_share": -0.1,
+  "worlds": 1000,
+  "bootstrap_draws": 1000,
+  "seed": 11,
+  "measure": "rating",
+  "results": {
+   "null": {
+    "GAP_LIT": {
+     "non_null_share": 0.073,
+     "right_direction_share": 0.042,
+     "mean_estimate": -0.00019491341991341915
+    },
+    "GAP_DARK": {
+     "non_null_share": 0.053,
+     "right_direction_share": 0.023,
+     "mean_estimate": -3.0194805194802444e-05
+    },
+    "INTERACTION": {
+     "non_null_share": 0.06,
+     "right_direction_share": 0.026,
+     "mean_estimate": 0.0001647186147186167
+    }
+   },
+   "planted": {
+    "GAP_LIT": {
+     "non_null_share": 0.062,
+     "right_direction_share": 0.033,
+     "mean_estimate": -0.0004909090909090895
+    },
+    "GAP_DARK": {
+     "non_null_share": 0.98,
+     "right_direction_share": 0.98,
+     "mean_estimate": -0.09928787878787879
+    },
+    "INTERACTION": {
+     "non_null_share": 0.855,
+     "right_direction_share": 0.855,
+     "mean_estimate": -0.0987969696969697
+    }
+   }
+  },
+  "verdict": {
+   "GAP_LIT": {
+    "detection": null,
+    "false_alarm": 0.073,
+    "pass": false
+   },
+   "GAP_DARK": {
+    "detection": 0.98,
+    "false_alarm": 0.053,
+    "pass": true
+   },
+   "INTERACTION": {
+    "detection": 0.855,
+    "false_alarm": 0.06,
+    "pass": true
+   }
+  }
+ },
+ "other_base_rates": {
+  "lit 0.01, dark 0.02": {
+   "GAP_LIT": {
+    "detection": null,
+    "false_alarm": 0.228,
+    "pass": false
+   },
+   "GAP_DARK": {
+    "detection": 0.951,
+    "false_alarm": 0.134,
+    "pass": false
+   },
+   "INTERACTION": {
+    "detection": 0.903,
+    "false_alarm": 0.08,
+    "pass": false
+   }
+  },
+  "lit 0.10, dark 0.15": {
+   "GAP_LIT": {
+    "detection": null,
+    "false_alarm": 0.081,
+    "pass": false
+   },
+   "GAP_DARK": {
+    "detection": 0.588,
+    "false_alarm": 0.054,
+    "pass": false
+   },
+   "INTERACTION": {
+    "detection": 0.452,
+    "false_alarm": 0.061,
+    "pass": false
+   }
+  }
+ },
+ "passed": {
+  "cannot_see GAP_LIT": false,
+  "cannot_see GAP_DARK": true,
+  "cannot_see INTERACTION": false,
+  "rating GAP_LIT": false,
+  "rating GAP_DARK": true,
+  "rating INTERACTION": true
+ },
+ "refusal": "uses the cannot_see statistic unchanged; its floor is cannot_see's",
+ "seconds": 15
+}

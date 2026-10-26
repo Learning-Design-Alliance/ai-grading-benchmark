@@ -1,0 +1,38 @@
+{
+ "built": "2026-10-26",
+ "sent": false,
+ "prompt": "prompts/spoken-answer.txt",
+ "prompt_sha256": "177d3eebc2ff0a0a00fd12b65272523dd9e2a684381e0410082bcf7a9972cf86",
+ "messages": [
+  "system",
+  "user"
+ ],
+ "user_parts": [
+  "text",
+  "video_url"
+ ],
+ "user_text": "The student was asked to answer this question aloud, to camera, in about a minute, in a language of their\nchoice: <the video's own question>\n\n(The student's recorded answer is attached.)\n\nCheck the recording and reply with only a JSON object:\n{\"speaker_visible\": <true if you can see the student giving the answer, false if you cannot>, \"audible\": \"<yes, no, or cannot tell>\", \"delivery\": <an integer from 1 to 5 for how clearly and confidently the answer is delivered: 1 very poor, 5 excellent; null if you cannot see or hear the student>, \"feedback\": \"<one sentence of feedback to the student on their delivery>\"}",
+ "video_part_mime": "data:video/mp4",
+ "video_bytes": 102205913,
+ "video_sha256_matches_bytes_sent": true,
+ "request_body_bytes": 136275824,
+ "video": {
+  "codec": "h264",
+  "width": 1920,
+  "height": 1080,
+  "frame_rate": "90000/1",
+  "seconds": 61.3
+ },
+ "audio": [
+  "aac"
+ ],
+ "request_options": {
+  "max_tokens": 2048,
+  "usage": {
+   "include": true
+  },
+  "provider": {
+   "zdr": true
+  }
+ }
+}
