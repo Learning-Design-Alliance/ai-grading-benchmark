@@ -273,6 +273,11 @@ CHANGES:
      is withdrawn: no API is called.
    - Unchanged: the sample, the prompt, the measures, the verdict strings, the controls (10 black, silent clips per
      model, sent first) and the UNMEASURED rules.
+2. (2026-10-26, during the run, after reading only the first 12 test records of one model and no group comparison)
+   FLOOR step 2 for the delivery mark now also withholds marks at random at the model's own rated share in each
+   stratum. Reason: the test records showed Gemma 4 31B answering audible "no" (it takes no audio) and so, as the
+   prompt allows, withholding the mark; a step-2 floor that assumed every video rated would pass a measure resting
+   on a few marks. The prompt, measures and verdicts are unchanged.
 
 Usage (every command that reads CCv2 files is run with `python3 -I`):
     python3 -I perception/study.py sample   --ann CCv2.json --dir DIR       # the draw, to DIR/sample.json
@@ -551,7 +556,8 @@ def binary_worlds(base_lit, base_dark, gap):
     return null, planted
 
 
-def run_floor(sample, worlds=200, reps=1000, seed=11, base=(0.03, 0.05), gap=0.10, rating=None, rating_sd=None):
+def run_floor(sample, worlds=200, reps=1000, seed=11, base=(0.03, 0.05), gap=0.10, rating=None, rating_sd=None,
+              keep=None):
     """rating: (mean in LIT, planted step) or (mean LIT, step, mean DARK); rating_sd: total SD in points (split
     evenly between subject and video), default 0.6 + 0.6."""
     import numpy as np
@@ -573,7 +579,12 @@ def run_floor(sample, worlds=200, reps=1000, seed=11, base=(0.03, 0.05), gap=0.1
         worlds_def = {"null": [[mean] * 6, [d] * 6]}
         worlds_def["planted"] = [[mean] * 6, [d, d, d - step, d - step, d - 2 * step, d - 2 * step]]
         sds = (0.6, 0.6) if rating_sd is None else (rating_sd / 2 ** 0.5, rating_sd / 2 ** 0.5)
-        sim = lambda spec: simulate_rating(grp, has, spec, rng, *sds)  # noqa: E731
+        def sim(spec):
+            y, ok = simulate_rating(grp, has, spec, rng, *sds)
+            if keep is not None:  # step 2: marks withheld at the model's own rate per stratum, at random
+                for s_ in range(2):
+                    ok[s_] &= rng.random(len(grp)) < keep[s_]
+            return y, ok
         measure, planted_keys = "rating", ("GAP_DARK", "INTERACTION")
         want_sign, add = -1, 0.0
     for name, spec in worlds_def.items():
@@ -1033,8 +1044,11 @@ def cmd_analyse(a):
                 allv = vals[0] + vals[1]
                 if len(allv) > 2 and vals[0] and vals[1]:
                     sd = float(np.std(allv))
+                    kept_share = tuple(len(vals[s_]) / max(1, int(has[s_].sum())) for s_ in range(2))
+                    row["rated_share"] = {"LIT": kept_share[0], "DARK": kept_share[1]}
                     f2 = run_floor(sample, worlds=500, reps=500, seed=13,
-                                   rating=(float(np.mean(vals[0])), 0.2, float(np.mean(vals[1]))), rating_sd=max(sd, 0.1))
+                                   rating=(float(np.mean(vals[0])), 0.2, float(np.mean(vals[1]))), rating_sd=max(sd, 0.1),
+                                   keep=kept_share)
                 else:
                     f2 = None
             else:
