@@ -62,11 +62,33 @@ Central case, short-answer gradings (0.13 g CO2e each):
 | streaming video for an hour | 55 g | electricity only, mostly the home router and screen; making the devices excluded (Carbon Trust) | about 400 |
 | a quarter-pound beef patty | 11.2 kg | life cycle, global mean (Poore and Nemecek) | about 86,000 |
 | a quarter-pound tofu patty | 0.36 kg | life cycle, global mean | about 2,700 |
+| a 250 mL glass of almond milk | 176 g | life cycle, global mean (Poore and Nemecek) | about 1,300 |
+| a 250 mL glass of oat milk | 226 g | as above | about 1,700 |
+| a 250 mL glass of dairy milk | 788 g | as above | about 6,000 |
 | a 1,000 km return flight | 308 kg | per passenger, including non-CO2 effects | about 2.4 million |
 
 So a term of AI-graded short answers is roughly a kilometre of driving or four hours of streaming. Grading a
 30-minute video is closer to 50 m of driving. For one person's choices, a meal or a trip matters far more than
 grading.
+
+**Water.** Central case, short-answer gradings (1.3 mL each, counting water evaporated on site, used to make the
+electricity, and used to make the chips):
+
+| choice | water | equals, in short-answer gradings |
+|---|---|---|
+| a teacher's term: 150 students × 10 assignments | 1.9 L | 1,500 |
+| a 250 mL glass of oat milk | 12 L | about 9,400 |
+| a 250 mL glass of almond milk | 93 L | about 72,000 |
+| a 250 mL glass of dairy milk | 157 L | about 122,000 |
+| a quarter-pound beef patty | 164 L | about 128,000 |
+
+The food figures are freshwater withdrawn over the whole life cycle, mostly to irrigate crops and feed (Poore
+and Nemecek 2018, global means via Our World in Data; farms vary widely). The grading's water is mostly water
+consumed (evaporated), which is not the same measure: withdrawn water can partly return to rivers, so the
+comparison overstates the food's share somewhat. Even so, one glass of almond milk is about 48 terms of a
+teacher's AI-graded short answers. Almond milk is thirsty beside oat milk, but still uses less water than dairy
+milk. Where the water is drawn matters as much as how much: almonds are mostly grown in drought-prone
+California, and data centres are often sited where water is short.
 
 ## Where the concern is real: the total, and the place
 

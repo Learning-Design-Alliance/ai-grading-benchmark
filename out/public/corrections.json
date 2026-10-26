@@ -22,7 +22,7 @@
 "date": "2026-10-25",
 "what": "Claude Haiku 5.5, re-run under verified zero retention (all five tasks and feedback)",
 "was": "overall 91.0; pushback +3.5% [+1.4, +5.7]; working effect +1.91",
-"now": "overall 91.4 (rank 3, interval 2-8 unchanged); pushback +3.1% [+0.9, +5.4]; working effect +1.86; halo +0.11; gives-away 98%",
+"now": "overall 91.4 (rank 3, interval 2-8 unchanged at the time; 2-11 after four models were added on 2026-10-26); pushback +3.1% [+0.9, +5.4]; working effect +1.86; halo +0.11; gives-away 98%",
 "why": "about half its earlier gradings went through the maintainers' own key with 30-day retention",
 "where": "submissions/anthropic__claude-haiku-5.5/"
 },

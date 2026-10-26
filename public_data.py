@@ -646,12 +646,17 @@ def lifecycle_compare():
     if not e or "lifecycle" not in e:
         return []
     short = [tk for tk in e["tasks"] if tk["task"] == "short answer"][0]
-    g = _lifecycle_task(e, short)[1]["central"]["g"]
+    central = _lifecycle_task(e, short)[1]["central"]
+    g, ml = central["g"], central["ml"]
     rows = [{"key": "term", "item": "a teacher's term of short answers (150 students x 10 assignments)", "g_co2e": round(1500 * g, 1),
-             "boundary": "full life cycle, central case (this benchmark's estimate)", "source": "docs/LIFECYCLE.md", "gradings": 1500}]
+             "boundary": "full life cycle, central case (this benchmark's estimate)", "source": "docs/LIFECYCLE.md", "gradings": 1500,
+             "ml_water": round(1500 * ml), "gradings_water": 1500,
+             "water_boundary": "water evaporated on site, used to make the electricity and to make the chips"}]
     for c in e["lifecycle"]["comparators"]:
+        w = c.get("ml_water")
         rows.append({"key": c["item"], "item": c["item"], "g_co2e": c["g_co2e"], "boundary": c["boundary"], "source": c["source"],
-                     "gradings": round(c["g_co2e"] / g)})
+                     "gradings": round(c["g_co2e"] / g), "ml_water": w, "gradings_water": round(w / ml) if w else None,
+                     "water_boundary": c.get("water_boundary")})
     return rows
 
 

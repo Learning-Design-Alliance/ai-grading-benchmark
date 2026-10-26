@@ -207,19 +207,47 @@
     "item": "a quarter-pound (113 g) beef burger patty",
     "g_co2e": 11240,
     "boundary": "full life cycle, global mean, beef herd",
-    "source": "Poore and Nemecek 2018 via Our World in Data"
+    "source": "Poore and Nemecek 2018 via Our World in Data",
+    "ml_water": 163986,
+    "water_boundary": "freshwater withdrawn over the whole life cycle, mostly to grow feed"
    },
    {
     "item": "a half-pound (227 g) beef burger patty",
     "g_co2e": 22560,
     "boundary": "as above",
-    "source": "Poore and Nemecek 2018 via Our World in Data"
+    "source": "Poore and Nemecek 2018 via Our World in Data",
+    "ml_water": 329132,
+    "water_boundary": "freshwater withdrawn over the whole life cycle, mostly to grow feed"
    },
    {
     "item": "a quarter-pound tofu patty",
     "g_co2e": 360,
     "boundary": "full life cycle, global mean",
     "source": "Poore and Nemecek 2018 via Our World in Data"
+   },
+   {
+    "item": "a 250 mL glass of almond milk",
+    "g_co2e": 175.5,
+    "ml_water": 92865,
+    "boundary": "full life cycle, global mean, per glass (farms vary widely)",
+    "water_boundary": "freshwater withdrawn over the whole life cycle, mostly irrigation",
+    "source": "Poore and Nemecek 2018 via Our World in Data (environmental footprint of milks, per litre, global means)"
+   },
+   {
+    "item": "a 250 mL glass of dairy (cow's) milk",
+    "g_co2e": 787.5,
+    "ml_water": 157050,
+    "boundary": "full life cycle, global mean, per glass (farms vary widely)",
+    "water_boundary": "freshwater withdrawn over the whole life cycle, mostly irrigation",
+    "source": "Poore and Nemecek 2018 via Our World in Data (environmental footprint of milks, per litre, global means)"
+   },
+   {
+    "item": "a 250 mL glass of oat milk",
+    "g_co2e": 225.8,
+    "ml_water": 12060,
+    "boundary": "full life cycle, global mean, per glass (farms vary widely)",
+    "water_boundary": "freshwater withdrawn over the whole life cycle, mostly irrigation",
+    "source": "Poore and Nemecek 2018 via Our World in Data (environmental footprint of milks, per litre, global means)"
    },
    {
     "item": "a 1,000 km return flight, per passenger (2,000 km)",
