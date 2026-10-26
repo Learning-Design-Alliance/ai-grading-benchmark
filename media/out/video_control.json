@@ -1,0 +1,637 @@
+{
+ "design": "media/floor.py docstring, step 3",
+ "runs": [
+  {
+   "run": "video-amazon_nova-2-lite-v1",
+   "model": "amazon/nova-2-lite-v1",
+   "video_frames": 0,
+   "base_marked": 0,
+   "measurable": false,
+   "conditions": {
+    "dark_25": {
+     "change": null,
+     "n_paired": 0,
+     "graded": 100,
+     "declines": 8,
+     "unmarked": 100
+    },
+    "dark_05": {
+     "change": null,
+     "n_paired": 0,
+     "graded": 100,
+     "declines": 13,
+     "unmarked": 86
+    },
+    "pixel_16": {
+     "change": null,
+     "n_paired": 0,
+     "graded": 100,
+     "declines": 6,
+     "unmarked": 100
+    }
+   },
+   "control": "UNMEASURABLE (base marked on fewer than 80)",
+   "lighting": "UNMEASURABLE (base marked on fewer than 80)"
+  },
+  {
+   "run": "video-google_gemini-3.5-flash-lite",
+   "model": "google/gemini-3.5-flash-lite",
+   "video_frames": 0,
+   "base_marked": 100,
+   "measurable": true,
+   "conditions": {
+    "dark_25": {
+     "change": {
+      "estimate": -0.010625,
+      "ci95": [
+       -0.053765625,
+       0.0325
+      ],
+      "n": 100,
+      "flag": false,
+      "mdc80": 0.061233836251048335
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "dark_05": {
+     "change": {
+      "estimate": -0.25875,
+      "ci95": [
+       -0.32625,
+       -0.1849843750000001
+      ],
+      "n": 100,
+      "flag": true,
+      "mdc80": 0.10158651833324492
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "pixel_16": {
+     "change": {
+      "estimate": -0.146875,
+      "ci95": [
+       -0.210640625,
+       -0.081875
+      ],
+      "n": 100,
+      "flag": true,
+      "mdc80": 0.09410488386192646
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    }
+   },
+   "control": "RESPONDS TO AN UNREADABLE PICTURE",
+   "lighting": "NO LIGHTING EFFECT DETECTED",
+   "lighting_not_ruled_out": -0.053765625
+  },
+  {
+   "run": "video-google_gemini-3.8-flash",
+   "model": "google/gemini-3.8-flash",
+   "video_frames": 0,
+   "base_marked": 100,
+   "measurable": true,
+   "conditions": {
+    "dark_25": {
+     "change": {
+      "estimate": -0.011875,
+      "ci95": [
+       -0.035,
+       0.0125
+      ],
+      "n": 100,
+      "flag": false,
+      "mdc80": 0.03398613613659178
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "dark_05": {
+     "change": {
+      "estimate": -0.0625,
+      "ci95": [
+       -0.09625,
+       -0.029375
+      ],
+      "n": 100,
+      "flag": true,
+      "mdc80": 0.04930962780167169
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "pixel_16": {
+     "change": {
+      "estimate": 0.020625,
+      "ci95": [
+       -0.006875,
+       0.04625
+      ],
+      "n": 100,
+      "flag": false,
+      "mdc80": 0.038538146849923426
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    }
+   },
+   "control": "DOES NOT RESPOND",
+   "control_not_ruled_out": -0.006875,
+   "lighting": "NOT READ (does not respond to an unreadable picture)"
+  },
+  {
+   "run": "video-google_gemini-4-argon",
+   "model": "google/gemini-4-argon",
+   "video_frames": 0,
+   "base_marked": 100,
+   "measurable": true,
+   "conditions": {
+    "dark_25": {
+     "change": {
+      "estimate": 0.025625,
+      "ci95": [
+       -0.005015624999999999,
+       0.056875
+      ],
+      "n": 100,
+      "flag": false,
+      "mdc80": 0.04484774326270582
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "dark_05": {
+     "change": {
+      "estimate": 0.051875,
+      "ci95": [
+       0.011859375000000002,
+       0.08875
+      ],
+      "n": 100,
+      "flag": true,
+      "mdc80": 0.053984770345838554
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "pixel_16": {
+     "change": {
+      "estimate": 0.049375,
+      "ci95": [
+       0.01125,
+       0.0862656249999999
+      ],
+      "n": 100,
+      "flag": true,
+      "mdc80": 0.05473819115304296
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    }
+   },
+   "control": "RAISES THE MARK",
+   "lighting": "NOT READ (does not respond to an unreadable picture)"
+  },
+  {
+   "run": "video-perceptron_perceptron-mk1.5",
+   "model": "perceptron/perceptron-mk1.5",
+   "video_frames": 0,
+   "base_marked": 100,
+   "measurable": true,
+   "conditions": {
+    "dark_25": {
+     "change": {
+      "estimate": -0.031875,
+      "ci95": [
+       -0.056875,
+       -0.004375
+      ],
+      "n": 100,
+      "flag": true,
+      "mdc80": 0.0369347209426457
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "dark_05": {
+     "change": {
+      "estimate": -0.505,
+      "ci95": [
+       -0.546265625,
+       -0.4625
+      ],
+      "n": 100,
+      "flag": true,
+      "mdc80": 0.059367797277104305
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "pixel_16": {
+     "change": {
+      "estimate": -0.33375,
+      "ci95": [
+       -0.38375,
+       -0.285
+      ],
+      "n": 100,
+      "flag": true,
+      "mdc80": 0.07265507622327637
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    }
+   },
+   "control": "RESPONDS TO AN UNREADABLE PICTURE",
+   "lighting": "MARKS DIM WORK LOWER"
+  },
+  {
+   "run": "video-qwen_qwen3.8-27b",
+   "model": "qwen/qwen3.8-27b",
+   "video_frames": 0,
+   "base_marked": 86,
+   "measurable": true,
+   "conditions": {
+    "dark_25": {
+     "change": {
+      "estimate": -0.017857142857142856,
+      "ci95": [
+       -0.04547483766233766,
+       0.010551948051948052
+      ],
+      "n": 77,
+      "flag": false,
+      "mdc80": 0.03853243833223834
+     },
+     "n_paired": 77,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 11
+    },
+    "dark_05": {
+     "change": {
+      "estimate": -0.07890625,
+      "ci95": [
+       -0.12109375,
+       -0.0390625
+      ],
+      "n": 80,
+      "flag": true,
+      "mdc80": 0.058385862754104595
+     },
+     "n_paired": 80,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 11
+    },
+    "pixel_16": {
+     "change": {
+      "estimate": -0.05985915492957746,
+      "ci95": [
+       -0.09419014084507042,
+       -0.028169014084507043
+      ],
+      "n": 71,
+      "flag": true,
+      "mdc80": 0.04741664922038492
+     },
+     "n_paired": 71,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 20
+    }
+   },
+   "control": "RESPONDS TO AN UNREADABLE PICTURE",
+   "lighting": "NO LIGHTING EFFECT DETECTED",
+   "lighting_not_ruled_out": -0.04547483766233766
+  },
+  {
+   "run": "video-xiaomi_mimo-v2.6-flash",
+   "model": "xiaomi/mimo-v2.6-flash",
+   "video_frames": 0,
+   "base_marked": 92,
+   "measurable": true,
+   "conditions": {
+    "dark_25": {
+     "change": {
+      "estimate": 0.0029411764705882353,
+      "ci95": [
+       -0.03602941176470588,
+       0.03972426470588225
+      ],
+      "n": 85,
+      "flag": false,
+      "mdc80": 0.053839599015458206
+     },
+     "n_paired": 85,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 8
+    },
+    "dark_05": {
+     "change": {
+      "estimate": -0.0859375,
+      "ci95": [
+       -0.1377840909090909,
+       -0.036931818181818184
+      ],
+      "n": 88,
+      "flag": true,
+      "mdc80": 0.07196297033474344
+     },
+     "n_paired": 88,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 5
+    },
+    "pixel_16": {
+     "change": {
+      "estimate": -0.14984939759036145,
+      "ci95": [
+       -0.21010918674698795,
+       -0.0911144578313253
+      ],
+      "n": 83,
+      "flag": true,
+      "mdc80": 0.08521727277574918
+     },
+     "n_paired": 83,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 10
+    }
+   },
+   "control": "RESPONDS TO AN UNREADABLE PICTURE",
+   "lighting": "NO LIGHTING EFFECT DETECTED",
+   "lighting_not_ruled_out": -0.03602941176470588
+  },
+  {
+   "run": "video16f-anthropic_claude-haiku-5.5",
+   "model": "anthropic/claude-haiku-5.5",
+   "video_frames": 16,
+   "base_marked": 100,
+   "measurable": true,
+   "conditions": {
+    "dark_25": {
+     "change": {
+      "estimate": -0.0225,
+      "ci95": [
+       -0.06375,
+       0.016875
+      ],
+      "n": 100,
+      "flag": false,
+      "mdc80": 0.05820166959318558
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "dark_05": {
+     "change": {
+      "estimate": -0.145625,
+      "ci95": [
+       -0.19689062499999999,
+       -0.095
+      ],
+      "n": 100,
+      "flag": true,
+      "mdc80": 0.07511833677739423
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "pixel_16": {
+     "change": {
+      "estimate": -0.06875,
+      "ci95": [
+       -0.11875,
+       -0.020609375000000086
+      ],
+      "n": 100,
+      "flag": true,
+      "mdc80": 0.07028666051580944
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    }
+   },
+   "control": "RESPONDS TO AN UNREADABLE PICTURE",
+   "lighting": "NO LIGHTING EFFECT DETECTED",
+   "lighting_not_ruled_out": -0.06375
+  },
+  {
+   "run": "video16f-anthropic_claude-opus-5.5",
+   "model": "anthropic/claude-opus-5.5",
+   "video_frames": 16,
+   "base_marked": 100,
+   "measurable": true,
+   "conditions": {
+    "dark_25": {
+     "change": {
+      "estimate": 0.01125,
+      "ci95": [
+       -0.0125,
+       0.036875
+      ],
+      "n": 100,
+      "flag": false,
+      "mdc80": 0.03555941819296573
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "dark_05": {
+     "change": {
+      "estimate": -0.005859375,
+      "ci95": [
+       -0.05859375,
+       0.044921875
+      ],
+      "n": 32,
+      "flag": false,
+      "mdc80": 0.07673242232483407
+     },
+     "n_paired": 32,
+     "graded": 100,
+     "declines": 63,
+     "unmarked": 68
+    },
+    "pixel_16": {
+     "change": {
+      "estimate": 0.008680555555555556,
+      "ci95": [
+       -0.04865451388888889,
+       0.0642361111111111
+      ],
+      "n": 36,
+      "flag": false,
+      "mdc80": 0.08254079144935805
+     },
+     "n_paired": 36,
+     "graded": 100,
+     "declines": 52,
+     "unmarked": 64
+    }
+   },
+   "control": "RESPONDS TO AN UNREADABLE PICTURE",
+   "lighting": "NO LIGHTING EFFECT DETECTED",
+   "lighting_not_ruled_out": -0.0125
+  },
+  {
+   "run": "video16f-google_gemini-3.8-flash",
+   "model": "google/gemini-3.8-flash",
+   "video_frames": 16,
+   "base_marked": 100,
+   "measurable": true,
+   "conditions": {
+    "dark_25": {
+     "change": {
+      "estimate": -0.01125,
+      "ci95": [
+       -0.03375,
+       0.010625
+      ],
+      "n": 100,
+      "flag": false,
+      "mdc80": 0.032276073947971884
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "dark_05": {
+     "change": {
+      "estimate": -0.20375,
+      "ci95": [
+       -0.229375,
+       -0.176875
+      ],
+      "n": 100,
+      "flag": true,
+      "mdc80": 0.03660873522739477
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "pixel_16": {
+     "change": {
+      "estimate": -0.01125,
+      "ci95": [
+       -0.034375,
+       0.015
+      ],
+      "n": 100,
+      "flag": false,
+      "mdc80": 0.034139161138380704
+     },
+     "n_paired": 100,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    }
+   },
+   "control": "DOES NOT RESPOND",
+   "control_not_ruled_out": -0.034375,
+   "lighting": "NOT READ (does not respond to an unreadable picture)"
+  },
+  {
+   "run": "video16f-openai_gpt-5-mini",
+   "model": "openai/gpt-5-mini",
+   "video_frames": 16,
+   "base_marked": 99,
+   "measurable": true,
+   "conditions": {
+    "dark_25": {
+     "change": {
+      "estimate": -0.03635204081632653,
+      "ci95": [
+       -0.07079081632653061,
+       -0.0031728316326531483
+      ],
+      "n": 98,
+      "flag": true,
+      "mdc80": 0.04888732768224086
+     },
+     "n_paired": 98,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 1
+    },
+    "dark_05": {
+     "change": {
+      "estimate": -0.33207070707070707,
+      "ci95": [
+       -0.39774305555555556,
+       -0.26830808080808083
+      ],
+      "n": 99,
+      "flag": true,
+      "mdc80": 0.09319139859320699
+     },
+     "n_paired": 99,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 0
+    },
+    "pixel_16": {
+     "change": {
+      "estimate": -0.10522959183673469,
+      "ci95": [
+       -0.15433673469387754,
+       -0.056106505102040904
+      ],
+      "n": 98,
+      "flag": true,
+      "mdc80": 0.07110128442404835
+     },
+     "n_paired": 98,
+     "graded": 100,
+     "declines": 0,
+     "unmarked": 1
+    }
+   },
+   "control": "RESPONDS TO AN UNREADABLE PICTURE",
+   "lighting": "MARKS DIM WORK LOWER"
+  }
+ ],
+ "measurable": 10,
+ "respond": 7,
+ "passes": true
+}
