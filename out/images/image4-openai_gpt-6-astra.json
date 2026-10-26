@@ -1,0 +1,233 @@
+{
+ "n_cases": 32,
+ "scale": [
+  0,
+  4
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 32,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.7348524080787158,
+    "ci95": [
+     0.4296295230263158,
+     0.939650156357787
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7424350234664702,
+    "ci95": [
+     0.4632124360374546,
+     0.9446153426897574
+    ]
+   },
+   "bias": {
+    "estimate": -0.125,
+    "ci95": [
+     -0.5,
+     0.1875
+    ],
+    "n": 32,
+    "flag": false,
+    "mdc80": 0.498950511477066
+   },
+   "sd_ratio": 1.1170534003530048,
+   "n": 32,
+   "raters": [
+    "expert"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 2.0,
+   "machine_passes_of_human_passes": 0.8636363636363636,
+   "machine_fails_of_human_fails": 1.0,
+   "n_pass": 22,
+   "n_fail": 10,
+   "kappa": {
+    "estimate": 0.7983193277310925,
+    "ci95": [
+     0.539568345323741,
+     1.0
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 0.09375,
+   "ci95": [
+    -0.03125,
+    0.28125
+   ],
+   "n": 32,
+   "flag": false,
+   "mdc80": 0.23043393497290443,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "forged": {
+   "estimate": 0.0,
+   "ci95": [
+    -0.09375,
+    0.09375
+   ],
+   "n": 32,
+   "flag": false,
+   "mdc80": 0.12572371141874242,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.046875,
+   "reaches_midpoint": 0.0625,
+   "n": 32
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9854479308776717,
+    "ci95": [
+     0.95793009089054,
+     1.0
+    ]
+   },
+   "exact_agreement": 0.9375,
+   "mean_abs_change": 0.0625,
+   "signed_change": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.09375,
+     0.09375
+    ],
+    "n": 32,
+    "flag": false,
+    "mdc80": 0.12572371141874242
+   },
+   "n": 32
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.125,
+    "ci95": [
+     0.0,
+     0.28125
+    ],
+    "n": 32,
+    "flag": false,
+    "mdc80": 0.20848918901344465
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.08761035279839954,
+  "same_opening": 0.008333333333333333,
+  "varied_by_quality": 0.046297861275756615,
+  "words": 28.34375,
+  "self_per100": 1.976195240248345,
+  "task_per100": 0.4621769477457083,
+  "action_per100": 0.4576386248505177,
+  "leaks_answer": 0.0,
+  "n": 32,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 224,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2396.9375,
+   "completion_tokens": 217.41964285714286,
+   "reasoning_tokens": 161.70982142857142
+  },
+  "latency_s": {
+   "median": 9.370394349098206,
+   "p90": 18.18717453479768,
+   "n": 224
+  },
+  "served_models": [
+   "openai/gpt-6-astra"
+  ],
+  "providers": [
+   "Azure"
+  ],
+  "cost_source": "reported by the endpoint (224 of 224 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 36.82977232142858,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-26T20:13:13Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "openai/gpt-6-astra",
+  "request_template": {
+   "model": "openai/gpt-6-astra",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "image.txt",
+  "prompt_sha256": "f39428b609291fe53a0f1269a493fd3f8e595f2532d0bec2fa33ab1c5b841c44",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "checkmat4.jsonl",
+  "cases_sha256": "e5d13e64a2de015086292de6e03831d7a82a548d8f865e5cc323b61ece75adc0",
+  "n": 32,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_low",
+   "ctx_high"
+  ],
+  "video_frames": 0,
+  "retention_exception": null,
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}

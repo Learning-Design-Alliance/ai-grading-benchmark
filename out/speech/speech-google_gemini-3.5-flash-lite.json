@@ -1,0 +1,340 @@
+{
+ "n_cases": 100,
+ "scale": [
+  0,
+  10
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "noise_10db",
+  "null_silence",
+  "null_tone",
+  "off_task",
+  "phone_band",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.5361424167626362,
+    "ci95": [
+     0.42205022731294095,
+     0.6309142579144272
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.6875700622443078,
+    "ci95": [
+     0.5676825011469789,
+     0.7784577737932125
+    ]
+   },
+   "bias": {
+    "estimate": -0.478,
+    "ci95": [
+     -0.8319999999999999,
+     -0.11590000000000059
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.5240524054294223
+   },
+   "sd_ratio": 1.611374974469309,
+   "n": 100,
+   "raters": [
+    "expert1",
+    "expert2",
+    "expert3",
+    "expert4",
+    "expert5"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.6136699886678072,
+    "ci95": [
+     0.4916232855541636,
+     0.6997191719862597
+    ]
+   },
+   "n": 100
+  },
+  "share_of_ceiling": {
+   "estimate": 0.873665694368609,
+   "ci95": [
+    0.7429995923771379,
+    1.0114903838034912
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 5.0,
+   "machine_passes_of_human_passes": 0.8913043478260869,
+   "machine_fails_of_human_fails": 0.5,
+   "n_pass": 92,
+   "n_fail": 8,
+   "kappa": {
+    "estimate": 0.31187406776274706,
+    "ci95": [
+     0.05213456302290668,
+     0.5670502385218681
+    ]
+   },
+   "ceiling_kappa": {
+    "estimate": 0.7290209587349276,
+    "ci95": [
+     0.5188465230931378,
+     0.8742951855907625
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.4277984933436525,
+    "ci95": [
+     0.08894102547735719,
+     0.718438282439912
+    ]
+   }
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.014000000000000002,
+   "reaches_midpoint": 0.01,
+   "n": 100
+  },
+  "null_answers": {
+   "credited": 0.55,
+   "by_kind": {
+    "null_silence": {
+     "credited": 1.0,
+     "n": 30
+    },
+    "null_tone": {
+     "credited": 0.1,
+     "n": 30
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9361113616547909,
+    "ci95": [
+     0.8961050680960663,
+     0.9660838055573795
+    ]
+   },
+   "exact_agreement": 0.78,
+   "mean_abs_change": 0.39,
+   "signed_change": {
+    "estimate": -0.17,
+    "ci95": [
+     -0.35,
+     0.0
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 0.25499898989698927
+   },
+   "n": 100
+  },
+  "noise_10db": {
+   "estimate": -0.49,
+   "ci95": [
+    -0.86,
+    -0.1
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 0.5405647626568555,
+   "expect": "about the same"
+  },
+  "phone_band": {
+   "estimate": -0.19,
+   "ci95": [
+    -0.48,
+    0.08
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.40330172678564474,
+   "expect": "about the same"
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.96,
+    "ci95": [
+     0.60975,
+     1.32
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.5441057532383486
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "age": {
+    "levels": {
+     "adult": {
+      "residual": -0.5176470588235293,
+      "human_mean": 7.184313725490195,
+      "n": 51,
+      "vs_rest": {
+       "estimate": -0.08091236494597831,
+       "ci95": [
+        -0.8129711691439859,
+        0.6633749999999998
+       ],
+       "flag": false
+      }
+     },
+     "child": {
+      "residual": -0.43673469387755104,
+      "human_mean": 7.96734693877551,
+      "n": 49,
+      "vs_rest": {
+       "estimate": 0.08091236494597831,
+       "ci95": [
+        -0.663375,
+        0.8129711691439859
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   },
+   "gender": {
+    "levels": {
+     "female": {
+      "residual": -0.519047619047619,
+      "human_mean": 7.519047619047619,
+      "n": 42,
+      "vs_rest": {
+       "estimate": -0.07077175697865346,
+       "ci95": [
+        -0.8600850673194614,
+        0.7134967656864206
+       ],
+       "flag": false
+      }
+     },
+     "male": {
+      "residual": -0.4482758620689655,
+      "human_mean": 7.603448275862069,
+      "n": 58,
+      "vs_rest": {
+       "estimate": 0.07077175697865346,
+       "ci95": [
+        -0.7134967656864208,
+        0.860085067319461
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 1
+   }
+  }
+ },
+ "feedback": {
+  "grounded": 0.59,
+  "words": 16.4,
+  "self_per100": 0.1213235294117647,
+  "task_per100": 0.0,
+  "action_per100": 0.052631578947368425,
+  "n": 100,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 760,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 315.1934210526316,
+   "completion_tokens": 30.07763157894737,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 7.361910700798035,
+   "p90": 7.62661509513855,
+   "n": 760
+  },
+  "served_models": [
+   "google/gemini-3.5-flash-lite"
+  ],
+  "providers": [
+   "Google"
+  ],
+  "cost_source": "reported by the endpoint (760 of 760 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.08508822368421053,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-26T19:59:41Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemini-3.5-flash-lite",
+  "request_template": {
+   "model": "google/gemini-3.5-flash-lite",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "speech.txt",
+  "prompt_sha256": "9ce9d36d659751e087d511f5603198c429c0ebd74a03f7e50d85de0309a9f2a9",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "speechocean-accuracy.jsonl",
+  "cases_sha256": "e2a24a62e9b51065017bd096d8cbb3f39b4fd5562e3020e6b375a6b9b0f9583d",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "ctx_low",
+   "ctx_high",
+   "off_task",
+   "null_silence",
+   "null_tone",
+   "noise_10db",
+   "phone_band"
+  ],
+  "video_frames": 0,
+  "retention_exception": null,
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}

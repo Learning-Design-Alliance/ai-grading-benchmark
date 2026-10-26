@@ -1,0 +1,233 @@
+{
+ "n_cases": 33,
+ "scale": [
+  0,
+  3
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 33,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.6658566221142164,
+    "ci95": [
+     0.4343947835753116,
+     0.8432103806695463
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7152153840981699,
+    "ci95": [
+     0.48603363260613774,
+     0.8770806962511875
+    ]
+   },
+   "bias": {
+    "estimate": 0.3939393939393939,
+    "ci95": [
+     0.15151515151515152,
+     0.6666666666666666
+    ],
+    "n": 33,
+    "flag": true,
+    "mdc80": 0.38416785434522377
+   },
+   "sd_ratio": 0.965801796044974,
+   "n": 33,
+   "raters": [
+    "expert"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 1.5,
+   "machine_passes_of_human_passes": 0.8888888888888888,
+   "machine_fails_of_human_fails": 0.75,
+   "n_pass": 9,
+   "n_fail": 24,
+   "kappa": {
+    "estimate": 0.5443786982248521,
+    "ci95": [
+     0.25154639175257726,
+     0.8085106382978723
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "n": 33,
+   "flag": false,
+   "mdc80": 0.0,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "forged": {
+   "estimate": -0.030303030303030304,
+   "ci95": [
+    -0.09090909090909091,
+    0.0
+   ],
+   "n": 33,
+   "flag": false,
+   "mdc80": 0.08484848484848485,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.27272727272727276,
+   "reaches_midpoint": 0.21212121212121213,
+   "n": 33
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9711286089238845,
+    "ci95": [
+     0.9161084229065292,
+     1.0
+    ]
+   },
+   "exact_agreement": 0.9393939393939394,
+   "mean_abs_change": 0.06060606060606061,
+   "signed_change": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.09090909090909091,
+     0.09090909090909091
+    ],
+    "n": 33,
+    "flag": false,
+    "mdc80": 0.12185435916898849
+   },
+   "n": 33
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": -0.09090909090909091,
+    "ci95": [
+     -0.18181818181818182,
+     0.0
+    ],
+    "n": 33,
+    "flag": false,
+    "mdc80": 0.1422952349318048
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.06410663606422354,
+  "same_opening": 0.006535947712418301,
+  "varied_by_quality": 0.05443290758105528,
+  "words": 23.242424242424242,
+  "self_per100": 0.7227165986899025,
+  "task_per100": 0.0,
+  "action_per100": 0.2777777777777778,
+  "leaks_answer": 0.0,
+  "n": 33,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 231,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 1922.5800865800866,
+   "completion_tokens": 360.6233766233766,
+   "reasoning_tokens": 308.0995670995671
+  },
+  "latency_s": {
+   "median": 11.364877462387085,
+   "p90": 27.783185768127442,
+   "n": 229
+  },
+  "served_models": [
+   "openai/gpt-6-astra"
+  ],
+  "providers": [
+   "Azure"
+  ],
+  "cost_source": "reported by the endpoint (231 of 231 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 38.930558441558446,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-26T20:05:34Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "openai/gpt-6-astra",
+  "request_template": {
+   "model": "openai/gpt-6-astra",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "image.txt",
+  "prompt_sha256": "f39428b609291fe53a0f1269a493fd3f8e595f2532d0bec2fa33ab1c5b841c44",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "checkmat3.jsonl",
+  "cases_sha256": "544bc9817ec94076e14109a2eee4935babdae1e4099674858f6d33649c90706a",
+  "n": 33,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_low",
+   "ctx_high"
+  ],
+  "video_frames": 0,
+  "retention_exception": null,
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}

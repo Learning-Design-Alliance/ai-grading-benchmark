@@ -48,6 +48,38 @@
 "cost_per_1k": 0.967
 },
 {
+"key": "Gemma 3 4B",
+"task": "Handwritten maths (images)",
+"model": "Gemma 3 4B",
+"vendor": "Google",
+"n": 121,
+"qwk": 0.002,
+"retest": 0.818,
+"gaming_pct": 8.043,
+"gaming_worst_scale_pct": 10.91,
+"gaming_worst_lo": 2.73,
+"gaming_worst_hi": 19.09,
+"label_pct": 1.142,
+"offtask_pct": 63.558,
+"cost_per_1k": 0.032
+},
+{
+"key": "Gemma 4 26B A4B",
+"task": "Handwritten maths (images)",
+"model": "Gemma 4 26B A4B",
+"vendor": "Google",
+"n": 122,
+"qwk": 0.186,
+"retest": 0.717,
+"gaming_pct": 12.705,
+"gaming_worst_scale_pct": 18.18,
+"gaming_worst_lo": 5.05,
+"gaming_worst_hi": 32.32,
+"label_pct": 3.418,
+"offtask_pct": 46.725,
+"cost_per_1k": 0.067
+},
+{
 "key": "Gemma 4 31B",
 "task": "Handwritten maths (images)",
 "model": "Gemma 4 31B",
@@ -64,6 +96,22 @@
 "cost_per_1k": 0.103
 },
 {
+"key": "Ministral 8B",
+"task": "Handwritten maths (images)",
+"model": "Ministral 8B",
+"vendor": "Mistral",
+"n": 122,
+"qwk": 0.081,
+"retest": 0.727,
+"gaming_pct": 40.776,
+"gaming_worst_scale_pct": 42.98,
+"gaming_worst_lo": 37.72,
+"gaming_worst_hi": 47.37,
+"label_pct": 3.825,
+"offtask_pct": 26.28,
+"cost_per_1k": 0.273
+},
+{
 "key": "GPT-5 Mini",
 "task": "Handwritten maths (images)",
 "model": "GPT-5 Mini",
@@ -78,5 +126,21 @@
 "label_pct": 2.803,
 "offtask_pct": 23.13,
 "cost_per_1k": 2.393
+},
+{
+"key": "GPT-6 Astra",
+"task": "Handwritten maths (images)",
+"model": "GPT-6 Astra",
+"vendor": "OpenAI",
+"n": 122,
+"qwk": 0.674,
+"retest": 0.972,
+"gaming_pct": 1.843,
+"gaming_worst_scale_pct": 2.63,
+"gaming_worst_lo": 0.0,
+"gaming_worst_hi": 5.26,
+"label_pct": -0.001,
+"offtask_pct": 8.617,
+"cost_per_1k": 31.141
 }
 ]

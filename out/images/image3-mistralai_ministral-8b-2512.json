@@ -1,0 +1,242 @@
+{
+ "n_cases": 33,
+ "scale": [
+  0,
+  3
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 33,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.017513134851138368,
+    "ci95": [
+     -0.14337929796955018,
+     0.1760583473414135
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.034163335903782815,
+    "ci95": [
+     -0.27883625092154557,
+     0.3107710506428703
+    ]
+   },
+   "bias": {
+    "estimate": 0.5757575757575758,
+    "ci95": [
+     0.21212121212121213,
+     0.9696969696969697
+    ],
+    "n": 33,
+    "flag": true,
+    "mdc80": 0.5453619450016793
+   },
+   "sd_ratio": 0.3689640277608545,
+   "n": 33,
+   "raters": [
+    "expert"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 1.5,
+   "machine_passes_of_human_passes": 0.8888888888888888,
+   "machine_fails_of_human_fails": 0.20833333333333334,
+   "n_pass": 9,
+   "n_fail": 24,
+   "kappa": {
+    "estimate": 0.059829059829059825,
+    "ci95": [
+     -0.1145374449339207,
+     0.2372881355932202
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 1.1818181818181819,
+   "ci95": [
+    1.0606060606060606,
+    1.3333333333333333
+   ],
+   "n": 33,
+   "flag": true,
+   "mdc80": 0.19090909090909092,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.6363636363636364,
+   "ci95": [
+    0.45454545454545453,
+    0.8181818181818182
+   ],
+   "n": 33,
+   "flag": true,
+   "mdc80": 0.2674746711831195,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.2828282828282828,
+   "reaches_midpoint": 0.24242424242424243,
+   "n": 33
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.8910891089108911,
+    "ci95": [
+     0.6024096385542168,
+     1.0
+    ]
+   },
+   "exact_agreement": 0.9696969696969697,
+   "mean_abs_change": 0.030303030303030304,
+   "signed_change": {
+    "estimate": 0.030303030303030304,
+    "ci95": [
+     0.0,
+     0.09090909090909091
+    ],
+    "n": 33,
+    "flag": false,
+    "mdc80": 0.08484848484848485
+   },
+   "n": 33
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.15151515151515152,
+    "ci95": [
+     0.030303030303030304,
+     0.2727272727272727
+    ],
+    "n": 33,
+    "flag": true,
+    "mdc80": 0.1774733389617736
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.393916049043072,
+  "same_opening": 0.02348901098901099,
+  "varied_by_quality": -0.004892758773825334,
+  "words": 32.36666666666667,
+  "self_per100": 3.1442403369304146,
+  "task_per100": 0.6832295263885919,
+  "action_per100": 0.0,
+  "leaks_answer": 0.0,
+  "coherence": -0.4472135954999579,
+  "n": 30,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 231,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2142.8917748917747,
+   "completion_tokens": 58.753246753246756,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 1.7685799598693848,
+   "p90": 2.793619966506958,
+   "n": 230
+  },
+  "served_models": [
+   "mistralai/ministral-8b-2512"
+  ],
+  "providers": [
+   "Mistral"
+  ],
+  "cost_source": "reported by the endpoint (231 of 231 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.27065611688311686,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-26T20:18:27Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "mistralai/ministral-8b-2512",
+  "request_template": {
+   "model": "mistralai/ministral-8b-2512",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Mistral"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Mistral"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "image.txt",
+  "prompt_sha256": "f39428b609291fe53a0f1269a493fd3f8e595f2532d0bec2fa33ab1c5b841c44",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "checkmat3.jsonl",
+  "cases_sha256": "544bc9817ec94076e14109a2eee4935babdae1e4099674858f6d33649c90706a",
+  "n": 33,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_low",
+   "ctx_high"
+  ],
+  "video_frames": 0,
+  "retention_exception": null,
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}

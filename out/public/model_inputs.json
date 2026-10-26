@@ -178,7 +178,7 @@
 "cover_Pushback": "ran",
 "cover_Handwritten work": "ran",
 "cover_Video": "ran",
-"cover_Speech": "not run yet"
+"cover_Speech": "ran"
 },
 {
 "key": "google/gemini-3.8-flash",
@@ -260,7 +260,7 @@
 "cover_Essays": "ran",
 "cover_Maths working": "ran",
 "cover_Pushback": "ran",
-"cover_Handwritten work": "not run yet",
+"cover_Handwritten work": "ran",
 "cover_Video": "not run yet",
 "cover_Speech": "cannot take audio"
 },
@@ -281,7 +281,7 @@
 "cover_Essays": "ran",
 "cover_Maths working": "ran",
 "cover_Pushback": "ran",
-"cover_Handwritten work": "not run yet",
+"cover_Handwritten work": "ran",
 "cover_Video": "not run yet",
 "cover_Speech": "cannot take audio"
 },
@@ -382,7 +382,7 @@
 "cover_Essays": "ran",
 "cover_Maths working": "ran",
 "cover_Pushback": "ran",
-"cover_Handwritten work": "not run yet",
+"cover_Handwritten work": "ran",
 "cover_Video": "not run yet",
 "cover_Speech": "cannot take audio"
 },
@@ -462,7 +462,7 @@
 "cover_Essays": "ran",
 "cover_Maths working": "ran",
 "cover_Pushback": "ran",
-"cover_Handwritten work": "not run yet",
+"cover_Handwritten work": "ran",
 "cover_Video": "not run yet",
 "cover_Speech": "cannot take audio"
 },
