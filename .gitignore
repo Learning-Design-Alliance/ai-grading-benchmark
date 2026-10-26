@@ -5,3 +5,4 @@ __pycache__/
 .env
 leaderboard.json
 .leaderboard-cache/
+site/dist/

@@ -8,7 +8,10 @@
 "gradings": 1500,
 "ml_water": 1923,
 "gradings_water": 1500,
-"water_boundary": "water evaporated on site, used to make the electricity and to make the chips"
+"water_boundary": "water evaporated on site, used to make the electricity and to make the chips",
+"wh": 473.5,
+"gradings_energy": 1500,
+"energy_boundary": "running the model, a share of training and making the hardware, with data-centre overhead"
 },
 {
 "key": "driving 1 km in a petrol car (life cycle, Europe)",
@@ -19,7 +22,10 @@
 "gradings": 1875,
 "ml_water": null,
 "gradings_water": null,
-"water_boundary": null
+"water_boundary": null,
+"wh": 632,
+"gradings_energy": 2002,
+"energy_boundary": "fuel energy, not electricity: 7.1 L per 100 km, average lower-medium petrol car in Europe, real-world (ICCT 2021, Table A.2), at 33.7 kWh per US gallon (EPA's MPGe equivalence)"
 },
 {
 "key": "driving 1 km in a battery electric car (life cycle, Europe)",
@@ -30,7 +36,10 @@
 "gradings": 612,
 "ml_water": null,
 "gradings_water": null,
-"water_boundary": null
+"water_boundary": null,
+"wh": 206,
+"gradings_energy": 653,
+"energy_boundary": "electricity, real-world, including charging losses: 20.6 kWh per 100 km, average lower-medium BEV registered in the EU and UK in 2019 (ICCT 2021, Table A.2)"
 },
 {
 "key": "streaming video for 1 hour (Europe)",
@@ -41,7 +50,10 @@
 "gradings": 421,
 "ml_water": null,
 "gradings_water": null,
-"water_boundary": null
+"water_boundary": null,
+"wh": 77,
+"gradings_energy": 244,
+"energy_boundary": "electricity: data centres, networks, home router and screen"
 },
 {
 "key": "a quarter-pound (113 g) beef burger patty",
@@ -52,7 +64,10 @@
 "gradings": 86016,
 "ml_water": 163986,
 "gradings_water": 127896,
-"water_boundary": "freshwater withdrawn over the whole life cycle, mostly to grow feed"
+"water_boundary": "freshwater withdrawn over the whole life cycle, mostly to grow feed",
+"wh": null,
+"gradings_energy": null,
+"energy_boundary": null
 },
 {
 "key": "a half-pound (227 g) beef burger patty",
@@ -63,7 +78,10 @@
 "gradings": 172644,
 "ml_water": 329132,
 "gradings_water": 256696,
-"water_boundary": "freshwater withdrawn over the whole life cycle, mostly to grow feed"
+"water_boundary": "freshwater withdrawn over the whole life cycle, mostly to grow feed",
+"wh": null,
+"gradings_energy": null,
+"energy_boundary": null
 },
 {
 "key": "a quarter-pound tofu patty",
@@ -74,7 +92,10 @@
 "gradings": 2755,
 "ml_water": null,
 "gradings_water": null,
-"water_boundary": null
+"water_boundary": null,
+"wh": null,
+"gradings_energy": null,
+"energy_boundary": null
 },
 {
 "key": "a 250 mL glass of almond milk",
@@ -85,7 +106,10 @@
 "gradings": 1343,
 "ml_water": 92865,
 "gradings_water": 72427,
-"water_boundary": "freshwater withdrawn over the whole life cycle, mostly irrigation"
+"water_boundary": "freshwater withdrawn over the whole life cycle, mostly irrigation",
+"wh": null,
+"gradings_energy": null,
+"energy_boundary": null
 },
 {
 "key": "a 250 mL glass of dairy (cow's) milk",
@@ -96,7 +120,10 @@
 "gradings": 6026,
 "ml_water": 157050,
 "gradings_water": 122486,
-"water_boundary": "freshwater withdrawn over the whole life cycle, mostly irrigation"
+"water_boundary": "freshwater withdrawn over the whole life cycle, mostly irrigation",
+"wh": null,
+"gradings_energy": null,
+"energy_boundary": null
 },
 {
 "key": "a 250 mL glass of oat milk",
@@ -107,7 +134,66 @@
 "gradings": 1728,
 "ml_water": 12060,
 "gradings_water": 9406,
-"water_boundary": "freshwater withdrawn over the whole life cycle, mostly irrigation"
+"water_boundary": "freshwater withdrawn over the whole life cycle, mostly irrigation",
+"wh": null,
+"gradings_energy": null,
+"energy_boundary": null
+},
+{
+"key": "charging a smartphone once",
+"item": "charging a smartphone once",
+"g_co2e": null,
+"boundary": null,
+"source": "US EPA, Greenhouse Gas Equivalencies Calculator: calculations and references",
+"gradings": null,
+"ml_water": null,
+"gradings_water": null,
+"water_boundary": null,
+"wh": 19,
+"gradings_energy": 60,
+"energy_boundary": "electricity drawn to charge a common smartphone battery"
+},
+{
+"key": "a 10 W LED bulb lit for an hour",
+"item": "a 10 W LED bulb lit for an hour",
+"g_co2e": null,
+"boundary": null,
+"source": "by definition",
+"gradings": null,
+"ml_water": null,
+"gradings_water": null,
+"water_boundary": null,
+"wh": 10,
+"gradings_energy": 32,
+"energy_boundary": "electricity at the bulb (10 W x 1 hour, by definition)"
+},
+{
+"key": "boiling 1 litre of water",
+"item": "boiling 1 litre of water",
+"g_co2e": null,
+"boundary": null,
+"source": "physics (specific heat of water)",
+"gradings": null,
+"ml_water": null,
+"gradings_water": null,
+"water_boundary": null,
+"wh": 93,
+"gradings_energy": 295,
+"energy_boundary": "the heat to warm 1 kg of water from 20 to 100 C (4.186 kJ per kg per C x 80 C); a real kettle uses more"
+},
+{
+"key": "a US home's electricity for a day",
+"item": "a US home's electricity for a day",
+"g_co2e": null,
+"boundary": null,
+"source": "US EIA, FAQ: how much electricity does an American home use?",
+"gradings": null,
+"ml_water": null,
+"gradings_water": null,
+"water_boundary": null,
+"wh": 29564,
+"gradings_energy": 93665,
+"energy_boundary": "average US residential customer, 2022: 10,791 kWh a year, divided by 365"
 },
 {
 "key": "a 1,000 km return flight, per passenger (2,000 km)",
@@ -118,6 +204,9 @@
 "gradings": 2357018,
 "ml_water": null,
 "gradings_water": null,
-"water_boundary": null
+"water_boundary": null,
+"wh": null,
+"gradings_energy": null,
+"energy_boundary": null
 }
 ]

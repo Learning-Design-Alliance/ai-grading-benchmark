@@ -647,16 +647,19 @@ def lifecycle_compare():
         return []
     short = [tk for tk in e["tasks"] if tk["task"] == "short answer"][0]
     central = _lifecycle_task(e, short)[1]["central"]
-    g, ml = central["g"], central["ml"]
+    g, ml, wh = central["g"], central["ml"], central["wh"]
     rows = [{"key": "term", "item": "a teacher's term of short answers (150 students x 10 assignments)", "g_co2e": round(1500 * g, 1),
              "boundary": "full life cycle, central case (this benchmark's estimate)", "source": "docs/LIFECYCLE.md", "gradings": 1500,
              "ml_water": round(1500 * ml), "gradings_water": 1500,
-             "water_boundary": "water evaporated on site, used to make the electricity and to make the chips"}]
+             "water_boundary": "water evaporated on site, used to make the electricity and to make the chips",
+             "wh": round(1500 * wh, 1), "gradings_energy": 1500,
+             "energy_boundary": "running the model, a share of training and making the hardware, with data-centre overhead"}]
     for c in e["lifecycle"]["comparators"]:
-        w = c.get("ml_water")
-        rows.append({"key": c["item"], "item": c["item"], "g_co2e": c["g_co2e"], "boundary": c["boundary"], "source": c["source"],
-                     "gradings": round(c["g_co2e"] / g), "ml_water": w, "gradings_water": round(w / ml) if w else None,
-                     "water_boundary": c.get("water_boundary")})
+        w, en, co2 = c.get("ml_water"), c.get("wh"), c.get("g_co2e")
+        rows.append({"key": c["item"], "item": c["item"], "g_co2e": co2, "boundary": c.get("boundary"), "source": c["source"],
+                     "gradings": round(co2 / g) if co2 else None, "ml_water": w, "gradings_water": round(w / ml) if w else None,
+                     "water_boundary": c.get("water_boundary"), "wh": en, "gradings_energy": round(en / wh) if en else None,
+                     "energy_boundary": c.get("energy_boundary")})
     return rows
 
 

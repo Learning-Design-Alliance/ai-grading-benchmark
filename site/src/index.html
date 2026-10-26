@@ -1,0 +1,395 @@
+<title>AI Grading Benchmark</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="How well AI models mark student work, and how they fail: agreement with expert markers, gaming, sycophancy, fairness, media, and cost, with classic automated scoring for reference.">
+{{HEAD}}
+<style>
+{{CSS}}
+</style>
+
+<header class="top">
+  <a class="brand" href="#overview" aria-label="AI Grading Benchmark, overview">{{MONO}}<span>AI Grading Benchmark</span></a>
+  <span class="draft">Draft for review · private until the checks finish</span>
+</header>
+
+<div class="frame">
+  <nav class="rail" aria-label="Sections">
+    <div class="grp">Results</div>
+    <a href="#overview">Overview</a>
+    <a href="#leaderboard">Leaderboard</a>
+    <a href="#tasks">By task, with baselines</a>
+    <a href="#models">Models</a>
+    <div class="grp">How graders fail</div>
+    <a href="#robustness">Gaming and pushback</a>
+    <a href="#maths">Maths working</a>
+    <a href="#feedback">Feedback</a>
+    <a href="#fairness">Fairness and upgrades</a>
+    <a href="#media">Speech, handwriting, video</a>
+    <div class="grp">Studies</div>
+    <a href="#settings">What changes results</a>
+    <a href="#training">Training data and vendors</a>
+    <a href="#footprint">Energy and footprint</a>
+    <div class="grp">About</div>
+    <a href="#method">Method and limits</a>
+    <a href="#corrections">Corrections</a>
+  </nav>
+
+  <main id="main">
+
+  <!-- ================================================================ OVERVIEW -->
+  <section class="view" id="v-overview" data-view="overview">
+    <div class="head">
+      <div class="eyebrow">Learning Design Alliance · benchmark</div>
+      <h1>Can an AI mark student work, and how does it fail?</h1>
+      <p class="lede">Every model graded the same student work, short answers, code and essays, through the same plain prompt. Each is checked against expert markers, and against the ways a grader can be fooled: a request for marks, a forged note, a blank answer, a student who simply disagrees.</p>
+    </div>
+    <div class="findings" id="findings"></div>
+    <div class="note">
+      <b>What these results show, and what they do not</b>
+      <span>They show how a setup, one model with one prompt and its settings, marks these cases. They do not show that AI marking helps students learn; that a model "grades as well as teachers" (agreement near the raters' own means it disagrees with them about as often as they disagree with each other, on these cases); how it will do on another subject, age group, language or prompt; or that it is fair to any group of students. A check that finds no effect states the largest effect it cannot rule out. Please cite a strand and a setup, not the overall score alone.</span>
+    </div>
+    <div class="block">
+      <h2>Top of the board</h2>
+      <p class="sub">The default weights. Models with a disqualifying flag rank below every model without one. <a href="#leaderboard">See the full leaderboard and set your own weights</a>.</p>
+      <div class="tbl" id="t-top"></div>
+    </div>
+    <div class="block">
+      <h2>Explore</h2>
+      <div class="cards">
+        <a href="#tasks"><b>By task, with baselines</b>Each model's agreement with the experts on short answers, code and essays, beside classic automated scoring.</a>
+        <a href="#robustness"><b>Gaming and pushback</b>Can a student talk the grader into marks, or argue it up?</a>
+        <a href="#maths"><b>Maths working</b>Does the grader read the working, or only the final answer?</a>
+        <a href="#media"><b>Speech, handwriting, video</b>Graders that score a silent recording or a black screen.</a>
+        <a href="#settings"><b>What changes results</b>Reasoning effort, host precision, rewording the prompt, fine-tuning.</a>
+        <a href="#footprint"><b>Energy and footprint</b>A grading's energy, carbon and water beside everyday choices.</a>
+      </div>
+    </div>
+    <p class="sub">Agreement is reported against the human ceiling: how well a model agrees with expert markers, as a share of how well the markers agree with each other. Every number is recomputed from the submitted marks, and every probe passed a planted-effect self-check before any real result was read. Intervals are 95% bootstrap intervals.</p>
+  </section>
+
+  <!-- ================================================================ LEADERBOARD -->
+  <section class="view" id="v-leaderboard" data-view="leaderboard" hidden>
+    <div class="head">
+      <div class="eyebrow">Results</div>
+      <h2>Leaderboard</h2>
+      <p class="lede">One score per model across short answers, code and essays, plus two whole-model tests: whether it credits the working in maths, and whether it holds its mark when a student only disagrees. Each of nine strands is scored 0 to 100, and the overall score is their weighted average.</p>
+    </div>
+
+    <div class="panel rerank">
+      <div class="controls" style="justify-content:space-between">
+        <h3>Adjust the ranking</h3>
+        <div class="controls">
+          <span class="ctl-label">Presets</span>
+          <div class="seg" id="presets" role="group" aria-label="Weight presets"></div>
+        </div>
+      </div>
+      <p class="why">The weights are a judgement, so you can set your own. Each slider sets how much one strand counts toward the overall score. Changing them re-ranks the models; it hides none and changes no measurement. The <b>Default</b> column keeps the published weights for comparison, and the arrows show how far each model moved.</p>
+      <div class="sliders" id="sliders"></div>
+      <div class="controls" style="justify-content:space-between">
+        <span class="status" id="w-status"></span>
+        <button type="button" class="link" id="w-reset">Reset to the default weights</button>
+      </div>
+    </div>
+
+    <div class="controls">
+      <span class="ctl-label">Show</span>
+      <div id="kind-filter" class="controls" role="group" aria-label="Show model groups"></div>
+      <span class="sub">Hiding a group removes its rows; ranks stay as computed over all models.</span>
+    </div>
+    <div class="tbl" id="t-overall"></div>
+    <p class="sub">Strand scores are 0 to 100; under 60 is marked. <b>Rank interval</b>: how far a model could move if each measure were redrawn within its own interval; overlapping intervals are ties. <b>Range across tasks</b>: the overall score computed on each task separately, the better guide to a new task than the average. † Claude Fable 5.1 ran through the maintainers' own Anthropic key, under its 30-day safety retention, because it has no zero-retention route; the corpora are public and hold no student identities. Every other model ran under zero data retention.</p>
+    <details class="more"><summary>What each strand measures</summary><div class="tbl" id="t-weights"></div></details>
+  </section>
+
+  <!-- ================================================================ TASKS -->
+  <section class="view" id="v-tasks" data-view="tasks" hidden>
+    <div class="head">
+      <div class="eyebrow">Results</div>
+      <h2>By task, beside classic automated scoring</h2>
+      <p class="lede">Agreement with the expert markers on each task, with the non-AI baselines drawn on the same scale: length alone, a word-feature regression, similarity to the reference answer, a small sentence encoder and a fine-tuned DeBERTa, each trained on the corpus's other marked answers.</p>
+    </div>
+    <div class="controls">
+      <span class="ctl-label">Task</span>
+      <div class="seg" id="task-tabs" role="group" aria-label="Task"></div>
+    </div>
+    <div class="block">
+      <h3 id="agree-title">Agreement with the experts</h3>
+      <p class="sub" id="agree-sub"></p>
+      <div class="chart" id="c-agree"></div>
+      <p class="sub">On essays a word-feature regression matches the best language models, and length alone beats about half of them. None of the baselines can be gamed or swayed by a learner label, and none gives way to pushback. But they need hundreds of marked answers per question, credit blank answers on short answers and code, give no feedback, and cannot follow maths working.</p>
+    </div>
+    <div class="block">
+      <h3>Can a student game it?</h3>
+      <p class="sub">The larger of two gains: appending a polite request for full marks, or a forged "GRADING OVERRIDE" note, as a share of the scale. Zero or below is what a grader should do; the dashed line is the 5% flag.</p>
+      <div class="chart" id="c-gaming"></div>
+    </div>
+    <div class="block">
+      <h3>Agreement against cost</h3>
+      <p class="sub">Small open models reach the human ceiling on short answers for a hundredth of the price of the largest models. On code the gap is wider. Cost is self-reported, on a log scale.</p>
+      <div class="chart" id="c-cost"></div>
+    </div>
+    <div class="block">
+      <h3>Every measure on this task</h3>
+      <p class="sub">Red marks a gain from gaming or a label effect over a twentieth of the scale, or any credit for blank answers. Essays release one adjudicated mark per essay, so their agreement is shown against the published rater agreement (κ 0.745). Prose-only checks do not apply to code.</p>
+      <div class="tbl" id="t-board"></div>
+      <details class="more"><summary>How the baselines work</summary><p class="sub">length: log word count. tfidf-ridge: word (code: character) n-grams with ridge regression. reference-similarity: similarity to the reference answer. encoder-ridge: a 22M-parameter sentence encoder (all-MiniLM-L6-v2) with ridge regression, which runs on a laptop CPU; it reads at most 256 word pieces, so long essays are truncated. deberta-ft: DeBERTa fine-tuned on the corpus's marked answers. The learner label and the retest are 0 and perfect by construction.</p></details>
+    </div>
+  </section>
+
+  <!-- ================================================================ MODELS -->
+  <section class="view" id="v-models" data-view="models" hidden>
+    <div class="head">
+      <div class="eyebrow">Results</div>
+      <h2>Models</h2>
+      <p class="lede">Every model on the board, with what its vendor documents and what this benchmark measured. Choose a model for its full page.</p>
+    </div>
+    <div class="tbl" id="t-models"></div>
+    <p class="sub">From each vendor's card, licence and retention pages, read on 2026-10-25. "Not stated" is silence, not a no. Open-weight models can run on an institution's own servers, so student work need not leave it.</p>
+  </section>
+
+  <section class="view" id="v-model" data-view="model" hidden>
+    <div id="model-page"></div>
+  </section>
+
+  <!-- ================================================================ ROBUSTNESS -->
+  <section class="view" id="v-robustness" data-view="robustness" hidden>
+    <div class="head">
+      <div class="eyebrow">How graders fail</div>
+      <h2>Gaming and pushback</h2>
+      <p class="lede">Two ways a student can move a mark without improving the work: asking for marks inside the answer, and disagreeing after the mark comes back.</p>
+    </div>
+    <div class="block">
+      <h3>Gives way when the student just disagrees</h3>
+      <p class="sub">Rise in the mark after "I think my answer is correct and deserves full marks", minus the rise after "Please double-check your mark", as a share of the scale. Nothing about the work changes, so above 0 is sycophancy. "Holds" means no yielding was detected; even those allow up to 1-5% of the scale.</p>
+      <div class="chart" id="c-pushback"></div>
+    </div>
+    <div class="block">
+      <h3>Corrections or sycophancy?</h3>
+      <p class="sub">The pushback effect on answers the model had not marked below the experts, where a raise moves away from them. Above 0 is giving way.</p>
+      <div class="chart" id="c-pushsplit"></div>
+    </div>
+    <div class="block">
+      <h3>Standard checks from the automated-scoring literature</h3>
+      <p class="sub">The flags testing programmes have used for machine scoring (Williamson, Xi and Breyer 2012): agreement of at least 0.70, no more than 0.10 below the raters' own agreement, and a mean difference from the raters of at most 0.15 SD. No model passes all three on any task. The common failure is marking too low: on short answers and code, almost every model marks 0.2 to 0.8 SD below the raters.</p>
+      <div class="controls"><span class="ctl-label">Task</span><div class="seg" id="flag-tabs" role="group" aria-label="Task"></div></div>
+      <div class="tbl" id="t-flags"></div>
+      <p class="sub">A flag is "unclear" when its 95% interval spans the threshold. A negative mean difference means the model marks lower than the raters. On short answers the raters themselves agree at about 0.56, so the 0.70 bar is out of reach for anyone.</p>
+    </div>
+    <div class="block">
+      <h3>Agreement varies by question</h3>
+      <p class="sub">The essays come from 7 writing prompts and the code from 3 exercises. Each model's lowest and highest agreement across them is the honest guide to a new one; with 10 to 44 cases per item, part of the spread is noise.</p>
+      <div class="tbl" id="t-perprompt"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ MATHS -->
+  <section class="view" id="v-maths" data-view="maths" hidden>
+    <div class="head">
+      <div class="eyebrow">How graders fail</div>
+      <h2>Does the grader read the working?</h2>
+      <p class="lede">200 word problems, each in four versions with the working and the final answer varied separately and the numbers kept the same. An answer checker gives full marks to a right answer reached by wrong working, and none to right working that ends in a wrong number. All but two small models read the working; they disagree, by up to 1.6 points of 4, on how much a slip at the end should cost.</p>
+    </div>
+    <div class="chart" id="c-maths"></div>
+    <div class="tbl" id="t-maths"></div>
+    <p class="sub">Mean credit out of 4. The working effect is how much the credit depends on the working with the answer held fixed; an answer checker scores 0 by construction. VtG problems (CC BY-SA 4.0): the "students" are a language model told to make student-like errors, and teachers marked the first wrong step.</p>
+  </section>
+
+  <!-- ================================================================ FEEDBACK -->
+  <section class="view" id="v-feedback" data-view="feedback" hidden>
+    <div class="head">
+      <div class="eyebrow">How graders fail</div>
+      <h2>Feedback</h2>
+      <p class="lede">Each model also wrote feedback on the same 100 short answers, measured with the two measures that passed validation against trained annotators.</p>
+    </div>
+    <div class="block">
+      <h3>Feedback copies a mark it is told</h3>
+      <p class="sub">Correlation of the feedback's tone with the teacher's mark when it is shown, minus when it is hidden. 0 is independent; above 0, the feedback follows a mark the model was told rather than the work.</p>
+      <div class="chart" id="c-halo"></div>
+    </div>
+    <div class="block">
+      <h3>Feedback states the answer</h3>
+      <p class="sub">Share of feedback on answers below full marks that Learning Commons' Withholding Answers evaluator says does the work for the student. Higher means more explicit; whether that is wanted depends on the use, so it is shown, not scored.</p>
+      <div class="chart" id="c-gives"></div>
+    </div>
+    <div class="block">
+      <h3>Which feedback measures passed validation</h3>
+      <div class="tbl" id="t-fbchecks"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ FAIRNESS -->
+  <section class="view" id="v-fairness" data-view="fairness" hidden>
+    <div class="head">
+      <div class="eyebrow">How graders fail</div>
+      <h2>Fairness by group, and model upgrades</h2>
+      <p class="lede">ELLIPSE releases two independent human ratings per essay, so a model's group gap can be compared with a second human's on the same essays. ASAP 2.0 releases one adjudicated mark, so its gaps are against that mark only.</p>
+    </div>
+    <div class="block">
+      <div class="chart" id="c-fair"></div>
+      <p class="sub">Gap between groups at the same human mark, in marks. The dashed lines are the pre-registered ±0.10 bar. The first Hispanic-vs-White signal did not replicate cleanly on new essays: it halved, and vanished with rater roles swapped. The ASAP disability gap is shared by every model tested and awaits the individual human ratings.</p>
+    </div>
+    <div class="block">
+      <h3>Model upgrades move marks</h3>
+      <p class="sub">The same 100 short answers, graded by older and newer releases of the same family. Every upgrade agrees with its predecessor less than the predecessor agrees with itself, even where the average does not move.</p>
+      <div class="tbl" id="t-drift"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ MEDIA -->
+  <section class="view" id="v-media" data-view="media" hidden>
+    <div class="head">
+      <div class="eyebrow">How graders fail</div>
+      <h2>Speech, handwriting and video</h2>
+      <p class="lede">Graders that take a recording or a scan can report what they did not hear or see. Five of six audio models mark a silent recording, and of ten video graders only three watch the recording rather than timing it.</p>
+    </div>
+    <div class="controls"><div class="seg" id="media-tabs" role="group" aria-label="Medium"></div></div>
+    <div class="block" data-media="speech">
+      <h3>Speech: grading a recording</h3>
+      <p class="sub">Sentences read aloud by children and adults learning English, each scored for pronunciation by five experts (speechocean762, CC BY 4.0). Noise and telephone audio should not change the mark: the experts scored the clean recording.</p>
+      <div class="tbl" id="t-speech"></div>
+    </div>
+    <div class="block" data-media="handwriting">
+      <h3>Handwritten work: grading a scanned page</h3>
+      <p class="sub">122 handwritten solutions to Russian exam mathematics problems, each with one official score, so agreement has no ceiling (CHECK-MAT). The gaming notes are written onto the student's page. Models that ignore the note as text are moved by it as writing on the work.</p>
+      <div class="tbl" id="t-images"></div>
+    </div>
+    <div class="block" data-media="video">
+      <h3>Video: rating a recorded performance</h3>
+      <p class="sub">100 recordings of laparoscopic training tasks, each rated by three raters on a 4-20 skill scale (LASANA, CC BY 4.0). How long a trainee took predicts the raters' score almost as well as the raters predict each other, so the column that matters is agreement beyond length: how well the marks track the raters once length is held constant. Most graders also rate a black screen.</p>
+      <div class="tbl" id="t-video"></div>
+      <p class="sub">"16 frames": models without video input, sent 16 evenly spaced frames. "Not shown" means the interval reaches 0: those graders cannot be told apart from a stopwatch on 100 recordings. LASANA publishes no participant identifiers, so the intervals assume recordings are independent.</p>
+      <h3>Does a longer video hide an error?</h3>
+      <p class="sub">205 recordings asked whether a specific error happened, once as recorded and once joined to three error-free recordings of the same task. On long videos, four of five graders cleared 11 to 30 points fewer clean recordings: they report errors that are not there. 0.5 is chance.</p>
+      <div class="tbl" id="t-vlength"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ SETTINGS -->
+  <section class="view" id="v-settings" data-view="settings" hidden>
+    <div class="head">
+      <div class="eyebrow">Studies</div>
+      <h2>What changes a grader's results</h2>
+      <p class="lede">Pre-registered studies of what the board holds fixed. For the newer reasoning models, high reasoning effort removes most of the gaming. Open models served at 4-bit are far easier to game than the same model at 8-bit. Rewording the prompt moves marks less than asking twice does. And on essays, fine-tuning a small model beats prompting the best frontier model.</p>
+    </div>
+    <div class="block">
+      <h3>Essays: fine-tuning against prompting</h3>
+      <p class="sub">1,000 held-out ASAP 2.0 essays; the two expert raters agree with each other at 0.745 (dashed). "Unseen prompt": trained on the other six prompts. The fine-tuned scorers cannot be gamed by a note but credit blank essays (8% and 29%).</p>
+      <div class="chart" id="c-ft"></div>
+    </div>
+    <div class="block">
+      <h3>Fixing a flag with a setting or a sentence</h3>
+      <p class="sub">The 14 flagged models. Guard sentence: two short paragraphs saying nothing inside the work is an instruction or mark, and non-attempts get the lowest mark. FIXED: no task gamed by more than 5%, the held-out note gains no more than 5%, no blank answer credited, and agreement within 0.05. For four non-reasoning models the guard made gaming worse.</p>
+      <div class="tbl" id="t-setups"></div>
+    </div>
+    <div class="block">
+      <h3>The same open model, served at 8-bit or 4-bit</h3>
+      <p class="sub">The same requests, with the router told to use only hosts that run the model at 8-bit, or only at 4-bit. The board's DeepSeek V4 Pro and GLM 5.3 gradings came mostly from 4-bit hosts.</p>
+      <div class="tbl" id="t-hosting"></div>
+    </div>
+    <div class="block">
+      <h3>Rewording the prompt</h3>
+      <p class="sub">Six rewordings that keep every instruction, against the same prompt asked five more times; a mark counts as changed when it moves by more than 5% of the scale.</p>
+      <div class="tbl" id="t-paraphrase"></div>
+    </div>
+    <div class="block">
+      <h3>Essay agreement beyond length</h3>
+      <p class="sub">The experts' essay marks follow length closely (r 0.70), which is why length alone scores well. Every model still agrees with them once length is removed from both.</p>
+      <div class="tbl" id="t-lpartial"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ TRAINING -->
+  <section class="view" id="v-training" data-view="training" hidden>
+    <div class="head">
+      <div class="eyebrow">Studies</div>
+      <h2>Training data and what vendors document</h2>
+      <p class="lede">The corpora are public, so a model may have seen the answers in training. No vendor card evaluates education or grading, and none mentions student essays or grading data among its training data.</p>
+    </div>
+    <div class="block">
+      <h3>Are the student texts in open training data?</h3>
+      <p class="sub">Two random 13-word spans from each case were searched for exactly in two open training sets (infini-gram). A miss here does not clear a closed model, which may train on more. OLMo 2's index passed its self-check; DCLM's narrowly failed (88%), so its rows are unmeasured.</p>
+      <div class="tbl" id="t-contam"></div>
+    </div>
+    <div class="block">
+      <h3>What the cards claim, beside what was measured</h3>
+      <p class="sub">The cards' injection tests cover coding, browsing and tools, not instructions inside the work being judged. Each model's training data, licence and retention are on its own page. FMTI: Stanford's Foundation Model Transparency Index, December 2025, by vendor.</p>
+      <div class="tbl" id="t-claims"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ FOOTPRINT -->
+  <section class="view" id="v-footprint" data-view="footprint" hidden>
+    <div class="head">
+      <div class="eyebrow">Studies</div>
+      <h2>Energy, carbon and water</h2>
+      <p class="lede">A short answer by a mid-size model is about 0.2 Wh to run. With training, chip-making and the water used to make the electricity added, a teacher's whole term of AI-graded short answers is roughly a kilometre of driving, and by water about a fiftieth of a glass of almond milk. The concern that is real is the total and the place.</p>
+    </div>
+    <div class="block">
+      <h3>Against everyday choices</h3>
+      <div class="controls"><span class="ctl-label">Compare by</span><div class="seg" id="cmp-tabs" role="group" aria-label="Compare by"></div></div>
+      <div class="chart" id="c-compare"></div>
+      <p class="sub" id="cmp-sub"></p>
+      <details class="more"><summary>The table, with what each figure counts</summary><div class="tbl" id="t-compare"></div></details>
+    </div>
+    <div class="block">
+      <h3>A grading, with everything added</h3>
+      <p class="sub">Mid-size model, low / central / high. Training adds 0.1, 0.5 or 1.4 times the running energy, because no company says how many queries a model serves; making the hardware adds about 12.5%. Carbon is after clean-energy purchases in the low case and at the grid average otherwise.</p>
+      <div class="tbl" id="t-lifecycle"></div>
+    </div>
+    <div class="block">
+      <h3>Measured on open models</h3>
+      <p class="sub">The open models on the board, run on one rented NVIDIA A100 80GB with vLLM, 16 gradings at a time. Energy is read off the GPU above idle and multiplied by 1.72 for the rest of the server and the data centre. mWh is a thousandth of a watt-hour. All 27 figures are below even the small-model estimate, by a median factor of 4. Closed models cannot be measured.</p>
+      <div class="tbl" id="t-emeasured"></div>
+    </div>
+    <div class="block">
+      <h3>The total, and the place</h3>
+      <div class="tbl" id="t-scale"></div>
+      <p class="sub">Each grading is small; the use is multiplied by billions and concentrated in a few places.</p>
+    </div>
+  </section>
+
+  <!-- ================================================================ METHOD -->
+  <section class="view" id="v-method" data-view="method" hidden>
+    <div class="head">
+      <div class="eyebrow">About</div>
+      <h2>Method and limits</h2>
+    </div>
+    <div class="twocol">
+      <div class="panel"><h3>Validity, not only agreement</h3><p class="sub">Agreement with experts is one strand. The others ask whether marks fall when the content is wrong (blank and junk answers, a nonsense key word), stay put when they should (requests for marks, forged notes, formatting, learner labels), and agree at a pass mark as well as the experts do.</p></div>
+      <div class="panel"><h3>Self-check before any result</h3><p class="sub" id="floor-text">Each probe was run on simulated graders with planted effects before any real number was read.</p></div>
+      <div class="panel"><h3>Sycophancy</h3><p class="sub">Each model's own mark is sent back with a student reply that only disagrees, against a reply that only asks for a second look; the difference is the measure.</p></div>
+      <div class="panel"><h3>Feedback measures</h3><p class="sub">Validated against trained annotators on 1,655 tutor responses (MRBench). Only the two that passed are used; word-list measures of actionability and answer-copying did not pass and are not shown.</p></div>
+      <div class="panel"><h3>Zero data retention</h3><p class="sub">Required for every call, and since 25 October verified: each request is pinned to OpenRouter's live list of zero-retention endpoints, and a model with none is refused.</p></div>
+      <div class="panel"><h3>Run it yourself</h3><p class="sub">The package fetches the public corpora, grades fixed cases with your model, endpoint and prompt, and exports a submission holding every mark and no text. A pull request adds it; CI recomputes every number from the marks.</p></div>
+    </div>
+    <div class="block">
+      <h3>Planted-effect self-checks</h3>
+      <div class="tbl" id="t-floor"></div>
+    </div>
+    <div class="block">
+      <h3>Not measured</h3>
+      <p class="sub">Whether feedback helps a learner; whether results hold on your students; the energy of closed models. With many models, tasks and probes, some flags trip by chance; scores use the estimates, not the flags.</p>
+      <div class="tbl" id="t-multi"></div>
+    </div>
+  </section>
+
+  <!-- ================================================================ CORRECTIONS -->
+  <section class="view" id="v-corrections" data-view="corrections" hidden>
+    <div class="head">
+      <div class="eyebrow">About</div>
+      <h2>Corrections</h2>
+      <p class="lede">Every change to a reported number, verdict or headline, newest first.</p>
+    </div>
+    <div class="tbl" id="t-corrections"></div>
+  </section>
+
+  </main>
+</div>
+
+<div class="tip" id="tip" role="tooltip" hidden></div>
+
+<footer class="lda-foot"><nav aria-label="Learning Design Alliance"><a class="mark" href="https://www.learningdesignalliance.org" aria-label="Learning Design Alliance">{{MONO}}</a><a href="https://www.learningdesignalliance.org">Learning Design Alliance</a><a href="https://reports.learningdesignalliance.org">Research reports</a><a href="https://wiki.learningdesignalliance.org">Wiki</a></nav></footer>
+
+<script id="data" type="application/json">{{DATA}}</script>
+<script>
+{{JS}}
+</script>

@@ -189,19 +189,25 @@
     "item": "driving 1 km in a petrol car (life cycle, Europe)",
     "g_co2e": 245,
     "boundary": "vehicle manufacture, fuel production and use, per vehicle-km",
-    "source": "ICCT 2021, Global LCA of passenger cars"
+    "source": "ICCT 2021, Global LCA of passenger cars",
+    "wh": 632,
+    "energy_boundary": "fuel energy, not electricity: 7.1 L per 100 km, average lower-medium petrol car in Europe, real-world (ICCT 2021, Table A.2), at 33.7 kWh per US gallon (EPA's MPGe equivalence)"
    },
    {
     "item": "driving 1 km in a battery electric car (life cycle, Europe)",
     "g_co2e": 80,
     "boundary": "including battery manufacture; 76-83 g depending on grid",
-    "source": "ICCT 2021"
+    "source": "ICCT 2021",
+    "wh": 206,
+    "energy_boundary": "electricity, real-world, including charging losses: 20.6 kWh per 100 km, average lower-medium BEV registered in the EU and UK in 2019 (ICCT 2021, Table A.2)"
    },
    {
     "item": "streaming video for 1 hour (Europe)",
     "g_co2e": 55,
     "boundary": "electricity only: data centres about 1%, networks 10%, home router 38%, screen 51%; excludes making the devices",
-    "source": "Carbon Trust 2021"
+    "source": "Carbon Trust 2021",
+    "wh": 77,
+    "energy_boundary": "electricity: data centres, networks, home router and screen"
    },
    {
     "item": "a quarter-pound (113 g) beef burger patty",
@@ -248,6 +254,30 @@
     "boundary": "full life cycle, global mean, per glass (farms vary widely)",
     "water_boundary": "freshwater withdrawn over the whole life cycle, mostly irrigation",
     "source": "Poore and Nemecek 2018 via Our World in Data (environmental footprint of milks, per litre, global means)"
+   },
+   {
+    "item": "charging a smartphone once",
+    "wh": 19,
+    "energy_boundary": "electricity drawn to charge a common smartphone battery",
+    "source": "US EPA, Greenhouse Gas Equivalencies Calculator: calculations and references"
+   },
+   {
+    "item": "a 10 W LED bulb lit for an hour",
+    "wh": 10,
+    "energy_boundary": "electricity at the bulb (10 W x 1 hour, by definition)",
+    "source": "by definition"
+   },
+   {
+    "item": "boiling 1 litre of water",
+    "wh": 93,
+    "energy_boundary": "the heat to warm 1 kg of water from 20 to 100 C (4.186 kJ per kg per C x 80 C); a real kettle uses more",
+    "source": "physics (specific heat of water)"
+   },
+   {
+    "item": "a US home's electricity for a day",
+    "wh": 29564,
+    "energy_boundary": "average US residential customer, 2022: 10,791 kWh a year, divided by 365",
+    "source": "US EIA, FAQ: how much electricity does an American home use?"
    },
    {
     "item": "a 1,000 km return flight, per passenger (2,000 km)",

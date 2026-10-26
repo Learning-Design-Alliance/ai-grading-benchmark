@@ -90,6 +90,23 @@ teacher's AI-graded short answers. Almond milk is thirsty beside oat milk, but s
 milk. Where the water is drawn matters as much as how much: almonds are mostly grown in drought-prone
 California, and data centres are often sited where water is short.
 
+**Energy.** Central case, short-answer gradings (0.32 Wh each: running the model, a share of training and making the
+hardware, with data-centre overhead):
+
+| choice | energy | equals, in short-answer gradings |
+|---|---|---|
+| a 10 W LED bulb lit for an hour | 10 Wh (by definition) | about 32 |
+| charging a smartphone once | 19 Wh (US EPA equivalencies calculator) | about 60 |
+| streaming video for an hour | 77 Wh (IEA) | about 240 |
+| boiling 1 litre of water | at least 93 Wh (heat to warm 1 kg by 80 C) | about 300 |
+| driving 1 km, battery electric car | 206 Wh (ICCT 2021, Table A.2: 20.6 kWh per 100 km, real-world, with charging losses) | about 650 |
+| a teacher's term: 150 students × 10 assignments | 0.47 kWh | 1,500 |
+| driving 1 km, petrol car | 632 Wh of fuel energy (ICCT 2021, Table A.2: 7.1 L per 100 km, at EPA's 33.7 kWh per gallon) | about 2,000 |
+| a US home's electricity for a day | 29.6 kWh (EIA: 10,791 kWh a year, 2022) | about 94,000 |
+
+The petrol car's figure is the energy in the fuel it burns, not electricity; on the same footing an electric car
+uses about a third as much per kilometre.
+
 ## Where the concern is real: the total, and the place
 
 - **Globally, small but growing fast.**
