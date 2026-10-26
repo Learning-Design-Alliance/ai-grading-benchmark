@@ -1,0 +1,8 @@
+{
+ "sd_for_qwk_0.80": 0.6867621553828942,
+ "sd_for_qwk_0.84": 0.5911128655774518,
+ "draws": 200,
+ "power": 0.93,
+ "false_positive": 0.045,
+ "passes": true
+}
