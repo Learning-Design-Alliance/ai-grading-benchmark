@@ -11,6 +11,9 @@ tier, signed, with a bootstrap over sentences. A model under 0.80 on English is 
 **Floor** (`out/floor.json`, synthetic, before any call): false alarms 3.5% of 200 null worlds (limit 7%); a planted
 10-point gap is detected in 94% (needs 80%). **Passes.**
 
-**Results.** Not yet run.
+**Budget.** CHANGE 1 (before any call) raised the cap from $15 to $65: FLEURS clips are 6.4 times longer than
+the speech task's, and audio is billed by length.
+
+**Results.** Running.
 
 Data: FLEURS dev split (CC BY 4.0), downloaded locally; no audio is committed.

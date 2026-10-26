@@ -53,7 +53,15 @@ LIMITS stated in advance:
 - 30 sentences per language.
 - FLEURS speakers are adults reading prepared text.
 
-BUDGET. A cap of $15 (about 6,500 gradings).
+BUDGET. A cap of $15 (about 6,500 gradings). Raised by CHANGE 1.
+
+CHANGES:
+1. (2026-10-26, after the dry run and before any call) The $15 cap was estimated from the speech task's clips.
+   FLEURS clips are 6.4 times larger, and audio is billed by length, so the six models are estimated at about $60
+   (Muse Spark about $32, Gemini 4 Argon $15, Gemini 3.8 Flash $9, the other three $4). A per-model cap of $4
+   would stop the dearer models partway, leaving some languages ungraded, which would bias the tier comparison.
+   The cap is now $65, each model may spend up to $40, and the models run cheapest first. Design, measures,
+   verdicts and floor are unchanged.
 
 Usage:
     python3 language/study.py prepare --dir <local dir>      # downloads the dev split for the 18 languages
@@ -86,7 +94,7 @@ LANGS = [l for t in TIERS.values() for l in t]
 TIER_OF = {l: t for t, ls in TIERS.items() for l in ls}
 BASE = "https://huggingface.co/datasets/google/fleurs/resolve/main/data"
 N_SENT, SEED, REPS = 30, 26, 2000
-CAP = 15.0
+CAP = 65.0
 REFUSE = ("cannot understand", "can't understand", "unable to understand", "not able to understand", "cannot hear",
           "can't hear", "unintelligible", "cannot determine", "can't determine", "unable to determine")
 
@@ -195,12 +203,16 @@ def cmd_floor(a):
 
 
 # ------------------------------------------------------------------ runs
+ORDER = ["xiaomi/mimo-v2.6-flash", "perceptron/perceptron-mk1.5", "mistralai/voxtral-small-24b-2507",
+         "google/gemini-3.8-flash", "google/gemini-4-argon", "meta/muse-spark-open"]  # cheapest first (CHANGE 1)
+
+
 def speech_models():
     out = []
     for d in sorted(x for x in glob.glob(os.path.join(RUNS, "speech-*")) if os.path.isdir(x)):
         c = json.load(open(os.path.join(d, "config.json")))
         out.append(c)
-    return out
+    return sorted(out, key=lambda c: ORDER.index(c["model"]) if c["model"] in ORDER else len(ORDER))
 
 
 def spent():
@@ -221,7 +233,7 @@ def cmd_run(a):
                "--base-url", c["base_url"], "--model", c["model"], "--key-env", "OPENROUTER_API_KEY", "--n", str(n),
                "--seed", "7", "--probes", "base", "--max-tokens", str(c.get("max_tokens") or 4096),
                "--extra-body", json.dumps(c.get("extra_body") or {}), "--out", out, "--workers", "8",
-               "--max-usd", str(min(4.0, left)), "--max-calls", str(n + 10)]
+               "--max-usd", str(min(40.0, left)), "--max-calls", str(n + 10)]
         if a.go:
             cmd.append("--go")
         r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
