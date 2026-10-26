@@ -64,6 +64,10 @@ together under the same flags; feedback, maths working and pushback stay with th
 rows are this script's output, unchanged. Label fairness and consistency are 100 by construction for every
 baseline, which the board marks. Reason: readers want to see where classic and fine-tuned scoring stands among
 the models, task by task.
+CHANGE 4 (2026-10-26, the same day, the maintainer's decision): reference rows, not ranked. A grader that cannot do
+the whole task (it only marks, writes no feedback or explanation, and needs hundreds of marked answers per
+question) should not head a leaderboard. The baselines stay on the marking-only board as unranked reference rows
+in score order; only prompted models take ranks, and the whole-task board stays the headline.
 
     python3 baselines/baselines.py --cases-dir <dir with mohler.jsonl, harmogen-code.jsonl, asap2.jsonl> --out out/baselines.json
 

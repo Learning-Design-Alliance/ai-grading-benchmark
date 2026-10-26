@@ -724,29 +724,33 @@ def multiplicity(rows, alpha=0.05):
             "do_not_survive": [{k: x[k] for k in ("model", "task", "probe", "p", "q")} for x in flagged if not x["survives_fdr"]]}
 
 
-#: The scoring board (2026-10-26, the maintainer's decision): the six strands any grader that returns a mark has,
-#: so prompted models, classic baselines and fine-tuned scorers are ranked together. Feedback, maths working and
-#: pushback are reported separately ("beyond the mark"); the full overall score keeps all nine for prompted models.
+#: The marking-only board (2026-10-26, the maintainer's decision): the six strands any grader that returns a mark
+#: has. Prompted models are ranked; classic baselines and fine-tuned scorers, which only mark and need the corpus's
+#: own marked answers, are shown beside them as unranked reference rows. The whole-task overall score (all nine
+#: strands) remains the headline ranking.
 SCORING_STRANDS = ("agreement", "decision", "relevant", "irrelevant", "fairness", "consistency")
 SCORING_WEIGHTS = {k: WEIGHTS[k] for k in SCORING_STRANDS}
 
 
 def scoring(rows, extra_rows=(), sims=1000, seed=7):
-    """The scoring board: every grader on the six scoring strands, ranked across tasks (a grader run on every task)
-    and within each task. extra_rows: baseline and fine-tuned rows (track "baseline" / "fine-tuned"), scored by the
-    same row() as a submission."""
-    all_rows = list(rows) + list(extra_rows)
-    res = overall(all_rows, None, SCORING_WEIGHTS, sims=sims, seed=seed, model_tasks=())
+    """The marking-only board: prompted models ranked on the six scoring strands, across tasks and within each task.
+    extra_rows (baseline and fine-tuned scorers, track "baseline" / "fine-tuned") are scored by the same row() and
+    shown as UNRANKED reference rows: they only mark, need the corpus's own marked answers, and write no feedback,
+    so they never take a rank (the maintainer's decision, 2026-10-26)."""
+    res = overall(list(rows), None, SCORING_WEIGHTS, sims=sims, seed=seed, model_tasks=())
+    ref = overall(list(extra_rows), None, SCORING_WEIGHTS, sims=1, seed=seed, model_tasks=()) if extra_rows else {"rows": []}
     meta = {r["model"]: r for r in extra_rows}
     for o in res["rows"]:
-        x = meta.get(o["model"])
-        o["track"] = x.get("track") if x else "prompted"
-        o["by_construction"] = x.get("by_construction") if x else None
-        o["n_train"] = {r["task"]: r.get("n_train") for r in extra_rows if r["model"] == o["model"]} or None
+        o["track"], o["reference"], o["by_construction"], o["n_train"] = "prompted", False, None, None
+    for o in ref["rows"]:
+        x = meta[o["model"]]
+        o.update(track=x.get("track"), reference=True, by_construction=x.get("by_construction"), rank=None, rank_ci95=None,
+                 n_train={r["task"]: r.get("n_train") for r in extra_rows if r["model"] == o["model"]})
+    res["rows"] += ref["rows"]
     by_task = {}
     for t in ("mohler", "code", "asap2"):
         tr = []
-        for r in all_rows:
+        for r in list(rows) + list(extra_rows):
             if r["task"] != t:
                 continue
             st = strand_scores(r)
@@ -757,11 +761,16 @@ def scoring(rows, extra_rows=(), sims=1000, seed=7):
                 flags.append("credits blank or junk answers")
             if r["refused"] / max(1, r["gradings"]) * 100 > FLAGS["refused"]:
                 flags.append("refuses more than 5% of gradings")
-            tr.append({"model": r["model"], "strands": {k: st[k] for k in SCORING_STRANDS},
+            tr.append({"model": r["model"], "reference": r["model"] in meta, "strands": {k: st[k] for k in SCORING_STRANDS},
                        "score": _weighted({k: st[k] for k in SCORING_STRANDS}, SCORING_WEIGHTS), "flags": flags})
         tr.sort(key=lambda o: (bool(o["flags"]), -(o["score"] or 0)))
-        for i, o in enumerate(tr):
-            o["rank"] = i + 1
+        i = 0
+        for o in tr:
+            if o["reference"]:
+                o["rank"] = None
+            else:
+                i += 1
+                o["rank"] = i
         by_task[t] = tr
     res["by_task"] = by_task
     res["strands"] = list(SCORING_STRANDS)

@@ -25,79 +25,72 @@
  },
  "multiplicity": {
   "method": "Benjamini-Hochberg, 5%, over every probe interval",
-  "tests": 251,
-  "flagged": 136,
-  "survive": 126,
+  "tests": 230,
+  "flagged": 121,
+  "survive": 112,
   "do_not_survive": [
+   {
+    "model": "meta-llama/llama-3.2-3b-instruct",
+    "task": "code",
+    "probe": "gaming_max_share",
+    "p": 0.02506581335684663,
+    "q": 0.0510189121422542
+   },
    {
     "model": "google/gemma-4-26b-a4b-it",
     "task": "mohler",
     "probe": "surface_share",
     "p": 0.02671533270001461,
-    "q": 0.05279959454884777
+    "q": 0.0538993554473979
    },
    {
     "model": "google/gemma-4-26b-a4b-it",
     "task": "code",
     "probe": "attainment_label_share",
     "p": 0.02772836224161391,
-    "q": 0.054373585333164776
+    "q": 0.055456724483227825
    },
    {
     "model": "qwen/qwen3-235b-a22b-2507",
     "task": "asap2",
     "probe": "attainment_label_share",
     "p": 0.02942258510478855,
-    "q": 0.05680822201001487
-   },
-   {
-    "model": "baseline: deberta-ft",
-    "task": "asap2",
-    "probe": "gaming_max_share",
-    "p": 0.029422585104788578,
-    "q": 0.05680822201001487
-   },
-   {
-    "model": "baseline: tfidf-ridge",
-    "task": "mohler",
-    "probe": "blicket_share",
-    "p": 0.03250198945236694,
-    "q": 0.0622748042178939
+    "q": 0.05833788425949454
    },
    {
     "model": "anthropic/claude-fable-5.1",
     "task": "asap2",
     "probe": "surface_share",
     "p": 0.0328973916454885,
-    "q": 0.06255488865922434
+    "q": 0.0646700861407039
    },
    {
     "model": "deepseek/deepseek-v4.1-flash-1017",
     "task": "mohler",
     "probe": "gaming_max_share",
     "p": 0.03372592934389393,
-    "q": 0.06364818244599531
+    "q": 0.06573698092453902
    },
    {
     "model": "anthropic/claude-haiku-5.5",
     "task": "code",
     "probe": "attainment_label_share",
     "p": 0.03752553286987552,
-    "q": 0.07029036380849817
+    "q": 0.07252834084093587
    },
    {
     "model": "anthropic/claude-haiku-5.5",
     "task": "mohler",
     "probe": "gaming_max_share",
     "p": 0.039097629083996735,
-    "q": 0.07269262888950505
+    "q": 0.07493712241099375
    },
    {
     "model": "deepseek/deepseek-v4-pro-0813",
     "task": "code",
     "probe": "attainment_label_share",
     "p": 0.041247599975421406,
-    "q": 0.07612608524875568
+    "q": 0.07840452887890019
    }
   ]
  },
@@ -165,6 +158,7 @@
    "rank": 1,
    "capped": false,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -226,11 +220,12 @@
    ],
    "rank_ci95": [
     1,
-    7
+    8
    ],
    "rank": 2,
    "capped": false,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -292,11 +287,12 @@
    ],
    "rank_ci95": [
     1,
-    10
+    9
    ],
    "rank": 3,
    "capped": false,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -358,11 +354,12 @@
    ],
    "rank_ci95": [
     1,
-    10
+    11
    ],
    "rank": 4,
    "capped": false,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -429,6 +426,7 @@
    "rank": 5,
    "capped": false,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -495,6 +493,7 @@
    "rank": 6,
    "capped": false,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -561,6 +560,7 @@
    "rank": 7,
    "capped": false,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -627,6 +627,7 @@
    "rank": 8,
    "capped": false,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -695,6 +696,7 @@
    "rank": 9,
    "capped": true,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -763,6 +765,7 @@
    "rank": 10,
    "capped": true,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -831,6 +834,7 @@
    "rank": 11,
    "capped": true,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -893,12 +897,13 @@
     92.20078721730663
    ],
    "rank_ci95": [
-    5,
+    6,
     16
    ],
    "rank": 12,
    "capped": true,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -967,6 +972,7 @@
    "rank": 13,
    "capped": true,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -1030,12 +1036,13 @@
     91.41840831894281
    ],
    "rank_ci95": [
-    10,
+    9,
     17
    ],
    "rank": 14,
    "capped": true,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -1100,11 +1107,12 @@
    ],
    "rank_ci95": [
     10,
-    18
+    17
    ],
    "rank": 15,
    "capped": true,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -1174,6 +1182,7 @@
    "rank": 16,
    "capped": true,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -1242,6 +1251,7 @@
    "rank": 17,
    "capped": true,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -1311,6 +1321,7 @@
    "rank": 18,
    "capped": true,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -1375,11 +1386,12 @@
    ],
    "rank_ci95": [
     17,
-    22
+    20
    ],
    "rank": 19,
    "capped": true,
    "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -1443,11 +1455,152 @@
    ],
    "rank_ci95": [
     18,
-    22
+    20
    ],
    "rank": 20,
    "capped": true,
    "track": "prompted",
+   "reference": false,
+   "by_construction": null,
+   "n_train": null
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 62.84224861783604,
+    "decision": 70.41608905972329,
+    "relevant": 57.3968253968254,
+    "irrelevant": 47.847929078984244,
+    "fairness": 68.79629629629629,
+    "consistency": 66.57963423568911
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 66.23849108632542,
+     "decision": 88.4792453752367,
+     "relevant": 69.33333333333334,
+     "irrelevant": 41.578947368421055,
+     "fairness": 73.0,
+     "consistency": 62.086659064994286,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 60.969528252441904,
+     "decision": 52.35293274420988,
+     "relevant": 42.85714285714286,
+     "irrelevant": 33.58843537414966,
+     "fairness": 45.38888888888889,
+     "consistency": 66.33054788147454,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 61.31872651474078,
+     "decision": null,
+     "relevant": 60.0,
+     "irrelevant": 68.37640449438203,
+     "fairness": 88.0,
+     "consistency": 71.3216957605985,
+     "feedback": null
+    }
+   },
+   "overall": 62.194925046399256,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "overall_by_task": {
+    "mohler": 65.37857956383407,
+    "code": 51.732856049914126,
+    "asap2": 69.35549583366534
+   },
+   "task_range": [
+    51.732856049914126,
+    69.35549583366534
+   ],
+   "rank_ci95": [
+    21,
+    22
+   ],
+   "rank": 21,
+   "capped": true,
+   "track": "prompted",
+   "reference": false,
+   "by_construction": null,
+   "n_train": null
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 49.20239359579779,
+    "decision": 63.82374974084279,
+    "relevant": 43.707070707070706,
+    "irrelevant": 47.65009746588694,
+    "fairness": 45.14983164983164,
+    "consistency": 95.42470386778325
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 90.7790301771721,
+     "decision": 100.0,
+     "relevant": 55.666666666666664,
+     "irrelevant": 71.39473684210526,
+     "fairness": 94.94949494949495,
+     "consistency": 97.05585464333782,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 35.99653351175267,
+     "decision": 27.647499481685582,
+     "relevant": 13.33333333333333,
+     "irrelevant": 18.05555555555555,
+     "fairness": 27.499999999999986,
+     "consistency": 95.94902619078114,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 20.831617098468588,
+     "decision": null,
+     "relevant": 62.121212121212125,
+     "irrelevant": 53.5,
+     "fairness": 13.0,
+     "consistency": 93.26923076923077,
+     "feedback": null
+    }
+   },
+   "overall": 56.985972656962296,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "overall_by_task": {
+    "mohler": 86.412707973556,
+    "code": 38.13655991265618,
+    "asap2": 44.23176262765372
+   },
+   "task_range": [
+    38.13655991265618,
+    86.412707973556
+   ],
+   "rank_ci95": [
+    21,
+    22
+   ],
+   "rank": 22,
+   "capped": true,
+   "track": "prompted",
+   "reference": false,
    "by_construction": null,
    "n_train": null
   },
@@ -1509,13 +1662,11 @@
     49.95370370370371,
     92.26669574096479
    ],
-   "rank_ci95": [
-    18,
-    22
-   ],
-   "rank": 21,
+   "rank_ci95": null,
+   "rank": null,
    "capped": true,
    "track": "baseline",
+   "reference": true,
    "by_construction": [
     "attainment label effect is 0 (the baseline never sees the label)",
     "retest agreement is 1 (deterministic)"
@@ -1584,13 +1735,11 @@
     50.01955322067141,
     95.1973816211878
    ],
-   "rank_ci95": [
-    20,
-    23
-   ],
-   "rank": 22,
+   "rank_ci95": null,
+   "rank": null,
    "capped": true,
    "track": "baseline",
+   "reference": true,
    "by_construction": [
     "attainment label effect is 0 (the baseline never sees the label)",
     "retest agreement is 1 (deterministic)"
@@ -1659,13 +1808,11 @@
     50.0,
     83.63155459135396
    ],
-   "rank_ci95": [
-    23,
-    24
-   ],
-   "rank": 23,
+   "rank_ci95": null,
+   "rank": null,
    "capped": true,
    "track": "baseline",
+   "reference": true,
    "by_construction": [
     "attainment label effect is 0 (the baseline never sees the label)",
     "retest agreement is 1 (deterministic)"
@@ -1675,75 +1822,6 @@
     "code": 29,
     "asap2": 24628
    }
-  },
-  {
-   "model": "meta-llama/llama-3.2-3b-instruct",
-   "tasks": [
-    "asap2",
-    "code",
-    "mohler"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 62.84224861783604,
-    "decision": 70.41608905972329,
-    "relevant": 57.3968253968254,
-    "irrelevant": 47.847929078984244,
-    "fairness": 68.79629629629629,
-    "consistency": 66.57963423568911
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 66.23849108632542,
-     "decision": 88.4792453752367,
-     "relevant": 69.33333333333334,
-     "irrelevant": 41.578947368421055,
-     "fairness": 73.0,
-     "consistency": 62.086659064994286,
-     "feedback": null
-    },
-    "code": {
-     "agreement": 60.969528252441904,
-     "decision": 52.35293274420988,
-     "relevant": 42.85714285714286,
-     "irrelevant": 33.58843537414966,
-     "fairness": 45.38888888888889,
-     "consistency": 66.33054788147454,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 61.31872651474078,
-     "decision": null,
-     "relevant": 60.0,
-     "irrelevant": 68.37640449438203,
-     "fairness": 88.0,
-     "consistency": 71.3216957605985,
-     "feedback": null
-    }
-   },
-   "overall": 62.194925046399256,
-   "flags": [
-    "gamed by more than 5% of the scale",
-    "credits blank or junk answers"
-   ],
-   "overall_by_task": {
-    "mohler": 65.37857956383407,
-    "code": 51.732856049914126,
-    "asap2": 69.35549583366534
-   },
-   "task_range": [
-    51.732856049914126,
-    69.35549583366534
-   ],
-   "rank_ci95": [
-    22,
-    26
-   ],
-   "rank": 24,
-   "capped": true,
-   "track": "prompted",
-   "by_construction": null,
-   "n_train": null
   },
   {
    "model": "baseline: length",
@@ -1803,13 +1881,11 @@
     50.34585836526859,
     87.96361259888083
    ],
-   "rank_ci95": [
-    24,
-    25
-   ],
-   "rank": 25,
+   "rank_ci95": null,
+   "rank": null,
    "capped": true,
    "track": "baseline",
+   "reference": true,
    "by_construction": [
     "attainment label effect is 0 (the baseline never sees the label)",
     "retest agreement is 1 (deterministic)"
@@ -1819,75 +1895,6 @@
     "code": 29,
     "asap2": 24628
    }
-  },
-  {
-   "model": "google/gemma-3-4b-it",
-   "tasks": [
-    "asap2",
-    "code",
-    "mohler"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 49.20239359579779,
-    "decision": 63.82374974084279,
-    "relevant": 43.707070707070706,
-    "irrelevant": 47.65009746588694,
-    "fairness": 45.14983164983164,
-    "consistency": 95.42470386778325
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 90.7790301771721,
-     "decision": 100.0,
-     "relevant": 55.666666666666664,
-     "irrelevant": 71.39473684210526,
-     "fairness": 94.94949494949495,
-     "consistency": 97.05585464333782,
-     "feedback": null
-    },
-    "code": {
-     "agreement": 35.99653351175267,
-     "decision": 27.647499481685582,
-     "relevant": 13.33333333333333,
-     "irrelevant": 18.05555555555555,
-     "fairness": 27.499999999999986,
-     "consistency": 95.94902619078114,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 20.831617098468588,
-     "decision": null,
-     "relevant": 62.121212121212125,
-     "irrelevant": 53.5,
-     "fairness": 13.0,
-     "consistency": 93.26923076923077,
-     "feedback": null
-    }
-   },
-   "overall": 56.985972656962296,
-   "flags": [
-    "gamed by more than 5% of the scale",
-    "credits blank or junk answers"
-   ],
-   "overall_by_task": {
-    "mohler": 86.412707973556,
-    "code": 38.13655991265618,
-    "asap2": 44.23176262765372
-   },
-   "task_range": [
-    38.13655991265618,
-    86.412707973556
-   ],
-   "rank_ci95": [
-    25,
-    26
-   ],
-   "rank": 26,
-   "capped": true,
-   "track": "prompted",
-   "by_construction": null,
-   "n_train": null
   },
   {
    "model": "baseline: reference-similarity",
@@ -1938,10 +1945,12 @@
    ],
    "rank_ci95": null,
    "track": "baseline",
+   "reference": true,
    "by_construction": [
     "attainment label effect is 0 (the baseline never sees the label)",
     "retest agreement is 1 (deterministic)"
    ],
+   "rank": null,
    "n_train": {
     "mohler": 1627,
     "code": 29
@@ -1952,6 +1961,7 @@
   "mohler": [
    {
     "model": "anthropic/claude-fable-5.1",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -1966,6 +1976,7 @@
    },
    {
     "model": "google/gemma-4-31b-it",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -1980,6 +1991,7 @@
    },
    {
     "model": "google/gemma-4-26b-a4b-it",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -1994,6 +2006,7 @@
    },
    {
     "model": "anthropic/claude-opus-5.5",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2008,6 +2021,7 @@
    },
    {
     "model": "openai/gpt-6-astra",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2022,6 +2036,7 @@
    },
    {
     "model": "z-ai/glm-5.3-flash",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2036,6 +2051,7 @@
    },
    {
     "model": "anthropic/claude-haiku-5.5",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2050,6 +2066,7 @@
    },
    {
     "model": "deepseek/deepseek-v4.1-flash-1017",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2064,6 +2081,7 @@
    },
    {
     "model": "deepseek/deepseek-v4.1-flash",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2078,6 +2096,7 @@
    },
    {
     "model": "openai/gpt-5.6-luna",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2092,6 +2111,7 @@
    },
    {
     "model": "openai/gpt-5-mini",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2106,6 +2126,7 @@
    },
    {
     "model": "z-ai/glm-5.3",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2122,6 +2143,7 @@
    },
    {
     "model": "openai/gpt-oss-20b",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2138,6 +2160,7 @@
    },
    {
     "model": "google/gemini-3.5-flash-lite",
+    "reference": false,
     "strands": {
      "agreement": 95.5107057750054,
      "decision": 100.0,
@@ -2154,6 +2177,7 @@
    },
    {
     "model": "google/gemma-3-27b-it",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2171,6 +2195,7 @@
    },
    {
     "model": "microsoft/phi-4",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2188,6 +2213,7 @@
    },
    {
     "model": "deepseek/deepseek-v4-pro-0813",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2205,6 +2231,7 @@
    },
    {
     "model": "allenai/olmo-3.1-32b-instruct",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2222,6 +2249,7 @@
    },
    {
     "model": "qwen/qwen3-235b-a22b-2507",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2238,6 +2266,7 @@
    },
    {
     "model": "google/gemma-3-4b-it",
+    "reference": false,
     "strands": {
      "agreement": 90.7790301771721,
      "decision": 100.0,
@@ -2255,6 +2284,7 @@
    },
    {
     "model": "mistralai/ministral-8b-2512",
+    "reference": false,
     "strands": {
      "agreement": 98.94844890499529,
      "decision": 100.0,
@@ -2272,6 +2302,7 @@
    },
    {
     "model": "baseline: tfidf-ridge",
+    "reference": true,
     "strands": {
      "agreement": 72.353253376654,
      "decision": 64.57746968075836,
@@ -2284,10 +2315,11 @@
     "flags": [
      "credits blank or junk answers"
     ],
-    "rank": 22
+    "rank": null
    },
    {
     "model": "baseline: deberta-ft",
+    "reference": true,
     "strands": {
      "agreement": 62.40528954754888,
      "decision": 0.0,
@@ -2300,10 +2332,11 @@
     "flags": [
      "credits blank or junk answers"
     ],
-    "rank": 23
+    "rank": null
    },
    {
     "model": "meta-llama/llama-3.2-3b-instruct",
+    "reference": false,
     "strands": {
      "agreement": 66.23849108632542,
      "decision": 88.4792453752367,
@@ -2317,10 +2350,11 @@
      "gamed by more than 5% of the scale",
      "credits blank or junk answers"
     ],
-    "rank": 24
+    "rank": 22
    },
    {
     "model": "baseline: encoder-ridge",
+    "reference": true,
     "strands": {
      "agreement": 55.532372760669006,
      "decision": 0.0,
@@ -2333,10 +2367,11 @@
     "flags": [
      "credits blank or junk answers"
     ],
-    "rank": 25
+    "rank": null
    },
    {
     "model": "baseline: reference-similarity",
+    "reference": true,
     "strands": {
      "agreement": 28.14514281743998,
      "decision": 0.0,
@@ -2349,10 +2384,11 @@
     "flags": [
      "credits blank or junk answers"
     ],
-    "rank": 26
+    "rank": null
    },
    {
     "model": "baseline: length",
+    "reference": true,
     "strands": {
      "agreement": 1.8450901149669217,
      "decision": 0.0,
@@ -2365,12 +2401,13 @@
     "flags": [
      "credits blank or junk answers"
     ],
-    "rank": 27
+    "rank": null
    }
   ],
   "code": [
    {
     "model": "openai/gpt-6-astra",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2385,6 +2422,7 @@
    },
    {
     "model": "anthropic/claude-opus-5.5",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2399,6 +2437,7 @@
    },
    {
     "model": "anthropic/claude-fable-5.1",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2413,6 +2452,7 @@
    },
    {
     "model": "z-ai/glm-5.3-flash",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2427,6 +2467,7 @@
    },
    {
     "model": "openai/gpt-5-mini",
+    "reference": false,
     "strands": {
      "agreement": 99.72562638155361,
      "decision": 100.0,
@@ -2441,6 +2482,7 @@
    },
    {
     "model": "deepseek/deepseek-v4.1-flash-1017",
+    "reference": false,
     "strands": {
      "agreement": 97.3660235092417,
      "decision": 98.21033372295945,
@@ -2455,6 +2497,7 @@
    },
    {
     "model": "anthropic/claude-haiku-5.5",
+    "reference": false,
     "strands": {
      "agreement": 97.40353356747441,
      "decision": 94.06751674926315,
@@ -2469,6 +2512,7 @@
    },
    {
     "model": "deepseek/deepseek-v4.1-flash",
+    "reference": false,
     "strands": {
      "agreement": 90.13222511736268,
      "decision": 91.41856296945116,
@@ -2483,6 +2527,7 @@
    },
    {
     "model": "openai/gpt-5.6-luna",
+    "reference": false,
     "strands": {
      "agreement": 90.37844025613504,
      "decision": 86.70519737247773,
@@ -2497,6 +2542,7 @@
    },
    {
     "model": "mistralai/ministral-8b-2512",
+    "reference": false,
     "strands": {
      "agreement": 84.85955879420578,
      "decision": 100.0,
@@ -2511,6 +2557,7 @@
    },
    {
     "model": "z-ai/glm-5.3",
+    "reference": false,
     "strands": {
      "agreement": 100.0,
      "decision": 100.0,
@@ -2527,6 +2574,7 @@
    },
    {
     "model": "google/gemini-3.5-flash-lite",
+    "reference": false,
     "strands": {
      "agreement": 88.43237999241796,
      "decision": 100.0,
@@ -2543,6 +2591,7 @@
    },
    {
     "model": "google/gemma-3-27b-it",
+    "reference": false,
     "strands": {
      "agreement": 87.56207126333453,
      "decision": 84.52638495355184,
@@ -2559,6 +2608,7 @@
    },
    {
     "model": "microsoft/phi-4",
+    "reference": false,
     "strands": {
      "agreement": 83.16083550211034,
      "decision": 80.95449130970295,
@@ -2576,6 +2626,7 @@
    },
    {
     "model": "google/gemma-4-31b-it",
+    "reference": false,
     "strands": {
      "agreement": 64.7589351568095,
      "decision": 49.08197971482709,
@@ -2592,6 +2643,7 @@
    },
    {
     "model": "google/gemma-4-26b-a4b-it",
+    "reference": false,
     "strands": {
      "agreement": 59.692599402362546,
      "decision": 40.69863081991298,
@@ -2608,6 +2660,7 @@
    },
    {
     "model": "qwen/qwen3-235b-a22b-2507",
+    "reference": false,
     "strands": {
      "agreement": 61.244615748528254,
      "decision": 73.04577597041683,
@@ -2624,6 +2677,7 @@
    },
    {
     "model": "allenai/olmo-3.1-32b-instruct",
+    "reference": false,
     "strands": {
      "agreement": 62.54431398398882,
      "decision": 53.15121851295754,
@@ -2640,6 +2694,7 @@
    },
    {
     "model": "deepseek/deepseek-v4-pro-0813",
+    "reference": false,
     "strands": {
      "agreement": 57.58616798713065,
      "decision": 51.45123334767428,
@@ -2656,6 +2711,7 @@
    },
    {
     "model": "openai/gpt-oss-20b",
+    "reference": false,
     "strands": {
      "agreement": 32.81017204527469,
      "decision": 44.63959061162723,
@@ -2672,6 +2728,7 @@
    },
    {
     "model": "meta-llama/llama-3.2-3b-instruct",
+    "reference": false,
     "strands": {
      "agreement": 60.969528252441904,
      "decision": 52.35293274420988,
@@ -2689,6 +2746,7 @@
    },
    {
     "model": "baseline: length",
+    "reference": true,
     "strands": {
      "agreement": 5.590162440940033,
      "decision": 0.0,
@@ -2701,10 +2759,11 @@
     "flags": [
      "credits blank or junk answers"
     ],
-    "rank": 22
+    "rank": null
    },
    {
     "model": "baseline: deberta-ft",
+    "reference": true,
     "strands": {
      "agreement": 1.720391594417097,
      "decision": 0.0,
@@ -2717,10 +2776,11 @@
     "flags": [
      "credits blank or junk answers"
     ],
-    "rank": 23
+    "rank": null
    },
    {
     "model": "baseline: reference-similarity",
+    "reference": true,
     "strands": {
      "agreement": 0.0,
      "decision": 0.0,
@@ -2733,10 +2793,11 @@
     "flags": [
      "credits blank or junk answers"
     ],
-    "rank": 24
+    "rank": null
    },
    {
     "model": "baseline: encoder-ridge",
+    "reference": true,
     "strands": {
      "agreement": 0.0,
      "decision": 0.0,
@@ -2749,10 +2810,11 @@
     "flags": [
      "credits blank or junk answers"
     ],
-    "rank": 25
+    "rank": null
    },
    {
     "model": "baseline: tfidf-ridge",
+    "reference": true,
     "strands": {
      "agreement": 0.0,
      "decision": 0.0,
@@ -2765,10 +2827,11 @@
     "flags": [
      "credits blank or junk answers"
     ],
-    "rank": 26
+    "rank": null
    },
    {
     "model": "google/gemma-3-4b-it",
+    "reference": false,
     "strands": {
      "agreement": 35.99653351175267,
      "decision": 27.647499481685582,
@@ -2782,12 +2845,13 @@
      "gamed by more than 5% of the scale",
      "credits blank or junk answers"
     ],
-    "rank": 27
+    "rank": 22
    }
   ],
   "asap2": [
    {
     "model": "google/gemma-4-31b-it",
+    "reference": false,
     "strands": {
      "agreement": 88.0858063727243,
      "decision": null,
@@ -2802,6 +2866,7 @@
    },
    {
     "model": "baseline: tfidf-ridge",
+    "reference": true,
     "strands": {
      "agreement": 98.55342637108735,
      "decision": null,
@@ -2812,10 +2877,11 @@
     },
     "score": 92.26669574096479,
     "flags": [],
-    "rank": 2
+    "rank": null
    },
    {
     "model": "anthropic/claude-fable-5.1",
+    "reference": false,
     "strands": {
      "agreement": 95.55540422727155,
      "decision": null,
@@ -2826,10 +2892,11 @@
     },
     "score": 90.71824403001072,
     "flags": [],
-    "rank": 3
+    "rank": 2
    },
    {
     "model": "anthropic/claude-opus-5.5",
+    "reference": false,
     "strands": {
      "agreement": 94.13926021984422,
      "decision": null,
@@ -2840,10 +2907,11 @@
     },
     "score": 88.85321864072344,
     "flags": [],
-    "rank": 4
+    "rank": 3
    },
    {
     "model": "baseline: length",
+    "reference": true,
     "strands": {
      "agreement": 85.38356031641864,
      "decision": null,
@@ -2854,10 +2922,11 @@
     },
     "score": 87.96361259888083,
     "flags": [],
-    "rank": 5
+    "rank": null
    },
    {
     "model": "z-ai/glm-5.3-flash",
+    "reference": false,
     "strands": {
      "agreement": 79.28080566124542,
      "decision": null,
@@ -2868,10 +2937,11 @@
     },
     "score": 87.1347644822708,
     "flags": [],
-    "rank": 6
+    "rank": 4
    },
    {
     "model": "anthropic/claude-haiku-5.5",
+    "reference": false,
     "strands": {
      "agreement": 80.12437114880156,
      "decision": null,
@@ -2882,10 +2952,11 @@
     },
     "score": 86.77687882110014,
     "flags": [],
-    "rank": 7
+    "rank": 5
    },
    {
     "model": "openai/gpt-6-astra",
+    "reference": false,
     "strands": {
      "agreement": 65.43862540745894,
      "decision": null,
@@ -2896,10 +2967,11 @@
     },
     "score": 85.62446134071374,
     "flags": [],
-    "rank": 8
+    "rank": 6
    },
    {
     "model": "deepseek/deepseek-v4.1-flash",
+    "reference": false,
     "strands": {
      "agreement": 86.0501554265222,
      "decision": null,
@@ -2910,10 +2982,11 @@
     },
     "score": 85.40236097046716,
     "flags": [],
-    "rank": 9
+    "rank": 7
    },
    {
     "model": "deepseek/deepseek-v4.1-flash-1017",
+    "reference": false,
     "strands": {
      "agreement": 78.56392383582444,
      "decision": null,
@@ -2924,10 +2997,11 @@
     },
     "score": 85.25067337534733,
     "flags": [],
-    "rank": 10
+    "rank": 8
    },
    {
     "model": "openai/gpt-5-mini",
+    "reference": false,
     "strands": {
      "agreement": 40.568378238301044,
      "decision": null,
@@ -2938,10 +3012,11 @@
     },
     "score": 74.98375758000006,
     "flags": [],
-    "rank": 11
+    "rank": 9
    },
    {
     "model": "baseline: deberta-ft",
+    "reference": true,
     "strands": {
      "agreement": 100.0,
      "decision": null,
@@ -2954,10 +3029,11 @@
     "flags": [
      "credits blank or junk answers"
     ],
-    "rank": 12
+    "rank": null
    },
    {
     "model": "google/gemma-4-26b-a4b-it",
+    "reference": false,
     "strands": {
      "agreement": 97.55010803052974,
      "decision": null,
@@ -2970,10 +3046,11 @@
     "flags": [
      "gamed by more than 5% of the scale"
     ],
-    "rank": 13
+    "rank": 10
    },
    {
     "model": "google/gemini-3.5-flash-lite",
+    "reference": false,
     "strands": {
      "agreement": 84.46187830259325,
      "decision": null,
@@ -2986,10 +3063,11 @@
     "flags": [
      "gamed by more than 5% of the scale"
     ],
-    "rank": 14
+    "rank": 11
    },
    {
     "model": "google/gemma-3-27b-it",
+    "reference": false,
     "strands": {
      "agreement": 81.9051218815062,
      "decision": null,
@@ -3003,10 +3081,11 @@
      "gamed by more than 5% of the scale",
      "credits blank or junk answers"
     ],
-    "rank": 15
+    "rank": 12
    },
    {
     "model": "baseline: encoder-ridge",
+    "reference": true,
     "strands": {
      "agreement": 63.92097469233269,
      "decision": null,
@@ -3019,10 +3098,11 @@
     "flags": [
      "credits blank or junk answers"
     ],
-    "rank": 16
+    "rank": null
    },
    {
     "model": "qwen/qwen3-235b-a22b-2507",
+    "reference": false,
     "strands": {
      "agreement": 79.85630470770954,
      "decision": null,
@@ -3035,10 +3115,11 @@
     "flags": [
      "gamed by more than 5% of the scale"
     ],
-    "rank": 17
+    "rank": 13
    },
    {
     "model": "z-ai/glm-5.3",
+    "reference": false,
     "strands": {
      "agreement": 67.55615850260419,
      "decision": null,
@@ -3051,10 +3132,11 @@
     "flags": [
      "gamed by more than 5% of the scale"
     ],
-    "rank": 18
+    "rank": 14
    },
    {
     "model": "openai/gpt-5.6-luna",
+    "reference": false,
     "strands": {
      "agreement": 63.54419534485217,
      "decision": null,
@@ -3067,10 +3149,11 @@
     "flags": [
      "gamed by more than 5% of the scale"
     ],
-    "rank": 19
+    "rank": 15
    },
    {
     "model": "mistralai/ministral-8b-2512",
+    "reference": false,
     "strands": {
      "agreement": 71.08949325351354,
      "decision": null,
@@ -3084,10 +3167,11 @@
      "gamed by more than 5% of the scale",
      "credits blank or junk answers"
     ],
-    "rank": 20
+    "rank": 16
    },
    {
     "model": "allenai/olmo-3.1-32b-instruct",
+    "reference": false,
     "strands": {
      "agreement": 84.6974912702147,
      "decision": null,
@@ -3101,10 +3185,11 @@
      "gamed by more than 5% of the scale",
      "credits blank or junk answers"
     ],
-    "rank": 21
+    "rank": 17
    },
    {
     "model": "microsoft/phi-4",
+    "reference": false,
     "strands": {
      "agreement": 74.54654092807735,
      "decision": null,
@@ -3118,10 +3203,11 @@
      "gamed by more than 5% of the scale",
      "credits blank or junk answers"
     ],
-    "rank": 22
+    "rank": 18
    },
    {
     "model": "deepseek/deepseek-v4-pro-0813",
+    "reference": false,
     "strands": {
      "agreement": 86.59424411329768,
      "decision": null,
@@ -3135,10 +3221,11 @@
      "gamed by more than 5% of the scale",
      "credits blank or junk answers"
     ],
-    "rank": 23
+    "rank": 19
    },
    {
     "model": "meta-llama/llama-3.2-3b-instruct",
+    "reference": false,
     "strands": {
      "agreement": 61.31872651474078,
      "decision": null,
@@ -3152,10 +3239,11 @@
      "gamed by more than 5% of the scale",
      "credits blank or junk answers"
     ],
-    "rank": 24
+    "rank": 20
    },
    {
     "model": "openai/gpt-oss-20b",
+    "reference": false,
     "strands": {
      "agreement": 54.363527267878574,
      "decision": null,
@@ -3168,10 +3256,11 @@
     "flags": [
      "gamed by more than 5% of the scale"
     ],
-    "rank": 25
+    "rank": 21
    },
    {
     "model": "google/gemma-3-4b-it",
+    "reference": false,
     "strands": {
      "agreement": 20.831617098468588,
      "decision": null,
@@ -3185,7 +3274,7 @@
      "gamed by more than 5% of the scale",
      "credits blank or junk answers"
     ],
-    "rank": 26
+    "rank": 22
    }
   ]
  },

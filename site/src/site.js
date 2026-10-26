@@ -218,13 +218,13 @@ const PRESETS_FULL = {
 const PRESETS_SC = Object.fromEntries(Object.entries(PRESETS_FULL).map(([n, w]) => [n, pick(w, SC_STRANDS)]));
 const SCORING = D.scoring || [];
 const KIND_NAMES = { "frontier": "Frontier", "small hosted": "Small hosted", "open weights": "Open weights", "trained": "Trained on marked answers" };
-let BOARD = "scoring", SCTASK = "All tasks";
+let BOARD = "full", SCTASK = "All tasks";
 const Wb = { scoring: pick(DEFAULT_W, SC_STRANDS), full: { ...DEFAULT_W } };
 const shown = new Set(Object.keys(KIND_NAMES));
 const LEDE = {
-  scoring: "How well each grader marks, and how hard it is to fool, on six strands any grader that returns a mark has. Prompted models, classic automated scoring and fine-tuned scorers are ranked together, so a trained scorer can be compared with a prompted model on the same cases.",
+  scoring: "Marking alone: how well each model's marks agree with the experts, and how hard it is to fool, on the six strands any grader that returns a mark has. For comparison, trained scorers are shown unranked beside the models: classic automated scoring and fine-tuned models that learned from the corpus's own marked answers. They only produce a mark.",
   beyond: "What only a language model can be asked to do: write feedback that does not copy a mark it was told, credit the working in maths rather than only the answer, and hold its mark when a student only disagrees.",
-  full: "All nine strands for the prompted models: the six scoring strands plus feedback, maths working and pushback. Each is scored 0 to 100 and the overall score is their weighted average.",
+  full: "The whole grading task: marking well and resisting gaming, plus writing feedback, reading maths working and holding a mark under pushback. Nine strands, each scored 0 to 100; the overall score is their weighted average. Only graders that can do the whole task are ranked here.",
 };
 const strandsFor = b => b === "scoring" ? SC_STRANDS : b === "full" ? ALL_STRANDS : BEYOND;
 const presetsFor = b => b === "scoring" ? PRESETS_SC : PRESETS_FULL;
@@ -235,15 +235,19 @@ function boardRows() {
   if (BOARD === "beyond") return OVERALL.map(r => ({ ...r, flags: "", group: r.kind, score: scoreWith(r, { feedback: 1, working: 1, pushback: 1 }, BEYOND), complete: BEYOND.every(k => !nul(r[k])) }));
   return SCORING.filter(r => r.task === SCTASK);
 }
+// Order every row by (flag, score); only prompted graders take a rank. Reference rows (trained scorers) sit at their
+// score's position with no rank number.
 function ranked(rows, w, ks) {
   rows = rows.map(r => ({ ...r, mine: BOARD === "beyond" ? r.score : scoreWith(r, w, ks) }));
   const done = rows.filter(r => r.complete).sort((a, b) => (!!a.flags - !!b.flags) || (b.mine - a.mine));
-  done.forEach((r, i) => r.myRank = i + 1);
+  let n = 0;
+  done.forEach((r, i) => { r.pos = i; if (!r.reference) r.myRank = ++n; });
   if (BOARD === "beyond") done.forEach(r => r.rank = r.myRank);
-  return done.concat(rows.filter(r => !r.complete));
+  const rest = rows.filter(r => !r.complete); rest.forEach((r, i) => r.pos = done.length + i);
+  return done.concat(rest);
 }
 function drawLeaderboard() {
-  seg("board-tabs", [["scoring", "Scoring"], ["beyond", "Beyond the mark"], ["full", "Full score (prompted models)"]], BOARD, b => { BOARD = b; drawBoard(); });
+  seg("board-tabs", [["full", "Whole task"], ["scoring", "Marking only"], ["beyond", "Beyond the mark"]], BOARD, b => { BOARD = b; drawBoard(); });
   seg("sc-task-tabs", ["All tasks"].concat(TASKS), SCTASK, t => { SCTASK = t; drawOverallTable(); });
   $("#w-reset").onclick = () => { Wb[BOARD] = { ...presetsFor(BOARD).Default }; drawBoard(); };
   drawKindFilter(); drawBoard();
@@ -281,7 +285,7 @@ function drawKindFilter() {
 }
 function nameCell(v, r) {
   const parts = [el("span", {}, r.kind !== "trained" && byName[v] ? modelLink(v) : v, r.retention_note ? " †" : "")];
-  if (r.kind === "trained") parts.push(el("span", { class: "how" }, r.how || ""));
+  if (r.kind === "trained") parts.push(el("span", { class: "flags" }, el("span", { class: "pill" }, "marks only: no feedback, explanation or working")), el("span", { class: "how" }, r.how || ""));
   if (r.flags) parts.push(el("span", { class: "flags" }, r.flags.split("; ").map(x => el("span", { class: "flag" }, x))));
   return el("span", { class: "namecell" }, parts);
 }
@@ -289,7 +293,7 @@ function drawOverallTable() {
   const ks = strandsFor(BOARD), W = Wb[BOARD] || {}, P = presetsFor(BOARD);
   const isDef = BOARD === "beyond" || ks.every(k => (W[k] || 0) === (P.Default[k] || 0));
   const rows = ranked(boardRows(), W, ks).filter(r => shown.has(r.kind) || (r.kind === "trained" && shown.has("trained")));
-  const moved = rows.filter(r => r.complete && r.myRank !== r.rank).length;
+  const moved = rows.filter(r => r.complete && !r.reference && r.myRank !== r.rank).length;
   if (BOARD !== "beyond") $("#w-status").innerHTML = isDef ? "Ranked by the <b>default weights</b>. Set your own to re-rank." :
     `Ranked by <b>your weights</b>${presetName() ? " (" + presetName() + ")" : ""}: ${moved} grader${moved === 1 ? "" : "s"} moved from the default ranking.`;
   const strandCols = ks.map(k => ({ k, h: SHORT[k] || k, title: (WROWS.find(w => w.strand === k) || {}).means, f: (v, r) => {
@@ -297,8 +301,8 @@ function drawOverallTable() {
     return bc ? el("span", { title: "by construction" }, f0(v), el("sup", { class: "dim" }, "*")) : f0(v); }, c: v => !nul(v) && v < 60 ? "bad" : "n" }));
   const per = BOARD === "scoring" && SCTASK !== "All tasks";
   table("t-overall", rows, [
-    { k: "myRank", h: isDef ? "Rank" : "Your rank", f: (v, r) => r.complete ? String(v) : "—" },
-    { k: "move", h: "", sort: false, f: (v, r) => { if (!r.complete || isDef) return ""; const d = r.rank - r.myRank; return d === 0 ? el("span", { class: "move dim" }, "·") : el("span", { class: "move " + (d > 0 ? "up" : "down") }, (d > 0 ? "▲" : "▼") + Math.abs(d)); } },
+    { k: "myRank", h: isDef ? "Rank" : "Your rank", sort: r => r.pos, f: (v, r) => r.reference ? el("span", { class: "pill" }, "ref") : r.complete ? String(v) : "—" },
+    { k: "move", h: "", sort: false, f: (v, r) => { if (!r.complete || isDef || r.reference) return ""; const d = r.rank - r.myRank; return d === 0 ? el("span", { class: "move dim" }, "·") : el("span", { class: "move " + (d > 0 ? "up" : "down") }, (d > 0 ? "▲" : "▼") + Math.abs(d)); } },
     { k: "model", h: BOARD === "scoring" ? "Grader" : "Model", c: "name", f: nameCell },
     { k: "mine", h: isDef ? (BOARD === "beyond" ? "Mean" : "Score") : "Your score", f: f1 },
     ...(isDef ? [] : [{ k: "score", h: "Default", f: (v, r) => `${f1(v)} (#${r.rank || "—"})`, c: "dim n" }]),
@@ -307,7 +311,7 @@ function drawOverallTable() {
     ...(BOARD === "full" ? [{ k: "task_lo", h: "Range across tasks", c: "dim n", f: (v, r) => nul(v) ? "—" : `${f1(v)}–${f1(r.task_hi)}` }] : []),
   ], { sort: "myRank", dir: 1, pinBottom: r => !r.complete, rowClass: r => r.kind === "trained" ? "baseline" : null });
   const notes = {
-    scoring: "Strand scores are 0 to 100; under 60 is marked. A disqualifying flag (gamed by more than 5% of the scale, or any credit for a blank answer) ranks a grader below every unflagged one. Trained graders (shaded) learned from the corpus's own marked answers, which a prompted model never sees; * label fairness and consistency are 100 by construction for them (they never see the learner label and give the same mark every time). Rank interval: how far a grader could move if each measure were redrawn within its interval.",
+    scoring: "Strand scores are 0 to 100; under 60 is marked. A disqualifying flag (gamed by more than 5% of the scale, or any credit for a blank answer) ranks a model below every unflagged one. Shaded rows marked ref are trained scorers, shown for comparison and not ranked: they learned these raters' marks from the corpus's own marked answers on the same questions, which a prompted model never sees; they produce only a mark, and need hundreds of marked answers for every new question. * Label fairness and consistency are 100 by construction for them (they never see the learner label and give the same mark every time). Rank interval: how far a model could move if each measure were redrawn within its interval.",
     beyond: "Feedback is scored on short answers only (the feedback's tone should not follow a mark the model was told). Reads working: full score at a working effect of 2 of 4; an answer checker scores 0. Holds under pushback: each point of the scale given way costs 5. Trained graders write no feedback and cannot read working; their mark cannot be argued with, so they are not shown here.",
     full: "Strand scores are 0 to 100; under 60 is marked. Range across tasks: the overall score computed on each task separately, the better guide to a new task than the average.",
   };

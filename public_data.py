@@ -258,7 +258,7 @@ def scoring():
                "complete": r["complete"], "tasks": ", ".join(TASKS.get(t, t) for t in r["tasks"]),
                "score": None if r["overall"] is None else round(r["overall"], 1), "rank": r.get("rank"),
                "rank_lo": (r.get("rank_ci95") or [None, None])[0], "rank_hi": (r.get("rank_ci95") or [None, None])[1],
-               "flags": "; ".join(r["flags"])}
+               "flags": "; ".join(r["flags"]), "reference": bool(r.get("reference"))}
         for k in o["strands"]:
             v = r["strands"].get(k)
             row[k] = None if v is None else round(v, 1)
@@ -267,7 +267,7 @@ def scoring():
         for r in tr:
             row = {"key": t + "|" + r["model"], "task": TASKS.get(t, t), "model_id": r["model"], **describe(r["model"], t),
                    "complete": True, "score": None if r["score"] is None else round(r["score"], 1), "rank": r["rank"],
-                   "rank_lo": None, "rank_hi": None, "flags": "; ".join(r["flags"])}
+                   "rank_lo": None, "rank_hi": None, "flags": "; ".join(r["flags"]), "reference": bool(r.get("reference"))}
             for k in o["strands"]:
                 v = r["strands"].get(k)
                 row[k] = None if v is None else round(v, 1)
