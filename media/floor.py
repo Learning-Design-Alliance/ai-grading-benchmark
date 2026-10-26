@@ -96,8 +96,8 @@ def scale_of(cfg):
 
 def cmd_simulate(a):
     res = {"design": "media/floor.py docstring, step 1", "runs": []}
-    for d in sorted(glob.glob(os.path.join(RUNS, "speech-*")) + glob.glob(os.path.join(RUNS, "video-*"))
-                    + glob.glob(os.path.join(RUNS, "video16f-*"))):
+    for d in sorted(x for x in glob.glob(os.path.join(RUNS, "speech-*")) + glob.glob(os.path.join(RUNS, "video-*"))
+                    + glob.glob(os.path.join(RUNS, "video16f-*")) if os.path.isdir(x)):
         if not os.path.exists(os.path.join(d, "calls.jsonl")):
             continue
         cfg, calls = load_run(d)
@@ -144,7 +144,7 @@ def spent():
 
 
 def cmd_control(a):
-    for d in sorted(glob.glob(os.path.join(RUNS, "speech-*"))):
+    for d in sorted(x for x in glob.glob(os.path.join(RUNS, "speech-*")) if os.path.isdir(x)):
         cfg, _ = load_run(d)
         left = CAP - spent()
         if a.go and left <= 0.5:
@@ -164,7 +164,7 @@ def cmd_control(a):
 
 def cmd_analyse(a):
     res = {"design": "media/floor.py docstring, step 2", "models": []}
-    for d in sorted(glob.glob(os.path.join(RUNS, "speechctl-*"))):
+    for d in sorted(x for x in glob.glob(os.path.join(RUNS, "speechctl-*")) if os.path.isdir(x)):
         if not os.path.exists(os.path.join(d, "calls.jsonl")):
             continue
         cfg, calls = load_run(d)

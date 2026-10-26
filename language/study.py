@@ -197,7 +197,7 @@ def cmd_floor(a):
 # ------------------------------------------------------------------ runs
 def speech_models():
     out = []
-    for d in sorted(glob.glob(os.path.join(RUNS, "speech-*"))):
+    for d in sorted(x for x in glob.glob(os.path.join(RUNS, "speech-*")) if os.path.isdir(x)):
         c = json.load(open(os.path.join(d, "config.json")))
         out.append(c)
     return out
@@ -232,7 +232,7 @@ def cmd_run(a):
 def cmd_analyse(a):
     floor = json.load(open(os.path.join(OUT, "floor.json")))
     res = {"design": "language/study.py docstring", "floor": floor, "models": []}
-    for d in sorted(glob.glob(os.path.join(RUNS, "lang-*"))):
+    for d in sorted(x for x in glob.glob(os.path.join(RUNS, "lang-*")) if os.path.isdir(x)):
         cfg = json.load(open(os.path.join(d, "config.json")))
         calls = [json.loads(line) for line in open(os.path.join(d, "calls.jsonl"))]
         rows, per_lang, refusals, failed = [], {}, {t: 0 for t in TIERS}, 0
