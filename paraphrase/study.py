@@ -106,9 +106,12 @@ RUNS = os.environ.get("GBENCH_RUNS", "runs")
 OUT = os.path.join(HERE, "out")
 FILES = {"mohler": "mohler.jsonl", "code": "harmogen-code.jsonl", "asap2": "asap2.jsonl"}
 SUBSET = {"mohler": "mohler-first100.jsonl", "code": "code-first100.jsonl", "asap2": "asap2-first100.jsonl"}
-MODELS = ["anthropic/claude-haiku-5.5", "z-ai/glm-5.3-flash", "openai/gpt-5-mini", "google/gemma-4-31b-it"]
+FIRST4 = ["anthropic/claude-haiku-5.5", "z-ai/glm-5.3-flash", "openai/gpt-5-mini", "google/gemma-4-31b-it"]
+MODELS = [r["model"] for r in json.load(open(os.path.join(ROOT, "out", "overall.json")))["rows"]]  # CHANGE 4: the board
+FABLE = "anthropic/claude-fable-5.1"
+FABLE_EXCEPTION = "own Anthropic key (bring-your-own-key), 30-day safety retention; public corpora only"
 PARA = [f"p{i}" for i in range(1, 7)]
-CAP = 25.0
+CAP = 128.38  # CHANGE 4: $25 for the first four ($8.38 spent) + $120 for the 18 added
 
 
 def slug(m):
@@ -116,32 +119,69 @@ def slug(m):
 
 
 def spent():
-    return sum((json.loads(line).get("usage") or {}).get("cost_reported") or 0.0
-               for p in glob.glob(os.path.join(RUNS, "para-*", "calls.jsonl")) for line in open(p)
-               if not json.loads(line).get("cached"))
+    """CHANGE 4: every recorded grading's cost (a cached grading carries the cost paid when it was sent), plus GPU time
+    recorded in para-gpu-spend.json."""
+    tot = sum((json.loads(line).get("usage") or {}).get("cost_reported") or 0.0
+              for p in glob.glob(os.path.join(RUNS, "para-*", "calls.jsonl")) for line in open(p))
+    g = os.path.join(RUNS, "para-gpu-spend.json")
+    return tot + (sum(x["usd"] for x in json.load(open(g))) if os.path.exists(g) else 0.0)
+
+
+def board(model, task):
+    return json.load(open(os.path.join(ROOT, "submissions", model.replace("/", "__"), f"{task}.json")))
+
+
+def per_grading(model, task):
+    """The board's reported cost per base/retest grading of this model on this task (the CHANGE 4 estimate)."""
+    cs = [c for c in board(model, task)["calls"] if c["probe"] in ("base", "retest")]
+    return sum((c.get("usage") or {}).get("cost_reported") or 0.0 for c in cs) / max(1, len(cs))
+
+
+def estimate(model):
+    return sum(per_grading(model, t) * (len(PARA) * 100 + 5 * 100) for t in FILES)
 
 
 def cmd_run(a):
-    for model in MODELS:
+    models = a.models.split(",") if a.models else sorted((m for m in MODELS if m not in FIRST4), key=estimate)
+    if not a.models:  # a self-hosted board model (Olmo) runs on its pod, named with --models and --base-url
+        print("self-hosted, run separately:", [m for m in models if "openrouter.ai" not in board(m, "mohler")["base_url"]])
+        models = [m for m in models if "openrouter.ai" in board(m, "mohler")["base_url"]]
+    if not a.models:
+        left = CAP - spent()
+        for m in models:
+            print(f"{m:36s} estimate ${estimate(m):7.2f}  {'fits' if estimate(m) <= left else 'LEFT: does not fit the cap'}")
+            left -= estimate(m) if estimate(m) <= left else 0
+    for model in models:
+        if not a.models and estimate(model) > CAP - spent():
+            print(f"{model}: estimate ${estimate(model):.2f} exceeds the ${CAP - spent():.2f} left; not run")
+            continue
         for task in FILES:
-            s = json.load(open(os.path.join(ROOT, "submissions", model.replace("/", "__"), f"{task}.json")))["settings"]
+            sub = board(model, task)
+            s = sub["settings"]
             for p in PARA + ["default"]:
                 left = CAP - spent()
                 if a.go and left <= 0.5:
                     print("cap reached")
                     return
+                n_gradings = 500 if p == "default" else 100
+                max_usd = min(1.5 * per_grading(model, task) * n_gradings + 0.05, left)
                 cmd = [sys.executable, os.path.join(ROOT, "bench.py"), "run", "--cases", os.path.join(a.subsets, SUBSET[task]),
                        "--prompt", os.path.join(ROOT, "prompts", "default.txt") if p == "default" else os.path.join(ROOT, "prompts", "paraphrase", f"{p}.txt"), "--base-url",
-                       "https://openrouter.ai/api/v1", "--model", model, "--key-env", "OPENROUTER_API_KEY", "--n", "100",
+                       a.base_url or sub["base_url"], "--model", model, "--key-env", "OPENROUTER_API_KEY", "--n", "100",
                        "--seed", "7", "--probes", "base,retest,retest2,retest3,retest4" if p == "default" else "base", "--max-tokens", str(s.get("max_tokens") or 16384),
-                       "--extra-body", json.dumps(s.get("extra_body") or {"usage": {"include": True}, "provider": {"zdr": True}}),
-                       "--out", os.path.join(RUNS, f"para-{p}-{task}-{slug(model)}"), "--workers", "8",
-                       "--max-usd", str(min(2.0, left))]
+                       "--out", os.path.join(RUNS, f"para-{p}-{task}-{slug(model)}"), "--workers", str(a.workers),
+                       "--max-usd", f"{max_usd:.4f}"]
+                if s.get("extra_body") is not None or "openrouter.ai" in (a.base_url or sub["base_url"]):
+                    cmd += ["--extra-body", json.dumps(s.get("extra_body") or {"usage": {"include": True}, "provider": {"zdr": True}})]
+                if model == FABLE:
+                    cmd += ["--retention-exception", FABLE_EXCEPTION]
+                if a.route:
+                    cmd += ["--route", a.route]
                 if a.go:
                     cmd.append("--go")
                 r = subprocess.run(cmd, capture_output=True, text=True, cwd=ROOT)
                 print(f"{model[:28]:28s} {task:6s} {p} | " + " | ".join((r.stdout + r.stderr).strip().splitlines()[-2:])[:180], flush=True)
-    print(f"spent ${spent():.2f} of ${CAP:.0f}")
+    print(f"spent ${spent():.2f} of ${CAP:.2f}")
 
 
 def rnd_mark(x, lo, hi):
@@ -251,7 +291,11 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("floor"); p.add_argument("--cases-dir", required=True); p.set_defaults(fn=cmd_floor)
-    p = sub.add_parser("run"); p.add_argument("--subsets", required=True); p.add_argument("--go", action="store_true"); p.set_defaults(fn=cmd_run)
+    p = sub.add_parser("run"); p.add_argument("--subsets", required=True); p.add_argument("--go", action="store_true")
+    p.add_argument("--models", help="comma-separated; default: every board model not yet run, cheapest first (CHANGE 4)")
+    p.add_argument("--base-url", help="override the board's base_url (Olmo: the pod's localhost vLLM)")
+    p.add_argument("--route", help="recorded in each run's config (bench.py --route)")
+    p.add_argument("--workers", type=int, default=8); p.set_defaults(fn=cmd_run)
     p = sub.add_parser("analyse"); p.add_argument("--cases-dir", required=True); p.set_defaults(fn=cmd_analyse)
     a = ap.parse_args()
     a.fn(a)
