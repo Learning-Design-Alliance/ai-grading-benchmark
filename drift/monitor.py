@@ -20,8 +20,9 @@ MEASURE per model and task, against the baseline: the mean over cases of (this m
 the baseline's mean of three marks), as a share of the scale, with a 95% bootstrap interval over cases (2,000
 draws, seed 7). Averaging three gradings per case divides the retest noise. Signed: positive = marks went up.
 
-VERDICT per model and task:
-  DRIFT        the interval excludes 0 and the shift is at least 2% of the scale
+VERDICT per model and task (CHANGE 1):
+  DRIFT        the interval excludes 0; the shift is reported, and marked "material" when it is at least 2% of
+               the scale
   NO DRIFT DETECTED  otherwise, with the largest shift the interval does not rule out
 A host mix that changed between the two months is reported beside any DRIFT, since a change of host can move
 marks too (hosting/study.py tests whether precision does).
@@ -31,7 +32,21 @@ to every case and check the measure detects it in at least 80% of 200 resampled 
 three gradings per case from the baseline's own spread). If the floor fails for a task, its verdicts read
 UNDERPOWERED.
 
-COST. About $5-10 a month across the board at current prices; a cap of $15 a run (--max-usd per model, from what
+CHANGES:
+1. (2026-10-26, after the baseline month and before any comparison) The first floor FAILED (detection 49-56%):
+   the verdict needed the shift to be at least 2% as well as an interval excluding 0, so a true 2% shift was
+   called only when its estimate happened to land above 2%, about half the time. DRIFT now needs only the
+   interval to exclude 0, and 2% marks a material shift. On the board's own base-and-retest marks, this design
+   detects a planted 2% shift in 88-94% of draws, with 4-9% false alarms (an estimate run before the change;
+   the floor below is re-run with the new rule). The baseline is unchanged.
+   RESULT: the floor still FAILED, at 68-75% (the in-script floor resamples each case's own three gradings).
+2. (2026-10-26, before any comparison) More cases, one grading each, at about the same cost: the battery is now
+   the board's own 100 cases per task (seed 7, base probe, once), 300 calls a model against 270. The noise model
+   for the floor is the board's own two gradings (base and retest) of those same 100 cases, from submissions/,
+   and the floor plants 2% on those, 200 draws. The 30-case anchor month is kept as drift/out/2026-10-26-anchor/
+   and a new baseline month is run with this battery. Measure, verdicts and material threshold as in CHANGE 1.
+
+COST. About $11 a month across the board at current prices; a cap of $15 a run (--max-usd per model, from what
 is left).
 
 Usage:
@@ -56,7 +71,7 @@ from metrics import mean  # noqa: E402
 
 OUT = os.path.join(ROOT, "drift", "out")
 FILES = {"mohler": "mohler.jsonl", "code": "harmogen-code.jsonl", "asap2": "asap2.jsonl"}
-PROBES = ("base", "retest", "retest2")
+PROBES = ("base",)  # CHANGE 2: one grading of each of the board's 100 cases
 EXCLUDE = {"anthropic/claude-fable-5.1", "allenai/olmo-3.1-32b-instruct"}
 BASE_URL = "https://openrouter.ai/api/v1"
 CAP = 15.0
@@ -98,7 +113,7 @@ def cmd_run(a):
             max_tokens, extra = settings(model, task)
             with tempfile.TemporaryDirectory() as d:
                 cmd = [sys.executable, os.path.join(ROOT, "bench.py"), "run", "--cases", os.path.join(a.cases_dir, fn),
-                       "--battery", "anchor", "--base-url", BASE_URL, "--model", model, "--key-env", "OPENROUTER_API_KEY",
+                       "--n", "100", "--seed", "7", "--probes", "base", "--base-url", BASE_URL, "--model", model, "--key-env", "OPENROUTER_API_KEY",
                        "--max-tokens", str(max_tokens), "--extra-body", json.dumps(extra), "--out", d,
                        "--workers", "6", "--max-usd", str(max(0.5, min(3.0, CAP - spent)))]
                 if a.go:
@@ -142,18 +157,30 @@ def shift_iv(a, b, width, seed=SEED):
     return {"estimate": mean(d), "ci95": [vals[int(0.025 * REPS)], vals[int(0.975 * REPS) - 1]], "n": len(ids)}
 
 
+def board_noise(model, task):
+    """CHANGE 2: each case's two board gradings (base, retest) for the floor's noise model."""
+    p = os.path.join(ROOT, "submissions", model.replace("/", "__"), f"{task}.json")
+    if not os.path.exists(p):
+        return None
+    sc = {}
+    for r in json.load(open(p))["calls"]:
+        if r["probe"] in ("base", "retest") and r.get("score") is not None:
+            sc.setdefault(r["id"], []).append(r["score"])
+    return {i: v for i, v in sc.items() if len(v) == 2}
+
+
 def floor(base, width, draws=200):
     hits = 0
     ids = list(base)
     for k in range(draws):
         rnd = random.Random(1000 + k)
-        a = {i: [rnd.choice(base[i]) for _ in PROBES] for i in ids}
-        b = {i: [rnd.choice(base[i]) + SHIFT * width for _ in PROBES] for i in ids}
+        a = {i: [rnd.choice(base[i])] for i in ids}
+        b = {i: [rnd.choice(base[i]) + SHIFT * width] for i in ids}
         global REPS
         keep, REPS = REPS, 400
         iv = shift_iv(a, b, width, seed=k)
         REPS = keep
-        hits += iv["ci95"][0] > 0 and iv["estimate"] >= SHIFT * 0.999
+        hits += iv["ci95"][0] > 0  # CHANGE 1
     return hits / draws
 
 
@@ -166,7 +193,9 @@ def scale_of(cases_dir, task):
 
 
 def cmd_analyse(a):
-    months = sorted(d for d in os.listdir(OUT) if os.path.isdir(os.path.join(OUT, d))) if os.path.isdir(OUT) else []
+    import re
+    months = sorted(d for d in os.listdir(OUT) if re.fullmatch(r"\d{4}-\d{2}-\d{2}", d)
+                    and os.path.isdir(os.path.join(OUT, d))) if os.path.isdir(OUT) else []  # CHANGE 2: dated folders only
     widths = {t: scale_of(a.cases_dir, t) or {"mohler": 5, "code": 90, "asap2": 5}[t] for t in FILES}
     res = {"design": "drift/monitor.py docstring", "months": months, "floor": {}, "rows": []}
     if not months:
@@ -179,7 +208,7 @@ def cmd_analyse(a):
             recs.setdefault(r["model"], []).append(r)
     first = {model: sorted(rs, key=lambda r: r["date"])[0] for model, rs in recs.items()}
     for t in FILES:
-        fl = [floor(per_case(f["tasks"][t]), widths[t]) for f in first.values() if t in f["tasks"]][:5]
+        fl = [floor(board_noise(m, t), widths[t]) for m in sorted(first)[:8] if board_noise(m, t)]
         res["floor"][t] = {"detection": mean(fl) if fl else None, "passes": bool(fl) and mean(fl) >= 0.80}
     for model, rs in sorted(recs.items()):
         rs = sorted(rs, key=lambda r: r["date"])
@@ -188,11 +217,12 @@ def cmd_analyse(a):
                 if t not in r["tasks"] or t not in rs[0]["tasks"]:
                     continue
                 iv = shift_iv(per_case(rs[0]["tasks"][t]), per_case(r["tasks"][t]), widths[t])
-                moved = (iv["ci95"][0] > 0 or iv["ci95"][1] < 0) and abs(iv["estimate"]) >= SHIFT
+                moved = iv["ci95"][0] > 0 or iv["ci95"][1] < 0  # CHANGE 1
                 v = ("UNDERPOWERED" if not res["floor"][t]["passes"] else "DRIFT" if moved else "NO DRIFT DETECTED")
                 hosts_changed = set(rs[0]["tasks"][t]["hosts"]) != set(r["tasks"][t]["hosts"])
                 served_changed = rs[0]["tasks"][t]["served_models"] != r["tasks"][t]["served_models"]
                 res["rows"].append({"model": model, "task": t, "baseline": rs[0]["date"], "date": r["date"], **iv,
+                                    "material": abs(iv["estimate"]) >= SHIFT,
                                     "verdict": v, "hosts_changed": hosts_changed, "served_model_changed": served_changed})
                 if v == "DRIFT" or served_changed:
                     print(f"{model} {t} {rs[0]['date']} -> {r['date']}: {iv['estimate']:+.3f} of the scale "

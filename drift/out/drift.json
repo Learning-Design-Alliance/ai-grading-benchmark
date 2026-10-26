@@ -1,0 +1,21 @@
+{
+ "design": "drift/monitor.py docstring",
+ "months": [
+  "2026-10-26-anchor"
+ ],
+ "floor": {
+  "mohler": {
+   "detection": 0.8475,
+   "passes": true
+  },
+  "code": {
+   "detection": 0.8887499999999999,
+   "passes": true
+  },
+  "asap2": {
+   "detection": 0.86125,
+   "passes": true
+  }
+ },
+ "rows": []
+}
