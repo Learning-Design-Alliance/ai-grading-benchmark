@@ -46,8 +46,8 @@ CHANGES:
    and the floor plants 2% on those, 200 draws. The 30-case anchor month is kept as drift/out/2026-10-26-anchor/
    and a new baseline month is run with this battery. Measure, verdicts and material threshold as in CHANGE 1.
 
-COST. About $13-15 a month (GPT-6 Astra alone about $7), cap $20 a run; across the board at current prices; a cap of $15 a run (--max-usd per model, from what
-is left).
+COST. About $13-15 a month across the board at current prices (GPT-6 Astra alone about $7). A cap of $20 a run
+(--max-usd per model, from what is left); raised from $15 on 2026-10-26, before any monthly run.
 
 Usage:
     python3 drift/monitor.py run --cases-dir <dir> [--models ...] [--go]      # this month's marks
