@@ -1,5 +1,17 @@
 [
 {
+"key": "anthropic/claude-opus-5.5",
+"model": "Claude Opus 5.5",
+"model_id": "anthropic/claude-opus-5.5",
+"reask_changed": 0.12133333333333333,
+"paraphrase_changed": 0.14833333333333334,
+"excess": 0.026999999999999993,
+"excess_lo": 0.005999999999999994,
+"excess_hi": 0.048999999999999995,
+"qwk_spread_max": 0.12591507897759502,
+"verdict": "PROMPT-SENSITIVE"
+},
+{
 "key": "anthropic/claude-haiku-5.5",
 "model": "Claude Haiku 5.5",
 "model_id": "anthropic/claude-haiku-5.5",
@@ -24,6 +36,18 @@
 "verdict": "WITHIN RETEST NOISE"
 },
 {
+"key": "deepseek/deepseek-v4.1-flash-1017",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"model_id": "deepseek/deepseek-v4.1-flash-1017",
+"reask_changed": 0.240659793814433,
+"paraphrase_changed": 0.2361741122565865,
+"excess": -0.004152637485970831,
+"excess_lo": -0.02648709315375983,
+"excess_hi": 0.019304152637485958,
+"qwk_spread_max": 0.13042324480385625,
+"verdict": "WITHIN RETEST NOISE"
+},
+{
 "key": "openai/gpt-5-mini",
 "model": "GPT-5 Mini",
 "model_id": "openai/gpt-5-mini",
@@ -36,6 +60,30 @@
 "verdict": "WITHIN RETEST NOISE"
 },
 {
+"key": "deepseek/deepseek-v4.1-flash",
+"model": "DeepSeek V4.1 Flash",
+"model_id": "deepseek/deepseek-v4.1-flash",
+"reask_changed": 0.254,
+"paraphrase_changed": 0.2627777777777778,
+"excess": 0.008777777777777768,
+"excess_lo": -0.01600000000000001,
+"excess_hi": 0.03377777777777777,
+"qwk_spread_max": 0.11240865685037582,
+"verdict": "WITHIN RETEST NOISE"
+},
+{
+"key": "z-ai/glm-5.3",
+"model": "GLM 5.3",
+"model_id": "z-ai/glm-5.3",
+"reask_changed": 0.3259369490512476,
+"paraphrase_changed": 0.3625342397529758,
+"excess": 0.036908881199538626,
+"excess_lo": 0.007497116493656273,
+"excess_hi": 0.06585928489042675,
+"qwk_spread_max": 0.13002249133998856,
+"verdict": "PROMPT-SENSITIVE"
+},
+{
 "key": "google/gemma-4-31b-it",
 "model": "Gemma 4 31B",
 "model_id": "google/gemma-4-31b-it",
@@ -46,5 +94,149 @@
 "excess_hi": 0.06422222222222222,
 "qwk_spread_max": 0.10211848607994733,
 "verdict": "PROMPT-SENSITIVE"
+},
+{
+"key": "google/gemma-4-26b-a4b-it",
+"model": "Gemma 4 26B A4B",
+"model_id": "google/gemma-4-26b-a4b-it",
+"reask_changed": 0.16866666666666666,
+"paraphrase_changed": 0.2238888888888889,
+"excess": 0.05522222222222221,
+"excess_lo": 0.030555555555555548,
+"excess_hi": 0.07877777777777778,
+"qwk_spread_max": 0.09625283726569767,
+"verdict": "PROMPT-SENSITIVE"
+},
+{
+"key": "google/gemini-3.5-flash-lite",
+"model": "Gemini 3.5 Flash Lite",
+"model_id": "google/gemini-3.5-flash-lite",
+"reask_changed": 0.14920538720538723,
+"paraphrase_changed": 0.28532547699214367,
+"excess": 0.1361297539149888,
+"excess_lo": 0.10548098434004473,
+"excess_hi": 0.1670022371364653,
+"qwk_spread_max": 0.05338192465230729,
+"verdict": "PROMPT-SENSITIVE"
+},
+{
+"key": "openai/gpt-5.6-luna",
+"model": "GPT-5.6 Luna",
+"model_id": "openai/gpt-5.6-luna",
+"reask_changed": 0.2076969696969697,
+"paraphrase_changed": 0.23060606060606062,
+"excess": 0.02285395763656632,
+"excess_lo": -0.0005574136008918728,
+"excess_hi": 0.0471571906354515,
+"qwk_spread_max": 0.1366586363257094,
+"verdict": "WITHIN RETEST NOISE"
+},
+{
+"key": "microsoft/phi-4",
+"model": "Phi-4",
+"model_id": "microsoft/phi-4",
+"reask_changed": 0.46035016835016834,
+"paraphrase_changed": 0.48066778900112234,
+"excess": 0.020401337792642124,
+"excess_lo": -0.009476031215161666,
+"excess_hi": 0.051170568561872895,
+"qwk_spread_max": 0.10344080380506182,
+"verdict": "WITHIN RETEST NOISE"
+},
+{
+"key": "qwen/qwen3-235b-a22b-2507",
+"model": "Qwen3 235B",
+"model_id": "qwen/qwen3-235b-a22b-2507",
+"reask_changed": 0.17400000000000002,
+"paraphrase_changed": 0.2038888888888889,
+"excess": 0.029888888888888885,
+"excess_lo": 0.0063333333333333245,
+"excess_hi": 0.0521111111111111,
+"qwk_spread_max": 0.2258998509678808,
+"verdict": "PROMPT-SENSITIVE"
+},
+{
+"key": "mistralai/ministral-8b-2512",
+"model": "Ministral 8B",
+"model_id": "mistralai/ministral-8b-2512",
+"reask_changed": 0.162,
+"paraphrase_changed": 0.2905555555555555,
+"excess": 0.12855555555555553,
+"excess_lo": 0.09733333333333331,
+"excess_hi": 0.15966666666666665,
+"qwk_spread_max": 0.18937892968753223,
+"verdict": "PROMPT-SENSITIVE"
+},
+{
+"key": "google/gemma-3-27b-it",
+"model": "Gemma 3 27B",
+"model_id": "google/gemma-3-27b-it",
+"reask_changed": 0.19599999999999998,
+"paraphrase_changed": 0.22944444444444445,
+"excess": 0.03344444444444443,
+"excess_lo": 0.005888888888888879,
+"excess_hi": 0.060666666666666653,
+"qwk_spread_max": 0.07922425171871073,
+"verdict": "PROMPT-SENSITIVE"
+},
+{
+"key": "deepseek/deepseek-v4-pro-0813",
+"model": "DeepSeek V4 Pro",
+"model_id": "deepseek/deepseek-v4-pro-0813",
+"reask_changed": 0.48816161616161624,
+"paraphrase_changed": 0.5010830527497194,
+"excess": 0.012931995540691178,
+"excess_lo": -0.016945373467112612,
+"excess_hi": 0.04325529542920845,
+"qwk_spread_max": 0.1701526321599683,
+"verdict": "WITHIN RETEST NOISE"
+},
+{
+"key": "openai/gpt-oss-20b",
+"model": "GPT-OSS 20B",
+"model_id": "openai/gpt-oss-20b",
+"reask_changed": 0.3733333333333333,
+"paraphrase_changed": 0.38055555555555554,
+"excess": 0.00722222222222221,
+"excess_lo": -0.01766666666666668,
+"excess_hi": 0.0301111111111111,
+"qwk_spread_max": 0.2243863927494104,
+"verdict": "WITHIN RETEST NOISE"
+},
+{
+"key": "allenai/olmo-3.1-32b-instruct",
+"model": "Olmo 3.1 32B",
+"model_id": "allenai/olmo-3.1-32b-instruct",
+"reask_changed": 0.2873333333333334,
+"paraphrase_changed": 0.3011111111111111,
+"excess": 0.013777777777777764,
+"excess_lo": -0.012888888888888905,
+"excess_hi": 0.038666666666666655,
+"qwk_spread_max": 0.1265218395768718,
+"verdict": "WITHIN RETEST NOISE"
+},
+{
+"key": "google/gemma-3-4b-it",
+"model": "Gemma 3 4B",
+"model_id": "google/gemma-3-4b-it",
+"reask_changed": 0.147921146953405,
+"paraphrase_changed": 0.337479091995221,
+"excess": 0.189419795221843,
+"excess_lo": 0.15483503981797497,
+"excess_hi": 0.22514220705346985,
+"qwk_spread_max": 0.14009340992830266,
+"verdict": "PROMPT-SENSITIVE"
+},
+{
+"key": "meta-llama/llama-3.2-3b-instruct",
+"model": "Llama 3.2 3B",
+"model_id": "meta-llama/llama-3.2-3b-instruct",
+"reask_changed": 0.5701993127147765,
+"paraphrase_changed": 0.5817812142038946,
+"excess": 0.011223344556677877,
+"excess_lo": -0.01717171717171719,
+"excess_hi": 0.03916947250280582,
+"qwk_spread_max": 0.1661314759481865,
+"verdict": "WITHIN RETEST NOISE"
 }
 ]
