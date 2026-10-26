@@ -1,0 +1,82 @@
+[
+{
+"key": "deberta same-prompt",
+"arm": "DeBERTa, fine-tuned, same prompts",
+"qwk": 0.8042243219881943,
+"qwk_lo": 0.7805518402932581,
+"qwk_hi": 0.8266975971004421,
+"essays": 1000
+},
+{
+"key": "qwen same-prompt",
+"arm": "Qwen3 4B, fine-tuned, same prompts",
+"qwk": 0.7979671748729484,
+"qwk_lo": 0.7737955023280901,
+"qwk_hi": 0.8200603226346976,
+"essays": 1000
+},
+{
+"key": "qwen cross-prompt",
+"arm": "Qwen3 4B, fine-tuned, unseen prompt",
+"qwk": 0.7554174277032222,
+"qwk_lo": 0.7278450740499467,
+"qwk_hi": 0.7818061340401363,
+"essays": 1000
+},
+{
+"key": "deberta cross-prompt",
+"arm": "DeBERTa, fine-tuned, unseen prompt",
+"qwk": 0.7414362499456175,
+"qwk_lo": 0.7094077406329324,
+"qwk_hi": 0.7696248633240783,
+"essays": 1000
+},
+{
+"key": "claude-opus-5.5 anchored",
+"arm": "Claude Opus 5.5, six marked examples",
+"qwk": 0.7080165553502913,
+"qwk_lo": 0.6648370001895872,
+"qwk_hi": 0.7465793340063858,
+"essays": 500
+},
+{
+"key": "glm-5.3-flash anchored",
+"arm": "GLM 5.3 Flash, six marked examples",
+"qwk": 0.6543274654840119,
+"qwk_lo": 0.6164353566465706,
+"qwk_hi": 0.6897640952335296,
+"essays": 997
+},
+{
+"key": "claude-opus-5.5 zero",
+"arm": "Claude Opus 5.5, zero-shot",
+"qwk": 0.6248593562070793,
+"qwk_lo": 0.5768866994077273,
+"qwk_hi": 0.6697782963827303,
+"essays": 495
+},
+{
+"key": "claude-haiku-5.5 anchored",
+"arm": "Claude Haiku 5.5, six marked examples",
+"qwk": 0.5890643893591294,
+"qwk_lo": 0.5471680078379363,
+"qwk_hi": 0.6256206892100127,
+"essays": 1000
+},
+{
+"key": "glm-5.3-flash zero",
+"arm": "GLM 5.3 Flash, zero-shot",
+"qwk": 0.563908909265195,
+"qwk_lo": 0.5193482688391038,
+"qwk_hi": 0.6038208197961633,
+"essays": 996
+},
+{
+"key": "claude-haiku-5.5 zero",
+"arm": "Claude Haiku 5.5, zero-shot",
+"qwk": 0.514209980867347,
+"qwk_lo": 0.4699112856711253,
+"qwk_hi": 0.5555194389448697,
+"essays": 1000
+}
+]

@@ -662,6 +662,80 @@ def footprint_scale():
     return [{"key": s["fact"], **s} for s in e["lifecycle"]["scale"]]
 
 
+def setups():
+    """setups/out/setups.json: whether a guard sentence or high reasoning effort removes a model's flag."""
+    d = _load("setups", "out", "setups.json")
+    if not d:
+        return []
+    rows = []
+    for v in d["verdicts"]:
+        rows.append({"key": f"{v['model']}:{v['condition']}", "model": name(v["model"]), "model_id": v["model"],
+                     "setup": {"guard": "Guard sentence", "effort": "High reasoning effort"}[v["condition"]],
+                     "gaming_default": v["gaming_worst_default"], "gaming": v["gaming_worst"], "vouched": v["vouched_worst"],
+                     "blank_credited": v["blank_credited_worst"], "qwk_default": v["qwk_mean_default"], "qwk": v["qwk_mean"],
+                     "verdict": v["verdict"]})
+    return rows
+
+
+def hosting():
+    """hosting/out/hosting.json: the same open model served at 8-bit or 4-bit precision."""
+    d = _load("hosting", "out", "hosting.json")
+    if not d:
+        return []
+    comp = {(c["model"], c["task"]): c for c in d["comparisons"]}
+    rows = []
+    for r in d["rows"]:
+        c = comp.get((r["model"], r["task"]), {})
+        rows.append({"key": f"{r['model']}:{r['task']}:{r['arm']}", "model": name(r["model"]), "model_id": r["model"],
+                     "task": TASKS.get(r["task"], r["task"]), "precision": {"fp8": "8-bit", "fp4": "4-bit"}[r["arm"]],
+                     "qwk": r["qwk"], "injection": r["injection"], "forged": r["forged"], "vouched": r["vouched"],
+                     "blank_credited": r["blank_credited"], "verdict": c.get("verdict")})
+    return rows
+
+
+def paraphrase():
+    """paraphrase/out/paraphrase.json: marks under six rewordings of the prompt against asking again."""
+    d = _load("paraphrase", "out", "paraphrase.json")
+    if not d or not d.get("models"):
+        return []
+    rows = []
+    for m, v in d["models"].items():
+        tr = [r for r in d["rows"] if r["model"] == m]
+        rows.append({"key": m, "model": name(m), "model_id": m,
+                     "reask_changed": sum(r["retest_flip"] for r in tr) / len(tr),
+                     "paraphrase_changed": sum(r["paraphrase_flip"] for r in tr) / len(tr),
+                     "excess": v["excess"]["estimate"], "excess_lo": v["excess"]["ci95"][0], "excess_hi": v["excess"]["ci95"][1],
+                     "qwk_spread_max": max(r["qwk_spread"] for r in tr), "verdict": v["verdict"]})
+    return rows
+
+
+def essays_finetune():
+    """essays-finetune/out/essays-finetune.json: fine-tuned scorers against prompted models on 1,000 essays."""
+    d = _load("essays-finetune", "out", "essays-finetune.json")
+    if not d:
+        return []
+    label = {"deberta same-prompt": "DeBERTa, fine-tuned, same prompts", "deberta cross-prompt": "DeBERTa, fine-tuned, unseen prompt",
+             "qwen same-prompt": "Qwen3 4B, fine-tuned, same prompts", "qwen cross-prompt": "Qwen3 4B, fine-tuned, unseen prompt"}
+    rows = []
+    for arm, v in d["arms"].items():
+        if arm not in label:
+            m, cond = arm.rsplit(" ", 1)
+            label[arm] = {"claude-haiku-5.5": "Claude Haiku 5.5", "glm-5.3-flash": "GLM 5.3 Flash",
+                          "claude-opus-5.5": "Claude Opus 5.5"}.get(m, m) + (", six marked examples" if cond == "anchored" else ", zero-shot")
+        rows.append({"key": arm, "arm": label[arm], "qwk": v["estimate"], "qwk_lo": v["ci95"][0], "qwk_hi": v["ci95"][1], "essays": v["n"]})
+    return sorted(rows, key=lambda r: -r["qwk"])
+
+
+def length_partial():
+    """out/length_partial.json: each model's agreement with the essay experts once length is set aside."""
+    d = _load("out", "length_partial.json")
+    if not d:
+        return []
+    return [{"key": f"{r['model']}:{r['task']}", "model": name(r["model"]), "model_id": r["model"], "task": TASKS.get(r["task"], r["task"]),
+             "r": r["r"], "partial_r": r["partial_r"], "partial_lo": r["ci95"][0], "partial_hi": r["ci95"][1],
+             "share_beyond_length": r["share_beyond_length"], "verdict": r["verdict"]} for r in d["rows"] if r["task"] == "asap2"]
+
+
 def main(out):
     os.makedirs(out, exist_ok=True)
     for nm, fn in (("leaderboard", leaderboard), ("halo", halo), ("fairness", fairness),
@@ -672,7 +746,8 @@ def main(out):
                    ("maths", maths), ("pushback", pushback), ("baselines", baselines), ("agreement_flags", agreement_flags),
                    ("pushback_split", pushback_split), ("length_check", length_check), ("per_prompt", per_prompt),
                    ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models), ("contamination", contamination), ("energy_tasks", energy_tasks),
-                   ("energy_measured", energy_measured),
+                   ("energy_measured", energy_measured), ("setups", setups), ("hosting", hosting), ("paraphrase", paraphrase),
+                   ("essays_finetune", essays_finetune), ("length_partial", length_partial),
                    ("lifecycle_tasks", lifecycle_tasks), ("lifecycle_compare", lifecycle_compare), ("footprint_scale", footprint_scale)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)

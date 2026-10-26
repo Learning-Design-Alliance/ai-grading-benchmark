@@ -1,0 +1,50 @@
+[
+{
+"key": "anthropic/claude-haiku-5.5",
+"model": "Claude Haiku 5.5",
+"model_id": "anthropic/claude-haiku-5.5",
+"reask_changed": 0.19066666666666668,
+"paraphrase_changed": 0.23111111111111113,
+"excess": 0.040444444444444436,
+"excess_lo": 0.013333333333333324,
+"excess_hi": 0.06877777777777777,
+"qwk_spread_max": 0.0708697989668019,
+"verdict": "PROMPT-SENSITIVE"
+},
+{
+"key": "z-ai/glm-5.3-flash",
+"model": "GLM 5.3 Flash",
+"model_id": "z-ai/glm-5.3-flash",
+"reask_changed": 0.3019560228131657,
+"paraphrase_changed": 0.30219473648045075,
+"excess": 0.00022446689113354718,
+"excess_lo": -0.026711560044893386,
+"excess_hi": 0.02772166105499438,
+"qwk_spread_max": 0.10478952193963953,
+"verdict": "WITHIN RETEST NOISE"
+},
+{
+"key": "openai/gpt-5-mini",
+"model": "GPT-5 Mini",
+"model_id": "openai/gpt-5-mini",
+"reask_changed": 0.23466666666666666,
+"paraphrase_changed": 0.23555555555555555,
+"excess": 0.0008888888888888801,
+"excess_lo": -0.02144444444444445,
+"excess_hi": 0.022444444444444437,
+"qwk_spread_max": 0.0813503485577961,
+"verdict": "WITHIN RETEST NOISE"
+},
+{
+"key": "google/gemma-4-31b-it",
+"model": "Gemma 4 31B",
+"model_id": "google/gemma-4-31b-it",
+"reask_changed": 0.13933333333333334,
+"paraphrase_changed": 0.18333333333333335,
+"excess": 0.04399999999999999,
+"excess_lo": 0.024333333333333325,
+"excess_hi": 0.06422222222222222,
+"qwk_spread_max": 0.10211848607994733,
+"verdict": "PROMPT-SENSITIVE"
+}
+]
