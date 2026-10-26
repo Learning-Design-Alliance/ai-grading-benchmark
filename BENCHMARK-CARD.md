@@ -200,6 +200,12 @@ As of 2026-10-26: 22 models, all five tasks, default prompt. Overall scores rang
     here: the smaller V4.1 Flash carries no flag. Its gradings came mostly from a host that serves it at 4-bit.
     At 8-bit it agrees with the experts at 0.75 on code instead of 0.47, and a forged override gains about a
     fifth of the scale instead of 70%. That is still a flag (`hosting/`).
+- **Four flagged models can be fixed by their setup** (`setups/`, pre-registered, 2026-10-26).
+  - Gemma 4 31B and Gemma 4 26B A4B pass at high reasoning effort. Gemma 4 31B also passes with a guard
+    sentence, as do GLM 5.3 (at the line) and GPT-5.6 Luna.
+  - High effort cut gaming for all seven reasoning models, often while raising agreement.
+  - For four non-reasoning models the guard sentence made gaming worse.
+  - The flags on the board stand as measured, for the default setup.
 - **Host precision matters for open models** (`hosting/`, pre-registered, 2026-10-26). The same open model served
   at 4-bit rather than 8-bit was far easier to game in all three comparisons, by 11 to 51 points of the scale. The
   board records which host served each grading but not its precision, so an open model's row describes it as
