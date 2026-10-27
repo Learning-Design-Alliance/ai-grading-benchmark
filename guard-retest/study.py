@@ -64,6 +64,17 @@ CHANGES:
 1. (2026-10-27, implementation only, before any run was read) The runs went at about 45 gradings a minute, about
    eight hours for the study. `run` now takes --models and --workers so the three models run side by side with
    more workers. The first run's cached gradings are reused (same out directory and cache). Nothing else changes.
+2. (2026-10-27, AFTER the three hosted models' results were read, with the maintainer's approval, before any Olmo
+   call) Olmo 3.1 32B is added, so that all four models the setups study named are tested. It runs self-hosted
+   exactly as its board and setups runs were served: one rented RunPod A100 80GB PCIe pod (secure cloud), vLLM
+   v0.32.0, allenai/Olmo-3.1-32B-Instruct at revision ac0587e4a7744a551c059d8cd17ba220bc940dae, bf16, max model
+   length 16384, its chat template, max tokens 4096, temperature unset, seed 7; bench.py on the pod against
+   localhost (no request leaves it), recorded with --route; the pod and its disk are deleted after. The same
+   repeats as the others: four new DEFAULT and four new GUARD runs per task (guardrep-<cond><k>-<task>-...), so
+   with its board run, its setups DEFAULT run and its setups GUARD run it has six DEFAULT and five GUARD runs.
+   Its floor is computed from its own six DEFAULT runs, as for the others, before its guard runs are read. The
+   design, measures, verdict strings and planted size are unchanged; no multiplicity correction is added (the
+   verdicts were pre-registered per model). BUDGET: Olmo's GPU time at most $8, separate from the $15 hosted cap.
 
 Usage:
     python3 guard-retest/study.py run [--go]
@@ -223,7 +234,7 @@ def sd(x):
 
 def cmd_floor(a):
     res = {"planted": PLANTED, "sims": 2000, "models": {}}
-    for model in HOSTED:
+    for model in HOSTED + [OLMO]:  # CHANGE 2
         g0 = [r["G"] for r in measures(model, a.subsets)["default"]]  # DEFAULT runs only: guard runs not read here
         s = sd(g0)
         rng = random.Random(f"floor|{model}")
