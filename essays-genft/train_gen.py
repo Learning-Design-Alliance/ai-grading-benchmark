@@ -4,11 +4,13 @@
     python3 essays-genft/train_gen.py train --corpus <asap2.jsonl> --split <genft-split.json> --fold same|<prompt>
         --adapter <dir> --stats <json> [--deadline <unix time>] [--limit N]      # LoRA; adapter + merge-check grades
     python3 essays-genft/train_gen.py merge --adapter <dir> --out <dir> [--dry]  # W + (alpha/r) B A into the shards
-    python3 essays-genft/train_gen.py template-check --corpus ... --split ... --served <name>   # vs vLLM /tokenize
+    python3 essays-genft/train_gen.py tokenize-all --corpus ... --split ... --served <name> --out <ids.jsonl>  # vLLM's ids
+    python3 essays-genft/train_gen.py template-check --corpus ... --split ... --served <name> --ids <ids.jsonl>
     python3 essays-genft/train_gen.py merge-check --stats <json> --corpus ... --served <name>  # vs vLLM, temperature 0
 
-The input is the board's default prompt rendered as bench.py renders a base grading, through the checkpoint's chat
-template (add_generation_prompt, thinking off by the template's default). The target is the tokens of
+The input is the board's default prompt rendered as bench.py renders a base grading, as token ids taken from the served
+base model's own /tokenize (vLLM applies the checkpoint's chat template, add_generation_prompt, thinking off by the
+template's default; study.py CHANGE 3). The target is the tokens of
 `{"score": N`, appended to the prompt's tokens; the loss is on those tokens only. No reason text is taught.
 """
 
@@ -50,10 +52,20 @@ def messages(c, prompt):
     return prompt.build(c, *prompting.probe_input(c, "base"))
 
 
+PROMPT_IDS = {}
+
+
+def load_ids(path):
+    """The prompt token ids the served base model builds for each TRAIN essay (tokenize-all, from vLLM's /tokenize),
+    so training sees exactly what the server feeds the model (study.py CHANGE 3)."""
+    for line in open(path):
+        r = json.loads(line)
+        PROMPT_IDS[r["id"]] = r["ids"]
+
+
 def encode(tok, prompt, c):
     """(prompt ids, target ids) for one essay."""
-    text = tok.apply_chat_template(messages(c, prompt), tokenize=False, add_generation_prompt=True)
-    p = tok(text, add_special_tokens=False)["input_ids"]
+    p = PROMPT_IDS[c["id"]]
     t = tok('{"score": %d' % int(round(float(c["human"]["rater"]))), add_special_tokens=False)["input_ids"]
     return p, t
 
@@ -110,6 +122,7 @@ def cmd_train(a):
         ids = random.Random(1).sample(sorted(ids), a.limit)
     prompt = prompting.load_prompt(PROMPT)
     tok = tokenizer()
+    load_ids(a.ids)
     data, dropped = [], []
     for i in ids:
         p, t = encode(tok, prompt, byid[i])
@@ -265,17 +278,45 @@ def post(path, body):
         return json.loads(r.read())
 
 
+def served_ids(served, c, prompt):
+    return post("/tokenize", {"model": served, "messages": messages(c, prompt), "add_generation_prompt": True})["tokens"]
+
+
+def cmd_tokenize_all(a):
+    """Every TRAIN essay's prompt ids from the served base model's /tokenize (the ids the server feeds the model)."""
+    from concurrent.futures import ThreadPoolExecutor
+    cs = cases_mod.load(a.corpus)
+    byid = {c["id"]: c for c in cs}
+    sp = json.load(open(a.split))
+    prompt = prompting.load_prompt(PROMPT)
+    ids = sorted(sp["train"])
+    with ThreadPoolExecutor(16) as ex:
+        got = list(ex.map(lambda i: served_ids(a.served, byid[i], prompt), ids))
+    with open(a.out + ".tmp", "w") as fh:
+        for i, g in zip(ids, got):
+            fh.write(json.dumps({"id": i, "ids": g}) + "\n")
+    os.replace(a.out + ".tmp", a.out)
+    tok = tokenizer()
+    i0 = ids[0]
+    text = tok.apply_chat_template(messages(byid[i0], prompt), tokenize=False, add_generation_prompt=True)
+    local = tok(text, add_special_tokens=False)["input_ids"]
+    print(f"tokenized {len(ids)} TRAIN essays; mean {sum(map(len, got)) / len(got):.0f} tokens, max {max(map(len, got))}; "
+          f"transformers' own rendering {'matches' if local == got[0] else 'differs from'} the server's "
+          f"({len(local)} against {len(got[0])} tokens on {i0})", flush=True)
+
+
 def cmd_template_check(a):
     cs = cases_mod.load(a.corpus)
     byid = {c["id"]: c for c in cs}
     sp = json.load(open(a.split))
     prompt = prompting.load_prompt(PROMPT)
     tok = tokenizer()
+    load_ids(a.ids)
     ids = random.Random(11).sample(sorted(sp["train"]), 20)
     same = 0
     for i in ids:
         p, _ = encode(tok, prompt, byid[i])
-        got = post("/tokenize", {"model": a.served, "messages": messages(byid[i], prompt), "add_generation_prompt": True})
+        got = {"tokens": served_ids(a.served, byid[i], prompt)}
         if got.get("tokens") == p:
             same += 1
         else:
@@ -327,13 +368,16 @@ def main():
     p = sub.add_parser("train")
     p.add_argument("--corpus", required=True); p.add_argument("--split", required=True)
     p.add_argument("--fold", required=True); p.add_argument("--adapter", required=True); p.add_argument("--stats", required=True)
-    p.add_argument("--deadline", type=float); p.add_argument("--limit", type=int)
+    p.add_argument("--deadline", type=float); p.add_argument("--limit", type=int); p.add_argument("--ids", required=True)
     p.set_defaults(fn=cmd_train)
+    p = sub.add_parser("tokenize-all")
+    p.add_argument("--corpus", required=True); p.add_argument("--split", required=True); p.add_argument("--served", required=True)
+    p.add_argument("--out", required=True); p.set_defaults(fn=cmd_tokenize_all)
     p = sub.add_parser("merge"); p.add_argument("--adapter", required=True); p.add_argument("--out")
     p.add_argument("--dry", action="store_true"); p.set_defaults(fn=cmd_merge)
     p = sub.add_parser("template-check")
     p.add_argument("--corpus", required=True); p.add_argument("--split", required=True); p.add_argument("--served", required=True)
-    p.add_argument("--out", required=True); p.set_defaults(fn=cmd_template_check)
+    p.add_argument("--ids", required=True); p.add_argument("--out", required=True); p.set_defaults(fn=cmd_template_check)
     p = sub.add_parser("merge-check")
     p.add_argument("--corpus", required=True); p.add_argument("--stats", required=True); p.add_argument("--served", required=True)
     p.add_argument("--out", required=True); p.set_defaults(fn=cmd_merge_check)

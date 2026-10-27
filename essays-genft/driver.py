@@ -31,6 +31,7 @@ R = "/workspace/repo"
 D = "/workspace/data"
 RUNS = "/workspace/runs"
 SPLIT = "/workspace/genft-split.json"
+IDS = "/workspace/train-ids.jsonl"
 COMMON = f"--corpus {D}/asap2.jsonl --split {SPLIT}"
 LABEL = {"base": "Gemma 4 26B A4B, self-hosted bf16 (base, control)",
          "genft": "fine-tuned (generative): Gemma 4 26B A4B LoRA"}
@@ -174,22 +175,32 @@ def main():
                 raise RuntimeError("setup failed")
             mark(p, "setup")
         if not stage(p, "smoke"):
-            rc, o = job(p, "smoke", f"cd {R} && python3 essays-genft/train_gen.py train {COMMON} --fold same --limit 48 "
-                        f"--adapter /workspace/adapters/smoke --stats /workspace/stats-smoke.json && "
-                        f"python3 essays-genft/train_gen.py merge --adapter /workspace/adapters/smoke --dry")
-            if rc != 0:
-                raise RuntimeError("smoke failed")
-            fetch("/workspace/stats-smoke.json", os.path.join(WORK, "stats-smoke.json"))
             mark(p, "smoke")
         base_serve = ["--model", GEMMA[0], "--revision", GEMMA[1], "--tokenizer-revision", GEMMA[1], "--served-model-name", "google/gemma-4-26b-a4b-it",
                       *SERVE, "--api-key", st["token"]]
-        if not stage(p, "base"):
+        if not stage(p, "ids"):
             serve(base_serve)
-            rc, o = job(p, "template", f"cd {R} && python3 essays-genft/train_gen.py template-check {COMMON} "
+            rc, o = job(p, "tokenize", f"cd {R} && python3 essays-genft/train_gen.py tokenize-all {COMMON} "
+                        f"--served google/gemma-4-26b-a4b-it --out {IDS}")
+            if rc != 0:
+                raise RuntimeError("tokenize-all failed")
+            rc, o = job(p, "template", f"cd {R} && python3 essays-genft/train_gen.py template-check {COMMON} --ids {IDS} "
                         f"--served google/gemma-4-26b-a4b-it --out /workspace/checks-template.json")
             fetch("/workspace/checks-template.json", os.path.join(WORK, "checks-template.json"))
             if rc != 0:
                 raise RuntimeError("TEMPLATE CHECK failed: nothing is trained")
+            mark(p, "ids")
+        if not stage(p, "smoke2"):
+            pod("serve", "--", tries=3)
+            rc, o = job(p, "smoke2", f"cd {R} && python3 essays-genft/train_gen.py train {COMMON} --ids {IDS} --fold same "
+                        f"--limit 48 --adapter /workspace/adapters/smoke --stats /workspace/stats-smoke.json && "
+                        f"python3 essays-genft/train_gen.py merge --adapter /workspace/adapters/smoke --dry")
+            if rc != 0:
+                raise RuntimeError("smoke failed")
+            fetch("/workspace/stats-smoke.json", os.path.join(WORK, "stats-smoke.json"))
+            mark(p, "smoke2")
+        if not stage(p, "base"):
+            serve(base_serve)
             rc, o = job(p, "battery-base", f"cd {R} && python3 essays-genft/evaluate.py battery --slug gemma4-base "
                         f"--served google/gemma-4-26b-a4b-it --label '{LABEL['base']}' --data {D} --runs {RUNS} {COMMON}")
             if rc != 0:
@@ -199,7 +210,7 @@ def main():
         if not stage(p, "train-same"):
             pod("serve", "--", tries=3)  # stop vLLM: the GPU is needed for training
             rc, o = job(p, "train-same", f"cd {R} && python3 essays-genft/train_gen.py train {COMMON} --fold same "
-                        f"--adapter /workspace/adapters/same --stats /workspace/stats-same.json --deadline {deadline():.0f}",
+                        f"--ids {IDS} --adapter /workspace/adapters/same --stats /workspace/stats-same.json --deadline {deadline():.0f}",
                         until=deadline())
             fetch("/workspace/stats-same.json", os.path.join(WORK, "stats-same.json"))
             if rc != 0:
@@ -232,7 +243,7 @@ def main():
                 continue
             pod("serve", "--", tries=3)
             rc, o = job(p, f"train-{name}", f"cd {R} && python3 essays-genft/train_gen.py train {COMMON} --fold '{prompt}' "
-                        f"--adapter /workspace/adapters/{name} --stats /workspace/stats-{name}.json --deadline {deadline():.0f}",
+                        f"--ids {IDS} --adapter /workspace/adapters/{name} --stats /workspace/stats-{name}.json --deadline {deadline():.0f}",
                         until=deadline())
             fetch(f"/workspace/stats-{name}.json", os.path.join(WORK, f"stats-{name}.json"))
             if rc != 0:
@@ -286,6 +297,10 @@ def serve_finetuned(p, name, served, st):
             raise RuntimeError(f"merge {name} failed")
         mark(p, f"merge-{name}")
     serve(["--model", "/workspace/merged", "--served-model-name", served, *SERVE, "--api-key", st["token"]])
+    rc, o = job(p, f"template-{name}", f"cd {R} && python3 essays-genft/train_gen.py template-check {COMMON} --ids {IDS} "
+                f"--served {served} --out /workspace/checks-template-{name}.json")
+    if rc != 0:
+        raise RuntimeError(f"TEMPLATE CHECK failed on the merged model {name}")
     rc, o = job(p, f"mcheck-{name}", f"cd {R} && python3 essays-genft/train_gen.py merge-check --corpus {D}/asap2.jsonl "
                 f"--stats /workspace/stats-{name}.json --served {served} --out /workspace/checks-mergecheck-{name}.json")
     if rc == 0:

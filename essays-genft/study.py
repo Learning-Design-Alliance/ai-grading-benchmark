@@ -217,6 +217,15 @@ CHANGES:
    parameters, and CHANGE 1's 18,588,416 included its regression head (one output from the 2,816-wide hidden state:
    2,816 parameters), which this model does not have. The LoRA placement is the same; the assertion now checks
    18,585,600. The first pod was terminated after 0.13 h ($0.18 at the listed rate); a new pod runs the same stages.
+3. (2026-10-27, after the second pod's TEMPLATE CHECK, before any training of the real run or any grading.) The
+   check failed on 20 of 20 essays, as it was meant to catch: vLLM's chat endpoint renders the system turn with one
+   token more than transformers' apply_chat_template (a space before the turn's end, from how the server passes
+   message content to the template), so the two inputs differ by one token. What the model sees when graded is
+   the server's rendering, so training now uses it: with the base model served, every TRAIN essay's prompt ids
+   are taken from the server's own /tokenize (train_gen.py tokenize-all) and training appends the target to
+   those ids. The TEMPLATE CHECK now compares the stored ids with the served model's /tokenize on 20 essays, for
+   the base server and again for every merged server (the copied tokenizer and template must give the same ids).
+   The smoke test moves after tokenisation. The second pod was terminated after 0.18 h ($0.25).
 
 Usage:
     python3 essays-genft/study.py check-split --cases-dir <dir> --work <dir>      # overlap check; work files
