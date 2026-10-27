@@ -105,6 +105,7 @@ const TIPS = {
   "Measure": "The automatic check of feedback, and what does the checking.",
   "What the annotators judged": "The question that people trained to judge feedback answered for each tutor reply.",
   "t-fbchecks|Result": "Whether the measure matched the trained people well enough to be used, by a rule set before it was tested.",
+  "t-fbfailed|Result": "Whether the measure matched the trained people well enough to be used, by a rule set before it was tested. None of these did.",
   "Used here as": "Where this site uses the measure. Only measures that passed are used.",
   "t-speech|Share of ceiling": "The model's agreement with the five experts, as a percentage of how well the experts agree with each other. 100% means the model disagrees with them about as often as they disagree among themselves.",
   "Credits silence": "How often the model gave more than the lowest grade to a completely silent recording. Should be 0%.",
@@ -118,7 +119,7 @@ const TIPS = {
   "Worst mark scale": "The same rise, on the group of problems (those scored out of the same total) where it was largest, with the range the true value is likely to fall in.",
   "Sees": "What the model was sent: the video itself, or 16 still frames spread evenly through it for models that cannot take video.",
   "Agreement beyond length": "How well the model tracks the experts once the video's length is taken into account. Length alone predicts the rating well, so this shows whether the model judges the skill itself.",
-  "Watches?": "Whether the model's ratings track the experts beyond what the video's length explains. \"Not shown\" means we could not tell it apart from a stopwatch with 100 videos.",
+  "Judges the skill?": "Whether the model's ratings follow the experts' even among videos of the same length. \"Yes, beyond length\": it does, so it is judging how the task was performed. \"Not shown\": with 100 videos we could not tell its ratings apart from ratings based on the video's length alone, so it may only be noticing how long the trainee took.",
   "From the prompt alone": "The model's agreement with the experts when given only the written instructions and no video. If this is close to the agreement with the video, the model may not be using the video.",
   "Credits a black screen": "How often the model gave more than the lowest rating to a completely black video. Should be 0%.",
   "Credits a frozen frame": "How often the model gave more than the lowest rating to a video showing one frame that never changes. Should be 0%.",
@@ -375,7 +376,7 @@ const VERDICTS = {
   "AGREES BEYOND LENGTH": ["Reads more than length", "good"],
   "READS THE WORKING": ["Credits the reasoning", "good"], "WEAKLY": ["Credits the reasoning only a little", ""], "ANSWER ONLY": ["Checks only the final answer", "bad"],
   "HOLDS": ["Stands firm", "good"], "YIELDS TO PUSHBACK": ["Gives in when the student argues", "bad"],
-  "WATCHES THE RECORDING": ["Watches the video", "good"], "ADDS NOTHING TO THE STOPWATCH": ["Not shown to do better than timing the video", "bad"],
+  "WATCHES THE RECORDING": ["Judges the skill, not just the length", "good"], "ADDS NOTHING TO THE STOPWATCH": ["Not shown to do better than the video's length alone", "bad"],
   "DID NOT RATE": ["Did not give ratings", ""], "REFERENCE": ["The human raters (for reference)", ""],
   "NO MORE THAN A SECOND HUMAN": ["No bigger gap than a second teacher's", "good"], "GAP REPLICATES": ["A gap that held up on new essays", "bad"],
   "BELOW THE SMALL-MODEL ESTIMATE": ["Below the published estimates", "good"], "NO DETECTABLE EFFECT": ["No change detected", ""],
@@ -454,7 +455,7 @@ const shown = new Set(Object.keys(KIND_NAMES));
 const LEDE = {
   scoring: "Grading only: how closely each model's grades match the expert teachers', and how hard the model is to fool, leaving aside feedback. For comparison, older automatic grading methods are shown too (shaded, no rank). They were trained on thousands of answers teachers had already graded for the same questions, and they only produce a grade.",
   beyond: "Things only an AI model can be asked to do beyond the grade itself: write feedback that is not swayed by a grade it was told, give credit for a student's reasoning in math rather than only the final answer, and keep its grade when a student argues.",
-  full: "The whole grading job: grading accurately, resisting attempts to game it, writing feedback, following a student's math reasoning, and standing by its grade under pressure. Nine parts, each scored from 0 to 100 and combined into one overall score.",
+  full: "The whole grading job: grading accurately, resisting attempts to game it, writing feedback, following a student's math reasoning, and standing by its grade under pressure. Nine parts, each scored from 0 to 100 and combined into one overall score. Methods trained on teachers' graded answers (such as fine-tuned DeBERTa, Qwen3 4B and Gemma 4) only produce a grade, so they cannot do the whole job; they are on the Grading only board.",
 };
 const strandsFor = b => b === "scoring" ? SC_STRANDS : b === "full" ? ALL_STRANDS : BEYOND;
 const presetsFor = b => b === "scoring" ? PRESETS_SC : PRESETS_FULL;
@@ -516,9 +517,9 @@ function drawKindFilter() {
 function nameCell(v, r) {
   const parts = [el("span", {}, r.kind !== "trained" && byName[v] ? modelLink(v) : v, r.retention_note ? " †" : "")];
   if (r.kind === "trained") {
-    const mk = (r.model_id || "").replace(/^baseline: /, "").replace(/^fine-tuned: Qwen.*/, "qwen-ft");
+    const mk = (r.model_id || "").replace(/^baseline: /, "").replace(/^fine-tuned: Qwen.*/, "qwen-ft").replace(/^fine-tuned: Gemma.*/, "gemma-ft");
     parts[0] = el("a", { href: "#method-" + mk }, v);
-    parts.push(el("span", { class: "flags" }, el("span", { class: "pill" }, "grade only: no feedback, explanation or reasoning")), el("span", { class: "how" }, r.how || ""));
+    parts.push(el("span", { class: "flags" }, el("span", { class: "pill" }, "grade only: no feedback, explanation or reasoning"), r.only ? el("span", { class: "pill" }, `run on ${r.only.toLowerCase()} only: scores in the ${r.only} view`) : null), el("span", { class: "how" }, r.how || ""));
   }
   if (r.flags) parts.push(el("span", { class: "flags" }, r.flags.split("; ").map(x => el("span", { class: "flag" }, x))));
   return el("span", { class: "namecell" }, parts);
@@ -531,7 +532,7 @@ function drawOverallTable() {
   if (BOARD !== "beyond") $("#w-status").innerHTML = isDef ? "Ranked by the <b>standard weights</b>. Set your own to re-rank." :
     `Ranked by <b>your weights</b>${presetName() ? " (" + presetName() + ")" : ""}: ${moved} grader${moved === 1 ? "" : "s"} moved from the default ranking.`;
   const strandCols = ks.map(k => ({ k, h: SHORT[k] || k, title: (WROWS.find(w => w.strand === k) || {}).means, f: (v, r) => {
-    const bc = r.kind === "trained" && (k === "fairness" || k === "consistency");
+    const bc = r.kind === "trained" && (k === "fairness" || k === "consistency") && !nul(v);
     return bc ? el("span", { title: "by construction" }, f0(v), el("sup", { class: "dim" }, "*")) : f0(v); }, c: v => !nul(v) && v < 60 ? "bad" : "n" }));
   const per = BOARD === "scoring" && SCTASK !== "All tasks";
   table("t-overall", rows, [
@@ -541,7 +542,7 @@ function drawOverallTable() {
     { k: "mine", h: isDef ? (BOARD === "beyond" ? "Mean" : "Score") : "Your score", f: f1 },
     ...(isDef ? [] : [{ k: "score", h: "Default", f: (v, r) => `${f1(v)} (#${r.rank || "—"})`, c: "dim n" }]),
     ...strandCols,
-    ...(per || BOARD === "beyond" ? [] : [{ k: "rank_lo", h: "Could rank", c: "dim n", f: (v, r) => v ? `${v}–${r.rank_hi}` : (r.complete ? "—" : "not run on every task") }]),
+    ...(per || BOARD === "beyond" ? [] : [{ k: "rank_lo", h: "Could rank", c: "dim n", f: (v, r) => v ? `${v}–${r.rank_hi}` : r.only ? el("span", {}, `${r.only} only: see the ${r.only} view`) : (r.complete ? "—" : "not run on every task") }]),
     ...(BOARD === "full" ? [{ k: "task_lo", h: "Range across tasks", c: "dim n", f: (v, r) => nul(v) ? "—" : `${f1(v)}–${f1(r.task_hi)}` }] : []),
   ], { sort: "myRank", dir: 1, pinBottom: r => !r.complete || !!r.reference, pinLabel: BOARD === "scoring" ? "For comparison: methods trained on teachers' graded answers. They give a grade only (no feedback, explanation or reasoning) and need hundreds of graded answers for every new question, so they are not ranked." : null, rowClass: r => r.kind === "trained" ? "baseline" : null });
   const notes = {
@@ -735,7 +736,15 @@ function drawFeedback() {
   intervalChart("c-halo", fb.map(r => ({ label: r.model, est: r.halo, lo: r.halo_lo, hi: r.halo_hi, kind: kindOf(r.model) })).sort((a, b) => Math.abs(a.est) - Math.abs(b.est)), { refs: [{ v: 0 }], zero: true, valFmt: signed(2), order: "Best at the top: nearest 0", aria: "Feedback halo" });
   intervalChart("c-gives", fb.map(r => ({ label: r.model, est: r.gives_away_pct, lo: r.gives_away_lo, hi: r.gives_away_hi, kind: kindOf(r.model) })).sort((a, b) => b.est - a.est), { domain: [0, 100], valFmt: v => f0(v) + "%", tickFmt: v => f0(v) + "%", order: "Not ranked: whether stating the answer is wanted depends on the use", aria: "Feedback states the answer" });
   const USED = { "rule|TONE": "Test 1 (scored)", "lc|WITHHOLD": "Test 2 (shown, not ranked)" };
-  table("t-fbchecks", D.feedback_checks || [], [
+  const FBC = D.feedback_checks || [], usedFb = FBC.filter(r => USED[r.key]), notUsedFb = FBC.filter(r => !USED[r.key]);
+  table("t-fbfailed", notUsedFb, [
+    { k: "measure", h: "Measure", c: "t", f: (v, r) => el("span", { class: "namecell" }, el("span", {}, v), el("span", { class: "how" }, r.by)) },
+    { k: "label", h: "What the annotators judged", c: "t" },
+    { k: "auc", h: "AUC against the annotators", f: (v, r) => `${f2(v)} ${iv(r.lo, r.hi, f2)}` },
+    { k: "length_auc", h: "Length alone", f: f2 },
+    { k: "verdict", h: "Result", c: "l", f: verdict },
+  ], { sortable: false });
+  table("t-fbchecks", usedFb, [
     { k: "measure", h: "Measure", c: "t", f: (v, r) => el("span", { class: "namecell" }, el("span", {}, v), el("span", { class: "how" }, r.by)) },
     { k: "label", h: "What the annotators judged", c: "t" },
     { k: "auc", h: "AUC against the annotators", f: (v, r) => `${f2(v)} ${iv(r.lo, r.hi, f2)}` },
@@ -776,7 +785,7 @@ function drawMedia() {
   table("t-video", D.video || [], [
     { k: "model", h: "Grader", c: "name" }, { k: "input", h: "Sees", c: "l dim" },
     { k: "beyond", h: "Agreement beyond length", f: (v, r) => `${f2(v)} ${iv(r.beyond_lo, r.beyond_hi, f2)}` },
-    { k: "verdict", h: "Watches?", c: "l", f: v => el("span", { class: "pill " + (/WATCHES/.test(v) ? "ok" : "bad") }, /WATCHES/.test(v) ? "watches" : "not shown") },
+    { k: "verdict", h: "Judges the skill?", c: "l", f: v => v === "REFERENCE" ? el("span", { class: "dim" }, "the experts themselves") : el("span", { class: "pill " + (/WATCHES/.test(v) ? "ok" : "bad"), title: "Official verdict: " + v }, /WATCHES/.test(v) ? "yes, beyond length" : "not shown") },
     { k: "qwk", h: "Agreement (0–1)", title: "quadratic weighted kappa with the teachers' grades: 0 is chance, 1 is perfect", f: f3 }, { k: "text_only_qwk", h: "From the prompt alone", f: f3 },
     { k: "black_pct", h: "Credits a black screen", f: pct1, c: v => !nul(v) && v > 0 ? "bad" : "n" }, { k: "still_pct", h: "Credits a frozen frame", f: pct1 },
     { k: "gaming_pct", h: "Note on screen", f: signed(1) }, { k: "lowres_pct", h: "Low resolution", f: signed(1) }, { k: "cost_per_1k", h: "$ / 1,000", f: money },
@@ -797,7 +806,7 @@ function showMedium() {
   box.append(el("b", {}, "Which board models are here. "),
     `${board.length - cannot.length} of ${board.length} models on the board can take ${MEDIUM === "speech" ? "audio" : MEDIUM === "video" ? "video, or images as 16 frames" : "images"}. `,
     cannot.length ? `Cannot: ${cannot.join(", ")}. ` : "",
-    notyet.length ? `Can, not run yet: ${notyet.join(", ")}.` : "", MEDIUM === "speech" ? " The other audio graders here are specialist audio models not on the board." : "");
+    notyet.length ? `Being run now: ${notyet.join(", ")}.` : "", MEDIUM === "speech" ? " The other audio graders here are specialist audio models not on the board." : "");
 }
 
 // ================================================================== SETTINGS

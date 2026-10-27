@@ -255,10 +255,9 @@ def scoring():
         m, vendor, kind = NAMES.get(model, (model, "", ""))
         return {"model": m, "vendor": vendor, "kind": kind, "group": kind, "how": None, "by_construction": None}
     for r in o["rows"]:
-        # A reference row run on only some tasks would show a one-task score beside every-task scores; it appears
-        # in its own tasks' views only.
-        if r.get("reference") and not r["complete"]:
-            continue
+        # A reference row run on only some tasks would show a one-task score beside every-task scores, so its scores
+        # are blanked here and it points to the tasks it ran (its scores are in those tasks' views).
+        partial = bool(r.get("reference")) and not r["complete"]
         row = {"key": "all|" + r["model"], "task": "All tasks", "model_id": r["model"], **describe(r["model"]),
                "complete": r["complete"], "tasks": ", ".join(TASKS.get(t, t) for t in r["tasks"]),
                "score": None if r["overall"] is None else round(r["overall"], 1), "rank": r.get("rank"),
@@ -267,6 +266,8 @@ def scoring():
         for k in o["strands"]:
             v = r["strands"].get(k)
             row[k] = None if v is None else round(v, 1)
+        if partial:
+            row.update({k: None for k in o["strands"]}, score=None, only=row["tasks"])
         rows.append(row)
     for t, tr in o["by_task"].items():
         for r in tr:
