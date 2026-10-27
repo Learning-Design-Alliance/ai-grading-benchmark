@@ -79,6 +79,17 @@ CHANGES:
    bench.py refused it. Fable runs through the maintainers' own Anthropic key on OpenRouter with the retention
    exception the rewording study used (paraphrase/study.py FABLE_EXCEPTION: 30-day safety retention; Mohler is a
    public corpus). Its row is labelled with the route. No design, threshold or verdict changed.
+3. 2026-10-27, after the 21 hosted results had been read, with the maintainer's approval, before any Olmo call:
+   Olmo 3.1 32B is added. Its board feedback runs were not kept, so all three arms run now, the same day, on one
+   rented A100 80GB PCIe pod (secure cloud) exactly as its board runs were served: vLLM v0.32.0,
+   allenai/Olmo-3.1-32B-Instruct at revision ac0587e4a7744a551c059d8cd17ba220bc940dae, bf16, max model length
+   16384, its chat template, max tokens 4096, temperature unset, seed 7; bench.py on the pod against localhost,
+   so no request leaves it; the pod and its disk are deleted after. Arms: prompts/feedback-blind.txt (W),
+   prompts/feedback-shown.txt with the true mark, and with the mirrored mark (runs fbd-blind-, fbd-true-,
+   fbd-mirror-allenai_olmo-3.1-32b-instruct). The analysis uses a model's own fbd-true-/fbd-blind- arms where
+   they exist, else the board's fbb- arms. Benjamini-Hochberg is recomputed across all 22 models; any change to
+   another model's verdict from that is reported. Olmo's arms differ from the others' in being graded the same
+   day. Olmo's share of the $60 cap: at most $5 of GPU time.
 
 Usage:
     python3 feedback-discordant/study.py cases --cases $MOHLER_CASES --out <scratch>/mohler-discordant.jsonl
@@ -244,8 +255,10 @@ def cmd_analyse(a):
             continue
         slug = d[len("fbd-mirror-"):]
         mir = tones(os.path.join(RUNS, d, "calls.jsonl"))
-        tru = tones(os.path.join(RUNS, f"fbb-shown-{slug}", "calls.jsonl"))
-        bli = tones(os.path.join(RUNS, f"fbb-blind-{slug}", "calls.jsonl"))
+        own = lambda arm, board: os.path.join(RUNS, f"fbd-{arm}-{slug}" if os.path.isdir(os.path.join(RUNS, f"fbd-{arm}-{slug}"))
+                                             else f"fbb-{board}-{slug}", "calls.jsonl")  # CHANGE 3
+        tru = tones(own("true", "shown"))
+        bli = tones(own("blind", "blind"))
         cfg = json.load(open(os.path.join(RUNS, d, "config.json")))
         ids = [i for i in cfg["case_ids"] if i in mir and i in tru]
         pairs = [(2 * expert_mean(cs[i]) - 5, tru[i] - mir[i]) for i in ids]
