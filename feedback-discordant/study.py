@@ -71,7 +71,10 @@ BUDGET. A hard cap of $60 for the study. The board's 21 hosted shown runs cost $
 the estimate is about $3 for one arm; per-run caps of $4, as on the board. Olmo's pod at most $5 of the cap.
 Runs are checked with scripts/check_runs.py before analysis.
 
-CHANGES: none yet.
+CHANGES:
+1. 2026-10-27, before any call: cases.load dropped unknown fields, so told_mark never reached the prompt; a dry
+   render through cases.load showed the true mark. cases.normalise now keeps told_mark (cases without it are
+   unchanged). No design, threshold or verdict changed; the floor had run, no discordant call had been made.
 
 Usage:
     python3 feedback-discordant/study.py cases --cases $MOHLER_CASES --out <scratch>/mohler-discordant.jsonl
