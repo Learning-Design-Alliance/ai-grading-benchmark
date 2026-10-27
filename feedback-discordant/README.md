@@ -18,11 +18,12 @@ disagrees with the work. Pre-registration, floor and changes: the docstring of `
 **Floor.** Passed. A shift of half the model's blind-tone SD across the scale was found in 86.5% of 400 worlds
 shaped like the real data, and the null world was flagged in 7.0%.
 
-**Result.** All 21 models run: **TONE FOLLOWS THE TOLD GRADE**, every one significant after BH. "Shift" is S × 5,
+**Result.** All 22 models: **TONE FOLLOWS THE TOLD GRADE**, every one significant after BH across the 22. "Shift" is S × 5,
 the tone change across the whole 0–5 scale, in units of the model's own blind-tone SD.
 
 | model | S, tone per grade point [95%] | shift / blind SD | board halo | verdict |
 |---|---|---|---|---|
+| Olmo 3.1 32B ¹ | +1.214 [+0.960, +1.468] | +1.84 | +0.278 | TONE FOLLOWS THE TOLD GRADE |
 | Gemma 3 27B | +1.165 [+1.025, +1.310] | +2.47 | +0.361 | TONE FOLLOWS THE TOLD GRADE |
 | GLM 5.3 | +1.039 [+0.870, +1.221] | +2.31 | +0.027 | TONE FOLLOWS THE TOLD GRADE |
 | Qwen3 235B | +0.866 [+0.662, +1.069] | +2.11 | −0.095 | TONE FOLLOWS THE TOLD GRADE |
@@ -45,13 +46,18 @@ the tone change across the whole 0–5 scale, in units of the model's own blind-
 | GPT-5 Mini | +0.252 [+0.158, +0.343] | +0.59 | −0.166 | TONE FOLLOWS THE TOLD GRADE |
 | Llama 3.2 3B | +0.215 [+0.062, +0.349] | +0.48 | +0.208 | TONE FOLLOWS THE TOLD GRADE |
 
-Not run: **Olmo 3.1 32B**. It is self-hosted, and its board feedback runs were not kept when its rented GPU machine
-was deleted. That leaves no true-grade arm to pair with, and running it would mean a new GPU machine for three arms,
-not one.
+¹ Olmo 3.1 32B was added by CHANGE 3, with the maintainer's approval, after the other 21 results had been read. Its
+board feedback runs had not been kept, so all three of its arms (blind, true grade told, mirrored grade told) ran the
+same day. They used one rented A100 80GB PCIe pod, served exactly as on the board: vLLM v0.32.0, the pinned
+revision, bf16, max tokens 4096. bench.py ran on the pod against localhost, and the pod was wiped and deleted
+afterwards. Its board-halo column is the feedback board's figure; its slope pairs its own same-day arms. Its work
+slope W is 0.913 and S/W is 1.33. Neither is pre-registered with an interval. A descriptive bootstrap on the 98
+paired answers gives W 0.95 [0.38, 1.68] and S/W 1.28 [0.72, 3.12]. Recomputing BH across 22 models changed no
+other model's verdict or BH flag.
 
 **Reading.**
 - Every model's feedback follows the grade it is told when that grade is wrong.
-- For 19 of the 21, the interval's lower end is above the floor's planted size, half the model's blind-tone SD
+- For 20 of the 22, the interval's lower end is above the floor's planted size, half the model's blind-tone SD
   across the scale. The exceptions are GPT-5 Mini (0.37 SD at its lower end) and Llama 3.2 3B (0.14 SD).
 - The pre-registered reading applies: the board's halo is at least partly the told grade itself, not only use of
   information.
@@ -64,14 +70,16 @@ not one.
 
 **Limits.**
 - Tone is a rule-coded measure validated on tutoring replies, with no human reference here.
-- The true-grade arm was run up to three days earlier, on 2026-10-24 to 2026-10-26.
+- The true-grade arm was run up to three days earlier, on 2026-10-24 to 2026-10-26, except Olmo's, which ran the
+  same day as its mirrored arm.
 - The mirror is an extreme disagreement: a perfect answer is told 0. S says how tone responds across that range,
   not to a small grading error.
 - One prompt, one corpus, English.
 - Claude Fable 5.1 ran through the maintainers' own Anthropic key with 30-day safety retention (CHANGE 2), because
   OpenRouter no longer lists a zero-retention route for it. Mohler is public.
 
-**Spend.** $3.85 reported, against a $60 cap.
+**Spend.** $4.03 against a $60 cap: $3.85 reported for the 21 hosted models and about $0.18 of GPU time for Olmo
+(0.10 h at $1.79/h).
 
 **Files.** `out/floor.json` (the floor), `out/discordant.json` (per-model aggregates: S, interval, p, BH flag,
 the blind work slope W, mean tones, verdict). No feedback text is committed.

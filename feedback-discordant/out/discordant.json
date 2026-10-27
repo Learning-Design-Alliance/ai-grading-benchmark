@@ -7,6 +7,25 @@
  },
  "rows": [
   {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "slug": "allenai_olmo-3.1-32b-instruct",
+   "n": 98,
+   "dropped": 2,
+   "told_grade_slope": 1.2141168945215328,
+   "ci95": [
+    0.9596884928965458,
+    1.4682760459166835
+   ],
+   "p": 0.0,
+   "whole_scale_shift": 6.070584472607664,
+   "work_slope_blind": 0.9127910769351091,
+   "share_of_work_slope": 1.3301147712773327,
+   "mean_tone_true": 3.0246600048287005,
+   "mean_tone_mirror": -1.162144915136269,
+   "bh_significant": true,
+   "verdict": "TONE FOLLOWS THE TOLD GRADE"
+  },
+  {
    "model": "anthropic/claude-fable-5.1",
    "slug": "anthropic_claude-fable-5.1",
    "n": 100,
