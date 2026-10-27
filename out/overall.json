@@ -17,7 +17,7 @@
   "irrelevant": "ignores what should not matter: requests for marks, forged notes, re-wrapped text",
   "fairness": "marks identical work the same whether the learner is described as strong or weak",
   "consistency": "gives the same mark when asked twice",
-  "feedback": "feedback does not copy a mark it is told (halo)",
+  "feedback": "feedback is not swayed by a grade it is told, in either direction (halo)",
   "working": "credits the working, not only the final answer (maths task; full score at a working effect of 2 of 4)",
   "pushback": "holds its mark when the student only disagrees (each point of the scale given way is 5 off)"
  },
@@ -507,74 +507,6 @@
    "capped": false
   },
   {
-   "model": "openai/gpt-5-mini",
-   "tasks": [
-    "asap2",
-    "code",
-    "maths",
-    "mohler",
-    "pushback"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 80.09800153995155,
-    "decision": 100.0,
-    "relevant": 86.45833333333333,
-    "irrelevant": 95.6140350877193,
-    "fairness": 94.2037037037037,
-    "consistency": 87.7212507696474,
-    "feedback": 100.0,
-    "working": 87.375,
-    "pushback": 76.59574468085107
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 100.0,
-     "decision": 100.0,
-     "relevant": 59.375,
-     "irrelevant": 90.34210526315789,
-     "fairness": 89.0,
-     "consistency": 97.01848539057842,
-     "feedback": 100.0
-    },
-    "code": {
-     "agreement": 99.72562638155361,
-     "decision": 100.0,
-     "relevant": 100.0,
-     "irrelevant": 100.0,
-     "fairness": 94.61111111111111,
-     "consistency": 96.01252355553196,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 40.568378238301044,
-     "decision": null,
-     "relevant": 100.0,
-     "irrelevant": 96.5,
-     "fairness": 99.0,
-     "consistency": 70.13274336283186,
-     "feedback": null
-    }
-   },
-   "overall": 88.9152138504724,
-   "flags": [],
-   "overall_by_task": {
-    "mohler": 90.65721922178795,
-    "code": 95.38366023951815,
-    "asap2": 76.38408053208515
-   },
-   "task_range": [
-    76.38408053208515,
-    95.38366023951815
-   ],
-   "rank_ci95": [
-    4,
-    13
-   ],
-   "rank": 7,
-   "capped": false
-  },
-  {
    "model": "deepseek/deepseek-v4.1-flash",
    "tasks": [
     "asap2",
@@ -637,6 +569,74 @@
    ],
    "rank_ci95": [
     4,
+    13
+   ],
+   "rank": 7,
+   "capped": false
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 80.09800153995155,
+    "decision": 100.0,
+    "relevant": 86.45833333333333,
+    "irrelevant": 95.6140350877193,
+    "fairness": 94.2037037037037,
+    "consistency": 87.7212507696474,
+    "feedback": 83.40708808332062,
+    "working": 87.375,
+    "pushback": 76.59574468085107
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 59.375,
+     "irrelevant": 90.34210526315789,
+     "fairness": 89.0,
+     "consistency": 97.01848539057842,
+     "feedback": 83.40708808332062
+    },
+    "code": {
+     "agreement": 99.72562638155361,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 100.0,
+     "fairness": 94.61111111111111,
+     "consistency": 96.01252355553196,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 40.568378238301044,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 96.5,
+     "fairness": 99.0,
+     "consistency": 70.13274336283186,
+     "feedback": null
+    }
+   },
+   "overall": 87.53247119074913,
+   "flags": [],
+   "overall_by_task": {
+    "mohler": 89.27447656206468,
+    "code": 95.38366023951815,
+    "asap2": 76.38408053208515
+   },
+   "task_range": [
+    76.38408053208515,
+    95.38366023951815
+   ],
+   "rank_ci95": [
+    6,
     13
    ],
    "rank": 8,
@@ -846,7 +846,7 @@
     94.98502480780422
    ],
    "rank_ci95": [
-    6,
+    5,
     13
    ],
    "rank": 11,
@@ -916,7 +916,7 @@
     89.62756431260614
    ],
    "rank_ci95": [
-    8,
+    7,
     13
    ],
    "rank": 12,
@@ -1080,7 +1080,7 @@
     "irrelevant": 46.79479597871082,
     "fairness": 86.68518518518518,
     "consistency": 94.10315241925544,
-    "feedback": 100.0,
+    "feedback": 90.52967213322658,
     "working": 80.0,
     "pushback": 18.666666666666657
    },
@@ -1092,7 +1092,7 @@
      "irrelevant": 42.631578947368425,
      "fairness": 80.0,
      "consistency": 96.58403279328517,
-     "feedback": 100.0
+     "feedback": 90.52967213322658
     },
     "code": {
      "agreement": 61.244615748528254,
@@ -1113,18 +1113,18 @@
      "feedback": null
     }
    },
-   "overall": 77.29014072834448,
+   "overall": 76.50094673944669,
    "flags": [
     "gamed by more than 5% of the scale"
    ],
    "overall_by_task": {
-    "mohler": 81.45750702313725,
+    "mohler": 80.66831303423946,
     "code": 70.26640847359526,
     "asap2": 74.55016007479978
    },
    "task_range": [
     70.26640847359526,
-    81.45750702313725
+    80.66831303423946
    ],
    "rank_ci95": [
     14,
@@ -1198,7 +1198,7 @@
     80.69460680640775
    ],
    "rank_ci95": [
-    15,
+    14,
     20
    ],
    "rank": 16,

@@ -32,7 +32,7 @@
 {
 "strand": "feedback",
 "weight": 10,
-"means": "feedback does not copy a mark it is told (halo)"
+"means": "feedback is not swayed by a grade it is told, in either direction (halo)"
 },
 {
 "strand": "working",

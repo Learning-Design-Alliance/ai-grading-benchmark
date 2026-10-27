@@ -111,7 +111,7 @@
 "qwk": 0.602,
 "share": 1.052,
 "gaming_pct": 30.4,
-"overall": 77.29,
+"overall": 76.501,
 "flags": "gamed by more than 5% of the scale",
 "release": "2025-07-21",
 "family": "Qwen"
@@ -137,7 +137,7 @@
 "qwk": 0.63,
 "share": 1.101,
 "gaming_pct": 2.6,
-"overall": 88.915,
+"overall": 87.532,
 "flags": "",
 "release": "2025-08-07",
 "family": "OpenAI small"
