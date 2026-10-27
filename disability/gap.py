@@ -88,6 +88,16 @@ recorded in each run. Claude Opus 5.5 is not added. BUDGET: a separate cap of $5
 the three fairness studies, with a spend cap on each run. Design, statistics, thresholds, verdict strings and
 floor are unchanged.
 
+CHANGE 5 (2026-10-27, before any call for the graders it adds): two more graders are added on 2026-10-27 by the
+maintainer's decisions of that day, after the earlier graders' results were read, not because of any result:
+Claude Opus 5.5 ("especially since opus is the #1 on the leaderboard") and Olmo 3.1 32B. Opus runs as on the
+board: hosted through OpenRouter at zero data retention with its leaderboard settings and host pin (not through
+the maintainers' Anthropic key). Olmo runs self-hosted as on the board: vLLM v0.32.0 serving
+allenai/Olmo-3.1-32B-Instruct (revision ac0587e4) on one rented RunPod GPU, bench.py on the pod against
+localhost with its leaderboard settings, recorded with --route; the pod and its disk are deleted after the run.
+Default prompt, base probe. BUDGET: $120 for Opus and $25 of GPU time for Olmo across the three fairness
+studies, with a spend cap on each run. Design, statistics, thresholds, verdict strings and floor are unchanged.
+
     python3 gap.py draw --cases <asap2.jsonl> --first <first-run config.json> --out <matched.jsonl>
     python3 gap.py floor --matched <matched.jsonl>
     python3 gap.py analyse --matched <matched.jsonl> --runs <run dir> [<run dir> ...]
