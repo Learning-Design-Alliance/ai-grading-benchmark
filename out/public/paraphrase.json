@@ -12,6 +12,18 @@
 "verdict": "PROMPT-SENSITIVE"
 },
 {
+"key": "anthropic/claude-fable-5.1",
+"model": "Claude Fable 5.1",
+"model_id": "anthropic/claude-fable-5.1",
+"reask_changed": 0.08466666666666667,
+"paraphrase_changed": 0.125,
+"excess": 0.040333333333333325,
+"excess_lo": 0.022111111111111106,
+"excess_hi": 0.05988888888888888,
+"qwk_spread_max": 0.0770000331405658,
+"verdict": "PROMPT-SENSITIVE"
+},
+{
 "key": "anthropic/claude-haiku-5.5",
 "model": "Claude Haiku 5.5",
 "model_id": "anthropic/claude-haiku-5.5",
@@ -22,6 +34,18 @@
 "excess_hi": 0.06877777777777777,
 "qwk_spread_max": 0.0708697989668019,
 "verdict": "PROMPT-SENSITIVE"
+},
+{
+"key": "openai/gpt-6-astra",
+"model": "GPT-6 Astra",
+"model_id": "openai/gpt-6-astra",
+"reask_changed": 0.08133333333333333,
+"paraphrase_changed": 0.08666666666666667,
+"excess": 0.005333333333333329,
+"excess_lo": -0.007888888888888893,
+"excess_hi": 0.01877777777777777,
+"qwk_spread_max": 0.04909849652979892,
+"verdict": "WITHIN RETEST NOISE"
 },
 {
 "key": "z-ai/glm-5.3-flash",
