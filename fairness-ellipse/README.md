@@ -85,12 +85,16 @@ essays. ELLIPSE cannot settle this further; a corpus with more White learners an
 ## Added under the coverage rule (`gap2.py` CHANGE 1, `rep.py` CHANGE 2; 2026-10-26, after the results above were read)
 
 Every other leaderboard model with a hosted zero-retention route, default prompt, each with its leaderboard
-settings. Not run: Claude Opus 5.5, GPT-6 Astra and Claude Fable 5.1, which are over the coverage work's budget
-and wait on the maintainer's approval, and Olmo 3.1 32B, which has no hosted route. The verdicts above are
+settings. GPT-6 Astra and Claude Fable 5.1 were added on 2026-10-27 by the maintainer's decision (`gap2.py` CHANGE 2,
+`rep.py` CHANGE 3; $321 for both across the three fairness studies; Fable through the maintainers' own Anthropic key
+under 30-day safety retention, as on the leaderboard). Not run: Claude Opus 5.5 (not approved) and Olmo 3.1 32B
+(no hosted route). The verdicts above are
 unchanged; the replication's verdict still rests on its four primary graders (MIXED).
 
 | grader | C1 economic: D | C2 Black vs White: D | C3 Hispanic vs White: D | replication RA: D |
 |---|---|---|---|---|
+| Claude Fable 5.1 | +0.014 [−0.037, +0.068] | −0.104 [−0.183, −0.025] | −0.164 [−0.239, −0.086] | −0.129 [−0.191, −0.065] |
+| GPT-6 Astra | +0.024 [−0.027, +0.077] | −0.015 [−0.088, +0.062] | −0.083 [−0.164, −0.004] | −0.011 [−0.074, +0.050] |
 | DeepSeek V4 Pro | +0.032 [−0.028, +0.094] | −0.088 [−0.178, +0.006] | −0.117 [−0.209, −0.026] | −0.103 [−0.181, −0.026] |
 | DeepSeek V4.1 Flash | +0.041 [−0.015, +0.097] | −0.112 [−0.191, −0.030] | −0.115 [−0.196, −0.034] | −0.055 [−0.120, +0.012] |
 | DeepSeek V4.1 Flash (Oct 17 snapshot) | +0.028 [−0.029, +0.084] | −0.110 [−0.189, −0.030] | −0.122 [−0.205, −0.041] | −0.100 [−0.167, −0.033] |
@@ -108,12 +112,17 @@ unchanged; the replication's verdict still rests on its four primary graders (MI
 
 DeepSeek V4.1 Flash and Gemma 4 31B were already replication graders; their RA figures are those above.
 
-- **Economic status: no gap for any of the 18 graders** (NO MORE THAN A SECOND HUMAN for all). Llama 3.2 3B's
+- **Economic status: no gap for any of the 20 graders** (NO MORE THAN A SECOND HUMAN for all). Llama 3.2 3B's
   interval just excludes 0 (−0.072), within the ±0.15 band.
-- **Hispanic vs White: the first draw's pattern holds across vendors.** 14 of the 18 graders have D's interval
-  below 0 on C3 (estimates −0.09 to −0.15); none lies wholly below −0.10, so every one is INCONCLUSIVE or NO
-  MORE THAN A SECOND HUMAN (GPT-OSS 20B and Llama 3.2 3B). On the replication's new Hispanic essays, three of
-  the added graders keep an interval below 0 (DeepSeek V4 Pro, the DeepSeek V4.1 Flash Oct 17 snapshot, and
-  Gemma 4 31B, as before); the rest pass through 0. The White-sample caveat above applies to all of them.
-- **Black vs White:** two added graders (DeepSeek V4.1 Flash and its Oct 17 snapshot) have intervals below 0
-  (−0.11), INCONCLUSIVE under the thresholds; the rest pass through 0.
+- **Hispanic vs White: the first draw's pattern holds across vendors.** 16 of the 20 graders have D's interval
+  below 0 on C3 (estimates −0.08 to −0.16); none lies wholly below −0.10, so every one is INCONCLUSIVE or NO
+  MORE THAN A SECOND HUMAN (GPT-OSS 20B and Llama 3.2 3B). On the replication's new Hispanic essays, four of
+  the added graders keep an interval below 0 (Claude Fable 5.1, DeepSeek V4 Pro, the DeepSeek V4.1 Flash Oct 17
+  snapshot, and Gemma 4 31B, as before); the rest pass through 0. The White-sample caveat above applies to all.
+- **Claude Fable 5.1 has the largest gap against Hispanic learners of any grader**: −0.164 [−0.239, −0.086] on
+  C3 and −0.129 [−0.191, −0.065] on the replication, and it is the only grader whose gap stays below 0 with the
+  raters' roles swapped (RB −0.061 [−0.122, −0.003]). Its verdicts remain INCONCLUSIVE: no interval lies wholly
+  below the pre-registered −0.10. GPT-6 Astra shows a smaller C3 gap (−0.083 [−0.164, −0.004]) that disappears on
+  the replication (−0.011 [−0.074, +0.050]).
+- **Black vs White:** three added graders (Claude Fable 5.1, DeepSeek V4.1 Flash and its Oct 17 snapshot) have
+  intervals below 0 (−0.10 to −0.11), INCONCLUSIVE under the thresholds; the rest pass through 0.
