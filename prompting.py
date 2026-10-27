@@ -528,7 +528,8 @@ class TemplatePrompt:
         values = {"question": case["question"], "reference": case["reference"], "rubric": case["rubric"],
                   "materials": case["materials"], "response": response, "scale_min": f"{lo:g}",
                   "scale_max": f"{hi:g}", "context": context,
-                  "mark": f"{sum(case['human'].values()) / len(case['human']):g}" if case.get("human") else ""}
+                  "mark": case["told_mark"] if "told_mark" in case else
+                  (f"{sum(case['human'].values()) / len(case['human']):g}" if case.get("human") else "")}
         # One pass over the template, so text inside a substituted value (a student writing
         # "{rubric}") is never substituted again.
         pat = re.compile(r"\{(" + "|".join(PLACEHOLDERS) + r")\}")
