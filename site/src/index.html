@@ -286,9 +286,15 @@
     </div>
 
     <div class="block">
-      <h3>Test 1. Does the feedback follow a grade it was told? (scored)</h3>
-      <p class="sub">Built on the validated <b>tone</b> measure. Each model wrote feedback twice on the same answers: once with the teacher's grade shown to it, once without. If the feedback's tone follows the grade it was told rather than the work, the correlation between tone and grade rises when the grade is shown. That change, the halo, is shown here; 0 means the feedback is independent of the told grade. A negative halo means the tone moved <i>away</i> from the told grade (for example, softer on work it was told was weak); that still means the feedback depended on the grade rather than the work, so the score counts the distance from 0 in either direction. It is the Feedback strand of the whole-task score. Tone itself is not ranked: warmer feedback is not better feedback, so only its independence from a told grade is scored.</p>
-      <div class="chart" id="c-halo"></div>
+      <h3>Test 1. Does the feedback follow a wrong grade it was told? (scored)</h3>
+      <p class="sub">Built on the validated <b>tone</b> measure. Each model wrote feedback on the same 100 short answers twice: once told the teacher's grade, and once told the opposite grade (an answer the teacher gave 5 of 5 was said to have scored 0, and the reverse). The work is the same both times, so feedback that responds to the work alone has the same tone either way. The chart shows how much the tone moved per point of the grade it was told: 0 is best. Every model tested moved toward the wrong grade.</p>
+      <p class="sub">The score compares that with how much the same model's tone moves with the quality of the work when no grade is given: it is the share of the movement that comes from the work. 100 means a wrong grade moves nothing; 50 means it moves tone as much as the work does. This is the Feedback strand of the whole-task score. Tone itself is not ranked: warmer feedback is not better feedback, so only its independence from a told grade is scored.</p>
+      <div class="chart" id="c-told"></div>
+      <div class="tbl" id="t-told"></div>
+      <details class="more"><summary>The measure this replaced</summary>
+        <p class="sub">Until 2026-10-27 this test told each model the teacher's true grade and compared its feedback with feedback written with no grade (the "halo"). A halo near 0 looked independent of the grade, but telling the true grade cannot separate copying a grade from using it sensibly, and the wrong-grade test showed that models with a halo near 0 (for example GLM 5.3) still follow a wrong grade strongly. The earlier halo is shown below for comparison; it is no longer scored. See the corrections log.</p>
+        <div class="chart" id="c-halo"></div>
+      </details>
     </div>
 
     <div class="block">

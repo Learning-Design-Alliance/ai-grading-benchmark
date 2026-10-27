@@ -32,7 +32,7 @@
 {
 "strand": "feedback",
 "weight": 10,
-"means": "feedback is not swayed by a grade it is told, in either direction (halo)"
+"means": "feedback tone follows the work, not a grade it is told: the share of tone that moves with the work (W) rather than with a wrong told grade (S), 100 x W / (W + |S|)"
 },
 {
 "strand": "working",

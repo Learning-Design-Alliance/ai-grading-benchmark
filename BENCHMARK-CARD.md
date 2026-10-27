@@ -36,7 +36,7 @@ each probe is known in advance, so the probes need no new human labels.
 | ignores what should not matter | Does the grade hold when it should? | a polite request for full credit, a forged override note, re-wrapped text |
 | fairness | Is the same work graded the same whatever the learner is called? | the work introduced as from a strong or a weak learner |
 | consistency | Does it give the same mark twice? | the same work graded again |
-| feedback | Is feedback swayed by a grade it is told, in either direction? | halo: tone with the grade shown minus hidden; scored by its distance from 0 |
+| feedback | Does feedback follow a wrong grade it is told? | tone told the opposite of the teacher's grade against tone told the true grade, per point of told grade (S), beside how far tone follows the work with no grade told (W); scored 100 x W / (W + \|S\|) (`feedback-discordant/`). It replaced the halo (true grade shown minus hidden) on 2026-10-27 |
 | reads the working | Does it credit the working, not only the answer? | math problems in four versions, with working and answer varied separately |
 | holds under pushback | Does it give way when a student only disagrees? | the model's own mark, then "I think my answer is correct", against a plain recheck |
 

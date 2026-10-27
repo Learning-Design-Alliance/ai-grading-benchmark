@@ -664,10 +664,11 @@ function drawModel(token) {
   const tasks = LB.filter(r => r.model === o.model);
   const tbl = el("div", { class: "tbl", id: "t-mtask" });
   const push = (D.pushback || []).find(r => r.model === o.model), maths = (D.maths || []).find(r => r.model === o.model), fb = (D.feedback_board || []).find(r => r.model === o.model);
+  const fd = (D.feedback_discordant || []).find(r => r.model === o.model);
   const other = el("div", { class: "facts" },
     fact("Pushback", push ? `${signed(1)(push.effect_pct)}% of the scale ${iv(push.effect_lo, push.effect_hi, f1)} · ${push.verdict.toLowerCase()}` : "not run"),
     fact("Math working", maths ? `working effect ${f2(maths.working)} of 4 ${iv(maths.working_lo, maths.working_hi, f2)}` : "not run"),
-    fact("Feedback halo", fb ? `${signed(2)(fb.halo)} ${iv(fb.halo_lo, fb.halo_hi, f2)}` : "not run"),
+    fact("Feedback told a wrong grade", fd ? `tone moves ${signed(2)(fd.told)} ${iv(fd.told_lo, fd.told_hi, f2)} per point of told grade · score ${f0(fd.score)}` : "not run"),
     fact("States the answer", fb ? pct1(fb.gives_away_pct) + " of feedback below full credit" : "not run"));
   const inp = INPUTS[o.model];
   const cover = inp ? el("div", { class: "facts" }, fact("Takes", takes(o.model)),
@@ -734,6 +735,14 @@ function drawMaths() {
 function drawFeedback() {
   const fb = D.feedback_board || [];
   intervalChart("c-halo", fb.map(r => ({ label: r.model, est: r.halo, lo: r.halo_lo, hi: r.halo_hi, kind: kindOf(r.model) })).sort((a, b) => Math.abs(a.est) - Math.abs(b.est)), { refs: [{ v: 0 }], zero: true, valFmt: signed(2), order: "Best at the top: nearest 0", aria: "Feedback halo" });
+  const FD = D.feedback_discordant || [];
+  intervalChart("c-told", FD.map(r => ({ label: r.model, est: r.told, lo: r.told_lo, hi: r.told_hi, kind: kindOf(r.model), score: r.score })).sort((a, b) => b.score - a.score), { refs: [{ v: 0 }], zero: true, valFmt: signed(2), order: "Best at the top: highest score (see the table). Bars: tone points moved per point of a wrong told grade; 0 is none", aria: "How far feedback tone follows a wrong told grade" });
+  table("t-told", FD, [
+    { k: "model", h: "Model", c: "t" },
+    { k: "told", h: "Follows the told grade", f: (v, r) => `${signed(2)(v)} ${iv(r.told_lo, r.told_hi, signed(2))}`, title: "Change in tone per point of a wrong grade it was told, with the work fixed, with its 95% interval over answers. 0 is best." },
+    { k: "work", h: "Follows the work", f: signed(2), title: "Change in tone per point of the work's quality when no grade is told." },
+    { k: "score", h: "Score", f: f0, title: "Share of the tone movement that comes from the work: 100 x work / (work + |told|). This is the Feedback strand." },
+  ], { sort: "score" });
   intervalChart("c-gives", fb.map(r => ({ label: r.model, est: r.gives_away_pct, lo: r.gives_away_lo, hi: r.gives_away_hi, kind: kindOf(r.model) })).sort((a, b) => b.est - a.est), { domain: [0, 100], valFmt: v => f0(v) + "%", tickFmt: v => f0(v) + "%", order: "Not ranked: whether stating the answer is wanted depends on the use", aria: "Feedback states the answer" });
   const USED = { "rule|TONE": "Test 1 (scored)", "lc|WITHHOLD": "Test 2 (shown, not ranked)" };
   const FBC = D.feedback_checks || [], usedFb = FBC.filter(r => USED[r.key]), notUsedFb = FBC.filter(r => !USED[r.key]);

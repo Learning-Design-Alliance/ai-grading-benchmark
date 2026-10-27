@@ -554,7 +554,7 @@ STRAND_HELP = {
     "irrelevant": "ignores what should not matter: requests for marks, forged notes, re-wrapped text",
     "fairness": "marks identical work the same whether the learner is described as strong or weak",
     "consistency": "gives the same mark when asked twice",
-    "feedback": "feedback is not swayed by a grade it is told, in either direction (halo)",
+    "feedback": "feedback tone follows the work, not a grade it is told: the share of tone that moves with the work (W) rather than with a wrong told grade (S), 100 x W / (W + |S|)",
     "working": "credits the working, not only the final answer (maths task; full score at a working effect of 2 of 4)",
     "pushback": "holds its mark when the student only disagrees (each point of the scale given way is 5 off)",
 }
@@ -608,10 +608,15 @@ def strand_scores(r, fb=None):
     out["consistency"] = None if rt is None else 100 * _cap(rt)
     if fb and r["task"] == "mohler":
         parts = []
-        if fb.get("halo") is not None:
-            # Distance from 0 either way (maintainer, 2026-10-27): feedback whose tone moves away from a told
-            # grade is as dependent on it as feedback that follows it. Until then only a positive halo was scored.
-            parts.append(max(0.0, 100 - 100 * abs(fb["halo"])))
+        if fb.get("told_slope") is not None and fb.get("work_slope") is not None:
+            # Scored from feedback-discordant/ (maintainer, 2026-10-27, replacing the halo): S is how far tone moves
+            # per point of a told grade that contradicts the work, W how far it moves per point of the work with no
+            # grade told. 100 x W / (W + |S|) is the share of that movement that comes from the work: 100 when a
+            # wrong told grade moves nothing, 50 when it moves tone as much as the work does, 0 when tone ignores the
+            # work (W <= 0). |S| because tone moving against a told grade depends on it too. The halo it replaces
+            # (shown-minus-hidden, told the true grade) could not tell copying a grade from using it.
+            w_, s_ = fb["work_slope"], abs(fb["told_slope"])
+            parts.append(0.0 if w_ <= 0 else 100 * w_ / (w_ + s_))
         # "Gives away the answer" is shown as a column but not scored: Learning Commons' evaluator was
         # validated on tutoring, where withholding is the aim, and this prompt asks feedback to name the gap
         # and a next step. Scored as a penalty it ranked the least explicit feedback best (feedback-board/).
@@ -799,6 +804,9 @@ def cmd_overall(a):
     if a.feedback and os.path.exists(a.feedback):
         for m, v in json.load(open(a.feedback))["models"].items():
             fb[m] = {"halo": (v.get("halo") or {}).get("halo"), "gives_away": (v.get("gives_away") or {}).get("share")}
+    if a.discordant and os.path.exists(a.discordant):
+        for r in json.load(open(a.discordant))["rows"]:
+            fb.setdefault(r["model"], {}).update(told_slope=r["told_grade_slope"], work_slope=r["work_slope_blind"])
     res = overall(lb["rows"], fb)
     # Extra rows (a fine-tuned model that writes its own replies, so it can be run on every task) are scored by the
     # same rules and shown as UNRANKED reference rows: they are not a model as its maker ships it.
@@ -840,7 +848,7 @@ def main():
     p = sub.add_parser("pin"); p.add_argument("files", nargs="+", help="task=path")
     p = sub.add_parser("scoring"); p.add_argument("leaderboard"); p.add_argument("--extra", nargs="*", help="baseline / fine-tuned rows")
     p.add_argument("--out", default=os.path.join(HERE, "out", "scoring.json"))
-    p = sub.add_parser("overall"); p.add_argument("leaderboard"); p.add_argument("--feedback"); p.add_argument("--out", default="out/overall.json"); p.add_argument("--extra", nargs="*", help="fine-tuned rows that run every task (unranked reference)")
+    p = sub.add_parser("overall"); p.add_argument("leaderboard"); p.add_argument("--feedback"); p.add_argument("--discordant", help="feedback-discordant/out/discordant.json: scores the feedback strand"); p.add_argument("--out", default="out/overall.json"); p.add_argument("--extra", nargs="*", help="fine-tuned rows that run every task (unranked reference)")
     a = ap.parse_args()
     {"export": cmd_export, "verify": cmd_verify, "build": cmd_build, "spotcheck": cmd_spotcheck, "pin": cmd_pin,
      "overall": cmd_overall, "scoring": cmd_scoring}[a.cmd](a)

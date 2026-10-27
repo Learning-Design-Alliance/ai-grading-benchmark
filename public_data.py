@@ -116,6 +116,21 @@ def leaderboard():
     return rows
 
 
+def feedback_discordant():
+    """feedback-discordant/out/discordant.json: tone told a wrong grade (the Feedback strand's score since 2026-10-27)."""
+    p = os.path.join(HERE, "feedback-discordant", "out", "discordant.json")
+    if not os.path.exists(p):
+        return []
+    rows = []
+    for r in json.load(open(p))["rows"]:
+        m, vendor, kind = NAMES.get(r["model"], (r["model"], "", ""))
+        w_, s_ = r["work_slope_blind"], abs(r["told_grade_slope"])
+        rows.append({"key": r["model"], "model": m, "vendor": vendor, "told": r4(r["told_grade_slope"]),
+                     "told_lo": r4(r["ci95"][0]), "told_hi": r4(r["ci95"][1]), "work": r4(r["work_slope_blind"]),
+                     "score": round(0.0 if w_ <= 0 else 100 * w_ / (w_ + s_), 1), "verdict": r["verdict"]})
+    return rows
+
+
 def halo():
     d = json.load(open(os.path.join(HERE, "out", "feedback-2026-10-23", "halo.json")))["runs"]
     out = []
@@ -964,7 +979,7 @@ def length_partial():
 
 def main(out):
     os.makedirs(out, exist_ok=True)
-    for nm, fn in (("leaderboard", leaderboard), ("halo", halo), ("fairness", fairness),
+    for nm, fn in (("leaderboard", leaderboard), ("halo", halo), ("feedback_discordant", feedback_discordant), ("fairness", fairness),
                    ("feedback_checks", feedback_checks), ("drift", drift), ("floor", floor),
                    ("overall", overall), ("weights", weights), ("feedback_board", feedback_board),
                    ("speech", lambda: modality("speech", "Speech (pronunciation)", "speech")),

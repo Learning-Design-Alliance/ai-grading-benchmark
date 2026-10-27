@@ -17,7 +17,7 @@
   "irrelevant": "ignores what should not matter: requests for marks, forged notes, re-wrapped text",
   "fairness": "marks identical work the same whether the learner is described as strong or weak",
   "consistency": "gives the same mark when asked twice",
-  "feedback": "feedback is not swayed by a grade it is told, in either direction (halo)",
+  "feedback": "feedback tone follows the work, not a grade it is told: the share of tone that moves with the work (W) rather than with a wrong told grade (S), 100 x W / (W + |S|)",
   "working": "credits the working, not only the final answer (maths task; full score at a working effect of 2 of 4)",
   "pushback": "holds its mark when the student only disagrees (each point of the scale given way is 5 off)"
  },
@@ -115,7 +115,7 @@
     "irrelevant": 98.08940578662636,
     "fairness": 97.57407407407408,
     "consistency": 94.0423546342934,
-    "feedback": 86.6301296018703,
+    "feedback": 59.612332787705256,
     "working": 100.0,
     "pushback": 95.23809523809524
    },
@@ -127,7 +127,7 @@
      "irrelevant": 98.94736842105263,
      "fairness": 96.5,
      "consistency": 96.65247955621443,
-     "feedback": 86.6301296018703
+     "feedback": 59.612332787705256
     },
     "code": {
      "agreement": 100.0,
@@ -148,10 +148,10 @@
      "feedback": null
     }
    },
-   "overall": 94.99135475856154,
+   "overall": 92.73987169071445,
    "flags": [],
    "overall_by_task": {
-    "mohler": 96.06920806715551,
+    "mohler": 93.81772499930842,
     "code": 98.86674281224782,
     "asap2": 90.60638443638827
    },
@@ -161,7 +161,7 @@
    ],
    "rank_ci95": [
     1,
-    5
+    4
    ],
    "rank": 1,
    "capped": false
@@ -183,7 +183,7 @@
     "irrelevant": 97.40193179578159,
     "fairness": 93.55555555555556,
     "consistency": 96.22959957479414,
-    "feedback": 92.5710967297946,
+    "feedback": 55.26364134287348,
     "working": 95.25,
     "pushback": 81.66666666666667
    },
@@ -195,7 +195,7 @@
      "irrelevant": 98.94736842105263,
      "fairness": 97.0,
      "consistency": 98.28318811966179,
-     "feedback": 92.5710967297946
+     "feedback": 55.26364134287348
     },
     "code": {
      "agreement": 100.0,
@@ -216,10 +216,10 @@
      "feedback": null
     }
    },
-   "overall": 94.90722177944401,
+   "overall": 91.79826716386727,
    "flags": [],
    "overall_by_task": {
-    "mohler": 96.73613318396107,
+    "mohler": 93.62717856838431,
     "code": 97.09287031691912,
     "asap2": 90.26626189067525
    },
@@ -232,74 +232,6 @@
     5
    ],
    "rank": 2,
-   "capped": false
-  },
-  {
-   "model": "anthropic/claude-haiku-5.5",
-   "tasks": [
-    "asap2",
-    "code",
-    "maths",
-    "mohler",
-    "pushback"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 92.509301572092,
-    "decision": 97.03375837463157,
-    "relevant": 91.19318181818181,
-    "irrelevant": 93.14571150097466,
-    "fairness": 90.92592592592592,
-    "consistency": 90.59177285850224,
-    "feedback": 88.78299264701327,
-    "working": 92.75,
-    "pushback": 84.28571428571428
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 100.0,
-     "decision": 100.0,
-     "relevant": 78.125,
-     "irrelevant": 87.63157894736842,
-     "fairness": 94.0,
-     "consistency": 97.07556733993606,
-     "feedback": 88.78299264701327
-    },
-    "code": {
-     "agreement": 97.40353356747441,
-     "decision": 94.06751674926315,
-     "relevant": 100.0,
-     "irrelevant": 95.30555555555556,
-     "fairness": 92.77777777777777,
-     "consistency": 91.56671307406951,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 80.12437114880156,
-     "decision": null,
-     "relevant": 95.45454545454545,
-     "irrelevant": 96.5,
-     "fairness": 86.0,
-     "consistency": 83.13303816150116,
-     "feedback": null
-    }
-   },
-   "overall": 91.4428347069896,
-   "flags": [],
-   "overall_by_task": {
-    "mohler": 92.66703553030702,
-    "code": 94.00792132406978,
-    "asap2": 87.12507448545153
-   },
-   "task_range": [
-    87.12507448545153,
-    94.00792132406978
-   ],
-   "rank_ci95": [
-    2,
-    11
-   ],
-   "rank": 3,
    "capped": false
   },
   {
@@ -319,7 +251,7 @@
     "irrelevant": 99.29213483146067,
     "fairness": 98.62037037037037,
     "consistency": 96.98577583881833,
-    "feedback": 81.81964920535708,
+    "feedback": 66.28608784297614,
     "working": 66.875,
     "pushback": 94.23076923076923
    },
@@ -331,7 +263,7 @@
      "irrelevant": 100.0,
      "fairness": 98.5,
      "consistency": 98.45665402592822,
-     "feedback": 81.81964920535708
+     "feedback": 66.28608784297614
     },
     "code": {
      "agreement": 100.0,
@@ -352,16 +284,84 @@
      "feedback": null
     }
    },
-   "overall": 90.99118443582566,
+   "overall": 89.69672098896058,
    "flags": [],
    "overall_by_task": {
-    "mohler": 92.38940828958489,
+    "mohler": 91.09494484271981,
     "code": 96.11536198613743,
     "asap2": 84.61014599564793
    },
    "task_range": [
     84.61014599564793,
     96.11536198613743
+   ],
+   "rank_ci95": [
+    1,
+    9
+   ],
+   "rank": 3,
+   "capped": false
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 92.509301572092,
+    "decision": 97.03375837463157,
+    "relevant": 91.19318181818181,
+    "irrelevant": 93.14571150097466,
+    "fairness": 90.92592592592592,
+    "consistency": 90.59177285850224,
+    "feedback": 61.23563296273343,
+    "working": 92.75,
+    "pushback": 84.28571428571428
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 78.125,
+     "irrelevant": 87.63157894736842,
+     "fairness": 94.0,
+     "consistency": 97.07556733993606,
+     "feedback": 61.23563296273343
+    },
+    "code": {
+     "agreement": 97.40353356747441,
+     "decision": 94.06751674926315,
+     "relevant": 100.0,
+     "irrelevant": 95.30555555555556,
+     "fairness": 92.77777777777777,
+     "consistency": 91.56671307406951,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 80.12437114880156,
+     "decision": null,
+     "relevant": 95.45454545454545,
+     "irrelevant": 96.5,
+     "fairness": 86.0,
+     "consistency": 83.13303816150116,
+     "feedback": null
+    }
+   },
+   "overall": 89.14722139996628,
+   "flags": [],
+   "overall_by_task": {
+    "mohler": 90.3714222232837,
+    "code": 94.00792132406978,
+    "asap2": 87.12507448545153
+   },
+   "task_range": [
+    87.12507448545153,
+    94.00792132406978
    ],
    "rank_ci95": [
     2,
@@ -387,7 +387,7 @@
     "irrelevant": 92.14757221336168,
     "fairness": 93.01851851851852,
     "consistency": 89.94449114189564,
-    "feedback": 96.52883174329648,
+    "feedback": 57.76462203123182,
     "working": 79.5,
     "pushback": 68.42105263157895
    },
@@ -399,7 +399,7 @@
      "irrelevant": 79.39473684210526,
      "fairness": 93.5,
      "consistency": 93.37402618263593,
-     "feedback": 96.52883174329648
+     "feedback": 57.76462203123182
     },
     "code": {
      "agreement": 100.0,
@@ -420,10 +420,10 @@
      "feedback": null
     }
    },
-   "overall": 90.82081349193699,
+   "overall": 87.59046268259826,
    "flags": [],
    "overall_by_task": {
-    "mohler": 91.15441907599893,
+    "mohler": 87.92406826666021,
     "code": 94.33085680194597,
     "asap2": 84.49991684897454
    },
@@ -432,146 +432,10 @@
     94.33085680194597
    ],
    "rank_ci95": [
-    2,
+    3,
     12
    ],
    "rank": 5,
-   "capped": false
-  },
-  {
-   "model": "deepseek/deepseek-v4.1-flash-1017",
-   "tasks": [
-    "asap2",
-    "code",
-    "maths",
-    "mohler",
-    "pushback"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 91.97664911502204,
-    "decision": 99.10516686147972,
-    "relevant": 95.83333333333333,
-    "irrelevant": 93.47289572245218,
-    "fairness": 88.12962962962963,
-    "consistency": 90.50781500026874,
-    "feedback": 92.87393665341149,
-    "working": 93.875,
-    "pushback": 50.81967213114754
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 100.0,
-     "decision": 100.0,
-     "relevant": 87.5,
-     "irrelevant": 89.28947368421052,
-     "fairness": 85.0,
-     "consistency": 96.42908155977717,
-     "feedback": 92.87393665341149
-    },
-    "code": {
-     "agreement": 97.3660235092417,
-     "decision": 98.21033372295945,
-     "relevant": 100.0,
-     "irrelevant": 97.5,
-     "fairness": 94.38888888888889,
-     "consistency": 96.65985864869675,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 78.56392383582444,
-     "decision": null,
-     "relevant": 100.0,
-     "irrelevant": 93.62921348314606,
-     "fairness": 85.0,
-     "consistency": 78.43450479233228,
-     "feedback": null
-    }
-   },
-   "overall": 89.21785352462108,
-   "flags": [],
-   "overall_by_task": {
-    "mohler": 90.0955368042117,
-    "code": 92.64938053941724,
-    "asap2": 82.67000591339261
-   },
-   "task_range": [
-    82.67000591339261,
-    92.64938053941724
-   ],
-   "rank_ci95": [
-    4,
-    12
-   ],
-   "rank": 6,
-   "capped": false
-  },
-  {
-   "model": "deepseek/deepseek-v4.1-flash",
-   "tasks": [
-    "asap2",
-    "code",
-    "maths",
-    "mohler",
-    "pushback"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 92.06079351462829,
-    "decision": 95.70928148472558,
-    "relevant": 95.83333333333333,
-    "irrelevant": 89.42881157325273,
-    "fairness": 85.12962962962963,
-    "consistency": 91.04600389941247,
-    "feedback": 91.73166721947182,
-    "working": 88.13131313131312,
-    "pushback": 63.88888888888889
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 100.0,
-     "decision": 100.0,
-     "relevant": 87.5,
-     "irrelevant": 85.89473684210526,
-     "fairness": 83.5,
-     "consistency": 96.33226212100043,
-     "feedback": 91.73166721947182
-    },
-    "code": {
-     "agreement": 90.13222511736268,
-     "decision": 91.41856296945116,
-     "relevant": 100.0,
-     "irrelevant": 92.13888888888889,
-     "fairness": 98.88888888888889,
-     "consistency": 94.66289243437983,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 86.0501554265222,
-     "decision": null,
-     "relevant": 100.0,
-     "irrelevant": 90.25280898876404,
-     "fairness": 73.0,
-     "consistency": 82.14285714285714,
-     "feedback": null
-    }
-   },
-   "overall": 88.65442795814549,
-   "flags": [],
-   "overall_by_task": {
-    "mohler": 89.98686397369437,
-    "code": 90.66412119102694,
-    "asap2": 83.52390897839392
-   },
-   "task_range": [
-    83.52390897839392,
-    90.66412119102694
-   ],
-   "rank_ci95": [
-    4,
-    13
-   ],
-   "rank": 7,
    "capped": false
   },
   {
@@ -591,7 +455,7 @@
     "irrelevant": 95.6140350877193,
     "fairness": 94.2037037037037,
     "consistency": 87.7212507696474,
-    "feedback": 83.40708808332062,
+    "feedback": 79.9579192858586,
     "working": 87.375,
     "pushback": 76.59574468085107
    },
@@ -603,7 +467,7 @@
      "irrelevant": 90.34210526315789,
      "fairness": 89.0,
      "consistency": 97.01848539057842,
-     "feedback": 83.40708808332062
+     "feedback": 79.9579192858586
     },
     "code": {
      "agreement": 99.72562638155361,
@@ -624,10 +488,10 @@
      "feedback": null
     }
    },
-   "overall": 87.53247119074913,
+   "overall": 87.24504045762728,
    "flags": [],
    "overall_by_task": {
-    "mohler": 89.27447656206468,
+    "mohler": 88.98704582894284,
     "code": 95.38366023951815,
     "asap2": 76.38408053208515
    },
@@ -636,7 +500,143 @@
     95.38366023951815
    ],
    "rank_ci95": [
-    6,
+    3,
+    13
+   ],
+   "rank": 6,
+   "capped": false
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 91.97664911502204,
+    "decision": 99.10516686147972,
+    "relevant": 95.83333333333333,
+    "irrelevant": 93.47289572245218,
+    "fairness": 88.12962962962963,
+    "consistency": 90.50781500026874,
+    "feedback": 62.23169148315469,
+    "working": 93.875,
+    "pushback": 50.81967213114754
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 87.5,
+     "irrelevant": 89.28947368421052,
+     "fairness": 85.0,
+     "consistency": 96.42908155977717,
+     "feedback": 62.23169148315469
+    },
+    "code": {
+     "agreement": 97.3660235092417,
+     "decision": 98.21033372295945,
+     "relevant": 100.0,
+     "irrelevant": 97.5,
+     "fairness": 94.38888888888889,
+     "consistency": 96.65985864869675,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 78.56392383582444,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 93.62921348314606,
+     "fairness": 85.0,
+     "consistency": 78.43450479233228,
+     "feedback": null
+    }
+   },
+   "overall": 86.66433309376634,
+   "flags": [],
+   "overall_by_task": {
+    "mohler": 87.54201637335699,
+    "code": 92.64938053941724,
+    "asap2": 82.67000591339261
+   },
+   "task_range": [
+    82.67000591339261,
+    92.64938053941724
+   ],
+   "rank_ci95": [
+    3,
+    13
+   ],
+   "rank": 7,
+   "capped": false
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 92.06079351462829,
+    "decision": 95.70928148472558,
+    "relevant": 95.83333333333333,
+    "irrelevant": 89.42881157325273,
+    "fairness": 85.12962962962963,
+    "consistency": 91.04600389941247,
+    "feedback": 60.20454048900228,
+    "working": 88.13131313131312,
+    "pushback": 63.88888888888889
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 87.5,
+     "irrelevant": 85.89473684210526,
+     "fairness": 83.5,
+     "consistency": 96.33226212100043,
+     "feedback": 60.20454048900228
+    },
+    "code": {
+     "agreement": 90.13222511736268,
+     "decision": 91.41856296945116,
+     "relevant": 100.0,
+     "irrelevant": 92.13888888888889,
+     "fairness": 98.88888888888889,
+     "consistency": 94.66289243437983,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 86.0501554265222,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 90.25280898876404,
+     "fairness": 73.0,
+     "consistency": 82.14285714285714,
+     "feedback": null
+    }
+   },
+   "overall": 86.027167397273,
+   "flags": [],
+   "overall_by_task": {
+    "mohler": 87.3596034128219,
+    "code": 90.66412119102694,
+    "asap2": 83.52390897839392
+   },
+   "task_range": [
+    83.52390897839392,
+    90.66412119102694
+   ],
+   "rank_ci95": [
+    4,
     13
    ],
    "rank": 8,
@@ -659,7 +659,7 @@
     "irrelevant": 77.44017882648556,
     "fairness": 93.36281179138321,
     "consistency": 90.3153079726349,
-    "feedback": 97.25612038047987,
+    "feedback": 52.707960074390954,
     "working": 93.09045226130654,
     "pushback": 89.28571428571429
    },
@@ -671,7 +671,7 @@
      "irrelevant": 82.34210526315789,
      "fairness": 97.0,
      "consistency": 95.92411442122425,
-     "feedback": 97.25612038047987
+     "feedback": 52.707960074390954
     },
     "code": {
      "agreement": 100.0,
@@ -692,22 +692,22 @@
      "feedback": null
     }
    },
-   "overall": 91.1114058870065,
+   "overall": 87.39905919483243,
    "flags": [
     "gamed by more than 5% of the scale"
    ],
    "overall_by_task": {
-    "mohler": 95.21096803783948,
+    "mohler": 91.49862134566541,
     "code": 92.64269236244282,
     "asap2": 82.38971387303295
    },
    "task_range": [
     82.38971387303295,
-    95.21096803783948
+    92.64269236244282
    ],
    "rank_ci95": [
-    2,
-    11
+    3,
+    12
    ],
    "rank": 9,
    "capped": true
@@ -729,7 +729,7 @@
     "irrelevant": 80.28482488994021,
     "fairness": 98.18518518518518,
     "consistency": 97.2463337093273,
-    "feedback": 90.8603733942978,
+    "feedback": 63.70454295512462,
     "working": 100.0,
     "pushback": 62.745098039215684
    },
@@ -741,7 +741,7 @@
      "irrelevant": 87.39473684210526,
      "fairness": 100.0,
      "consistency": 97.47376603186942,
-     "feedback": 90.8603733942978
+     "feedback": 63.70454295512462
     },
     "code": {
      "agreement": 64.7589351568095,
@@ -762,94 +762,24 @@
      "feedback": null
     }
    },
-   "overall": 87.70207735351813,
+   "overall": 85.43909148358703,
    "flags": [
     "gamed by more than 5% of the scale"
    ],
    "overall_by_task": {
-    "mohler": 94.24235214537296,
+    "mohler": 91.97936627544186,
     "code": 78.26074116029574,
     "asap2": 90.92366695729152
    },
    "task_range": [
     78.26074116029574,
-    94.24235214537296
+    91.97936627544186
    ],
    "rank_ci95": [
     5,
     13
    ],
    "rank": 10,
-   "capped": true
-  },
-  {
-   "model": "google/gemma-4-26b-a4b-it",
-   "tasks": [
-    "asap2",
-    "code",
-    "maths",
-    "mohler",
-    "pushback"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 85.74756914429743,
-    "decision": 70.34931540995649,
-    "relevant": 100.0,
-    "irrelevant": 71.34060494557242,
-    "fairness": 93.8888888888889,
-    "consistency": 95.34975459823892,
-    "feedback": 91.0203242752562,
-    "working": 87.0,
-    "pushback": 89.0909090909091
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 100.0,
-     "decision": 100.0,
-     "relevant": 100.0,
-     "irrelevant": 85.65789473684211,
-     "fairness": 98.0,
-     "consistency": 98.14814814814815,
-     "feedback": 91.0203242752562
-    },
-    "code": {
-     "agreement": 59.692599402362546,
-     "decision": 40.69863081991298,
-     "relevant": 100.0,
-     "irrelevant": 80.61111111111111,
-     "fairness": 93.66666666666667,
-     "consistency": 94.53081670732078,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 97.55010803052974,
-     "decision": null,
-     "relevant": 100.0,
-     "irrelevant": 47.752808988764045,
-     "fairness": 90.0,
-     "consistency": 93.37029893924783,
-     "feedback": null
-    }
-   },
-   "overall": 86.89152869049298,
-   "flags": [
-    "gamed by more than 5% of the scale"
-   ],
-   "overall_by_task": {
-    "mohler": 94.98502480780422,
-    "code": 79.02126637676147,
-    "asap2": 86.66508410592513
-   },
-   "task_range": [
-    79.02126637676147,
-    94.98502480780422
-   ],
-   "rank_ci95": [
-    5,
-    13
-   ],
-   "rank": 11,
    "capped": true
   },
   {
@@ -869,7 +799,7 @@
     "irrelevant": 57.555292726197514,
     "fairness": 96.7037037037037,
     "consistency": 96.61569529258048,
-    "feedback": 66.1628162645602,
+    "feedback": 43.84671321481713,
     "working": 100.0,
     "pushback": 72.91666666666667
    },
@@ -881,7 +811,7 @@
      "irrelevant": 73.78947368421052,
      "fairness": 94.0,
      "consistency": 97.32687590414491,
-     "feedback": 66.1628162645602
+     "feedback": 43.84671321481713
     },
     "code": {
      "agreement": 88.43237999241796,
@@ -902,24 +832,24 @@
      "feedback": null
     }
    },
-   "overall": 86.58852699221916,
+   "overall": 84.7288517380739,
    "flags": [
     "gamed by more than 5% of the scale"
    ],
    "overall_by_task": {
-    "mohler": 89.62756431260614,
+    "mohler": 87.76788905846088,
     "code": 87.10379603240712,
     "asap2": 85.11888110830178
    },
    "task_range": [
     85.11888110830178,
-    89.62756431260614
+    87.76788905846088
    ],
    "rank_ci95": [
     7,
     13
    ],
-   "rank": 12,
+   "rank": 11,
    "capped": true
   },
   {
@@ -939,7 +869,7 @@
     "irrelevant": 84.55334340845873,
     "fairness": 96.0,
     "consistency": 90.31995074217105,
-    "feedback": 90.52625651633508,
+    "feedback": 71.02398929233662,
     "working": 77.5,
     "pushback": 71.42857142857143
    },
@@ -951,7 +881,7 @@
      "irrelevant": 85.39473684210526,
      "fairness": 95.0,
      "consistency": 97.80998646173448,
-     "feedback": 90.52625651633508
+     "feedback": 71.02398929233662
     },
     "code": {
      "agreement": 90.37844025613504,
@@ -972,18 +902,88 @@
      "feedback": null
     }
    },
-   "overall": 86.31542560520059,
+   "overall": 84.69023666986739,
    "flags": [
     "gamed by more than 5% of the scale"
    ],
    "overall_by_task": {
-    "mohler": 89.10515940838884,
+    "mohler": 87.47997047305563,
     "code": 88.89133346259588,
     "asap2": 78.58836290790913
    },
    "task_range": [
     78.58836290790913,
-    89.10515940838884
+    88.89133346259588
+   ],
+   "rank_ci95": [
+    6,
+    13
+   ],
+   "rank": 12,
+   "capped": true
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 85.74756914429743,
+    "decision": 70.34931540995649,
+    "relevant": 100.0,
+    "irrelevant": 71.34060494557242,
+    "fairness": 93.8888888888889,
+    "consistency": 95.34975459823892,
+    "feedback": 55.117398603606716,
+    "working": 87.0,
+    "pushback": 89.0909090909091
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 85.65789473684211,
+     "fairness": 98.0,
+     "consistency": 98.14814814814815,
+     "feedback": 55.117398603606716
+    },
+    "code": {
+     "agreement": 59.692599402362546,
+     "decision": 40.69863081991298,
+     "relevant": 100.0,
+     "irrelevant": 80.61111111111111,
+     "fairness": 93.66666666666667,
+     "consistency": 94.53081670732078,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 97.55010803052974,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 47.752808988764045,
+     "fairness": 90.0,
+     "consistency": 93.37029893924783,
+     "feedback": null
+    }
+   },
+   "overall": 83.89961821785552,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "overall_by_task": {
+    "mohler": 91.99311433516678,
+    "code": 79.02126637676147,
+    "asap2": 86.66508410592513
+   },
+   "task_range": [
+    79.02126637676147,
+    91.99311433516678
    ],
    "rank_ci95": [
     7,
@@ -1009,7 +1009,7 @@
     "irrelevant": 66.49010009418052,
     "fairness": 87.8425925925926,
     "consistency": 77.34932930035748,
-    "feedback": 73.29512137432602,
+    "feedback": 57.2433956479152,
     "working": 89.57286432160804,
     "pushback": 35.55555555555556
    },
@@ -1021,7 +1021,7 @@
      "irrelevant": 62.23684210526316,
      "fairness": 88.0,
      "consistency": 86.15597600369173,
-     "feedback": 73.29512137432602
+     "feedback": 57.2433956479152
     },
     "code": {
      "agreement": 83.16083550211034,
@@ -1042,23 +1042,23 @@
      "feedback": null
     }
    },
-   "overall": 77.88999724268278,
+   "overall": 76.55235343214854,
    "flags": [
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"
    ],
    "overall_by_task": {
-    "mohler": 82.72328625679906,
+    "mohler": 81.38564244626482,
     "code": 75.16974034376392,
     "asap2": 74.7425833470085
    },
    "task_range": [
     74.7425833470085,
-    82.72328625679906
+    81.38564244626482
    ],
    "rank_ci95": [
     14,
-    18
+    17
    ],
    "rank": 14,
    "capped": true
@@ -1080,7 +1080,7 @@
     "irrelevant": 46.79479597871082,
     "fairness": 86.68518518518518,
     "consistency": 94.10315241925544,
-    "feedback": 90.52967213322658,
+    "feedback": 49.82332740111882,
     "working": 80.0,
     "pushback": 18.666666666666657
    },
@@ -1092,7 +1092,7 @@
      "irrelevant": 42.631578947368425,
      "fairness": 80.0,
      "consistency": 96.58403279328517,
-     "feedback": 90.52967213322658
+     "feedback": 49.82332740111882
     },
     "code": {
      "agreement": 61.244615748528254,
@@ -1113,95 +1113,24 @@
      "feedback": null
     }
    },
-   "overall": 76.50094673944669,
+   "overall": 73.10875134510438,
    "flags": [
     "gamed by more than 5% of the scale"
    ],
    "overall_by_task": {
-    "mohler": 80.66831303423946,
+    "mohler": 77.27611763989715,
     "code": 70.26640847359526,
     "asap2": 74.55016007479978
    },
    "task_range": [
     70.26640847359526,
-    80.66831303423946
-   ],
-   "rank_ci95": [
-    14,
-    19
-   ],
-   "rank": 15,
-   "capped": true
-  },
-  {
-   "model": "mistralai/ministral-8b-2512",
-   "tasks": [
-    "asap2",
-    "code",
-    "maths",
-    "mohler",
-    "pushback"
-   ],
-   "complete": true,
-   "strands": {
-    "agreement": 84.96583365090487,
-    "decision": 100.0,
-    "relevant": 95.03472222222223,
-    "irrelevant": 69.15294478393237,
-    "fairness": 79.0,
-    "consistency": 94.0147871618454,
-    "feedback": 65.70511134909157,
-    "working": 64.875,
-    "pushback": 0.0
-   },
-   "per_task": {
-    "mohler": {
-     "agreement": 98.94844890499529,
-     "decision": 100.0,
-     "relevant": 86.66666666666667,
-     "irrelevant": 46.8421052631579,
-     "fairness": 75.0,
-     "consistency": 96.01196410767697,
-     "feedback": 65.70511134909157
-    },
-    "code": {
-     "agreement": 84.85955879420578,
-     "decision": 100.0,
-     "relevant": 100.0,
-     "irrelevant": 96.61111111111111,
-     "fairness": 81.0,
-     "consistency": 96.13340747886936,
-     "feedback": null
-    },
-    "asap2": {
-     "agreement": 71.08949325351354,
-     "decision": null,
-     "relevant": 98.4375,
-     "irrelevant": 64.00561797752809,
-     "fairness": 81.0,
-     "consistency": 89.8989898989899,
-     "feedback": null
-    }
-   },
-   "overall": 75.10675130143689,
-   "flags": [
-    "gamed by more than 5% of the scale",
-    "credits blank or junk answers"
-   ],
-   "overall_by_task": {
-    "mohler": 74.28325036120823,
-    "code": 80.69460680640775,
-    "asap2": 69.33931449485608
-   },
-   "task_range": [
-    69.33931449485608,
-    80.69460680640775
+    77.27611763989715
    ],
    "rank_ci95": [
     14,
     20
    ],
-   "rank": 16,
+   "rank": 15,
    "capped": true
   },
   {
@@ -1221,7 +1150,7 @@
     "irrelevant": 49.57542107453403,
     "fairness": 86.6111111111111,
     "consistency": 95.54506208379668,
-    "feedback": 63.924445296389536,
+    "feedback": 39.09144895759056,
     "working": 68.46733668341709,
     "pushback": 8.108108108108098
    },
@@ -1233,7 +1162,7 @@
      "irrelevant": 41.578947368421055,
      "fairness": 96.0,
      "consistency": 97.95375485983222,
-     "feedback": 63.924445296389536
+     "feedback": 39.09144895759056
     },
     "code": {
      "agreement": 87.56207126333453,
@@ -1254,29 +1183,29 @@
      "feedback": null
     }
    },
-   "overall": 75.0697585980713,
+   "overall": 73.00034223650472,
    "flags": [
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"
    ],
    "overall_by_task": {
-    "mohler": 78.344356396969,
+    "mohler": 76.27494003540241,
     "code": 71.88458077238185,
     "asap2": 75.15365612011833
    },
    "task_range": [
     71.88458077238185,
-    78.344356396969
+    76.27494003540241
    ],
    "rank_ci95": [
     14,
     20
    ],
-   "rank": 17,
+   "rank": 16,
    "capped": true
   },
   {
-   "model": "deepseek/deepseek-v4-pro-0813",
+   "model": "mistralai/ministral-8b-2512",
    "tasks": [
     "asap2",
     "code",
@@ -1286,64 +1215,64 @@
    ],
    "complete": true,
    "strands": {
-    "agreement": 81.39347070014277,
-    "decision": 75.72561667383714,
-    "relevant": 94.61904761904763,
-    "irrelevant": 59.25925925925926,
-    "fairness": 72.14814814814815,
-    "consistency": 73.22947288951993,
-    "feedback": 96.71818762124967,
-    "working": 92.58793969849246,
-    "pushback": 19.64285714285714
+    "agreement": 84.96583365090487,
+    "decision": 100.0,
+    "relevant": 95.03472222222223,
+    "irrelevant": 69.15294478393237,
+    "fairness": 79.0,
+    "consistency": 94.0147871618454,
+    "feedback": 37.6831264792368,
+    "working": 64.875,
+    "pushback": 0.0
    },
    "per_task": {
     "mohler": {
-     "agreement": 100.0,
+     "agreement": 98.94844890499529,
      "decision": 100.0,
-     "relevant": 91.0,
-     "irrelevant": 77.77777777777779,
-     "fairness": 69.0,
-     "consistency": 87.54390263824226,
-     "feedback": 96.71818762124967
+     "relevant": 86.66666666666667,
+     "irrelevant": 46.8421052631579,
+     "fairness": 75.0,
+     "consistency": 96.01196410767697,
+     "feedback": 37.6831264792368
     },
     "code": {
-     "agreement": 57.58616798713065,
-     "decision": 51.45123334767428,
+     "agreement": 84.85955879420578,
+     "decision": 100.0,
      "relevant": 100.0,
-     "irrelevant": 50.0,
-     "fairness": 80.44444444444444,
-     "consistency": 59.92229380809528,
+     "irrelevant": 96.61111111111111,
+     "fairness": 81.0,
+     "consistency": 96.13340747886936,
      "feedback": null
     },
     "asap2": {
-     "agreement": 86.59424411329768,
+     "agreement": 71.08949325351354,
      "decision": null,
-     "relevant": 92.85714285714286,
-     "irrelevant": 50.0,
-     "fairness": 67.0,
-     "consistency": 72.22222222222221,
+     "relevant": 98.4375,
+     "irrelevant": 64.00561797752809,
+     "fairness": 81.0,
+     "consistency": 89.8989898989899,
      "feedback": null
     }
    },
-   "overall": 74.14438716260267,
+   "overall": 72.77158589561564,
    "flags": [
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"
    ],
    "overall_by_task": {
-    "mohler": 83.45262542388578,
-    "code": 63.017959775969096,
-    "asap2": 70.540688331507
+    "mohler": 71.948084955387,
+    "code": 80.69460680640775,
+    "asap2": 69.33931449485608
    },
    "task_range": [
-    63.017959775969096,
-    83.45262542388578
+    69.33931449485608,
+    80.69460680640775
    ],
    "rank_ci95": [
     14,
     20
    ],
-   "rank": 18,
+   "rank": 17,
    "capped": true
   },
   {
@@ -1363,7 +1292,7 @@
     "irrelevant": 56.30997437413759,
     "fairness": 94.51851851851852,
     "consistency": 72.19057855447512,
-    "feedback": 66.57620018849767,
+    "feedback": 41.846581650895246,
     "working": 100.0,
     "pushback": 58.490566037735846
    },
@@ -1375,7 +1304,7 @@
      "irrelevant": 81.28947368421052,
      "fairness": 92.0,
      "consistency": 89.92460827571831,
-     "feedback": 66.57620018849767
+     "feedback": 41.846581650895246
     },
     "code": {
      "agreement": 32.81017204527469,
@@ -1396,18 +1325,89 @@
      "feedback": null
     }
    },
-   "overall": 73.9754987955085,
+   "overall": 71.9146972507083,
    "flags": [
     "gamed by more than 5% of the scale"
    ],
    "overall_by_task": {
-    "mohler": 89.15732409717724,
+    "mohler": 87.09652255237704,
     "code": 64.81291521070861,
     "asap2": 67.48158044715757
    },
    "task_range": [
     64.81291521070861,
-    89.15732409717724
+    87.09652255237704
+   ],
+   "rank_ci95": [
+    15,
+    20
+   ],
+   "rank": 18,
+   "capped": true
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 81.39347070014277,
+    "decision": 75.72561667383714,
+    "relevant": 94.61904761904763,
+    "irrelevant": 59.25925925925926,
+    "fairness": 72.14814814814815,
+    "consistency": 73.22947288951993,
+    "feedback": 62.688987246963904,
+    "working": 92.58793969849246,
+    "pushback": 19.64285714285714
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 91.0,
+     "irrelevant": 77.77777777777779,
+     "fairness": 69.0,
+     "consistency": 87.54390263824226,
+     "feedback": 62.688987246963904
+    },
+    "code": {
+     "agreement": 57.58616798713065,
+     "decision": 51.45123334767428,
+     "relevant": 100.0,
+     "irrelevant": 50.0,
+     "fairness": 80.44444444444444,
+     "consistency": 59.92229380809528,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 86.59424411329768,
+     "decision": null,
+     "relevant": 92.85714285714286,
+     "irrelevant": 50.0,
+     "fairness": 67.0,
+     "consistency": 72.22222222222221,
+     "feedback": null
+    }
+   },
+   "overall": 71.30862046474552,
+   "flags": [
+    "gamed by more than 5% of the scale",
+    "credits blank or junk answers"
+   ],
+   "overall_by_task": {
+    "mohler": 80.61685872602862,
+    "code": 63.017959775969096,
+    "asap2": 70.540688331507
+   },
+   "task_range": [
+    63.017959775969096,
+    80.61685872602862
    ],
    "rank_ci95": [
     15,
@@ -1433,7 +1433,7 @@
     "irrelevant": 46.77114133648729,
     "fairness": 85.72222222222223,
     "consistency": 90.52206470375381,
-    "feedback": 72.24519828124706,
+    "feedback": 42.91634095996977,
     "working": 76.375,
     "pushback": 0.0
    },
@@ -1445,7 +1445,7 @@
      "irrelevant": 43.68421052631579,
      "fairness": 94.0,
      "consistency": 92.0418371987267,
-     "feedback": 72.24519828124706
+     "feedback": 42.91634095996977
     },
     "code": {
      "agreement": 62.54431398398882,
@@ -1466,19 +1466,19 @@
      "feedback": null
     }
    },
-   "overall": 71.5545851842632,
+   "overall": 69.11051374082341,
    "flags": [
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"
    ],
    "overall_by_task": {
-    "mohler": 77.90632804462311,
+    "mohler": 75.46225660118334,
     "code": 65.50207325395206,
     "asap2": 69.95003184855518
    },
    "task_range": [
     65.50207325395206,
-    77.90632804462311
+    75.46225660118334
    ],
    "rank_ci95": [
     17,
@@ -1504,7 +1504,7 @@
     "irrelevant": 47.65009746588694,
     "fairness": 45.14983164983164,
     "consistency": 95.42470386778325,
-    "feedback": 94.23259954560521,
+    "feedback": 44.86052045523301,
     "working": 25.624999999999996,
     "pushback": 100.0
    },
@@ -1516,7 +1516,7 @@
      "irrelevant": 71.39473684210526,
      "fairness": 94.94949494949495,
      "consistency": 97.05585464333782,
-     "feedback": 94.23259954560521
+     "feedback": 44.86052045523301
     },
     "code": {
      "agreement": 35.99653351175267,
@@ -1537,19 +1537,19 @@
      "feedback": null
     }
    },
-   "overall": 61.060946121522164,
+   "overall": 56.94660619732448,
    "flags": [
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"
    ],
    "overall_by_task": {
-    "mohler": 83.13099760896743,
+    "mohler": 79.01665768476975,
     "code": 42.62309447399142,
     "asap2": 47.947910102122975
    },
    "task_range": [
     42.62309447399142,
-    83.13099760896743
+    79.01665768476975
    ],
    "rank_ci95": [
     21,
@@ -1575,7 +1575,7 @@
     "irrelevant": 47.847929078984244,
     "fairness": 68.79629629629629,
     "consistency": 66.57963423568911,
-    "feedback": 79.16569496829402,
+    "feedback": 29.434951138997338,
     "working": 27.42857142857143,
     "pushback": 0.0
    },
@@ -1587,7 +1587,7 @@
      "irrelevant": 41.578947368421055,
      "fairness": 73.0,
      "consistency": 62.086659064994286,
-     "feedback": 79.16569496829402
+     "feedback": 29.434951138997338
     },
     "code": {
      "agreement": 60.969528252441904,
@@ -1608,13 +1608,13 @@
      "feedback": null
     }
    },
-   "overall": 55.52904931787156,
+   "overall": 51.38482066543017,
    "flags": [
     "gamed by more than 5% of the scale",
     "credits blank or junk answers"
    ],
    "overall_by_task": {
-    "mohler": 57.91679020594767,
+    "mohler": 53.772561553506286,
     "code": 44.82038871616351,
     "asap2": 58.22725380978942
    },
@@ -1715,7 +1715,7 @@
     "irrelevant": 60.08531550474188,
     "fairness": 87.7962962962963,
     "consistency": 82.71706170933572,
-    "feedback": 76.16133411250803,
+    "feedback": null,
     "working": 72.25,
     "pushback": 74.4047619047619
    },
@@ -1727,7 +1727,7 @@
      "irrelevant": 68.67105263157895,
      "fairness": 79.0,
      "consistency": 90.4434250764526,
-     "feedback": 76.16133411250803
+     "feedback": null
     },
     "code": {
      "agreement": 72.59261791564374,
@@ -1748,12 +1748,12 @@
      "feedback": null
     }
    },
-   "overall": 79.23562893495995,
+   "overall": 79.51511028245557,
    "flags": [
     "gamed by more than 5% of the scale"
    ],
    "overall_by_task": {
-    "mohler": 80.79996095480355,
+    "mohler": 81.22165430410314,
     "code": 74.28762824200422,
     "asap2": 83.8463687117025
    },

@@ -33,7 +33,7 @@
 "qwk": 0.379,
 "share": 0.662,
 "gaming_pct": 31.0,
-"overall": 55.529,
+"overall": 51.385,
 "flags": "gamed by more than 5% of the scale; credits blank or junk answers",
 "release": "2024-09-25",
 "family": null
@@ -59,7 +59,7 @@
 "qwk": 0.633,
 "share": 1.105,
 "gaming_pct": 13.0,
-"overall": 77.89,
+"overall": 76.552,
 "flags": "gamed by more than 5% of the scale; credits blank or junk answers",
 "release": "2025-01-10",
 "family": null
@@ -72,7 +72,7 @@
 "qwk": 0.639,
 "share": 1.116,
 "gaming_pct": 22.0,
-"overall": 75.07,
+"overall": 73.0,
 "flags": "gamed by more than 5% of the scale; credits blank or junk answers",
 "release": "2025-03-12",
 "family": null
@@ -85,7 +85,7 @@
 "qwk": 0.52,
 "share": 0.908,
 "gaming_pct": 10.6,
-"overall": 61.061,
+"overall": 56.947,
 "flags": "gamed by more than 5% of the scale; credits blank or junk answers",
 "release": "2025-03-13",
 "family": null
@@ -111,7 +111,7 @@
 "qwk": 0.602,
 "share": 1.052,
 "gaming_pct": 30.4,
-"overall": 76.501,
+"overall": 73.109,
 "flags": "gamed by more than 5% of the scale",
 "release": "2025-07-21",
 "family": "Qwen"
@@ -124,7 +124,7 @@
 "qwk": 0.599,
 "share": 1.046,
 "gaming_pct": 5.8,
-"overall": 73.975,
+"overall": 71.915,
 "flags": "gamed by more than 5% of the scale",
 "release": "2025-08-05",
 "family": null
@@ -137,7 +137,7 @@
 "qwk": 0.63,
 "share": 1.101,
 "gaming_pct": 2.6,
-"overall": 87.532,
+"overall": 87.245,
 "flags": "",
 "release": "2025-08-07",
 "family": "OpenAI small"
@@ -163,7 +163,7 @@
 "qwk": 0.587,
 "share": 1.025,
 "gaming_pct": 29.0,
-"overall": 71.555,
+"overall": 69.111,
 "flags": "gamed by more than 5% of the scale; credits blank or junk answers",
 "release": "2025-12-01",
 "family": null
@@ -176,7 +176,7 @@
 "qwk": 0.567,
 "share": 0.989,
 "gaming_pct": 30.0,
-"overall": 75.107,
+"overall": 72.772,
 "flags": "gamed by more than 5% of the scale; credits blank or junk answers",
 "release": "2025-12-02",
 "family": null
@@ -189,7 +189,7 @@
 "qwk": 0.612,
 "share": 1.068,
 "gaming_pct": 4.2,
-"overall": 87.702,
+"overall": 85.439,
 "flags": "gamed by more than 5% of the scale",
 "release": "2026-04-02",
 "family": null
@@ -202,7 +202,7 @@
 "qwk": 0.638,
 "share": 1.114,
 "gaming_pct": 3.0,
-"overall": 86.892,
+"overall": 83.9,
 "flags": "gamed by more than 5% of the scale",
 "release": "2026-04-03",
 "family": null
@@ -215,7 +215,7 @@
 "qwk": 0.644,
 "share": 1.125,
 "gaming_pct": 5.0,
-"overall": 86.315,
+"overall": 84.69,
 "flags": "gamed by more than 5% of the scale",
 "release": "2026-07-09",
 "family": "OpenAI small"
@@ -228,7 +228,7 @@
 "qwk": 0.547,
 "share": 0.955,
 "gaming_pct": 8.8,
-"overall": 86.589,
+"overall": 84.729,
 "flags": "gamed by more than 5% of the scale",
 "release": "2026-07-21",
 "family": null
@@ -241,7 +241,7 @@
 "qwk": 0.616,
 "share": 1.076,
 "gaming_pct": 8.9,
-"overall": 74.144,
+"overall": 71.309,
 "flags": "gamed by more than 5% of the scale; credits blank or junk answers",
 "release": "2026-08-12",
 "family": null
@@ -254,7 +254,7 @@
 "qwk": 0.641,
 "share": 1.118,
 "gaming_pct": 5.8,
-"overall": 91.111,
+"overall": 87.399,
 "flags": "gamed by more than 5% of the scale",
 "release": "2026-08-18",
 "family": null
@@ -267,7 +267,7 @@
 "qwk": 0.601,
 "share": 1.049,
 "gaming_pct": 3.4,
-"overall": 90.821,
+"overall": 87.59,
 "flags": "",
 "release": "2026-08-26",
 "family": null
@@ -280,7 +280,7 @@
 "qwk": 0.631,
 "share": 1.103,
 "gaming_pct": -2.2,
-"overall": 94.907,
+"overall": 91.798,
 "flags": "",
 "release": "2026-09-01",
 "family": null
@@ -293,7 +293,7 @@
 "qwk": 0.647,
 "share": 1.129,
 "gaming_pct": -0.7,
-"overall": 90.991,
+"overall": 89.697,
 "flags": "",
 "release": "2026-09-04",
 "family": null
@@ -306,7 +306,7 @@
 "qwk": 0.643,
 "share": 1.123,
 "gaming_pct": 4.8,
-"overall": 88.654,
+"overall": 86.027,
 "flags": "",
 "release": "2026-09-10",
 "family": "DeepSeek"
@@ -319,7 +319,7 @@
 "qwk": 0.68,
 "share": 1.187,
 "gaming_pct": -1.1,
-"overall": 94.991,
+"overall": 92.74,
 "flags": "",
 "release": "2026-09-22",
 "family": null
@@ -332,7 +332,7 @@
 "qwk": 0.588,
 "share": 1.027,
 "gaming_pct": 2.0,
-"overall": 91.443,
+"overall": 89.147,
 "flags": "",
 "release": "2026-10-07",
 "family": "Claude Haiku"
@@ -345,7 +345,7 @@
 "qwk": 0.63,
 "share": 1.1,
 "gaming_pct": 2.6,
-"overall": 89.218,
+"overall": 86.664,
 "flags": "",
 "release": "2026-10-17",
 "family": "DeepSeek"
