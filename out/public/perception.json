@@ -1,0 +1,41 @@
+[
+{
+"key": "google/gemma-4-26b-a4b-it",
+"model": "Gemma 4 26B A4B (self-hosted, bf16)",
+"videos": 1278,
+"cannot_see": 0,
+"refused": 0,
+"usable": 1.0,
+"control_ok": true,
+"control_visible": 0,
+"control_n": 10,
+"bound_pct": 0.23,
+"did_task": true
+},
+{
+"key": "google/gemma-4-31b-it",
+"model": "Gemma 4 31B (self-hosted, bf16)",
+"videos": 1278,
+"cannot_see": 0,
+"refused": 0,
+"usable": 1.0,
+"control_ok": true,
+"control_visible": 0,
+"control_n": 10,
+"bound_pct": 0.23,
+"did_task": true
+},
+{
+"key": "qwen/qwen3.8-27b",
+"model": "Qwen3.8 27B (self-hosted, bf16)",
+"videos": 1278,
+"cannot_see": 822,
+"refused": 270,
+"usable": 0.789,
+"control_ok": true,
+"control_visible": 0,
+"control_n": 10,
+"bound_pct": null,
+"did_task": false
+}
+]

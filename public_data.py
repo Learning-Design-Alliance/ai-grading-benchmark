@@ -901,6 +901,26 @@ def essays_finetune():
     return sorted(rows, key=lambda r: -r["qwk"])
 
 
+def perception():
+    """perception/out/perception.json: does a self-hosted video model say it cannot see a speaker who is there (CCv2)?"""
+    d = _load("perception", "out", "perception.json")
+    if not d:
+        return []
+    rows = []
+    for m, r in d["models"].items():
+        cs, rf = r["cannot_see"], r["refusal"]
+        did = (r.get("parsed_share") or 0) >= 0.8
+        n = cs["of"]
+        rows.append({"key": m, "model": NAMES.get(m, (m, "", ""))[0] + " (self-hosted, bf16)", "videos": n,
+                     "cannot_see": cs["n"], "refused": rf["n"], "usable": round(r.get("parsed_share") or 0, 3),
+                     "control_ok": r["control_black_visible_true"] < 3, "control_visible": r["control_black_visible_true"],
+                     "control_n": r["control_n"],
+                     # one-sided 95% upper bound on the miss rate when none were missed
+                     "bound_pct": round(100 * (1 - 0.05 ** (1 / n)), 2) if did and cs["n"] == 0 and n else None,
+                     "did_task": did})
+    return rows
+
+
 def length_partial():
     """out/length_partial.json: each model's agreement with the essay experts once length is set aside."""
     d = _load("out", "length_partial.json")
@@ -922,7 +942,7 @@ def main(out):
                    ("pushback_split", pushback_split), ("length_check", length_check), ("per_prompt", per_prompt),
                    ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models), ("contamination", contamination), ("energy_tasks", energy_tasks),
                    ("energy_measured", energy_measured), ("setups", setups), ("hosting", hosting), ("paraphrase", paraphrase),
-                   ("essays_finetune", essays_finetune), ("length_partial", length_partial),
+                   ("essays_finetune", essays_finetune), ("length_partial", length_partial), ("perception", perception),
                    ("scoring", scoring), ("model_inputs", model_inputs), ("timeline", timeline), ("lifecycle_tasks", lifecycle_tasks), ("lifecycle_compare", lifecycle_compare), ("footprint_scale", footprint_scale)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)

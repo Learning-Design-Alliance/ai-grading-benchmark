@@ -782,6 +782,13 @@ function drawMedia() {
     { k: "gaming_pct", h: "Note on the page", f: signed(1), c: v => !nul(v) && v > 5 ? "bad" : "n" }, { k: "gaming_worst_scale_pct", h: "Worst mark scale", f: (v, r) => `${signed(1)(v)} ${iv(r.gaming_worst_lo, r.gaming_worst_hi, f1)}` },
     { k: "label_pct", h: "Told strong vs. weak student", f: signed(1) }, { k: "cost_per_1k", h: "$ / 1,000", f: money },
   ], { sort: "qwk" });
+  table("t-perception", D.perception || [], [
+    { k: "model", h: "Model", c: "name" },
+    { k: "control_visible", h: "Saw someone in a black clip", f: (v, r) => `${v} of ${r.control_n}`, c: v => v >= 3 ? "bad" : "n", title: "How many of the 10 completely black, silent clips the model said showed a person. Should be 0." },
+    { k: "cannot_see", h: "Said it could not see the student", f: (v, r) => r.did_task ? `${v} of ${f0(r.videos)}` : "not reliable", title: "How many recordings, out of those graded, where the model said it could not see a student who was plainly on screen. Should be 0." },
+    { k: "bound_pct", h: "Miss rate, at most", f: (v, r) => nul(v) ? "—" : `${v}%`, title: "With no misses, the highest miss rate the data cannot rule out (95% confidence), across all skin tones and lighting." },
+    { k: "usable", h: "Usable answers", f: pct, c: v => v < 0.8 ? "bad" : "n", title: "The share of the model's answers that could be read. Below 80% the model is counted as not doing the task." },
+  ], { sortable: false });
   table("t-video", D.video || [], [
     { k: "model", h: "Grader", c: "name" }, { k: "input", h: "Sees", c: "l dim" },
     { k: "beyond", h: "Agreement beyond length", f: (v, r) => `${f2(v)} ${iv(r.beyond_lo, r.beyond_hi, f2)}` },

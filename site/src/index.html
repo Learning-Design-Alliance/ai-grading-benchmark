@@ -321,6 +321,13 @@
     </div>
     <div class="controls"><div class="seg" id="media-tabs" role="group" aria-label="Medium"></div></div>
     <div class="note" id="media-coverage"></div>
+    <div class="block">
+      <h3>Can it see the student? Skin tone and lighting</h3>
+      <p class="sub">A teacher asks students to answer a question aloud, to camera, and an AI model checks each recording. Does the model ever say it cannot see a student who is plainly on screen, and does that depend on the student's skin tone or on whether the recording was made after dark? We used 1,280 recordings of consenting, paid adults from Meta's Casual Conversations v2 <cite data-ref="ccv2"></cite>, chosen evenly across skin tones (the dataset's own labels, never the model's) and by day and after dark. Each model was first shown 10 black, silent clips, to check that it says so when no one is there.</p>
+      <div class="tbl" id="t-perception"></div>
+      <p class="sub"><b>What we found.</b> Both Gemma models saw the student in every one of the 1,278 recordings, in every skin-tone group, by day and after dark, so there was no difference between groups to measure. Zero misses in 1,278 recordings means the true miss rate is very likely below 0.23%; for the darkest skin tones, with only 40 recordings in the dataset, it is very likely below 7.2%. Qwen3.8 27B did not do the task reliably: a fifth of its answers were unusable, and in 372 of its "cannot see" answers it went on to rate the student anyway.</p>
+      <p class="sub"><b>Which models, and why not the others.</b> Only open models we could run on our own computer: the dataset's license does not allow sending the recordings in a reduced form, and the hosted models' services refuse most full-length recordings as too large. So the hosted models most schools use, including the kind that prompted this check, are not tested here. In a short trial before that decision, one hosted model (MiMo v2.6 Flash) said it could see and hear a speaker in 7 of 10 completely black, silent clips.</p>
+    </div>
     <div class="block" data-media="speech">
       <h3>Speech: grading a recording</h3>
       <p class="sub">Sentences read aloud by children and adults learning English, each graded for pronunciation by five experts (the speechocean762 dataset <cite data-ref="speechocean"></cite>). Background noise and phone-quality audio should not change the grade, because the experts graded the clean recording.</p>
