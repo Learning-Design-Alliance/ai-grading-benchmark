@@ -47,7 +47,7 @@ const takes = name => { const r = INPUTS[name]; return r ? el("span", { class: "
 const shortFact = v => { if (nul(v)) return "—"; const s = String(v).replace(/^['"]|['"]$/g, ""); const cut = s.split(/\s\(|;|\. /)[0];
   const short = trunc(cut, 42); return short === s ? s : el("span", { title: s }, short + (short.endsWith("…") ? "" : " …")); };
 const takesShort = name => { const r = INPUTS[name]; return r ? el("span", { class: "takes" }, r.inputs.map(m => el("span", { class: "pill" }, m))) : "—"; };
-const coverPill = v => v === "ran" ? el("span", { class: "pill ok" }, "ran") : /cannot/.test(v) ? el("span", { class: "pill off" }, v.replace("cannot take ", "no ")) : el("span", { class: "pill" }, "not yet");
+const coverPill = v => v === "ran" ? el("span", { class: "pill ok" }, "ran") : /^cannot:/.test(v) ? el("span", { class: "pill off", title: v.replace("cannot: ", "") }, "can't send") : /cannot/.test(v) ? el("span", { class: "pill off" }, v.replace("cannot take ", "no ")) : el("span", { class: "pill" }, "not yet");
 const modelLink = name => { const o = byName[name]; return o ? el("a", { href: "#model-" + slug(o.key) }, name) : name; };
 
 // ------------------------------------------------------------------ tooltip
@@ -807,12 +807,14 @@ function showMedium() {
   document.querySelectorAll("[data-media]").forEach(b => b.hidden = b.dataset.media !== MEDIUM);
   const task = { speech: "Speech", handwriting: "Handwritten work", video: "Video" }[MEDIUM];
   const board = (D.model_inputs || []).filter(r => r.on_board);
-  const cannot = board.filter(r => /cannot/.test(r["cover_" + task])).map(r => r.model);
+  const cannot = board.filter(r => /cannot take/.test(r["cover_" + task])).map(r => r.model);
   const notyet = board.filter(r => r["cover_" + task] === "not run yet").map(r => r.model);
+  const limited = board.filter(r => /^cannot:/.test(r["cover_" + task] || "")).map(r => `${r.model} (${r["cover_" + task].replace("cannot: ", "")})`);
   const box = $("#media-coverage"); box.innerHTML = "";
   box.append(el("b", {}, "Which board models are here. "),
     `${board.length - cannot.length} of ${board.length} models on the board can take ${MEDIUM === "speech" ? "audio" : MEDIUM === "video" ? "video, or images as 16 frames" : "images"}. `,
     cannot.length ? `Cannot: ${cannot.join(", ")}. ` : "",
+    limited.length ? `Can take the input, but could not be sent this task: ${limited.join("; ")}. ` : "",
     notyet.length ? `Being run now: ${notyet.join(", ")}.` : "", MEDIUM === "speech" ? " The other audio graders here are specialist audio models not on the board." : "");
 }
 

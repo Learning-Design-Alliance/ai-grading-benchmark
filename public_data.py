@@ -282,6 +282,9 @@ def scoring():
 
 
 #: What each task needs as input. Video can also be graded from 16 frames, so any model that takes images can do it.
+#: A model that takes the input in principle but whose endpoint cannot be sent the task, with the reason.
+COVER_LIMITS = {("mistralai/ministral-8b-2512", "Video"): "cannot: its service takes at most 8 images, the task sends 16 frames"}
+
 TASK_INPUTS = [("Short answers", "text"), ("Code", "text"), ("Essays", "text"), ("Math working", "text"), ("Pushback", "text"),
                ("Handwritten work", "image"), ("Video", "video or image"), ("Speech", "audio")]
 
@@ -313,7 +316,7 @@ def model_inputs():
         cover = {}
         for task, need in TASK_INPUTS:
             can = ("image" in inputs or "video" in inputs) if need == "video or image" else need in inputs
-            cover[task] = "ran" if task in ran else ("not run yet" if can else "cannot take " + need.split(" or ")[0])
+            cover[task] = "ran" if task in ran else COVER_LIMITS.get((mid, task)) or ("not run yet" if can else "cannot take " + need.split(" or ")[0])
         rows.append({"key": mid, "model": disp, "on_board": mid in ov, "inputs": inputs, "inputs_from": v["from"],
                      "inputs_why": v.get("why"), "read": d["read"], **{"cover_" + t: c for t, c in cover.items()}})
     return rows

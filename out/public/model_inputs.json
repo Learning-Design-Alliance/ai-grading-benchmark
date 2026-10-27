@@ -383,7 +383,7 @@
 "cover_Math working": "ran",
 "cover_Pushback": "ran",
 "cover_Handwritten work": "ran",
-"cover_Video": "not run yet",
+"cover_Video": "cannot: its service takes at most 8 images, the task sends 16 frames",
 "cover_Speech": "cannot take audio"
 },
 {
