@@ -27,6 +27,10 @@ The full method and the wider literature are in the benchmark's research report.
 - [cohen] Cohen 1968. Weighted kappa: Nominal scale agreement with provision for scaled disagreement or partial credit. Psychological Bulletin. https://doi.org/10.1037/h0026256 — used for: agreement with teachers (quadratic weighted kappa).
 - [williamson] Williamson, Xi & Breyer 2012. A framework for evaluation and use of automated scoring. Educational Measurement: Issues and Practice. https://doi.org/10.1111/j.1745-3992.2011.00223.x — used for: the three standard checks from automated scoring.
 - [act] Wood, Yao, Haisfield & Lottridge 2021. Establishing standards of best practice in automated scoring. ACT. https://act.org/content/dam/act/unsecured/documents/R2100-auto-scoring-standards-2021-07.pdf — used for: the thresholds of the standard checks, as tabulated there.
+- [conway] Conway & Roberts 1983. Reverse regression, fairness, and employment discrimination. Journal of Business & Economic Statistics. https://doi.org/10.1080/07350015.1983.10509326 — used for: the reverse-regression check of the disability gap.
+- [mizrahi] Mizrahi, Kaplan, Malkin, Dror, Shahaf & Stanovsky 2024. State of what art? A call for multi-prompt LLM evaluation. Transactions of the ACL. https://doi.org/10.1162/tacl_a_00681 — used for: checking whether the model ranking survives other prompt wordings.
+- [judgesense] Bellibatlu, Raff & Zhang 2026. JudgeSense: A benchmark for prompt sensitivity in LLM-as-a-judge systems. https://arxiv.org/abs/2604.23478 — used for: setting a prompt's effect against the same prompt asked again.
+- [pyspellchecker] Barrus 2024. pyspellchecker 0.8.1 (software). https://github.com/barrust/pyspellchecker — used for: counting misspellings, a rule-coded proxy in the disability-gap check.
 - [bh] Benjamini & Hochberg 1995. Controlling the false discovery rate: A practical and powerful approach to multiple testing. Journal of the Royal Statistical Society, Series B. https://doi.org/10.1111/j.2517-6161.1995.tb02031.x — used for: the check on results that could be chance.
 
 ## Feedback measures
