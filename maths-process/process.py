@@ -69,6 +69,8 @@ CHANGES
    `analyse --submissions` adds a grader from its board submission. The working effect, answer effect, mean
    credit and lucky-accepted share need only the scores and are computed exactly as for a run; the first wrong
    step needs the reply text, so that row has none. No measure, threshold or verdict changed.
+2. 2026-10-27: credits were rounded with Python's round (half to even) where the benchmark rounds half-up
+   (metrics.py); now half_up. No run or submission holds a half-point math score, so the output is unchanged.
 
     python3 maths-process/process.py build --src $VTG_DIR/src/dataset/dataset.json --out $VTG_DIR/vtg-cells.jsonl
     python3 maths-process/process.py floor
@@ -83,6 +85,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
+from metrics import half_up  # noqa: E402
 
 CELLS = ("correct", "slip", "lucky", "wrong")
 
@@ -258,7 +261,7 @@ def cmd_analyse(a):
             if r.get("score") is None:
                 failed += 1
                 continue
-            credit[r["id"]] = max(0, min(4, round(r["score"])))
+            credit[r["id"]] = max(0, min(4, int(half_up(r["score"]))))
             extra[r["id"]] = parse_extra(r.get("text"))
         row = summarise(cfg.get("label") or cfg["model"], cs, credit, extra)
         row["failed"] = failed
@@ -272,7 +275,7 @@ def cmd_analyse(a):
             if r.get("score") is None:
                 failed += 1
                 continue
-            credit[r["id"]] = max(0, min(4, round(r["score"])))
+            credit[r["id"]] = max(0, min(4, int(half_up(r["score"]))))
         row = summarise(sub["model"], cs, credit, None)
         row["failed"] = failed
         row["source"] = "board submission (scores only; replies not kept)"
