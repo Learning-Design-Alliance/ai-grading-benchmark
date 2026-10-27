@@ -1,0 +1,36 @@
+{
+ "design": "essays-genft/study.py docstring, OVERLAP CHECK",
+ "checks": {
+  "recomputed_equals_committed": {
+   "test": true,
+   "test_order": true,
+   "board": true,
+   "folds": true,
+   "train_n": true
+  },
+  "id_overlap": {
+   "train_test": 0,
+   "train_board": 0,
+   "test_board": 0
+  },
+  "board_is_leaderboard_draw": true,
+  "folds_inside_train": true,
+  "folds_exclude_own_prompt": true,
+  "train_text_duplicates_of_test_or_board": {
+   "n": 0,
+   "dropped_from_training": []
+  },
+  "fold_text_duplicates": {
+   "\"A Cowboy Who Rode the Waves\"": 0,
+   "Car-free cities": 0,
+   "Does the electoral college work?": 0,
+   "Driverless cars": 0,
+   "Exploring Venus": 0,
+   "Facial action coding system": 0,
+   "The Face on Mars": 0
+  }
+ },
+ "passes": true,
+ "train_used": 23628,
+ "verdict": "NO OVERLAP: training may start"
+}
