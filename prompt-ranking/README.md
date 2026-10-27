@@ -42,7 +42,7 @@ more than asking again. Would the *order* of the models survive a different, equ
   models' 95% rank intervals (`out/ranking.json`, `rank_ci95_any_prompt` against `rank_ci95_default_prompt`).
 
 **Reading.** At the level a buyer reads a leaderboard (who is near the top, who is near the bottom), the
-ranking does not depend on our wording. Positions 3 to 19 are not stable to within a few places under either a
+ranking was not shown to depend on our wording more than on a re-ask; a small reordering is not ruled out. Positions 3 to 19 are not stable to within a few places under either a
 rewording or a re-ask, so neighboring ranks in the middle of the board should not be read as a difference.
 
 **Limits.** This is the agreement ranking only (the rewording runs hold base gradings, not the probes the
