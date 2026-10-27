@@ -52,16 +52,16 @@ scale. "Varied" is the share of cases whose five marks were not all equal.
 
 ## 3. Does paying for more reasoning buy better marking?
 
-Low against high effort, paired over cases. Agreement is QWK with the raters. The default run is shown in
+Low against high effort, paired over cases. Corrected 2026-10-27: marks are no longer rounded half-to-even before agreement is computed (study.py CHANGE 1); no verdict changed. Agreement is QWK with the raters. The default run is shown in
 `runs.json` but is not part of the verdict.
 
 | model | short answers, low → high | verdict | code, low → high | verdict |
 |---|---|---|---|---|
 | GPT-5 Mini | 0.69 → 0.69 | no detected change | 0.68 → 0.89 (+0.21 [0.10, 0.37]) | **HELPS** |
 | Claude Fable 5.1 | 0.69 → 0.68 | no detected change | 0.81 → 0.95 (+0.16 [0.10, 0.27]) | **HELPS** |
-| Gemini 3.5 Flash Lite | 0.65 → 0.62 | no detected change | 0.77 → 0.87 (+0.10 [0.00, 0.22]) | **HELPS** |
+| Gemini 3.5 Flash Lite | 0.65 → 0.62 | no detected change | 0.77 → 0.87 (+0.10 [0.01, 0.22]) | **HELPS** |
 | Claude Haiku 5.5 | 0.64 → 0.65 | no detected change | 0.80 → 0.88 (+0.07 [0.01, 0.16]) | **HELPS** |
-| GPT-6 Astra | 0.69 → 0.72 (+0.035 [0.003, 0.07]) | **HELPS** | 0.89 → 0.86 | no detected change |
+| GPT-6 Astra | 0.69 → 0.72 (+0.031 [+0.0002, +0.064]) | **HELPS** | 0.89 → 0.86 | no detected change |
 | Claude Opus 5.5 | 0.72 → 0.72 | no detected change | 0.92 → 0.92 | no detected change |
 | GPT-5.6 Luna | 0.67 → 0.69 | no detected change | 0.73 → 0.78 | no detected change |
 | DeepSeek V4.1 Flash | 0.64 → 0.64 | no detected change | 0.79 → 0.81 | no detected change |

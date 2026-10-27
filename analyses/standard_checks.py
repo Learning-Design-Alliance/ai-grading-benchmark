@@ -21,6 +21,12 @@ field's, fixed before this script read any submission.
    experts gave them. The same regression for the experts against each other (one rater on the others) is the
    reference where a task has two raters.
 
+CHANGES
+1. 2026-10-27, a bug fix found when the article's draft compared these QWKs with the leaderboard's: model_qwk
+   rounded marks with Python's round (half to even) before qwk(), which rounds half-up (metrics.py). A 2.5
+   became 2, not 3, so the two models that give half points on short answers (Claude Opus 5.5, GPT-6 Astra)
+   read lower here than on the leaderboard. Marks now go to qwk() unrounded. No threshold or verdict changed.
+
     python3 analyses/standard_checks.py --cases-dir <dir> --out out/standard_checks.json
 """
 import argparse
@@ -57,7 +63,7 @@ def model_qwk(cs, marks, lo, hi):
     raters = sorted({r for c in cs for r in c["human"]})
     vals = []
     for r in raters:
-        p = [(round(c["human"][r]), round(marks[c["id"]])) for c in cs if r in c["human"] and c["id"] in marks]
+        p = [(c["human"][r], marks[c["id"]]) for c in cs if r in c["human"] and c["id"] in marks]
         if len(p) >= 20:
             vals.append(qwk([x for x, _ in p], [y for _, y in p], lo, hi))
     return mean(vals) if vals else None

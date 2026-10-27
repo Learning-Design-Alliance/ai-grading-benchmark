@@ -57,6 +57,11 @@ is reported as incomplete, never filled in.
     python3 reasoning/study.py analyse
 
 Reads the corpora's cases (aggregates out only).
+
+CHANGES
+1. 2026-10-27, a bug fix: the high-minus-low agreement rounded the experts' mean and the model's marks with
+   Python's round (half to even) before qwk(), which rounds half-up (metrics.py). Marks now go to qwk()
+   unrounded, as on the leaderboard. No threshold or verdict string changed.
 """
 import argparse
 import glob
@@ -338,8 +343,8 @@ def cmd_analyse(a):
             both = [i for i in ids if levels["low"].get(i, {}).get("base", {}).get("score") is not None
                     and levels["high"].get(i, {}).get("base", {}).get("score") is not None]
             dq = lambda u: (lambda a_, b_: None if a_ is None or b_ is None else b_ - a_)(
-                qwk([round(hm[i]) for i in u], [round(levels["low"][i]["base"]["score"]) for i in u], lo, hi) if len(u) > 5 else None,
-                qwk([round(hm[i]) for i in u], [round(levels["high"][i]["base"]["score"]) for i in u], lo, hi) if len(u) > 5 else None)
+                qwk([hm[i] for i in u], [levels["low"][i]["base"]["score"] for i in u], lo, hi) if len(u) > 5 else None,
+                qwk([hm[i] for i in u], [levels["high"][i]["base"]["score"] for i in u], lo, hi) if len(u) > 5 else None)
             iv = boot(both, dq)
             row["agreement_high_minus_low"] = {"estimate": dq(both), "ci95": iv}
             row["verdict"] = None if iv is None else ("MORE REASONING HELPS" if iv[0] > 0 else "MORE REASONING HURTS" if iv[1] < 0 else "NO DETECTED CHANGE")
