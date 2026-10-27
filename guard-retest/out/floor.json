@@ -18,9 +18,16 @@
   },
   "google/gemma-3-4b-it": {
    "default_runs": 6,
-   "run_sd": 0.0028860875087611186,
+   "run_sd": 0.0017567089836301817,
    "detection": 1.0,
    "false_alarm": 0.022,
+   "passes": true
+  },
+  "allenai/olmo-3.1-32b-instruct": {
+   "default_runs": 6,
+   "run_sd": 0.004596595541486393,
+   "detection": 1.0,
+   "false_alarm": 0.0335,
    "passes": true
   }
  }

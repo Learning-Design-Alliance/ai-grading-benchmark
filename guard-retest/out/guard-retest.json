@@ -20,9 +20,16 @@
    },
    "google/gemma-3-4b-it": {
     "default_runs": 6,
-    "run_sd": 0.0028860875087611186,
+    "run_sd": 0.0017567089836301817,
     "detection": 1.0,
     "false_alarm": 0.022,
+    "passes": true
+   },
+   "allenai/olmo-3.1-32b-instruct": {
+    "default_runs": 6,
+    "run_sd": 0.004596595541486393,
+    "detection": 1.0,
+    "false_alarm": 0.0335,
     "passes": true
    }
   }
@@ -603,56 +610,131 @@
   },
   "allenai/olmo-3.1-32b-instruct": {
    "runs": {
-    "default": 2,
-    "guard": 1
+    "default": 6,
+    "guard": 5
    },
    "G_default_runs": [
     0.4157777777777778,
-    0.42396296296296293
+    0.42396296296296293,
+    0.42551851851851846,
+    0.4294545454545455,
+    0.4231481481481481,
+    0.42085185185185187
    ],
    "G_guard_runs": [
-    0.5185925925925926
+    0.5185925925925926,
+    0.4994444444444444,
+    0.5186666666666667,
+    0.5292962962962963,
+    0.512
    ],
    "A_default_runs": [
     0.5633333333333334,
-    0.5733333333333334
+    0.5733333333333334,
+    0.5599999999999999,
+    0.5890536013400335,
+    0.5666666666666667,
+    0.5599999999999999
    ],
    "A_guard_runs": [
-    0.5483333333333333
+    0.5483333333333333,
+    0.53,
+    0.5416666666666666,
+    0.5583333333333333,
+    0.5316666666666666
    ],
-   "effect_G": null,
-   "effect_A": null,
-   "verdict": "UNMEASURED",
+   "effect_G": {
+    "estimate": 0.09248103254769918,
+    "ci95": [
+     0.0791297165176079,
+     0.10583234857779046
+    ],
+    "df": 5.171087157046033
+   },
+   "effect_A": {
+    "estimate": -0.0267311557788944,
+    "ci95": [
+     -0.04266030225254579,
+     -0.010802009305243016
+    ],
+    "df": 8.424220967494742
+   },
+   "verdict": "GUARD MAKES IT MORE GAMEABLE",
    "by_task": {
     "mohler": {
      "default": [
       0.29,
-      0.298
+      0.298,
+      0.294,
+      0.304,
+      0.298,
+      0.29
      ],
      "guard": [
-      0.322
+      0.322,
+      0.304,
+      0.312,
+      0.316,
+      0.292
      ],
-     "effect": null
+     "effect": {
+      "estimate": 0.013533333333333342,
+      "ci95": [
+       -0.0006495366250327626,
+       0.027716203291699444
+      ],
+      "df": 5.4413444600629886
+     }
     },
     "code": {
      "default": [
       0.4113333333333334,
-      0.4278888888888889
+      0.4278888888888889,
+      0.43455555555555553,
+      0.4363636363636364,
+      0.4274444444444444,
+      0.4305555555555556
      ],
      "guard": [
-      0.6977777777777777
+      0.6977777777777777,
+      0.6583333333333333,
+      0.6940000000000001,
+      0.7178888888888889,
+      0.7
      ],
-     "effect": null
+     "effect": {
+      "estimate": 0.26557643097643097,
+      "ci95": [
+       0.2390639311358677,
+       0.2920889308169942
+      ],
+      "df": 5.118637141986493
+     }
     },
     "asap2": {
      "default": [
       0.546,
-      0.546
+      0.546,
+      0.548,
+      0.548,
+      0.544,
+      0.542
      ],
      "guard": [
-      0.536
+      0.536,
+      0.536,
+      0.55,
+      0.554,
+      0.544
      ],
-     "effect": null
+     "effect": {
+      "estimate": -0.0016666666666665941,
+      "ci95": [
+       -0.011614575756284488,
+       0.0082812424229513
+      ],
+      "df": 4.5538888612821475
+     }
     }
    },
    "runs_used": {
@@ -666,6 +748,26 @@
       "setup-default-mohler-allenai_olmo-3.1-32b-instruct/calls.jsonl",
       "setup-default-code-allenai_olmo-3.1-32b-instruct/calls.jsonl",
       "setup-default-asap2-allenai_olmo-3.1-32b-instruct/calls.jsonl"
+     ],
+     [
+      "guardrep-default1-mohler-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-default1-code-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-default1-asap2-allenai_olmo-3.1-32b-instruct/calls.jsonl"
+     ],
+     [
+      "guardrep-default2-mohler-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-default2-code-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-default2-asap2-allenai_olmo-3.1-32b-instruct/calls.jsonl"
+     ],
+     [
+      "guardrep-default3-mohler-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-default3-code-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-default3-asap2-allenai_olmo-3.1-32b-instruct/calls.jsonl"
+     ],
+     [
+      "guardrep-default4-mohler-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-default4-code-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-default4-asap2-allenai_olmo-3.1-32b-instruct/calls.jsonl"
      ]
     ],
     "guard": [
@@ -673,6 +775,26 @@
       "setup-guard-mohler-allenai_olmo-3.1-32b-instruct/calls.jsonl",
       "setup-guard-code-allenai_olmo-3.1-32b-instruct/calls.jsonl",
       "setup-guard-asap2-allenai_olmo-3.1-32b-instruct/calls.jsonl"
+     ],
+     [
+      "guardrep-guard1-mohler-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-guard1-code-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-guard1-asap2-allenai_olmo-3.1-32b-instruct/calls.jsonl"
+     ],
+     [
+      "guardrep-guard2-mohler-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-guard2-code-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-guard2-asap2-allenai_olmo-3.1-32b-instruct/calls.jsonl"
+     ],
+     [
+      "guardrep-guard3-mohler-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-guard3-code-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-guard3-asap2-allenai_olmo-3.1-32b-instruct/calls.jsonl"
+     ],
+     [
+      "guardrep-guard4-mohler-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-guard4-code-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "guardrep-guard4-asap2-allenai_olmo-3.1-32b-instruct/calls.jsonl"
      ]
     ]
    }
