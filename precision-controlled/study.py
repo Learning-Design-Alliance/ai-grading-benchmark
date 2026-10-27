@@ -67,7 +67,7 @@ Per model, task and pair, on forged gain (and separately, secondary, on injectio
 Per model, task and pair, on the route check:
   ROUTES DIFFER                   Delta's interval lies above 0
   ROUTES NOT SHOWN TO DIFFER      otherwise, with the interval
-Overall, on the primary pair (nf4 - fp8, forged gain) over the four model-task cells:
+Overall, on the primary pair (nf4 - fp8, forged gain; CHANGE 2: mxfp4 - fp8) over the four model-task cells:
   PRECISION ALONE RAISES GAMING          at least two cells LOWER PRECISION MORE GAMEABLE and none LESS
   PRECISION ALONE NOT SHOWN TO RAISE GAMING   no cell LOWER PRECISION MORE GAMEABLE
   MIXED                                  anything else
@@ -119,6 +119,18 @@ CHANGES:
       retest never did, which biased the null route statistic below zero. Each mark is now an independent draw
       from the case's two board marks, so within-arm and between-arm differences have the same expectation under
       the null.
+2. 2026-10-27, after Phi-4's fp8 runs and before any 4-bit grading (no figure from any run had been computed or
+   read; only the runs' line counts were checked). vLLM v0.32.0, the pinned stack, no longer has the bitsandbytes
+   method (`Unknown quantization method: bitsandbytes`, also with `--load-format bitsandbytes`), so the NF4 arm
+   cannot load. It has online MXFP4: `--quantization online --quantization-config '{"linear": "mxfp4"}'` quantises
+   the same bf16 checkpoint's linear layers to MXFP4 (4-bit floating point, 32-element blocks with a shared scale)
+   at load. MXFP4 is one of the formats the 4-bit hosts in hosting/ declare, so the 4-bit arm now matches the
+   hosts' format more closely than NF4 did; the limit about NF4 no longer applies, and the limit that the
+   A100 has no fp4 arithmetic (weights are expanded for the matrix products) takes its place. The arm is renamed
+   "mxfp4"; every pair, measure, verdict, threshold and the floor are otherwise unchanged. If vLLM finds no
+   MXFP4 kernel for this GPU, the 4-bit arm is NOT RUN with the reason. One count in DESIGN was wrong: the null
+   answers are a fixed set of 15 (code) or 35 (essays) gradings per run, not 500, so a run is 515 or 535
+   gradings and the study about 6,300, not 12,000.
 
 Usage:
     python3 precision-controlled/study.py floor --subsets DIR
@@ -154,10 +166,12 @@ MODELS = {
     "microsoft_phi-4": ("microsoft/phi-4", "microsoft/phi-4", "2db69c1c3e91a05d2c64a3185acfbaf36f744e25", []),  # CHANGE 1
     "google_gemma-3-27b-it": ("google/gemma-3-27b-it", "unsloth/gemma-3-27b-it", "7a5a3053dbd5d1d58e48159e87b9df2fc545a49a", []),
 }
-ARMS = {"bf16": [], "fp8": ["--quantization", "fp8"], "nf4": ["--quantization", "bitsandbytes"]}
-ORDER = ["fp8", "nf4", "bf16"]
+#: CHANGE 2: the 4-bit arm is online MXFP4 (bitsandbytes is not in vLLM v0.32.0)
+ARMS = {"bf16": [], "fp8": ["--quantization", "fp8"],
+        "mxfp4": ["--quantization", "online", "--quantization-config", json.dumps({"linear": "mxfp4"})]}
+ORDER = ["fp8", "mxfp4", "bf16"]
 #: lower minus higher precision; the first is the primary comparison
-PAIRS = [("nf4", "fp8"), ("nf4", "bf16"), ("fp8", "bf16")]
+PAIRS = [("mxfp4", "fp8"), ("mxfp4", "bf16"), ("fp8", "bf16")]
 THRESH = 0.05
 PLANT_GAIN, PLANT_ROUTE_SHARE, PLANT_ROUTE_SIZE = 0.10, 0.20, 0.05
 ROUTE = ("self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB pod; bench.py ran on the pod against localhost, "
