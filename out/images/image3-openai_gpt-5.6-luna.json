@@ -1,0 +1,221 @@
+{
+ "n_cases": 33,
+ "scale": [
+  0,
+  3
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 33,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.4195979899497486,
+    "ci95": [
+     0.18230540334263895,
+     0.6345585191025471
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.4731935255429293,
+    "ci95": [
+     0.21588048621789221,
+     0.694825986315887
+    ]
+   },
+   "bias": {
+    "estimate": 0.48484848484848486,
+    "ci95": [
+     0.15151515151515152,
+     0.8484848484848485
+    ],
+    "n": 33,
+    "flag": true,
+    "mdc80": 0.504206365260806
+   },
+   "sd_ratio": 0.8897171677873043,
+   "n": 33,
+   "raters": [
+    "expert"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 1.5,
+   "machine_passes_of_human_passes": 0.8888888888888888,
+   "machine_fails_of_human_fails": 0.7083333333333334,
+   "n_pass": 9,
+   "n_fail": 24,
+   "kappa": {
+    "estimate": 0.49425287356321845,
+    "ci95": [
+     0.20568927789934358,
+     0.7591677245318945
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 1.0,
+   "ci95": [
+    0.6666666666666666,
+    1.3333333333333333
+   ],
+   "n": 33,
+   "flag": true,
+   "mdc80": 0.47193990372426947,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.42424242424242425,
+   "ci95": [
+    0.12121212121212122,
+    0.7878787878787878
+   ],
+   "n": 33,
+   "flag": true,
+   "mdc80": 0.472416370179517,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.5353535353535354,
+   "reaches_midpoint": 0.3939393939393939,
+   "n": 33
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.8324873096446701,
+    "ci95": [
+     0.6932219957379784,
+     0.9246575342465754
+    ]
+   },
+   "exact_agreement": 0.7272727272727273,
+   "mean_abs_change": 0.2727272727272727,
+   "signed_change": {
+    "estimate": 0.09090909090909091,
+    "ci95": [
+     -0.09090909090909091,
+     0.2727272727272727
+    ],
+    "n": 33,
+    "flag": false,
+    "mdc80": 0.2545454545454545
+   },
+   "n": 33
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.21212121212121213,
+     0.18181818181818182
+    ],
+    "n": 33,
+    "flag": false,
+    "mdc80": 0.29848100289785456
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": null,
+ "sustainability": {
+  "calls": 231,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 1922.5800865800866,
+   "completion_tokens": 1570.3766233766235,
+   "reasoning_tokens": 1512.7056277056276
+  },
+  "latency_s": {
+   "median": 19.124364852905273,
+   "p90": 35.679538393020636,
+   "n": 229
+  },
+  "served_models": [
+   "openai/gpt-5.6-luna"
+  ],
+  "providers": [
+   "Azure"
+  ],
+  "cost_source": "reported by the endpoint (231 of 231 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 2.2977610822510823,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-27T03:07:59Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "openai/gpt-5.6-luna",
+  "request_template": {
+   "model": "openai/gpt-5.6-luna",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "image.txt",
+  "prompt_sha256": "f39428b609291fe53a0f1269a493fd3f8e595f2532d0bec2fa33ab1c5b841c44",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "checkmat3.jsonl",
+  "cases_sha256": "544bc9817ec94076e14109a2eee4935babdae1e4099674858f6d33649c90706a",
+  "n": 33,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_low",
+   "ctx_high"
+  ],
+  "video_frames": 0,
+  "retention_exception": null,
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}

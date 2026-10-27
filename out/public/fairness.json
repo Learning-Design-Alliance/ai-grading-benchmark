@@ -11,6 +11,28 @@
 "scale": "1-5"
 },
 {
+"key": "C1|deepseek/deepseek-v4.1-flash-1017",
+"test": "ELLIPSE: economically disadvantaged vs not",
+"grader": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"gap": 0.028,
+"lo": -0.029,
+"hi": 0.084,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C1|deepseek/deepseek-v4.1-flash",
+"test": "ELLIPSE: economically disadvantaged vs not",
+"grader": "DeepSeek V4.1 Flash",
+"gap": 0.041,
+"lo": -0.015,
+"hi": 0.097,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
 "key": "C1|google/gemini-3.5-flash-lite",
 "test": "ELLIPSE: economically disadvantaged vs not",
 "grader": "Gemini 3.5 Flash Lite",
@@ -22,12 +44,111 @@
 "scale": "1-5"
 },
 {
+"key": "C1|google/gemma-3-27b-it",
+"test": "ELLIPSE: economically disadvantaged vs not",
+"grader": "Gemma 3 27B",
+"gap": -0.021,
+"lo": -0.079,
+"hi": 0.039,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C1|google/gemma-3-4b-it",
+"test": "ELLIPSE: economically disadvantaged vs not",
+"grader": "Gemma 3 4B",
+"gap": -0.0254,
+"lo": -0.085,
+"hi": 0.0342,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C1|google/gemma-4-26b-a4b-it",
+"test": "ELLIPSE: economically disadvantaged vs not",
+"grader": "Gemma 4 26B A4B",
+"gap": -0.016,
+"lo": -0.069,
+"hi": 0.037,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C1|google/gemma-4-31b-it",
+"test": "ELLIPSE: economically disadvantaged vs not",
+"grader": "Gemma 4 31B",
+"gap": 0.008,
+"lo": -0.045,
+"hi": 0.061,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C1|meta-llama/llama-3.2-3b-instruct",
+"test": "ELLIPSE: economically disadvantaged vs not",
+"grader": "Llama 3.2 3B",
+"gap": -0.072,
+"lo": -0.145,
+"hi": -0.001,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C1|microsoft/phi-4",
+"test": "ELLIPSE: economically disadvantaged vs not",
+"grader": "Phi-4",
+"gap": -0.042,
+"lo": -0.106,
+"hi": 0.024,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C1|mistralai/ministral-8b-2512",
+"test": "ELLIPSE: economically disadvantaged vs not",
+"grader": "Ministral 8B",
+"gap": -0.036,
+"lo": -0.092,
+"hi": 0.021,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
 "key": "C1|openai/gpt-5-mini",
 "test": "ELLIPSE: economically disadvantaged vs not",
 "grader": "GPT-5 Mini",
 "gap": 0.005,
 "lo": -0.055,
 "hi": 0.063,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C1|openai/gpt-5.6-luna",
+"test": "ELLIPSE: economically disadvantaged vs not",
+"grader": "GPT-5.6 Luna",
+"gap": -0.007,
+"lo": -0.065,
+"hi": 0.052,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C1|openai/gpt-oss-20b",
+"test": "ELLIPSE: economically disadvantaged vs not",
+"grader": "GPT-OSS 20B",
+"gap": 0.001,
+"lo": -0.065,
+"hi": 0.065,
 "verdict": "NO MORE THAN A SECOND HUMAN",
 "reference": "beyond a second human rater",
 "scale": "1-5"
@@ -55,6 +176,28 @@
 "scale": "1-5"
 },
 {
+"key": "C2|deepseek/deepseek-v4.1-flash-1017",
+"test": "ELLIPSE: Black vs White",
+"grader": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"gap": -0.1097,
+"lo": -0.1892,
+"hi": -0.0301,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C2|deepseek/deepseek-v4.1-flash",
+"test": "ELLIPSE: Black vs White",
+"grader": "DeepSeek V4.1 Flash",
+"gap": -0.1118,
+"lo": -0.1914,
+"hi": -0.0301,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
 "key": "C2|google/gemini-3.5-flash-lite",
 "test": "ELLIPSE: Black vs White",
 "grader": "Gemini 3.5 Flash Lite",
@@ -66,6 +209,83 @@
 "scale": "1-5"
 },
 {
+"key": "C2|google/gemma-3-27b-it",
+"test": "ELLIPSE: Black vs White",
+"grader": "Gemma 3 27B",
+"gap": -0.0559,
+"lo": -0.1398,
+"hi": 0.0301,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C2|google/gemma-3-4b-it",
+"test": "ELLIPSE: Black vs White",
+"grader": "Gemma 3 4B",
+"gap": -0.0639,
+"lo": -0.1488,
+"hi": 0.0252,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C2|google/gemma-4-26b-a4b-it",
+"test": "ELLIPSE: Black vs White",
+"grader": "Gemma 4 26B A4B",
+"gap": -0.0473,
+"lo": -0.1247,
+"hi": 0.0323,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C2|google/gemma-4-31b-it",
+"test": "ELLIPSE: Black vs White",
+"grader": "Gemma 4 31B",
+"gap": -0.0624,
+"lo": -0.1398,
+"hi": 0.0151,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C2|meta-llama/llama-3.2-3b-instruct",
+"test": "ELLIPSE: Black vs White",
+"grader": "Llama 3.2 3B",
+"gap": -0.0237,
+"lo": -0.129,
+"hi": 0.0817,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C2|microsoft/phi-4",
+"test": "ELLIPSE: Black vs White",
+"grader": "Phi-4",
+"gap": -0.0602,
+"lo": -0.1548,
+"hi": 0.0323,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C2|mistralai/ministral-8b-2512",
+"test": "ELLIPSE: Black vs White",
+"grader": "Ministral 8B",
+"gap": -0.0624,
+"lo": -0.1462,
+"hi": 0.0258,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
 "key": "C2|openai/gpt-5-mini",
 "test": "ELLIPSE: Black vs White",
 "grader": "GPT-5 Mini",
@@ -73,6 +293,28 @@
 "lo": -0.1462,
 "hi": 0.0258,
 "verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C2|openai/gpt-5.6-luna",
+"test": "ELLIPSE: Black vs White",
+"grader": "GPT-5.6 Luna",
+"gap": -0.071,
+"lo": -0.1548,
+"hi": 0.0108,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C2|openai/gpt-oss-20b",
+"test": "ELLIPSE: Black vs White",
+"grader": "GPT-OSS 20B",
+"gap": -0.0602,
+"lo": -0.1527,
+"hi": 0.0344,
+"verdict": "INCONCLUSIVE",
 "reference": "beyond a second human rater",
 "scale": "1-5"
 },
@@ -99,12 +341,111 @@
 "scale": "1-5"
 },
 {
+"key": "C3|deepseek/deepseek-v4.1-flash-1017",
+"test": "ELLIPSE: Hispanic vs White (first draw)",
+"grader": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"gap": -0.1215,
+"lo": -0.2047,
+"hi": -0.0405,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C3|deepseek/deepseek-v4.1-flash",
+"test": "ELLIPSE: Hispanic vs White (first draw)",
+"grader": "DeepSeek V4.1 Flash",
+"gap": -0.1151,
+"lo": -0.1962,
+"hi": -0.0341,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
 "key": "C3|google/gemini-3.5-flash-lite",
 "test": "ELLIPSE: Hispanic vs White (first draw)",
 "grader": "Gemini 3.5 Flash Lite",
 "gap": -0.1497,
 "lo": -0.2308,
 "hi": -0.0664,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C3|google/gemma-3-27b-it",
+"test": "ELLIPSE: Hispanic vs White (first draw)",
+"grader": "Gemma 3 27B",
+"gap": -0.1173,
+"lo": -0.2047,
+"hi": -0.032,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C3|google/gemma-3-4b-it",
+"test": "ELLIPSE: Hispanic vs White (first draw)",
+"grader": "Gemma 3 4B",
+"gap": -0.1191,
+"lo": -0.2032,
+"hi": -0.0302,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C3|google/gemma-4-26b-a4b-it",
+"test": "ELLIPSE: Hispanic vs White (first draw)",
+"grader": "Gemma 4 26B A4B",
+"gap": -0.1151,
+"lo": -0.1983,
+"hi": -0.0362,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C3|google/gemma-4-31b-it",
+"test": "ELLIPSE: Hispanic vs White (first draw)",
+"grader": "Gemma 4 31B",
+"gap": -0.1365,
+"lo": -0.2132,
+"hi": -0.0597,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C3|meta-llama/llama-3.2-3b-instruct",
+"test": "ELLIPSE: Hispanic vs White (first draw)",
+"grader": "Llama 3.2 3B",
+"gap": -0.0299,
+"lo": -0.1322,
+"hi": 0.0725,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C3|microsoft/phi-4",
+"test": "ELLIPSE: Hispanic vs White (first draw)",
+"grader": "Phi-4",
+"gap": -0.0618,
+"lo": -0.1578,
+"hi": 0.032,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C3|mistralai/ministral-8b-2512",
+"test": "ELLIPSE: Hispanic vs White (first draw)",
+"grader": "Ministral 8B",
+"gap": -0.1237,
+"lo": -0.2068,
+"hi": -0.0405,
 "verdict": "INCONCLUSIVE",
 "reference": "beyond a second human rater",
 "scale": "1-5"
@@ -117,6 +458,28 @@
 "lo": -0.1962,
 "hi": -0.0235,
 "verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C3|openai/gpt-5.6-luna",
+"test": "ELLIPSE: Hispanic vs White (first draw)",
+"grader": "GPT-5.6 Luna",
+"gap": -0.0725,
+"lo": -0.1557,
+"hi": 0.0085,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "C3|openai/gpt-oss-20b",
+"test": "ELLIPSE: Hispanic vs White (first draw)",
+"grader": "GPT-OSS 20B",
+"gap": -0.0474,
+"lo": -0.1435,
+"hi": 0.0507,
+"verdict": "NO MORE THAN A SECOND HUMAN",
 "reference": "beyond a second human rater",
 "scale": "1-5"
 },
@@ -143,6 +506,17 @@
 "scale": "1-5"
 },
 {
+"key": "RA|deepseek/deepseek-v4.1-flash-1017",
+"test": "ELLIPSE: Hispanic vs White (replication)",
+"grader": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"gap": -0.0995,
+"lo": -0.167,
+"hi": -0.0334,
+"verdict": "INCONCLUSIVE",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
 "key": "RA|deepseek/deepseek-v4.1-flash",
 "test": "ELLIPSE: Hispanic vs White (replication)",
 "grader": "DeepSeek V4.1 Flash",
@@ -165,12 +539,78 @@
 "scale": "1-5"
 },
 {
+"key": "RA|google/gemma-3-27b-it",
+"test": "ELLIPSE: Hispanic vs White (replication)",
+"grader": "Gemma 3 27B",
+"gap": -0.0618,
+"lo": -0.1294,
+"hi": 0.005,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "RA|google/gemma-3-4b-it",
+"test": "ELLIPSE: Hispanic vs White (replication)",
+"grader": "Gemma 3 4B",
+"gap": -0.0603,
+"lo": -0.1281,
+"hi": 0.0148,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "RA|google/gemma-4-26b-a4b-it",
+"test": "ELLIPSE: Hispanic vs White (replication)",
+"grader": "Gemma 4 26B A4B",
+"gap": -0.0412,
+"lo": -0.1095,
+"hi": 0.027,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
 "key": "RA|google/gemma-4-31b-it",
 "test": "ELLIPSE: Hispanic vs White (replication)",
 "grader": "Gemma 4 31B",
 "gap": -0.0668,
 "lo": -0.1308,
 "hi": -0.0014,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "RA|meta-llama/llama-3.2-3b-instruct",
+"test": "ELLIPSE: Hispanic vs White (replication)",
+"grader": "Llama 3.2 3B",
+"gap": -0.0269,
+"lo": -0.1122,
+"hi": 0.0585,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "RA|microsoft/phi-4",
+"test": "ELLIPSE: Hispanic vs White (replication)",
+"grader": "Phi-4",
+"gap": -0.0348,
+"lo": -0.118,
+"hi": 0.0498,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "RA|mistralai/ministral-8b-2512",
+"test": "ELLIPSE: Hispanic vs White (replication)",
+"grader": "Ministral 8B",
+"gap": -0.0561,
+"lo": -0.1258,
+"hi": 0.0121,
 "verdict": "NO MORE THAN A SECOND HUMAN",
 "reference": "beyond a second human rater",
 "scale": "1-5"
@@ -187,6 +627,28 @@
 "scale": "1-5"
 },
 {
+"key": "RA|openai/gpt-5.6-luna",
+"test": "ELLIPSE: Hispanic vs White (replication)",
+"grader": "GPT-5.6 Luna",
+"gap": -0.0604,
+"lo": -0.1294,
+"hi": 0.01,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
+"key": "RA|openai/gpt-oss-20b",
+"test": "ELLIPSE: Hispanic vs White (replication)",
+"grader": "GPT-OSS 20B",
+"gap": -0.0107,
+"lo": -0.0917,
+"hi": 0.0689,
+"verdict": "NO MORE THAN A SECOND HUMAN",
+"reference": "beyond a second human rater",
+"scale": "1-5"
+},
+{
 "key": "RA|qwen/qwen3-235b-a22b-2507",
 "test": "ELLIPSE: Hispanic vs White (replication)",
 "grader": "Qwen3 235B",
@@ -196,6 +658,28 @@
 "verdict": "NO MORE THAN A SECOND HUMAN",
 "reference": "beyond a second human rater",
 "scale": "1-5"
+},
+{
+"key": "ASAP|deepseek/deepseek-v4.1-flash-1017",
+"test": "ASAP 2.0: identified with a disability vs not",
+"grader": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"gap": -0.27,
+"lo": -0.33,
+"hi": -0.2106,
+"verdict": "GAP REPLICATES",
+"reference": "against the released mark (one per essay)",
+"scale": "1-6"
+},
+{
+"key": "ASAP|deepseek/deepseek-v4.1-flash",
+"test": "ASAP 2.0: identified with a disability vs not",
+"grader": "DeepSeek V4.1 Flash",
+"gap": -0.3327,
+"lo": -0.3973,
+"hi": -0.268,
+"verdict": "GAP REPLICATES",
+"reference": "against the released mark (one per essay)",
+"scale": "1-6"
 },
 {
 "key": "ASAP|google/gemini-3.5-flash-lite",
@@ -209,12 +693,122 @@
 "scale": "1-6"
 },
 {
+"key": "ASAP|google/gemma-3-27b-it",
+"test": "ASAP 2.0: identified with a disability vs not",
+"grader": "Gemma 3 27B",
+"gap": -0.2473,
+"lo": -0.3007,
+"hi": -0.192,
+"verdict": "GAP REPLICATES",
+"reference": "against the released mark (one per essay)",
+"scale": "1-6"
+},
+{
+"key": "ASAP|google/gemma-3-4b-it",
+"test": "ASAP 2.0: identified with a disability vs not",
+"grader": "Gemma 3 4B",
+"gap": -0.0857,
+"lo": -0.1414,
+"hi": -0.0286,
+"verdict": "NO GAP OF 0.2 OR MORE",
+"reference": "against the released mark (one per essay)",
+"scale": "1-6"
+},
+{
+"key": "ASAP|google/gemma-4-26b-a4b-it",
+"test": "ASAP 2.0: identified with a disability vs not",
+"grader": "Gemma 4 26B A4B",
+"gap": -0.3467,
+"lo": -0.41,
+"hi": -0.2833,
+"verdict": "GAP REPLICATES",
+"reference": "against the released mark (one per essay)",
+"scale": "1-6"
+},
+{
+"key": "ASAP|google/gemma-4-31b-it",
+"test": "ASAP 2.0: identified with a disability vs not",
+"grader": "Gemma 4 31B",
+"gap": -0.2353,
+"lo": -0.2907,
+"hi": -0.178,
+"verdict": "GAP REPLICATES",
+"reference": "against the released mark (one per essay)",
+"scale": "1-6"
+},
+{
 "key": "ASAP|anthropic/claude-haiku-5.5",
 "test": "ASAP 2.0: identified with a disability vs not",
 "grader": "Claude Haiku 5.5",
 "gap": -0.166,
 "lo": -0.21,
 "hi": -0.1233,
+"verdict": "GAP REPLICATES",
+"reference": "against the released mark (one per essay)",
+"scale": "1-6"
+},
+{
+"key": "ASAP|meta-llama/llama-3.2-3b-instruct",
+"test": "ASAP 2.0: identified with a disability vs not",
+"grader": "Llama 3.2 3B",
+"gap": -0.2132,
+"lo": -0.2875,
+"hi": -0.1396,
+"verdict": "GAP REPLICATES",
+"reference": "against the released mark (one per essay)",
+"scale": "1-6"
+},
+{
+"key": "ASAP|microsoft/phi-4",
+"test": "ASAP 2.0: identified with a disability vs not",
+"grader": "Phi-4",
+"gap": -0.2787,
+"lo": -0.34,
+"hi": -0.2167,
+"verdict": "GAP REPLICATES",
+"reference": "against the released mark (one per essay)",
+"scale": "1-6"
+},
+{
+"key": "ASAP|mistralai/ministral-8b-2512",
+"test": "ASAP 2.0: identified with a disability vs not",
+"grader": "Ministral 8B",
+"gap": -0.124,
+"lo": -0.1673,
+"hi": -0.082,
+"verdict": "NO GAP OF 0.2 OR MORE",
+"reference": "against the released mark (one per essay)",
+"scale": "1-6"
+},
+{
+"key": "ASAP|openai/gpt-5-mini",
+"test": "ASAP 2.0: identified with a disability vs not",
+"grader": "GPT-5 Mini",
+"gap": -0.172,
+"lo": -0.2227,
+"hi": -0.12,
+"verdict": "GAP REPLICATES",
+"reference": "against the released mark (one per essay)",
+"scale": "1-6"
+},
+{
+"key": "ASAP|openai/gpt-5.6-luna",
+"test": "ASAP 2.0: identified with a disability vs not",
+"grader": "GPT-5.6 Luna",
+"gap": -0.202,
+"lo": -0.26,
+"hi": -0.1433,
+"verdict": "GAP REPLICATES",
+"reference": "against the released mark (one per essay)",
+"scale": "1-6"
+},
+{
+"key": "ASAP|openai/gpt-oss-20b",
+"test": "ASAP 2.0: identified with a disability vs not",
+"grader": "GPT-OSS 20B",
+"gap": -0.232,
+"lo": -0.2847,
+"hi": -0.1773,
 "verdict": "GAP REPLICATES",
 "reference": "against the released mark (one per essay)",
 "scale": "1-6"

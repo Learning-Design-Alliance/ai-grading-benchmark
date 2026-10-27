@@ -1,0 +1,242 @@
+{
+ "n_cases": 32,
+ "scale": [
+  0,
+  4
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 32,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.656938653960691,
+    "ci95": [
+     0.3092604172588256,
+     0.8770519335452
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.6570580010195467,
+    "ci95": [
+     0.328280551368502,
+     0.8879800230741313
+    ]
+   },
+   "bias": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.40625,
+     0.34375
+    ],
+    "n": 32,
+    "flag": false,
+    "mdc80": 0.5334005334008001
+   },
+   "sd_ratio": 0.981119245402714,
+   "n": 32,
+   "raters": [
+    "expert"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 2.0,
+   "machine_passes_of_human_passes": 0.9090909090909091,
+   "machine_fails_of_human_fails": 0.9,
+   "n_pass": 22,
+   "n_fail": 10,
+   "kappa": {
+    "estimate": 0.7876106194690266,
+    "ci95": [
+     0.5025259067357513,
+     1.0
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 1.4375,
+   "ci95": [
+    0.96875,
+    1.90625
+   ],
+   "n": 32,
+   "flag": true,
+   "mdc80": 0.6763129405448242,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.59375,
+   "ci95": [
+    0.1875,
+    1.0
+   ],
+   "n": 32,
+   "flag": true,
+   "mdc80": 0.5742061490552877,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.09375,
+   "reaches_midpoint": 0.125,
+   "n": 32
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.8920741989881956,
+    "ci95": [
+     0.8043470441038474,
+     0.9467693246527213
+    ]
+   },
+   "exact_agreement": 0.625,
+   "mean_abs_change": 0.375,
+   "signed_change": {
+    "estimate": 0.125,
+    "ci95": [
+     -0.09375,
+     0.3125
+    ],
+    "n": 32,
+    "flag": false,
+    "mdc80": 0.30147486922493805
+   },
+   "n": 32
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": -0.09375,
+    "ci95": [
+     -0.40625,
+     0.21875
+    ],
+    "n": 32,
+    "flag": false,
+    "mdc80": 0.4237350720560225
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.28728880984007954,
+  "same_opening": 0.0,
+  "varied_by_quality": 0.07827887614536448,
+  "words": 36.6875,
+  "self_per100": 2.1176519828110725,
+  "task_per100": 0.6184388829708175,
+  "action_per100": 0.43367851529745344,
+  "leaks_answer": 0.0,
+  "coherence": -0.6266645301510769,
+  "n": 32,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 224,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 1351.919642857143,
+   "completion_tokens": 7087.080357142857,
+   "reasoning_tokens": 7021.696428571428
+  },
+  "latency_s": {
+   "median": 57.943615436553955,
+   "p90": 97.45848927497865,
+   "n": 224
+  },
+  "served_models": [
+   "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (224 of 224 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 2.597548735,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-26T22:21:00Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "request_template": {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "image.txt",
+  "prompt_sha256": "f39428b609291fe53a0f1269a493fd3f8e595f2532d0bec2fa33ab1c5b841c44",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "checkmat4.jsonl",
+  "cases_sha256": "e5d13e64a2de015086292de6e03831d7a82a548d8f865e5cc323b61ece75adc0",
+  "n": 32,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_low",
+   "ctx_high"
+  ],
+  "video_frames": 0,
+  "retention_exception": null,
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}

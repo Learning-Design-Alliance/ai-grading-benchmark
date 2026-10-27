@@ -145,6 +145,102 @@
     "balanced_accuracy_loss_up_to": 0.05930165448249325
    }
   },
+  "vlen-google_gemma-4-26b-a4b-it": {
+   "model": "google/gemma-4-26b-a4b-it",
+   "failed": {
+    "1": 0,
+    "4": 0
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.19230769230769232,
+     "specificity": 0.8582677165354331,
+     "balanced": 0.5252877044215627
+    },
+    "x4": {
+     "sensitivity": 0.1794871794871795,
+     "specificity": 0.8661417322834646,
+     "balanced": 0.522814455885322
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      -0.01282051282051283,
+      [
+       -0.10588235294117648,
+       0.0821917808219178
+      ]
+     ],
+     "specificity": [
+      0.007874015748031482,
+      [
+       -0.06976744186046513,
+       0.08461538461538465
+      ]
+     ],
+     "balanced": [
+      -0.0024732485362406464,
+      [
+       -0.06390248878008975,
+       0.05743589743589739
+      ]
+     ]
+    }
+   },
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.06390248878008975
+   }
+  },
+  "vlen-google_gemma-4-31b-it": {
+   "model": "google/gemma-4-31b-it",
+   "failed": {
+    "1": 0,
+    "4": 0
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.0641025641025641,
+     "specificity": 0.9291338582677166,
+     "balanced": 0.4966182111851403
+    },
+    "x4": {
+     "sensitivity": 0.0641025641025641,
+     "specificity": 0.968503937007874,
+     "balanced": 0.516303250555219
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      0.0,
+      [
+       -0.06172839506172839,
+       0.06172839506172839
+      ]
+     ],
+     "specificity": [
+      0.03937007874015741,
+      [
+       -0.014184397163120588,
+       0.09322033898305082
+      ]
+     ],
+     "balanced": [
+      0.01968503937007865,
+      [
+       -0.02210166767128796,
+       0.06004901960784309
+      ]
+     ]
+    }
+   },
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.02210166767128796
+   }
+  },
   "vlen-perceptron_perceptron-mk1.5": {
    "model": "perceptron/perceptron-mk1.5",
    "failed": {
@@ -240,6 +336,524 @@
    "not_ruled_out": {
     "balanced_accuracy_loss_up_to": 0.1345619214123987
    }
+  },
+  "vlen-z-ai_glm-5.3-flash": {
+   "model": "z-ai/glm-5.3-flash",
+   "failed": {
+    "1": 29,
+    "4": 45
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.7971014492753623,
+     "specificity": 0.3925233644859813,
+     "balanced": 0.5948124068806718
+    },
+    "x4": {
+     "sensitivity": 0.7719298245614035,
+     "specificity": 0.3106796116504854,
+     "balanced": 0.5413047181059445
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      -0.02517162471395884,
+      [
+       -0.1551226551226551,
+       0.09937499999999999
+      ]
+     ],
+     "specificity": [
+      -0.08184375283549589,
+      [
+       -0.1983198319831983,
+       0.04135922330097086
+      ]
+     ],
+     "balanced": [
+      -0.053507688774727336,
+      [
+       -0.1432551003284348,
+       0.03475997992127022
+      ]
+     ]
+    }
+   },
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.1432551003284348
+   }
+  },
+  "vlen16f-anthropic_claude-fable-5.1": {
+   "model": "anthropic/claude-fable-5.1",
+   "failed": {
+    "1": 0,
+    "4": 0
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.6923076923076923,
+     "specificity": 0.5984251968503937,
+     "balanced": 0.645366444579043
+    },
+    "x4": {
+     "sensitivity": 0.7307692307692307,
+     "specificity": 0.3779527559055118,
+     "balanced": 0.5543609933373712
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      0.038461538461538436,
+      [
+       -0.10256410256410253,
+       0.1785714285714286
+      ]
+     ],
+     "specificity": [
+      -0.22047244094488194,
+      [
+       -0.32173913043478264,
+       -0.12030075187969924
+      ]
+     ],
+     "balanced": [
+      -0.09100545124167181,
+      [
+       -0.1767330842673308,
+       -0.0022499999999998632
+      ]
+     ]
+    }
+   },
+   "verdict": "LENGTH HURTS DETECTION",
+   "not_ruled_out": null
+  },
+  "vlen16f-anthropic_claude-haiku-5.5": {
+   "model": "anthropic/claude-haiku-5.5",
+   "failed": {
+    "1": 0,
+    "4": 0
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.48717948717948717,
+     "specificity": 0.7007874015748031,
+     "balanced": 0.5939834443771451
+    },
+    "x4": {
+     "sensitivity": 0.3717948717948718,
+     "specificity": 0.6141732283464567,
+     "balanced": 0.49298405007066426
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      -0.11538461538461536,
+      [
+       -0.2346938775510204,
+       0.0
+      ]
+     ],
+     "specificity": [
+      -0.08661417322834641,
+      [
+       -0.18656716417910446,
+       0.016000000000000014
+      ]
+     ],
+     "balanced": [
+      -0.10099939430648086,
+      [
+       -0.18027849101323323,
+       -0.023167777104785015
+      ]
+     ]
+    }
+   },
+   "verdict": "LENGTH HURTS DETECTION",
+   "not_ruled_out": null
+  },
+  "vlen16f-anthropic_claude-opus-5.5": {
+   "model": "anthropic/claude-opus-5.5",
+   "failed": {
+    "1": 0,
+    "4": 0
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.3717948717948718,
+     "specificity": 0.889763779527559,
+     "balanced": 0.6307793256612154
+    },
+    "x4": {
+     "sensitivity": 0.34615384615384615,
+     "specificity": 0.6614173228346457,
+     "balanced": 0.5037855844942459
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      -0.02564102564102566,
+      [
+       -0.14102564102564102,
+       0.09302325581395349
+      ]
+     ],
+     "specificity": [
+      -0.2283464566929133,
+      [
+       -0.3252032520325203,
+       -0.13043478260869568
+      ]
+     ],
+     "balanced": [
+      -0.1269937411669695,
+      [
+       -0.20027852279760677,
+       -0.05153846153846153
+      ]
+     ]
+    }
+   },
+   "verdict": "LENGTH HURTS DETECTION",
+   "not_ruled_out": null
+  },
+  "vlen16f-deepseek_deepseek-v4.1-flash": {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "failed": {
+    "1": 5,
+    "4": 5
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.26666666666666666,
+     "specificity": 0.76,
+     "balanced": 0.5133333333333333
+    },
+    "x4": {
+     "sensitivity": 0.28,
+     "specificity": 0.736,
+     "balanced": 0.508
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      0.013333333333333364,
+      [
+       -0.13043478260869568,
+       0.1645045045045045
+      ]
+     ],
+     "specificity": [
+      -0.02400000000000002,
+      [
+       -0.11983082706766923,
+       0.07694341618191425
+      ]
+     ],
+     "balanced": [
+      -0.005333333333333301,
+      [
+       -0.09231177094379639,
+       0.08493106100952724
+      ]
+     ]
+    }
+   },
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.09231177094379639
+   }
+  },
+  "vlen16f-deepseek_deepseek-v4.1-flash-1017": {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "failed": {
+    "1": 8,
+    "4": 22
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.35135135135135137,
+     "specificity": 0.7154471544715447,
+     "balanced": 0.5333992529114481
+    },
+    "x4": {
+     "sensitivity": 0.375,
+     "specificity": 0.7027027027027027,
+     "balanced": 0.5388513513513513
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      0.02364864864864863,
+      [
+       -0.11450924608819349,
+       0.16397515527950313
+      ]
+     ],
+     "specificity": [
+      -0.01274445176884198,
+      [
+       -0.12037037037037035,
+       0.09909909909909909
+      ]
+     ],
+     "balanced": [
+      0.005452098439903241,
+      [
+       -0.08108032424465739,
+       0.09370348609479051
+      ]
+     ]
+    }
+   },
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.08108032424465739
+   }
+  },
+  "vlen16f-google_gemma-3-27b-it": {
+   "model": "google/gemma-3-27b-it",
+   "failed": {
+    "1": 0,
+    "4": 0
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.6153846153846154,
+     "specificity": 0.3858267716535433,
+     "balanced": 0.5006056935190794
+    },
+    "x4": {
+     "sensitivity": 0.6153846153846154,
+     "specificity": 0.28346456692913385,
+     "balanced": 0.4494245911568746
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      0.0,
+      [
+       -0.10989010989010983,
+       0.10588235294117643
+      ]
+     ],
+     "specificity": [
+      -0.10236220472440943,
+      [
+       -0.17741935483870966,
+       -0.028985507246376774
+      ]
+     ],
+     "balanced": [
+      -0.051181102362204745,
+      [
+       -0.11786490223187829,
+       0.015009284093253583
+      ]
+     ]
+    }
+   },
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.11786490223187829
+   }
+  },
+  "vlen16f-google_gemma-3-4b-it": {
+   "model": "google/gemma-3-4b-it",
+   "failed": {
+    "1": 4,
+    "4": 1
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.7532467532467533,
+     "specificity": 0.16129032258064516,
+     "balanced": 0.4572685379136992
+    },
+    "x4": {
+     "sensitivity": 0.7402597402597403,
+     "specificity": 0.16535433070866143,
+     "balanced": 0.45280703548420087
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      -0.012987012987012991,
+      [
+       -0.108344733242134,
+       0.07738095238095233
+      ]
+     ],
+     "specificity": [
+      0.004064008128016272,
+      [
+       -0.0631404958677686,
+       0.06923076923076923
+      ]
+     ],
+     "balanced": [
+      -0.004461502429498332,
+      [
+       -0.06058483986528984,
+       0.054334916380876286
+      ]
+     ]
+    }
+   },
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.06058483986528984
+   }
+  },
+  "vlen16f-openai_gpt-5-mini": {
+   "model": "openai/gpt-5-mini",
+   "failed": {
+    "1": 2,
+    "4": 4
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.6233766233766234,
+     "specificity": 0.6031746031746031,
+     "balanced": 0.6132756132756132
+    },
+    "x4": {
+     "sensitivity": 0.4605263157894737,
+     "specificity": 0.496,
+     "balanced": 0.47826315789473683
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      -0.1628503075871497,
+      [
+       -0.30046948356807507,
+       -0.02356164383561643
+      ]
+     ],
+     "specificity": [
+      -0.10717460317460314,
+      [
+       -0.21372335271317833,
+       0.0005464480874316502
+      ]
+     ],
+     "balanced": [
+      -0.13501245538087636,
+      [
+       -0.22086720867208665,
+       -0.043526140780145384
+      ]
+     ]
+    }
+   },
+   "verdict": "LENGTH HURTS DETECTION",
+   "not_ruled_out": null
+  },
+  "vlen16f-openai_gpt-5.6-luna": {
+   "model": "openai/gpt-5.6-luna",
+   "failed": {
+    "1": 3,
+    "4": 3
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.3116883116883117,
+     "specificity": 0.792,
+     "balanced": 0.5518441558441558
+    },
+    "x4": {
+     "sensitivity": 0.15789473684210525,
+     "specificity": 0.8174603174603174,
+     "balanced": 0.4876775271512114
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      -0.15379357484620643,
+      [
+       -0.2804878048780488,
+       -0.023529411764705882
+      ]
+     ],
+     "specificity": [
+      0.025460317460317405,
+      [
+       -0.0625,
+       0.11992593647628547
+      ]
+     ],
+     "balanced": [
+      -0.06416662869294443,
+      [
+       -0.14492074854279569,
+       0.014942489115621016
+      ]
+     ]
+    }
+   },
+   "verdict": "NO DETECTABLE EFFECT",
+   "not_ruled_out": {
+    "balanced_accuracy_loss_up_to": 0.14492074854279569
+   }
+  },
+  "vlen16f-openai_gpt-6-astra": {
+   "model": "openai/gpt-6-astra",
+   "failed": {
+    "1": 3,
+    "4": 7
+   },
+   "by_length": {
+    "x1": {
+     "sensitivity": 0.4935064935064935,
+     "specificity": 0.96,
+     "balanced": 0.7267532467532467
+    },
+    "x4": {
+     "sensitivity": 0.3918918918918919,
+     "specificity": 0.8387096774193549,
+     "balanced": 0.6153007846556233
+    }
+   },
+   "change": {
+    "x4-x1": {
+     "sensitivity": [
+      -0.10161460161460162,
+      [
+       -0.23941240818877946,
+       0.03501006036217302
+      ]
+     ],
+     "specificity": [
+      -0.1212903225806451,
+      [
+       -0.19327731092436973,
+       -0.047244094488189003
+      ]
+     ],
+     "balanced": [
+      -0.11145246209762338,
+      [
+       -0.18734773666026971,
+       -0.03291861451367928
+      ]
+     ]
+    }
+   },
+   "verdict": "LENGTH HURTS DETECTION",
+   "not_ruled_out": null
   }
  }
 }

@@ -1,4 +1,40 @@
 {
+ "deepseek/deepseek-v4.1-flash-1017 / default.txt": {
+  "gap": -0.27,
+  "ci95": [
+   -0.33001666666666674,
+   -0.21064999999999984
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 0,
+   "Not identified as having disability": 0
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 2.622,
+   "Not identified as having disability": 2.892
+  },
+  "human_mean": 2.3553333333333333
+ },
+ "deepseek/deepseek-v4.1-flash / default.txt": {
+  "gap": -0.3326666666666669,
+  "ci95": [
+   -0.39733333333333354,
+   -0.2679833333333331
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 0,
+   "Not identified as having disability": 0
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 2.5493333333333332,
+   "Not identified as having disability": 2.882
+  },
+  "human_mean": 2.3553333333333333
+ },
  "google/gemini-3.5-flash-lite / default.txt": {
   "gap": -0.4293333333333331,
   "ci95": [
@@ -17,6 +53,78 @@
   },
   "human_mean": 2.3553333333333333
  },
+ "google/gemma-3-27b-it / default.txt": {
+  "gap": -0.24733333333333318,
+  "ci95": [
+   -0.30066666666666686,
+   -0.19200000000000017
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 0,
+   "Not identified as having disability": 0
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 2.6366666666666667,
+   "Not identified as having disability": 2.884
+  },
+  "human_mean": 2.3553333333333333
+ },
+ "google/gemma-3-4b-it / default.txt": {
+  "gap": -0.08565311166312917,
+  "ci95": [
+   -0.14136256240543102,
+   -0.028643575870528865
+  ],
+  "verdict": "NO GAP OF 0.2 OR MORE",
+  "failed": {
+   "Identified as having disability": 11,
+   "Not identified as having disability": 6
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 4.206850235057085,
+   "Not identified as having disability": 4.292503346720214
+  },
+  "human_mean": 2.3553333333333333
+ },
+ "google/gemma-4-26b-a4b-it / default.txt": {
+  "gap": -0.3466666666666667,
+  "ci95": [
+   -0.4100166666666668,
+   -0.2833333333333332
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 0,
+   "Not identified as having disability": 0
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 2.477333333333333,
+   "Not identified as having disability": 2.824
+  },
+  "human_mean": 2.3553333333333333
+ },
+ "google/gemma-4-31b-it / default.txt": {
+  "gap": -0.23533333333333317,
+  "ci95": [
+   -0.29066666666666663,
+   -0.17799999999999994
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 0,
+   "Not identified as having disability": 0
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 2.482666666666667,
+   "Not identified as having disability": 2.718
+  },
+  "human_mean": 2.3553333333333333
+ },
  "anthropic/claude-haiku-5.5 / default.txt": {
   "gap": -0.16599999999999993,
   "ci95": [
@@ -32,6 +140,114 @@
   "machine_mean": {
    "Identified as having disability": 2.298,
    "Not identified as having disability": 2.464
+  },
+  "human_mean": 2.3553333333333333
+ },
+ "meta-llama/llama-3.2-3b-instruct / default.txt": {
+  "gap": -0.21322235871134332,
+  "ci95": [
+   -0.287543285482439,
+   -0.13960832354497132
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 8,
+   "Not identified as having disability": 5
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 2.410857908847185,
+   "Not identified as having disability": 2.6240802675585284
+  },
+  "human_mean": 2.3553333333333333
+ },
+ "microsoft/phi-4 / default.txt": {
+  "gap": -0.2786666666666666,
+  "ci95": [
+   -0.34001666666666697,
+   -0.21666666666666634
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 0,
+   "Not identified as having disability": 0
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 2.7306666666666666,
+   "Not identified as having disability": 3.009333333333333
+  },
+  "human_mean": 2.3553333333333333
+ },
+ "mistralai/ministral-8b-2512 / default.txt": {
+  "gap": -0.12399999999999967,
+  "ci95": [
+   -0.1673333333333331,
+   -0.08198333333333313
+  ],
+  "verdict": "NO GAP OF 0.2 OR MORE",
+  "failed": {
+   "Identified as having disability": 0,
+   "Not identified as having disability": 0
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 2.042666666666667,
+   "Not identified as having disability": 2.1666666666666665
+  },
+  "human_mean": 2.3553333333333333
+ },
+ "openai/gpt-5-mini / default.txt": {
+  "gap": -0.17200000000000015,
+  "ci95": [
+   -0.22266666666666657,
+   -0.1200000000000001
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 0,
+   "Not identified as having disability": 0
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 3.5773333333333333,
+   "Not identified as having disability": 3.7493333333333334
+  },
+  "human_mean": 2.3553333333333333
+ },
+ "openai/gpt-5.6-luna / default.txt": {
+  "gap": -0.20199999999999996,
+  "ci95": [
+   -0.26000000000000023,
+   -0.1433333333333331
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 0,
+   "Not identified as having disability": 0
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 3.0726666666666667,
+   "Not identified as having disability": 3.2746666666666666
+  },
+  "human_mean": 2.3553333333333333
+ },
+ "openai/gpt-oss-20b / default.txt": {
+  "gap": -0.23199999999999976,
+  "ci95": [
+   -0.28466666666666685,
+   -0.17733333333333334
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 0,
+   "Not identified as having disability": 0
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 2.1686666666666667,
+   "Not identified as having disability": 2.4006666666666665
   },
   "human_mean": 2.3553333333333333
  },

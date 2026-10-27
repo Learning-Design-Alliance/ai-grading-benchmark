@@ -1,0 +1,234 @@
+{
+ "n_cases": 32,
+ "scale": [
+  0,
+  4
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 32,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.8511627906976744,
+    "ci95": [
+     0.7183824288812642,
+     0.9333431952662722
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.860576020972801,
+    "ci95": [
+     0.7415072373149637,
+     0.9421453762429208
+    ]
+   },
+   "bias": {
+    "estimate": 0.0625,
+    "ci95": [
+     -0.1875,
+     0.28125
+    ],
+    "n": 32,
+    "flag": false,
+    "mdc80": 0.33114537300786206
+   },
+   "sd_ratio": 0.8699812233878044,
+   "n": 32,
+   "raters": [
+    "expert"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 2.0,
+   "machine_passes_of_human_passes": 0.9545454545454546,
+   "machine_fails_of_human_fails": 0.8,
+   "n_pass": 22,
+   "n_fail": 10,
+   "kappa": {
+    "estimate": 0.7757009345794392,
+    "ci95": [
+     0.48148148148148145,
+     1.0
+    ]
+   }
+  },
+  "injection": {
+   "estimate": -0.0625,
+   "ci95": [
+    -0.28125,
+    0.15625
+   ],
+   "n": 32,
+   "flag": false,
+   "mdc80": 0.33114537300786206,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "forged": {
+   "estimate": 0.03125,
+   "ci95": [
+    -0.0625,
+    0.15625
+   ],
+   "n": 32,
+   "flag": false,
+   "mdc80": 0.15317539493307408,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.046875,
+   "reaches_midpoint": 0.0625,
+   "n": 32
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9109255393180237,
+    "ci95": [
+     0.7871549295774648,
+     0.9812269098085908
+    ]
+   },
+   "exact_agreement": 0.84375,
+   "mean_abs_change": 0.1875,
+   "signed_change": {
+    "estimate": 0.0625,
+    "ci95": [
+     -0.09375,
+     0.25
+    ],
+    "n": 32,
+    "flag": false,
+    "mdc80": 0.249475255738533
+   },
+   "n": 32
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.09375,
+    "ci95": [
+     -0.03125,
+     0.21875
+    ],
+    "n": 32,
+    "flag": false,
+    "mdc80": 0.19311485384142138
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.3049369998971245,
+  "same_opening": 0.029166666666666667,
+  "varied_by_quality": 0.08951523481251686,
+  "words": 51.59375,
+  "self_per100": 1.1358804990256193,
+  "task_per100": 0.2964396052136494,
+  "action_per100": 0.5500235179829818,
+  "leaks_answer": 0.0,
+  "coherence": -0.4785567876489105,
+  "n": 32,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 224,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 2672.035714285714,
+   "completion_tokens": 1006.8392857142857,
+   "reasoning_tokens": 880.2991071428571
+  },
+  "latency_s": {
+   "median": 11.926153182983398,
+   "p90": 22.69528923034668,
+   "n": 68
+  },
+  "served_models": [
+   "anthropic/claude-fable-5.1"
+  ],
+  "providers": [
+   "Anthropic"
+  ],
+  "cost_source": "reported by the endpoint (224 of 224 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 77.06232142857142,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-26T20:36:50Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "anthropic/claude-fable-5.1",
+  "request_template": {
+   "model": "anthropic/claude-fable-5.1",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "image.txt",
+  "prompt_sha256": "f39428b609291fe53a0f1269a493fd3f8e595f2532d0bec2fa33ab1c5b841c44",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "checkmat4.jsonl",
+  "cases_sha256": "e5d13e64a2de015086292de6e03831d7a82a548d8f865e5cc323b61ece75adc0",
+  "n": 32,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_low",
+   "ctx_high"
+  ],
+  "video_frames": 0,
+  "retention_exception": "own Anthropic key (bring-your-own-key), 30-day safety retention; public corpora only",
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}

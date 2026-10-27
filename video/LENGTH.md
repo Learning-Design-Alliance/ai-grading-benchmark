@@ -22,6 +22,39 @@ gradings, at zero data retention.
 
 Changes in brackets are those whose 95% interval excludes 0. A balanced accuracy of 0.5 is chance.
 
+**Added under the coverage rule** (`padding.py` CHANGE 2, 2026-10-26, after the five results above were read):
+every other leaderboard model that takes video or images. Same cases, prompt and verdicts; $48.76 for 5,330
+gradings. Claude Fable 5.1 ran through the maintainers' own Anthropic key under 30-day safety retention, as on
+the leaderboard; every other call at zero data retention.
+
+| model | sees | balanced accuracy, as recorded → 4x | change [95% interval] | errors caught | clean videos cleared | no answer | verdict |
+|---|---|---|---|---|---|---|---|
+| GPT-6 Astra | 16 frames | 0.73 → 0.62 | −0.11 [−0.19, −0.03] | 49% → 39% | 96% → 84% (−12) | 10 | LENGTH HURTS DETECTION |
+| Claude Fable 5.1 | 16 frames | 0.65 → 0.55 | −0.09 [−0.18, −0.002] | 69% → 73% | 60% → 38% (−22) | 0 | LENGTH HURTS DETECTION |
+| Claude Opus 5.5 | 16 frames | 0.63 → 0.50 | −0.13 [−0.20, −0.05] | 37% → 35% | 89% → 66% (−23) | 0 | LENGTH HURTS DETECTION |
+| GPT-5 Mini | 16 frames | 0.61 → 0.48 | −0.14 [−0.22, −0.04] | 62% → 46% (−16) | 60% → 50% | 6 | LENGTH HURTS DETECTION |
+| Claude Haiku 5.5 | 16 frames | 0.59 → 0.49 | −0.10 [−0.18, −0.02] | 49% → 37% | 70% → 61% | 0 | LENGTH HURTS DETECTION |
+| GLM 5.3 Flash | video | 0.59 → 0.54 | −0.05 [−0.14, +0.03] | 80% → 77% | 39% → 31% | 74 | not detected; a loss up to 0.14 not ruled out |
+| GPT-5.6 Luna | 16 frames | 0.55 → 0.49 | −0.06 [−0.14, +0.01] | 31% → 16% (−15) | 79% → 82% | 6 | not detected; a loss up to 0.14 not ruled out |
+| DeepSeek V4.1 Flash (Oct 17 snapshot) | 16 frames | 0.53 → 0.54 | +0.01 [−0.08, +0.09] | 35% → 38% | 72% → 70% | 30 | not detected; a loss up to 0.08 not ruled out |
+| Gemma 4 26B A4B | video¹ | 0.53 → 0.52 | −0.00 [−0.06, +0.06] | 19% → 18% | 86% → 87% | 0 | not detected; a loss up to 0.06 not ruled out |
+| DeepSeek V4.1 Flash | 16 frames | 0.51 → 0.51 | −0.01 [−0.09, +0.08] | 27% → 28% | 76% → 74% | 10 | not detected; a loss up to 0.09 not ruled out |
+| Gemma 4 31B | video¹ | 0.50 → 0.52 | +0.02 [−0.02, +0.06] | 6% → 6% | 93% → 97% | 0 | not detected; a loss up to 0.02 not ruled out |
+| Gemma 3 27B | 16 frames | 0.50 → 0.45 | −0.05 [−0.12, +0.02] | 62% → 62% | 39% → 28% (−10) | 0 | not detected; a loss up to 0.12 not ruled out |
+| Gemma 3 4B | 16 frames | 0.46 → 0.45 | −0.00 [−0.06, +0.05] | 75% → 74% | 16% → 17% | 5 | not detected; a loss up to 0.06 not ruled out |
+
+¹ Both Gemma 4 models were charged about 2,570 input tokens a recording at either length, so their endpoint
+sends them a fixed few frames, as MiMo in the video task: they do not see the footage at this length. Ministral
+8B is not here: its endpoint refused all 410 requests (at most 8 images a request).
+
+- **Every 16-frame grader that detects errors above chance loses detection at 4x**, the five leading rows,
+  by 0.09 to 0.14. This is the caveat pre-registered for the frames rows: 16 frames from a recording four times
+  as long are four times as sparse, so these rows show what a frames-only grader does with a long recording, not
+  the length effect alone. Astra is the best detector at either length (0.73 as recorded).
+- **The false-alarm pattern holds for the added graders:** Fable, Opus, Astra and Gemma 3 27B clear 10-23 points
+  fewer clean videos at 4x.
+- The other added graders are at or near chance (0.45-0.59) at both lengths.
+
 **Reading.**
 - **Headline: on longer videos, graders report errors that are not there.** Four of five clear fewer
   clean videos at four times the length, by 11 to 30 points, each interval excluding 0.

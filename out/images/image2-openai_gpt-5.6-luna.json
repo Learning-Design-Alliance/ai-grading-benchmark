@@ -1,0 +1,233 @@
+{
+ "n_cases": 57,
+ "scale": [
+  0,
+  2
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 57,
+   "share": 0.0
+  },
+  "failed_by_probe": {},
+  "agreement": {
+   "qwk": {
+    "estimate": 0.49579288025889967,
+    "ci95": [
+     0.2679522415798837,
+     0.7027429749525657
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.5492768515477747,
+    "ci95": [
+     0.32453093038813235,
+     0.7441560516462504
+    ]
+   },
+   "bias": {
+    "estimate": 0.3684210526315789,
+    "ci95": [
+     0.17543859649122806,
+     0.5789473684210527
+    ],
+    "n": 57,
+    "flag": true,
+    "mdc80": 0.2858303418163691
+   },
+   "sd_ratio": 0.9321930900941345,
+   "n": 57,
+   "raters": [
+    "expert"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 1.0,
+   "machine_passes_of_human_passes": 0.95,
+   "machine_fails_of_human_fails": 0.47058823529411764,
+   "n_pass": 40,
+   "n_fail": 17,
+   "kappa": {
+    "estimate": 0.477064220183486,
+    "ci95": [
+     0.19715164024901746,
+     0.7208226258635976
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 0.3684210526315789,
+   "ci95": [
+    0.19298245614035087,
+    0.5614035087719298
+   ],
+   "n": 57,
+   "flag": true,
+   "mdc80": 0.2587704430525234,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.10526315789473684,
+   "ci95": [
+    -0.017543859649122806,
+    0.24561403508771928
+   ],
+   "n": 57,
+   "flag": false,
+   "mdc80": 0.19428586947238072,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.16666666666666666,
+   "reaches_midpoint": 0.22807017543859648,
+   "n": 57
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9098101265822784,
+    "ci95": [
+     0.7990480955682984,
+     0.973710602493956
+    ]
+   },
+   "exact_agreement": 0.8947368421052632,
+   "mean_abs_change": 0.10526315789473684,
+   "signed_change": {
+    "estimate": 0.03508771929824561,
+    "ci95": [
+     -0.05263157894736842,
+     0.12280701754385964
+    ],
+    "n": 57,
+    "flag": false,
+    "mdc80": 0.12068339313627956
+   },
+   "n": 57
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.017543859649122806,
+    "ci95": [
+     -0.07017543859649122,
+     0.10526315789473684
+    ],
+    "n": 57,
+    "flag": false,
+    "mdc80": 0.1309575972387475
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.16056057298010312,
+  "same_opening": 0.009523809523809523,
+  "varied_by_quality": 0.010674724920500998,
+  "words": 24.28125,
+  "self_per100": 2.538882736922733,
+  "task_per100": 0.8753163100989189,
+  "action_per100": 0.6181097485445312,
+  "leaks_answer": 0.0,
+  "n": 32,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 399,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 1693.751879699248,
+   "completion_tokens": 517.781954887218,
+   "reasoning_tokens": 463.63157894736844
+  },
+  "latency_s": {
+   "median": 8.121582746505737,
+   "p90": 16.295482444763188,
+   "n": 397
+  },
+  "served_models": [
+   "openai/gpt-5.6-luna"
+  ],
+  "providers": [
+   "Azure"
+  ],
+  "cost_source": "reported by the endpoint (399 of 399 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.988661954887218,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-27T02:59:20Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "openai/gpt-5.6-luna",
+  "request_template": {
+   "model": "openai/gpt-5.6-luna",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "image.txt",
+  "prompt_sha256": "f39428b609291fe53a0f1269a493fd3f8e595f2532d0bec2fa33ab1c5b841c44",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "checkmat2.jsonl",
+  "cases_sha256": "4ca24deb75081bd4172a2369cddff5a4af60771f913da0878759371ad57ac51e",
+  "n": 57,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_low",
+   "ctx_high"
+  ],
+  "video_frames": 0,
+  "retention_exception": null,
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}

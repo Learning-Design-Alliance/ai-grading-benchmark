@@ -1,0 +1,287 @@
+{
+ "n_cases": 33,
+ "scale": [
+  0,
+  3
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 4,
+   "of": 33,
+   "share": 0.12121212121212122
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 4,
+    "content_filter": 0,
+    "of": 33
+   },
+   "ctx_high": {
+    "failed": 12,
+    "content_filter": 0,
+    "of": 33
+   },
+   "ctx_low": {
+    "failed": 7,
+    "content_filter": 0,
+    "of": 33
+   },
+   "forged": {
+    "failed": 3,
+    "content_filter": 0,
+    "of": 33
+   },
+   "injection": {
+    "failed": 3,
+    "content_filter": 0,
+    "of": 33
+   },
+   "off_task": {
+    "failed": 6,
+    "content_filter": 0,
+    "of": 33
+   },
+   "retest": {
+    "failed": 4,
+    "content_filter": 0,
+    "of": 33
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.510762070971495,
+    "ci95": [
+     0.18202465156534461,
+     0.7462526421282798
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.5392127662974243,
+    "ci95": [
+     0.20382932290425707,
+     0.7875589053049739
+    ]
+   },
+   "bias": {
+    "estimate": 0.3103448275862069,
+    "ci95": [
+     -0.034482758620689655,
+     0.6551724137931034
+    ],
+    "n": 29,
+    "flag": false,
+    "mdc80": 0.5030229663120129
+   },
+   "sd_ratio": 0.8966408186722546,
+   "n": 29,
+   "raters": [
+    "expert"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 1.5,
+   "machine_passes_of_human_passes": 0.75,
+   "machine_fails_of_human_fails": 0.7619047619047619,
+   "n_pass": 8,
+   "n_fail": 21,
+   "kappa": {
+    "estimate": 0.4586666666666666,
+    "ci95": [
+     0.07899385560675862,
+     0.7863184227591004
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 1.0,
+   "ci95": [
+    0.6657407407407407,
+    1.3333333333333333
+   ],
+   "n": 27,
+   "flag": true,
+   "mdc80": 0.5177201831435472,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.2962962962962963,
+   "ci95": [
+    0.07407407407407407,
+    0.5555555555555556
+   ],
+   "n": 27,
+   "flag": true,
+   "mdc80": 0.32793990549894303,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.48148148148148145,
+   "reaches_midpoint": 0.4444444444444444,
+   "n": 27
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9592760180995475,
+    "ci95": [
+     0.8682926829268293,
+     1.0
+    ]
+   },
+   "exact_agreement": 0.9259259259259259,
+   "mean_abs_change": 0.07407407407407407,
+   "signed_change": {
+    "estimate": 0.07407407407407407,
+    "ci95": [
+     0.0,
+     0.18518518518518517
+    ],
+    "n": 27,
+    "flag": false,
+    "mdc80": 0.14381116198431865
+   },
+   "n": 27
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.11764705882352941,
+    "ci95": [
+     0.0,
+     0.29411764705882354
+    ],
+    "n": 17,
+    "flag": false,
+    "mdc80": 0.22553281779624484
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.20794968625789428,
+  "same_opening": 0.00641025641025641,
+  "varied_by_quality": 0.15058913502746366,
+  "words": 24.607142857142858,
+  "self_per100": 2.297009762325165,
+  "task_per100": 1.424325892170095,
+  "action_per100": 0.5296717171717172,
+  "leaks_answer": 0.0,
+  "n": 28,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 231,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 1072.3290043290044,
+   "completion_tokens": 8325.207792207791,
+   "reasoning_tokens": 8178.541125541125
+  },
+  "latency_s": {
+   "median": 54.017576456069946,
+   "p90": 280.05163459777833,
+   "n": 227
+  },
+  "served_models": [
+   "deepseek/deepseek-v4.1-flash-1017"
+  ],
+  "providers": [
+   "BaseTen",
+   "Cloudflare",
+   "Crusoe",
+   "Decart",
+   "DeepInfra",
+   "DigitalOcean",
+   "Fireworks",
+   "InferenceNet",
+   "Ionstream",
+   "Makora",
+   "Morph",
+   "Novita",
+   "OpenInference",
+   "PrimeIntellect",
+   "Reka",
+   "Relace",
+   "Together",
+   "Wafer"
+  ],
+  "mixed_backends": "18 providers / 1 model ids served this run; paired probe differences can include backend differences",
+  "cost_source": "reported by the endpoint (231 of 231 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 4.3684305106277055,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-26T23:49:32Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "deepseek/deepseek-v4.1-flash-1017",
+  "request_template": {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "image.txt",
+  "prompt_sha256": "f39428b609291fe53a0f1269a493fd3f8e595f2532d0bec2fa33ab1c5b841c44",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "checkmat3.jsonl",
+  "cases_sha256": "544bc9817ec94076e14109a2eee4935babdae1e4099674858f6d33649c90706a",
+  "n": 33,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_low",
+   "ctx_high"
+  ],
+  "video_frames": 0,
+  "retention_exception": null,
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}

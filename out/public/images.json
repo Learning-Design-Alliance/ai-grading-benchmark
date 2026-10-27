@@ -1,5 +1,21 @@
 [
 {
+"key": "Claude Fable 5.1",
+"task": "Handwritten math (images)",
+"model": "Claude Fable 5.1",
+"vendor": "Anthropic",
+"n": 122,
+"qwk": 0.659,
+"retest": 0.941,
+"gaming_pct": 0.613,
+"gaming_worst_scale_pct": 3.03,
+"gaming_worst_lo": -2.02,
+"gaming_worst_hi": 9.12,
+"label_pct": 2.389,
+"offtask_pct": 18.975,
+"cost_per_1k": 69.455
+},
+{
 "key": "Claude Haiku 5.5",
 "task": "Handwritten math (images)",
 "model": "Claude Haiku 5.5",
@@ -32,6 +48,38 @@
 "cost_per_1k": 18.952
 },
 {
+"key": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"task": "Handwritten math (images)",
+"model": "DeepSeek V4.1 Flash (Oct 17 snapshot)",
+"vendor": "DeepSeek",
+"n": 115,
+"qwk": 0.613,
+"retest": 0.891,
+"gaming_pct": 21.563,
+"gaming_worst_scale_pct": 33.33,
+"gaming_worst_lo": 22.19,
+"gaming_worst_hi": 44.44,
+"label_pct": 4.452,
+"offtask_pct": 14.812,
+"cost_per_1k": 2.252
+},
+{
+"key": "DeepSeek V4.1 Flash",
+"task": "Handwritten math (images)",
+"model": "DeepSeek V4.1 Flash",
+"vendor": "DeepSeek",
+"n": 120,
+"qwk": 0.529,
+"retest": 0.784,
+"gaming_pct": 26.807,
+"gaming_worst_scale_pct": 42.71,
+"gaming_worst_lo": 31.25,
+"gaming_worst_hi": 54.17,
+"label_pct": 0.419,
+"offtask_pct": 12.747,
+"cost_per_1k": 2.155
+},
+{
 "key": "Gemini 3.5 Flash Lite",
 "task": "Handwritten math (images)",
 "model": "Gemini 3.5 Flash Lite",
@@ -46,6 +94,22 @@
 "label_pct": 0.067,
 "offtask_pct": 15.047,
 "cost_per_1k": 0.967
+},
+{
+"key": "Gemma 3 27B",
+"task": "Handwritten math (images)",
+"model": "Gemma 3 27B",
+"vendor": "Google",
+"n": 122,
+"qwk": 0.088,
+"retest": 0.659,
+"gaming_pct": 9.973,
+"gaming_worst_scale_pct": 12.28,
+"gaming_worst_lo": 6.14,
+"gaming_worst_hi": 18.42,
+"label_pct": 3.62,
+"offtask_pct": 20.616,
+"cost_per_1k": 0.075
 },
 {
 "key": "Gemma 3 4B",
@@ -128,6 +192,22 @@
 "cost_per_1k": 2.393
 },
 {
+"key": "GPT-5.6 Luna",
+"task": "Handwritten math (images)",
+"model": "GPT-5.6 Luna",
+"vendor": "OpenAI",
+"n": 122,
+"qwk": 0.501,
+"retest": 0.88,
+"gaming_pct": 25.818,
+"gaming_worst_scale_pct": 33.33,
+"gaming_worst_lo": 22.22,
+"gaming_worst_hi": 44.44,
+"label_pct": 1.437,
+"offtask_pct": 31.507,
+"cost_per_1k": 1.536
+},
+{
 "key": "GPT-6 Astra",
 "task": "Handwritten math (images)",
 "model": "GPT-6 Astra",
@@ -142,5 +222,21 @@
 "label_pct": -0.001,
 "offtask_pct": 8.617,
 "cost_per_1k": 31.141
+},
+{
+"key": "GLM 5.3 Flash",
+"task": "Handwritten math (images)",
+"model": "GLM 5.3 Flash",
+"vendor": "Zhipu AI (Z.ai)",
+"n": 100,
+"qwk": 0.557,
+"retest": 0.903,
+"gaming_pct": 22.256,
+"gaming_worst_scale_pct": 40.0,
+"gaming_worst_lo": 28.33,
+"gaming_worst_hi": 50.0,
+"label_pct": 5.512,
+"offtask_pct": 36.744,
+"cost_per_1k": 2.079
 }
 ]

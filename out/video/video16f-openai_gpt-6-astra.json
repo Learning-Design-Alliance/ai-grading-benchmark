@@ -1,0 +1,426 @@
+{
+ "n_cases": 100,
+ "scale": [
+  4,
+  20
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "low_res",
+  "null_black",
+  "null_still",
+  "off_task",
+  "other_camera",
+  "retest",
+  "text_only"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 3,
+   "of": 100,
+   "share": 0.03
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 3,
+    "content_filter": 7,
+    "of": 100
+   },
+   "ctx_high": {
+    "failed": 3,
+    "content_filter": 8,
+    "of": 100
+   },
+   "ctx_low": {
+    "failed": 3,
+    "content_filter": 10,
+    "of": 100
+   },
+   "forged": {
+    "failed": 1,
+    "content_filter": 8,
+    "of": 100
+   },
+   "injection": {
+    "failed": 1,
+    "content_filter": 10,
+    "of": 100
+   },
+   "null_black": {
+    "failed": 29,
+    "content_filter": 0,
+    "of": 30
+   },
+   "null_still": {
+    "failed": 12,
+    "content_filter": 1,
+    "of": 30
+   },
+   "off_task": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 100
+   },
+   "other_camera": {
+    "failed": 1,
+    "content_filter": 9,
+    "of": 100
+   },
+   "retest": {
+    "failed": 3,
+    "content_filter": 6,
+    "of": 100
+   },
+   "text_only": {
+    "failed": 24,
+    "content_filter": 4,
+    "of": 100
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.22826567043295012,
+    "ci95": [
+     0.08060297500324336,
+     0.36679504482047215
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.31403068660257816,
+    "ci95": [
+     0.11598905115865656,
+     0.5001010271373502
+    ]
+   },
+   "bias": {
+    "estimate": 0.9390034364261168,
+    "ci95": [
+     0.09598367697594505,
+     1.7021477663230224
+    ],
+    "n": 97,
+    "flag": true,
+    "mdc80": 1.124273901029917
+   },
+   "sd_ratio": 1.0462987800797539,
+   "n": 97,
+   "raters": [
+    "rater0",
+    "rater1",
+    "rater2",
+    "rater3"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5715658757739408,
+    "ci95": [
+     0.4178402714562945,
+     0.6458157461481547
+    ]
+   },
+   "n": 97
+  },
+  "share_of_ceiling": {
+   "estimate": 0.3993689618433959,
+   "ci95": [
+    0.15507187226463767,
+    0.6964556804150613
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 12.0,
+   "machine_passes_of_human_passes": 0.9107142857142857,
+   "machine_fails_of_human_fails": 0.3170731707317073,
+   "n_pass": 56,
+   "n_fail": 41,
+   "kappa": {
+    "estimate": 0.20648408309898347,
+    "ci95": [
+     0.05827260787414997,
+     0.34662568239969066
+    ]
+   },
+   "ceiling_kappa": {
+    "estimate": 0.4529047081818279,
+    "ci95": [
+     0.3280382627489193,
+     0.5700921713446092
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.45591065707377504,
+    "ci95": [
+     0.13436582818492837,
+     0.7874169165365795
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 0.3711340206185567,
+   "ci95": [
+    0.09278350515463918,
+    0.6909793814432975
+   ],
+   "n": 97,
+   "flag": true,
+   "mdc80": 0.4329495972273535,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.31958762886597936,
+   "ci95": [
+    0.010309278350515464,
+    0.6494845360824743
+   ],
+   "n": 97,
+   "flag": true,
+   "mdc80": 0.4505351226769209,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.4508928571428571,
+   "reaches_midpoint": 0.6938775510204082,
+   "n": 98
+  },
+  "null_answers": {
+   "credited": 0.3684210526315789,
+   "by_kind": {
+    "null_black": {
+     "credited": 0.0,
+     "n": 1
+    },
+    "null_still": {
+     "credited": 0.3888888888888889,
+     "n": 18
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.9072729621495931,
+    "ci95": [
+     0.8069956070186051,
+     0.9788996965143144
+    ]
+   },
+   "exact_agreement": 0.7216494845360825,
+   "mean_abs_change": 0.5567010309278351,
+   "signed_change": {
+    "estimate": -0.061855670103092786,
+    "ci95": [
+     -0.3711340206185567,
+     0.2268041237113402
+    ],
+    "n": 97,
+    "flag": false,
+    "mdc80": 0.43196614416841356
+   },
+   "n": 97
+  },
+  "low_res": {
+   "estimate": -0.09278350515463918,
+   "ci95": [
+    -0.7422680412371134,
+    0.5154639175257731
+   ],
+   "n": 97,
+   "flag": false,
+   "mdc80": 0.8410442134471702,
+   "expect": "about the same"
+  },
+  "other_camera": {
+   "estimate": 0.16494845360824742,
+   "ci95": [
+    -0.24742268041237114,
+    0.5670103092783505
+   ],
+   "n": 97,
+   "flag": false,
+   "mdc80": 0.5784010489344212,
+   "expect": "about the same"
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 1.6804123711340206,
+    "ci95": [
+     1.2474226804123711,
+     2.1752577319587627
+    ],
+    "n": 97,
+    "flag": true,
+    "mdc80": 0.6661623486601304
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "task": {
+    "levels": {
+     "BalloonResection": {
+      "residual": 1.753472222222222,
+      "human_mean": 10.954861111111112,
+      "n": 24,
+      "vs_rest": {
+       "estimate": 1.0822393455098935,
+       "ci95": [
+        -0.7099453138212413,
+        2.8024932359307355
+       ],
+       "flag": false
+      }
+     },
+     "CircleCutting": {
+      "residual": -0.5333333333333333,
+      "human_mean": 13.173333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": -1.9835648148148146,
+       "ci95": [
+        -3.181500889592287,
+        -0.6918075568715475
+       ],
+       "flag": true
+      }
+     },
+     "PegTransfer": {
+      "residual": 3.985507246376811,
+      "human_mean": 12.362318840579709,
+      "n": 23,
+      "vs_rest": {
+       "estimate": 3.993390129259694,
+       "ci95": [
+        2.8031566204686262,
+        5.191435321190754
+       ],
+       "flag": true
+      }
+     },
+     "SutureAndKnot": {
+      "residual": -1.1733333333333333,
+      "human_mean": 12.253333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": -2.845787037037037,
+       "ci95": [
+        -5.183046157059314,
+        -0.6722750172532795
+       ],
+       "flag": true
+      }
+     }
+    },
+    "comparisons": 4
+   }
+  }
+ },
+ "feedback": {
+  "generic": 0.4571167342383634,
+  "same_opening": 0.09562582345191041,
+  "varied_by_quality": 0.11588510392539536,
+  "words": 24.814432989690722,
+  "self_per100": 0.0,
+  "task_per100": 0.0,
+  "action_per100": 0.1293659263211721,
+  "coherence": -0.45623422005983433,
+  "n": 97,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1060,
+  "calls_failed": 17,
+  "per_grading": {
+   "prompt_tokens": 2715.374880153404,
+   "completion_tokens": 225.9261744966443,
+   "reasoning_tokens": 154.16107382550337
+  },
+  "latency_s": {
+   "median": 9.301317572593689,
+   "p90": 13.45477991104126,
+   "n": 1038
+  },
+  "served_models": [
+   "openai/gpt-6-astra"
+  ],
+  "providers": [
+   "Azure"
+  ],
+  "cost_source": "reported by the endpoint (1043 of 1043 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 41.654360498561836,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-26T22:00:56Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "openai/gpt-6-astra",
+  "request_template": {
+   "model": "openai/gpt-6-astra",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "video.txt",
+  "prompt_path": "video.txt",
+  "prompt_sha256": "1f7750894a4a450761f7c22e875305b502257ad40ac0f367895121efd56b8ea6",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "lasana.jsonl",
+  "cases_sha256": "30a3e52f459284b40728233461dd8fff7d1ab7e89582b9cbc2ce51fb156fb204",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "ctx_low",
+   "ctx_high",
+   "off_task",
+   "injection",
+   "forged",
+   "null_black",
+   "null_still",
+   "low_res",
+   "other_camera",
+   "text_only"
+  ],
+  "video_frames": 16,
+  "retention_exception": null,
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}

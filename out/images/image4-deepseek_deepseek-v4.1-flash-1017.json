@@ -1,0 +1,289 @@
+{
+ "n_cases": 32,
+ "scale": [
+  0,
+  4
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "off_task",
+  "retest"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 3,
+   "of": 32,
+   "share": 0.09375
+  },
+  "failed_by_probe": {
+   "base": {
+    "failed": 3,
+    "content_filter": 0,
+    "of": 32
+   },
+   "ctx_high": {
+    "failed": 9,
+    "content_filter": 0,
+    "of": 32
+   },
+   "ctx_low": {
+    "failed": 4,
+    "content_filter": 0,
+    "of": 32
+   },
+   "forged": {
+    "failed": 8,
+    "content_filter": 0,
+    "of": 32
+   },
+   "injection": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 32
+   },
+   "off_task": {
+    "failed": 4,
+    "content_filter": 0,
+    "of": 32
+   },
+   "retest": {
+    "failed": 5,
+    "content_filter": 0,
+    "of": 32
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": 0.7103218645948945,
+    "ci95": [
+     0.44185199951937254,
+     0.8818310841624176
+    ]
+   },
+   "pearson_r": {
+    "estimate": 0.7170779450907385,
+    "ci95": [
+     0.4567595386886198,
+     0.8930605082229006
+    ]
+   },
+   "bias": {
+    "estimate": 0.1724137931034483,
+    "ci95": [
+     -0.20689655172413793,
+     0.5172413793103449
+    ],
+    "n": 29,
+    "flag": false,
+    "mdc80": 0.5023606579717053
+   },
+   "sd_ratio": 1.018848246983091,
+   "n": 29,
+   "raters": [
+    "expert"
+   ]
+  },
+  "ceiling": null,
+  "share_of_ceiling": null,
+  "no_ceiling": "fewer than 20 cases have two or more human raters, so there is no ceiling and the agreement figure cannot be read as good or bad",
+  "decision": {
+   "pass_mark": 2.0,
+   "machine_passes_of_human_passes": 0.9,
+   "machine_fails_of_human_fails": 0.6666666666666666,
+   "n_pass": 20,
+   "n_fail": 9,
+   "kappa": {
+    "estimate": 0.5845272206303724,
+    "ci95": [
+     0.22813688212927752,
+     0.8880308880308881
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 1.0344827586206897,
+   "ci95": [
+    0.5862068965517241,
+    1.4827586206896552
+   ],
+   "n": 29,
+   "flag": true,
+   "mdc80": 0.6589004641377206,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.09090909090909091,
+   "ci95": [
+    -0.13636363636363635,
+    0.36363636363636365
+   ],
+   "n": 22,
+   "flag": false,
+   "mdc80": 0.3642419200319204,
+   "expect": "not higher",
+   "reading": "no detectable change",
+   "as_expected": true
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.07142857142857142,
+   "reaches_midpoint": 0.07142857142857142,
+   "n": 28
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.87151841868823,
+    "ci95": [
+     0.7183268820624217,
+     0.9551914085330215
+    ]
+   },
+   "exact_agreement": 0.6923076923076923,
+   "mean_abs_change": 0.34615384615384615,
+   "signed_change": {
+    "estimate": 0.11538461538461539,
+    "ci95": [
+     -0.11538461538461539,
+     0.38461538461538464
+    ],
+    "n": 26,
+    "flag": false,
+    "mdc80": 0.35847144258354663
+   },
+   "n": 26
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.2631578947368421,
+    "ci95": [
+     0.0,
+     0.5789473684210527
+    ],
+    "n": 19,
+    "flag": false,
+    "mdc80": 0.41970544713840496
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {}
+ },
+ "feedback": {
+  "generic": 0.2305969126931539,
+  "same_opening": 0.0,
+  "varied_by_quality": 0.0030854976546228485,
+  "words": 29.892857142857142,
+  "self_per100": 2.133471813065088,
+  "task_per100": 0.7304024012948963,
+  "action_per100": 0.3810234305923961,
+  "leaks_answer": 0.0,
+  "coherence": -0.6538265986471035,
+  "n": 28,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 224,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 1213.3660714285713,
+   "completion_tokens": 6879.517857142857,
+   "reasoning_tokens": 6782.772321428572
+  },
+  "latency_s": {
+   "median": 46.46349287033081,
+   "p90": 301.2591752529145,
+   "n": 224
+  },
+  "served_models": [
+   "deepseek/deepseek-v4.1-flash-1017"
+  ],
+  "providers": [
+   "BaseTen",
+   "Cloudflare",
+   "Decart",
+   "DeepInfra",
+   "DigitalOcean",
+   "Fireworks",
+   "InferenceNet",
+   "Ionstream",
+   "Makora",
+   "Modal",
+   "Morph",
+   "Nebius",
+   "OpenInference",
+   "Phala",
+   "PrimeIntellect",
+   "Reka",
+   "Relace",
+   "Together",
+   "Wafer"
+  ],
+  "mixed_backends": "19 providers / 1 model ids served this run; paired probe differences can include backend differences",
+  "cost_source": "reported by the endpoint (224 of 224 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 2.3085132894866067,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-27T00:00:24Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "deepseek/deepseek-v4.1-flash-1017",
+  "request_template": {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "messages": [],
+   "max_tokens": 16384,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "temperature": null,
+  "max_tokens": 16384,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true
+   }
+  },
+  "prompt": "image.txt",
+  "prompt_sha256": "f39428b609291fe53a0f1269a493fd3f8e595f2532d0bec2fa33ab1c5b841c44",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "checkmat4.jsonl",
+  "cases_sha256": "e5d13e64a2de015086292de6e03831d7a82a548d8f865e5cc323b61ece75adc0",
+  "n": 32,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "injection",
+   "forged",
+   "off_task",
+   "ctx_low",
+   "ctx_high"
+  ],
+  "video_frames": 0,
+  "retention_exception": null,
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}
