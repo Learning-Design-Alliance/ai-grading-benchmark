@@ -61,6 +61,9 @@ these probes, so about $4 for 24 new runs), enforced per run with --max-usd from
 with scripts/check_runs.py before analysis.
 
 CHANGES:
+1. (2026-10-27, implementation only, before any run was read) The runs went at about 45 gradings a minute, about
+   eight hours for the study. `run` now takes --models and --workers so the three models run side by side with
+   more workers. The first run's cached gradings are reused (same out directory and cache). Nothing else changes.
 
 Usage:
     python3 guard-retest/study.py run [--go]
@@ -112,7 +115,7 @@ def spent():
 
 
 def cmd_run(a):
-    for model in HOSTED:
+    for model in a.models or HOSTED:
         for k in range(1, NEW + 1):
             for cond in ("default", "guard"):
                 for task in TASKS:
@@ -128,7 +131,7 @@ def cmd_run(a):
                            "--base-url", cfg["base_url"], "--model", model, "--key-env", "OPENROUTER_API_KEY",
                            "--n", "100", "--seed", "7", "--probes", ",".join(PROBES),
                            "--extra-body", json.dumps(cfg["extra_body"] or {}),
-                           "--max-tokens", str(cfg.get("max_tokens") or 16384), "--out", out, "--workers", "6",
+                           "--max-tokens", str(cfg.get("max_tokens") or 16384), "--out", out, "--workers", str(a.workers),
                            "--max-usd", f"{min(1.0, left):.4f}", "--max-calls", "400"]
                     if a.go:
                         cmd.append("--go")
@@ -265,7 +268,8 @@ def cmd_analyse(a):
 def main():
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     sub = ap.add_subparsers(dest="cmd", required=True)
-    p = sub.add_parser("run"); p.add_argument("--go", action="store_true"); p.set_defaults(fn=cmd_run)
+    p = sub.add_parser("run"); p.add_argument("--go", action="store_true"); p.add_argument("--models", nargs="+")
+    p.add_argument("--workers", type=int, default=6); p.set_defaults(fn=cmd_run)  # CHANGE 1
     for name, fn in (("floor", cmd_floor), ("analyse", cmd_analyse)):
         p = sub.add_parser(name); p.add_argument("--subsets", required=True); p.set_defaults(fn=fn)
     a = ap.parse_args()
