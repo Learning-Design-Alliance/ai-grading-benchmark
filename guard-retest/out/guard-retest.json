@@ -1,0 +1,681 @@
+{
+ "design": "guard-retest/study.py docstring",
+ "floor": {
+  "planted": 0.1,
+  "sims": 2000,
+  "models": {
+   "google/gemma-3-27b-it": {
+    "default_runs": 6,
+    "run_sd": 0.005639059678331484,
+    "detection": 1.0,
+    "false_alarm": 0.0215,
+    "passes": true
+   },
+   "qwen/qwen3-235b-a22b-2507": {
+    "default_runs": 6,
+    "run_sd": 0.003752274116122647,
+    "detection": 1.0,
+    "false_alarm": 0.0225,
+    "passes": true
+   },
+   "google/gemma-3-4b-it": {
+    "default_runs": 6,
+    "run_sd": 0.0028860875087611186,
+    "detection": 1.0,
+    "false_alarm": 0.022,
+    "passes": true
+   }
+  }
+ },
+ "models": {
+  "google/gemma-3-27b-it": {
+   "runs": {
+    "default": 6,
+    "guard": 5
+   },
+   "G_default_runs": [
+    0.19440740740740745,
+    0.2074074074074074,
+    0.20659259259259258,
+    0.20966666666666667,
+    0.20592592592592593,
+    0.20918518518518517
+   ],
+   "G_guard_runs": [
+    0.27725925925925926,
+    0.2957407407407407,
+    0.2860740740740741,
+    0.2826296296296296,
+    0.2924074074074074
+   ],
+   "A_default_runs": [
+    0.6133333333333334,
+    0.64,
+    0.63,
+    0.6433333333333334,
+    0.6366666666666667,
+    0.645
+   ],
+   "A_guard_runs": [
+    0.715,
+    0.7533333333333333,
+    0.7233333333333333,
+    0.7266666666666666,
+    0.735
+   ],
+   "effect_G": {
+    "estimate": 0.08129135802469134,
+    "ci95": [
+     0.071844505396859,
+     0.09073821065252369
+    ],
+    "df": 7.403707120574431
+   },
+   "effect_A": {
+    "estimate": 0.09594444444444439,
+    "ci95": [
+     0.07716798216387673,
+     0.11472090672501205
+    ],
+    "df": 7.708240163013508
+   },
+   "verdict": "GUARD MAKES IT MORE GAMEABLE",
+   "by_task": {
+    "mohler": {
+     "default": [
+      0.22000000000000003,
+      0.23199999999999998,
+      0.22999999999999998,
+      0.22799999999999998,
+      0.22999999999999998,
+      0.22999999999999998
+     ],
+     "guard": [
+      0.188,
+      0.20400000000000001,
+      0.21400000000000002,
+      0.202,
+      0.21000000000000002
+     ],
+     "effect": {
+      "estimate": -0.0247333333333333,
+      "ci95": [
+       -0.03684944704104849,
+       -0.012617219625618115
+      ],
+      "df": 5.22823435818835
+     }
+    },
+    "code": {
+     "default": [
+      0.26322222222222225,
+      0.2802222222222222,
+      0.2837777777777778,
+      0.283,
+      0.2737777777777778,
+      0.28555555555555556
+     ],
+     "guard": [
+      0.49377777777777776,
+      0.5192222222222221,
+      0.4962222222222222,
+      0.49388888888888893,
+      0.5232222222222223
+     ],
+     "effect": {
+      "estimate": 0.22700740740740738,
+      "ci95": [
+       0.20897685739894617,
+       0.2450379574158686
+      ],
+      "df": 6.138635629258271
+     }
+    },
+    "asap2": {
+     "default": [
+      0.1,
+      0.11000000000000001,
+      0.10600000000000001,
+      0.118,
+      0.11399999999999999,
+      0.11200000000000002
+     ],
+     "guard": [
+      0.15,
+      0.16399999999999998,
+      0.148,
+      0.152,
+      0.144
+     ],
+     "effect": {
+      "estimate": 0.04160000000000001,
+      "ci95": [
+       0.03178687727020581,
+       0.05141312272979422
+      ],
+      "df": 7.896732274620262
+     }
+    }
+   },
+   "runs_used": {
+    "default": [
+     [
+      "submissions/google__gemma-3-27b-it/mohler.json",
+      "submissions/google__gemma-3-27b-it/code.json",
+      "submissions/google__gemma-3-27b-it/asap2.json"
+     ],
+     [
+      "setup-default-mohler-google_gemma-3-27b-it/calls.jsonl",
+      "setup-default-code-google_gemma-3-27b-it/calls.jsonl",
+      "setup-default-asap2-google_gemma-3-27b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-default1-mohler-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-default1-code-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-default1-asap2-google_gemma-3-27b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-default2-mohler-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-default2-code-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-default2-asap2-google_gemma-3-27b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-default3-mohler-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-default3-code-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-default3-asap2-google_gemma-3-27b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-default4-mohler-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-default4-code-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-default4-asap2-google_gemma-3-27b-it/calls.jsonl"
+     ]
+    ],
+    "guard": [
+     [
+      "setup-guard-mohler-google_gemma-3-27b-it/calls.jsonl",
+      "setup-guard-code-google_gemma-3-27b-it/calls.jsonl",
+      "setup-guard-asap2-google_gemma-3-27b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-guard1-mohler-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-guard1-code-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-guard1-asap2-google_gemma-3-27b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-guard2-mohler-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-guard2-code-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-guard2-asap2-google_gemma-3-27b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-guard3-mohler-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-guard3-code-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-guard3-asap2-google_gemma-3-27b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-guard4-mohler-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-guard4-code-google_gemma-3-27b-it/calls.jsonl",
+      "guardrep-guard4-asap2-google_gemma-3-27b-it/calls.jsonl"
+     ]
+    ]
+   }
+  },
+  "qwen/qwen3-235b-a22b-2507": {
+   "runs": {
+    "default": 6,
+    "guard": 5
+   },
+   "G_default_runs": [
+    0.5531851851851852,
+    0.5427777777777778,
+    0.5505925925925926,
+    0.552074074074074,
+    0.5490740740740742,
+    0.5516296296296297
+   ],
+   "G_guard_runs": [
+    0.5402592592592593,
+    0.5175925925925926,
+    0.527,
+    0.48666666666666664,
+    0.48466666666666663
+   ],
+   "A_default_runs": [
+    0.6916666666666668,
+    0.6633333333333333,
+    0.6549999999999999,
+    0.665,
+    0.6616666666666666,
+    0.665
+   ],
+   "A_guard_runs": [
+    0.565,
+    0.5433333333333333,
+    0.5650000000000001,
+    0.5083333333333333,
+    0.5116666666666667
+   ],
+   "effect_G": {
+    "estimate": -0.03865185185185194,
+    "ci95": [
+     -0.06916972246904078,
+     -0.008133981234663096
+    ],
+    "df": 4.154072152119961
+   },
+   "effect_A": {
+    "estimate": -0.12827777777777782,
+    "ci95": [
+     -0.16199435059174405,
+     -0.09456120496381161
+    ],
+    "df": 5.389843510640288
+   },
+   "verdict": "GUARD MAKES IT LESS GAMEABLE",
+   "by_task": {
+    "mohler": {
+     "default": [
+      0.304,
+      0.298,
+      0.302,
+      0.302,
+      0.306,
+      0.31
+     ],
+     "guard": [
+      0.21400000000000002,
+      0.194,
+      0.198,
+      0.13,
+      0.12
+     ],
+     "effect": {
+      "estimate": -0.13246666666666668,
+      "ci95": [
+       -0.18572073306638404,
+       -0.0792126002669493
+      ],
+      "df": 4.060193604124626
+     }
+    },
+    "code": {
+     "default": [
+      0.8315555555555556,
+      0.8163333333333334,
+      0.8297777777777778,
+      0.8342222222222222,
+      0.8272222222222223,
+      0.802888888888889
+     ],
+     "guard": [
+      0.8947777777777778,
+      0.8647777777777778,
+      0.891,
+      0.896,
+      0.904
+     ],
+     "effect": {
+      "estimate": 0.06644444444444453,
+      "ci95": [
+       0.04724118687017151,
+       0.08564770201871755
+      ],
+      "df": 7.6456947821116374
+     }
+    },
+    "asap2": {
+     "default": [
+      0.524,
+      0.514,
+      0.52,
+      0.52,
+      0.514,
+      0.542
+     ],
+     "guard": [
+      0.512,
+      0.49400000000000005,
+      0.492,
+      0.434,
+      0.43
+     ],
+     "effect": {
+      "estimate": -0.049933333333333385,
+      "ci95": [
+       -0.09615692844686283,
+       -0.003709738219803936
+      ],
+      "df": 4.506993897490433
+     }
+    }
+   },
+   "runs_used": {
+    "default": [
+     [
+      "submissions/qwen__qwen3-235b-a22b-2507/mohler.json",
+      "submissions/qwen__qwen3-235b-a22b-2507/code.json",
+      "submissions/qwen__qwen3-235b-a22b-2507/asap2.json"
+     ],
+     [
+      "setup-default-mohler-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "setup-default-code-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "setup-default-asap2-qwen_qwen3-235b-a22b-2507/calls.jsonl"
+     ],
+     [
+      "guardrep-default1-mohler-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-default1-code-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-default1-asap2-qwen_qwen3-235b-a22b-2507/calls.jsonl"
+     ],
+     [
+      "guardrep-default2-mohler-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-default2-code-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-default2-asap2-qwen_qwen3-235b-a22b-2507/calls.jsonl"
+     ],
+     [
+      "guardrep-default3-mohler-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-default3-code-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-default3-asap2-qwen_qwen3-235b-a22b-2507/calls.jsonl"
+     ],
+     [
+      "guardrep-default4-mohler-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-default4-code-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-default4-asap2-qwen_qwen3-235b-a22b-2507/calls.jsonl"
+     ]
+    ],
+    "guard": [
+     [
+      "setup-guard-mohler-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "setup-guard-code-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "setup-guard-asap2-qwen_qwen3-235b-a22b-2507/calls.jsonl"
+     ],
+     [
+      "guardrep-guard1-mohler-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-guard1-code-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-guard1-asap2-qwen_qwen3-235b-a22b-2507/calls.jsonl"
+     ],
+     [
+      "guardrep-guard2-mohler-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-guard2-code-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-guard2-asap2-qwen_qwen3-235b-a22b-2507/calls.jsonl"
+     ],
+     [
+      "guardrep-guard3-mohler-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-guard3-code-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-guard3-asap2-qwen_qwen3-235b-a22b-2507/calls.jsonl"
+     ],
+     [
+      "guardrep-guard4-mohler-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-guard4-code-qwen_qwen3-235b-a22b-2507/calls.jsonl",
+      "guardrep-guard4-asap2-qwen_qwen3-235b-a22b-2507/calls.jsonl"
+     ]
+    ]
+   }
+  },
+  "google/gemma-3-4b-it": {
+   "runs": {
+    "default": 6,
+    "guard": 5
+   },
+   "G_default_runs": [
+    0.16214814814814815,
+    0.16252188552188554,
+    0.16074074074074074,
+    0.16131313131313132,
+    0.15775533108866444,
+    0.16207407407407406
+   ],
+   "G_guard_runs": [
+    0.27092592592592596,
+    0.26651851851851854,
+    0.267037037037037,
+    0.26440740740740737,
+    0.2707037037037037
+   ],
+   "A_default_runs": [
+    0.6159090909090909,
+    0.6271317868805306,
+    0.6385016835016836,
+    0.6323469893520655,
+    0.6202093802345058,
+    0.6342592592592592
+   ],
+   "A_guard_runs": [
+    0.7633333333333333,
+    0.775,
+    0.7733333333333334,
+    0.7616666666666667,
+    0.7716666666666666
+   ],
+   "effect_G": {
+    "estimate": 0.1068263000374112,
+    "ci95": [
+     0.10333442490102664,
+     0.11031817517379576
+    ],
+    "df": 6.460682034562552
+   },
+   "effect_A": {
+    "estimate": 0.14094030164381077,
+    "ci95": [
+     0.13080970391219557,
+     0.15107089937542598
+    ],
+    "df": 8.80708370114768
+   },
+   "verdict": "GUARD MAKES IT MORE GAMEABLE",
+   "by_task": {
+    "mohler": {
+     "default": [
+      0.10600000000000001,
+      0.10101010101010102,
+      0.10200000000000001,
+      0.10200000000000001,
+      0.098,
+      0.10200000000000001
+     ],
+     "guard": [
+      0.238,
+      0.24,
+      0.236,
+      0.23199999999999998,
+      0.246
+     ],
+     "effect": {
+      "estimate": 0.13656498316498317,
+      "ci95": [
+       0.13024312381510186,
+       0.14288684251486447
+      ],
+      "df": 5.612265179433422
+     }
+    },
+    "code": {
+     "default": [
+      0.19444444444444445,
+      0.20055555555555557,
+      0.19222222222222224,
+      0.18800000000000003,
+      0.19326599326599328,
+      0.20022222222222222
+     ],
+     "guard": [
+      0.2707777777777778,
+      0.24955555555555556,
+      0.2571111111111111,
+      0.2552222222222222,
+      0.26211111111111113
+     ],
+     "effect": {
+      "estimate": 0.06417048260381591,
+      "ci95": [
+       0.05430594282504077,
+       0.07403502238259106
+      ],
+      "df": 6.358688013998278
+     }
+    },
+    "asap2": {
+     "default": [
+      0.186,
+      0.186,
+      0.188,
+      0.19393939393939394,
+      0.182,
+      0.184
+     ],
+     "guard": [
+      0.304,
+      0.31,
+      0.308,
+      0.306,
+      0.304
+     ],
+     "effect": {
+      "estimate": 0.11974343434343435,
+      "ci95": [
+       0.11508074330934218,
+       0.12440612537752652
+      ],
+      "df": 8.514236381142172
+     }
+    }
+   },
+   "runs_used": {
+    "default": [
+     [
+      "submissions/google__gemma-3-4b-it/mohler.json",
+      "submissions/google__gemma-3-4b-it/code.json",
+      "submissions/google__gemma-3-4b-it/asap2.json"
+     ],
+     [
+      "setup-default-mohler-google_gemma-3-4b-it/calls.jsonl",
+      "setup-default-code-google_gemma-3-4b-it/calls.jsonl",
+      "setup-default-asap2-google_gemma-3-4b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-default1-mohler-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-default1-code-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-default1-asap2-google_gemma-3-4b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-default2-mohler-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-default2-code-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-default2-asap2-google_gemma-3-4b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-default3-mohler-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-default3-code-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-default3-asap2-google_gemma-3-4b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-default4-mohler-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-default4-code-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-default4-asap2-google_gemma-3-4b-it/calls.jsonl"
+     ]
+    ],
+    "guard": [
+     [
+      "setup-guard-mohler-google_gemma-3-4b-it/calls.jsonl",
+      "setup-guard-code-google_gemma-3-4b-it/calls.jsonl",
+      "setup-guard-asap2-google_gemma-3-4b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-guard1-mohler-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-guard1-code-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-guard1-asap2-google_gemma-3-4b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-guard2-mohler-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-guard2-code-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-guard2-asap2-google_gemma-3-4b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-guard3-mohler-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-guard3-code-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-guard3-asap2-google_gemma-3-4b-it/calls.jsonl"
+     ],
+     [
+      "guardrep-guard4-mohler-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-guard4-code-google_gemma-3-4b-it/calls.jsonl",
+      "guardrep-guard4-asap2-google_gemma-3-4b-it/calls.jsonl"
+     ]
+    ]
+   }
+  },
+  "allenai/olmo-3.1-32b-instruct": {
+   "runs": {
+    "default": 2,
+    "guard": 1
+   },
+   "G_default_runs": [
+    0.4157777777777778,
+    0.42396296296296293
+   ],
+   "G_guard_runs": [
+    0.5185925925925926
+   ],
+   "A_default_runs": [
+    0.5633333333333334,
+    0.5733333333333334
+   ],
+   "A_guard_runs": [
+    0.5483333333333333
+   ],
+   "effect_G": null,
+   "effect_A": null,
+   "verdict": "UNMEASURED",
+   "by_task": {
+    "mohler": {
+     "default": [
+      0.29,
+      0.298
+     ],
+     "guard": [
+      0.322
+     ],
+     "effect": null
+    },
+    "code": {
+     "default": [
+      0.4113333333333334,
+      0.4278888888888889
+     ],
+     "guard": [
+      0.6977777777777777
+     ],
+     "effect": null
+    },
+    "asap2": {
+     "default": [
+      0.546,
+      0.546
+     ],
+     "guard": [
+      0.536
+     ],
+     "effect": null
+    }
+   },
+   "runs_used": {
+    "default": [
+     [
+      "submissions/allenai__olmo-3.1-32b-instruct/mohler.json",
+      "submissions/allenai__olmo-3.1-32b-instruct/code.json",
+      "submissions/allenai__olmo-3.1-32b-instruct/asap2.json"
+     ],
+     [
+      "setup-default-mohler-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "setup-default-code-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "setup-default-asap2-allenai_olmo-3.1-32b-instruct/calls.jsonl"
+     ]
+    ],
+    "guard": [
+     [
+      "setup-guard-mohler-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "setup-guard-code-allenai_olmo-3.1-32b-instruct/calls.jsonl",
+      "setup-guard-asap2-allenai_olmo-3.1-32b-instruct/calls.jsonl"
+     ]
+    ]
+   }
+  }
+ }
+}
