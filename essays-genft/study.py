@@ -203,7 +203,15 @@ PARTIAL with the prompts named. Order: setup, smoke, BASE battery, GENFT trainin
 folds in split.json's order. Runs are checked complete with scripts/check_runs.py before analysis; a run with more
 than 2% of gradings failed to send (not merely unparsed) is re-sent, not analysed short.
 
-CHANGES: none yet.
+CHANGES:
+1. (2026-10-27, before any training run or model call, and before the floor's 200-world run was read.) Two details
+   the scripts fix that the text above left open, written down so nothing is decided later: (a) the LoRA adapter's
+   own parameters are kept in fp32 (PEFT's default) while every base weight stays bf16 and the forward pass runs
+   under bf16 autocast; CHANGE 1 of essays-finetune cast its adapter to bf16, which loses small updates, and the
+   regression head is not part of this model. (b) The base model is served with --tokenizer-revision pinned to the
+   same revision as the weights, so the tokenizer and chat template cannot come from a later commit; the merged
+   checkpoint carries copies of those same files. The scripts are train_gen.py (on the pod), evaluate.py (the
+   battery, on the pod) and driver.py (the pod's life cycle, resumable).
 
 Usage:
     python3 essays-genft/study.py check-split --cases-dir <dir> --work <dir>      # overlap check; work files
