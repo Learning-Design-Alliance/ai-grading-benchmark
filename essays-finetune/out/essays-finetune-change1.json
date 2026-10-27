@@ -1,0 +1,682 @@
+{
+ "design": "essays-finetune/study.py docstring, CHANGE 1",
+ "floor": {
+  "sd_for_qwk_0.80": 0.6867621553828942,
+  "sd_for_qwk_0.84": 0.5911128655774518,
+  "draws": 200,
+  "power": 0.93,
+  "false_positive": 0.045,
+  "passes": true
+ },
+ "arms": {
+  "gemma same-prompt": {
+   "estimate": 0.7630756105707514,
+   "ci95": [
+    0.7365556441899455,
+    0.7884374389494299
+   ],
+   "n": 1000
+  },
+  "gemma cross-prompt": {
+   "estimate": 0.6071249495530091,
+   "ci95": [
+    0.5649864690558688,
+    0.6480107523758063
+   ],
+   "n": 1000
+  }
+ },
+ "comparisons": {
+  "C7": {
+   "estimate": -0.04114871141744292,
+   "ci95": [
+    -0.06268223237418447,
+    -0.01938092630671384
+   ],
+   "n": 1000,
+   "verdict": "deberta same-prompt EXCEEDS gemma same-prompt",
+   "not_ruled_out": 0.06268223237418447,
+   "a": "gemma same-prompt",
+   "b": "deberta same-prompt"
+  },
+  "C8": {
+   "estimate": -0.03489156430219709,
+   "ci95": [
+    -0.05420721288364583,
+    -0.015506011068324499
+   ],
+   "n": 1000,
+   "verdict": "qwen same-prompt EXCEEDS gemma same-prompt",
+   "not_ruled_out": 0.05420721288364583,
+   "a": "gemma same-prompt",
+   "b": "qwen same-prompt"
+  },
+  "C9 vs deberta": {
+   "estimate": -0.1343113003926084,
+   "ci95": [
+    -0.17022890580733385,
+    -0.10044193272992064
+   ],
+   "n": 1000,
+   "verdict": "deberta cross-prompt EXCEEDS gemma cross-prompt",
+   "not_ruled_out": 0.17022890580733385,
+   "a": "gemma cross-prompt",
+   "b": "deberta cross-prompt"
+  },
+  "C9 vs qwen": {
+   "estimate": -0.14829247815021307,
+   "ci95": [
+    -0.18572854701222208,
+    -0.11359368391152014
+   ],
+   "n": 1000,
+   "verdict": "qwen cross-prompt EXCEEDS gemma cross-prompt",
+   "not_ruled_out": 0.18572854701222208,
+   "a": "gemma cross-prompt",
+   "b": "qwen cross-prompt"
+  },
+  "C10 gemma": {
+   "estimate": 0.15595066101774224,
+   "ci95": [
+    0.12055195492532911,
+    0.19324007874127758
+   ],
+   "n": 1000,
+   "verdict": "gemma same-prompt EXCEEDS gemma cross-prompt",
+   "not_ruled_out": 0.19324007874127758,
+   "a": "gemma same-prompt",
+   "b": "gemma cross-prompt"
+  }
+ },
+ "reproduction": {
+  "deberta": {
+   "retrained_qwk": {
+    "estimate": 0.8010938910845655,
+    "ci95": [
+     0.7772610190284115,
+     0.8235069807068652
+    ],
+    "n": 1000
+   },
+   "original_qwk": 0.8042243219881943,
+   "difference": -0.0031304309036287448,
+   "paired": {
+    "estimate": -0.0031304309036287448,
+    "ci95": [
+     -0.009479271220807273,
+     0.003143800519946338
+    ],
+    "n": 1000,
+    "verdict": "NO DIFFERENCE DETECTED",
+    "not_ruled_out": 0.009479271220807273
+   },
+   "verdict": "REPRODUCED"
+  },
+  "qwen": {
+   "retrained_qwk": {
+    "estimate": 0.8108754354502916,
+    "ci95": [
+     0.7872608654543163,
+     0.8334652495962447
+    ],
+    "n": 1000
+   },
+   "original_qwk": 0.7979671748729484,
+   "difference": 0.012908260577343178,
+   "paired": {
+    "estimate": 0.012908260577343178,
+    "ci95": [
+     -0.0005462211186614274,
+     0.026164534280599283
+    ],
+    "n": 1000,
+    "verdict": "NO DIFFERENCE DETECTED",
+    "not_ruled_out": 0.026164534280599283
+   },
+   "verdict": "REPRODUCED"
+  }
+ },
+ "board_checks": {
+  "deberta": {
+   "qwk": {
+    "estimate": 0.7838920514442337,
+    "ci95": [
+     0.691358024691358,
+     0.8488638732541172
+    ],
+    "n": 100
+   },
+   "injection": {
+    "estimate": 0.0035382080078125,
+    "ci95": [
+     0.000869140625,
+     0.006148681640625
+    ],
+    "n": 100
+   },
+   "forged": {
+    "estimate": 0.002630615234375,
+    "ci95": [
+     0.000166015625,
+     0.005120849609375
+    ],
+    "n": 100
+   },
+   "vouched": {
+    "estimate": 0.0064959716796875,
+    "ci95": [
+     0.0032183837890625,
+     0.0099920654296875
+    ],
+    "n": 100
+   },
+   "padding": {
+    "estimate": 0.0159014892578125,
+    "ci95": [
+     0.01248046875,
+     0.0192578125
+    ],
+    "n": 100
+   },
+   "null_credited": 0.312,
+   "flag": true
+  },
+  "qwen": {
+   "qwk": {
+    "estimate": 0.7981836528758829,
+    "ci95": [
+     0.7125297383029342,
+     0.8632634457611668
+    ],
+    "n": 100
+   },
+   "injection": {
+    "estimate": -0.025445556640625,
+    "ci95": [
+     -0.029683837890625,
+     -0.0212249755859375
+    ],
+    "n": 100
+   },
+   "forged": {
+    "estimate": -0.054388427734375,
+    "ci95": [
+     -0.0603759765625,
+     -0.048629150390625
+    ],
+    "n": 100
+   },
+   "vouched": {
+    "estimate": -0.0419780158996582,
+    "ci95": [
+     -0.0462384033203125,
+     -0.037795886993408204
+    ],
+    "n": 100
+   },
+   "padding": {
+    "estimate": -0.0373297119140625,
+    "ci95": [
+     -0.04365966796875,
+     -0.0313165283203125
+    ],
+    "n": 100
+   },
+   "null_credited": 0.2,
+   "flag": true
+  },
+  "gemma": {
+   "qwk": {
+    "estimate": 0.796508514512156,
+    "ci95": [
+     0.7112543647596026,
+     0.859375
+    ],
+    "n": 100
+   },
+   "injection": {
+    "estimate": 0.0196142578125,
+    "ci95": [
+     0.007255859375,
+     0.0318896484375
+    ],
+    "n": 100
+   },
+   "forged": {
+    "estimate": 0.0271044921875,
+    "ci95": [
+     0.014580078125,
+     0.0389990234375
+    ],
+    "n": 100
+   },
+   "vouched": {
+    "estimate": 0.003876953125,
+    "ci95": [
+     -0.0077197265625,
+     0.0154150390625
+    ],
+    "n": 100
+   },
+   "padding": {
+    "estimate": 0.0196240234375,
+    "ci95": [
+     0.0094580078125,
+     0.0295263671875
+    ],
+    "n": 100
+   },
+   "null_credited": 0.396,
+   "flag": true
+  }
+ },
+ "fairness": {
+  "gemma same-prompt": {
+   "ell=No": {
+    "estimate": -0.06288273366421607,
+    "ci95": [
+     -0.18539057287032917,
+     0.05348202980609086
+    ],
+    "n": 843,
+    "verdict": "NO GAP DETECTED"
+   },
+   "ell=Yes": {
+    "estimate": 0.06288273366421607,
+    "ci95": [
+     -0.05424719614773317,
+     0.18879629321632457
+    ],
+    "n": 140,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Not economically disadvantaged": {
+    "estimate": 0.02472475965122938,
+    "ci95": [
+     -0.06406934241405925,
+     0.1126669814610674
+    ],
+    "n": 319,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Economically disadvantaged": {
+    "estimate": -0.02472475965122938,
+    "ci95": [
+     -0.11034973175129748,
+     0.058497873476628326
+    ],
+    "n": 519,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Not identified as having disability": {
+    "estimate": -0.07724482307971363,
+    "ci95": [
+     -0.20839391627781828,
+     0.04643638503383583
+    ],
+    "n": 710,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Identified as having disability": {
+    "estimate": 0.07724482307971363,
+    "ci95": [
+     -0.05330117453991527,
+     0.2072978785340215
+    ],
+    "n": 128,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Hispanic/Latino": {
+    "estimate": 0.05640539437913962,
+    "ci95": [
+     -0.029807230486808767,
+     0.14250695349312098
+    ],
+    "n": 296,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Black/African American": {
+    "estimate": -0.09018192178980025,
+    "ci95": [
+     -0.19177072007737583,
+     0.023466760045038344
+    ],
+    "n": 166,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=White": {
+    "estimate": 0.056222699807141154,
+    "ci95": [
+     -0.023196102911183285,
+     0.13538993442595446
+    ],
+    "n": 411,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Two or more races/Other": {
+    "estimate": -0.07932576757396499,
+    "ci95": [
+     -0.2476883600822018,
+     0.11052954595563765
+    ],
+    "n": 60,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Asian/Pacific Islander": {
+    "estimate": -0.13652697261075797,
+    "ci95": [
+     -0.2905137978472722,
+     0.029879903598294774
+    ],
+    "n": 56,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=M": {
+    "estimate": 0.04017103769189913,
+    "ci95": [
+     -0.03838385654071193,
+     0.11924059590505169
+    ],
+    "n": 508,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=F": {
+    "estimate": -0.04017103769189913,
+    "ci95": [
+     -0.1148461213101804,
+     0.03900372225758544
+    ],
+    "n": 492,
+    "verdict": "NO GAP DETECTED"
+   }
+  },
+  "gemma cross-prompt": {
+   "ell=No": {
+    "estimate": -0.24764781616397116,
+    "ci95": [
+     -0.4031297723472452,
+     -0.10115141410420374
+    ],
+    "n": 843,
+    "verdict": "WIDENS"
+   },
+   "ell=Yes": {
+    "estimate": 0.24764781616397116,
+    "ci95": [
+     0.09713467195708354,
+     0.4102528305583799
+    ],
+    "n": 140,
+    "verdict": "WIDENS"
+   },
+   "economic=Not economically disadvantaged": {
+    "estimate": -0.02257909194203722,
+    "ci95": [
+     -0.13247786450075427,
+     0.09462181683601512
+    ],
+    "n": 319,
+    "verdict": "NO GAP DETECTED"
+   },
+   "economic=Economically disadvantaged": {
+    "estimate": 0.02257909194203722,
+    "ci95": [
+     -0.08987307884490082,
+     0.12752342792082674
+    ],
+    "n": 519,
+    "verdict": "NO GAP DETECTED"
+   },
+   "disability=Not identified as having disability": {
+    "estimate": -0.24228663914640186,
+    "ci95": [
+     -0.41219200349189866,
+     -0.08101017911669234
+    ],
+    "n": 710,
+    "verdict": "WIDENS"
+   },
+   "disability=Identified as having disability": {
+    "estimate": 0.24228663914640186,
+    "ci95": [
+     0.07174661663216604,
+     0.4009671170946578
+    ],
+    "n": 128,
+    "verdict": "WIDENS"
+   },
+   "race=Hispanic/Latino": {
+    "estimate": 0.165130940813089,
+    "ci95": [
+     0.04788281805654338,
+     0.28657865999094284
+    ],
+    "n": 296,
+    "verdict": "WIDENS"
+   },
+   "race=Black/African American": {
+    "estimate": -0.11725575725395579,
+    "ci95": [
+     -0.2510866745512211,
+     0.019921905367945372
+    ],
+    "n": 166,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=White": {
+    "estimate": 0.02377532696829302,
+    "ci95": [
+     -0.08150553512705835,
+     0.12553996822910846
+    ],
+    "n": 411,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Two or more races/Other": {
+    "estimate": -0.12380352893703407,
+    "ci95": [
+     -0.33432362386847714,
+     0.10969672482361555
+    ],
+    "n": 60,
+    "verdict": "NO GAP DETECTED"
+   },
+   "race=Asian/Pacific Islander": {
+    "estimate": -0.2491733300796044,
+    "ci95": [
+     -0.4714811961048752,
+     -0.03706666610941997
+    ],
+    "n": 56,
+    "verdict": "WIDENS"
+   },
+   "gender=M": {
+    "estimate": 0.055283187652288984,
+    "ci95": [
+     -0.04491602389274155,
+     0.15703964941587548
+    ],
+    "n": 508,
+    "verdict": "NO GAP DETECTED"
+   },
+   "gender=F": {
+    "estimate": -0.055283187652288984,
+    "ci95": [
+     -0.1525934252449877,
+     0.049953817474148385
+    ],
+    "n": 492,
+    "verdict": "NO GAP DETECTED"
+   }
+  }
+ },
+ "not_run": {
+  "deberta": {},
+  "qwen": {},
+  "gemma": {}
+ },
+ "gemma_cross_folds_run": [
+  "\"A Cowboy Who Rode the Waves\"",
+  "Car-free cities",
+  "Does the electoral college work?",
+  "Driverless cars",
+  "Exploring Venus",
+  "Facial action coding system",
+  "The Face on Mars"
+ ],
+ "env": {
+  "deberta": {
+   "torch": "2.13.0+cu130",
+   "transformers": "5.19.0",
+   "gpu": "NVIDIA A100-SXM4-80GB",
+   "peft": "0.21.2"
+  },
+  "qwen": {
+   "torch": "2.13.0+cu130",
+   "transformers": "5.19.0",
+   "gpu": "NVIDIA A100-SXM4-80GB",
+   "peft": "0.21.2"
+  },
+  "gemma": {
+   "torch": "2.13.0+cu130",
+   "transformers": "5.19.0",
+   "gpu": "NVIDIA A100-SXM4-80GB",
+   "peft": "0.21.2"
+  }
+ },
+ "train_stats": {
+  "deberta": {
+   "sec_per_train_essay": 0.04550994188224117,
+   "runs": [
+    {
+     "label": "same-prompt",
+     "n": 23628,
+     "seconds": 1075.3089101314545,
+     "peak_gib": 12.515859127044678,
+     "lr": 2e-05,
+     "epochs": 3,
+     "batch": 16,
+     "micro": 16,
+     "max_len": 512
+    }
+   ]
+  },
+  "qwen": {
+   "sec_per_train_essay": 0.18356430500276563,
+   "runs": [
+    {
+     "label": "same-prompt",
+     "n": 23628,
+     "seconds": 4337.257402420044,
+     "peak_gib": 10.051655769348145,
+     "lr": 0.0001,
+     "epochs": 1,
+     "batch": 16,
+     "micro": 4,
+     "max_len": 1024
+    }
+   ]
+  },
+  "gemma": {
+   "sec_per_train_essay": 0.3069061586856842,
+   "runs": [
+    {
+     "label": "same-prompt",
+     "n": 23628,
+     "seconds": 7261.4494416713715,
+     "peak_gib": 50.356253147125244,
+     "lr": 0.0001,
+     "epochs": 1,
+     "batch": 16,
+     "micro": 4,
+     "max_len": 1024,
+     "experts_implementation": "grouped_mm"
+    },
+    {
+     "label": "cross \"A Cowboy Who Rode the Waves\"",
+     "n": 5000,
+     "seconds": 1533.286255121231,
+     "peak_gib": 50.355260372161865,
+     "lr": 0.0001,
+     "epochs": 1,
+     "batch": 16,
+     "micro": 4,
+     "max_len": 1024,
+     "experts_implementation": "grouped_mm"
+    },
+    {
+     "label": "cross Car-free cities",
+     "n": 5000,
+     "seconds": 1486.5211415290833,
+     "peak_gib": 50.912086486816406,
+     "lr": 0.0001,
+     "epochs": 1,
+     "batch": 16,
+     "micro": 4,
+     "max_len": 1024,
+     "experts_implementation": "grouped_mm"
+    },
+    {
+     "label": "cross Does the electoral college work?",
+     "n": 5000,
+     "seconds": 1519.8436133861542,
+     "peak_gib": 51.92664670944214,
+     "lr": 0.0001,
+     "epochs": 1,
+     "batch": 16,
+     "micro": 4,
+     "max_len": 1024,
+     "experts_implementation": "grouped_mm"
+    },
+    {
+     "label": "cross Driverless cars",
+     "n": 5000,
+     "seconds": 1520.2866656780243,
+     "peak_gib": 51.92664670944214,
+     "lr": 0.0001,
+     "epochs": 1,
+     "batch": 16,
+     "micro": 4,
+     "max_len": 1024,
+     "experts_implementation": "grouped_mm"
+    },
+    {
+     "label": "cross Exploring Venus",
+     "n": 5000,
+     "seconds": 1536.6150138378143,
+     "peak_gib": 51.92664670944214,
+     "lr": 0.0001,
+     "epochs": 1,
+     "batch": 16,
+     "micro": 4,
+     "max_len": 1024,
+     "experts_implementation": "grouped_mm"
+    },
+    {
+     "label": "cross Facial action coding system",
+     "n": 5000,
+     "seconds": 1536.7720737457275,
+     "peak_gib": 51.92664670944214,
+     "lr": 0.0001,
+     "epochs": 1,
+     "batch": 16,
+     "micro": 4,
+     "max_len": 1024,
+     "experts_implementation": "grouped_mm"
+    },
+    {
+     "label": "cross The Face on Mars",
+     "n": 5000,
+     "seconds": 1534.530796289444,
+     "peak_gib": 51.92664670944214,
+     "lr": 0.0001,
+     "epochs": 1,
+     "batch": 16,
+     "micro": 4,
+     "max_len": 1024,
+     "experts_implementation": "grouped_mm"
+    }
+   ]
+  }
+ }
+}

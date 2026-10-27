@@ -431,3 +431,19 @@ Eight pre-registered studies; each docstring holds the design and its numbered c
   - Olmo added to the setups study on a rented GPU.
   - `pushback.py` opened to any endpoint.
   - No machine-local paths in tracked files; git history rewritten to remove them (maintainer's decision).
+
+## Essays fine-tuning, CHANGE 1: Gemma 4 26B A4B LoRA and the full board battery (2026-10-27)
+
+**Asked (the maintainer):** does fine-tuning a larger open model, Gemma 4 26B A4B, do better than DeBERTa and Qwen3 4B,
+especially on an unseen prompt? And what do the fine-tuned scorers score on the full leaderboard battery?
+
+**Came back:** no; the larger model does worse.
+- **Same prompts:** QWK 0.763 [0.737, 0.788]. DeBERTa and Qwen each exceed it, by 0.041 and 0.035.
+- **Unseen prompt:** 0.607 [0.565, 0.648], which is 0.134 below DeBERTa and 0.148 below Qwen. That is a cost of
+  0.156 for an unseen prompt, against 0.063 and 0.043 for the other two.
+- **Recipe:** one, untuned, Qwen's. The expert layers stayed frozen, because PEFT cannot adapt fused experts.
+- **Battery:** all three fine-tuned scorers now have full-battery rows (`essays-finetune/out/board_rows.json`).
+  Board QWK is 0.78-0.80, and none is gameable by more than 2% of the scale. Every one credits blank answers.
+- **Reproduction:** the retrained DeBERTa and Qwen reproduce their test QWK within 0.02. Their blank-answer
+  crediting did not reproduce (DeBERTa 42 of 500 before, 156 after).
+- **Spend:** GPU about $10.

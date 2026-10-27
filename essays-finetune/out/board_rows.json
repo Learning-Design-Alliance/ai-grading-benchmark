@@ -1,0 +1,319 @@
+{
+ "design": "essays-finetune/study.py docstring, CHANGE 1 (FULL BOARD BATTERY)",
+ "rows": [
+  {
+   "model": "fine-tuned: DeBERTa-v3-base",
+   "task": "asap2",
+   "track": "fine-tuned",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": null,
+   "served_models": [
+    "fine-tuned:deberta"
+   ],
+   "providers": [
+    "local"
+   ],
+   "qwk": {
+    "estimate": 0.7838920514442337,
+    "ci95": [
+     0.6913469518751558,
+     0.8488639388912781
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 1.0,
+    "ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.006,
+     0.006
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.04719101123595505,
+    "ci95": [
+     -0.06297752808988763,
+     -0.029213483146067414
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.3142857142857143,
+   "decision_kappa": {
+    "estimate": 0.7572815533980584,
+    "ci95": [
+     0.5959582353709509,
+     0.8873356386072268
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 1.0522040958983003,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": null,
+   "n_train": 23628,
+   "model_revision": "microsoft/deberta-v3-base/8ccc9b6f36199bec6961081d44eb72fb3f7353f3",
+   "source": "essays-finetune/study.py CHANGE 1 (same-prompt model, trained on the study's TRAIN split)",
+   "recipe": {
+    "lr": 2e-05,
+    "epochs": 3,
+    "batch": 16,
+    "micro": 16,
+    "max_len": 512
+   },
+   "precision": "fp32 weights, bf16 autocast",
+   "env": {
+    "torch": "2.13.0+cu130",
+    "transformers": "5.19.0",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "peft": "0.21.2"
+   },
+   "by_construction": [
+    "attainment label effect is 0 (the scorer never sees the label)",
+    "retest agreement is 1 (deterministic: each distinct input is scored once)"
+   ],
+   "reproduction": {
+    "retrained_test_qwk": 0.8010938910845655,
+    "original_test_qwk": 0.8042243219881943,
+    "verdict": "REPRODUCED"
+   }
+  },
+  {
+   "model": "fine-tuned: Qwen3 4B LoRA",
+   "task": "asap2",
+   "track": "fine-tuned",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": null,
+   "served_models": [
+    "fine-tuned:qwen"
+   ],
+   "providers": [
+    "local"
+   ],
+   "qwk": {
+    "estimate": 0.7981836528758829,
+    "ci95": [
+     0.7125197847699667,
+     0.8632673054213333
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 1.0,
+    "ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": -0.028000000000000004,
+    "ci95": [
+     -0.041999999999999996,
+     -0.016
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.011235955056179775,
+    "ci95": [
+     -0.020224719101123594,
+     -0.002247191011235955
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.020224719101123594,
+    "ci95": [
+     -0.033707865168539325,
+     -0.00898876404494382
+    ],
+    "flag": true
+   },
+   "blank_credited": 0.2,
+   "decision_kappa": {
+    "estimate": 0.7406639004149378,
+    "ci95": [
+     0.572851924094155,
+     0.8795281992523406
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 1.071387453524675,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": null,
+   "n_train": 23628,
+   "model_revision": "Qwen/Qwen3-4B-Instruct-2507/cdbee75f17c01a7cc42f958dc650907174af0554",
+   "source": "essays-finetune/study.py CHANGE 1 (same-prompt model, trained on the study's TRAIN split)",
+   "recipe": {
+    "lr": 0.0001,
+    "epochs": 1,
+    "batch": 16,
+    "micro": 4,
+    "max_len": 1024
+   },
+   "precision": "bf16 weights, LoRA, bf16 autocast",
+   "env": {
+    "torch": "2.13.0+cu130",
+    "transformers": "5.19.0",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "peft": "0.21.2"
+   },
+   "by_construction": [
+    "attainment label effect is 0 (the scorer never sees the label)",
+    "retest agreement is 1 (deterministic: each distinct input is scored once)"
+   ],
+   "reproduction": {
+    "retrained_test_qwk": 0.8108754354502916,
+    "original_test_qwk": 0.7979671748729484,
+    "verdict": "REPRODUCED"
+   }
+  },
+  {
+   "model": "fine-tuned: Gemma 4 26B A4B LoRA",
+   "task": "asap2",
+   "track": "fine-tuned",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": null,
+   "served_models": [
+    "fine-tuned:gemma"
+   ],
+   "providers": [
+    "local"
+   ],
+   "qwk": {
+    "estimate": 0.796508514512156,
+    "ci95": [
+     0.7112543647596026,
+     0.8593757988241308
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 1.0,
+    "ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.016,
+    "ci95": [
+     -0.004,
+     0.03404999999999973
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.0449438202247191,
+    "ci95": [
+     -0.06292134831460675,
+     -0.02696629213483146
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.00898876404494382,
+    "ci95": [
+     -0.024719101123595506,
+     0.006741573033707865
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.4,
+   "decision_kappa": {
+    "estimate": 0.6957403651115619,
+    "ci95": [
+     0.5203804973079104,
+     0.844155844155844
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 1.0691389456539007,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": null,
+   "n_train": 23628,
+   "model_revision": "google/gemma-4-26B-A4B-it/4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+   "source": "essays-finetune/study.py CHANGE 1 (same-prompt model, trained on the study's TRAIN split)",
+   "recipe": {
+    "lr": 0.0001,
+    "epochs": 1,
+    "batch": 16,
+    "micro": 4,
+    "max_len": 1024,
+    "experts_implementation": "grouped_mm"
+   },
+   "precision": "bf16 weights, LoRA, bf16 autocast",
+   "env": {
+    "torch": "2.13.0+cu130",
+    "transformers": "5.19.0",
+    "gpu": "NVIDIA A100-SXM4-80GB",
+    "peft": "0.21.2"
+   },
+   "by_construction": [
+    "attainment label effect is 0 (the scorer never sees the label)",
+    "retest agreement is 1 (deterministic: each distinct input is scored once)"
+   ]
+  }
+ ]
+}
