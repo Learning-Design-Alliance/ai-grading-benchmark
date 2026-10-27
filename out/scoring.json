@@ -1897,6 +1897,102 @@
    }
   },
   {
+   "model": "fine-tuned: Gemma 4 26B A4B LoRA",
+   "tasks": [
+    "asap2"
+   ],
+   "complete": false,
+   "strands": {
+    "agreement": 100.0,
+    "decision": null,
+    "relevant": 74.9438202247191,
+    "irrelevant": 91.50561797752809,
+    "fairness": 100.0,
+    "consistency": 100.0
+   },
+   "per_task": {
+    "asap2": {
+     "agreement": 100.0,
+     "decision": null,
+     "relevant": 74.9438202247191,
+     "irrelevant": 91.50561797752809,
+     "fairness": 100.0,
+     "consistency": 100.0,
+     "feedback": null
+    }
+   },
+   "overall": 95.2752808988764,
+   "flags": [
+    "credits blank or junk answers"
+   ],
+   "overall_by_task": {
+    "asap2": 95.2752808988764
+   },
+   "task_range": [
+    95.2752808988764,
+    95.2752808988764
+   ],
+   "rank_ci95": null,
+   "track": "fine-tuned",
+   "reference": true,
+   "by_construction": [
+    "attainment label effect is 0 (the scorer never sees the label)",
+    "retest agreement is 1 (deterministic: each distinct input is scored once)"
+   ],
+   "rank": null,
+   "n_train": {
+    "asap2": 23628
+   }
+  },
+  {
+   "model": "fine-tuned: Qwen3 4B LoRA",
+   "tasks": [
+    "asap2"
+   ],
+   "complete": false,
+   "strands": {
+    "agreement": 100.0,
+    "decision": null,
+    "relevant": 51.235955056179776,
+    "irrelevant": 89.88764044943821,
+    "fairness": 100.0,
+    "consistency": 100.0
+   },
+   "per_task": {
+    "asap2": {
+     "agreement": 100.0,
+     "decision": null,
+     "relevant": 51.235955056179776,
+     "irrelevant": 89.88764044943821,
+     "fairness": 100.0,
+     "consistency": 100.0,
+     "feedback": null
+    }
+   },
+   "overall": 92.00842696629213,
+   "flags": [
+    "credits blank or junk answers"
+   ],
+   "overall_by_task": {
+    "asap2": 92.00842696629213
+   },
+   "task_range": [
+    92.00842696629213,
+    92.00842696629213
+   ],
+   "rank_ci95": null,
+   "track": "fine-tuned",
+   "reference": true,
+   "by_construction": [
+    "attainment label effect is 0 (the scorer never sees the label)",
+    "retest agreement is 1 (deterministic: each distinct input is scored once)"
+   ],
+   "rank": null,
+   "n_train": {
+    "asap2": 23628
+   }
+  },
+  {
    "model": "baseline: reference-similarity",
    "tasks": [
     "code",
@@ -3015,6 +3111,23 @@
     "rank": 9
    },
    {
+    "model": "fine-tuned: Gemma 4 26B A4B LoRA",
+    "reference": true,
+    "strands": {
+     "agreement": 100.0,
+     "decision": null,
+     "relevant": 74.9438202247191,
+     "irrelevant": 91.50561797752809,
+     "fairness": 100.0,
+     "consistency": 100.0
+    },
+    "score": 95.2752808988764,
+    "flags": [
+     "credits blank or junk answers"
+    ],
+    "rank": null
+   },
+   {
     "model": "baseline: deberta-ft",
     "reference": true,
     "strands": {
@@ -3026,6 +3139,23 @@
      "consistency": 100.0
     },
     "score": 95.1973816211878,
+    "flags": [
+     "credits blank or junk answers"
+    ],
+    "rank": null
+   },
+   {
+    "model": "fine-tuned: Qwen3 4B LoRA",
+    "reference": true,
+    "strands": {
+     "agreement": 100.0,
+     "decision": null,
+     "relevant": 51.235955056179776,
+     "irrelevant": 89.88764044943821,
+     "fairness": 100.0,
+     "consistency": 100.0
+    },
+    "score": 92.00842696629213,
     "flags": [
      "credits blank or junk answers"
     ],

@@ -16,6 +16,14 @@
 "essays": 1000
 },
 {
+"key": "gemma same-prompt",
+"arm": "Gemma 4 26B A4B, fine-tuned, same prompts",
+"qwk": 0.7630756105707514,
+"qwk_lo": 0.7365556441899455,
+"qwk_hi": 0.7884374389494299,
+"essays": 1000
+},
+{
 "key": "qwen cross-prompt",
 "arm": "Qwen3 4B, fine-tuned, unseen prompt",
 "qwk": 0.7554174277032222,
@@ -54,6 +62,14 @@
 "qwk_lo": 0.5768866994077273,
 "qwk_hi": 0.6697782963827303,
 "essays": 495
+},
+{
+"key": "gemma cross-prompt",
+"arm": "Gemma 4 26B A4B, fine-tuned, unseen prompt",
+"qwk": 0.6071249495530091,
+"qwk_lo": 0.5649864690558688,
+"qwk_hi": 0.6480107523758063,
+"essays": 1000
 },
 {
 "key": "claude-haiku-5.5 anchored",

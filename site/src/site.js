@@ -1027,11 +1027,16 @@ const METHODS = [
     good: "The best grader of all on essays from assignments it was trained on: its agreement with the final grade is above the original graders' agreement with each other. It cannot be swayed by a note asking for a higher grade, gives the same grade every time, and once trained runs cheaply on modest hardware.",
     bad: "Only as good as its training data: with 1,627 graded short answers it is weaker than most AI models, and with 29 graded code answers it learned nothing. Gives credit to blank essays (14%) and to all blank short answers and code. Training needs a graphics card and technical skill. A new assignment means new graded answers and retraining. No feedback or explanation.",
     when: "When an institution has thousands of graded essays on the same assignments and needs only a grade, for example as a check on human grading. Not for new assignments, short answers with few examples, or anything needing feedback." },
-  { key: "qwen-ft", name: "Qwen3 4B Instruct, fine-tuned", study: true, what: "A small open AI language model, retrained to predict essay grades.",
+  { key: "qwen-ft", name: "Qwen3 4B Instruct, fine-tuned", study: /Qwen/, what: "A small open AI language model, retrained to predict essay grades.",
     how: "Qwen3-4B-Instruct is a small open AI model (4 billion internal numbers) from Alibaba's Qwen team. It was fine-tuned on about 23,600 graded essays with a light-weight method (LoRA) that trains a small add-on rather than the whole model, plus a final step that outputs a grade. Tested in the essay study, on 1,000 essays it had never seen.",
     good: "Essays, about as well as DeBERTa, both on assignments it was trained on and on a new assignment it never saw (no difference between the two was detected in either case). Not swayed by notes asking for a higher grade.",
     bad: "Gives credit to blank essays 29% of the time, more than DeBERTa. Needs thousands of graded essays and a graphics card to train. Only tested on essays. Produces a grade only.",
-    when: "Much as for DeBERTa. This study found no advantage for the larger model; a fine-tuned Gemma 4 26B is being tested next." },
+    when: "Much as for DeBERTa. This study found no advantage for this larger model over DeBERTa, and none for the larger Gemma 4 26B either (next card)." },
+  { key: "gemma-ft", name: "Gemma 4 26B A4B, fine-tuned", study: /Gemma/, what: "A larger open AI language model, retrained to predict essay grades.",
+    how: "Gemma 4 26B A4B is an open AI model from Google with 26 billion internal numbers, of which about 4 billion are used for each word. It was fine-tuned the same way as Qwen3 4B: on about 23,600 graded essays with LoRA, a light-weight method that trains a small add-on, plus a final step that outputs a grade. The add-on could not reach the model's specialist sub-networks, which stayed unchanged. Tested in the essay study, on 1,000 essays it had never seen.",
+    good: "Essays on assignments it was trained on, though less well than DeBERTa or Qwen3 4B. Not swayed by notes asking for a higher grade.",
+    bad: "Loses the most on a new assignment: agreement with the essay graders falls by 0.156, two and a half to almost four times what a new assignment cost DeBERTa and Qwen3 4B. In a check on 500 blank or meaningless essays it gave credit to 198, more than either. Needs a large graphics card to train. Only tested on essays. Produces a grade only.",
+    when: "Not recommended over DeBERTa or Qwen3 4B: it is larger and costlier to train, and it does worse, above all on new assignments." },
 ];
 const REFS = { "encoder-ridge": ["sbert", "minilm"], "deberta-ft": ["deberta"] };
 function drawMethods() {
@@ -1039,7 +1044,7 @@ function drawMethods() {
   const B = D.baselines || [], FT = D.essays_finetune || [];
   METHODS.forEach(m => {
     const rows = m.study
-      ? FT.filter(r => /Qwen/i.test(r.arm)).map(r => ({ task: /unseen/i.test(r.arm) ? "Essays, new assignment" : "Essays, same assignments", qwk: r.qwk, lo: r.qwk_lo, hi: r.qwk_hi, n: null }))
+      ? FT.filter(r => m.study.test(r.arm)).map(r => ({ task: /unseen/i.test(r.arm) ? "Essays, new assignment" : "Essays, same assignments", qwk: r.qwk, lo: r.qwk_lo, hi: r.qwk_hi, n: null }))
       : B.filter(b => b.baseline === m.key).map(b => ({ task: b.task, qwk: b.qwk, lo: b.qwk_lo, hi: b.qwk_hi, share: b.task === "Essays" ? b.share_published : b.share, blank: b.blank_pct, gaming: b.gaming_pct, n: b.n_train }));
     const tbl = el("div", { class: "tbl" });
     const card = el("article", { class: "mcard", id: "method-" + m.key },

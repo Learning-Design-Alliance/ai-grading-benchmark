@@ -662,34 +662,6 @@
 "consistency": 100.0
 },
 {
-"key": "all|baseline: reference-similarity",
-"task": "All tasks",
-"model_id": "baseline: reference-similarity",
-"model": "Similarity to the reference answer",
-"vendor": "",
-"kind": "trained",
-"group": "classic",
-"how": "TF-IDF cosine similarity to the model answer, mapped to the scale. Trained on this corpus's own graded answers (short answers: 1,627 graded answers; code: 29 graded answers)",
-"by_construction": [
-"attainment label effect is 0 (the baseline never sees the label)",
-"retest agreement is 1 (deterministic)"
-],
-"complete": false,
-"tasks": "Code, Short answers",
-"score": 54.4,
-"rank": null,
-"rank_lo": null,
-"rank_hi": null,
-"flags": "credits blank or junk answers",
-"reference": true,
-"agreement": 14.1,
-"decision": 0.0,
-"relevant": 4.7,
-"irrelevant": 100.0,
-"fairness": 100.0,
-"consistency": 100.0
-},
-{
 "key": "mohler|anthropic/claude-fable-5.1",
 "task": "Short answers",
 "model_id": "anthropic/claude-fable-5.1",
@@ -2286,6 +2258,33 @@
 "consistency": 70.1
 },
 {
+"key": "asap2|fine-tuned: Gemma 4 26B A4B LoRA",
+"task": "Essays",
+"model_id": "fine-tuned: Gemma 4 26B A4B LoRA",
+"model": "Gemma 4 26B A4B, fine-tuned (LoRA)",
+"vendor": "",
+"kind": "trained",
+"group": "fine-tuned language model",
+"how": "Gemma 4 26B A4B instruction-tuned (Google, 26B parameters, 4B active), LoRA and a regression head. Trained on this corpus's own graded answers (essays: 23,628 graded answers)",
+"by_construction": [
+"attainment label effect is 0 (the scorer never sees the label)",
+"retest agreement is 1 (deterministic: each distinct input is scored once)"
+],
+"complete": true,
+"score": 95.3,
+"rank": null,
+"rank_lo": null,
+"rank_hi": null,
+"flags": "credits blank or junk answers",
+"reference": true,
+"agreement": 100.0,
+"decision": null,
+"relevant": 74.9,
+"irrelevant": 91.5,
+"fairness": 100.0,
+"consistency": 100.0
+},
+{
 "key": "asap2|baseline: deberta-ft",
 "task": "Essays",
 "model_id": "baseline: deberta-ft",
@@ -2309,6 +2308,33 @@
 "decision": null,
 "relevant": 65.3,
 "irrelevant": 97.5,
+"fairness": 100.0,
+"consistency": 100.0
+},
+{
+"key": "asap2|fine-tuned: Qwen3 4B LoRA",
+"task": "Essays",
+"model_id": "fine-tuned: Qwen3 4B LoRA",
+"model": "Qwen3 4B Instruct, fine-tuned (LoRA)",
+"vendor": "",
+"kind": "trained",
+"group": "fine-tuned language model",
+"how": "Qwen/Qwen3-4B-Instruct-2507 (Alibaba Qwen, 4B parameters), LoRA and a regression head. Trained on this corpus's own graded answers (essays: 23,628 graded answers)",
+"by_construction": [
+"attainment label effect is 0 (the scorer never sees the label)",
+"retest agreement is 1 (deterministic: each distinct input is scored once)"
+],
+"complete": true,
+"score": 92.0,
+"rank": null,
+"rank_lo": null,
+"rank_hi": null,
+"flags": "credits blank or junk answers",
+"reference": true,
+"agreement": 100.0,
+"decision": null,
+"relevant": 51.2,
+"irrelevant": 89.9,
 "fairness": 100.0,
 "consistency": 100.0
 },

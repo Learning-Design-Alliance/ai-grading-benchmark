@@ -255,6 +255,10 @@ def scoring():
         m, vendor, kind = NAMES.get(model, (model, "", ""))
         return {"model": m, "vendor": vendor, "kind": kind, "group": kind, "how": None, "by_construction": None}
     for r in o["rows"]:
+        # A reference row run on only some tasks would show a one-task score beside every-task scores; it appears
+        # in its own tasks' views only.
+        if r.get("reference") and not r["complete"]:
+            continue
         row = {"key": "all|" + r["model"], "task": "All tasks", "model_id": r["model"], **describe(r["model"]),
                "complete": r["complete"], "tasks": ", ".join(TASKS.get(t, t) for t in r["tasks"]),
                "score": None if r["overall"] is None else round(r["overall"], 1), "rank": r.get("rank"),
@@ -882,9 +886,12 @@ def essays_finetune():
     if not d:
         return []
     label = {"deberta same-prompt": "DeBERTa, fine-tuned, same prompts", "deberta cross-prompt": "DeBERTa, fine-tuned, unseen prompt",
-             "qwen same-prompt": "Qwen3 4B, fine-tuned, same prompts", "qwen cross-prompt": "Qwen3 4B, fine-tuned, unseen prompt"}
+             "qwen same-prompt": "Qwen3 4B, fine-tuned, same prompts", "qwen cross-prompt": "Qwen3 4B, fine-tuned, unseen prompt",
+             "gemma same-prompt": "Gemma 4 26B A4B, fine-tuned, same prompts", "gemma cross-prompt": "Gemma 4 26B A4B, fine-tuned, unseen prompt"}
     rows = []
-    for arm, v in d["arms"].items():
+    # CHANGE 1 (the Gemma 4 26B A4B arm) wrote its arms to their own file.
+    c1 = _load("essays-finetune", "out", "essays-finetune-change1.json") or {}
+    for arm, v in {**d["arms"], **{k: v for k, v in (c1.get("arms") or {}).items() if k.startswith("gemma")}}.items():
         if arm not in label:
             m, cond = arm.rsplit(" ", 1)
             label[arm] = {"claude-haiku-5.5": "Claude Haiku 5.5", "glm-5.3-flash": "GLM 5.3 Flash",
