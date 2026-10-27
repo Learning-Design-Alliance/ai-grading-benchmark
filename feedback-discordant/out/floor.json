@@ -1,0 +1,29 @@
+{
+ "design": "feedback-discordant/study.py FLOOR",
+ "worlds": 400,
+ "planted_detection": 0.865,
+ "null_flag_rate": 0.07,
+ "profiles": [
+  {
+   "slug": "openai_gpt-5-mini",
+   "n": 99,
+   "sd": 2.1412582506167865
+  },
+  {
+   "slug": "anthropic_claude-opus-5.5",
+   "n": 100,
+   "sd": 1.4980000796593527
+  },
+  {
+   "slug": "google_gemma-3-4b-it",
+   "n": 93,
+   "sd": 1.4946174344502212
+  },
+  {
+   "slug": "meta-llama_llama-3.2-3b-instruct",
+   "n": 81,
+   "sd": 2.222266606102278
+  }
+ ],
+ "passes": true
+}
