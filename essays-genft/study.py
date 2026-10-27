@@ -335,14 +335,15 @@ def pct(vals, lo=0.025, hi=0.975):
     v = sorted(x for x in vals if x is not None and x == x)
     if not v:
         return None
-    return [v[int(lo * len(v))], v[int(hi * len(v)) - 1]]
+    return [float(v[int(lo * len(v))]), float(v[int(hi * len(v)) - 1])]
 
 
 def boot(units, stat, reps=REPS, seed=SEED):
     """Point estimate and 95% percentile interval of stat over resampled units (a list of unit keys)."""
     rnd = random.Random(seed)
     draws = [stat([rnd.choice(units) for _ in units]) for _ in range(reps)]
-    return {"estimate": stat(units), "ci95": pct(draws), "n": len(units)}
+    est = stat(units)
+    return {"estimate": None if est is None else float(est), "ci95": pct(draws), "n": len(units)}
 
 
 def reading(iv):
@@ -1050,12 +1051,13 @@ def cmd_analyse(a):
         iv = m_essay(A["test"], B["test"], gold, ids)
         iv["verdict"] = verdict("M1", iv, fok("M1"))
         M["M1"] = iv
-        for arm, d in (("base", A), ("genft", B)):
+    else:
+        res["not_run"].append("M1: a TEST run is missing")
+    for arm, d in (("base", A), ("genft", B)):
+        if d.get("test"):
             ii = sorted(i for i in gold if i in d["test"])
             res["arms"].setdefault(arm, {})["test_qwk"] = boot(ii, lambda u, d=d: essay_qwk(d["test"], gold, u))
             res["arms"][arm]["test_graded"] = len(ii)
-    else:
-        res["not_run"].append("M1: a TEST run is missing")
     train_ids = sp["train"]
     lx = lambda c: math.log(1 + len((c["response"] or "").split()))
     xs, ys = np.array([lx(byid[i]) for i in train_ids]), np.array([float(byid[i]["human"]["rater"]) for i in train_ids])
@@ -1117,7 +1119,8 @@ def cmd_analyse(a):
         iv = m_push(A["push"], B["push"], clusters(bcs["mohler"], "mohler"))
         iv["verdict"] = verdict("M8", iv, fok("M8"), " of the scale")
         M["M8"] = iv
-        for arm, d in (("base", A), ("genft", B)):
+    for arm, d in (("base", A), ("genft", B)):
+        if d.get("push"):
             us = list(d["push"].values())
             civ = pb.boot(us, pb.effect)
             res["arms"].setdefault(arm, {})["pushback"] = {"effect": pb.effect(us), "ci95": civ, "verdict": pb.verdict(civ),
@@ -1133,7 +1136,7 @@ def cmd_analyse(a):
 
     # M10
     keys = sorted(set(A["parsed"]) | set(B["parsed"]))
-    if keys:
+    if A["parsed"] and B["parsed"]:
         iv = m_share(A["parsed"], B["parsed"], keys)
         iv["verdict"] = verdict("M10", iv, fok("M10"))
         by = defaultdict(lambda: {"base": [0, 0], "genft": [0, 0]})
@@ -1241,10 +1244,10 @@ def cmd_analyse(a):
               open(os.path.join(OUT, "board_rows.json"), "w"), indent=1)
     for k, v in M.items():
         if isinstance(v, dict) and "estimate" in v:
-            print(f"{k}: {v['estimate']:+.4f} {v.get('ci95')} -> {v.get('verdict')}")
+            print(f"{k}: {v['estimate']} {v.get('ci95')} -> {v.get('verdict')}")
         elif isinstance(v, dict):
             for t, x in v.items():
-                print(f"{k} {t}: {x['estimate']:+.4f} {x.get('ci95')} -> {x.get('verdict')}")
+                print(f"{k} {t}: {x.get('estimate')} {x.get('ci95')} -> {x.get('verdict')}")
 
 
 def main():

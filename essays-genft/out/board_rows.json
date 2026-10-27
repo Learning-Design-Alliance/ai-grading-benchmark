@@ -1,0 +1,688 @@
+{
+ "design": "essays-genft/study.py docstring (BATTERY E1-E4; rows built by leaderboard.py's own checker)",
+ "rows": [
+  {
+   "model": "fine-tuned (generative): Gemma 4 26B A4B LoRA",
+   "task": "mohler",
+   "track": "fine-tuned (generative)",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "genft/gemma-4-26b-a4b-it"
+   ],
+   "providers": [],
+   "qwk": {
+    "estimate": 0.4418450437481196,
+    "ci95": [
+     0.330611907409837,
+     0.5482542544848038
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.7714769367780712,
+    "ci95": [
+     0.5939905340833704,
+     1.0674522246776263
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.904434250764526,
+    "ci95": [
+     0.8625989260587088,
+     0.9337345360136414
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.119,
+    "ci95": [
+     0.08399999999999999,
+     0.154
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.041999999999999996,
+    "ci95": [
+     0.014000000000000002,
+     0.06999999999999999
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.1296875,
+    "ci95": [
+     -0.18125,
+     -0.084375
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.003157894736842105,
+    "ci95": [
+     -0.028421052631578948,
+     0.022131578947368277
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.2750883629367814,
+    "ci95": [
+     0.15977519850990807,
+     0.39069834437044343
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.967424846838076,
+    "ci95": [
+     0.48474980152035185,
+     4.235312486153169
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": "0.2.0",
+   "route": "self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB pod, bf16; bench.py ran on the pod against localhost, so no request left it; the pod and its disk were deleted after the run, so nothing is retained; merged LoRA fine-tune of google/gemma-4-26B-A4B-it@4d7ae498 (essays-genft)",
+   "halo": {
+    "halo": 0.23838665887491978,
+    "ci95": [
+     0.06904726214639434,
+     0.4222368369087516
+    ],
+    "n": 100
+   },
+   "source": "essays-genft/study.py (generative LoRA on ASAP 2.0 TRAIN; self-hosted vLLM v0.32.0, bf16)",
+   "model_revision": "google/gemma-4-26B-A4B-it/4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+   "by_construction": []
+  },
+  {
+   "model": "fine-tuned (generative): Gemma 4 26B A4B LoRA",
+   "task": "code",
+   "track": "fine-tuned (generative)",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "genft/gemma-4-26b-a4b-it"
+   ],
+   "providers": [],
+   "qwk": {
+    "estimate": 0.5919827716750102,
+    "ci95": [
+     0.48315834734526686,
+     0.6846834052397486
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.7259261791564374,
+    "ci95": [
+     0.6115650358393215,
+     0.8262503359381098
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.8410293350555156,
+    "ci95": [
+     0.7482236785546816,
+     0.9009028979117111
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.25297418630751967,
+    "ci95": [
+     0.15824074074074074,
+     0.34839225589225575
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.009222222222222222,
+    "ci95": [
+     -0.008444444444444445,
+     0.027224999999999985
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": -0.011111111111111112,
+    "ci95": [
+     -0.03333333333333333,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.31574906971262995,
+    "ci95": [
+     0.13636645424995897,
+     0.4956222509590778
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.5312320370984781,
+    "ci95": [
+     0.24617492523258702,
+     0.8108391723158638
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": "0.2.0",
+   "route": "self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB pod, bf16; bench.py ran on the pod against localhost, so no request left it; the pod and its disk were deleted after the run, so nothing is retained; merged LoRA fine-tune of google/gemma-4-26B-A4B-it@4d7ae498 (essays-genft)",
+   "halo": {
+    "halo": 0.23838665887491978,
+    "ci95": [
+     0.06904726214639434,
+     0.4222368369087516
+    ],
+    "n": 100
+   },
+   "source": "essays-genft/study.py (generative LoRA on ASAP 2.0 TRAIN; self-hosted vLLM v0.32.0, bf16)",
+   "model_revision": "google/gemma-4-26B-A4B-it/4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+   "by_construction": []
+  },
+  {
+   "model": "fine-tuned (generative): Gemma 4 26B A4B LoRA",
+   "task": "asap2",
+   "track": "fine-tuned (generative)",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "genft/gemma-4-26b-a4b-it"
+   ],
+   "providers": [],
+   "qwk": {
+    "estimate": 0.7529803458275158,
+    "ci95": [
+     0.6532560053793359,
+     0.8234934926815198
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.7360482654600301,
+    "ci95": [
+     0.6008286149428408,
+     0.8417004094814846
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.08199999999999999,
+    "ci95": [
+     0.052000000000000005,
+     0.11399999999999999
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.022,
+    "ci95": [
+     -0.004,
+     0.046
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.04719101123595505,
+    "ci95": [
+     -0.07865168539325842,
+     -0.015730337078651686
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.024719101123595506,
+    "ci95": [
+     -0.002247191011235955,
+     0.05168539325842697
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.6284501061571125,
+    "ci95": [
+     0.42667684446660026,
+     0.794164977867847
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 1.010711873593981,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": "0.2.0",
+   "route": "self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB pod, bf16; bench.py ran on the pod against localhost, so no request left it; the pod and its disk were deleted after the run, so nothing is retained; merged LoRA fine-tune of google/gemma-4-26B-A4B-it@4d7ae498 (essays-genft)",
+   "halo": {
+    "halo": 0.23838665887491978,
+    "ci95": [
+     0.06904726214639434,
+     0.4222368369087516
+    ],
+    "n": 100
+   },
+   "source": "essays-genft/study.py (generative LoRA on ASAP 2.0 TRAIN; self-hosted vLLM v0.32.0, bf16)",
+   "model_revision": "google/gemma-4-26B-A4B-it/4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+   "by_construction": []
+  },
+  {
+   "model": "fine-tuned (generative): Gemma 4 26B A4B LoRA",
+   "task": "maths",
+   "track": "fine-tuned (generative)",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "genft/gemma-4-26b-a4b-it"
+   ],
+   "providers": [],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": null,
+   "working_effect": {
+    "estimate": 1.445,
+    "ci95": [
+     1.3575,
+     1.53
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.535,
+    "ci95": [
+     0.4675,
+     0.605
+    ]
+   },
+   "credit": {
+    "correct": 3.95,
+    "slip": 2.85,
+    "lucky": 1.94,
+    "wrong": 1.97
+   },
+   "lucky_full_marks": 0.01,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "route": "self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB pod, bf16; bench.py ran on the pod against localhost, so no request left it; the pod and its disk were deleted after the run, so nothing is retained; merged LoRA fine-tune of google/gemma-4-26B-A4B-it@4d7ae498 (essays-genft)",
+   "halo": {
+    "halo": 0.23838665887491978,
+    "ci95": [
+     0.06904726214639434,
+     0.4222368369087516
+    ],
+    "n": 100
+   },
+   "source": "essays-genft/study.py (generative LoRA on ASAP 2.0 TRAIN; self-hosted vLLM v0.32.0, bf16)",
+   "model_revision": "google/gemma-4-26B-A4B-it/4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+   "by_construction": []
+  },
+  {
+   "model": "fine-tuned (generative): Gemma 4 26B A4B LoRA",
+   "task": "pushback",
+   "track": "fine-tuned (generative)",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 168,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": null,
+   "pushback_effect": {
+    "estimate": 0.05119047619047619,
+    "ci95": [
+     0.02023809523809524,
+     0.08333333333333334
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.19047619047619047,
+    "recheck": 0.08333333333333333
+   },
+   "answers": 84,
+   "failed": 0,
+   "route": "self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB pod, bf16; bench.py ran on the pod against localhost, so no request left it; the pod and its disk were deleted after the run, so nothing is retained; merged LoRA fine-tune of google/gemma-4-26B-A4B-it@4d7ae498 (essays-genft)",
+   "halo": {
+    "halo": 0.23838665887491978,
+    "ci95": [
+     0.06904726214639434,
+     0.4222368369087516
+    ],
+    "n": 100
+   },
+   "source": "essays-genft/study.py (generative LoRA on ASAP 2.0 TRAIN; self-hosted vLLM v0.32.0, bf16)",
+   "model_revision": "google/gemma-4-26B-A4B-it/4d7ae4984b7db7de8f8457170b3f1a419ee76d52",
+   "by_construction": []
+  }
+ ],
+ "control_rows": [
+  {
+   "model": "Gemma 4 26B A4B, self-hosted bf16 (base, control)",
+   "task": "mohler",
+   "track": "self-hosted base (control for essays-genft)",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-4-26b-a4b-it"
+   ],
+   "providers": [],
+   "qwk": {
+    "estimate": 0.6399919643525667,
+    "ci95": [
+     0.5257447000764313,
+     0.737135847797034
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.1174484068735238,
+    "ci95": [
+     0.9171984355084039,
+     1.5162565172401892
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9900191632066433,
+    "ci95": [
+     0.9778907255119695,
+     0.997893205546458
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.039,
+    "ci95": [
+     0.014000000000000002,
+     0.068
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.005,
+    "ci95": [
+     -0.008,
+     0.018
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.128125,
+    "ci95": [
+     -0.1625,
+     -0.09375
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.004210526315789474,
+    "ci95": [
+     -0.014736842105263156,
+     0.00631578947368421
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3446162046908316,
+    "ci95": [
+     0.193557358866262,
+     0.4935967902823327
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.211938867503326,
+    "ci95": [
+     0.5814779448409095,
+     5.75681787561762
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": "0.2.0",
+   "route": "self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB pod, bf16; bench.py ran on the pod against localhost, so no request left it; the pod and its disk were deleted after the run, so nothing is retained"
+  },
+  {
+   "model": "Gemma 4 26B A4B, self-hosted bf16 (base, control)",
+   "task": "code",
+   "track": "self-hosted base (control for essays-genft)",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-4-26b-a4b-it"
+   ],
+   "providers": [],
+   "qwk": {
+    "estimate": 0.465126314603685,
+    "ci95": [
+     0.35162551916594587,
+     0.5678523262269178
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.5703668831949242,
+    "ci95": [
+     0.4394730648788195,
+     0.6914000365616881
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9671242203552627,
+    "ci95": [
+     0.9381625309533546,
+     0.9813174410363518
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.1338888888888889,
+    "ci95": [
+     0.04366111111111111,
+     0.2242749999999997
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.006444444444444444,
+    "ci95": [
+     -0.0017777777777777779,
+     0.015111111111111112
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.18988119653764157,
+    "ci95": [
+     0.016785670236497942,
+     0.3781613645457376
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.3194656279912168,
+    "ci95": [
+     0.03017710252812755,
+     0.6335549879964577
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": "0.2.0",
+   "route": "self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB pod, bf16; bench.py ran on the pod against localhost, so no request left it; the pod and its disk were deleted after the run, so nothing is retained"
+  },
+  {
+   "model": "Gemma 4 26B A4B, self-hosted bf16 (base, control)",
+   "task": "asap2",
+   "track": "self-hosted base (control for essays-genft)",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-4-26b-a4b-it"
+   ],
+   "providers": [],
+   "qwk": {
+    "estimate": 0.7211031918190269,
+    "ci95": [
+     0.6153750620963736,
+     0.8047322156467669
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.9657338663620788,
+    "ci95": [
+     0.9352790000989892,
+     0.9891934976592465
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.484,
+    "ci95": [
+     0.43200000000000005,
+     0.534
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.022,
+    "ci95": [
+     0.01,
+     0.036
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.16404494382022472,
+    "ci95": [
+     -0.19325842696629214,
+     -0.13707865168539327
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.00449438202247191,
+    "ci95": [
+     -0.00898876404494382,
+     0.01797752808988764
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.6601941747572816,
+    "ci95": [
+     0.4894777198614247,
+     0.8138304910320492
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.9679237474080898,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": "0.2.0",
+   "route": "self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB pod, bf16; bench.py ran on the pod against localhost, so no request left it; the pod and its disk were deleted after the run, so nothing is retained"
+  },
+  {
+   "model": "Gemma 4 26B A4B, self-hosted bf16 (base, control)",
+   "task": "maths",
+   "track": "self-hosted base (control for essays-genft)",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "google/gemma-4-26b-a4b-it"
+   ],
+   "providers": [],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": null,
+   "working_effect": {
+    "estimate": 1.77,
+    "ci95": [
+     1.685,
+     1.85
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.845,
+    "ci95": [
+     0.785,
+     0.905
+    ]
+   },
+   "credit": {
+    "correct": 3.93,
+    "slip": 2.285,
+    "lucky": 1.36,
+    "wrong": 1.315
+   },
+   "lucky_full_marks": 0.015,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "route": "self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB pod, bf16; bench.py ran on the pod against localhost, so no request left it; the pod and its disk were deleted after the run, so nothing is retained"
+  },
+  {
+   "model": "Gemma 4 26B A4B, self-hosted bf16 (base, control)",
+   "task": "pushback",
+   "track": "self-hosted base (control for essays-genft)",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 106,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": null,
+   "pushback_effect": {
+    "estimate": 0.07169811320754717,
+    "ci95": [
+     0.041509433962264156,
+     0.1018867924528302
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.11320754716981132,
+    "recheck": 0.03773584905660377
+   },
+   "answers": 53,
+   "failed": 0,
+   "route": "self-hosted: vLLM v0.32.0 on one rented RunPod A100 80GB pod, bf16; bench.py ran on the pod against localhost, so no request left it; the pod and its disk were deleted after the run, so nothing is retained"
+  }
+ ]
+}
