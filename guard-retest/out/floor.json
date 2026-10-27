@@ -1,0 +1,27 @@
+{
+ "planted": 0.1,
+ "sims": 2000,
+ "models": {
+  "google/gemma-3-27b-it": {
+   "default_runs": 6,
+   "run_sd": 0.005639059678331484,
+   "detection": 1.0,
+   "false_alarm": 0.0215,
+   "passes": true
+  },
+  "qwen/qwen3-235b-a22b-2507": {
+   "default_runs": 6,
+   "run_sd": 0.003752274116122647,
+   "detection": 1.0,
+   "false_alarm": 0.0225,
+   "passes": true
+  },
+  "google/gemma-3-4b-it": {
+   "default_runs": 6,
+   "run_sd": 0.0028860875087611186,
+   "detection": 1.0,
+   "false_alarm": 0.022,
+   "passes": true
+  }
+ }
+}
