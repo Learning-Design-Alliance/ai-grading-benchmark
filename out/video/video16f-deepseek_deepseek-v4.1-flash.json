@@ -1,0 +1,429 @@
+{
+ "n_cases": 100,
+ "scale": [
+  4,
+  20
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "low_res",
+  "null_black",
+  "null_still",
+  "off_task",
+  "other_camera",
+  "retest",
+  "text_only"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "ctx_high": {
+    "failed": 3,
+    "content_filter": 0,
+    "of": 100
+   },
+   "ctx_low": {
+    "failed": 3,
+    "content_filter": 0,
+    "of": 100
+   },
+   "forged": {
+    "failed": 3,
+    "content_filter": 0,
+    "of": 100
+   },
+   "injection": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 100
+   },
+   "low_res": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 100
+   },
+   "null_black": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 30
+   },
+   "off_task": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 100
+   },
+   "other_camera": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 100
+   },
+   "retest": {
+    "failed": 2,
+    "content_filter": 0,
+    "of": 100
+   },
+   "text_only": {
+    "failed": 20,
+    "content_filter": 0,
+    "of": 100
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": -0.03450123047132059,
+    "ci95": [
+     -0.18884521803155155,
+     0.11922258912519297
+    ]
+   },
+   "pearson_r": {
+    "estimate": -0.04467914282585036,
+    "ci95": [
+     -0.2515309789056562,
+     0.16902783861768936
+    ]
+   },
+   "bias": {
+    "estimate": 0.21749999999999992,
+    "ci95": [
+     -0.77,
+     1.1892916666666657
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 1.363397655163562
+   },
+   "sd_ratio": 1.0559692709426483,
+   "n": 100,
+   "raters": [
+    "rater0",
+    "rater1",
+    "rater2",
+    "rater3"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5710027774163684,
+    "ci95": [
+     0.42178682701553794,
+     0.6427368318918693
+    ]
+   },
+   "n": 100
+  },
+  "share_of_ceiling": {
+   "estimate": -0.060422176276320815,
+   "ci95": [
+    -0.36100973349431587,
+    0.22002624846307844
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 12.0,
+   "machine_passes_of_human_passes": 0.7543859649122807,
+   "machine_fails_of_human_fails": 0.27906976744186046,
+   "n_pass": 57,
+   "n_fail": 43,
+   "kappa": {
+    "estimate": 0.0013709873024665004,
+    "ci95": [
+     -0.1376205162317978,
+     0.1436784999761792
+    ]
+   },
+   "ceiling_kappa": {
+    "estimate": 0.4458459873348498,
+    "ci95": [
+     0.31817951371864306,
+     0.563003078373645
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.0030750244286416083,
+    "ci95": [
+     -0.3243084014149471,
+     0.3303505784249471
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 6.1938775510204085,
+   "ci95": [
+    5.326275510204082,
+    7.071683673469386
+   ],
+   "n": 98,
+   "flag": true,
+   "mdc80": 1.2476175486318366,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 1.865979381443299,
+   "ci95": [
+    0.9278350515463918,
+    2.7731958762886597
+   ],
+   "n": 97,
+   "flag": true,
+   "mdc80": 1.2790919034039725,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.5025252525252525,
+   "reaches_midpoint": 0.6464646464646465,
+   "n": 99
+  },
+  "null_answers": {
+   "credited": 0.11864406779661017,
+   "by_kind": {
+    "null_black": {
+     "credited": 0.0,
+     "n": 29
+    },
+    "null_still": {
+     "credited": 0.23333333333333334,
+     "n": 30
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.4303434849116953,
+    "ci95": [
+     0.21335788632713068,
+     0.6208345403061485
+    ]
+   },
+   "exact_agreement": 0.19387755102040816,
+   "mean_abs_change": 2.4285714285714284,
+   "signed_change": {
+    "estimate": -0.10204081632653061,
+    "ci95": [
+     -0.8163265306122449,
+     0.6224489795918368
+    ],
+    "n": 98,
+    "flag": false,
+    "mdc80": 1.0165555717130335
+   },
+   "n": 98
+  },
+  "low_res": {
+   "estimate": -1.346938775510204,
+   "ci95": [
+    -2.0918367346938775,
+    -0.5813775510204096
+   ],
+   "n": 98,
+   "flag": true,
+   "mdc80": 1.0792147132164231,
+   "expect": "about the same"
+  },
+  "other_camera": {
+   "estimate": 0.3434343434343434,
+   "ci95": [
+    -0.36363636363636365,
+    1.0303030303030303
+   ],
+   "n": 99,
+   "flag": false,
+   "mdc80": 1.003558610498481,
+   "expect": "about the same"
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 5.0638297872340425,
+    "ci95": [
+     4.340425531914893,
+     5.819148936170213
+    ],
+    "n": 94,
+    "flag": true,
+    "mdc80": 1.0662195989663275
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "task": {
+    "levels": {
+     "BalloonResection": {
+      "residual": 4.39,
+      "human_mean": 10.97,
+      "n": 25,
+      "vs_rest": {
+       "estimate": 5.563333333333333,
+       "ci95": [
+        3.8268586278129395,
+        7.37878123262213
+       ],
+       "flag": true
+      }
+     },
+     "CircleCutting": {
+      "residual": -1.853333333333333,
+      "human_mean": 13.173333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": -2.7611111111111106,
+       "ci95": [
+        -4.313351635532342,
+        -1.0659392462638078
+       ],
+       "flag": true
+      }
+     },
+     "PegTransfer": {
+      "residual": 1.3066666666666666,
+      "human_mean": 12.493333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": 1.4522222222222223,
+       "ci95": [
+        -0.14591632842888538,
+        3.0078284313725487
+       ],
+       "flag": false
+      }
+     },
+     "SutureAndKnot": {
+      "residual": -2.9733333333333336,
+      "human_mean": 12.253333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": -4.254444444444445,
+       "ci95": [
+        -6.803579059829061,
+        -1.9732563137445367
+       ],
+       "flag": true
+      }
+     }
+    },
+    "comparisons": 4
+   }
+  }
+ },
+ "feedback": {
+  "generic": 0.33471323098962075,
+  "same_opening": 0.009166666666666667,
+  "varied_by_quality": 0.053786385292267286,
+  "words": 27.71,
+  "self_per100": 0.0,
+  "task_per100": 0.0,
+  "action_per100": 0.44502137355398225,
+  "coherence": -0.13360057731681496,
+  "n": 100,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1060,
+  "calls_failed": 0,
+  "per_grading": {
+   "prompt_tokens": 3276.456603773585,
+   "completion_tokens": 2143.097169811321,
+   "reasoning_tokens": 2023.393396226415
+  },
+  "latency_s": {
+   "median": 38.55263018608093,
+   "p90": 51.250317907333375,
+   "n": 1055
+  },
+  "served_models": [
+   "deepseek/deepseek-v4.1-flash"
+  ],
+  "providers": [
+   "DeepInfra"
+  ],
+  "cost_source": "reported by the endpoint (1060 of 1060 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 1.012988205283019,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-27T06:59:07Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "deepseek/deepseek-v4.1-flash",
+  "request_template": {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "DeepInfra"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "video.txt",
+  "prompt_path": "video.txt",
+  "prompt_sha256": "1f7750894a4a450761f7c22e875305b502257ad40ac0f367895121efd56b8ea6",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "lasana.jsonl",
+  "cases_sha256": "30a3e52f459284b40728233461dd8fff7d1ab7e89582b9cbc2ce51fb156fb204",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "ctx_low",
+   "ctx_high",
+   "off_task",
+   "injection",
+   "forged",
+   "null_black",
+   "null_still",
+   "low_res",
+   "other_camera",
+   "text_only"
+  ],
+  "video_frames": 16,
+  "retention_exception": null,
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}

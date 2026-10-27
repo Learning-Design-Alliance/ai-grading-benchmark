@@ -73,3 +73,39 @@ positive means the note raised the mark.
 - Recording-quality probes are reported, not ranked, until a floor with degraded video exists.
 
 Per-run reports are in `../out/video/`, the extras in `../out/video/extras.json`.
+
+## Added under the coverage rule (`PREREG.md` CHANGE 1, 2026-10-26, after the eleven runs above were read)
+
+Every other leaderboard model that takes video or images, with the same cases, prompt, probes and verdicts;
+$108.88 for 10,600 gradings. Claude Fable 5.1 ran through the maintainers' own Anthropic key under 30-day
+safety retention, as on the leaderboard; every other call at zero data retention.
+
+| grader | sees | beyond length [95% interval] | QWK | prompt alone | credits black screen | credits frozen frame | note on screen, % of scale | strong vs weak label, % of scale | low resolution, % of scale | retest QWK | verdict |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| GLM 5.3 Flash | video | +0.25 [+0.02, +0.45] | 0.15 | 0.16 | 3% | 57% | +16.5 | +5.3 | +1.9 | 0.41 | WATCHES |
+| GPT-6 Astra | 16 frames | +0.21 [−0.03, +0.43] | 0.23 | 0.29 | 0% | 23% | +2.3 | +10.5 | −0.6 | 0.91 | not shown |
+| DeepSeek V4.1 Flash (Oct 17 snapshot) | 16 frames | +0.14 [−0.10, +0.37] | 0.01 | 0.06 | 17% | 37% | +33.9 | +29.4 | −1.7 | 0.70 | not shown |
+| DeepSeek V4.1 Flash | 16 frames | +0.13 [−0.06, +0.31] | −0.03 | −0.01 | 0% | 23% | +38.7 | +31.6 | −8.4 | 0.43 | not shown |
+| Gemma 4 26B A4B¹ | video | +0.12 [−0.07, +0.31] | 0.00 | declined | 97% | 27% | +22.0 | +23.4 | −26.3 | 0.65 | not shown |
+| Gemma 4 31B¹ | video | +0.07 [−0.13, +0.26] | −0.01 | declined | 0% | 0% | +83.6 | +4.0 | +11.2 | 0.72 | not shown |
+| Claude Fable 5.1 | 16 frames | +0.07 [−0.17, +0.30] | 0.19 | declined | 0% | 17% | +1.5 | +22.2 | −0.9 | 0.84 | not shown |
+| Gemma 3 27B | 16 frames | −0.01 [−0.20, +0.19] | 0.03 | −0.07 | 30% | 47% | +50.1 | +9.1 | −3.6 | 0.84 | not shown |
+| GPT-5.6 Luna | 16 frames | −0.04 [−0.27, +0.19] | 0.01 | 0.04 | 0% | 13% | +36.5 | +9.8 | +11.3 | 0.70 | not shown |
+| Gemma 3 4B | 16 frames | −0.10 [−0.32, +0.11] | −0.02 | declined | 100% | 100% | +13.1 | +3.2 | −4.8 | 0.21 | not shown |
+
+¹ Both Gemma 4 endpoints were charged about 2,600-2,900 input tokens a recording whatever its length, as MiMo
+was: they are sent a few frames, not the recording. Ministral 8B is not here: its endpoint takes at most 8 images
+a request, so it cannot be sent 16 frames, and it takes no video (its video-length run was refused on every
+request).
+
+- **One more model watches the recording: GLM 5.3 Flash** (+0.25), from video, though it leaves 11 recordings
+  unrated and is among the least consistent on a retest (QWK 0.41; only Gemma 3 4B is lower, 0.21). That makes four of 21 runs.
+- **Astra comes closest of the frames-only models** (+0.21, interval reaching −0.03), with the best retest
+  consistency of any run (0.91).
+- **The black screen.** Fable never credits it (it declines, as Opus does), nor do Astra, Luna, DeepSeek V4.1
+  Flash or Gemma 4 31B;
+  Gemma 3 4B credits every black screen and every frozen frame, Gemma 4 26B nearly every black screen (97%).
+- **A note on screen:** Gemma 4 31B gives 84% of the scale more for it, the largest effect in the task;
+  Gemma 3 27B +50%. Fable (+1.5%) and Astra (+2.3%) resist it, as Opus does.
+- **Labels:** every added model gives a strong-labelled trainee more than a weak-labelled one, by 3-32% of the
+  scale (DeepSeek V4.1 Flash +31.6%, Fable +22.2%).

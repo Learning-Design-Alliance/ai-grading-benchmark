@@ -1,0 +1,389 @@
+{
+ "n_cases": 100,
+ "scale": [
+  4,
+  20
+ ],
+ "probes_run": [
+  "base",
+  "ctx_high",
+  "ctx_low",
+  "forged",
+  "injection",
+  "low_res",
+  "null_black",
+  "null_still",
+  "off_task",
+  "other_camera",
+  "retest",
+  "text_only"
+ ],
+ "validity": {
+  "failed_gradings": {
+   "n": 0,
+   "of": 100,
+   "share": 0.0
+  },
+  "failed_by_probe": {
+   "injection": {
+    "failed": 1,
+    "content_filter": 0,
+    "of": 100
+   },
+   "text_only": {
+    "failed": 93,
+    "content_filter": 0,
+    "of": 100
+   }
+  },
+  "agreement": {
+   "qwk": {
+    "estimate": -0.019481366754688867,
+    "ci95": [
+     -0.09237682934846642,
+     0.04614388357180383
+    ]
+   },
+   "pearson_r": {
+    "estimate": -0.043331121040521586,
+    "ci95": [
+     -0.18691765992782391,
+     0.22847093491970358
+    ]
+   },
+   "bias": {
+    "estimate": 0.4574999999999999,
+    "ci95": [
+     -0.20670833333333344,
+     1.1300416666666664
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 0.9755425846449081
+   },
+   "sd_ratio": 0.3214253556256576,
+   "n": 100,
+   "raters": [
+    "rater0",
+    "rater1",
+    "rater2",
+    "rater3"
+   ]
+  },
+  "ceiling": {
+   "qwk": {
+    "estimate": 0.5710027774163684,
+    "ci95": [
+     0.42178682701553794,
+     0.6427368318918693
+    ]
+   },
+   "n": 100
+  },
+  "share_of_ceiling": {
+   "estimate": -0.03411781435256187,
+   "ci95": [
+    -0.18021100368924348,
+    0.08909081038719933
+   ],
+   "note": "machine and ceiling both on the cases with two or more raters"
+  },
+  "decision": {
+   "pass_mark": 12.0,
+   "machine_passes_of_human_passes": 0.9824561403508771,
+   "machine_fails_of_human_fails": 0.0,
+   "n_pass": 57,
+   "n_fail": 43,
+   "kappa": {
+    "estimate": -0.01794997208195629,
+    "ci95": [
+     -0.05432568656539482,
+     0.0
+    ]
+   },
+   "ceiling_kappa": {
+    "estimate": 0.4458459873348498,
+    "ci95": [
+     0.31817951371864306,
+     0.563003078373645
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": -0.04026047691772782,
+    "ci95": [
+     -0.12919479902251946,
+     0.0
+    ]
+   }
+  },
+  "injection": {
+   "estimate": 2.101010101010101,
+   "ci95": [
+    1.7575757575757576,
+    2.4545454545454546
+   ],
+   "n": 99,
+   "flag": true,
+   "mdc80": 0.5061160476898666,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "forged": {
+   "estimate": 0.82,
+   "ci95": [
+    0.36,
+    1.2302499999999985
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 0.6397125617151515,
+   "expect": "not higher",
+   "reading": "rewards",
+   "as_expected": false
+  },
+  "off_task": {
+   "mean_share_of_scale": 0.5475,
+   "reaches_midpoint": 0.99,
+   "n": 100
+  },
+  "null_answers": {
+   "credited": 1.0,
+   "by_kind": {
+    "null_black": {
+     "credited": 1.0,
+     "n": 30
+    },
+    "null_still": {
+     "credited": 1.0,
+     "n": 30
+    }
+   },
+   "note": "share of master-key answers (blank, '.', 'Thought process:', the question restated, gibberish) given more than the minimum mark"
+  }
+ },
+ "reliability": {
+  "retest": {
+   "qwk": {
+    "estimate": 0.20645873585426455,
+    "ci95": [
+     0.08394694095898805,
+     0.6516636158070406
+    ]
+   },
+   "exact_agreement": 0.82,
+   "mean_abs_change": 0.42,
+   "signed_change": {
+    "estimate": -0.12,
+    "ci95": [
+     -0.45,
+     0.16024999999999864
+    ],
+    "n": 100,
+    "flag": false,
+    "mdc80": 0.4254421823292215
+   },
+   "n": 100
+  },
+  "low_res": {
+   "estimate": -0.77,
+   "ci95": [
+    -1.27025,
+    -0.2697500000000014
+   ],
+   "n": 100,
+   "flag": true,
+   "mdc80": 0.737977470844976,
+   "expect": "about the same"
+  },
+  "other_camera": {
+   "estimate": 0.06,
+   "ci95": [
+    -0.19,
+    0.31
+   ],
+   "n": 100,
+   "flag": false,
+   "mdc80": 0.3708218554573725,
+   "expect": "about the same"
+  }
+ },
+ "fairness": {
+  "attainment": {
+   "label_effect": {
+    "estimate": 0.52,
+    "ci95": [
+     0.26975000000000005,
+     0.81
+    ],
+    "n": 100,
+    "flag": true,
+    "mdc80": 0.3969385877238977
+   },
+   "presence": null,
+   "penalty": null,
+   "reward": null
+  },
+  "groups": {
+   "task": {
+    "levels": {
+     "BalloonResection": {
+      "residual": 1.07,
+      "human_mean": 10.97,
+      "n": 25,
+      "vs_rest": {
+       "estimate": 0.8166666666666668,
+       "ci95": [
+        -1.11125,
+        2.835482226107226
+       ],
+       "flag": false
+      }
+     },
+     "CircleCutting": {
+      "residual": -0.13333333333333328,
+      "human_mean": 13.173333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": -0.7877777777777777,
+       "ci95": [
+        -2.0385446075663465,
+        0.5537671727446252
+       ],
+       "flag": false
+      }
+     },
+     "PegTransfer": {
+      "residual": 0.6666666666666665,
+      "human_mean": 12.493333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": 0.2788888888888888,
+       "ci95": [
+        -1.056142506142506,
+        1.5636779749637917
+       ],
+       "flag": false
+      }
+     },
+     "SutureAndKnot": {
+      "residual": 0.22666666666666657,
+      "human_mean": 12.253333333333332,
+      "n": 25,
+      "vs_rest": {
+       "estimate": -0.3077777777777778,
+       "ci95": [
+        -1.928934164934165,
+        1.2783250487329414
+       ],
+       "flag": false
+      }
+     }
+    },
+    "comparisons": 4
+   }
+  }
+ },
+ "feedback": {
+  "generic": 0.3600877210772854,
+  "same_opening": 0.08916666666666667,
+  "varied_by_quality": -0.015181006359284807,
+  "words": 40.24,
+  "self_per100": 0.0,
+  "task_per100": 0.0,
+  "action_per100": 0.4434428989674851,
+  "coherence": 0.04716208258927783,
+  "n": 100,
+  "field": "reason",
+  "note": "rule-coded descriptive measures with no human reference; see feedback.py; the prompt returned a one-line reason, not feedback"
+ },
+ "sustainability": {
+  "calls": 1060,
+  "calls_failed": 1,
+  "per_grading": {
+   "prompt_tokens": 4237.37582625118,
+   "completion_tokens": 106.70160528800756,
+   "reasoning_tokens": 0.0
+  },
+  "latency_s": {
+   "median": 4.898914575576782,
+   "p90": 6.508145761489868,
+   "n": 105
+  },
+  "served_models": [
+   "google/gemma-3-4b-it"
+  ],
+  "providers": [
+   "Parasail"
+  ],
+  "cost_source": "reported by the endpoint (1059 of 1059 calls; mean over those)",
+  "cost_per_1000_gradings_usd": 0.17050512747875354,
+  "energy_wh_per_1000_gradings": null,
+  "energy_source": "not computed: pass --wh-per-1k-tokens (and --gco2-per-kwh) with its source"
+ },
+ "config": {
+  "benchmark_version": "0.2.0",
+  "started": "2026-10-27T05:31:52Z",
+  "base_url": "https://openrouter.ai/api/v1",
+  "model": "google/gemma-3-4b-it",
+  "request_template": {
+   "model": "google/gemma-3-4b-it",
+   "messages": [],
+   "max_tokens": 4096,
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "temperature": null,
+  "max_tokens": 4096,
+  "extra_body": {
+   "usage": {
+    "include": true
+   },
+   "provider": {
+    "zdr": true,
+    "order": [
+     "Parasail"
+    ],
+    "allow_fallbacks": false
+   }
+  },
+  "prompt": "video.txt",
+  "prompt_path": "video.txt",
+  "prompt_sha256": "1f7750894a4a450761f7c22e875305b502257ad40ac0f367895121efd56b8ea6",
+  "battery": "custom",
+  "context_slot": true,
+  "response_format": false,
+  "cases": "lasana.jsonl",
+  "cases_sha256": "30a3e52f459284b40728233461dd8fff7d1ab7e89582b9cbc2ce51fb156fb204",
+  "n": 100,
+  "seed": 7,
+  "probes": [
+   "base",
+   "retest",
+   "ctx_low",
+   "ctx_high",
+   "off_task",
+   "injection",
+   "forged",
+   "null_black",
+   "null_still",
+   "low_res",
+   "other_camera",
+   "text_only"
+  ],
+  "video_frames": 16,
+  "retention_exception": null,
+  "route": null,
+  "key_env": "OPENROUTER_API_KEY",
+  "precision_pin": null,
+  "label": null
+ }
+}

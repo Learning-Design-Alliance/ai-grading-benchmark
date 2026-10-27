@@ -1,4 +1,22 @@
 {
+ "deepseek/deepseek-v4-pro-0813 / default.txt": {
+  "gap": -0.2746666666666666,
+  "ci95": [
+   -0.33599999999999985,
+   -0.21131666666666687
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 0,
+   "Not identified as having disability": 0
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 2.6093333333333333,
+   "Not identified as having disability": 2.884
+  },
+  "human_mean": 2.3553333333333333
+ },
  "deepseek/deepseek-v4.1-flash-1017 / default.txt": {
   "gap": -0.27,
   "ci95": [
@@ -266,6 +284,42 @@
   "machine_mean": {
    "Identified as having disability": 2.96,
    "Not identified as having disability": 3.172
+  },
+  "human_mean": 2.3553333333333333
+ },
+ "z-ai/glm-5.3 / default.txt": {
+  "gap": -0.3666666666666667,
+  "ci95": [
+   -0.42200000000000015,
+   -0.31000000000000005
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 0,
+   "Not identified as having disability": 0
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 2.5866666666666664,
+   "Not identified as having disability": 2.953333333333333
+  },
+  "human_mean": 2.3553333333333333
+ },
+ "z-ai/glm-5.3-flash / default.txt": {
+  "gap": -0.39302174807289925,
+  "ci95": [
+   -0.4505240395793466,
+   -0.33419719027775285
+  ],
+  "verdict": "GAP REPLICATES",
+  "failed": {
+   "Identified as having disability": 4,
+   "Not identified as having disability": 5
+  },
+  "failure_warning": false,
+  "machine_mean": {
+   "Identified as having disability": 2.567513368983957,
+   "Not identified as having disability": 2.9605351170568563
   },
   "human_mean": 2.3553333333333333
  }
