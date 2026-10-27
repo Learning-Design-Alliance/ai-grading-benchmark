@@ -1,10 +1,7 @@
 # Perception audit: does a video grader say it cannot see a student, by skin tone and lighting?
 
-**Status: not yet run.** The calls are waiting on the licence check: the maintainer's own confirmation that the
-Casual Conversations v2 licence (clauses 1(b), 6.2 and 6.9) allows sending videos to hosted models, at zero
-retention, for this evaluation. If it does not, the study runs only on models we host ourselves. The design, the
-floor, the sample, the fetcher and the cost estimate are done. The pre-registration is the docstring of
-`study.py`.
+**Status: run, 2026-10-27.** Results are below. The pre-registration is the docstring of `study.py`; CHANGES 1-3
+record the move to self-hosted models, the per-model floor for the rating, and how a refusal is counted.
 
 **Question.** A teacher asks students to answer a question aloud, to camera, and a video model checks each
 recording: can it see the speaker, can it hear them, how well did they deliver the answer (1-5), and one sentence of
@@ -20,9 +17,18 @@ grader that told a student "I can't see you."
   brightness.
 - **Sample.** 1,280 recordings (seed 26), at most one per person per cell. Per lighting stratum: 130, 200, 120, 85,
   85 and 20 across the six tone groups. After dark, the two darkest groups hold nearly every eligible person.
-- **Models.** The 11 board models that take video. Each video is sent unmodified, once per model, at zero
-  retention. The licence forbids derivative works, so no frames, dimming or trimming, and image-only models are
-  not covered.
+- **Models.** The open-weight board models that take video and fit one GPU: Gemma 4 26B A4B, Gemma 4 31B and
+  Qwen3.8 27B, each at bf16 on our own rented A100 (vLLM v0.32.0). Each video is sent unmodified to our own
+  machine and read by the model there; no video goes to any third party (licence clause 6.2). The licence forbids
+  derivative works (6.1), so no frames, dimming or trimming.
+- **Hosted models are not in this study.** Their endpoints refuse most full-length videos as too large (a 102 MB
+  and a 168 MB video were refused in a pilot; the sample's median is about 155 MB), and the licence does not allow
+  sending a reduced copy. GLM 5.3 Flash is too large for one GPU, and MiMo v2.6 Flash and Muse Spark have no public
+  weights.
+- **Pilot (not a result).** Before the move to self-hosting, one hosted model, MiMo v2.6 Flash, was sent the 10 black,
+  silent control clips and 4 recordings. On 7 of the 10 blank clips it said a speaker was visible and audible and
+  rated their delivery 3 to 5; those 7 cost almost nothing, which suggests the clip never reached the model and it
+  answered anyway.
 - **No labelling of people.** The model is asked nothing about the person, and nothing it says about a person
   is used. Feedback text that mentions appearance is discarded, and only a flag is kept.
 - **Measures.**
@@ -42,14 +48,36 @@ grader that told a student "I can't see you."
 - **Not changed.** The planted effects were not enlarged. The corpus holds no more darker-skinned speakers
   recorded after dark.
 
-**Cost (estimated, nothing spent).** About $57, and up to about $125 if models that count tokens by pixels charge in
-proportion to the full 1920 x 1080 resolution. The proposed hard cap is $140, with $40 per model
-(`out/estimate.json`).
+## Results
 
-**Open items.**
-- **The licence check above.**
-- **Request size.** An unmodified video is about 100-150 MB, about 136 MB as a request for the dry-run video. Some
-  endpoints will likely refuse that, and a file-upload API is ruled out because it keeps a copy.
+All three models graded 1,278 of the 1,280 recordings (2 failed to upload), and all three said "not visible" on all
+10 black, silent control clips, so none is barred by the CANNOT REPORT NOT SEEING rule.
+
+| model | said it could not see the speaker | refused | usable replies | verdict on the tone gaps |
+|---|---|---|---|---|
+| Gemma 4 26B A4B (bf16, self-hosted) | 0 of 1,278 | 0 | 100% | UNMEASURED (no failures to compare) |
+| Gemma 4 31B (bf16, self-hosted) | 0 of 1,278 | 0 | 100% | UNMEASURED (no failures to compare) |
+| Qwen3.8 27B (bf16, self-hosted) | 822 of 1,278 (not credible; below) | 270 | 79% | DID NOT DO THE TASK |
+
+**Reading.**
+- **Both Gemma models saw the speaker in every recording**, in every skin-tone group, by day and after dark. With no
+  failures at all, there is no gap between groups to measure, so the pre-registered gap verdicts read UNMEASURED.
+  What the data do show is how rare a failure could be: zero in 1,278 recordings puts the overall rate below 0.23%
+  (one-sided 95% bound). By tone group the bound depends on the group's size: below 0.7% for Monk 3-4 (400
+  recordings), below 1.7-1.8% for Monk 6 and 7-8 (169-170), and below 7.2% for Monk 9-10, the darkest, where the
+  corpus holds only 40 eligible recordings.
+- **Qwen3.8 27B did not do the task.** 21% of its replies had no usable answer (the pre-registered limit is 20%), and
+  its "cannot see" replies are not credible: in 372 of them it also rated the speaker's delivery. Its numbers are
+  not read for groups. Its reasoning ran long at the registered 2,048-token limit, which is the likely cause.
+- **Delivery ratings are descriptive only.** None of the three models takes audio, so the Gemma models answered
+  "not audible" and, as the prompt asks, withheld the rating (they rated 0-4% of recordings); no rating gap is read.
+- **What this does not show.** These are three open models on one GPU setup, not the hosted models most schools use;
+  the incident that prompted the study involved a hosted model, which this design could not test. "After dark" is the
+  dataset's label for when a recording was made, mostly indoors under room light, not a measured brightness.
+- **A note on the records.** While the run was being restarted, stray copies of the runner briefly ran at the same
+  time, so 122 Qwen recordings were graded twice; the analysis keeps one reply per recording (the last written).
+
+**GPU spend.** About $27.57 of the $80 cap, across all attempts (6.6 hours on the final pod).
 
 **Data handling.**
 - Nothing from the dataset is in this repository: no video, frame, image, name, subject ID or reply text. Only
