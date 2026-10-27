@@ -1,0 +1,7 @@
+{
+ "worlds": 100,
+ "boot": 500,
+ "false_alarm": 0.0,
+ "detection": 1.0,
+ "passes": true
+}
