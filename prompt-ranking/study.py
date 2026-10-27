@@ -60,6 +60,10 @@ belongs to both sets; the re-asks are of one wording only.
 BUDGET. No calls: a reanalysis of held runs (scripts/check_runs.py on them before analysing).
 
 CHANGES:
+1. (2026-10-27, AFTER the result was read) Descriptive only: each model's rank range over the six re-asks is
+   added beside its range over the seven prompts, because Claude Haiku 5.5 ranked 4th under the default
+   prompt and 9th to 13th under every rewrite, and that is read correctly only beside how far its rank moves
+   when the default prompt is simply asked again. The statistic, interval, verdict and floor are unchanged.
 
 Usage:
     python3 prompt-ranking/study.py floor --cases-dir <dir>
@@ -253,6 +257,7 @@ def cmd_analyse(a):
     dist = statistic(Qb)
     lo_, hi_ = (float(x) for x in np.percentile(dist, [2.5, 97.5]))
     rk = ranks(Qp)
+    rr = np.concatenate([rk[:1], rk[7:]])  # CHANGE 1: the six re-asks' ranks
     # rank intervals: default prompt only, and a random prompt per draw
     rb = ranks(Qb)
     pick = rng.integers(0, 7, B)
@@ -265,6 +270,7 @@ def cmd_analyse(a):
         per_model.append({"model": m, "agreement": {c: float(Qp[k, mi]) for k, c in enumerate(PROMPTS)},
                           "rank": {c: float(rk[k, mi]) for k, c in enumerate(PROMPTS)},
                           "rank_range_over_prompts": [float(rk[:7, mi].min()), float(rk[:7, mi].max())],
+                          "rank_range_over_reasks": [float(rr[:, mi].min()), float(rr[:, mi].max())],  # CHANGE 1
                           "rank_ci95_default_prompt": [float(x) for x in iv_def[:, mi]],
                           "rank_ci95_any_prompt": [float(x) for x in iv_any[:, mi]]})
     widened = sum((p["rank_ci95_any_prompt"][1] - p["rank_ci95_any_prompt"][0]) > (p["rank_ci95_default_prompt"][1] - p["rank_ci95_default_prompt"][0]) for p in per_model)
