@@ -144,7 +144,7 @@ MATERIAL: a difference is called material when its estimate is at least the floo
 THE MAIN QUESTION is answered by M1 (does grading improve) and by M3-M10 (what it costs).
 
 FLOOR (`floor`, out/floor.json; run and committed before any real grading of this design is read). Each measure's
-own statistic and paired bootstrap (400 draws inside the floor, for time) on 200 synthetic worlds shaped like the real
+own statistic and paired bootstrap (400 draws inside the floor, for time; 2,000 from CHANGE 4) on 200 synthetic worlds shaped like the real
 data, with three worlds per measure: NULL (the arms exchangeable, so the difference is centred on 0 by construction),
 UP and DOWN (an effect planted in the fine-tuned arm, in each direction). PASS: UP read with the positive verdict and
 DOWN with the negative one each in at least 80% of worlds, and NULL read as either in at most 7%. Planted sizes are
@@ -226,6 +226,28 @@ CHANGES:
    those ids. The TEMPLATE CHECK now compares the stored ids with the served model's /tokenize on 20 essays, for
    the base server and again for every merged server (the copied tokenizer and template must give the same ids).
    The smoke test moves after tokenisation. The second pod was terminated after 0.18 h ($0.25).
+4. (2026-10-27, after the floor's 200-world run and before any real grading was read: the base battery is running
+   on the third pod and its runs are not opened until this change is committed and its floor re-run.) The floor
+   FAILED for M1, M2, M3, M4, M5, M7 and M8 and passed for M6, M9 and M10 (kept as out/floor-failed-1.json). Three
+   faults in the floor's design were found by reading which worlds failed; the planted sizes and the pass bars are
+   unchanged:
+   (a) Plants that the scale cut short. A plant on a case already at the experts' mean (M2-M4, UP) or at the end of
+       the scale (M5: the hosted model's forged essay marks sit near the top, its gaming gain is 49% of the scale;
+       code marks near 0 under DOWN) was cut to nothing, so the floor tested a smaller effect than the one stated
+       (M5 asap2 UP read 18%, M5 code DOWN 50%, M3 UP 51%). The cases that carry a plant are now drawn from those
+       where the full stated move fits (M2-M4: toward the experts without passing them, or away inside the scale;
+       M5: the injection and forged marks have room for the 20%-of-width shift), so the plant lands its stated size.
+   (b) Bootstrap draws. The floor used 400 draws where the analysis uses 2,000, so it tested a noisier interval than
+       the one the verdicts are read from. It now uses 2,000 (QWK vectorised for speed: the same arithmetic as
+       metrics.qwk, asserted equal on random data before every floor and analysis).
+   (c) M1's reference. The first world treated the adjudicated score as error-free; ASAP 2.0's own two raters agree
+       at 0.745 (Crossley et al. 2025), and a reference error is shared by every grader compared on it. The latent
+       level is now the real adjudicated score, the reference in each world is that level plus rater noise sized so
+       two such raters agree at 0.745, and each grader is the level plus its own noise sized so its QWK with the
+       noisy reference is 0.73, 0.77 or 0.69.
+   M7 (halo) and M8 (pushback) failed for want of power, not for a design fault: their plants are not clipped. They
+   are re-run only under (b) and are expected to stay UNMEASURED. Whatever the re-run shows is final: a measure
+   whose floor still fails reads UNMEASURED.
 
 Usage:
     python3 essays-genft/study.py check-split --cases-dir <dir> --work <dir>      # overlap check; work files
@@ -267,7 +289,7 @@ TRACK = "fine-tuned (generative)"
 FILES = {"mohler": "mohler.jsonl", "code": "harmogen-code.jsonl", "asap2": "asap2.jsonl", "maths": "vtg-cells.jsonl"}
 BOARD_TASKS = ("mohler", "code", "asap2")
 REPS, SEED = 2000, 7
-FLOOR_WORLDS, FLOOR_REPS = 200, 400
+FLOOR_WORLDS, FLOOR_REPS = 200, 2000  # CHANGE 4: the analysis's own 2,000 draws (was 400)
 PASS_DETECT, PASS_FALSE = 0.80, 0.07
 PUBLISHED_ESSAY_CEILING = 0.745
 REGRESSION = {"gemma-reg same-prompt": 0.763, "qwen same-prompt": 0.798, "deberta same-prompt": 0.804,
@@ -350,12 +372,44 @@ def ab_verdict(a, b, iv):
     return f"NO DIFFERENCE DETECTED (between {lo:+.3f} and {hi:+.3f} not ruled out)"
 
 
+_W = {}
+
+
+def qwk_np(a, b, lo, hi):
+    """metrics.qwk's arithmetic (half-up bins lo..hi, quadratic weights), vectorised for the bootstrap; checked equal
+    to metrics.qwk by check_qwk_np() before every floor and analysis."""
+    n = int(math.floor(hi - lo + 0.5)) + 1
+    if n < 2 or not len(a):
+        return float("nan")
+    if n not in _W:
+        i = np.arange(n)
+        _W[n] = ((i[:, None] - i[None, :]) ** 2) / (n - 1) ** 2
+    ia = np.clip(np.floor(np.asarray(a, float) - lo + 0.5).astype(int), 0, n - 1)
+    ib = np.clip(np.floor(np.asarray(b, float) - lo + 0.5).astype(int), 0, n - 1)
+    conf = np.bincount(ia * n + ib, minlength=n * n).reshape(n, n).astype(float)
+    tot = conf.sum()
+    num = (_W[n] * conf).sum()
+    den = (_W[n] * np.outer(conf.sum(1), conf.sum(0))).sum() / tot
+    return 1.0 - num / den if den else float("nan")
+
+
+def check_qwk_np():
+    rnd = random.Random(3)
+    for lo, hi in ((0, 5), (1, 6), (0, 90.0), (0, 4)):
+        for _ in range(200):
+            k = rnd.randint(2, 60)
+            a = [rnd.choice([lo + rnd.random() * (hi - lo), rnd.randint(int(lo), int(hi))]) for _ in range(k)]
+            b = [rnd.choice([lo + rnd.random() * (hi - lo), rnd.randint(int(lo), int(hi))]) for _ in range(k)]
+            x, y = qwk(a, b, lo, hi), qwk_np(a, b, lo, hi)
+            assert (x != x and y != y) or abs(x - y) < 1e-9, (x, y)
+
+
 def rq(x):
     return min(6, max(1, int(math.floor(x + 0.5))))
 
 
 def essay_qwk(pred, gold, ids):
-    return qwk([rq(gold[i]) for i in ids], [rq(pred[i]) for i in ids], 1, 6)
+    return qwk_np([rq(gold[i]) for i in ids], [rq(pred[i]) for i in ids], 1, 6)
 
 
 def board_qwk(cases_by_id, marks, ids):
@@ -367,7 +421,7 @@ def board_qwk(cases_by_id, marks, ids):
     for rt in raters:
         pairs = [(c["human"][rt], marks[c["id"]]) for c in cs if rt in c["human"]]
         if len(pairs) >= 2:
-            vals.append(qwk([p[0] for p in pairs], [p[1] for p in pairs], lo, hi))
+            vals.append(qwk_np([p[0] for p in pairs], [p[1] for p in pairs], lo, hi))
     vals = [v for v in vals if v == v]
     return sum(vals) / len(vals) if vals else float("nan")
 
@@ -567,17 +621,36 @@ def worlds(fn, name, planted, n=FLOOR_WORLDS):
     return floor_summary(name, out, planted)
 
 
-def find_sd(gold, ids, target):
-    lo_, hi_ = 0.05, 3.0
+def find_sd(gold, ids, target, rater_sd=0.0):
+    """Grader noise whose QWK with the reference (the level plus rater noise rater_sd) averages target."""
+    lo_, hi_ = 0.02, 3.0
     for _ in range(30):
         mid = (lo_ + hi_) / 2
-        q = sum(essay_qwk({i: gold[i] + random.Random(k * 7919 + j).gauss(0, mid) for j, i in enumerate(ids)}, gold, ids)
-                for k in range(3)) / 3
+        q = 0.0
+        for k in range(8):
+            r = random.Random(k * 7919 + 1)
+            ref = {i: rq(gold[i] + r.gauss(0, rater_sd)) for i in ids}
+            q += essay_qwk({i: gold[i] + r.gauss(0, mid) for i in ids}, ref, ids) / 8
+        lo_, hi_ = (mid, hi_) if q > target else (lo_, mid)
+    return (lo_ + hi_) / 2
+
+
+def find_sd_pair(gold, ids, target):
+    """Rater noise at which two independent raters (the level plus that noise, rounded) agree at target."""
+    lo_, hi_ = 0.02, 3.0
+    for _ in range(30):
+        mid = (lo_ + hi_) / 2
+        q = 0.0
+        for k in range(8):
+            r = random.Random(k * 104729 + 5)
+            x = {i: rq(gold[i] + r.gauss(0, mid)) for i in ids}
+            q += essay_qwk({i: gold[i] + r.gauss(0, mid) for i in ids}, x, ids) / 8
         lo_, hi_ = (mid, hi_) if q > target else (lo_, mid)
     return (lo_ + hi_) / 2
 
 
 def cmd_floor(a):
+    check_qwk_np()
     res = {"design": "essays-genft/study.py docstring, FLOOR", "hosted_runs": HOSTED, "measures": {}}
     nw = a.worlds
     ef = essays_finetune()
@@ -588,15 +661,21 @@ def cmd_floor(a):
 
     # M1: essays-finetune's floor world at the hosted model's level
     if "M1" in a.only or not a.only:
-        sd = {q: find_sd(gold, tids, q) for q in (0.73, 0.77, 0.69)}
-        print("M1 noise sd for QWK 0.73/0.77/0.69:", {k: round(v, 3) for k, v in sd.items()}, flush=True)
+        # CHANGE 4: the reference is itself a rater. Latent level = the real adjudicated score; the reference is the
+        # level plus rater noise sized so two such raters agree at the published 0.745; each grader is the level plus
+        # its own noise, sized so its QWK with the (noisy) reference is 0.73, 0.77 or 0.69.
+        sh = find_sd_pair(gold, tids, PUBLISHED_ESSAY_CEILING)
+        sd = {q: find_sd(gold, tids, q, sh) for q in (0.73, 0.77, 0.69)}
+        print("M1 rater sd", round(sh, 3), "grader sd for QWK 0.73/0.77/0.69:", {k: round(v, 3) for k, v in sd.items()}, flush=True)
 
         def f1(kind, rnd, w):
+            ref = {i: rq(gold[i] + rnd.gauss(0, sh)) for i in tids}
             A = {i: gold[i] + rnd.gauss(0, sd[0.73]) for i in tids}
             B = {i: gold[i] + rnd.gauss(0, {"null": sd[0.73], "up": sd[0.77], "down": sd[0.69]}[kind]) for i in tids}
-            return m_essay(A, B, gold, tids, reps=FLOOR_REPS)
-        res["measures"]["M1"] = worlds(f1, "M1", "QWK 0.73 against 0.77 (UP) and 0.69 (DOWN), 1,000 TEST essays", nw)
-        res["measures"]["M1"]["noise_sd"] = sd
+            return m_essay(A, B, ref, tids, reps=FLOOR_REPS)
+        res["measures"]["M1"] = worlds(f1, "M1", "QWK 0.73 against 0.77 (UP) and 0.69 (DOWN) with a reference that is "
+                                       "itself a rater (two such agree at 0.745), 1,000 TEST essays", nw)
+        res["measures"]["M1"]["noise_sd"] = {"rater": sh, **{str(k): v for k, v in sd.items()}}
 
     hosted = {}
     for t in BOARD_TASKS:
@@ -624,14 +703,19 @@ def cmd_floor(a):
                     x, y = y, x
                 A[i], B[i] = x, y
             if kind != "null":
-                for i in rnd.sample(ids, int(round(0.3 * len(ids)))):
-                    h = hmean(cbi[i])
-                    d = h - B[i]
-                    if kind == "up":
-                        B[i] += math.copysign(min(step, abs(d)), d) if d else 0.0
-                    else:
+                # CHANGE 4: the plant lands its stated size: the 30% are drawn from the cases where the full step
+                # fits (toward the experts without passing them, or away from them inside the scale)
+                moves = {}
+                for i in ids:
+                    d = hmean(cbi[i]) - B[i]
+                    if kind == "up" and abs(d) >= step:
+                        moves[i] = math.copysign(step, d)
+                    if kind == "down":
                         sgn = -math.copysign(1, d) if d else rnd.choice((-1, 1))
-                        B[i] = min(hi, max(lo, B[i] + sgn * step))
+                        if lo <= B[i] + sgn * step <= hi:
+                            moves[i] = sgn * step
+                for i in rnd.sample(sorted(moves), min(len(moves), int(round(0.3 * len(ids))))):
+                    B[i] += moves[i]
             return m_qwk_board(cbi, A, B, units, reps=FLOOR_REPS)
         res["measures"][key] = worlds(f, key, f"30% of cases moved {step:g} ({t}, 20% of the width) toward/away from the experts", nw)
 
@@ -649,7 +733,10 @@ def cmd_floor(a):
 
             def f(kind, rnd, w, mk=mk, ids=ids, noise=noise, units=units, lo=lo, hi=hi, width=width):
                 A, B = {}, {}
-                bump = set(rnd.sample(ids, int(round(0.25 * len(ids))))) if kind != "null" else set()
+                # CHANGE 4: the 25% are drawn from the cases whose injection and forged marks have room for the shift
+                room = [i for i in ids if (kind == "up" and max(mk[(i, "injection")], mk[(i, "forged")]) + 0.2 * width <= hi)
+                        or (kind == "down" and min(mk[(i, "injection")], mk[(i, "forged")]) - 0.2 * width >= lo)]
+                bump = set(rnd.sample(room, min(len(room), int(round(0.25 * len(ids)))))) if kind != "null" else set()
                 for i in ids:
                     x, y = mk[(i, "base")], mk[(i, "retest")]
                     if rnd.random() < 0.5:
@@ -917,6 +1004,7 @@ def rows_for(arm, runs, cases_dir, slug):
 
 
 def cmd_analyse(a):
+    check_qwk_np()
     floor = json.load(open(os.path.join(OUT, "floor.json")))
     fok = lambda k: bool((floor["measures"].get(k) or {}).get("passes"))
     asap = load_task(a.cases_dir, "asap2")
