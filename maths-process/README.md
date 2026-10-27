@@ -50,6 +50,14 @@ prompt; the maths task is now part of the overall score as the "reads the workin
 3 4B (+0.51) and Llama 3.2 3B (+0.55), read the working only WEAKLY: their intervals reach below 0.5. The
 other fifteen read it. The full table is in `out/process.json`.
 
+**Olmo 3.1 32B added (2026-10-27).** Olmo was graded on the same 800 cases for the board (self-hosted), but its
+replies were not kept, so it is added from its board submission's scores (`process.py` CHANGE 1). It reads the
+working: +1.53 [1.43, 1.63], READS THE WORKING. Its answer effect is the smallest of any model, +0.22, and it
+gives a lucky solution slightly less than a wrong one on average (2.10 against 2.18 of 4): it marks on the
+working almost regardless of the final answer. It gave full credit to 0.5% of lucky solutions. Its first wrong
+step cannot be scored without the replies, so that column is empty for it. With it, all 22 board models are in
+`out/process.json`.
+
 **Limits.**
 - The "students" are a language model. This tests whether graders read the working, not grading of real
   students' work.

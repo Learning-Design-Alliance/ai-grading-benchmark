@@ -63,9 +63,16 @@ The first version asked for ANSWER ONLY in 95% of worlds. That is the nominal co
 which a noisy checker reaches only by chance, and it read 94%. It was restated before any call. The error
 that matters is a checker read as reading the working, and that rate is the one bounded at 5%.
 
+CHANGES
+1. 2026-10-27: Olmo 3.1 32B was graded on these 800 cells for the board (submissions/allenai__olmo-3.1-32b-instruct/
+   maths.json, self-hosted), but its replies were not kept when its pod was deleted, so it had no run here.
+   `analyse --submissions` adds a grader from its board submission. The working effect, answer effect, mean
+   credit and lucky-accepted share need only the scores and are computed exactly as for a run; the first wrong
+   step needs the reply text, so that row has none. No measure, threshold or verdict changed.
+
     python3 maths-process/process.py build --src $VTG_DIR/src/dataset/dataset.json --out $VTG_DIR/vtg-cells.jsonl
     python3 maths-process/process.py floor
-    python3 maths-process/process.py analyse --cases $VTG_DIR/vtg-cells.jsonl --runs <run dir> ... --out maths-process/out/process.json
+    python3 maths-process/process.py analyse --cases $VTG_DIR/vtg-cells.jsonl --runs <run dir> ... [--submissions <board submission> ...] --out maths-process/out/process.json
 """
 import argparse
 import json
@@ -256,6 +263,20 @@ def cmd_analyse(a):
         row = summarise(cfg.get("label") or cfg["model"], cs, credit, extra)
         row["failed"] = failed
         rows.append(row)
+    for path in a.submissions:  # CHANGE 1: a board submission holds scores only, so no first-wrong-step row
+        sub = json.load(open(path))
+        credit, failed = {}, 0
+        for r in sub["calls"]:
+            if r["probe"] != "base":
+                continue
+            if r.get("score") is None:
+                failed += 1
+                continue
+            credit[r["id"]] = max(0, min(4, round(r["score"])))
+        row = summarise(sub["model"], cs, credit, None)
+        row["failed"] = failed
+        row["source"] = "board submission (scores only; replies not kept)"
+        rows.append(row)
     for row in rows:
         f = lambda v: "—" if v is None else f"{v:+.2f}"
         mc = row["mean_credit"]
@@ -272,7 +293,7 @@ def main():
     p = sub.add_parser("build"); p.add_argument("--src", required=True); p.add_argument("--out", required=True)
     p.add_argument("--n", type=int, default=200)
     p = sub.add_parser("floor"); p.add_argument("--worlds", type=int, default=300)
-    p = sub.add_parser("analyse"); p.add_argument("--cases", required=True); p.add_argument("--runs", nargs="*", default=[])
+    p = sub.add_parser("analyse"); p.add_argument("--cases", required=True); p.add_argument("--runs", nargs="*", default=[]); p.add_argument("--submissions", nargs="*", default=[])
     p.add_argument("--out", required=True)
     a = ap.parse_args()
     {"build": cmd_build, "floor": cmd_floor, "analyse": cmd_analyse}[a.cmd](a)

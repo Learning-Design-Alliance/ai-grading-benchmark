@@ -2,6 +2,15 @@
 {
 "key": "2026-10-27:0",
 "date": "2026-10-27",
+"what": "Half-point marks in two analyses: the standard checks' agreement and the reasoning-effort study's high-minus-low agreement",
+"was": "marks rounded half to even (2.5 \u2192 2) before agreement was computed; short-answer QWK 0.672 (Claude Opus 5.5) and 0.635 (GPT-6 Astra) in the standard checks; reasoning effort on short answers, GPT-6 Astra +0.035 [0.003, 0.07]",
+"now": "rounded half-up, as on the leaderboard: 0.680 and 0.647 (now equal to the leaderboard); GPT-6 Astra +0.031 [+0.0002, +0.064]; Gemini 3.5 Flash Lite on code [0.00, 0.22] \u2192 [0.01, 0.22]; no flag or verdict changed",
+"why": "the two scripts rounded with Python's `round` before `qwk()`, which already rounds half-up (`metrics.py`); found when the article draft compared these values with the leaderboard",
+"where": "analyses/standard_checks.py, reasoning/study.py, their out/"
+},
+{
+"key": "2026-10-27:1",
+"date": "2026-10-27",
 "what": "Feedback strand: how the halo is scored (whole-task leaderboard)",
 "was": "only a positive halo (tone following a told grade) lowered the score; a negative one scored 100",
 "now": "the distance from 0 in either direction lowers it; GPT-5 Mini (halo \u22120.17) overall 88.9 \u2192 87.5, rank 7 \u2192 8 (DeepSeek V4.1 Flash 8 \u2192 7); Qwen3 235B (\u22120.10) 77.3 \u2192 76.5, rank 15 unchanged",
@@ -9,7 +18,7 @@
 "where": "leaderboard.py (overall), out/overall.json"
 },
 {
-"key": "2026-10-26:1",
+"key": "2026-10-26:2",
 "date": "2026-10-26",
 "what": "Measured energy, eight open models",
 "was": "UNMEASURED (failed the idle check); figures descriptive; 1-16 mWh per short answer; a leaderboard run 7-34 Wh",
@@ -18,7 +27,7 @@
 "where": "energy/, docs/ENERGY.md"
 },
 {
-"key": "2026-10-25:2",
+"key": "2026-10-25:3",
 "date": "2026-10-25",
 "what": "DeepSeek V4.1 Flash, training on users' data (vendor documentation, not a result)",
 "was": "employees' and partners' sessions only",
@@ -27,7 +36,7 @@
 "where": "docs/MODELS.md, docs/models.json"
 },
 {
-"key": "2026-10-25:3",
+"key": "2026-10-25:4",
 "date": "2026-10-25",
 "what": "Claude Haiku 5.5, re-run under verified zero retention (all five tasks and feedback)",
 "was": "overall 91.0; pushback +3.5% [+1.4, +5.7]; working effect +1.91",
@@ -36,7 +45,7 @@
 "where": "submissions/anthropic__claude-haiku-5.5/"
 },
 {
-"key": "2026-10-25:4",
+"key": "2026-10-25:5",
 "date": "2026-10-25",
 "what": "Data retention for Claude Fable 5.1 and Claude Haiku 5.5",
 "was": "every request asked for zero retention (`provider.zdr`)",
@@ -45,7 +54,7 @@
 "where": "client.py now checks OpenRouter's live zero-retention list and refuses a model with none; docs/MODELS.md records each model's retention"
 },
 {
-"key": "2026-10-25:5",
+"key": "2026-10-25:6",
 "date": "2026-10-25",
 "what": "Length study: Qwen3.8 27B's interval for the change in balanced accuracy",
 "was": "[\u22120.14, +0.05]",
@@ -54,7 +63,7 @@
 "where": "video/LENGTH.md"
 },
 {
-"key": "2026-10-25:6",
+"key": "2026-10-25:7",
 "date": "2026-10-25",
 "what": "Null verdicts on video, length and pushback now print the largest effect they cannot rule out",
 "was": "\"adds nothing to a stopwatch\"; \"NO DETECTABLE EFFECT\"; \"HOLDS\"",
@@ -63,7 +72,7 @@
 "where": "video/README.md, video/LENGTH.md, feedback-board/PUSHBACK.md; CHANGE 1 in each script"
 },
 {
-"key": "2026-10-25:7",
+"key": "2026-10-25:8",
 "date": "2026-10-25",
 "what": "Length study headline",
 "was": "\"length does not change detection\"",
@@ -72,7 +81,7 @@
 "where": "video/LENGTH.md"
 },
 {
-"key": "2026-10-25:8",
+"key": "2026-10-25:9",
 "date": "2026-10-25",
 "what": "Benchmark card, conflict of interest",
 "was": "\"a grading product\"",
@@ -81,7 +90,7 @@
 "where": "BENCHMARK-CARD.md"
 },
 {
-"key": "2026-10-24:9",
+"key": "2026-10-24:10",
 "date": "2026-10-24",
 "what": "Feedback strand of the overall score",
 "was": "halo and \"gives away the answer\"",
