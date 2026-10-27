@@ -951,6 +951,34 @@ def arm_data(runs, slug, tasks):
     return d
 
 
+def reason_of(text):
+    """The reply's "reason" string, if its JSON object carries one (descriptive; not pre-registered)."""
+    for m in re.finditer(r"\{[^{}]*\}", text or "", flags=re.S):
+        try:
+            obj = json.loads(m.group(0))
+        except ValueError:
+            continue
+        if isinstance(obj, dict) and "score" in obj:
+            r = obj.get("reason")
+            return r if isinstance(r, str) else ""
+    return None
+
+
+def reasons(runs, slug):
+    """Share of parsed base replies that carry a non-empty reason, and its mean length in words, per run."""
+    out = {}
+    for name in [f"lb-{t}-{slug}" for t in BOARD_TASKS] + [f"test-{slug}"]:
+        r = load_run(runs, name)
+        if not r:
+            continue
+        rs = [reason_of(c.get("text")) for c in r[1] if c["probe"] == "base" and c.get("score") is not None]
+        rs = [x for x in rs if x is not None]
+        ne = [x for x in rs if x.strip()]
+        out[name.split("-")[0] if name.startswith("test") else name.split("-")[1]] = {
+            "replies": len(rs), "with_reason": len(ne), "mean_words": (sum(len(x.split()) for x in ne) / len(ne)) if ne else None}
+    return out
+
+
 def maths_units(vt, cred):
     out = {}
     for c in vt:
@@ -1185,6 +1213,7 @@ def cmd_analyse(a):
             iv = pct([halo_stat([rnd.choice(vals) for _ in vals]) for _ in range(REPS)])
             res["arms"][arm]["halo"] = {"halo": point, "ci95": iv, "n": len(h)}
     res["rows"] = rows
+    res["reasons_descriptive"] = {arm: reasons(a.runs, SLUG[arm]) for arm in ("base", "genft")}
     os.makedirs(OUT, exist_ok=True)
     for arm, s_ in subs.items():
         for task, sub in s_.items():

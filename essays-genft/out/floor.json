@@ -1,0 +1,214 @@
+{
+ "design": "essays-genft/study.py docstring, FLOOR",
+ "hosted_runs": "google_gemma-4-26b-a4b-it",
+ "measures": {
+  "M1": {
+   "planted": "QWK 0.73 against 0.77 (UP) and 0.69 (DOWN) with a reference that is itself a rater (two such agree at 0.745), 1,000 TEST essays",
+   "up_detected": 0.81,
+   "down_detected": 0.72,
+   "null_false_alarm": 0.045,
+   "worlds": 200,
+   "bootstrap_draws": 2000,
+   "passes": false,
+   "mean_estimate": {
+    "null": 0.0004940985802990666,
+    "up": 0.039250516649616894,
+    "down": -0.039867098186076214
+   },
+   "noise_sd": {
+    "rater": 0.5536246286984532,
+    "0.73": 0.5755759656894954,
+    "0.77": 0.44635211008600895,
+    "0.69": 0.7092446108255535
+   }
+  },
+  "M2": {
+   "planted": "30% of cases moved 1 (asap2, 20% of the width) toward/away from the experts",
+   "up_detected": 1.0,
+   "down_detected": 1.0,
+   "null_false_alarm": 0.04,
+   "worlds": 200,
+   "bootstrap_draws": 2000,
+   "passes": true,
+   "mean_estimate": {
+    "null": -0.0007203174503710119,
+    "up": 0.19267601655767508,
+    "down": -0.21419437719760567
+   }
+  },
+  "M3": {
+   "planted": "30% of cases moved 1 (mohler, 20% of the width) toward/away from the experts",
+   "up_detected": 1.0,
+   "down_detected": 1.0,
+   "null_false_alarm": 0.065,
+   "worlds": 200,
+   "bootstrap_draws": 2000,
+   "passes": true,
+   "mean_estimate": {
+    "null": -0.00021032424162474583,
+    "up": 0.11337894263592496,
+    "down": -0.10582645317580408
+   }
+  },
+  "M4": {
+   "planted": "30% of cases moved 18 (code, 20% of the width) toward/away from the experts",
+   "up_detected": 1.0,
+   "down_detected": 1.0,
+   "null_false_alarm": 0.08,
+   "worlds": 200,
+   "bootstrap_draws": 2000,
+   "passes": false,
+   "mean_estimate": {
+    "null": 0.00044820047695633163,
+    "up": 0.21680864392975902,
+    "down": -0.24082987381668924
+   }
+  },
+  "M5": {
+   "mohler": {
+    "planted": "injection and forged +/-20% of the width on 25% of cases",
+    "up_detected": 1.0,
+    "down_detected": 0.995,
+    "null_false_alarm": 0.04,
+    "worlds": 200,
+    "bootstrap_draws": 2000,
+    "passes": true,
+    "mean_estimate": {
+     "null": 0.001435,
+     "up": 0.049460000000000004,
+     "down": -0.04846
+    }
+   },
+   "code": {
+    "planted": "injection and forged +/-20% of the width on 25% of cases",
+    "up_detected": 1.0,
+    "down_detected": 0.41,
+    "null_false_alarm": 0.045,
+    "worlds": 200,
+    "bootstrap_draws": 2000,
+    "passes": false,
+    "mean_estimate": {
+     "null": -0.00029777777777777745,
+     "up": 0.04659944444444444,
+     "down": -0.015523333333333333
+    }
+   },
+   "asap2": {
+    "planted": "injection and forged +/-20% of the width on 25% of cases",
+    "up_detected": 0.84,
+    "down_detected": 0.97,
+    "null_false_alarm": 0.06,
+    "worlds": 200,
+    "bootstrap_draws": 2000,
+    "passes": true,
+    "mean_estimate": {
+     "null": 0.0007399999999999987,
+     "up": 0.03294000000000002,
+     "down": -0.045970000000000004
+    }
+   },
+   "passes": false
+  },
+  "M6": {
+   "planted": "10% of 178 null gradings credited (hosted credited 0)",
+   "up_detected": 1.0,
+   "down_detected": 1.0,
+   "null_false_alarm": 0.05,
+   "worlds": 200,
+   "bootstrap_draws": 2000,
+   "passes": true,
+   "mean_estimate": {
+    "null": 0.0011235955056179774,
+    "up": 0.1017134831460674,
+    "down": -0.10044943820224718
+   }
+  },
+  "M7": {
+   "planted": "shown-mark correlation +/-0.20 in the fine-tuned arm",
+   "up_detected": 0.445,
+   "down_detected": 0.245,
+   "null_false_alarm": 0.065,
+   "worlds": 200,
+   "bootstrap_draws": 2000,
+   "passes": false,
+   "mean_estimate": {
+    "null": 0.00828168635160331,
+    "up": 0.22324853122724292,
+    "down": -0.1917376293572341
+   },
+   "fit": {
+    "n": 100,
+    "slope_blind": 0.8145260451440395,
+    "slope_shown": 1.2474132317369293,
+    "residual_sd": 1.7700524042489258
+   }
+  },
+  "M8": {
+   "planted": "push raises one point in 30% of 55 answers",
+   "up_detected": 0.625,
+   "down_detected": 0.615,
+   "null_false_alarm": 0.05,
+   "worlds": 200,
+   "bootstrap_draws": 2000,
+   "passes": false,
+   "mean_estimate": {
+    "null": -0.0007999999999999999,
+    "up": 0.06307272727272728,
+    "down": -0.05990909090909091
+   }
+  },
+  "M9": {
+   "planted": "lucky and wrong -/+1 point on 50% of problems",
+   "up_detected": 1.0,
+   "down_detected": 1.0,
+   "null_false_alarm": 0.015,
+   "worlds": 200,
+   "bootstrap_draws": 2000,
+   "passes": true,
+   "mean_estimate": {
+    "null": -0.0018250000000000054,
+    "up": 0.4568625,
+    "down": -0.49985
+   }
+  },
+  "M10": {
+   "planted": "3% more of 4242 gradings fail",
+   "up_detected": 1.0,
+   "down_detected": 1.0,
+   "null_false_alarm": 0.045,
+   "worlds": 200,
+   "bootstrap_draws": 2000,
+   "passes": true,
+   "mean_estimate": {
+    "null": -0.00015912305516265914,
+    "up": 0.02946016030174446,
+    "down": -0.02944837340876945
+   },
+   "hosted_failure_rate": {
+    "mohler": 0.0,
+    "code": 0.0,
+    "asap2": 0.02706027060270603,
+    "maths": 0.0,
+    "fbb": 0.0,
+    "test": 0.02706027060270603
+   }
+  },
+  "M11_M12": {
+   "passes": true,
+   "source": "essays-finetune/out/floor.json (applies unchanged)"
+  }
+ },
+ "passes": {
+  "M1": false,
+  "M2": true,
+  "M3": true,
+  "M4": false,
+  "M5": false,
+  "M6": true,
+  "M7": false,
+  "M8": false,
+  "M9": true,
+  "M10": true,
+  "M11_M12": true
+ }
+}
