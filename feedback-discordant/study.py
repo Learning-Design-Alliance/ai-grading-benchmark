@@ -75,6 +75,10 @@ CHANGES:
 1. 2026-10-27, before any call: cases.load dropped unknown fields, so told_mark never reached the prompt; a dry
    render through cases.load showed the true mark. cases.normalise now keeps told_mark (cases without it are
    unchanged). No design, threshold or verdict changed; the floor had run, no discordant call had been made.
+2. 2026-10-27, before any Fable call: OpenRouter now lists no zero-retention endpoint for Claude Fable 5.1, so
+   bench.py refused it. Fable runs through the maintainers' own Anthropic key on OpenRouter with the retention
+   exception the rewording study used (paraphrase/study.py FABLE_EXCEPTION: 30-day safety retention; Mohler is a
+   public corpus). Its row is labelled with the route. No design, threshold or verdict changed.
 
 Usage:
     python3 feedback-discordant/study.py cases --cases $MOHLER_CASES --out <scratch>/mohler-discordant.jsonl
@@ -103,6 +107,8 @@ RUNS = os.environ.get("GBENCH_RUNS", "runs")
 OUT = os.path.join(HERE, "out")
 FLOOR_MODELS = ["openai_gpt-5-mini", "anthropic_claude-opus-5.5", "google_gemma-3-4b-it", "meta-llama_llama-3.2-3b-instruct"]
 REPS, SEED = 2000, 7
+FABLE = "anthropic/claude-fable-5.1"
+FABLE_EXCEPTION = "own Anthropic key (bring-your-own-key), 30-day safety retention; public corpora only"
 
 
 def board_ids():
@@ -222,6 +228,8 @@ def cmd_run(a):
             cmd += ["--extra-body", json.dumps(cfg["extra_body"])]
         if cfg.get("label"):
             cmd += ["--label", cfg["label"]]
+        if cfg["model"] == FABLE:  # CHANGE 2
+            cmd += ["--retention-exception", FABLE_EXCEPTION]
         p = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
         last = [l for l in (p.stdout + p.stderr).splitlines() if "gradings," in l or "Error" in l or "estimated" in l]
         print(slug, last[-1] if last else p.returncode, flush=True)
