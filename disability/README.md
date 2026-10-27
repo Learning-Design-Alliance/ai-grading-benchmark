@@ -63,7 +63,8 @@ essay: a residual gap measures the grader against that mark, and here every grad
 Every other leaderboard model with a hosted zero-retention route, default prompt, each with its leaderboard
 settings, on the same 3,000 matched essays. GPT-6 Astra and Claude Fable 5.1 were added on 2026-10-27 by the
 maintainer's decision (CHANGE 4; Fable through the maintainers' own Anthropic key under 30-day safety retention, as
-on the leaderboard). Not run: Claude Opus 5.5 (not approved) and Olmo 3.1 32B (no hosted route).
+on the leaderboard). Claude Opus 5.5 (OpenRouter, zero retention) and Olmo 3.1 32B (self-hosted on a rented RunPod GPU,
+as on the leaderboard) were added the same day (CHANGE 5). Every board model has now run.
 
 | grader | gap, identified minus not (machine marks; human marks identical) | verdict |
 |---|---|---|
@@ -74,10 +75,12 @@ on the leaderboard). Not run: Claude Opus 5.5 (not approved) and Olmo 3.1 32B (n
 | Phi-4 | −0.279 [−0.340, −0.217] | GAP REPLICATES |
 | DeepSeek V4 Pro | −0.275 [−0.336, −0.211] | GAP REPLICATES |
 | DeepSeek V4.1 Flash (Oct 17 snapshot) | −0.270 [−0.330, −0.211] | GAP REPLICATES |
-| Claude Fable 5.1 | −0.247 [−0.298, −0.196] | GAP REPLICATES |
 | Gemma 3 27B | −0.247 [−0.301, −0.192] | GAP REPLICATES |
+| Claude Fable 5.1 | −0.247 [−0.298, −0.196] | GAP REPLICATES |
+| Olmo 3.1 32B | −0.247 [−0.297, −0.197] | GAP REPLICATES |
 | Gemma 4 31B | −0.235 [−0.291, −0.178] | GAP REPLICATES |
 | GPT-OSS 20B | −0.232 [−0.285, −0.177] | GAP REPLICATES |
+| Claude Opus 5.5 | −0.219 [−0.265, −0.173] | GAP REPLICATES |
 | GPT-6 Astra | −0.217 [−0.268, −0.162] | GAP REPLICATES |
 | Llama 3.2 3B | −0.213 [−0.288, −0.140] | GAP REPLICATES |
 | GPT-5.6 Luna | −0.202 [−0.260, −0.143] | GAP REPLICATES |
@@ -85,8 +88,8 @@ on the leaderboard). Not run: Claude Opus 5.5 (not approved) and Olmo 3.1 32B (n
 | Ministral 8B | −0.124 [−0.167, −0.082] | NO GAP OF 0.2 OR MORE |
 | Gemma 3 4B | −0.086 [−0.141, −0.029] | NO GAP OF 0.2 OR MORE |
 
-- **The gap is shared by nearly every model.** 15 of the 17 added graders read GAP REPLICATES, from −0.17
-  (GPT-5 Mini) to −0.39 (GLM 5.3 Flash), so 18 of the 20 graders in all. The two that read NO GAP OF 0.2 OR MORE (Gemma
+- **The gap is shared by nearly every model.** 17 of the 19 added graders read GAP REPLICATES, from −0.17
+  (GPT-5 Mini) to −0.39 (GLM 5.3 Flash), so 20 of the 22 graders in all. The two that read NO GAP OF 0.2 OR MORE (Gemma
   3 4B, −0.09, and Ministral 8B, −0.12) still mark the identified group lower: their intervals lie below 0, inside
   the ±0.20 band.
 - The SHARED GAP reading stands. Gemini 3.5 Flash Lite's −0.43 is still the largest.

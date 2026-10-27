@@ -16,6 +16,27 @@
    },
    "design_reading": "NO MATCHING ARTEFACT SHOWN",
    "graders": {
+    "allenai/olmo-3.1-32b-instruct": {
+     "M": {
+      "estimate": -0.0389999999999997,
+      "ci95": [
+       -0.08899999999999997,
+       0.013000000000000345
+      ]
+     },
+     "D": {
+      "estimate": -0.03899999999999998,
+      "ci95": [
+       -0.09500000000000003,
+       0.020000000000000018
+      ]
+     },
+     "verdict": "NO MORE THAN A SECOND HUMAN",
+     "failed": {
+      "A": 0.0,
+      "B": 0.0
+     }
+    },
     "anthropic/claude-fable-5.1": {
      "M": {
       "estimate": 0.014000000000000234,
@@ -50,6 +71,27 @@
       "ci95": [
        -0.061,
        0.05149999999999999
+      ]
+     },
+     "verdict": "NO MORE THAN A SECOND HUMAN",
+     "failed": {
+      "A": 0.0,
+      "B": 0.0
+     }
+    },
+    "anthropic/claude-opus-5.5": {
+     "M": {
+      "estimate": -0.008000000000000007,
+      "ci95": [
+       -0.050000000000000266,
+       0.03750000000000009
+      ]
+     },
+     "D": {
+      "estimate": -0.008000000000000007,
+      "ci95": [
+       -0.05799999999999994,
+       0.040000000000000036
       ]
      },
      "verdict": "NO MORE THAN A SECOND HUMAN",
@@ -453,6 +495,27 @@
    },
    "design_reading": "NO MATCHING ARTEFACT SHOWN",
    "graders": {
+    "allenai/olmo-3.1-32b-instruct": {
+     "M": {
+      "estimate": -0.07311827956989259,
+      "ci95": [
+       -0.14838709677419315,
+       -0.0021505376344084226
+      ]
+     },
+     "D": {
+      "estimate": -0.10322580645161294,
+      "ci95": [
+       -0.18494623655913978,
+       -0.021505376344086002
+      ]
+     },
+     "verdict": "INCONCLUSIVE",
+     "failed": {
+      "A": 0.0,
+      "B": 0.0
+     }
+    },
     "anthropic/claude-fable-5.1": {
      "M": {
       "estimate": -0.0741935483870968,
@@ -487,6 +550,27 @@
       "ci95": [
        -0.1333333333333333,
        0.03655913978494624
+      ]
+     },
+     "verdict": "NO MORE THAN A SECOND HUMAN",
+     "failed": {
+      "A": 0.0,
+      "B": 0.0
+     }
+    },
+    "anthropic/claude-opus-5.5": {
+     "M": {
+      "estimate": -0.03655913978494629,
+      "ci95": [
+       -0.10752688172043001,
+       0.029032258064515926
+      ]
+     },
+     "D": {
+      "estimate": -0.06666666666666676,
+      "ci95": [
+       -0.13763440860215048,
+       0.007526881720430145
       ]
      },
      "verdict": "NO MORE THAN A SECOND HUMAN",
@@ -890,6 +974,27 @@
    },
    "design_reading": "NO MATCHING ARTEFACT SHOWN",
    "graders": {
+    "allenai/olmo-3.1-32b-instruct": {
+     "M": {
+      "estimate": -0.02985074626865636,
+      "ci95": [
+       -0.10234541577825151,
+       0.04477611940298498
+      ]
+     },
+     "D": {
+      "estimate": -0.09594882729211085,
+      "ci95": [
+       -0.17910447761194032,
+       -0.01279317697228144
+      ]
+     },
+     "verdict": "INCONCLUSIVE",
+     "failed": {
+      "A": 0.0,
+      "B": 0.0
+     }
+    },
     "anthropic/claude-fable-5.1": {
      "M": {
       "estimate": -0.09808102345415781,
@@ -924,6 +1029,27 @@
       "ci95": [
        -0.18976545842217485,
        -0.028784648187633266
+      ]
+     },
+     "verdict": "INCONCLUSIVE",
+     "failed": {
+      "A": 0.0,
+      "B": 0.0
+     }
+    },
+    "anthropic/claude-opus-5.5": {
+     "M": {
+      "estimate": -0.07036247334754808,
+      "ci95": [
+       -0.13646055437100202,
+       0.0
+      ]
+     },
+     "D": {
+      "estimate": -0.13646055437100213,
+      "ci95": [
+       -0.2068230277185501,
+       -0.06609808102345416
       ]
      },
      "verdict": "INCONCLUSIVE",

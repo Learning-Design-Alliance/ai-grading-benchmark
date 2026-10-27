@@ -15,6 +15,28 @@
     ]
    },
    "graders": {
+    "allenai/olmo-3.1-32b-instruct": {
+     "D": {
+      "estimate": -0.05543710021321957,
+      "ci95": [
+       -0.12579957356076754,
+       0.013503909026297056
+      ]
+     },
+     "M": {
+      "estimate": -0.053304904051172386,
+      "ci95": [
+       -0.11371712864250183,
+       0.009950248756218638
+      ]
+     },
+     "verdict": "NO MORE THAN A SECOND HUMAN",
+     "primary": false,
+     "failed": {
+      "A": 0.0,
+      "B": 0.0
+     }
+    },
     "anthropic/claude-fable-5.1": {
      "D": {
       "estimate": -0.12864250177683012,
@@ -54,6 +76,28 @@
      },
      "verdict": "NO MORE THAN A SECOND HUMAN",
      "primary": true,
+     "failed": {
+      "A": 0.0,
+      "B": 0.0
+     }
+    },
+    "anthropic/claude-opus-5.5": {
+     "D": {
+      "estimate": -0.08422174840085284,
+      "ci95": [
+       -0.146410803127221,
+       -0.02487562189054726
+      ]
+     },
+     "M": {
+      "estimate": -0.0820895522388061,
+      "ci95": [
+       -0.13752665245202556,
+       -0.026652452025586193
+      ]
+     },
+     "verdict": "NO MORE THAN A SECOND HUMAN",
+     "primary": false,
      "failed": {
       "A": 0.0,
       "B": 0.0
@@ -470,6 +514,28 @@
     ]
    },
    "graders": {
+    "allenai/olmo-3.1-32b-instruct": {
+     "D": {
+      "estimate": 0.016346837242359635,
+      "ci95": [
+       -0.05188343994314143,
+       0.08386638237384503
+      ]
+     },
+     "M": {
+      "estimate": -0.08102345415778256,
+      "ci95": [
+       -0.14143567874911156,
+       -0.022032693674484793
+      ]
+     },
+     "verdict": "NO MORE THAN A SECOND HUMAN",
+     "primary": false,
+     "failed": {
+      "A": 0.0,
+      "B": 0.0
+     }
+    },
     "anthropic/claude-fable-5.1": {
      "D": {
       "estimate": -0.06076759061833681,
@@ -509,6 +575,28 @@
      },
      "verdict": "NO MORE THAN A SECOND HUMAN",
      "primary": true,
+     "failed": {
+      "A": 0.0,
+      "B": 0.0
+     }
+    },
+    "anthropic/claude-opus-5.5": {
+     "D": {
+      "estimate": -0.008884150675195435,
+      "ci95": [
+       -0.06609808102345416,
+       0.046908315565031944
+      ]
+     },
+     "M": {
+      "estimate": -0.10625444207533752,
+      "ci95": [
+       -0.16204690831556512,
+       -0.05046197583511036
+      ]
+     },
+     "verdict": "NO MORE THAN A SECOND HUMAN",
+     "primary": false,
      "failed": {
       "A": 0.0,
       "B": 0.0
