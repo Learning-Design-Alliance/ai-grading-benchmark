@@ -212,6 +212,11 @@ CHANGES:
    same revision as the weights, so the tokenizer and chat template cannot come from a later commit; the merged
    checkpoint carries copies of those same files. The scripts are train_gen.py (on the pod), evaluate.py (the
    battery, on the pod) and driver.py (the pod's life cycle, resumable).
+2. (2026-10-27, after the first pod's smoke test, before any training of the real run, any model call or any
+   grading.) The smoke test stopped at the assertion on the trainable count: LoRA on the same modules has 18,585,600
+   parameters, and CHANGE 1's 18,588,416 included its regression head (one output from the 2,816-wide hidden state:
+   2,816 parameters), which this model does not have. The LoRA placement is the same; the assertion now checks
+   18,585,600. The first pod was terminated after 0.13 h ($0.18 at the listed rate); a new pod runs the same stages.
 
 Usage:
     python3 essays-genft/study.py check-split --cases-dir <dir> --work <dir>      # overlap check; work files

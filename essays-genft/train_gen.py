@@ -30,7 +30,7 @@ import prompting  # noqa: E402
 
 GEMMA = ("google/gemma-4-26B-A4B-it", "4d7ae4984b7db7de8f8457170b3f1a419ee76d52")
 TARGETS = r".*language_model.*\.(q_proj|k_proj|v_proj|o_proj|gate_proj|up_proj|down_proj)"
-CHANGE1_TRAINABLE = 18_588_416  # essays-finetune CHANGE 1's LoRA on the same modules
+CHANGE1_TRAINABLE = 18_588_416 - 2_816  # essays-finetune CHANGE 1's count less its regression head (hidden 2,816 -> 1)
 HP = {"r": 16, "alpha": 32, "dropout": 0.05, "lr": 1e-4, "epochs": 1, "batch": 16, "micro": 1, "warmup": 0.1,
       "weight_decay": 0.01, "clip": 1.0, "seed": 7, "max_len": 6144}
 CHECK_N = 100
