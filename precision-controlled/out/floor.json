@@ -1,0 +1,43 @@
+{
+ "design": "precision-controlled/study.py docstring, FLOOR",
+ "worlds": 400,
+ "cells": {
+  "microsoft_phi-4|code": {
+   "cases": 99,
+   "gain_detection": 0.9775,
+   "gain_false_alarm": 0.01,
+   "route_detection": 0.05,
+   "route_false_alarm": 0.0375,
+   "gain_pass": true,
+   "route_pass": false
+  },
+  "microsoft_phi-4|asap2": {
+   "cases": 100,
+   "gain_detection": 1.0,
+   "gain_false_alarm": 0.0,
+   "route_detection": 0.875,
+   "route_false_alarm": 0.025,
+   "gain_pass": true,
+   "route_pass": true
+  },
+  "google_gemma-3-27b-it|code": {
+   "cases": 100,
+   "gain_detection": 1.0,
+   "gain_false_alarm": 0.0,
+   "route_detection": 0.58,
+   "route_false_alarm": 0.03,
+   "gain_pass": true,
+   "route_pass": false
+  },
+  "google_gemma-3-27b-it|asap2": {
+   "cases": 100,
+   "gain_detection": 1.0,
+   "gain_false_alarm": 0.0,
+   "route_detection": 1.0,
+   "route_false_alarm": 0.025,
+   "gain_pass": true,
+   "route_pass": true
+  }
+ },
+ "passes": false
+}

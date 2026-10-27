@@ -1,0 +1,43 @@
+{
+ "design": "precision-controlled/study.py docstring, FLOOR",
+ "worlds": 400,
+ "cells": {
+  "allenai_olmo-3.1-32b-instruct|code": {
+   "cases": 100,
+   "gain_detection": 0.6475,
+   "gain_false_alarm": 0.0,
+   "route_detection": 0.0,
+   "route_false_alarm": 0.0,
+   "gain_pass": false,
+   "route_pass": false
+  },
+  "allenai_olmo-3.1-32b-instruct|asap2": {
+   "cases": 100,
+   "gain_detection": 0.0,
+   "gain_false_alarm": 0.0,
+   "route_detection": 0.92,
+   "route_false_alarm": 0.0,
+   "gain_pass": false,
+   "route_pass": true
+  },
+  "google_gemma-3-27b-it|code": {
+   "cases": 100,
+   "gain_detection": 1.0,
+   "gain_false_alarm": 0.0,
+   "route_detection": 0.0,
+   "route_false_alarm": 0.0,
+   "gain_pass": true,
+   "route_pass": false
+  },
+  "google_gemma-3-27b-it|asap2": {
+   "cases": 100,
+   "gain_detection": 1.0,
+   "gain_false_alarm": 0.0,
+   "route_detection": 0.985,
+   "route_false_alarm": 0.0,
+   "gain_pass": true,
+   "route_pass": true
+  }
+ },
+ "passes": false
+}
