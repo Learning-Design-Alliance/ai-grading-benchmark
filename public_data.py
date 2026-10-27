@@ -201,7 +201,12 @@ def overall():
     rows = []
     for r in o["rows"]:
         m, vendor, kind = NAMES.get(r["model"], (r["model"], "", ""))
-        row = {"key": r["model"], "model": m, "vendor": vendor, "kind": kind, "complete": r["complete"],
+        how, group = None, None
+        if r.get("reference"):  # a study's fine-tuned model or its untrained control: shown, not ranked
+            m, group, how = TRAINED.get(r["model"], (r["model"], "trained", ""))
+            vendor, kind = "", "trained"
+        row = {"key": r["model"], "model_id": r["model"], "model": m, "vendor": vendor, "kind": kind, "complete": r["complete"],
+               "reference": bool(r.get("reference")), "how": how, "group": group,
                "tasks": ", ".join(TASKS.get(t, t) for t in r["tasks"]), "overall": None if r["overall"] is None else round(r["overall"], 1),
                "rank": r.get("rank"), "rank_lo": (r.get("rank_ci95") or [None, None])[0], "rank_hi": (r.get("rank_ci95") or [None, None])[1],
                "flags": "; ".join(r["flags"]),
@@ -224,6 +229,8 @@ TRAINED = {
     "baseline: deberta-ft": ("DeBERTa-v3-base, fine-tuned", "fine-tuned encoder", "microsoft/deberta-v3-base (Microsoft, 184M parameters), fine-tuned with a regression head"),
     "fine-tuned: DeBERTa-v3-base": ("DeBERTa-v3-base, fine-tuned (essay study)", "fine-tuned encoder", "microsoft/deberta-v3-base (Microsoft, 184M parameters), fine-tuned on ASAP 2.0's training essays"),
     "fine-tuned: Qwen3 4B LoRA": ("Qwen3 4B Instruct, fine-tuned (LoRA)", "fine-tuned language model", "Qwen/Qwen3-4B-Instruct-2507 (Alibaba Qwen, 4B parameters), LoRA and a regression head"),
+    "fine-tuned (generative): Gemma 4 26B A4B LoRA": ("Gemma 4 26B A4B, fine-tuned to grade essays", "fine-tuned, writes its reply", "Gemma 4 26B A4B (Google, 26B parameters, 4B active) trained with LoRA on 23,628 graded essays to write the grade in its usual reply, so it can still give feedback; run on our own computer at bf16"),
+    "Gemma 4 26B A4B, self-hosted bf16 (base, control)": ("Gemma 4 26B A4B, not fine-tuned (same computer)", "comparison", "the same model without the fine-tuning, on the same computer and settings, so the two rows differ only by the training"),
     "fine-tuned: Gemma 4 26B A4B LoRA": ("Gemma 4 26B A4B, fine-tuned (LoRA)", "fine-tuned language model", "Gemma 4 26B A4B instruction-tuned (Google, 26B parameters, 4B active), LoRA and a regression head"),
 }
 
@@ -247,7 +254,7 @@ def scoring():
 
     def describe(model, task=None):
         track, n_train, bc = tracks.get(model, ("prompted", None, None))
-        if track in ("baseline", "fine-tuned"):
+        if track in ("baseline", "fine-tuned") or model in TRAINED:
             if task and n_train:
                 n_train = {task: n_train.get(task)}
             label, group, how = _trained_label(model, n_train)
@@ -904,6 +911,27 @@ def essays_finetune():
     return sorted(rows, key=lambda r: -r["qwk"])
 
 
+def essays_genft():
+    """essays-genft/out/essays-genft.json: what generative fine-tuning on essays changed, against the same model untrained."""
+    d = _load("essays-genft", "out", "essays-genft.json")
+    if not d:
+        return []
+    M = d["measures"]
+    spec = [("M1", "Essay agreement, 1,000 test essays", "qwk"), ("M2", "Essay agreement, the leaderboard's 100 essays", "qwk"),
+            ("M3", "Short-answer agreement (not trained on)", "qwk"), ("M4", "Code agreement (not trained on)", "qwk"),
+            ("M5|asap2", "Gain from a request or fake instruction, essays", "pct"), ("M5|mohler", "Gain from a request or fake instruction, short answers", "pct"),
+            ("M5|code", "Gain from a request or fake instruction, code", "pct"), ("M6", "Credit for blank answers", "count"),
+            ("M7", "Feedback halo", "halo"), ("M8", "Giving way to pushback", "pct"), ("M9", "Credit for correct reasoning in math (of 4 points)", "pts"),
+            ("M10", "Usable replies", "pp")]
+    rows = []
+    for key, label, unit in spec:
+        k, _, t = key.partition("|")
+        v = M[k][t] if t else M[k]
+        rows.append({"key": key, "measure": label, "unit": unit, "est": v["estimate"], "lo": v["ci95"][0], "hi": v["ci95"][1],
+                     "verdict": v["verdict"]})
+    return rows
+
+
 def perception():
     """perception/out/perception.json: does a self-hosted video model say it cannot see a speaker who is there (CCv2)?"""
     d = _load("perception", "out", "perception.json")
@@ -945,7 +973,7 @@ def main(out):
                    ("pushback_split", pushback_split), ("length_check", length_check), ("per_prompt", per_prompt),
                    ("multiplicity", multiplicity), ("corrections", corrections), ("energy", energy), ("models", models), ("contamination", contamination), ("energy_tasks", energy_tasks),
                    ("energy_measured", energy_measured), ("setups", setups), ("hosting", hosting), ("paraphrase", paraphrase),
-                   ("essays_finetune", essays_finetune), ("length_partial", length_partial), ("perception", perception),
+                   ("essays_finetune", essays_finetune), ("length_partial", length_partial), ("perception", perception), ("essays_genft", essays_genft),
                    ("scoring", scoring), ("model_inputs", model_inputs), ("timeline", timeline), ("lifecycle_tasks", lifecycle_tasks), ("lifecycle_compare", lifecycle_compare), ("footprint_scale", footprint_scale)):
         rows = fn()
         json.dump(rows, open(os.path.join(out, f"{nm}.json"), "w"), indent=0)

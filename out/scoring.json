@@ -1605,6 +1605,150 @@
    "n_train": null
   },
   {
+   "model": "Gemma 4 26B A4B, self-hosted bf16 (base, control)",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 84.60968768676713,
+    "decision": 65.97328139956085,
+    "relevant": 100.0,
+    "irrelevant": 67.47510786954903,
+    "fairness": 94.42592592592592,
+    "consistency": 97.42924166413282
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 88.14473684210526,
+     "fairness": 97.5,
+     "consistency": 99.00191632066434,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 57.03668831949243,
+     "decision": 31.94656279912168,
+     "relevant": 100.0,
+     "irrelevant": 66.52777777777777,
+     "fairness": 96.77777777777777,
+     "consistency": 96.71242203552627,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 96.79237474080898,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 47.752808988764045,
+     "fairness": 89.0,
+     "consistency": 96.57338663620789,
+     "feedback": null
+    }
+   },
+   "overall": 85.1658793117656,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "overall_by_task": {
+    "mohler": 97.44110886046161,
+    "code": 73.84058333160839,
+    "asap2": 86.49627878618504
+   },
+   "task_range": [
+    73.84058333160839,
+    97.44110886046161
+   ],
+   "rank_ci95": null,
+   "rank": null,
+   "capped": true,
+   "track": "self-hosted base (control for essays-genft)",
+   "reference": true,
+   "by_construction": null,
+   "n_train": {
+    "mohler": null,
+    "code": null,
+    "asap2": null,
+    "maths": null,
+    "pushback": null
+   }
+  },
+  {
+   "model": "fine-tuned (generative): Gemma 4 26B A4B LoRA",
+   "tasks": [
+    "asap2",
+    "code",
+    "mohler"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 83.24677053115029,
+    "decision": 74.9328441968277,
+    "relevant": 99.06367041198502,
+    "irrelevant": 60.08531550474188,
+    "fairness": 87.7962962962963,
+    "consistency": 82.71706170933572
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 77.14769367780711,
+     "decision": 96.74248468380759,
+     "relevant": 100.0,
+     "irrelevant": 68.67105263157895,
+     "fairness": 79.0,
+     "consistency": 90.4434250764526,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 72.59261791564374,
+     "decision": 53.12320370984781,
+     "relevant": 100.0,
+     "irrelevant": 44.44444444444444,
+     "fairness": 95.38888888888889,
+     "consistency": 84.10293350555156,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 100.0,
+     "decision": null,
+     "relevant": 97.19101123595505,
+     "irrelevant": 67.14044943820225,
+     "fairness": 89.0,
+     "consistency": 73.60482654600301,
+     "feedback": null
+    }
+   },
+   "overall": 80.89016124469437,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "overall_by_task": {
+    "mohler": 82.97593727115252,
+    "code": 74.50101652858717,
+    "asap2": 86.47611565153287
+   },
+   "task_range": [
+    74.50101652858717,
+    86.47611565153287
+   ],
+   "rank_ci95": null,
+   "rank": null,
+   "capped": true,
+   "track": "fine-tuned (generative)",
+   "reference": true,
+   "by_construction": [],
+   "n_train": {
+    "mohler": null,
+    "code": null,
+    "asap2": null,
+    "maths": null,
+    "pushback": null
+   }
+  },
+  {
    "model": "baseline: tfidf-ridge",
    "tasks": [
     "asap2",
@@ -2086,6 +2230,21 @@
     "rank": 2
    },
    {
+    "model": "Gemma 4 26B A4B, self-hosted bf16 (base, control)",
+    "reference": true,
+    "strands": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 88.14473684210526,
+     "fairness": 97.5,
+     "consistency": 99.00191632066434
+    },
+    "score": 97.44110886046161,
+    "flags": [],
+    "rank": null
+   },
+   {
     "model": "google/gemma-4-26b-a4b-it",
     "reference": false,
     "strands": {
@@ -2395,6 +2554,23 @@
      "credits blank or junk answers"
     ],
     "rank": 21
+   },
+   {
+    "model": "fine-tuned (generative): Gemma 4 26B A4B LoRA",
+    "reference": true,
+    "strands": {
+     "agreement": 77.14769367780711,
+     "decision": 96.74248468380759,
+     "relevant": 100.0,
+     "irrelevant": 68.67105263157895,
+     "fairness": 79.0,
+     "consistency": 90.4434250764526
+    },
+    "score": 82.97593727115252,
+    "flags": [
+     "gamed by more than 5% of the scale"
+    ],
+    "rank": null
    },
    {
     "model": "baseline: tfidf-ridge",
@@ -2770,6 +2946,40 @@
      "gamed by more than 5% of the scale"
     ],
     "rank": 17
+   },
+   {
+    "model": "fine-tuned (generative): Gemma 4 26B A4B LoRA",
+    "reference": true,
+    "strands": {
+     "agreement": 72.59261791564374,
+     "decision": 53.12320370984781,
+     "relevant": 100.0,
+     "irrelevant": 44.44444444444444,
+     "fairness": 95.38888888888889,
+     "consistency": 84.10293350555156
+    },
+    "score": 74.50101652858717,
+    "flags": [
+     "gamed by more than 5% of the scale"
+    ],
+    "rank": null
+   },
+   {
+    "model": "Gemma 4 26B A4B, self-hosted bf16 (base, control)",
+    "reference": true,
+    "strands": {
+     "agreement": 57.03668831949243,
+     "decision": 31.94656279912168,
+     "relevant": 100.0,
+     "irrelevant": 66.52777777777777,
+     "fairness": 96.77777777777777,
+     "consistency": 96.71242203552627
+    },
+    "score": 73.84058333160839,
+    "flags": [
+     "gamed by more than 5% of the scale"
+    ],
+    "rank": null
    },
    {
     "model": "allenai/olmo-3.1-32b-instruct",
@@ -3158,6 +3368,40 @@
     "score": 92.00842696629213,
     "flags": [
      "credits blank or junk answers"
+    ],
+    "rank": null
+   },
+   {
+    "model": "Gemma 4 26B A4B, self-hosted bf16 (base, control)",
+    "reference": true,
+    "strands": {
+     "agreement": 96.79237474080898,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 47.752808988764045,
+     "fairness": 89.0,
+     "consistency": 96.57338663620789
+    },
+    "score": 86.49627878618504,
+    "flags": [
+     "gamed by more than 5% of the scale"
+    ],
+    "rank": null
+   },
+   {
+    "model": "fine-tuned (generative): Gemma 4 26B A4B LoRA",
+    "reference": true,
+    "strands": {
+     "agreement": 100.0,
+     "decision": null,
+     "relevant": 97.19101123595505,
+     "irrelevant": 67.14044943820225,
+     "fairness": 89.0,
+     "consistency": 73.60482654600301
+    },
+    "score": 86.47611565153287,
+    "flags": [
+     "gamed by more than 5% of the scale"
     ],
     "rank": null
    },

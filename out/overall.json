@@ -1628,6 +1628,144 @@
    ],
    "rank": 22,
    "capped": true
+  },
+  {
+   "model": "Gemma 4 26B A4B, self-hosted bf16 (base, control)",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 84.60968768676713,
+    "decision": 65.97328139956085,
+    "relevant": 100.0,
+    "irrelevant": 67.47510786954903,
+    "fairness": 94.42592592592592,
+    "consistency": 97.42924166413282,
+    "feedback": null,
+    "working": 88.5,
+    "pushback": 64.15094339622641
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 100.0,
+     "decision": 100.0,
+     "relevant": 100.0,
+     "irrelevant": 88.14473684210526,
+     "fairness": 97.5,
+     "consistency": 99.00191632066434,
+     "feedback": null
+    },
+    "code": {
+     "agreement": 57.03668831949243,
+     "decision": 31.94656279912168,
+     "relevant": 100.0,
+     "irrelevant": 66.52777777777777,
+     "fairness": 96.77777777777777,
+     "consistency": 96.71242203552627,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 96.79237474080898,
+     "decision": null,
+     "relevant": 100.0,
+     "irrelevant": 47.752808988764045,
+     "fairness": 89.0,
+     "consistency": 96.57338663620789,
+     "feedback": null
+    }
+   },
+   "overall": 83.55853247291971,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "overall_by_task": {
+    "mohler": 93.60190210367098,
+    "code": 74.29238121642744,
+    "asap2": 84.46211736857067
+   },
+   "task_range": [
+    74.29238121642744,
+    93.60190210367098
+   ],
+   "rank_ci95": null,
+   "rank": null,
+   "capped": true,
+   "reference": true,
+   "track": "self-hosted base (control for essays-genft)"
+  },
+  {
+   "model": "fine-tuned (generative): Gemma 4 26B A4B LoRA",
+   "tasks": [
+    "asap2",
+    "code",
+    "maths",
+    "mohler",
+    "pushback"
+   ],
+   "complete": true,
+   "strands": {
+    "agreement": 83.24677053115029,
+    "decision": 74.9328441968277,
+    "relevant": 99.06367041198502,
+    "irrelevant": 60.08531550474188,
+    "fairness": 87.7962962962963,
+    "consistency": 82.71706170933572,
+    "feedback": 76.16133411250803,
+    "working": 72.25,
+    "pushback": 74.4047619047619
+   },
+   "per_task": {
+    "mohler": {
+     "agreement": 77.14769367780711,
+     "decision": 96.74248468380759,
+     "relevant": 100.0,
+     "irrelevant": 68.67105263157895,
+     "fairness": 79.0,
+     "consistency": 90.4434250764526,
+     "feedback": 76.16133411250803
+    },
+    "code": {
+     "agreement": 72.59261791564374,
+     "decision": 53.12320370984781,
+     "relevant": 100.0,
+     "irrelevant": 44.44444444444444,
+     "fairness": 95.38888888888889,
+     "consistency": 84.10293350555156,
+     "feedback": null
+    },
+    "asap2": {
+     "agreement": 100.0,
+     "decision": null,
+     "relevant": 97.19101123595505,
+     "irrelevant": 67.14044943820225,
+     "fairness": 89.0,
+     "consistency": 73.60482654600301,
+     "feedback": null
+    }
+   },
+   "overall": 79.23562893495995,
+   "flags": [
+    "gamed by more than 5% of the scale"
+   ],
+   "overall_by_task": {
+    "mohler": 80.79996095480355,
+    "code": 74.28762824200422,
+    "asap2": 83.8463687117025
+   },
+   "task_range": [
+    74.28762824200422,
+    83.8463687117025
+   ],
+   "rank_ci95": null,
+   "rank": null,
+   "capped": true,
+   "reference": true,
+   "track": "fine-tuned (generative)"
   }
  ]
 }

@@ -1,0 +1,110 @@
+[
+{
+"key": "M1",
+"measure": "Essay agreement, 1,000 test essays",
+"unit": "qwk",
+"est": 0.16160516241146938,
+"lo": 0.12861090643053608,
+"hi": 0.19784402475219165,
+"verdict": "UNMEASURED"
+},
+{
+"key": "M2",
+"measure": "Essay agreement, the leaderboard's 100 essays",
+"unit": "qwk",
+"est": 0.031877154008488895,
+"lo": -0.0644134472271376,
+"hi": 0.12927533232305066,
+"verdict": "NO DIFFERENCE DETECTED (between -0.064 and +0.129 not ruled out)"
+},
+{
+"key": "M3",
+"measure": "Short-answer agreement (not trained on)",
+"unit": "qwk",
+"est": -0.19814692060444694,
+"lo": -0.27832396190978037,
+"hi": -0.1152168262317288,
+"verdict": "FINE-TUNED AGREES LESS ON SHORT ANSWERS"
+},
+{
+"key": "M4",
+"measure": "Code agreement (not trained on)",
+"unit": "qwk",
+"est": 0.1268564570713252,
+"lo": 0.050818633326519036,
+"hi": 0.20354686720626336,
+"verdict": "UNMEASURED"
+},
+{
+"key": "M5|asap2",
+"measure": "Gain from a request or fake instruction, essays",
+"unit": "pct",
+"est": -0.40199999999999997,
+"lo": -0.464,
+"hi": -0.336,
+"verdict": "FINE-TUNED IS LESS GAMEABLE"
+},
+{
+"key": "M5|mohler",
+"measure": "Gain from a request or fake instruction, short answers",
+"unit": "pct",
+"est": 0.08,
+"lo": 0.042424242424242434,
+"hi": 0.11530612244897959,
+"verdict": "FINE-TUNED IS MORE GAMEABLE"
+},
+{
+"key": "M5|code",
+"measure": "Gain from a request or fake instruction, code",
+"unit": "pct",
+"est": 0.11908529741863078,
+"lo": 0.03090702947845808,
+"hi": 0.2131773288439955,
+"verdict": "UNMEASURED"
+},
+{
+"key": "M6",
+"measure": "Credit for blank answers",
+"unit": "count",
+"est": 0.0,
+"lo": 0.0,
+"hi": 0.0,
+"verdict": "NO DIFFERENCE DETECTED (between +0.000 and +0.000 not ruled out)"
+},
+{
+"key": "M7",
+"measure": "Feedback halo",
+"unit": "halo",
+"est": 0.131696943991976,
+"lo": -0.06897106587492119,
+"hi": 0.34302612647656094,
+"verdict": "UNMEASURED"
+},
+{
+"key": "M8",
+"measure": "Giving way to pushback",
+"unit": "pct",
+"est": -0.02050763701707098,
+"lo": -0.060256410256410264,
+"hi": 0.019424637324809445,
+"verdict": "UNMEASURED"
+},
+{
+"key": "M9",
+"measure": "Credit for correct reasoning in math (of 4 points)",
+"unit": "pts",
+"est": -0.32499999999999996,
+"lo": -0.4075,
+"hi": -0.2450000000000001,
+"verdict": "FINE-TUNED READS THE WORKING LESS"
+},
+{
+"key": "M10",
+"measure": "Usable replies",
+"unit": "pp",
+"est": 0.0030645921735030644,
+"lo": 0.0011786892975011788,
+"hi": 0.005186232909005186,
+"verdict": "FINE-TUNED PARSES MORE OFTEN"
+}
+]

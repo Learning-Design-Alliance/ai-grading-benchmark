@@ -784,7 +784,8 @@ def cmd_scoring(a):
     extra = []
     for p in a.extra or []:
         if os.path.exists(p):
-            extra += json.load(open(p))["rows"]
+            d = json.load(open(p))
+            extra += d["rows"] + d.get("control_rows", [])
     res = scoring(lb["rows"], extra)
     json.dump(res, open(a.out, "w"), indent=1)
     for o in res["rows"]:
@@ -799,6 +800,21 @@ def cmd_overall(a):
         for m, v in json.load(open(a.feedback))["models"].items():
             fb[m] = {"halo": (v.get("halo") or {}).get("halo"), "gives_away": (v.get("gives_away") or {}).get("share")}
     res = overall(lb["rows"], fb)
+    # Extra rows (a fine-tuned model that writes its own replies, so it can be run on every task) are scored by the
+    # same rules and shown as UNRANKED reference rows: they are not a model as its maker ships it.
+    extra = []
+    for p in a.extra or []:
+        if os.path.exists(p):
+            d = json.load(open(p))
+            extra += d["rows"] + d.get("control_rows", [])  # a study's control (the same model, untrained, same setup)
+    if extra:
+        fbx = {r["model"]: {"halo": r["halo"].get("halo") if isinstance(r["halo"], dict) else r["halo"], "gives_away": None}
+               for r in extra if r.get("halo") is not None}
+        ref = overall(extra, fbx, sims=1)
+        meta = {r["model"]: r for r in extra}
+        for o in ref["rows"]:
+            o.update(reference=True, track=meta[o["model"]].get("track"), rank=None, rank_ci95=None)
+        res["rows"] += ref["rows"]
     json.dump(res, open(a.out, "w"), indent=1)
     mu = res["multiplicity"]
     print(f"probe intervals: {mu['tests']}; excluding 0: {mu['flagged']}; surviving FDR 5%: {mu['survive']}")
@@ -824,7 +840,7 @@ def main():
     p = sub.add_parser("pin"); p.add_argument("files", nargs="+", help="task=path")
     p = sub.add_parser("scoring"); p.add_argument("leaderboard"); p.add_argument("--extra", nargs="*", help="baseline / fine-tuned rows")
     p.add_argument("--out", default=os.path.join(HERE, "out", "scoring.json"))
-    p = sub.add_parser("overall"); p.add_argument("leaderboard"); p.add_argument("--feedback"); p.add_argument("--out", default="out/overall.json")
+    p = sub.add_parser("overall"); p.add_argument("leaderboard"); p.add_argument("--feedback"); p.add_argument("--out", default="out/overall.json"); p.add_argument("--extra", nargs="*", help="fine-tuned rows that run every task (unranked reference)")
     a = ap.parse_args()
     {"export": cmd_export, "verify": cmd_verify, "build": cmd_build, "spotcheck": cmd_spotcheck, "pin": cmd_pin,
      "overall": cmd_overall, "scoring": cmd_scoring}[a.cmd](a)

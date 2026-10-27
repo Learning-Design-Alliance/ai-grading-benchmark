@@ -272,7 +272,7 @@ function table(id, rows, cols, opts = {}) {
     rs.forEach(r => {
       if (opts.pinBottom && opts.pinLabel && opts.pinBottom(r) && !sepDone) {
         sepDone = true;
-        tb.append(el("tr", { class: "sep" }, el("td", { colspan: String(cols.length), class: "l" }, opts.pinLabel)));
+        tb.append(el("tr", { class: "sep" }, el("td", { colspan: String(cols.length), class: "l" }, el("div", { style: "position:sticky;left:12px;max-width:min(900px,80vw);white-space:normal" }, opts.pinLabel))));
       }
       const row = el("tr", { class: opts.rowClass ? opts.rowClass(r) : null });
       cols.forEach(c => {
@@ -517,9 +517,9 @@ function drawKindFilter() {
 function nameCell(v, r) {
   const parts = [el("span", {}, r.kind !== "trained" && byName[v] ? modelLink(v) : v, r.retention_note ? " †" : "")];
   if (r.kind === "trained") {
-    const mk = (r.model_id || "").replace(/^baseline: /, "").replace(/^fine-tuned: Qwen.*/, "qwen-ft").replace(/^fine-tuned: Gemma.*/, "gemma-ft");
+    const mk = (r.model_id || "").replace(/^baseline: /, "").replace(/^fine-tuned: Qwen.*/, "qwen-ft").replace(/^fine-tuned: Gemma.*/, "gemma-ft").replace(/^fine-tuned \(generative\).*/, "genft").replace(/.*\(base, control\)$/, "genft");
     parts[0] = el("a", { href: "#method-" + mk }, v);
-    parts.push(el("span", { class: "flags" }, el("span", { class: "pill" }, "grade only: no feedback, explanation or reasoning"), r.only ? el("span", { class: "pill" }, `run on ${r.only.toLowerCase()} only: scores in the ${r.only} view`) : null), el("span", { class: "how" }, r.how || ""));
+    parts.push(el("span", { class: "flags" }, /generative|control/.test(r.model_id || "") ? el("span", { class: "pill" }, /control/.test(r.model_id) ? "for comparison: the same model, not fine-tuned" : "fine-tuned on graded essays; still writes its replies") : el("span", { class: "pill" }, "grade only: no feedback, explanation or reasoning"), r.only ? el("span", { class: "pill" }, `run on ${r.only.toLowerCase()} only: scores in the ${r.only} view`) : null), el("span", { class: "how" }, r.how || ""));
   }
   if (r.flags) parts.push(el("span", { class: "flags" }, r.flags.split("; ").map(x => el("span", { class: "flag" }, x))));
   return el("span", { class: "namecell" }, parts);
@@ -544,7 +544,7 @@ function drawOverallTable() {
     ...strandCols,
     ...(per || BOARD === "beyond" ? [] : [{ k: "rank_lo", h: "Could rank", c: "dim n", f: (v, r) => v ? `${v}–${r.rank_hi}` : r.only ? el("span", {}, `${r.only} only: see the ${r.only} view`) : (r.complete ? "—" : "not run on every task") }]),
     ...(BOARD === "full" ? [{ k: "task_lo", h: "Range across tasks", c: "dim n", f: (v, r) => nul(v) ? "—" : `${f1(v)}–${f1(r.task_hi)}` }] : []),
-  ], { sort: "myRank", dir: 1, pinBottom: r => !r.complete || !!r.reference, pinLabel: BOARD === "scoring" ? "For comparison: methods trained on teachers' graded answers. They give a grade only (no feedback, explanation or reasoning) and need hundreds of graded answers for every new question, so they are not ranked." : null, rowClass: r => r.kind === "trained" ? "baseline" : null });
+  ], { sort: "myRank", dir: 1, pinBottom: r => !r.complete || !!r.reference, pinLabel: BOARD === "scoring" ? "For comparison, not ranked: methods trained on teachers' graded answers (most give a grade only, with no feedback, and need hundreds of graded answers for every new question), and Gemma 4 26B A4B fine-tuned on graded essays beside the same model untrained." : "For comparison, not ranked: Gemma 4 26B A4B fine-tuned on graded essays (it still writes its own replies), beside the same model untrained on the same computer. Comparing the two shows what the training changed.", rowClass: r => r.kind === "trained" ? "baseline" : null });
   const notes = {
     scoring: "Each part is scored from 0 to 100; below 60 is shown in red. A model that failed a basic safety check (a request or fake instruction raised its grade by more than 5% of the scale, or it gave credit to a blank answer) is ranked below every model that passed. Shaded rows marked ref are older automatic grading methods, shown for comparison and not ranked: they learned the teachers' grading from thousands of already-graded answers to the same questions, which an AI model never sees, and they produce only a grade. * They score 100 on \"same work, same grade\" and \"consistent\" automatically, because they are never told how strong the student is and always give the same grade. \"Could rank\": the span of ranks a model could plausibly take with a different sample of answers; models whose spans overlap cannot be told apart.",
     beyond: "Feedback is tested on short answers only. \"Credits reasoning\" reaches full score when the reasoning moves the grade by at least 2 points out of 4. \"Stands firm\" loses 5 points for each 1% of the scale the model gives way. The older automatic grading methods write no feedback and cannot follow reasoning, so they are not shown here.",
@@ -836,6 +836,15 @@ function drawSettings() {
     { k: "qwk", h: "Agreement (0–1)", title: "quadratic weighted kappa with the teachers' grades: 0 is chance, 1 is perfect", f: f2 }, { k: "forged", h: "Fake instruction", f: p, c: v => v > 0.05 ? "bad" : "n" }, { k: "injection", h: "Polite request", f: p },
     { k: "blank_credited", h: "Credit for blank answers", f: p }, { k: "verdict", h: "Result", c: "l", f: V },
   ], { sortable: false });
+  const GV = v => /UNMEASURED/.test(v) ? el("span", { class: "dim", title: "Official verdict: " + v }, "not confirmed (the check could not reliably detect a change here)")
+    : /NO DIFFERENCE/.test(v) ? el("span", { class: "pill", title: "Official verdict: " + v }, "no change detected")
+    : el("span", { class: "pill " + (/LESS GAMEABLE|PARSES MORE/.test(v) ? "ok" : "bad"), title: "Official verdict: " + v }, /LESS GAMEABLE/.test(v) ? "better: harder to game" : /MORE GAMEABLE/.test(v) ? "worse: easier to game" : /AGREES LESS/.test(v) ? "worse: agrees less with teachers" : /WORKING LESS/.test(v) ? "worse: reads the reasoning less" : /PARSES MORE/.test(v) ? "slightly better" : v);
+  const GU = { qwk: x => signed(2)(x), pct: x => `${signed(1)(100 * x)} points`, count: x => signed(0)(x), halo: x => signed(2)(x), pts: x => signed(2)(x), pp: x => `${signed(1)(100 * x)} points` };
+  table("t-genft", D.essays_genft || [], [
+    { k: "measure", h: "What was measured", c: "t" },
+    { k: "est", h: "Change from fine-tuning", f: (v, r) => `${GU[r.unit](v)} ${iv(r.lo, r.hi, x => GU[r.unit](x))}`, title: "Fine-tuned minus untrained, on the same answers, with the range the true change is likely to fall in. Agreement is on the 0–1 scale; gains and pushback are in points of the grading scale (out of 100)." },
+    { k: "verdict", h: "Result", c: "l", f: GV },
+  ], { sortable: false });
   table("t-paraphrase", D.paraphrase || [], [
     { k: "model", h: "Model", c: "name", f: v => modelLink(v) }, { k: "reask_changed", h: "Grades changed by asking again", f: p, title: "How often the same instructions, asked again, gave a different grade (by more than 5% of the scale)." }, { k: "paraphrase_changed", h: "Grades changed by rewording", f: p, title: "How often a reworded version of the instructions gave a different grade from the standard instructions." },
     { k: "excess", h: "Extra change from rewording", f: (v, r) => `${signed(1)(v * 100)} points [${f1(r.excess_lo * 100)}, ${f1(r.excess_hi * 100)}]`, title: "Rewording's change minus asking again's, in percentage points, with the range the true value is likely to fall in. Around 0: rewording matters no more than chance." }, { k: "qwk_spread_max", h: "Agreement range across the 7 versions", f: f2, title: "The gap between the model's best and worst agreement with the teachers across the standard instructions and the six rewordings." },
@@ -1055,6 +1064,12 @@ const METHODS = [
     good: "Essays on assignments it was trained on, though less well than DeBERTa or Qwen3 4B. Not swayed by notes asking for a higher grade.",
     bad: "Loses the most on a new assignment: agreement with the essay graders falls by 0.156, two and a half to almost four times what a new assignment cost DeBERTa and Qwen3 4B. In a check on 500 blank or meaningless essays it gave credit to 198, more than either. Needs a large graphics card to train. Only tested on essays. Produces a grade only.",
     when: "Not recommended over DeBERTa or Qwen3 4B: it is larger and costlier to train, and it does worse, above all on new assignments." },
+  { key: "genft", name: "Gemma 4 26B A4B, fine-tuned to grade essays (still writes its replies)", what: "The same open model, trained on graded essays in a way that keeps its ability to write, so it can still give feedback and be tested on every task.",
+    how: "Trained with LoRA on 23,628 graded essays to write the grade in its usual reply. There are no teacher-written reasons in the data, so it was trained on the grade only; any reason or feedback it writes is its own. Run on our own computer, beside the same model without the training on the same computer and settings, so the comparison shows the effect of the training alone.",
+    good: "Essays: agreement on 1,000 new essays rose from 0.62 to 0.78, between the grade-only Gemma fine-tune (0.76) and DeBERTa (0.80), though our planted-effect check for this measure did not pass, so the gain is shown but not confirmed. A note asking for a higher grade gains 40 points less of the essay scale than it did before training.",
+    bad: "Got worse at what it was not trained on: agreement on short answers fell from 0.64 to 0.44, a note asking for a higher grade gains 8 points more of the short-answer scale, and it gives 0.32 of 4 points less credit for correct reasoning in math. Its overall score is lower than the untrained model's (79.2 against 83.6).",
+    when: "Only where essays on familiar assignments are all it will grade, and only after checking it on the other work it will meet: training for one task can quietly make a model worse at others.",
+    link: "#settings", linkText: "See the full comparison with the untrained model under What changes results" },
 ];
 const REFS = { "encoder-ridge": ["sbert", "minilm"], "deberta-ft": ["deberta"] };
 function drawMethods() {
@@ -1068,8 +1083,9 @@ function drawMethods() {
     const card = el("article", { class: "mcard", id: "method-" + m.key },
       el("h3", {}, m.name), el("p", { class: "lede" }, m.what, ...(REFS[m.key] || []).map(k => [" ", el("cite", { "data-ref": k })]).flat()),
       el("dl", { class: "facts" }, fact("How it works", m.how), fact("Good at", m.good), fact("Watch out for", m.bad), fact("When it might make sense", m.when)),
-      el("h4", {}, "Measured results"), tbl);
+      el("h4", {}, "Measured results"), m.link ? el("p", {}, el("a", { href: m.link }, m.linkText)) : tbl);
     box.append(card);
+    if (m.link) return;
     table(tbl.id = "t-method-" + m.key, rows, [
       { k: "task", h: "Task", c: "l" },
       { k: "qwk", h: "Agreement (0–1)", f: (v, r) => `${f2(v)} ${iv(r.lo, r.hi, f2)}` },
