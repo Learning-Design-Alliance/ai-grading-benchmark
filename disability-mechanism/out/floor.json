@@ -1,0 +1,15 @@
+{
+ "A": {
+  "null": 0.0,
+  "planted": 0.0,
+  "reported_-0.50": 0.0,
+  "passes": false
+ },
+ "B": {
+  "z_gap_at_matched_marks": 0.312059092574144,
+  "k": -0.8011303177798,
+  "planted": 0.905,
+  "null": 0.02,
+  "passes": true
+ }
+}
