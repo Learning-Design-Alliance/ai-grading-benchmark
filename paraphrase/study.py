@@ -75,9 +75,15 @@ CHANGES:
    estimate GPT-6 Astra and Claude Fable 5.1 do not fit and are left. Spend is now counted from cost_reported on
    every recorded grading of the para-* runs (cached gradings carry the cost paid when they were sent; the
    uncached-only count read the first four models' $8.38 as $3.57), plus Olmo's GPU time.
+5. (2026-10-27, AFTER the 20 models' results were read) Coverage only. GPT-6 Astra and Claude Fable 5.1, left out
+   by the CHANGE 4 cap, are added under the maintainer's decision of 2026-10-27 ("include Astra and Fable in the
+   rewording study"), so that every board model is covered. Design, prompts, cases, measures, the floor and the
+   verdict strings are unchanged. Fable keeps its recorded retention exception (CHANGE 4). The cap rises by $250 to
+   $378.38: $84.42 had been spent, the estimates are $55.71 (Astra) and $136.56 (Fable), and each run's own
+   --max-usd may reach 1.5 x its estimate. The README's chance note is recomputed for 22 models.
 
 BUDGET. $25 cap for the first four models ($8.38 spent). CHANGE 4: $120 for the 18 added models, so the study's
-cap is $128.38.
+cap is $128.38. CHANGE 5: plus $250 for GPT-6 Astra and Claude Fable 5.1, so the cap is $378.38.
 
 Usage:
     python3 paraphrase/study.py floor --cases-dir <dir>
@@ -111,7 +117,7 @@ MODELS = [r["model"] for r in json.load(open(os.path.join(ROOT, "out", "overall.
 FABLE = "anthropic/claude-fable-5.1"
 FABLE_EXCEPTION = "own Anthropic key (bring-your-own-key), 30-day safety retention; public corpora only"
 PARA = [f"p{i}" for i in range(1, 7)]
-CAP = 128.38  # CHANGE 4: $25 for the first four ($8.38 spent) + $120 for the 18 added
+CAP = 378.38  # CHANGE 4: $25 for the first four ($8.38 spent) + $120 for the 18 added; CHANGE 5: + $250 for Astra and Fable
 
 
 def slug(m):
