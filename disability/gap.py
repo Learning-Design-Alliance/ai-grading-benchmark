@@ -79,6 +79,15 @@ thresholds above; the SHARED GAP reading of the first design is not re-decided b
 cheapest first within the BUDGET of the coverage work's $300 cap (shared with the media tasks, which run
 first); any not run are listed. Draw, statistic, verdicts and floor are unchanged.
 
+CHANGE 4 (2026-10-27, before any call for the graders it adds): added under the maintainer's decision of
+2026-10-27 ("Run the expensive fairness studies for Fable and Astra"), after the earlier graders' results were
+read, not because of any result: GPT-6 Astra and Claude Fable 5.1, each with its leaderboard settings, default
+prompt, base probe. Astra at zero data retention; Fable has no zero-retention route and runs only under the
+board's stated exception (the maintainers' own Anthropic key, 30-day safety retention, public corpora only),
+recorded in each run. Claude Opus 5.5 is not added. BUDGET: a separate cap of $540 for these two models across
+the three fairness studies, with a spend cap on each run. Design, statistics, thresholds, verdict strings and
+floor are unchanged.
+
     python3 gap.py draw --cases <asap2.jsonl> --first <first-run config.json> --out <matched.jsonl>
     python3 gap.py floor --matched <matched.jsonl>
     python3 gap.py analyse --matched <matched.jsonl> --runs <run dir> [<run dir> ...]

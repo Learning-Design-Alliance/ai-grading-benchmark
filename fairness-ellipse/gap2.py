@@ -86,6 +86,14 @@ CHANGES:
    the most expensive (Opus, Astra, Fable, about $50-120 each here) are run only if the cap allows, and any not run
    are listed. Draw, statistics, verdicts, thresholds and floor are unchanged. Each added grader's verdict is
    reported per grader; nothing pooled across graders changes.
+2. (2026-10-27, before any call for the graders it adds) GPT-6 Astra and Claude Fable 5.1 are added under the
+   maintainer's decision of 2026-10-27 ("Run the expensive fairness studies for Fable and Astra"), after the
+   earlier graders' results were read, not because of any result: GPT-6 Astra and Claude Fable 5.1, each with
+   its leaderboard settings, default prompt, base probe. Astra at zero data retention; Fable has no zero-
+   retention route and runs only under the board's stated exception (the maintainers' own Anthropic key, 30-day
+   safety retention, public corpora only), recorded in each run. Claude Opus 5.5 is not added. BUDGET: a
+   separate cap of $540 for these two models across the three fairness studies, with a spend cap on each run.
+   Design, statistics, thresholds, verdict strings and floor are unchanged.
 """
 
 import argparse
