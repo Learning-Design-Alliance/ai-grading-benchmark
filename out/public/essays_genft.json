@@ -106,5 +106,23 @@
 "lo": 0.0011786892975011788,
 "hi": 0.005186232909005186,
 "verdict": "FINE-TUNED PARSES MORE OFTEN"
+},
+{
+"key": "M11 fold vs base",
+"measure": "Essay agreement on an assignment it never trained on (each test essay graded by a copy trained without its assignment)",
+"unit": "qwk",
+"est": 0.11421425851883948,
+"lo": 0.08245474129600983,
+"hi": 0.1470189185193569,
+"verdict": "FOLD EXCEEDS BASE"
+},
+{
+"key": "M11 genft vs fold",
+"measure": "Cost of a new assignment: trained on the assignment minus never saw it",
+"unit": "qwk",
+"est": 0.0473909038926299,
+"lo": 0.022680321845220952,
+"hi": 0.07292342685128694,
+"verdict": "GENFT EXCEEDS FOLD"
 }
 ]

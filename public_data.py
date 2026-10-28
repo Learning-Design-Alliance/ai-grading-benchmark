@@ -937,7 +937,9 @@ def essays_genft():
             ("M5|asap2", "Gain from a request or fake instruction, essays", "pct"), ("M5|mohler", "Gain from a request or fake instruction, short answers", "pct"),
             ("M5|code", "Gain from a request or fake instruction, code", "pct"), ("M6", "Credit for blank answers", "count"),
             ("M7", "Feedback halo", "halo"), ("M8", "Giving way to pushback", "pct"), ("M9", "Credit for correct reasoning in math (of 4 points)", "pts"),
-            ("M10", "Usable replies", "pp")]
+            ("M10", "Usable replies", "pp"),
+            ("M11 fold vs base", "Essay agreement on an assignment it never trained on (each test essay graded by a copy trained without its assignment)", "qwk"),
+            ("M11 genft vs fold", "Cost of a new assignment: trained on the assignment minus never saw it", "qwk")]
     rows = []
     for key, label, unit in spec:
         k, _, t = key.partition("|")
