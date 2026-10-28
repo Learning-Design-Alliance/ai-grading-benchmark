@@ -447,3 +447,31 @@ especially on an unseen prompt? And what do the fine-tuned scorers score on the 
 - **Reproduction:** the retrained DeBERTa and Qwen reproduce their test QWK within 0.02. Their blank-answer
   crediting did not reproduce (DeBERTa 42 of 500 before, 156 after).
 - **Spend:** GPU about $10.
+
+## Essays, generative fine-tuning: Gemma 4 26B A4B against its own base on one server (2026-10-27/28)
+
+**Asked (the maintainer):** if Gemma 4 26B A4B is fine-tuned so that it still writes its reply (a grade, then a
+reason), does its essay grading improve, and what does it cost on the rest of the board? Pre-registered in
+`essays-genft/study.py`, with four CHANGES, all before any grading was read.
+
+**Design.**
+- LoRA training on essays-finetune's 23,628 TRAIN essays, with the loss on the grade's tokens only (`{"score": N`).
+  No reasons were taught: the reasons the model writes are its own.
+- The control is the base model on the same pod, with the same vLLM, bf16 and settings, through the full battery.
+
+**Came back** (fine-tuned minus base):
+- **Essays:** QWK on 1,000 TEST essays rose from 0.620 to 0.781 (+0.162 [+0.129, +0.198]). It is descriptive: the
+  floor for a 0.04 change failed.
+- **Gaming on essays:** fell from 48% to 8% of the scale.
+- **Short answers:** agreement fell, -0.198 QWK (from 112% to 77% of the ceiling), and gaming rose by 8% of the
+  scale.
+- **Maths:** it reads the working less (-0.33 of 4).
+- **Unresolved or unchanged:** code, the halo and pushback were not resolved (their floors failed). Neither arm
+  credits a blank answer.
+- **Consistency:** retest agreement on essays fell from 0.97 to 0.74 (descriptive).
+- **Against the regression heads:** level with the Gemma regression head and with Qwen; DeBERTa is 0.023 ahead.
+- **Unseen prompt:**
+  - the fold models reach 0.734, +0.114 over the base;
+  - the cost of an unseen prompt is 0.047, against the regression head's 0.156;
+  - +0.127 over the regression head on unseen prompts.
+- **Spend:** GPU $37.21 (26.77 h), cap $60. All pods are terminated.

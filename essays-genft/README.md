@@ -93,7 +93,17 @@ floor applies):
 So writing its reply cost the fine-tuned model nothing in essay agreement against the regression head on the same
 model, and it lands with the two best scorers.
 
-**Unseen prompt (M11):** the seven fold models are training on the pod; this section is filled in when they finish.
+**Unseen prompt (M11).** All seven folds ran: 1,000 TEST essays, each graded by a model fine-tuned on 5,000 essays from
+the other six prompts. Every fold model passed the merge check (97 to 100 of 100) and the template check.
+- **The fold models agree at 0.734** [0.703, 0.760], close to the experts' published 0.745.
+- **Against the base:** +0.114 [+0.082, +0.147]. The verdict is A EXCEEDS B: a model fine-tuned on other prompts
+  grades an unseen prompt better than the base model does.
+- **The cost of an unseen prompt:** the same-prompt model minus the fold models is +0.047 [+0.023, +0.073]. The
+  verdict is A EXCEEDS B, with A the same-prompt model, so the unseen prompt costs 0.047.
+- **Against the Gemma regression head on unseen prompts (0.607):** +0.127 [+0.080, +0.172]. The verdict is A EXCEEDS
+  B: generative fine-tuning transfers much better than the regression head on the same model.
+- **Unpaired context, not tested:** Qwen3 4B LoRA reached 0.755 and DeBERTa 0.741 on unseen prompts
+  (essays-finetune). The regression head's unseen-prompt cost was 0.156; the generative model's is 0.047.
 
 ## Reading
 
@@ -160,9 +170,17 @@ Pre-registered; every measure was planted UP, DOWN and NULL in 200 worlds built 
 - The target teaches the grade only. No measure here says whether the reasons are right.
 - One run per arm at temperature 1.0, as on the board.
 - One essay corpus with one adjudicated score, so there is no ceiling on TEST.
-- The essay gain is measured on the prompts the model was trained on; the unseen-prompt check is above.
+- The fold models trained on 5,000 essays, the same-prompt model on 23,628, so the unseen-prompt cost mixes the two.
 - The base model may have seen ASAP 2.0 in pre-training; that affects both arms alike.
 
 ## Spend
 
-Reported when the pod is terminated.
+All on RunPod A100-SXM4-80GB pods at a listed $1.39/h, with no API spend. The cap was $60.
+- **Pods:** three. The first two stopped at the smoke test and the template check (CHANGES 2 and 3): 0.13 h and
+  0.18 h.
+- **The main pod:** 26.46 h.
+- **Total:** 26.77 h, $37.21 at the listed rate.
+- **All three pods are terminated:** the API answers 404 for each, and their container disks went with them.
+
+The local driver was killed once by a container restart, during the fifth fold. It was restarted with `--resume`
+and re-attached to the running training job; no job ran twice.

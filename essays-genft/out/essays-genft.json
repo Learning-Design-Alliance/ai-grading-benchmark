@@ -200,6 +200,28 @@
     }
    }
   },
+  "M11 fold vs base": {
+   "estimate": 0.11421425851883948,
+   "ci95": [
+    0.08245474129600983,
+    0.1470189185193569
+   ],
+   "n": 1000,
+   "verdict": "FOLD EXCEEDS BASE",
+   "a": "FOLD",
+   "b": "BASE"
+  },
+  "M11 genft vs fold": {
+   "estimate": 0.0473909038926299,
+   "ci95": [
+    0.022680321845220952,
+    0.07292342685128694
+   ],
+   "n": 1000,
+   "verdict": "GENFT EXCEEDS FOLD",
+   "a": "GENFT",
+   "b": "FOLD"
+  },
   "M12 genft vs gemma-reg same-prompt": {
    "estimate": 0.01805781919075211,
    "ci95": [
@@ -232,6 +254,17 @@
    "verdict": "DEBERTA SAME-PROMPT EXCEEDS GENFT",
    "a": "GENFT",
    "b": "DEBERTA SAME-PROMPT"
+  },
+  "M12 fold vs gemma-reg cross-prompt": {
+   "estimate": 0.12661757631586434,
+   "ci95": [
+    0.07995839760594337,
+    0.17183614335115727
+   ],
+   "n": 1000,
+   "verdict": "FOLD EXCEEDS GEMMA-REG CROSS-PROMPT",
+   "a": "FOLD",
+   "b": "GEMMA-REG CROSS-PROMPT"
   }
  },
  "arms": {
@@ -304,25 +337,51 @@
     ],
     "n": 100
    }
+  },
+  "fold": {
+   "test_qwk": {
+    "estimate": 0.7337425258688735,
+    "ci95": [
+     0.7031278112896657,
+     0.7602491262064702
+    ],
+    "n": 1000
+   }
   }
  },
- "not_run": [
-  "M11: no fold ran"
- ],
+ "not_run": [],
  "pod": {
-  "id": "nbnyi6cs6wcomg",
+  "id": "cpi849x61o0vio",
   "gpu": "NVIDIA A100-SXM4-80GB",
   "cloud": "COMMUNITY",
   "cost_per_hr": 1.39,
-  "hours": 0.1795115307966868,
-  "listed_cost_usd": 0.24952102780739463,
-  "notes": [
-   "failure: RuntimeError('TEMPLATE CHECK failed: nothing is trained')"
-  ],
+  "hours": 26.456949205266106,
+  "listed_cost_usd": 36.77515939531988,
+  "notes": [],
   "done": [
    "create",
    "setup",
-   "smoke"
+   "smoke",
+   "ids",
+   "smoke2",
+   "base",
+   "train-same",
+   "merge-same",
+   "genft",
+   "merge-fold0",
+   "fold0",
+   "merge-fold1",
+   "fold1",
+   "merge-fold2",
+   "fold2",
+   "merge-fold3",
+   "fold3",
+   "merge-fold4",
+   "fold4",
+   "merge-fold5",
+   "fold5",
+   "merge-fold6",
+   "fold6"
   ]
  },
  "length_baseline_test": {
@@ -334,8 +393,7 @@
   "n": 1000
  },
  "published_essay_ceiling": 0.745,
- "folds_run": [],
- "folds_not_run": [
+ "folds_run": [
   "\"A Cowboy Who Rode the Waves\"",
   "Car-free cities",
   "Does the electoral college work?",
@@ -344,6 +402,7 @@
   "Facial action coding system",
   "The Face on Mars"
  ],
+ "folds_not_run": [],
  "regression_heads_check": {
   "deberta same-prompt": {
    "recomputed": 0.8042243219881944,
