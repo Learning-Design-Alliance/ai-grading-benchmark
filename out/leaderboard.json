@@ -1,0 +1,7444 @@
+{
+ "built": "2026-10-26T01:28:26Z",
+ "code_sha256": "33d6241eeeced062f38fa676f82caa9e5a90f27131f12dfd595b113cc5a28b54",
+ "rows": [
+  {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "allenai/olmo-3.1-32b-instruct"
+   ],
+   "providers": [],
+   "qwk": {
+    "estimate": 0.6309963099630995,
+    "ci95": [
+     0.5107282614610417,
+     0.722967798019354
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.9160048869883934,
+    "ci95": [
+     0.8617416524731869,
+     0.9581910382312238
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.546,
+    "ci95": [
+     0.514,
+     0.5780000000000001
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.044,
+    "ci95": [
+     0.028000000000000004,
+     0.062
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.1797752808988764,
+    "ci95": [
+     -0.21348314606741572,
+     -0.14606741573033707
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.006741573033707865,
+    "ci95": [
+     -0.01348314606741573,
+     0.02696629213483146
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.25925925925925924,
+   "decision_kappa": {
+    "estimate": 0.6527777777777778,
+    "ci95": [
+     0.468552106866571,
+     0.8066500875011511
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.846974912702147,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "allenai__olmo-3.1-32b-instruct/asap2.json"
+  },
+  {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "allenai/olmo-3.1-32b-instruct"
+   ],
+   "providers": [],
+   "qwk": {
+    "estimate": 0.510040241113482,
+    "ci95": [
+     0.40026920537035887,
+     0.604978456893814
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.6254431398398882,
+    "ci95": [
+     0.5100368019475001,
+     0.7303922288119444
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.8792386821369539,
+    "ci95": [
+     0.7967899234513662,
+     0.9298257440835332
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.4113333333333334,
+    "ci95": [
+     0.32433055555555557,
+     0.49701388888888876
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.029666666666666668,
+    "ci95": [
+     0.011997222222222222,
+     0.04700000000000001
+    ],
+    "flag": true
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.31591558165849065,
+    "ci95": [
+     0.10411230562929238,
+     0.49797311413731454
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.5315121851295754,
+    "ci95": [
+     0.19296476077899263,
+     0.8140638286528425
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "allenai__olmo-3.1-32b-instruct/code.json"
+  },
+  {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "allenai/olmo-3.1-32b-instruct"
+   ],
+   "providers": [],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": null,
+   "working_effect": {
+    "estimate": 1.5275,
+    "ci95": [
+     1.4275,
+     1.625
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.2175,
+    "ci95": [
+     0.1675,
+     0.2675
+    ]
+   },
+   "credit": {
+    "correct": 3.925,
+    "slip": 3.415,
+    "lucky": 2.105,
+    "wrong": 2.18
+   },
+   "lucky_full_marks": 0.005,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "allenai__olmo-3.1-32b-instruct/maths.json"
+  },
+  {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "allenai/olmo-3.1-32b-instruct"
+   ],
+   "providers": [],
+   "qwk": {
+    "estimate": 0.5870222354414136,
+    "ci95": [
+     0.4549424014091085,
+     0.6931137797680137
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.0249614031590795,
+    "ci95": [
+     0.8238158780021789,
+     1.381489407780952
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.920418371987267,
+    "ci95": [
+     0.8561768073255083,
+     0.957487038275066
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.29,
+    "ci95": [
+     0.236,
+     0.346
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.012,
+    "ci95": [
+     -0.012,
+     0.036
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.121875,
+    "ci95": [
+     -0.16875,
+     -0.08125
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.01263157894736842,
+    "ci95": [
+     -0.03368421052631579,
+     0.008421052631578947
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.16666666666666666,
+   "decision_kappa": {
+    "estimate": 0.32830189434578627,
+    "ci95": [
+     0.16439906458495684,
+     0.4848867294899619
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.154565051256321,
+    "ci95": [
+     0.5397033135345369,
+     5.126055446462897
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": null,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "allenai__olmo-3.1-32b-instruct/mohler.json"
+  },
+  {
+   "model": "allenai/olmo-3.1-32b-instruct",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 144,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": null,
+   "pushback_effect": {
+    "estimate": 0.2638888888888889,
+    "ci95": [
+     0.22222222222222224,
+     0.3111111111111111
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.7777777777777778,
+    "recheck": 0.0
+   },
+   "answers": 72,
+   "failed": 0,
+   "verified": false,
+   "file": "allenai__olmo-3.1-32b-instruct/pushback.json"
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "anthropic/claude-fable-5.1"
+   ],
+   "providers": [
+    "Anthropic"
+   ],
+   "qwk": {
+    "estimate": 0.711887761493173,
+    "ci95": [
+     0.6156664747193088,
+     0.7892114680774733
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.9100233939175815,
+    "ci95": [
+     0.8456734006734007,
+     0.9611254617780945
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": -0.018,
+    "ci95": [
+     -0.032,
+     -0.004
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.022,
+    "ci95": [
+     0.008,
+     0.036
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.02696629213483146,
+    "ci95": [
+     -0.04269662921348315,
+     -0.01348314606741573
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.01348314606741573,
+    "ci95": [
+     -0.02696629213483146,
+     -0.0021910112359553625
+    ],
+    "flag": true
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.5972073039742213,
+    "ci95": [
+     0.3975701734552148,
+     0.7742663656884877
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.9555540422727155,
+   "refused": 7,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 41.38591811414393,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "anthropic__claude-fable-5.1/asap2.json"
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "anthropic/claude-fable-5.1"
+   ],
+   "providers": [
+    "Anthropic"
+   ],
+   "qwk": {
+    "estimate": 0.8785745826344104,
+    "ci95": [
+     0.8370184011440231,
+     0.9086023418014167
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.0773629240445042,
+    "ci95": [
+     1.0479141927958648,
+     1.1155115689812305
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9940327121296246,
+    "ci95": [
+     0.9907783848167905,
+     0.996250921884278
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": -0.0071829405162738506,
+    "ci95": [
+     -0.012797418630751964,
+     -0.0013468013468013469
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.010666666666666666,
+    "ci95": [
+     0.0047777777777777775,
+     0.016777777777777777
+    ],
+    "flag": true
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.700139205338816,
+    "ci95": [
+     0.5769238760788841,
+     0.7981624368269066
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.1779492387520134,
+    "ci95": [
+     1.06705487410099,
+     1.331237517991166
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 3,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 74.70794165316046,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "anthropic__claude-fable-5.1/code.json"
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "anthropic/claude-fable-5.1"
+   ],
+   "providers": [
+    "Anthropic"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 12.391887500000001,
+   "working_effect": {
+    "estimate": 1.905,
+    "ci95": [
+     1.82,
+     1.9875
+    ]
+   },
+   "answer_effect": {
+    "estimate": 1.3,
+    "ci95": [
+     1.25,
+     1.35
+    ]
+   },
+   "credit": {
+    "correct": 3.905,
+    "slip": 1.645,
+    "lucky": 1.04,
+    "wrong": 0.7
+   },
+   "lucky_full_marks": 0.0,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "anthropic__claude-fable-5.1/maths.json"
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "anthropic/claude-fable-5.1"
+   ],
+   "providers": [
+    "Anthropic"
+   ],
+   "qwk": {
+    "estimate": 0.6314440105023597,
+    "ci95": [
+     0.5206370202915751,
+     0.7298098930395397
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.1025233797732146,
+    "ci95": [
+     0.9088551450787555,
+     1.4819558726549475
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9828318811966179,
+    "ci95": [
+     0.9676534495606292,
+     0.993724633237992
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": -0.022,
+    "ci95": [
+     -0.038,
+     -0.008
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.006,
+    "ci95": [
+     -0.008,
+     0.02
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.0625,
+    "ci95": [
+     -0.0875,
+     -0.0375
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.002105263157894737,
+    "ci95": [
+     -0.014789473684210522,
+     0.010578947368420764
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.37800930672876787,
+    "ci95": [
+     0.24020139909029475,
+     0.5164671771424842
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.329375011583048,
+    "ci95": [
+     0.7211085967857345,
+     5.9027581917337795
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 31,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 6.925523917995445,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "anthropic__claude-fable-5.1/mohler.json"
+  },
+  {
+   "model": "anthropic/claude-fable-5.1",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 120,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 20.8075,
+   "pushback_effect": {
+    "estimate": 0.03666666666666667,
+    "ci95": [
+     0.016666666666666666,
+     0.056666666666666664
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.11666666666666667,
+    "recheck": 0.016666666666666666
+   },
+   "answers": 60,
+   "failed": 0,
+   "verified": false,
+   "file": "anthropic__claude-fable-5.1/pushback.json"
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "anthropic/claude-haiku-5.5"
+   ],
+   "providers": [
+    "Amazon Bedrock"
+   ],
+   "qwk": {
+    "estimate": 0.5969265650585716,
+    "ci95": [
+     0.46846335903450714,
+     0.6965721105521567
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.8313303816150116,
+    "ci95": [
+     0.7502738204846915,
+     0.8987323774522021
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.014000000000000002,
+    "ci95": [
+     -0.002049999999999997,
+     0.032
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.028000000000000004,
+    "ci95": [
+     0.012,
+     0.046
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.045454545454545456,
+    "ci95": [
+     -0.06818181818181818,
+     -0.022727272727272728
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.015730337078651686,
+     0.015730337078651686
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3605359317904993,
+    "ci95": [
+     0.1520415706396488,
+     0.5577841094404996
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.8012437114880155,
+   "refused": 8,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.5420931180124223,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "anthropic__claude-haiku-5.5/asap2.json"
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "anthropic/claude-haiku-5.5"
+   ],
+   "providers": [
+    "Amazon Bedrock"
+   ],
+   "qwk": {
+    "estimate": 0.7943123616125626,
+    "ci95": [
+     0.7245663702411492,
+     0.8471165049308736
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.9740353356747441,
+    "ci95": [
+     0.9243005839903671,
+     1.021834461053869
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9156671307406952,
+    "ci95": [
+     0.7972610444686646,
+     0.9756484754407629
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.001,
+    "ci95": [
+     -0.009666666666666667,
+     0.012666666666666666
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.014444444444444446,
+    "ci95": [
+     0.0014444444444444446,
+     0.028666666666666667
+    ],
+    "flag": true
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.008888888888888889,
+    "ci95": [
+     0.0,
+     0.026666666666666665
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.5591103101760232,
+    "ci95": [
+     0.37960267930629743,
+     0.7006596482064635
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.9406751674926315,
+    "ci95": [
+     0.7265994238125129,
+     1.111397450102661
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 3,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 0.7633607779578606,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "anthropic__claude-haiku-5.5/code.json"
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "anthropic/claude-haiku-5.5"
+   ],
+   "providers": [
+    "Amazon Bedrock"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.22947388749999997,
+   "working_effect": {
+    "estimate": 1.855,
+    "ci95": [
+     1.7625,
+     1.945
+    ]
+   },
+   "answer_effect": {
+    "estimate": 1.225,
+    "ci95": [
+     1.15,
+     1.295
+    ]
+   },
+   "credit": {
+    "correct": 3.84,
+    "slip": 1.6,
+    "lucky": 0.97,
+    "wrong": 0.76
+   },
+   "lucky_full_marks": 0.0,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "anthropic__claude-haiku-5.5/maths.json"
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "anthropic/claude-haiku-5.5"
+   ],
+   "providers": [
+    "Amazon Bedrock"
+   ],
+   "qwk": {
+    "estimate": 0.5881402927620789,
+    "ci95": [
+     0.4791869866817138,
+     0.6814821413076433
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.0269135704382961,
+    "ci95": [
+     0.8392023930840371,
+     1.3905424037120093
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9707556733993605,
+    "ci95": [
+     0.9532981268994007,
+     0.9841901959021966
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.02,
+    "ci95": [
+     0.002,
+     0.04
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.012,
+    "ci95": [
+     -0.004,
+     0.03
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.028125,
+    "ci95": [
+     -0.059375,
+     0.0
+    ],
+    "flag": false
+   },
+   "surface_share": {
+    "estimate": 0.014736842105263156,
+    "ci95": [
+     0.0,
+     0.02947368421052631
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.2912267761783022,
+    "ci95": [
+     0.164427263608514,
+     0.41613509198898174
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.024180071929062,
+    "ci95": [
+     0.5267052800906274,
+     4.635335723764896
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 30,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.12790084186575654,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "anthropic__claude-haiku-5.5/mohler.json"
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 140,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.24082378571428573,
+   "pushback_effect": {
+    "estimate": 0.03142857142857143,
+    "ci95": [
+     0.008571428571428572,
+     0.054285714285714284
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.14285714285714285,
+    "recheck": 0.1
+   },
+   "answers": 70,
+   "failed": 0,
+   "verified": false,
+   "file": "anthropic__claude-haiku-5.5/pushback.json"
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "anthropic/claude-opus-5.5"
+   ],
+   "providers": [
+    "Google"
+   ],
+   "qwk": {
+    "estimate": 0.7013374886378394,
+    "ci95": [
+     0.6043084271692419,
+     0.7787335685765787
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.8627720054891198,
+    "ci95": [
+     0.7739942704346676,
+     0.9291119498565819
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.004,
+    "ci95": [
+     -0.012,
+     0.02
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": -0.004,
+    "ci95": [
+     -0.014000000000000002,
+     0.006
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.002247191011235955,
+    "ci95": [
+     -0.01348314606741573,
+     0.00898876404494382
+    ],
+    "flag": false
+   },
+   "surface_share": {
+    "estimate": 0.002247191011235955,
+    "ci95": [
+     -0.015730337078651686,
+     0.020224719101123594
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.6424642464246424,
+    "ci95": [
+     0.4508423194878246,
+     0.8059920675845237
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.9413926021984421,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 17.667768757687575,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "anthropic__claude-opus-5.5/asap2.json"
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "anthropic/claude-opus-5.5"
+   ],
+   "providers": [
+    "Google"
+   ],
+   "qwk": {
+    "estimate": 0.8773959773096359,
+    "ci95": [
+     0.8362319875295395,
+     0.9078371898890994
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.0759176447203678,
+    "ci95": [
+     1.0437980527342432,
+     1.1154026559092773
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9919738379775378,
+    "ci95": [
+     0.9870474428396603,
+     0.9950882273828097
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.0013333333333333333,
+    "ci95": [
+     -0.0054444444444444445,
+     0.008555555555555556
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.0035555555555555557,
+    "ci95": [
+     -0.0026666666666666666,
+     0.009333333333333332
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0044444444444444444,
+    "ci95": [
+     0.0,
+     0.013333333333333332
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.7173156536291827,
+    "ci95": [
+     0.6041363006666061,
+     0.8079041282400642
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.206847754981096,
+    "ci95": [
+     1.1014739536291722,
+     1.3691633927012177
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 25.626445161290324,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "anthropic__claude-opus-5.5/code.json"
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "anthropic/claude-opus-5.5"
+   ],
+   "providers": [
+    "Google"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 6.065055,
+   "working_effect": {
+    "estimate": 2.0025,
+    "ci95": [
+     1.9175,
+     2.0875
+    ]
+   },
+   "answer_effect": {
+    "estimate": 1.1625,
+    "ci95": [
+     1.1125,
+     1.2125
+    ]
+   },
+   "credit": {
+    "correct": 3.825,
+    "slip": 1.88,
+    "lucky": 1.04,
+    "wrong": 0.66
+   },
+   "lucky_full_marks": 0.0,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "anthropic__claude-opus-5.5/maths.json"
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "anthropic/claude-opus-5.5"
+   ],
+   "providers": [
+    "Google"
+   ],
+   "qwk": {
+    "estimate": 0.6795614248236097,
+    "ci95": [
+     0.5706891989729472,
+     0.7713164565913738
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.1865380720991534,
+    "ci95": [
+     0.9896618885400569,
+     1.6176782387410766
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9665247955621443,
+    "ci95": [
+     0.9422409365058324,
+     0.9829238339125764
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": -0.011,
+    "ci95": [
+     -0.023,
+     0.001
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": -0.007000000000000001,
+    "ci95": [
+     -0.018,
+     0.004
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.0328125,
+    "ci95": [
+     -0.05,
+     -0.0171875
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.002105263157894737,
+    "ci95": [
+     -0.01368421052631579,
+     0.009473684210526316
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3994599593268109,
+    "ci95": [
+     0.2374473223890099,
+     0.5540663644979262
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.4048122059546893,
+    "ci95": [
+     0.680610487154781,
+     6.594486584880725
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 1,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 3.604471365638767,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "anthropic__claude-opus-5.5/mohler.json"
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 126,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 8.261619047619048,
+   "pushback_effect": {
+    "estimate": 0.009523809523809523,
+    "ci95": [
+     -0.0047619047619047615,
+     0.023809523809523808
+    ]
+   },
+   "verdict": "HOLDS",
+   "to_full_marks": {
+    "push": 0.14285714285714285,
+    "recheck": 0.07936507936507936
+   },
+   "answers": 63,
+   "failed": 0,
+   "verified": false,
+   "file": "anthropic__claude-opus-5.5/pushback.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "deepseek/deepseek-v4-pro-0813"
+   ],
+   "providers": [
+    "Cloudflare",
+    "CoreWeave",
+    "DeepInfra",
+    "DigitalOcean",
+    "Ionstream",
+    "Novita",
+    "Parasail",
+    "Phala",
+    "Relace",
+    "Sail Research",
+    "SiliconFlow",
+    "Together",
+    "Wafer"
+   ],
+   "qwk": {
+    "estimate": 0.6451271186440677,
+    "ci95": [
+     0.5068218642080184,
+     0.7474168968823574
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.7222222222222222,
+    "ci95": [
+     0.6248462202282806,
+     0.7970805514907627
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.53,
+    "ci95": [
+     0.476,
+     0.5780000000000001
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.066,
+    "ci95": [
+     0.036,
+     0.096
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.0943820224719101,
+    "ci95": [
+     -0.1303370786516854,
+     -0.058370786516854234
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.029213483146067414,
+     0.029213483146067414
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.14285714285714285,
+   "decision_kappa": {
+    "estimate": 0.5622119815668205,
+    "ci95": [
+     0.37184660392217056,
+     0.724392802601068
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.8659424411329768,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.9222988782287822,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "deepseek__deepseek-v4-pro-0813/asap2.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "deepseek/deepseek-v4-pro-0813"
+   ],
+   "providers": [
+    "CoreWeave",
+    "Ionstream",
+    "Novita",
+    "Relace",
+    "Sail Research",
+    "SiliconFlow",
+    "Wafer"
+   ],
+   "qwk": {
+    "estimate": 0.46960724539206816,
+    "ci95": [
+     0.35294471528310495,
+     0.5773980081821377
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.5758616798713065,
+    "ci95": [
+     0.444024673693272,
+     0.7043746825182151
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.5992229380809528,
+    "ci95": [
+     0.4204810441283152,
+     0.7436897953345049
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.7036666666666667,
+    "ci95": [
+     0.6334305555555555,
+     0.7682333333333332
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.03911111111111111,
+    "ci95": [
+     0.0032194444444444445,
+     0.07833611111111109
+    ],
+    "flag": true
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.30581135794873054,
+    "ci95": [
+     0.1172236062474373,
+     0.48386288292638374
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.5145123334767429,
+    "ci95": [
+     0.19895803078511634,
+     0.8251810206962729
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 0.990873493548387,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "deepseek__deepseek-v4-pro-0813/code.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "deepseek/deepseek-v4-pro-0813"
+   ],
+   "providers": [
+    "Cloudflare",
+    "CoreWeave",
+    "DeepInfra",
+    "DekaLLM",
+    "DigitalOcean",
+    "Ionstream",
+    "Novita",
+    "Parasail",
+    "Phala",
+    "Relace",
+    "Sail Research",
+    "SiliconFlow",
+    "Together",
+    "Venice",
+    "Wafer"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 3.7053807665,
+   "working_effect": {
+    "estimate": 1.8517587939698492,
+    "ci95": [
+     1.733502538071066,
+     1.9698492462311559
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.4547738693467337,
+    "ci95": [
+     0.35678391959798994,
+     0.553030303030303
+    ]
+   },
+   "credit": {
+    "correct": 3.9,
+    "slip": 2.909547738693467,
+    "lucky": 1.51,
+    "wrong": 1.585
+   },
+   "lucky_full_marks": 0.005,
+   "failed": 1,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "deepseek__deepseek-v4-pro-0813/maths.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "deepseek/deepseek-v4-pro-0813"
+   ],
+   "providers": [
+    "Cloudflare",
+    "CoreWeave",
+    "DeepInfra",
+    "DekaLLM",
+    "DigitalOcean",
+    "Ionstream",
+    "Novita",
+    "Parasail",
+    "Phala",
+    "Relace",
+    "Sail Research",
+    "SiliconFlow",
+    "Together",
+    "Venice",
+    "Wafer"
+   ],
+   "qwk": {
+    "estimate": 0.6162400065880091,
+    "ci95": [
+     0.48543320921701727,
+     0.7258024628301749
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.0759766559102406,
+    "ci95": [
+     0.8863123753926271,
+     1.4176411034906347
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.8754390263824225,
+    "ci95": [
+     0.7983212699390996,
+     0.926007673154572
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.08888888888888888,
+    "ci95": [
+     0.0404040404040404,
+     0.13540404040404014
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.062,
+    "ci95": [
+     0.026000000000000002,
+     0.10200000000000001
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.115625,
+    "ci95": [
+     -0.15625,
+     -0.078125
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.02736842105263158,
+     0.02736842105263158
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.18,
+   "decision_kappa": {
+    "estimate": 0.4101812366737741,
+    "ci95": [
+     0.2606768436150034,
+     0.5585254944203376
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.4425165638728685,
+    "ci95": [
+     0.8234031399383116,
+     6.095174123990747
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 1.1227781892189221,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "deepseek__deepseek-v4-pro-0813/mohler.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 112,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 3.5944830678571433,
+   "pushback_effect": {
+    "estimate": 0.16071428571428573,
+    "ci95": [
+     0.11428571428571428,
+     0.21071428571428572
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.21428571428571427,
+    "recheck": 0.07142857142857142
+   },
+   "answers": 56,
+   "failed": 0,
+   "verified": false,
+   "file": "deepseek__deepseek-v4-pro-0813/pushback.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "deepseek/deepseek-v4.1-flash-1017"
+   ],
+   "providers": [
+    "BaseTen",
+    "Cloudflare",
+    "Crusoe",
+    "DeepInfra",
+    "DigitalOcean",
+    "Fireworks",
+    "InferenceNet",
+    "Ionstream",
+    "Makora",
+    "Modal",
+    "Morph",
+    "Novita",
+    "OpenInference",
+    "Parasail",
+    "Phala",
+    "Reka",
+    "Relace",
+    "Sail Research",
+    "SiliconFlow",
+    "Together",
+    "Wafer"
+   ],
+   "qwk": {
+    "estimate": 0.5853012325768921,
+    "ci95": [
+     0.46108953337291997,
+     0.684255149293709
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.7843450479233227,
+    "ci95": [
+     0.6939447074712443,
+     0.857960588227711
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.012,
+    "ci95": [
+     -0.01,
+     0.034
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.03,
+    "ci95": [
+     0.012,
+     0.048
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.06067415730337079,
+    "ci95": [
+     -0.0853932584269663,
+     -0.03595505617977528
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.006741573033707865,
+    "ci95": [
+     -0.02696629213483146,
+     0.01348314606741573
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.38212927756653997,
+    "ci95": [
+     0.17429734877935013,
+     0.5800279981334577
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.7856392383582445,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.269964851699877,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "deepseek__deepseek-v4.1-flash-1017/asap2.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "deepseek/deepseek-v4.1-flash-1017"
+   ],
+   "providers": [
+    "Cloudflare",
+    "DeepInfra",
+    "DigitalOcean",
+    "Fireworks",
+    "InferenceNet",
+    "Morph",
+    "Novita",
+    "OpenInference",
+    "Reka",
+    "Relace",
+    "Sail Research",
+    "SiliconFlow",
+    "Together",
+    "Wafer"
+   ],
+   "qwk": {
+    "estimate": 0.7940064722690471,
+    "ci95": [
+     0.7270735024148846,
+     0.8423874211136496
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.9736602350924171,
+    "ci95": [
+     0.9279055882110405,
+     1.0158814550156663
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9665985864869676,
+    "ci95": [
+     0.9461719250263281,
+     0.9801249839502486
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.0011111111111111111,
+    "ci95": [
+     -0.012558333333333333,
+     0.016777777777777777
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.011222222222222222,
+    "ci95": [
+     -0.002225,
+     0.024222222222222225
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": -0.0044444444444444444,
+    "ci95": [
+     -0.013333333333333332,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.5837340247505229,
+    "ci95": [
+     0.41640883272069396,
+     0.7161111321043772
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.9821033372295944,
+    "ci95": [
+     0.766495902074471,
+     1.1777750863548395
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 1.4519235807096773,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "deepseek__deepseek-v4.1-flash-1017/code.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "deepseek/deepseek-v4.1-flash-1017"
+   ],
+   "providers": [
+    "BaseTen",
+    "Cloudflare",
+    "Crusoe",
+    "DeepInfra",
+    "DigitalOcean",
+    "Fireworks",
+    "InferenceNet",
+    "Ionstream",
+    "Makora",
+    "Modal",
+    "Morph",
+    "Nebius",
+    "Novita",
+    "OpenInference",
+    "Parasail",
+    "Phala",
+    "PrimeIntellect",
+    "Reka",
+    "Relace",
+    "Sail Research",
+    "SiliconFlow",
+    "Together",
+    "Wafer"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.61718202685,
+   "working_effect": {
+    "estimate": 1.8775,
+    "ci95": [
+     1.7875,
+     1.9675
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.6475,
+    "ci95": [
+     0.6025,
+     0.69
+    ]
+   },
+   "credit": {
+    "correct": 3.92,
+    "slip": 2.87,
+    "lucky": 1.64,
+    "wrong": 1.395
+   },
+   "lucky_full_marks": 0.005,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "deepseek__deepseek-v4.1-flash-1017/maths.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "deepseek/deepseek-v4.1-flash-1017"
+   ],
+   "providers": [
+    "BaseTen",
+    "Cloudflare",
+    "Crusoe",
+    "DeepInfra",
+    "DigitalOcean",
+    "Fireworks",
+    "InferenceNet",
+    "Ionstream",
+    "Makora",
+    "Modal",
+    "Morph",
+    "Nebius",
+    "Novita",
+    "OpenInference",
+    "Parasail",
+    "Phala",
+    "PrimeIntellect",
+    "Reka",
+    "Relace",
+    "Sail Research",
+    "SiliconFlow",
+    "Together",
+    "Wafer"
+   ],
+   "qwk": {
+    "estimate": 0.6301702198283197,
+    "ci95": [
+     0.5200164055957779,
+     0.7285959295139566
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.1002992965992386,
+    "ci95": [
+     0.8911156115162343,
+     1.5202411732994088
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9642908155977717,
+    "ci95": [
+     0.9457697607780676,
+     0.9774067253037084
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.026000000000000002,
+    "ci95": [
+     0.002,
+     0.05
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.03,
+    "ci95": [
+     0.01,
+     0.05
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.0375,
+    "ci95": [
+     -0.06875,
+     -0.00625
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.008421052631578947,
+    "ci95": [
+     -0.023157894736842106,
+     0.008421052631578947
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3671838714671528,
+    "ci95": [
+     0.23602885720056224,
+     0.5003298613508017
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.2913043533475697,
+    "ci95": [
+     0.6931703413825934,
+     5.732204227444282
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.16567885755225525,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "deepseek__deepseek-v4.1-flash-1017/mohler.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 122,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.3426115160655738,
+   "pushback_effect": {
+    "estimate": 0.09836065573770492,
+    "ci95": [
+     0.06885245901639345,
+     0.1278688524590164
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.18032786885245902,
+    "recheck": 0.03278688524590164
+   },
+   "answers": 61,
+   "failed": 0,
+   "verified": false,
+   "file": "deepseek__deepseek-v4.1-flash-1017/pushback.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "deepseek/deepseek-v4.1-flash"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "qwk": {
+    "estimate": 0.6410736579275904,
+    "ci95": [
+     0.5292865191436563,
+     0.7330028713037756
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.8214285714285714,
+    "ci95": [
+     0.7446725601347334,
+     0.8820607599699021
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.03,
+    "ci95": [
+     0.006,
+     0.054000000000000006
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.054000000000000006,
+    "ci95": [
+     0.03,
+     0.076
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.0651685393258427,
+    "ci95": [
+     -0.0898876404494382,
+     -0.04044943820224719
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.00449438202247191,
+    "ci95": [
+     -0.015730337078651686,
+     0.02696629213483146
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.4525547445255475,
+    "ci95": [
+     0.26875936588059,
+     0.6288366026891277
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.860501554265222,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.3109968747847478,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "deepseek__deepseek-v4.1-flash/asap2.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "deepseek/deepseek-v4.1-flash"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "qwk": {
+    "estimate": 0.7350158456086474,
+    "ci95": [
+     0.6460218785369446,
+     0.8041995775204672
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.9013222511736267,
+    "ci95": [
+     0.8193243250351695,
+     0.968300510780652
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9466289243437983,
+    "ci95": [
+     0.9009288088364814,
+     0.977010345164463
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.009222222222222222,
+    "ci95": [
+     -0.008563888888888888,
+     0.03177777777777778
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": -0.0022222222222222222,
+    "ci95": [
+     -0.015222222222222224,
+     0.011777777777777778
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": -0.011111111111111112,
+    "ci95": [
+     -0.03333333333333333,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.5433656894965979,
+    "ci95": [
+     0.3615379210204132,
+     0.681742581929856
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.9141856296945116,
+    "ci95": [
+     0.662128186029855,
+     1.1297948454920441
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 1.6297992154838712,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "deepseek__deepseek-v4.1-flash/code.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "deepseek/deepseek-v4.1-flash"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.573653409,
+   "working_effect": {
+    "estimate": 1.7626262626262625,
+    "ci95": [
+     1.6758793969849246,
+     1.85
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.6111111111111112,
+    "ci95": [
+     0.5653266331658291,
+     0.6557788944723618
+    ]
+   },
+   "credit": {
+    "correct": 3.93,
+    "slip": 2.94,
+    "lucky": 1.7878787878787878,
+    "wrong": 1.5555555555555556
+   },
+   "lucky_full_marks": 0.005050505050505051,
+   "failed": 4,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "deepseek__deepseek-v4.1-flash/maths.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "deepseek/deepseek-v4.1-flash"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "qwk": {
+    "estimate": 0.643453677237354,
+    "ci95": [
+     0.5340805793086507,
+     0.7431805880616665
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.1234926789325839,
+    "ci95": [
+     0.9217888001576953,
+     1.543245891789137
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9633226212100042,
+    "ci95": [
+     0.944644664294088,
+     0.977192697272375
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.048,
+    "ci95": [
+     0.024,
+     0.074
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.033,
+    "ci95": [
+     0.016,
+     0.052000000000000005
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.0375,
+    "ci95": [
+     -0.059453124999999996,
+     -0.015625
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.004210526315789474,
+    "ci95": [
+     -0.02736842105263158,
+     0.016842105263157894
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.409735195053641,
+    "ci95": [
+     0.2732881628847041,
+     0.5493127873465476
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.4409479342826017,
+    "ci95": [
+     0.7839502789969427,
+     6.23601224477271
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.15630818569856988,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "deepseek__deepseek-v4.1-flash/mohler.json"
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 108,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.4161034888888889,
+   "pushback_effect": {
+    "estimate": 0.07222222222222222,
+    "ci95": [
+     0.04444444444444444,
+     0.10555555555555556
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.14814814814814814,
+    "recheck": 0.018518518518518517
+   },
+   "answers": 54,
+   "failed": 0,
+   "verified": false,
+   "file": "deepseek__deepseek-v4.1-flash/pushback.json"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemini-3.5-flash-lite"
+   ],
+   "providers": [
+    "Google"
+   ],
+   "qwk": {
+    "estimate": 0.6292409933543197,
+    "ci95": [
+     0.52512719237779,
+     0.7150438754165306
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.9786856127886323,
+    "ci95": [
+     0.95982458431483,
+     0.9936246444123961
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.49000000000000005,
+    "ci95": [
+     0.442,
+     0.538
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.004,
+    "ci95": [
+     -0.014000000000000002,
+     0.022
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.0943820224719101,
+    "ci95": [
+     -0.11691011235955055,
+     -0.07191011235955055
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.002247191011235955,
+    "ci95": [
+     -0.020224719101123594,
+     0.01797752808988764
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.4204018547140649,
+    "ci95": [
+     0.273439096037503,
+     0.5762797293603062
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.8446187830259325,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.7345638376383763,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemini-3.5-flash-lite/asap2.json"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemini-3.5-flash-lite"
+   ],
+   "providers": [
+    "Google"
+   ],
+   "qwk": {
+    "estimate": 0.7211538434192186,
+    "ci95": [
+     0.6337882180783981,
+     0.7887911593064687
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.8843237999241796,
+    "ci95": [
+     0.8027300733355941,
+     0.9507854132530771
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.946516486947333,
+    "ci95": [
+     0.9119713063660687,
+     0.9697926590747049
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.6222222222222222,
+    "ci95": [
+     0.5565444444444445,
+     0.6835611111111111
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": -0.003777777777777778,
+    "ci95": [
+     -0.02111388888888889,
+     0.013113888888888871
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.6000702574733483,
+    "ci95": [
+     0.4340736194872566,
+     0.7297728761336167
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.0095882327377892,
+    "ci95": [
+     0.8263656082795052,
+     1.1692571397571678
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 0.809820064516129,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemini-3.5-flash-lite/code.json"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "google/gemini-3.5-flash-lite"
+   ],
+   "providers": [
+    "Google"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.29044362500000004,
+   "working_effect": {
+    "estimate": 2.76,
+    "ci95": [
+     2.63,
+     2.8825
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.48,
+    "ci95": [
+     0.4125,
+     0.5425
+    ]
+   },
+   "credit": {
+    "correct": 3.985,
+    "slip": 3.185,
+    "lucky": 0.905,
+    "wrong": 0.745
+   },
+   "lucky_full_marks": 0.025,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "google__gemini-3.5-flash-lite/maths.json"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemini-3.5-flash-lite"
+   ],
+   "providers": [
+    "Google"
+   ],
+   "qwk": {
+    "estimate": 0.5470148226052658,
+    "ci95": [
+     0.4070281535956596,
+     0.6673151895873403
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.9551070577500541,
+    "ci95": [
+     0.7285853426131881,
+     1.3189120758908996
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9732687590414492,
+    "ci95": [
+     0.9363811579672799,
+     0.9934730363049625
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.088,
+    "ci95": [
+     0.048,
+     0.13999999999999999
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": -0.012,
+    "ci95": [
+     -0.03,
+     0.006
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.078125,
+    "ci95": [
+     -0.125,
+     -0.034375
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.008421052631578947,
+    "ci95": [
+     -0.035789473684210524,
+     0.016842105263157894
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3595804653999104,
+    "ci95": [
+     0.2121489396672934,
+     0.49803504293579814
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.2645648581849185,
+    "ci95": [
+     0.6158854506927225,
+     6.046450222862014
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.12845830583058304,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemini-3.5-flash-lite/mohler.json"
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 96,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.28112604166666666,
+   "pushback_effect": {
+    "estimate": 0.05416666666666666,
+    "ci95": [
+     0.029166666666666667,
+     0.08333333333333334
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.1875,
+    "recheck": 0.0
+   },
+   "answers": 48,
+   "failed": 0,
+   "verified": false,
+   "file": "google__gemini-3.5-flash-lite/pushback.json"
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-3-27b-it"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "qwk": {
+    "estimate": 0.6101931580172212,
+    "ci95": [
+     0.48264202292637925,
+     0.7112771114787243
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.9225473321858865,
+    "ci95": [
+     0.8757940249074007,
+     0.9659928528373374
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.1,
+    "ci95": [
+     0.08,
+     0.12
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.016,
+    "ci95": [
+     0.004,
+     0.03
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.19325842696629214,
+    "ci95": [
+     -0.21797752808988763,
+     -0.16853932584269662
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.01348314606741573,
+    "ci95": [
+     0.0,
+     0.02696629213483146
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.17142857142857143,
+   "decision_kappa": {
+    "estimate": 0.5622119815668205,
+    "ci95": [
+     0.38429964084145707,
+     0.7250184599156118
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.819051218815062,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.17287507995079948,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemma-3-27b-it/asap2.json"
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-3-27b-it"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "qwk": {
+    "estimate": 0.7140565959517906,
+    "ci95": [
+     0.6111884027078921,
+     0.7892585986967547
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.8756207126333453,
+    "ci95": [
+     0.7618213177559959,
+     0.958589999275208
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9642669817296918,
+    "ci95": [
+     0.9362980436719791,
+     0.9809681891571987
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.26322222222222225,
+    "ci95": [
+     0.2022111111111111,
+     0.32666666666666666
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.05633333333333334,
+    "ci95": [
+     0.041883333333333335,
+     0.07244444444444444
+    ],
+    "flag": true
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": -0.022222222222222223,
+    "ci95": [
+     -0.06666666666666667,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.5024005623047183,
+    "ci95": [
+     0.33964173240253837,
+     0.6436589020663821
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.8452638495355184,
+    "ci95": [
+     0.6073017421644038,
+     1.076416214093144
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 0.1969825806451613,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemma-3-27b-it/code.json"
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "google/gemma-3-27b-it"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.0471347,
+   "working_effect": {
+    "estimate": 1.3693467336683418,
+    "ci95": [
+     1.3040201005025125,
+     1.434673366834171
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.41959798994974873,
+    "ci95": [
+     0.3869346733668342,
+     0.45
+    ]
+   },
+   "credit": {
+    "correct": 3.98,
+    "slip": 3.1055276381909547,
+    "lucky": 2.16,
+    "wrong": 2.195
+   },
+   "lucky_full_marks": 0.005,
+   "failed": 1,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "google__gemma-3-27b-it/maths.json"
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-3-27b-it"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "qwk": {
+    "estimate": 0.6393083252380235,
+    "ci95": [
+     0.5072762470597764,
+     0.7433569583208093
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.1162547490122168,
+    "ci95": [
+     0.8979212309522971,
+     1.5149208453575653
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9795375485983221,
+    "ci95": [
+     0.9616757554487967,
+     0.9921272963433475
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.22000000000000003,
+    "ci95": [
+     0.16999999999999998,
+     0.274
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.008,
+    "ci95": [
+     0.0,
+     0.018
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.1875,
+    "ci95": [
+     -0.23125,
+     -0.146875
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.016842105263157894,
+    "ci95": [
+     -0.031578947368421054,
+     -0.004210526315789474
+    ],
+    "flag": true
+   },
+   "blank_credited": 0.07333333333333333,
+   "decision_kappa": {
+    "estimate": 0.3752865929451712,
+    "ci95": [
+     0.2216021435312096,
+     0.5273364414815194
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.3197998302232854,
+    "ci95": [
+     0.6381278457093209,
+     6.023310654400524
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.019987414741474148,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemma-3-27b-it/mohler.json"
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 148,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.03834486486486487,
+   "pushback_effect": {
+    "estimate": 0.1837837837837838,
+    "ci95": [
+     0.14054054054054055,
+     0.227027027027027
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.4864864864864865,
+    "recheck": 0.3108108108108108
+   },
+   "answers": 74,
+   "failed": 0,
+   "verified": false,
+   "file": "google__gemma-3-27b-it/pushback.json"
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-3-4b-it"
+   ],
+   "providers": [
+    "Parasail"
+   ],
+   "qwk": {
+    "estimate": 0.15519554738359098,
+    "ci95": [
+     0.08367519570608573,
+     0.23158796729484318
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.9326923076923077,
+    "ci95": [
+     0.8727416152038758,
+     0.9777905019524685
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.186,
+    "ci95": [
+     0.162,
+     0.21200000000000002
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.174,
+    "ci95": [
+     0.152,
+     0.196
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.05842696629213483,
+    "ci95": [
+     -0.08089887640449438,
+     -0.03595505617977528
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.013636363636363636,
+     0.013636363636363636
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.7575757575757576,
+   "decision_kappa": {
+    "estimate": 0.07966203983101992,
+    "ci95": [
+     0.010055532280026024,
+     0.15349055610877677
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.20831617098468588,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.06755226322263223,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemma-3-4b-it/asap2.json"
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-3-4b-it"
+   ],
+   "providers": [
+    "Parasail"
+   ],
+   "qwk": {
+    "estimate": 0.29354675848365525,
+    "ci95": [
+     0.19828907847713761,
+     0.39277922122416703
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.35996533511752676,
+    "ci95": [
+     0.24987413631181626,
+     0.4733954674933995
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9594902619078114,
+    "ci95": [
+     0.9369116151424848,
+     0.975824690152742
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.19444444444444445,
+    "ci95": [
+     0.15611111111111112,
+     0.23555555555555555
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.14500000000000002,
+    "ci95": [
+     0.12277777777777779,
+     0.16777777777777778
+    ],
+    "flag": true
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.06666666666666667,
+    "ci95": [
+     0.0,
+     0.13333333333333333
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.8666666666666667,
+   "decision_kappa": {
+    "estimate": 0.16432879855859228,
+    "ci95": [
+     0.09205529225642725,
+     0.25501289281482387
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.27647499481685583,
+    "ci95": [
+     0.16162714621098548,
+     0.43606186799348134
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 0.07499266129032257,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemma-3-4b-it/code.json"
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "google/gemma-3-4b-it"
+   ],
+   "providers": [
+    "Parasail"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.0174508,
+   "working_effect": {
+    "estimate": 0.5125,
+    "ci95": [
+     0.44,
+     0.585
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.0625,
+    "ci95": [
+     0.04,
+     0.0875
+    ]
+   },
+   "credit": {
+    "correct": 4.0,
+    "slip": 3.95,
+    "lucky": 3.5,
+    "wrong": 3.425
+   },
+   "lucky_full_marks": 0.51,
+   "failed": 0,
+   "verdict": "WEAKLY",
+   "verified": false,
+   "file": "google__gemma-3-4b-it/maths.json"
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-3-4b-it"
+   ],
+   "providers": [
+    "Parasail"
+   ],
+   "qwk": {
+    "estimate": 0.5199152774100737,
+    "ci95": [
+     0.2858192510960894,
+     0.6810964226941197
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.907790301771721,
+    "ci95": [
+     0.5850152478608656,
+     1.203954980623845
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9705585464333782,
+    "ci95": [
+     0.9063931997062956,
+     0.9966669876477621
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.10600000000000001,
+    "ci95": [
+     0.066,
+     0.15
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.0101010101010101,
+    "ci95": [
+     -0.0101010101010101,
+     0.03434343434343434
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.15,
+    "ci95": [
+     -0.20007812500000002,
+     -0.1
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.004210526315789474,
+    "ci95": [
+     -0.018947368421052633,
+     0.010526315789473684
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.8866666666666667,
+   "decision_kappa": {
+    "estimate": 0.43465023857052465,
+    "ci95": [
+     0.143365402395106,
+     0.6552158840214308
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.5285686242345953,
+    "ci95": [
+     0.7294240327591945,
+     5.240185575065628
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.006450539053905391,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemma-3-4b-it/mohler.json"
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 120,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.013255083333333332,
+   "pushback_effect": {
+    "estimate": -0.04666666666666667,
+    "ci95": [
+     -0.10666666666666666,
+     0.013333333333333332
+    ]
+   },
+   "verdict": "HOLDS",
+   "to_full_marks": {
+    "push": 0.15,
+    "recheck": 0.21666666666666667
+   },
+   "answers": 60,
+   "failed": 0,
+   "verified": false,
+   "file": "google__gemma-3-4b-it/pushback.json"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-4-26b-a4b-it"
+   ],
+   "providers": [
+    "DekaLLM"
+   ],
+   "qwk": {
+    "estimate": 0.7267483048274466,
+    "ci95": [
+     0.6227586163968218,
+     0.8094314832569866
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.9337029893924783,
+    "ci95": [
+     0.8898281777746064,
+     0.9682485063936792
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.49000000000000005,
+    "ci95": [
+     0.43600000000000005,
+     0.542
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.02,
+    "ci95": [
+     0.008,
+     0.034
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.15280898876404495,
+    "ci95": [
+     -0.18202247191011237,
+     -0.12359550561797752
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.00449438202247191,
+    "ci95": [
+     -0.020224719101123594,
+     0.011235955056179775
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.6001881467544684,
+    "ci95": [
+     0.4309195680643396,
+     0.7637111888168624
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.9755010803052974,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.11081382533825339,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemma-4-26b-a4b-it/asap2.json"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-4-26b-a4b-it"
+   ],
+   "providers": [
+    "DekaLLM"
+   ],
+   "qwk": {
+    "estimate": 0.4867849026158554,
+    "ci95": [
+     0.38081436214535885,
+     0.5845169847177291
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.5969259940236255,
+    "ci95": [
+     0.48108507064565054,
+     0.7012154265465099
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9453081670732078,
+    "ci95": [
+     0.9044420850727263,
+     0.9670429745247082
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.07755555555555556,
+    "ci95": [
+     -0.004133333333333332,
+     0.1595666666666666
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.012666666666666666,
+    "ci95": [
+     0.0011083333333333336,
+     0.023666666666666666
+    ],
+    "flag": true
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.2419009758928206,
+    "ci95": [
+     0.05940906994018334,
+     0.4278324910401386
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.4069863081991298,
+    "ci95": [
+     0.10704188013167412,
+     0.7115809266452121
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 0.11870985483870967,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemma-4-26b-a4b-it/code.json"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "google/gemma-4-26b-a4b-it"
+   ],
+   "providers": [
+    "DekaLLM"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.047629200000000003,
+   "working_effect": {
+    "estimate": 1.74,
+    "ci95": [
+     1.6575,
+     1.8225
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.84,
+    "ci95": [
+     0.78,
+     0.9
+    ]
+   },
+   "credit": {
+    "correct": 3.945,
+    "slip": 2.345,
+    "lucky": 1.445,
+    "wrong": 1.365
+   },
+   "lucky_full_marks": 0.015,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "google__gemma-4-26b-a4b-it/maths.json"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-4-26b-a4b-it"
+   ],
+   "providers": [
+    "DekaLLM"
+   ],
+   "qwk": {
+    "estimate": 0.6378451045970228,
+    "ci95": [
+     0.5113216980251944,
+     0.7425453387278064
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.11369991447481,
+    "ci95": [
+     0.9064666071497411,
+     1.5181090743332037
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9814814814814815,
+    "ci95": [
+     0.9659560486080984,
+     0.9925720556532291
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.03,
+    "ci95": [
+     0.006,
+     0.05604999999999973
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": -0.004,
+    "ci95": [
+     -0.014000000000000002,
+     0.006
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.1171875,
+    "ci95": [
+     -0.153125,
+     -0.084375
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.01368421052631579,
+    "ci95": [
+     -0.02631578947368421,
+     -0.002105263157894737
+    ],
+    "flag": true
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3752865929451712,
+    "ci95": [
+     0.22270866564031291,
+     0.5246285928396277
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.3197998302232854,
+    "ci95": [
+     0.6636313938980305,
+     6.137346284446763
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.021462794279427943,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemma-4-26b-a4b-it/mohler.json"
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 110,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.04747872727272727,
+   "pushback_effect": {
+    "estimate": 0.021818181818181816,
+    "ci95": [
+     -0.0036363636363636364,
+     0.050909090909090904
+    ]
+   },
+   "verdict": "HOLDS",
+   "to_full_marks": {
+    "push": 0.16363636363636364,
+    "recheck": 0.12727272727272726
+   },
+   "answers": 55,
+   "failed": 0,
+   "verified": false,
+   "file": "google__gemma-4-26b-a4b-it/pushback.json"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-4-31b-it"
+   ],
+   "providers": [
+    "CoreWeave"
+   ],
+   "qwk": {
+    "estimate": 0.6562392574767961,
+    "ci95": [
+     0.5427033881660669,
+     0.7400465998886208
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.9780829924021041,
+    "ci95": [
+     0.9499124360850109,
+     1.0
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.034,
+    "ci95": [
+     0.016,
+     0.052000000000000005
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": -0.008,
+    "ci95": [
+     -0.02,
+     0.004
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.10112359550561797,
+    "ci95": [
+     -0.1303370786516854,
+     -0.07415730337078652
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.002247191011235955,
+    "ci95": [
+     -0.01348314606741573,
+     0.00898876404494382
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.6284501061571125,
+    "ci95": [
+     0.4370860927152315,
+     0.7883497932327178
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.8808580637272431,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.2237761869618696,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemma-4-31b-it/asap2.json"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-4-31b-it"
+   ],
+   "providers": [
+    "CoreWeave"
+   ],
+   "qwk": {
+    "estimate": 0.5281001708658436,
+    "ci95": [
+     0.41946225955930505,
+     0.6217074219202011
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.647589351568095,
+    "ci95": [
+     0.5358238656610232,
+     0.7492550557780159
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9645693585590207,
+    "ci95": [
+     0.9382066555138724,
+     0.9796268800662312
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.14766666666666667,
+    "ci95": [
+     0.08955555555555555,
+     0.20933333333333334
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.002888888888888889,
+    "ci95": [
+     -0.006002777777777778,
+     0.012336111111111096
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.29172919463322833,
+    "ci95": [
+     0.10083665484223264,
+     0.47314702195165803
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.4908197971482709,
+    "ci95": [
+     0.18511036243015333,
+     0.781804717948893
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 0.25264490322580646,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemma-4-31b-it/code.json"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "google/gemma-4-31b-it"
+   ],
+   "providers": [
+    "CoreWeave"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.06860227499999999,
+   "working_effect": {
+    "estimate": 2.16,
+    "ci95": [
+     2.08,
+     2.2325
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.64,
+    "ci95": [
+     0.5775,
+     0.7
+    ]
+   },
+   "credit": {
+    "correct": 3.985,
+    "slip": 2.82,
+    "lucky": 1.3,
+    "wrong": 1.185
+   },
+   "lucky_full_marks": 0.015,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "google__gemma-4-31b-it/maths.json"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "google/gemma-4-31b-it"
+   ],
+   "providers": [
+    "CoreWeave"
+   ],
+   "qwk": {
+    "estimate": 0.6117833753631665,
+    "ci95": [
+     0.47567231645814745,
+     0.7269095006221793
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.0681952215491683,
+    "ci95": [
+     0.8439508360239469,
+     1.4505636680683074
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9747376603186941,
+    "ci95": [
+     0.9487839748169589,
+     0.9902904057372018
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.041999999999999996,
+    "ci95": [
+     0.022,
+     0.064
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.012,
+     0.012
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.078125,
+    "ci95": [
+     -0.109375,
+     -0.046875
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.004210526315789474,
+    "ci95": [
+     -0.010526315789473684,
+     0.018947368421052633
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3766519893764375,
+    "ci95": [
+     0.21430857977451592,
+     0.529342474466348
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.3246016270688126,
+    "ci95": [
+     0.6606417950728428,
+     5.866923085543222
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.03026008800880088,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "google__gemma-4-31b-it/mohler.json"
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 102,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.05869313725490196,
+   "pushback_effect": {
+    "estimate": 0.07450980392156863,
+    "ci95": [
+     0.043137254901960784,
+     0.10588235294117647
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.09803921568627451,
+    "recheck": 0.0
+   },
+   "answers": 51,
+   "failed": 0,
+   "verified": false,
+   "file": "google__gemma-4-31b-it/pushback.json"
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "meta-llama/llama-3.2-3b-instruct"
+   ],
+   "providers": [
+    "Parasail"
+   ],
+   "qwk": {
+    "estimate": 0.4568245125348188,
+    "ci95": [
+     0.31836663289947464,
+     0.5785989409488543
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.713216957605985,
+    "ci95": [
+     0.6134018703799414,
+     0.7874849404206179
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.122,
+    "ci95": [
+     0.08199999999999999,
+     0.16399999999999998
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.024,
+    "ci95": [
+     -0.008,
+     0.05600000000000001
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.14831460674157304,
+    "ci95": [
+     -0.1797752808988764,
+     -0.11685393258426965
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.002247191011235955,
+    "ci95": [
+     -0.03595505617977528,
+     0.038202247191011236
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.8,
+   "decision_kappa": {
+    "estimate": 0.3156934306569342,
+    "ci95": [
+     0.10554561717352419,
+     0.5078784175904668
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.6131872651474078,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.11800751537515375,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "meta-llama__llama-3.2-3b-instruct/asap2.json"
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "meta-llama/llama-3.2-3b-instruct"
+   ],
+   "providers": [
+    "Parasail"
+   ],
+   "qwk": {
+    "estimate": 0.49719808100239854,
+    "ci95": [
+     0.3470246828941329,
+     0.6303021266286611
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.6096952825244191,
+    "ci95": [
+     0.4279062331202467,
+     0.7691624859894868
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.6633054788147454,
+    "ci95": [
+     0.5237582990149366,
+     0.7765770721525911
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.06564625850340136,
+    "ci95": [
+     0.009968820861678005,
+     0.12482993197278912
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.10922222222222222,
+    "ci95": [
+     0.059658333333333334,
+     0.15755833333333333
+    ],
+    "flag": true
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": -0.2,
+    "ci95": [
+     -0.4,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.5714285714285714,
+   "decision_kappa": {
+    "estimate": 0.3111708002589423,
+    "ci95": [
+     0.14545367807876605,
+     0.47424847259079655
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.5235293274420988,
+    "ci95": [
+     0.26269365823953067,
+     0.7763767307847862
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 0.2750764838709677,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "meta-llama__llama-3.2-3b-instruct/code.json"
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "meta-llama/llama-3.2-3b-instruct"
+   ],
+   "providers": [
+    "Parasail"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.0394142,
+   "working_effect": {
+    "estimate": 0.5485714285714286,
+    "ci95": [
+     0.42857142857142855,
+     0.6763005780346821
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.14285714285714285,
+    "ci95": [
+     0.05555555555555555,
+     0.23121387283236994
+    ]
+   },
+   "credit": {
+    "correct": 3.8926553672316384,
+    "slip": 3.5,
+    "lucky": 3.100502512562814,
+    "wrong": 3.170854271356784
+   },
+   "lucky_full_marks": 0.4020100502512563,
+   "failed": 27,
+   "verdict": "WEAKLY",
+   "verified": false,
+   "file": "meta-llama__llama-3.2-3b-instruct/maths.json"
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "meta-llama/llama-3.2-3b-instruct"
+   ],
+   "providers": [
+    "Parasail"
+   ],
+   "qwk": {
+    "estimate": 0.37936518380025264,
+    "ci95": [
+     0.1956005521212637,
+     0.5443727200614056
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.6623849108632542,
+    "ci95": [
+     0.3782822269323202,
+     0.9538458552594384
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.6208665906499429,
+    "ci95": [
+     0.46228722668460986,
+     0.7383333812306279
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.31,
+    "ci95": [
+     0.256,
+     0.364
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": -0.054000000000000006,
+    "ci95": [
+     -0.11399999999999999,
+     0.004
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.14375,
+    "ci95": [
+     -0.2125,
+     -0.075
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.016842105263157894,
+    "ci95": [
+     -0.02947368421052631,
+     0.06105263157894737
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.6133333333333333,
+   "decision_kappa": {
+    "estimate": 0.25159174734561607,
+    "ci95": [
+     0.10302939042251963,
+     0.4083217732446885
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.884792453752367,
+    "ci95": [
+     0.3575660349243411,
+     4.1400180836254785
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.019143839383938394,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "meta-llama__llama-3.2-3b-instruct/mohler.json"
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 194,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.04164432989690721,
+   "pushback_effect": {
+    "estimate": 0.331958762886598,
+    "ci95": [
+     0.2721649484536083,
+     0.38969072164948454
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.8041237113402062,
+    "recheck": 0.09278350515463918
+   },
+   "answers": 97,
+   "failed": 0,
+   "verified": false,
+   "file": "meta-llama__llama-3.2-3b-instruct/pushback.json"
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "microsoft/phi-4"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "qwk": {
+    "estimate": 0.5553717299141763,
+    "ci95": [
+     0.41881411956939074,
+     0.6585452586660381
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.7477613822676251,
+    "ci95": [
+     0.6369555424046894,
+     0.8405506884512779
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.054000000000000006,
+    "ci95": [
+     0.022,
+     0.086
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.04,
+    "ci95": [
+     0.016,
+     0.066
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.14157303370786517,
+    "ci95": [
+     -0.16853932584269662,
+     -0.1146067415730337
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.01797752808988764,
+    "ci95": [
+     -0.006741573033707865,
+     0.04044943820224719
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.25,
+   "decision_kappa": {
+    "estimate": 0.5061147695202259,
+    "ci95": [
+     0.3103356761109889,
+     0.6783314280053337
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.7454654092807735,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.14845166051660516,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "microsoft__phi-4/asap2.json"
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "microsoft/phi-4"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "qwk": {
+    "estimate": 0.6781651262743595,
+    "ci95": [
+     0.5611608312933964,
+     0.762336255758659
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.8316083550211034,
+    "ci95": [
+     0.7100998256866313,
+     0.9221548441674536
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.711158736706182,
+    "ci95": [
+     0.5452775084221297,
+     0.8232701485100979
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.14777777777777779,
+    "ci95": [
+     0.10933055555555556,
+     0.1886722222222222
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.008944444444444446,
+    "ci95": [
+     -0.02106388888888889,
+     0.04027777777777778
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": -0.006666666666666666,
+    "ci95": [
+     -0.02,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.26666666666666666,
+   "decision_kappa": {
+    "estimate": 0.4811702520749783,
+    "ci95": [
+     0.32593476430800894,
+     0.6196635074704206
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.8095449130970295,
+    "ci95": [
+     0.5960125541307906,
+     1.0203405239474577
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 0.20980151612903228,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "microsoft__phi-4/code.json"
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "microsoft/phi-4"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.0371938,
+   "working_effect": {
+    "estimate": 1.7914572864321607,
+    "ci95": [
+     1.6758793969849246,
+     1.9065656565656566
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.4045226130653266,
+    "ci95": [
+     0.3409090909090909,
+     0.46733668341708545
+    ]
+   },
+   "credit": {
+    "correct": 3.9396984924623117,
+    "slip": 3.13,
+    "lucky": 1.75,
+    "wrong": 1.74
+   },
+   "lucky_full_marks": 0.01,
+   "failed": 1,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "microsoft__phi-4/maths.json"
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "microsoft/phi-4"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "qwk": {
+    "estimate": 0.6330636412203884,
+    "ci95": [
+     0.5058103408303363,
+     0.7317731695091647
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.105351311788604,
+    "ci95": [
+     0.8922146933765366,
+     1.5038133403725003
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.8615597600369174,
+    "ci95": [
+     0.788862514211391,
+     0.9073360074576818
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.13,
+    "ci95": [
+     0.07395,
+     0.186
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.024,
+    "ci95": [
+     -0.002,
+     0.052000000000000005
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.184375,
+    "ci95": [
+     -0.23125,
+     -0.1375
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.010526315789473684,
+    "ci95": [
+     -0.03584210526315789,
+     0.016842105263157894
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.20666666666666667,
+   "decision_kappa": {
+    "estimate": 0.3464146212149903,
+    "ci95": [
+     0.15937607017002248,
+     0.5295847334240458
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.2182635001117768,
+    "ci95": [
+     0.5926981222037724,
+     4.8288761702418075
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.017055819581958197,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "microsoft__phi-4/mohler.json"
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 180,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.030119444444444445,
+   "pushback_effect": {
+    "estimate": 0.1288888888888889,
+    "ci95": [
+     0.10666666666666666,
+     0.1511111111111111
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.32222222222222224,
+    "recheck": 0.03333333333333333
+   },
+   "answers": 90,
+   "failed": 0,
+   "verified": false,
+   "file": "microsoft__phi-4/pushback.json"
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "mistralai/ministral-8b-2512"
+   ],
+   "providers": [
+    "Mistral"
+   ],
+   "qwk": {
+    "estimate": 0.5296167247386758,
+    "ci95": [
+     0.42652537379270367,
+     0.6221112972875713
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.898989898989899,
+    "ci95": [
+     0.8158918218375026,
+     0.9636662981503098
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.126,
+    "ci95": [
+     0.08199999999999999,
+     0.174
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.038,
+    "ci95": [
+     0.024,
+     0.054000000000000006
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.15056179775280898,
+    "ci95": [
+     -0.1752808988764045,
+     -0.1258426966292135
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.00898876404494382,
+    "ci95": [
+     -0.020224719101123594,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.03125,
+   "decision_kappa": {
+    "estimate": 0.23841059602649023,
+    "ci95": [
+     0.06199021207177854,
+     0.4138487208008893
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.7108949325351354,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.0906391143911439,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "mistralai__ministral-8b-2512/asap2.json"
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "mistralai/ministral-8b-2512"
+   ],
+   "providers": [
+    "Mistral"
+   ],
+   "qwk": {
+    "estimate": 0.6920179800718645,
+    "ci95": [
+     0.6020777257404415,
+     0.7656592028104768
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.8485955879420578,
+    "ci95": [
+     0.7620633757538554,
+     0.9177696629210779
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9613340747886936,
+    "ci95": [
+     0.9343058255289391,
+     0.9771054743559661
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.013555555555555555,
+    "ci95": [
+     -0.023236111111111107,
+     0.05445555555555549
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.038,
+    "ci95": [
+     0.02344444444444444,
+     0.0517833333333333
+    ],
+    "flag": true
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.6036468402547349,
+    "ci95": [
+     0.45202499952177166,
+     0.7293469095146519
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.0156056546055292,
+    "ci95": [
+     0.8387296509188752,
+     1.1840682852220998
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 0.07825011290322581,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "mistralai__ministral-8b-2512/code.json"
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "mistralai/ministral-8b-2512"
+   ],
+   "providers": [
+    "Mistral"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.0506159625,
+   "working_effect": {
+    "estimate": 1.2975,
+    "ci95": [
+     1.195,
+     1.4
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.4875,
+    "ci95": [
+     0.435,
+     0.5425
+    ]
+   },
+   "credit": {
+    "correct": 3.975,
+    "slip": 2.945,
+    "lucky": 2.135,
+    "wrong": 2.19
+   },
+   "lucky_full_marks": 0.005,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "mistralai__ministral-8b-2512/maths.json"
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "mistralai/ministral-8b-2512"
+   ],
+   "providers": [
+    "Mistral"
+   ],
+   "qwk": {
+    "estimate": 0.5667036777252747,
+    "ci95": [
+     0.42569135704189176,
+     0.6781176498306846
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.9894844890499529,
+    "ci95": [
+     0.7744081418415152,
+     1.3563460573234078
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9601196410767697,
+    "ci95": [
+     0.925811887085921,
+     0.9805557879518244
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.3,
+    "ci95": [
+     0.256,
+     0.3460499999999997
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.05,
+    "ci95": [
+     0.032,
+     0.068
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.215625,
+    "ci95": [
+     -0.259375,
+     -0.17179687500000043
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.00631578947368421,
+    "ci95": [
+     -0.008421052631578947,
+     0.021052631578947368
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.26666666666666666,
+   "decision_kappa": {
+    "estimate": 0.334140558642293,
+    "ci95": [
+     0.15826459903205486,
+     0.49702512413146654
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.1750983404601432,
+    "ci95": [
+     0.4514481343275694,
+     5.9729176685668826
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.02031184818481848,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "mistralai__ministral-8b-2512/mohler.json"
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 182,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.03880664835164835,
+   "pushback_effect": {
+    "estimate": 0.27252747252747256,
+    "ci95": [
+     0.23076923076923075,
+     0.31648351648351647
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.5494505494505495,
+    "recheck": 0.1978021978021978
+   },
+   "answers": 91,
+   "failed": 0,
+   "verified": false,
+   "file": "mistralai__ministral-8b-2512/pushback.json"
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "openai/gpt-5-mini"
+   ],
+   "providers": [
+    "Azure"
+   ],
+   "qwk": {
+    "estimate": 0.3022344178753428,
+    "ci95": [
+     0.2071339779005524,
+     0.3915839457717801
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.7013274336283186,
+    "ci95": [
+     0.5705128943458381,
+     0.795262190246459
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.014000000000000002,
+    "ci95": [
+     -0.006,
+     0.032
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": -0.002,
+    "ci95": [
+     -0.02,
+     0.016
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.0651685393258427,
+    "ci95": [
+     -0.0853932584269663,
+     -0.0449438202247191
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.020224719101123594,
+     0.020224719101123594
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.1772151898734177,
+    "ci95": [
+     0.09793814432989686,
+     0.2726657645466847
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.40568378238301045,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 1.165278831488315,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "openai__gpt-5-mini/asap2.json"
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "openai/gpt-5-mini"
+   ],
+   "providers": [
+    "Azure"
+   ],
+   "qwk": {
+    "estimate": 0.8132487077540205,
+    "ci95": [
+     0.7496680427042616,
+     0.8610040745434752
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.9972562638155361,
+    "ci95": [
+     0.9529936629357395,
+     1.039424399134085
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9601252355553196,
+    "ci95": [
+     0.9346293869651822,
+     0.9770590753486886
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": -0.003,
+    "ci95": [
+     -0.01588888888888889,
+     0.010447222222222207
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.010777777777777777,
+    "ci95": [
+     -0.005669444444444444,
+     0.027780555555555538
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.6405961797266022,
+    "ci95": [
+     0.4936252093678271,
+     0.7562629282570572
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.0777710725272598,
+    "ci95": [
+     0.8928766155889455,
+     1.2721918077002337
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 2.6886415806451613,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "openai__gpt-5-mini/code.json"
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "openai/gpt-5-mini"
+   ],
+   "providers": [
+    "Azure"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 1.18773875,
+   "working_effect": {
+    "estimate": 1.7475,
+    "ci95": [
+     1.6525,
+     1.835
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.5625,
+    "ci95": [
+     0.5125,
+     0.6125
+    ]
+   },
+   "credit": {
+    "correct": 3.935,
+    "slip": 2.99,
+    "lucky": 1.805,
+    "wrong": 1.625
+   },
+   "lucky_full_marks": 0.005,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "openai__gpt-5-mini/maths.json"
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "openai/gpt-5-mini"
+   ],
+   "providers": [
+    "Azure"
+   ],
+   "qwk": {
+    "estimate": 0.6303918129661208,
+    "ci95": [
+     0.5020606939109983,
+     0.73724562809798
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.100686205986547,
+    "ci95": [
+     0.9029781174832832,
+     1.4776421992844657
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9701848539057841,
+    "ci95": [
+     0.9498461481433396,
+     0.983716454828238
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.026000000000000002,
+    "ci95": [
+     0.008,
+     0.046
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.022,
+    "ci95": [
+     0.0,
+     0.044
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.009375,
+    "ci95": [
+     -0.03125,
+     0.0125
+    ],
+    "flag": false
+   },
+   "surface_share": {
+    "estimate": 0.00631578947368421,
+    "ci95": [
+     -0.008421052631578947,
+     0.021052631578947368
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3766519893764375,
+    "ci95": [
+     0.21156739451396772,
+     0.5326696716848222
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.3246016270688126,
+    "ci95": [
+     0.6490087359302554,
+     5.884675508066715
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 1,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.5966328382838285,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "openai__gpt-5-mini/mohler.json"
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 94,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 1.2022632978723404,
+   "pushback_effect": {
+    "estimate": 0.04680851063829787,
+    "ci95": [
+     0.02553191489361702,
+     0.0723404255319149
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.0851063829787234,
+    "recheck": 0.0
+   },
+   "answers": 47,
+   "failed": 0,
+   "verified": false,
+   "file": "openai__gpt-5-mini/pushback.json"
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "openai/gpt-5.6-luna"
+   ],
+   "providers": [
+    "Azure"
+   ],
+   "qwk": {
+    "estimate": 0.47340425531914865,
+    "ci95": [
+     0.3583807448803933,
+     0.5698480121975796
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.8055555555555555,
+    "ci95": [
+     0.7170655339971153,
+     0.8751562640335679
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.078,
+    "ci95": [
+     0.052000000000000005,
+     0.10200000000000001
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.006,
+    "ci95": [
+     -0.012,
+     0.024
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.04269662921348315,
+    "ci95": [
+     -0.06292134831460675,
+     -0.02247191011235955
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.002247191011235955,
+    "ci95": [
+     -0.01797752808988764,
+     0.015730337078651686
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3678160919540231,
+    "ci95": [
+     0.2139950376780505,
+     0.5136469989366071
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.6354419534485217,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.6699455965559655,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "openai__gpt-5.6-luna/asap2.json"
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "openai/gpt-5.6-luna"
+   ],
+   "providers": [
+    "Azure"
+   ],
+   "qwk": {
+    "estimate": 0.7370236960549309,
+    "ci95": [
+     0.6597939357543654,
+     0.7992979139612133
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.9037844025613504,
+    "ci95": [
+     0.8408979749522782,
+     0.9594794027162658
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9259431020922314,
+    "ci95": [
+     0.8811758922382129,
+     0.9545964959293071
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": -0.017666666666666667,
+    "ci95": [
+     -0.03344722222222222,
+     -0.0031111111111111114
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.008,
+    "ci95": [
+     -0.006669444444444444,
+     0.024222222222222225
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": -0.022222222222222223,
+    "ci95": [
+     -0.06666666666666667,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.5153507977256035,
+    "ci95": [
+     0.32409970419962325,
+     0.6613758584959447
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.8670519737247773,
+    "ci95": [
+     0.5991039867853368,
+     1.0756927710555113
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 1.0081633279483038,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "openai__gpt-5.6-luna/code.json"
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "openai/gpt-5.6-luna"
+   ],
+   "providers": [
+    "Azure"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.2843675,
+   "working_effect": {
+    "estimate": 1.55,
+    "ci95": [
+     1.465,
+     1.635
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.595,
+    "ci95": [
+     0.5575,
+     0.6325
+    ]
+   },
+   "credit": {
+    "correct": 3.925,
+    "slip": 2.955,
+    "lucky": 2.0,
+    "wrong": 1.78
+   },
+   "lucky_full_marks": 0.0,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "openai__gpt-5.6-luna/maths.json"
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "openai/gpt-5.6-luna"
+   ],
+   "providers": [
+    "Azure"
+   ],
+   "qwk": {
+    "estimate": 0.6440768768219157,
+    "ci95": [
+     0.5162407194490319,
+     0.7504701742039005
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.124580807255628,
+    "ci95": [
+     0.9249377804290799,
+     1.5024759423720342
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9780998646173449,
+    "ci95": [
+     0.9616936163536712,
+     0.9899162593079865
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.05,
+    "ci95": [
+     0.028000000000000004,
+     0.076
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.01,
+    "ci95": [
+     -0.008,
+     0.028000000000000004
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.0125,
+    "ci95": [
+     -0.034375,
+     0.009375
+    ],
+    "flag": false
+   },
+   "surface_share": {
+    "estimate": -0.004210526315789474,
+    "ci95": [
+     -0.014736842105263156,
+     0.00631578947368421
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3442113909563582,
+    "ci95": [
+     0.18073993155128687,
+     0.49694297260029113
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.2105152272559163,
+    "ci95": [
+     0.5702576479212329,
+     5.571597240534112
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 1,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.13336083608360835,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "openai__gpt-5.6-luna/mohler.json"
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 98,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.2392591836734694,
+   "pushback_effect": {
+    "estimate": 0.05714285714285714,
+    "ci95": [
+     0.03265306122448979,
+     0.08571428571428572
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.10204081632653061,
+    "recheck": 0.0
+   },
+   "answers": 49,
+   "failed": 0,
+   "verified": false,
+   "file": "openai__gpt-5.6-luna/pushback.json"
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "openai/gpt-6-astra"
+   ],
+   "providers": [
+    "Azure"
+   ],
+   "qwk": {
+    "estimate": 0.4875177592855692,
+    "ci95": [
+     0.39186152412194886,
+     0.5637376969875506
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.9441964285714286,
+    "ci95": [
+     0.890799811544498,
+     0.982691136684032
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.004,
+    "ci95": [
+     -0.004,
+     0.012
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.004,
+    "ci95": [
+     -0.008049999999999998,
+     0.018
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.03595505617977528,
+    "ci95": [
+     -0.05168539325842697,
+     -0.020224719101123594
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.002247191011235955,
+    "ci95": [
+     -0.006741573033707865,
+     0.011235955056179775
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3569758378799689,
+    "ci95": [
+     0.1999888309754281,
+     0.5082746977265766
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.6543862540745895,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 26.828904059040593,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "openai__gpt-6-astra/asap2.json"
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "openai/gpt-6-astra"
+   ],
+   "providers": [
+    "Azure"
+   ],
+   "qwk": {
+    "estimate": 0.8404815264167566,
+    "ci95": [
+     0.7860202074331056,
+     0.8813614163186968
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.0306508437685369,
+    "ci95": [
+     0.992023318670668,
+     1.0694560259082995
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9808103063338394,
+    "ci95": [
+     0.9658794669635118,
+     0.992092259441863
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": -0.0017888888888888887,
+    "ci95": [
+     -0.008344722222222222,
+     0.004300555555555552
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.001277777777777778,
+    "ci95": [
+     -0.005078333333333333,
+     0.008056111111111108
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.6740033466016846,
+    "ci95": [
+     0.5484480795100996,
+     0.7788290194554088
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.1339769619979418,
+    "ci95": [
+     1.0121360369628185,
+     1.281474377032801
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 34.132446774193546,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "openai__gpt-6-astra/code.json"
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "openai/gpt-6-astra"
+   ],
+   "providers": [
+    "Azure"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 7.9110499999999995,
+   "working_effect": {
+    "estimate": 1.3375,
+    "ci95": [
+     1.255,
+     1.415
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.6025,
+    "ci95": [
+     0.5625,
+     0.64
+    ]
+   },
+   "credit": {
+    "correct": 3.91,
+    "slip": 2.97,
+    "lucky": 2.235,
+    "wrong": 1.97
+   },
+   "lucky_full_marks": 0.005,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "openai__gpt-6-astra/maths.json"
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "openai/gpt-6-astra"
+   ],
+   "providers": [
+    "Azure"
+   ],
+   "qwk": {
+    "estimate": 0.6465098157472555,
+    "ci95": [
+     0.526481396939653,
+     0.7471430271063275
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.128828803914292,
+    "ci95": [
+     0.9441600319258291,
+     1.4867919652666608
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9845665402592821,
+    "ci95": [
+     0.968732854055772,
+     0.994349931460658
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": -0.007000000000000001,
+    "ci95": [
+     -0.020999999999999998,
+     0.006
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.003,
+    "ci95": [
+     -0.008,
+     0.014024999999999866
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.0203125,
+    "ci95": [
+     -0.0375,
+     -0.003125
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     -0.009473684210526316,
+     0.009473684210526316
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3628428358345257,
+    "ci95": [
+     0.17697538416608063,
+     0.5329733139648722
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.2760378924650422,
+    "ci95": [
+     0.5999995189452001,
+     5.367222053114157
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 1,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 4.601056105610561,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "openai__gpt-6-astra/mohler.json"
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 104,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 9.004807692307692,
+   "pushback_effect": {
+    "estimate": 0.011538461538461539,
+    "ci95": [
+     -0.0038461538461538464,
+     0.03076923076923077
+    ]
+   },
+   "verdict": "HOLDS",
+   "to_full_marks": {
+    "push": 0.09615384615384616,
+    "recheck": 0.07692307692307693
+   },
+   "answers": 52,
+   "failed": 0,
+   "verified": false,
+   "file": "openai__gpt-6-astra/pushback.json"
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "openai/gpt-oss-20b"
+   ],
+   "providers": [
+    "AkashML"
+   ],
+   "qwk": {
+    "estimate": 0.4050082781456954,
+    "ci95": [
+     0.247933008955915,
+     0.5417546967818908
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.546783625730994,
+    "ci95": [
+     0.41386129829505,
+     0.6636505586421636
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.3326530612244898,
+    "ci95": [
+     0.26326530612244897,
+     0.4
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": -0.01,
+    "ci95": [
+     -0.04,
+     0.02
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.04943820224719101,
+    "ci95": [
+     -0.08089887640449438,
+     -0.015730337078651686
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": 0.024719101123595506,
+    "ci95": [
+     -0.011235955056179775,
+     0.05842696629213483
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.2586002372479242,
+    "ci95": [
+     0.05612056769610478,
+     0.4471370523112703
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.5436352726787858,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.07123439114391143,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "openai__gpt-oss-20b/asap2.json"
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "openai/gpt-oss-20b"
+   ],
+   "providers": [
+    "AkashML"
+   ],
+   "qwk": {
+    "estimate": 0.26756242086579957,
+    "ci95": [
+     0.14875713052483047,
+     0.38749128130033483
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.32810172045274694,
+    "ci95": [
+     0.18721591313913113,
+     0.47106171383024276
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.7196876481460768,
+    "ci95": [
+     0.5004604601480934,
+     0.8640929679542813
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.531,
+    "ci95": [
+     0.43610277777777784,
+     0.6186722222222222
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.006888888888888889,
+    "ci95": [
+     -0.014225000000000002,
+     0.02844999999999997
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.26532490933639,
+    "ci95": [
+     0.08434490821878853,
+     0.4456292136066375
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.4463959061162723,
+    "ci95": [
+     0.14698518120422854,
+     0.7524394442252527
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 0.09854058064516129,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "openai__gpt-oss-20b/code.json"
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "openai/gpt-oss-20b"
+   ],
+   "providers": [
+    "AkashML"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.066381725,
+   "working_effect": {
+    "estimate": 2.025,
+    "ci95": [
+     1.895,
+     2.1525
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.785,
+    "ci95": [
+     0.705,
+     0.8675
+    ]
+   },
+   "credit": {
+    "correct": 3.88,
+    "slip": 2.8,
+    "lucky": 1.56,
+    "wrong": 1.07
+   },
+   "lucky_full_marks": 0.005,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "openai__gpt-oss-20b/maths.json"
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "openai/gpt-oss-20b"
+   ],
+   "providers": [
+    "AkashML"
+   ],
+   "qwk": {
+    "estimate": 0.5993530616538965,
+    "ci95": [
+     0.4730596878214157,
+     0.7091582521110406
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.046491458025491,
+    "ci95": [
+     0.8379554214899667,
+     1.4141341856119038
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.8992460827571831,
+    "ci95": [
+     0.8319858813265137,
+     0.9434865012142043
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.057999999999999996,
+    "ci95": [
+     0.026000000000000002,
+     0.098
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.016,
+    "ci95": [
+     -0.012,
+     0.044
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.103125,
+    "ci95": [
+     -0.171875,
+     -0.040625
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.008421052631578947,
+    "ci95": [
+     -0.037894736842105266,
+     0.021052631578947368
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.33614642603783695,
+    "ci95": [
+     0.18162039365290414,
+     0.47860884937014225
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.182152531837761,
+    "ci95": [
+     0.6427781911104834,
+     4.641226691442114
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.029090297029702974,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "openai__gpt-oss-20b/mohler.json"
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 106,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.04215339622641509,
+   "pushback_effect": {
+    "estimate": 0.08301886792452831,
+    "ci95": [
+     0.04905660377358491,
+     0.1169811320754717
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.1509433962264151,
+    "recheck": 0.07547169811320754
+   },
+   "answers": 53,
+   "failed": 0,
+   "verified": false,
+   "file": "openai__gpt-oss-20b/pushback.json"
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "qwen/qwen3-235b-a22b-2507"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "qwk": {
+    "estimate": 0.5949294700724361,
+    "ci95": [
+     0.47002292781436505,
+     0.695889132826059
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.937099725526075,
+    "ci95": [
+     0.8927898129225411,
+     0.9689856967454913
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.524,
+    "ci95": [
+     0.488,
+     0.5599999999999999
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.02,
+    "ci95": [
+     0.002,
+     0.038
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.16179775280898875,
+    "ci95": [
+     -0.18651685393258427,
+     -0.1348314606741573
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.00449438202247191,
+    "ci95": [
+     -0.020224719101123594,
+     0.011235955056179775
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.47368421052631576,
+    "ci95": [
+     0.27730267961448596,
+     0.6356395252815005
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.7985630470770955,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.21210321033210333,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "qwen__qwen3-235b-a22b-2507/asap2.json"
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "qwen/qwen3-235b-a22b-2507"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "qwk": {
+    "estimate": 0.4994413815343558,
+    "ci95": [
+     0.36526914620517426,
+     0.6189628016760481
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 0.6124461574852825,
+    "ci95": [
+     0.467400552504696,
+     0.7404302763320281
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9201545191187368,
+    "ci95": [
+     0.8527793342594628,
+     0.9643095987294317
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.8315555555555556,
+    "ci95": [
+     0.78055,
+     0.8771138888888887
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.01988888888888889,
+    "ci95": [
+     -0.00022222222222222223,
+     0.04011388888888887
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.4341631189088232,
+    "ci95": [
+     0.2479307477390583,
+     0.5915580532859769
+    ]
+   },
+   "decision_share": {
+    "estimate": 0.7304577597041683,
+    "ci95": [
+     0.4570962202629075,
+     0.9700363895503783
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 0.26138562903225804,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "qwen__qwen3-235b-a22b-2507/code.json"
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "qwen/qwen3-235b-a22b-2507"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.07449418749999999,
+   "working_effect": {
+    "estimate": 1.6,
+    "ci95": [
+     1.5125,
+     1.6975
+    ]
+   },
+   "answer_effect": {
+    "estimate": 1.28,
+    "ci95": [
+     1.1975,
+     1.3675
+    ]
+   },
+   "credit": {
+    "correct": 3.91,
+    "slip": 1.55,
+    "lucky": 1.23,
+    "wrong": 1.03
+   },
+   "lucky_full_marks": 0.005,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "qwen__qwen3-235b-a22b-2507/maths.json"
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "qwen/qwen3-235b-a22b-2507"
+   ],
+   "providers": [
+    "DeepInfra"
+   ],
+   "qwk": {
+    "estimate": 0.6022729185745839,
+    "ci95": [
+     0.4833851547290046,
+     0.7023581463426967
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.0515896305746126,
+    "ci95": [
+     0.8614202904010535,
+     1.4170319894324817
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9658403279328518,
+    "ci95": [
+     0.941872968497051,
+     0.9823784221258844
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.304,
+    "ci95": [
+     0.252,
+     0.358
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.04,
+    "ci95": [
+     0.02,
+     0.06
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.265625,
+    "ci95": [
+     -0.328125,
+     -0.21242187500000043
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.014736842105263156,
+    "ci95": [
+     -0.031578947368421054,
+     0.002105263157894737
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3303064607160696,
+    "ci95": [
+     0.17794352941010685,
+     0.47791115338377504
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.1616146672162437,
+    "ci95": [
+     0.542929983768952,
+     5.390683389771869
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.03648178217821783,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "qwen__qwen3-235b-a22b-2507/mohler.json"
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 150,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.06280193333333334,
+   "pushback_effect": {
+    "estimate": 0.16266666666666668,
+    "ci95": [
+     0.13333333333333333,
+     0.18933333333333333
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.4666666666666667,
+    "recheck": 0.14666666666666667
+   },
+   "answers": 75,
+   "failed": 0,
+   "verified": false,
+   "file": "qwen__qwen3-235b-a22b-2507/pushback.json"
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "z-ai/glm-5.3-flash"
+   ],
+   "providers": [
+    "BaseTen",
+    "Cohere",
+    "CoreWeave",
+    "Crusoe",
+    "DeepInfra",
+    "DigitalOcean",
+    "Fireworks",
+    "Inceptron",
+    "InferenceNet",
+    "Makora",
+    "Near AI",
+    "Nebius",
+    "Novita",
+    "OpenInference",
+    "Parasail",
+    "Phala",
+    "PrimeIntellect",
+    "Reka",
+    "Relace",
+    "SiliconFlow",
+    "Together",
+    "Venice",
+    "Wafer",
+    "Z.AI"
+   ],
+   "qwk": {
+    "estimate": 0.5906420021762784,
+    "ci95": [
+     0.471033385336992,
+     0.6865909858725154
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.790638657831665,
+    "ci95": [
+     0.7184721589734446,
+     0.8500664526089095
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.00404040404040404,
+    "ci95": [
+     -0.01818181818181818,
+     0.026262626262626265
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": 0.022,
+    "ci95": [
+     0.004,
+     0.041999999999999996
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.06818181818181818,
+    "ci95": [
+     -0.09090909090909091,
+     -0.045454545454545456
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.0022727272727272726,
+    "ci95": [
+     -0.025,
+     0.022727272727272728
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.47410358565737054,
+    "ci95": [
+     0.29842644247376293,
+     0.6418539073241651
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.7928080566124542,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 0.38521152014268145,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "z-ai__glm-5.3-flash/asap2.json"
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "z-ai/glm-5.3-flash"
+   ],
+   "providers": [
+    "BaseTen",
+    "Crusoe",
+    "DeepInfra",
+    "DigitalOcean",
+    "Fireworks",
+    "Inceptron",
+    "InferenceNet",
+    "Makora",
+    "Morph",
+    "Near AI",
+    "Nebius",
+    "Novita",
+    "OpenInference",
+    "Phala",
+    "PrimeIntellect",
+    "Reka",
+    "Relace",
+    "SiliconFlow",
+    "Wafer",
+    "Z.AI"
+   ],
+   "qwk": {
+    "estimate": 0.8724341638718013,
+    "ci95": [
+     0.8278094218473592,
+     0.9053652491654821
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.0698331597607416,
+    "ci95": [
+     1.039828675101085,
+     1.107103937532418
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.973955814598845,
+    "ci95": [
+     0.9585551935066512,
+     0.9844430672748644
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.003222222222222222,
+    "ci95": [
+     -0.006444444444444444,
+     0.01411111111111111
+    ],
+    "flag": false
+   },
+   "attainment_label_share": {
+    "estimate": -0.006888888888888889,
+    "ci95": [
+     -0.018669444444444443,
+     0.0047805555555555405
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.7142166584036613,
+    "ci95": [
+     0.6022572892652619,
+     0.8018403421361192
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.2016338503190473,
+    "ci95": [
+     1.090481373961143,
+     1.3570358188299394
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 1.4269545466419356,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "z-ai__glm-5.3-flash/code.json"
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "z-ai/glm-5.3-flash"
+   ],
+   "providers": [
+    "BaseTen",
+    "Cohere",
+    "CoreWeave",
+    "Crusoe",
+    "DeepInfra",
+    "DigitalOcean",
+    "Fireworks",
+    "Inceptron",
+    "InferenceNet",
+    "Makora",
+    "Morph",
+    "Near AI",
+    "Nebius",
+    "NextBit",
+    "Novita",
+    "OpenInference",
+    "Parasail",
+    "Phala",
+    "PrimeIntellect",
+    "Reka",
+    "Relace",
+    "SiliconFlow",
+    "Together",
+    "Venice",
+    "Wafer",
+    "Z.AI"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.25653085373,
+   "working_effect": {
+    "estimate": 1.59,
+    "ci95": [
+     1.5025,
+     1.6725
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.92,
+    "ci95": [
+     0.86,
+     0.9825
+    ]
+   },
+   "credit": {
+    "correct": 3.94,
+    "slip": 2.335,
+    "lucky": 1.665,
+    "wrong": 1.43
+   },
+   "lucky_full_marks": 0.005,
+   "failed": 0,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "z-ai__glm-5.3-flash/maths.json"
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "z-ai/glm-5.3-flash"
+   ],
+   "providers": [
+    "BaseTen",
+    "Cohere",
+    "CoreWeave",
+    "Crusoe",
+    "DeepInfra",
+    "DigitalOcean",
+    "Fireworks",
+    "Inceptron",
+    "InferenceNet",
+    "Makora",
+    "Morph",
+    "Near AI",
+    "Nebius",
+    "NextBit",
+    "Novita",
+    "OpenInference",
+    "Parasail",
+    "Phala",
+    "PrimeIntellect",
+    "Reka",
+    "Relace",
+    "SiliconFlow",
+    "Together",
+    "Venice",
+    "Wafer",
+    "Z.AI"
+   ],
+   "qwk": {
+    "estimate": 0.6005363339817252,
+    "ci95": [
+     0.4694640031212262,
+     0.713640201951205
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.0485574929935508,
+    "ci95": [
+     0.8564850595948994,
+     1.387086315967404
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9337402618263593,
+    "ci95": [
+     0.8967843727159078,
+     0.9590057973689483
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.034,
+    "ci95": [
+     0.01,
+     0.06
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.013000000000000001,
+    "ci95": [
+     -0.009,
+     0.034
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.0921875,
+    "ci95": [
+     -0.125,
+     -0.059375
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.024210526315789474,
+    "ci95": [
+     -0.0431578947368421,
+     -0.005263157894736842
+    ],
+    "flag": true
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.32062899786780386,
+    "ci95": [
+     0.16878283096144628,
+     0.4706439896508087
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.1275811737095909,
+    "ci95": [
+     0.5049530210241826,
+     5.262030327210723
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.0946713977909791,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "z-ai__glm-5.3-flash/mohler.json"
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 114,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 0.20342819804385967,
+   "pushback_effect": {
+    "estimate": 0.06315789473684211,
+    "ci95": [
+     0.03508771929824561,
+     0.09122807017543859
+    ]
+   },
+   "verdict": "YIELDS TO PUSHBACK",
+   "to_full_marks": {
+    "push": 0.15789473684210525,
+    "recheck": 0.017543859649122806
+   },
+   "answers": 57,
+   "failed": 0,
+   "verified": false,
+   "file": "z-ai__glm-5.3-flash/pushback.json"
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "asap2",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "z-ai/glm-5.3"
+   ],
+   "providers": [
+    "AkashML",
+    "DekaLLM",
+    "InferenceNet",
+    "Novita",
+    "Phala",
+    "PrimeIntellect",
+    "Reka",
+    "Relace",
+    "Sail Research",
+    "Tenstorrent",
+    "Wafer"
+   ],
+   "qwk": {
+    "estimate": 0.5032933808444012,
+    "ci95": [
+     0.3840969984431007,
+     0.607080269971606
+    ]
+   },
+   "share_of_ceiling": null,
+   "retest_qwk": {
+    "estimate": 0.812874251497006,
+    "ci95": [
+     0.7293218167661696,
+     0.8781644842017999
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.054000000000000006,
+    "ci95": [
+     0.024,
+     0.086
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.026000000000000002,
+    "ci95": [
+     0.007950000000000002,
+     0.046
+    ],
+    "flag": true
+   },
+   "blicket_share": {
+    "estimate": -0.04719101123595505,
+    "ci95": [
+     -0.06966292134831462,
+     -0.02696629213483146
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.00898876404494382,
+    "ci95": [
+     -0.029213483146067414,
+     0.01348314606741573
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.3975903614457831,
+    "ci95": [
+     0.21440004322938405,
+     0.5654242669295256
+    ]
+   },
+   "decision_share": null,
+   "decision_n_fail": 72,
+   "published_ceiling": {
+    "value": 0.745,
+    "statistic": "pre-adjudication weighted kappa between two expert raters",
+    "source": "Crossley, Baffour, Burleigh and King (2025), Assessing Writing 65, 100954, section 3"
+   },
+   "share_of_published_ceiling": 0.6755615850260419,
+   "refused": 0,
+   "gradings": 813,
+   "cost_per_1000_usd_self_reported": 2.8781843560885614,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "z-ai__glm-5.3/asap2.json"
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "code",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "z-ai/glm-5.3"
+   ],
+   "providers": [
+    "DekaLLM",
+    "Fireworks",
+    "Inceptron",
+    "InferenceNet",
+    "Makora",
+    "Novita",
+    "Reka",
+    "Relace",
+    "Sail Research",
+    "Tenstorrent",
+    "Wafer"
+   ],
+   "qwk": {
+    "estimate": 0.8733292985974009,
+    "ci95": [
+     0.8259853466479883,
+     0.906933765345134
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.0676841701478448,
+    "ci95": [
+     1.0309382392667577,
+     1.1082394697977576
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9373438434697983,
+    "ci95": [
+     0.9011248465366609,
+     0.9632099646561457
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.11477541371158394,
+    "ci95": [
+     0.0644208037825059,
+     0.17106382978723392
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.007823129251700681,
+    "ci95": [
+     -0.006465419501133787,
+     0.0224518140589569
+    ],
+    "flag": false
+   },
+   "blicket_share": null,
+   "surface_share": {
+    "estimate": 0.006666666666666666,
+    "ci95": [
+     -0.02,
+     0.04
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.7018594133955683,
+    "ci95": [
+     0.5739792130335409,
+     0.7989129782058819
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.157837589303021,
+    "ci95": [
+     1.0250952233666109,
+     1.3115886427411807
+    ]
+   },
+   "decision_n_fail": 75,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 620,
+   "cost_per_1000_usd_self_reported": 9.62979847564516,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "z-ai__glm-5.3/code.json"
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "maths",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [
+    "z-ai/glm-5.3"
+   ],
+   "providers": [
+    "AkashML",
+    "CoreWeave",
+    "Decart",
+    "DeepInfra",
+    "DekaLLM",
+    "DigitalOcean",
+    "Fireworks",
+    "Inceptron",
+    "InferenceNet",
+    "Makora",
+    "Morph",
+    "Novita",
+    "Phala",
+    "PrimeIntellect",
+    "Reka",
+    "Relace",
+    "Sail Research",
+    "SiliconFlow",
+    "Tenstorrent",
+    "Wafer"
+   ],
+   "refused": 0,
+   "gradings": 800,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 2.162812037,
+   "working_effect": {
+    "estimate": 1.8618090452261307,
+    "ci95": [
+     1.7626262626262625,
+     1.9568527918781726
+    ]
+   },
+   "answer_effect": {
+    "estimate": 0.8567839195979899,
+    "ci95": [
+     0.7969543147208121,
+     0.9221105527638191
+    ]
+   },
+   "credit": {
+    "correct": 3.975,
+    "slip": 2.695,
+    "lucky": 1.7,
+    "wrong": 1.2613065326633166
+   },
+   "lucky_full_marks": 0.02,
+   "failed": 1,
+   "verdict": "READS THE WORKING",
+   "verified": false,
+   "file": "z-ai__glm-5.3/maths.json"
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "mohler",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "prompts_tried": 1,
+   "served_models": [
+    "z-ai/glm-5.3"
+   ],
+   "providers": [
+    "AkashML",
+    "CoreWeave",
+    "Decart",
+    "DeepInfra",
+    "DekaLLM",
+    "DigitalOcean",
+    "Fireworks",
+    "Inceptron",
+    "InferenceNet",
+    "Makora",
+    "Morph",
+    "Novita",
+    "Phala",
+    "PrimeIntellect",
+    "Reka",
+    "Relace",
+    "Sail Research",
+    "SiliconFlow",
+    "Tenstorrent",
+    "Wafer"
+   ],
+   "qwk": {
+    "estimate": 0.6405041996522427,
+    "ci95": [
+     0.5146205761387561,
+     0.7460316568560897
+    ]
+   },
+   "share_of_ceiling": {
+    "estimate": 1.118342787664924,
+    "ci95": [
+     0.9018910508936097,
+     1.5281308951517114
+    ],
+    "note": "machine and ceiling both on the cases with two or more raters"
+   },
+   "retest_qwk": {
+    "estimate": 0.9592411442122425,
+    "ci95": [
+     0.9364516340034096,
+     0.9754659005276265
+    ]
+   },
+   "gaming_max_share": {
+    "estimate": 0.057999999999999996,
+    "ci95": [
+     0.024,
+     0.096
+    ],
+    "flag": true
+   },
+   "attainment_label_share": {
+    "estimate": 0.006,
+    "ci95": [
+     -0.012,
+     0.026000000000000002
+    ],
+    "flag": false
+   },
+   "blicket_share": {
+    "estimate": -0.05625,
+    "ci95": [
+     -0.084375,
+     -0.028125
+    ],
+    "flag": true
+   },
+   "surface_share": {
+    "estimate": -0.00631578947368421,
+    "ci95": [
+     -0.02736842105263158,
+     0.014736842105263156
+    ],
+    "flag": false
+   },
+   "blank_credited": 0.0,
+   "decision_kappa": {
+    "estimate": 0.39696839465325967,
+    "ci95": [
+     0.2521390801187238,
+     0.5323926603328671
+    ]
+   },
+   "decision_share": {
+    "estimate": 1.3960499248208582,
+    "ci95": [
+     0.7758454206051117,
+     6.0968481176933444
+    ]
+   },
+   "decision_n_fail": 8,
+   "published_ceiling": null,
+   "share_of_published_ceiling": null,
+   "refused": 0,
+   "gradings": 909,
+   "cost_per_1000_usd_self_reported": 0.9548055654565456,
+   "benchmark_version": "0.2.0",
+   "verified": false,
+   "file": "z-ai__glm-5.3/mohler.json"
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "pushback",
+   "track": "default",
+   "submitter": "benchmark maintainers",
+   "served_models": [],
+   "providers": [],
+   "refused": 0,
+   "gradings": 112,
+   "benchmark_version": "0.2.0",
+   "cost_per_1000_usd_self_reported": 1.55324981875,
+   "pushback_effect": {
+    "estimate": 0.02142857142857143,
+    "ci95": [
+     0.0,
+     0.04285714285714286
+    ]
+   },
+   "verdict": "HOLDS",
+   "to_full_marks": {
+    "push": 0.14285714285714285,
+    "recheck": 0.03571428571428571
+   },
+   "answers": 56,
+   "failed": 0,
+   "verified": false,
+   "file": "z-ai__glm-5.3/pushback.json"
+  }
+ ],
+ "refused": []
+}
