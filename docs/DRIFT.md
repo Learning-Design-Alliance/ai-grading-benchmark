@@ -39,7 +39,8 @@ what the cases file already has; keep them out of version control anyway).
 
 Core battery, default prompt, the same 100 Mohler cases for every model (human ceiling 0.573 [0.374, 0.734] on this draw; with an interval that wide, no model here is shown to beat the humans).
 Gemini 2.5 Flash Lite has no zero-retention endpoint and is not included. The Fable API row ran through OpenRouter with a bring-your-own
-Anthropic key (zero retention). The agent-pilot row (`out/agent-pilot-2026-10-23/`) graded the same
+Anthropic key, under that key's 30-day safety retention (`docs/CORRECTIONS.md`, 2026-10-25; the request's
+zero-retention flag had no effect on that route). The agent-pilot row (`out/agent-pilot-2026-10-23/`) graded the same
 cases as prompt-only subagent batches and agreed with the API almost exactly (QWK 0.632 against
 0.631); it differed on blicket (+0.05 against −0.31). Fable's content filter refused all 30 gibberish
 answers; a refusal is not credit.
