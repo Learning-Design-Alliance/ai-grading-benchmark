@@ -68,6 +68,18 @@ CHANGES:
    joins the speech task under speech/PREREG.md CHANGE 1. It is run with the identical arguments (cases, prompt,
    base probe, seed 7, max tokens 4096, zero retention, workers 8). Estimated at about $1, within the $65 cap.
    Design, measures, verdicts and floor are unchanged.
+3. (2026-10-29, after all seven models' results were read; before any call it makes) The failed gradings are
+   classified and those the harness retries are retried, at the maintainer's request (2026-10-29). Voxtral Small
+   24B's 112 failures are all transport failures: 68 HTTP 429 (upstream rate limit) and 44 HTTP 403 (the API key's
+   spending limit, since raised). Gemini 4 Argon's 84 are all completed replies with no readable mark (59 with
+   text that holds no mark, 25 empty). The harness's rule is applied unchanged (client.py: "Transport errors are
+   retried; replies are not. A completed reply with no readable mark is a failed grading, counted, not re-asked"):
+   Voxtral's 112 are sent once more, with the same model, route (OpenRouter, zero-retention endpoints only),
+   prompt, settings (max tokens 4096, model defaults), case file (sha256 39e7a584...) and seed; Gemini 4 Argon's
+   84 are not re-asked and stay failed gradings, reported as part of its result. Nothing already graded is
+   graded again: the retry runs on a case file holding only the 112 failed ids, and its records replace those 112
+   in Voxtral's calls.jsonl (the original is kept as calls.before-change3.jsonl). A retry that fails again stays
+   failed. Cap for the retry: $10. Design, measures, verdicts and floor are unchanged.
 
 Usage:
     python3 language/study.py prepare --dir <local dir>      # downloads the dev split for the 18 languages
