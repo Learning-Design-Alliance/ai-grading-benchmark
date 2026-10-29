@@ -30,8 +30,8 @@ under the coverage rule after the other six models' results were read.
 | Muse Spark Open | 0.93 | 0.96 | 0.96 | 0.94 | +0.01 [−0.02, +0.05] | NO GAP DETECTED (a gap up to 0.05 not ruled out) |
 
 Positive gaps mean worse on the low-resource tier. ¹ Voxtral's run is incomplete: 110 of 1,080 gradings failed.
-All 112 original failures were transport failures (68 upstream rate limits, 44 on the API key's spending limit) and
-were retried once under CHANGE 3 (2026-10-29); 2 succeeded and 110 failed again on Mistral's upstream rate limit.
+Of 116 gradings that failed at first (`7a381d2`), an earlier re-send recovered 4; the 112 that remained were all transport failures (68 upstream rate limits, 44 on the API key's spending limit) and
+were retried once under CHANGE 3 (committed 2026-10-28 23:12 UTC); 2 succeeded and 110 failed again on Mistral's upstream rate limit.
 Failed gradings for the others, all completed replies with no readable mark, which the harness counts and does not
 re-ask: Gemini 4 Argon 84 (59 with no mark in the text, 25 empty), Muse Spark 29, Gemini 3.8 Flash 13, MiMo 4.
 
