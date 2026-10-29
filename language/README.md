@@ -29,9 +29,11 @@ under the coverage rule after the other six models' results were read.
 | Gemini 4 Argon | 0.96 | 0.99 | 0.96 | 0.95 | +0.04 [+0.01, +0.06] | WORSE ON LOW-RESOURCE LANGUAGES |
 | Muse Spark Open | 0.93 | 0.96 | 0.96 | 0.94 | +0.01 [−0.02, +0.05] | NO GAP DETECTED (a gap up to 0.05 not ruled out) |
 
-Positive gaps mean worse on the low-resource tier. ¹ Voxtral's run is incomplete: 112 of 1,080 gradings failed
-on rate limits and the API key's spending limit, and a retry was still pending on 2026-10-27; its figures will
-change. Failed gradings for the others: Gemini 4 Argon 84, Muse Spark 29, Gemini 3.8 Flash 13, MiMo 4.
+Positive gaps mean worse on the low-resource tier. ¹ Voxtral's run is incomplete: 110 of 1,080 gradings failed.
+All 112 original failures were transport failures (68 upstream rate limits, 44 on the API key's spending limit) and
+were retried once under CHANGE 3 (2026-10-29); 2 succeeded and 110 failed again on Mistral's upstream rate limit.
+Failed gradings for the others, all completed replies with no readable mark, which the harness counts and does not
+re-ask: Gemini 4 Argon 84 (59 with no mark in the text, 25 empty), Muse Spark 29, Gemini 3.8 Flash 13, MiMo 4.
 
 - **Six of seven graders understand a correct spoken answer less well in a low-resource language.** Perceptron,
   Voxtral and MiMo lose 32-38 points between the high and low tiers, and score 0.50-0.59 (chance is 0.5) on
