@@ -60,9 +60,9 @@ each probe is known in advance, so the probes need no new human labels.
   wherever its results appear. The maintainer accepted this for public corpora with no student identities,
   and did not loosen the zero-retention rule, which also governs studies of private data. Claude Haiku 5.5,
   half of whose gradings had gone the same way, was re-run under zero retention on the board; its earlier
-  handwriting, video and fairness runs went the same way and were not re-run (`docs/CORRECTIONS.md`). OpenRouter
-  prefers a provider key stored on the account even when zero retention is required, so `client.py` stops a run
-  at the first reply served on one; anyone running the harness who needs zero retention should store no
+  handwriting, video and fairness runs went the same way and were not re-run (`docs/CORRECTIONS.md`). Requests that
+  required zero retention were served through a provider key stored on the account, so `client.py` now stops a
+  run at the first reply served on one; anyone running the harness who needs zero retention should store no
   provider key with the router.
 - **Grades only.** Submissions hold grades, never text, and CI recomputes every number from the grades.
 

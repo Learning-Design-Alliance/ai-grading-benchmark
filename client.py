@@ -26,11 +26,12 @@ Rules carried over from `shared/llm.py`, each learned on a real run:
   retention unless Anthropic authorises otherwise. The maintainer accepted that for public corpora; the
   check stops it from happening unnoticed. The pin is added when the request is sent, not to the cached body,
   so cached replies are still found.
-- **A reply served on a stored provider key stops the run** (added 2026-10-30). OpenRouter sends a request
-  through a provider key the account holder has stored with it, in preference to its own, even when the request
-  requires zero retention and the provider is on the zero-retention list; the stored key's own terms then apply.
-  The endpoint check above did not catch this: on 2026-10-28 a private study's 2,816 Claude Haiku 5.5 gradings
-  went to Anthropic's listed endpoint through the maintainers' stored key, under its 30-day retention. The reply
+- **A reply served on a stored provider key stops the run** (added 2026-10-30). OpenRouter tries a
+  provider key the account holder has stored with it before its own capacity. Its documentation says a request
+  that requires zero retention goes through a stored key only if zero retention is declared on the key, but on
+  2026-10-23, -24 and -28 requests that required it went through the maintainers' stored Anthropic key, under that
+  key's 30-day retention (2,816 Claude Haiku 5.5 gradings in a private study on 2026-10-28), and the endpoint check
+  above did not catch them. The reply
   says so (`usage.is_byok`), but only after the request has been sent, so the client cannot prevent the first
   one: it discards that reply, refuses every later call in the run, and says why. A run under a stated
   `--retention-exception` is exempt. The real fix is on the account: store no provider key with the router.
