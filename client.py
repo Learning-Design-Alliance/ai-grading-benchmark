@@ -26,6 +26,14 @@ Rules carried over from `shared/llm.py`, each learned on a real run:
   retention unless Anthropic authorises otherwise. The maintainer accepted that for public corpora; the
   check stops it from happening unnoticed. The pin is added when the request is sent, not to the cached body,
   so cached replies are still found.
+- **A reply served on a stored provider key stops the run** (added 2026-10-30). OpenRouter sends a request
+  through a provider key the account holder has stored with it, in preference to its own, even when the request
+  requires zero retention and the provider is on the zero-retention list; the stored key's own terms then apply.
+  The endpoint check above did not catch this: on 2026-10-28 a private study's 2,816 Claude Haiku 5.5 gradings
+  went to Anthropic's listed endpoint through the maintainers' stored key, under its 30-day retention. The reply
+  says so (`usage.is_byok`), but only after the request has been sent, so the client cannot prevent the first
+  one: it discards that reply, refuses every later call in the run, and says why. A run under a stated
+  `--retention-exception` is exempt. The real fix is on the account: store no provider key with the router.
 
 Usage is read from the reply: prompt, completion and (where reported) reasoning tokens, and the
 cost where the endpoint reports one (OpenRouter's `usage.cost`). Nothing is estimated here.
@@ -67,6 +75,7 @@ class OpenAICompatible:
         # A model with no zero-retention endpoint runs only under a stated exception, recorded in the run's config
         # (e.g. Claude Fable 5.1 through the maintainers' own key, 30-day safety retention, public corpora only).
         self.retention_exception = retention_exception
+        self.stored_key_seen = False  # set by the first reply served on a stored provider key; every later call refused
         os.makedirs(cache_dir, exist_ok=True)
 
     def zdr_endpoints(self):
@@ -121,6 +130,8 @@ class OpenAICompatible:
         return rec
 
     def _send(self, body):
+        if self.stored_key_seen:
+            raise RuntimeError(STORED_KEY_REFUSAL)
         z = self.zdr_endpoints()
         if z:
             body = dict(body, provider=dict(body.get("provider") or {}, zdr=True, only=z[1]))
@@ -139,6 +150,9 @@ class OpenAICompatible:
                 if z and rec["error"] is None and rec.get("provider") not in z[0]:
                     rec = dict(rec, text=None, error=f"served by {rec.get('provider')!r}, which is not on OpenRouter's "
                                                     "zero-retention list for this model; reply discarded")
+                if ("openrouter.ai" in self.url and rec["usage"].get("byok") and not self.retention_exception):
+                    self.stored_key_seen = True
+                    raise RuntimeError(STORED_KEY_REFUSAL)
                 return rec
             except urllib.error.HTTPError as e:
                 detail = e.read().decode(errors="replace")[:300]
@@ -153,6 +167,12 @@ class OpenAICompatible:
                 err = f"{type(e).__name__}: {e}"
             time.sleep(min(60, 2 ** attempt) + random.random())
         return {"text": None, "usage": {}, "latency_s": None, "served_model": None, "provider": None, "error": err}
+
+
+STORED_KEY_REFUSAL = ("refused: OpenRouter served a reply through a provider key stored on this account (bring-your-own-"
+                      "key), whose own retention terms apply instead of zero retention. The reply was discarded and the "
+                      "run stopped. Remove the stored key from the OpenRouter account, or run under a stated "
+                      "--retention-exception.")
 
 
 def record(reply, latency):
