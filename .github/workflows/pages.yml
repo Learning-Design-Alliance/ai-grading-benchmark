@@ -3,7 +3,7 @@ name: site
 # Builds the public site (site/build.py: one self-contained page from site/src/ and the committed out/public/)
 # and publishes it on GitHub Pages. Nothing is computed here: every number on the page is read from out/public/,
 # which is rebuilt and committed with public_data.py. Repository setting needed once: Settings > Pages > Source:
-# GitHub Actions.
+# GitHub Actions (with "Deploy from a branch", GitHub's own build renders the README instead and overwrites this).
 
 on:
   push:
@@ -36,7 +36,9 @@ jobs:
       - name: Nothing private in what is published
         run: python3 scripts/check_private.py --publish
       - name: Build the page
-        run: python3 site/build.py --out _site/index.html
+        run: |
+          python3 site/build.py --out _site/index.html
+          cp CNAME _site/CNAME   # the custom domain (benchmark.learningdesignalliance.org)
       # The speech section's dataset citation was dropped by a stray script three times; refuse to publish without it.
       - name: Every cited source key is in docs/SOURCES.md, and the speech citation is present
         run: |
