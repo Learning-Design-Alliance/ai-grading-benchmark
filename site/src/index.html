@@ -117,7 +117,7 @@
     </div>
     <div class="tbl" id="t-overall"></div>
     <p class="sub" id="board-note"></p>
-    <p class="sub">† Every model was run so that the student work sent to it is not stored by the AI company ("zero data retention"). The one exception is Claude Fable 5.1, which has no such option; it was run through our own account, where the company keeps requests for 30 days for safety review. All the student work here is from public research datasets with no names attached.</p>
+    <p class="sub">† Every model was run so that the student work sent to it is not stored by the AI company ("zero data retention"). The one exception is Claude Fable 5.1, which has no such option; it was run through our own account, where the company keeps requests for 30 days for safety review. Because of a configuration issue with that account, Claude Haiku 5.5's gradings in the handwriting, video and English-learner fairness studies, made before October 25, went the same way; its leaderboard results were re-run without retention. All the student work here is from public research datasets with no names attached.</p>
     <details class="more"><summary>What each strand measures</summary><div class="tbl" id="t-weights"></div></details>
   </section>
 
@@ -456,7 +456,7 @@
       <div class="panel"><h3>Self-check before any result</h3><p class="sub" id="floor-text">Before looking at any real result, we ran every check on simulated graders with a known flaw built in, to make sure the check could catch it.</p></div>
       <div class="panel"><h3>Sycophancy</h3><p class="sub">We sent each model its own grade back with a student reply that only disagrees, and compared it with a reply that only asks for a second look. The difference is how much the model gives in to pressure.</p></div>
       <div class="panel"><h3>Feedback measures</h3><p class="sub">Our automatic feedback measures were first checked against people trained to judge feedback, on 1,655 tutor replies (MRBench). Only the two that matched the people are used.</p></div>
-      <div class="panel"><h3>Zero data retention</h3><p class="sub">Every request had to go to a service that does not store the student work. Since October 25 this is checked automatically for every request, and a model with no such service is not run.</p></div>
+      <div class="panel"><h3>Zero data retention</h3><p class="sub">Every request had to go to a service that does not store the student work. Since October 25 each request has been sent only to services on OpenRouter's zero-retention list, and a model with no such service is not run, with one stated exception: Claude Fable 5.1, run on public datasets through our own account with 30-day safety retention. Before October 25, a configuration issue also sent Claude Haiku 5.5's gradings in the handwriting, video and English-learner fairness studies that way. The <a href="https://github.com/Learning-Design-Alliance/ai-grading-benchmark/blob/main/docs/CORRECTIONS.md">corrections log</a> has the details.</p></div>
       <div class="panel"><h3>Run it yourself</h3><p class="sub">Anyone can run the benchmark on their own model or instructions: the software downloads the public datasets, grades the same answers, and saves only the grades, never the student text. Submitted grades are rechecked automatically.</p></div>
     </div>
     <div class="block">

@@ -1,6 +1,15 @@
 [
 {
-"key": "2026-10-29:0",
+"key": "2026-10-30:0",
+"date": "2026-10-30",
+"what": "Data retention of Claude Haiku 5.5's runs outside the board",
+"was": "which of its gradings before 2026-10-25 went through the maintainers' own Anthropic key was not recorded",
+"now": "the handwriting (848 gradings), video (1,055) and ELLIPSE fairness (3,908) runs did, under that key's 30-day retention; the disability and release-comparison runs (and Claude Haiku 4.5's) were served by Google's and Amazon Bedrock's zero-retention endpoints on OpenRouter's own key. Results are unchanged",
+"why": "each run records the serving provider, and the maintainers' OpenRouter activity export confirms it; the stored Anthropic key had been declared to OpenRouter as zero retention, the only option OpenRouter offered for running Claude Fable 5.1 under the organization's zero-retention requirement, and was not restricted to Fable; OpenRouter accepts that declaration unchecked and tries a stored key first, so it routed these Haiku requests through the key. The endpoint check added 2026-10-25 tests the serving provider, not the key",
+"where": "client.py now stops a run at the first reply served on a stored provider key (unless under a stated retention exception); the maintainer turned the stored key off (2026-10-30)"
+},
+{
+"key": "2026-10-29:1",
 "date": "2026-10-29",
 "what": "Language study, Voxtral Small 24B: failed gradings and gap",
 "was": "112 of 1,080 failed (rate limits, spending limit); gap +0.364 [+0.324, +0.404]; WORSE ON LOW-RESOURCE LANGUAGES",
@@ -9,7 +18,7 @@
 "where": "language/"
 },
 {
-"key": "2026-10-27:1",
+"key": "2026-10-27:2",
 "date": "2026-10-27",
 "what": "Half-point marks in two analyses: the standard checks' agreement and the reasoning-effort study's high-minus-low agreement",
 "was": "marks rounded half to even (2.5 \u2192 2) before agreement was computed; short-answer QWK 0.672 (Claude Opus 5.5) and 0.635 (GPT-6 Astra) in the standard checks; reasoning effort on short answers, GPT-6 Astra +0.035 [0.003, 0.07]",
@@ -18,7 +27,7 @@
 "where": "analyses/standard_checks.py, reasoning/study.py, their out/"
 },
 {
-"key": "2026-10-27:2",
+"key": "2026-10-27:3",
 "date": "2026-10-27",
 "what": "Feedback strand: how the halo is scored (whole-task leaderboard)",
 "was": "only a positive halo (tone following a told grade) lowered the score; a negative one scored 100",
@@ -27,7 +36,7 @@
 "where": "leaderboard.py (overall), out/overall.json"
 },
 {
-"key": "2026-10-26:3",
+"key": "2026-10-26:4",
 "date": "2026-10-26",
 "what": "Measured energy, eight open models",
 "was": "UNMEASURED (failed the idle check); figures descriptive; 1-16 mWh per short answer; a leaderboard run 7-34 Wh",
@@ -36,7 +45,7 @@
 "where": "energy/, docs/ENERGY.md"
 },
 {
-"key": "2026-10-25:4",
+"key": "2026-10-25:5",
 "date": "2026-10-25",
 "what": "DeepSeek V4.1 Flash, training on users' data (vendor documentation, not a result)",
 "was": "employees' and partners' sessions only",
@@ -45,7 +54,7 @@
 "where": "docs/MODELS.md, docs/models.json"
 },
 {
-"key": "2026-10-25:5",
+"key": "2026-10-25:6",
 "date": "2026-10-25",
 "what": "Claude Haiku 5.5, re-run under verified zero retention (all five tasks and feedback)",
 "was": "overall 91.0; pushback +3.5% [+1.4, +5.7]; working effect +1.91",
@@ -54,7 +63,7 @@
 "where": "submissions/anthropic__claude-haiku-5.5/"
 },
 {
-"key": "2026-10-25:6",
+"key": "2026-10-25:7",
 "date": "2026-10-25",
 "what": "Data retention for Claude Fable 5.1 and Claude Haiku 5.5",
 "was": "every request asked for zero retention (`provider.zdr`)",
@@ -63,7 +72,7 @@
 "where": "client.py now checks OpenRouter's live zero-retention list and refuses a model with none; docs/MODELS.md records each model's retention"
 },
 {
-"key": "2026-10-25:7",
+"key": "2026-10-25:8",
 "date": "2026-10-25",
 "what": "Length study: Qwen3.8 27B's interval for the change in balanced accuracy",
 "was": "[\u22120.14, +0.05]",
@@ -72,7 +81,7 @@
 "where": "video/LENGTH.md"
 },
 {
-"key": "2026-10-25:8",
+"key": "2026-10-25:9",
 "date": "2026-10-25",
 "what": "Null verdicts on video, length and pushback now print the largest effect they cannot rule out",
 "was": "\"adds nothing to a stopwatch\"; \"NO DETECTABLE EFFECT\"; \"HOLDS\"",
@@ -81,7 +90,7 @@
 "where": "video/README.md, video/LENGTH.md, feedback-board/PUSHBACK.md; CHANGE 1 in each script"
 },
 {
-"key": "2026-10-25:9",
+"key": "2026-10-25:10",
 "date": "2026-10-25",
 "what": "Length study headline",
 "was": "\"length does not change detection\"",
@@ -90,7 +99,7 @@
 "where": "video/LENGTH.md"
 },
 {
-"key": "2026-10-25:10",
+"key": "2026-10-25:11",
 "date": "2026-10-25",
 "what": "Benchmark card, conflict of interest",
 "was": "\"a grading product\"",
@@ -99,7 +108,7 @@
 "where": "BENCHMARK-CARD.md"
 },
 {
-"key": "2026-10-24:11",
+"key": "2026-10-24:12",
 "date": "2026-10-24",
 "what": "Feedback strand of the overall score",
 "was": "halo and \"gives away the answer\"",
