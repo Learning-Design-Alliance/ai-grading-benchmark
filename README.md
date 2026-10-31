@@ -1,6 +1,8 @@
 # Grader benchmark: can you trust an AI to mark student work?
 
-> **Working repository, private.** Studies, results and the research log live alongside the package
+> **Results:** <https://benchmark.learningdesignalliance.org>. **Research report:**
+> [*Beyond agreement: a benchmark of how language models grade student work*](https://reports.learningdesignalliance.org/ai-grading-benchmark-2026/1.0.0/report/),
+> DOI [10.5281/zenodo.23825875](https://doi.org/10.5281/zenodo.23825875). Studies, results and the research log live alongside the package
 > (`disability/`, `fairness-ellipse/`, `feedback-validity/`, `out/`, `docs/`); see `CLAUDE.md`.
 
 An open benchmark you run yourself, with your own model, your own prompt and your own API key. It
