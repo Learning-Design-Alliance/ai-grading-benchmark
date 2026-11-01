@@ -1,7 +1,8 @@
 {
  "design": "drift/monitor.py docstring",
  "months": [
-  "2026-10-26"
+  "2026-10-26",
+  "2026-11-01"
  ],
  "floor": {
   "mohler": {
@@ -17,5 +18,966 @@
    "passes": true
   }
  },
- "rows": []
+ "rows": [
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.002,
+   "ci95": [
+    -0.019000000000000003,
+    0.014000000000000002
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.0026666666666666666,
+   "ci95": [
+    -0.012222222222222221,
+    0.007222222222222222
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "anthropic/claude-haiku-5.5",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.006000000000000001,
+   "ci95": [
+    -0.008,
+    0.02
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.004,
+   "ci95": [
+    -0.008,
+    0.016
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.0017777777777777779,
+   "ci95": [
+    -0.0033333333333333335,
+    0.006777777777777778
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "anthropic/claude-opus-5.5",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.002,
+   "ci95": [
+    -0.012000000000000002,
+    0.008
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.002,
+   "ci95": [
+    -0.034,
+    0.03
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.06879910213243547,
+   "ci95": [
+    -0.09674523007856341,
+    -0.04276094276094276
+   ],
+   "n": 99,
+   "material": true,
+   "verdict": "DRIFT",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "deepseek/deepseek-v4-pro-0813",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.036000000000000004,
+   "ci95": [
+    0.008,
+    0.064
+   ],
+   "n": 100,
+   "material": true,
+   "verdict": "DRIFT",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.015,
+   "ci95": [
+    -0.038000000000000006,
+    0.006000000000000001
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.010886644219977553,
+   "ci95": [
+    -0.02727272727272727,
+    0.0049382716049382715
+   ],
+   "n": 99,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.008,
+   "ci95": [
+    -0.012000000000000002,
+    0.028000000000000004
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.008,
+   "ci95": [
+    -0.03,
+    0.012000000000000002
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.008843537414965987,
+   "ci95": [
+    -0.019727891156462587,
+    0.001473922902494331
+   ],
+   "n": 98,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "deepseek/deepseek-v4.1-flash-1017",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.008,
+   "ci95": [
+    -0.012000000000000002,
+    0.028000000000000004
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.008,
+   "ci95": [
+    -0.004,
+    0.02
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.004333333333333333,
+   "ci95": [
+    -0.016888888888888887,
+    0.007666666666666667
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemini-3.5-flash-lite",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.006000000000000001,
+   "ci95": [
+    -0.016,
+    0.002
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.0,
+   "ci95": [
+    -0.006000000000000001,
+    0.006000000000000001
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.0056116722783389455,
+   "ci95": [
+    -0.017396184062850727,
+    0.004826038159371492
+   ],
+   "n": 99,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemma-3-27b-it",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.0,
+   "ci95": [
+    -0.012121212121212123,
+    0.010101010101010102
+   ],
+   "n": 99,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.002,
+   "ci95": [
+    -0.016,
+    0.02
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.005555555555555556,
+   "ci95": [
+    -0.017777777777777778,
+    0.006666666666666666
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemma-3-4b-it",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.0060606060606060615,
+   "ci95": [
+    -0.00404040404040404,
+    0.01616161616161616
+   ],
+   "n": 99,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.012000000000000002,
+   "ci95": [
+    0.002,
+    0.024000000000000004
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "DRIFT",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.003,
+   "ci95": [
+    -0.0077777777777777776,
+    0.013333333333333332
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemma-4-26b-a4b-it",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.004,
+   "ci95": [
+    -0.016,
+    0.006000000000000001
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.0,
+   "ci95": [
+    -0.012000000000000002,
+    0.01
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.0013333333333333333,
+   "ci95": [
+    -0.008222222222222221,
+    0.010444444444444445
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "google/gemma-4-31b-it",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.004,
+   "ci95": [
+    -0.016,
+    0.006000000000000001
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.034,
+   "ci95": [
+    -0.013999999999999999,
+    0.08200000000000002
+   ],
+   "n": 100,
+   "material": true,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.026666666666666665,
+   "ci95": [
+    -0.029333333333333336,
+    0.08144444444444444
+   ],
+   "n": 100,
+   "material": true,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "meta-llama/llama-3.2-3b-instruct",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.004,
+   "ci95": [
+    -0.034,
+    0.026000000000000002
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -5.551115123125783e-19,
+   "ci95": [
+    -0.026000000000000002,
+    0.024
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.019079685746352413,
+   "ci95": [
+    -0.015039281705948373,
+    0.05308641975308642
+   ],
+   "n": 99,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "microsoft/phi-4",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.018000000000000002,
+   "ci95": [
+    -0.044000000000000004,
+    0.01
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.008,
+   "ci95": [
+    -0.01,
+    0.026000000000000002
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.004222222222222222,
+   "ci95": [
+    -0.01511111111111111,
+    0.006777777777777777
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "mistralai/ministral-8b-2512",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.006000000000000001,
+   "ci95": [
+    -0.004,
+    0.016
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.002,
+   "ci95": [
+    -0.016,
+    0.02
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.007666666666666666,
+   "ci95": [
+    -0.005666666666666666,
+    0.021444444444444443
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "openai/gpt-5-mini",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.006000000000000001,
+   "ci95": [
+    -0.014000000000000002,
+    0.026000000000000002
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.012000000000000002,
+   "ci95": [
+    0.0,
+    0.024000000000000004
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.004888888888888888,
+   "ci95": [
+    -0.01922222222222222,
+    0.008333333333333335
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "openai/gpt-5.6-luna",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.006000000000000001,
+   "ci95": [
+    -0.012000000000000002,
+    0.024000000000000004
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.001,
+   "ci95": [
+    -0.007000000000000001,
+    0.009000000000000001
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.0005185185185185182,
+   "ci95": [
+    -0.0042716049382716045,
+    0.0052716049382716046
+   ],
+   "n": 90,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "openai/gpt-6-astra",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.002,
+   "ci95": [
+    -0.014000000000000002,
+    0.01
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.01,
+   "ci95": [
+    -0.018000000000000002,
+    0.036000000000000004
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.03011111111111111,
+   "ci95": [
+    -0.06244444444444444,
+    -0.0014444444444444444
+   ],
+   "n": 100,
+   "material": true,
+   "verdict": "DRIFT",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "openai/gpt-oss-20b",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.02,
+   "ci95": [
+    -0.04800000000000001,
+    0.012000000000000002
+   ],
+   "n": 100,
+   "material": true,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.004,
+   "ci95": [
+    -0.014000000000000002,
+    0.022000000000000002
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.02011111111111111,
+   "ci95": [
+    -0.04488888888888889,
+    0.004777777777777778
+   ],
+   "n": 100,
+   "material": true,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "qwen/qwen3-235b-a22b-2507",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.02,
+   "ci95": [
+    0.004,
+    0.036000000000000004
+   ],
+   "n": 100,
+   "material": true,
+   "verdict": "DRIFT",
+   "hosts_changed": false,
+   "served_model_changed": false
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.004,
+   "ci95": [
+    -0.032,
+    0.02
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.006734006734006734,
+   "ci95": [
+    -0.005723905723905724,
+    0.020202020202020204
+   ],
+   "n": 99,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "z-ai/glm-5.3",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.028000000000000004,
+   "ci95": [
+    0.004,
+    0.052000000000000005
+   ],
+   "n": 100,
+   "material": true,
+   "verdict": "DRIFT",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "mohler",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.013000000000000001,
+   "ci95": [
+    -0.03900000000000001,
+    0.01
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "code",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": -0.011333333333333332,
+   "ci95": [
+    -0.027222222222222224,
+    0.0036666666666666666
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": true,
+   "served_model_changed": false
+  },
+  {
+   "model": "z-ai/glm-5.3-flash",
+   "task": "asap2",
+   "baseline": "2026-10-26",
+   "date": "2026-11-01",
+   "estimate": 0.016,
+   "ci95": [
+    -0.002,
+    0.036000000000000004
+   ],
+   "n": 100,
+   "material": false,
+   "verdict": "NO DRIFT DETECTED",
+   "hosts_changed": true,
+   "served_model_changed": false
+  }
+ ]
 }
