@@ -112,3 +112,28 @@ in `drift/out/<date>/`. Each month is compared with the baseline month (2026-10-
 mean shift excludes 0; a shift of 2% of the scale or more is "material". The floor detects a planted 2% shift in
 85-89% of draws. Claude Fable 5.1 and Olmo 3.1 32B have no hosted zero-retention route and are not watched. About
 $13-15 a month (GPT-6 Astra alone about $7), capped at $20. Results are added below as they come.
+
+### 2026-11-01
+
+20 models, 3 tasks, 60 comparisons with the baseline (2026-10-26). Floor: short answers 85%, code 89%, essays 86%
+(all pass). No model served under a different id. 6 DRIFT verdicts, signed this month minus baseline, as a share of
+the scale with the 95% interval:
+
+| model | task | shift | material | hosts changed |
+|---|---|---|---|---|
+| DeepSeek V4 Pro (0813) | code | −6.9% [−9.7, −4.3] | yes | yes: Novita, SiliconFlow → Sail Research, Wafer |
+| DeepSeek V4 Pro (0813) | essays | +3.6% [+0.8, +6.4] | yes | yes: Sail Research (and 1 Cloudflare) → Sail Research, Together, Wafer |
+| GLM 5.3 | essays | +2.8% [+0.4, +5.2] | yes | yes: mostly Wafer and InferenceNet → Together, Wafer, Crusoe, PrimeIntellect |
+| GPT-OSS 20B | code | −3.0% [−6.2, −0.1] | yes | no (AkashML, pinned) |
+| Qwen3 235B (2507) | essays | +2.0% [+0.4, +3.6] | yes (at the threshold) | no (DeepInfra, pinned) |
+| Gemma 4 26B A4B | short answers | +1.2% [+0.2, +2.4] | no | no (DekaLLM, pinned) |
+
+- The design's own false-alarm rate is 4-9% per comparison (CHANGE 1), so about 2-5 of 60 comparisons would read DRIFT
+  with no change at all. Six is a little above that range: no single verdict here is established by this month
+  alone, and next month says which persist.
+- DeepSeek V4 Pro's code shift is the one to watch: the largest (about 6 points on the 0-90 scale, downward) and
+  the narrowest interval, but its hosts changed completely, so a host change cannot be ruled out
+  (`hosting/study.py` tests precision). The three unpinned DRIFT rows all changed hosts; the three pinned ones did not.
+- Gradings without a mark: GPT-6 Astra code 10 of 100; DeepSeek V4.1 Flash, Gemma 3 27B, Phi-4 and GLM 5.3 code
+  1 each; Gemma 3 27B and Gemma 3 4B essays 1 each. Comparisons use the cases marked in both months.
+- Spend $16.26 (cap $20).
