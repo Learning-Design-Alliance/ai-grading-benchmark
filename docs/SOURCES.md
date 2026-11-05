@@ -24,6 +24,7 @@ The full method and the wider literature are in the benchmark's research report.
 
 ## How results are measured
 
+- [shelflife] Queen & Zou 2026. The shelf life of LLM findings. Stanford University. https://zou-group.github.io/llm-claims-shelf-life/ — used for: why each finding is dated and re-tested on new models.
 - [cohen] Cohen 1968. Weighted kappa: Nominal scale agreement with provision for scaled disagreement or partial credit. Psychological Bulletin. https://doi.org/10.1037/h0026256 — used for: agreement with teachers (quadratic weighted kappa).
 - [williamson] Williamson, Xi & Breyer 2012. A framework for evaluation and use of automated scoring. Educational Measurement: Issues and Practice. https://doi.org/10.1111/j.1745-3992.2011.00223.x — used for: the three standard checks from automated scoring.
 - [act] Wood, Yao, Haisfield & Lottridge 2021. Establishing standards of best practice in automated scoring. ACT. https://act.org/content/dam/act/unsecured/documents/R2100-auto-scoring-standards-2021-07.pdf — used for: the thresholds of the standard checks, as tabulated there.
