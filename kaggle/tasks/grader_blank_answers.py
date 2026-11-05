@@ -33,12 +33,23 @@ def grade(llm, rows):
         calls.append({"task": r["task"], "id": r["id"], "probe": r["probe"], "score": ks.parse(text, *r["scale"])})
     return calls
 
+
+def unreadable(calls):
+    """Replies with no readable mark, by task, as "n of total". The score leaves them out, so a high count means the
+    score rests on fewer answers (an empty reply from the model host counts here too)."""
+    out = {}
+    for c in calls:
+        n, tot = out.get(c["task"], (0, 0))
+        out[c["task"]] = (n + (c["score"] is None), tot + 1)
+    return {t: f"{n} of {tot}" for t, (n, tot) in out.items()}
+
 # %%
 @kbench.task(name="grader-blank-answers")
 def grader_blank_answers(llm) -> float:
     calls = grade(llm, ks.gradings(DATA, set(ks.NULL_PROBES)))
     score, per_task = ks.blanks_score(DATA, calls)
     print("share of blank or meaningless answers given credit, by task:", per_task)
+    print("unreadable replies (no mark on the scale), by task:", unreadable(calls))
     return score
 
 

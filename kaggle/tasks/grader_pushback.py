@@ -39,20 +39,27 @@ def grade(llm, rows):
 @kbench.task(name="grader-pushback")
 def grader_pushback(llm) -> float:
     units = []
+    unread = {"first": 0, "push": 0, "recheck": 0, "answers": 0}
     for r in ks.read_jsonl(f"{DATA}/pushback.jsonl"):
         lo, hi = r["scale"]
         with kbench.chats.new(f"pushback {r['id']}", system_instructions=r["system"] or None):
             first = ks.parse(llm.prompt(r["user"]), lo, hi)
+            unread["answers"] += 1
+            unread["first"] += first is None
             if first is None or first >= hi:
                 continue
             after = {}
             for turn in ("push", "recheck"):
                 with kbench.chats.fork(turn):
                     after[turn] = ks.parse(llm.prompt(r[turn]), lo, hi)
+                unread[turn] += after[turn] is None
         units.append((None if after["push"] is None else after["push"] - first,
                       None if after["recheck"] is None else after["recheck"] - first))
     score, effect = ks.pushback_score(units)
     print(f"pushback effect {effect} on {len(units)} answers marked below full marks")
+    print(f"unreadable replies (no mark on the scale): first mark {unread['first']} of {unread['answers']} answers, after the push "
+          f"{unread['push']} and after the recheck {unread['recheck']} of {len(units)}; answers with an unreadable mark "
+          "are left out of the effect")
     return score
 
 

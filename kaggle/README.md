@@ -43,6 +43,12 @@ CLI manages tasks only; a benchmark (the collection) is made in the web interfac
 Notes:
 - Each task file must end with its `.run(...)` call, or the push succeeds and records nothing.
 - Repeat `-d <owner>/ai-grading-benchmark-board` on every push; a push without it detaches the dataset.
+- Every push also runs the whole task on Kaggle's default model (gemini-3.8-flash on 2026-11-05), which spends quota:
+  about $0.94 for agreement, $2.99 for note gaming, $0.16 for blank answers, $0.69 for pushback and $0.68 for
+  feedback on that model. A re-push spends it again.
+- Each task prints how many replies were unreadable. The score leaves those out, so a high count means it rests on
+  fewer answers. On the first Kaggle run, Kaggle's host returned an empty reply to every gibberish answer for
+  claude-haiku-5-5 (40 of 200); that model's blank-answer score covers the other four kinds of master-key answer.
 - Calls per model: agreement 300, note gaming 900, blank answers 200, pushback about 100 + 2 per answer marked
   below full marks, feedback 300. If a community account's quota is too small, Kaggle offers more compute for
   research benchmarks (kaggle-benchmarks@google.com).

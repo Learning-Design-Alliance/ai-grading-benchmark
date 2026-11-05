@@ -47,6 +47,8 @@ def grader_feedback_told_grade(llm) -> float:
         items.append(item)
     score, detail = ks.feedback_score(items)
     print("told-grade slope S and work slope W:", detail)
+    print("unreadable replies (no English feedback), by arm:",
+          {arm: f"{sum(i[arm] is None for i in items)} of {len(items)}" for arm in ("blind", "true", "mirror")})
     return score
 
 
