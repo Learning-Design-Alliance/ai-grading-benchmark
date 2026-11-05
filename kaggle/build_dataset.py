@@ -115,7 +115,7 @@ def main():
     shutil.copy(os.path.join(HERE, "kaggle_scoring.py"), os.path.join(a.out, "gbench", "kaggle_scoring.py"))
     shutil.copy(os.path.join(HERE, "DATASET.md"), os.path.join(a.out, "README.md"))
     json.dump({"title": "AI Grading Benchmark: board items and probes", "id": f"{a.owner}/ai-grading-benchmark-board",
-               "subtitle": "300 graded student answers, gaming and blank-answer probes, pushback and feedback prompts",
+               "subtitle": "300 marked answers; gaming and blank-answer probes; pushback and feedback items",
                "licenses": [{"name": "CC-BY-4.0"}],
                "keywords": ["education", "nlp", "benchmark", "large language models"]},
               open(os.path.join(a.out, "dataset-metadata.json"), "w"), indent=1)
