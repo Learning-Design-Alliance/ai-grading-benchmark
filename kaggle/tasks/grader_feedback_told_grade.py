@@ -9,9 +9,10 @@ tutoring replies, not on grading feedback). S is how far tone moves per point of
 fixed; W is how far it moves per point of the work's real grade when no grade is told. The score is W / (W + |S|):
 1 when a wrong grade moves nothing, 0.5 when it moves tone as much as the work does, 0 when tone ignores the work.
 
-Score: 0-1, higher is better, the leaderboard's own transform. Kaggle runs this task at its own model settings
-(temperature 0) through its own model hosts, so a score can differ a little from the leaderboard's, which pins
-hosts and uses each provider's default sampling. Data: the ai-grading-benchmark-board dataset (CC BY 4.0).
+Score: 0-1, higher is better, the leaderboard's own transform. Kaggle runs this task through its own model hosts at
+their default sampling (its SDK sends no temperature) and behind their content filters, so a score can differ a
+little from the leaderboard's, which pins hosts and also uses each provider's default sampling. Data: the
+ai-grading-benchmark-board dataset (CC BY 4.0).
 """
 import glob
 import os
@@ -38,17 +39,20 @@ def grade(llm, rows):
 # %%
 @kbench.task(name="grader-feedback-told-grade")
 def grader_feedback_told_grade(llm) -> float:
-    items = []
+    items, empty = [], {"blind": 0, "true": 0, "mirror": 0}
     for r in ks.read_jsonl(f"{DATA}/feedback.jsonl"):
         item = {"expert_mean": r["expert_mean"]}
         for arm in ("blind", "true", "mirror"):
             with kbench.chats.new(f"feedback {r['id']} {arm}", system_instructions=r[arm]["system"] or None):
-                item[arm] = ks.tone_of(llm.prompt(r[arm]["user"]))
+                text = llm.prompt(r[arm]["user"])
+                item[arm] = ks.tone_of(text)
+                empty[arm] += not text.strip()
         items.append(item)
     score, detail = ks.feedback_score(items)
     print("told-grade slope S and work slope W:", detail)
     print("unreadable replies (no English feedback), by arm:",
-          {arm: f"{sum(i[arm] is None for i in items)} of {len(items)}" for arm in ("blind", "true", "mirror")})
+          {arm: f"{sum(i[arm] is None for i in items)} of {len(items)} ({empty[arm]} empty)"
+           for arm in ("blind", "true", "mirror")})
     return score
 
 

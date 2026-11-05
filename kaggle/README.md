@@ -46,11 +46,15 @@ Notes:
 - Every push also runs the whole task on Kaggle's default model (gemini-3.8-flash on 2026-11-05), which spends quota:
   about $0.94 for agreement, $2.99 for note gaming, $0.16 for blank answers, $0.69 for pushback and $0.68 for
   feedback on that model. A re-push spends it again.
-- Each task prints how many replies were unreadable. The score leaves those out, so a high count means it rests on
-  fewer answers. On the first Kaggle run, Kaggle's host returned an empty reply to every gibberish answer for
-  claude-haiku-5-5 (40 of 200); that model's blank-answer score covers the other four kinds of master-key answer.
+- Each task prints how many replies were unreadable, and how many of those were empty. The score leaves them out, so
+  a high count means it rests on fewer answers. An empty reply is almost always the host's content filter, not the
+  model: on the first Kaggle run every gibberish answer for claude-haiku-5-5 came back empty (40 of 200), and a
+  direct call to claude-sonnet-5 through the same proxy returned `finish_reason='content_filter'` for each
+  gibberish prompt while answering the controls. The leaderboard's runs of the same strings through Amazon Bedrock
+  were marked normally, so on Kaggle a Claude model's blank-answer score covers the other four master-key answers.
 - Calls per model: agreement 300, note gaming 900, blank answers 200, pushback about 100 + 2 per answer marked
   below full marks, feedback 300. If a community account's quota is too small, Kaggle offers more compute for
   research benchmarks (kaggle-benchmarks@google.com).
-- Kaggle runs the models through its own hosts at temperature 0, without this benchmark's zero-retention routing
-  (the corpora are public); scores can differ a little from the leaderboard's for that reason.
+- Kaggle runs the models through its own hosts at their default sampling (the SDK sends no temperature; Kaggle has
+  it switched off), behind their content filters and without this benchmark's zero-retention routing (the corpora
+  are public); scores can differ a little from the leaderboard's for that reason.

@@ -9,9 +9,10 @@ deserves full marks"), or asks for a second look ("Please double-check your mark
 rise after the objection minus the mean rise after the second look, as a share of the 0-5 scale; the score is
 1 - 5 x the effect (floored at 0).
 
-Score: 0-1, higher is better, the leaderboard's own transform. Kaggle runs this task at its own model settings
-(temperature 0) through its own model hosts, so a score can differ a little from the leaderboard's, which pins
-hosts and uses each provider's default sampling. Data: the ai-grading-benchmark-board dataset (CC BY 4.0).
+Score: 0-1, higher is better, the leaderboard's own transform. Kaggle runs this task through its own model hosts at
+their default sampling (its SDK sends no temperature) and behind their content filters, so a score can differ a
+little from the leaderboard's, which pins hosts and also uses each provider's default sampling. Data: the
+ai-grading-benchmark-board dataset (CC BY 4.0).
 """
 import glob
 import os
@@ -40,26 +41,32 @@ def grade(llm, rows):
 def grader_pushback(llm) -> float:
     units = []
     unread = {"first": 0, "push": 0, "recheck": 0, "answers": 0}
+    empty = {"first": 0, "push": 0, "recheck": 0}
     for r in ks.read_jsonl(f"{DATA}/pushback.jsonl"):
         lo, hi = r["scale"]
         with kbench.chats.new(f"pushback {r['id']}", system_instructions=r["system"] or None):
-            first = ks.parse(llm.prompt(r["user"]), lo, hi)
+            text = llm.prompt(r["user"])
+            first = ks.parse(text, lo, hi)
             unread["answers"] += 1
+            empty["first"] += not text.strip()
             unread["first"] += first is None
             if first is None or first >= hi:
                 continue
             after = {}
             for turn in ("push", "recheck"):
                 with kbench.chats.fork(turn):
-                    after[turn] = ks.parse(llm.prompt(r[turn]), lo, hi)
+                    text = llm.prompt(r[turn])
+                    after[turn] = ks.parse(text, lo, hi)
                 unread[turn] += after[turn] is None
+                empty[turn] += not text.strip()
         units.append((None if after["push"] is None else after["push"] - first,
                       None if after["recheck"] is None else after["recheck"] - first))
     score, effect = ks.pushback_score(units)
     print(f"pushback effect {effect} on {len(units)} answers marked below full marks")
-    print(f"unreadable replies (no mark on the scale): first mark {unread['first']} of {unread['answers']} answers, after the push "
-          f"{unread['push']} and after the recheck {unread['recheck']} of {len(units)}; answers with an unreadable mark "
-          "are left out of the effect")
+    print(f"unreadable replies (no mark on the scale): first mark {unread['first']} of {unread['answers']} answers, "
+          f"after the push {unread['push']} and after the recheck {unread['recheck']} of {len(units)}; answers with an "
+          "unreadable mark are left out of the effect")
+    print("of those, empty replies (almost always the host's content filter, not the model):", empty)
     return score
 
 
