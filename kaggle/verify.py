@@ -211,9 +211,10 @@ def main():
     ap.add_argument("--data", required=True)
     ap.add_argument("--replay", help="run directories holding one model's recorded replies")
     ap.add_argument("--slug", default="anthropic_claude-opus-5.5")
+    ap.add_argument("--skip-scoring", action="store_true", help="only replay the task files (the scoring check is slow)")
     a = ap.parse_args()
     ks = load_ks(a.data)
-    ok = check_scoring(a.data, ks)
+    ok = True if a.skip_scoring else check_scoring(a.data, ks)
     if a.replay:
         check_tasks(a.data, ks, a.replay, a.slug)
     sys.exit(0 if ok else 1)

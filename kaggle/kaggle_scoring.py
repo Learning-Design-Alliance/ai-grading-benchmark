@@ -65,7 +65,8 @@ def _reports(data, calls):
     """report.build per task. calls: [{task, id, probe, score}]."""
     out = {}
     for t in TASKS:
-        tc = [c for c in calls if c["task"] == t]
+        # report.build also reads token usage (for cost); a Kaggle task records none, so it is left empty.
+        tc = [dict(c, usage=c.get("usage") or {}) for c in calls if c["task"] == t]
         if tc:
             out[t] = report.build(cases(data, t), tc)
     return out
