@@ -13,6 +13,7 @@ Published on 2026-11-06 as **Student-Work Grading**: https://www.kaggle.com/benc
 | `DATASET.md` | the dataset's data card (shipped as its README) |
 | `tasks/*.py` | the five tasks, in the `kaggle-benchmarks` SDK's percent format |
 | `verify.py` | the checks run before publishing |
+| `run_models.py` | runs the tasks on more models within the day's quota; a scheduled task runs it every 8 hours |
 
 ## Verified before publishing (2026-11-05)
 
@@ -56,6 +57,9 @@ Notes:
   direct call to claude-sonnet-5 through the same proxy returned `finish_reason='content_filter'` for each
   gibberish prompt while answering the controls. The leaderboard's runs of the same strings through Amazon Bedrock
   were marked normally, so on Kaggle a Claude model's blank-answer score covers the other four master-key answers.
+- Kaggle keeps only the latest run of a task on a model: a re-run replaces the score, it does not add a sample.
+  Two runs of gemini-3.8-flash differed by 0.13 on feedback and 0.05 on pushback, so one Kaggle run cannot separate
+  models closer than that on those two tasks.
 - Calls per model: agreement 300, note gaming 900, blank answers 200, pushback about 100 + 2 per answer marked
   below full marks, feedback 300. If a community account's quota is too small, Kaggle offers more compute for
   research benchmarks (kaggle-benchmarks@google.com).
