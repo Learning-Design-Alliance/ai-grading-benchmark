@@ -3,6 +3,9 @@
 Five of the benchmark's checks as Kaggle Benchmarks tasks, so Kaggle runs them on new models as they are released.
 The leaderboard on the benchmark's site stays the reference; the Kaggle page is an independent run of these checks.
 
+Published on 2026-11-06 as **Student-Work Grading**: https://www.kaggle.com/benchmarks/davidporcaro/student-work-grading
+(the dataset is https://www.kaggle.com/datasets/davidporcaro/ai-grading-benchmark-board).
+
 | file | what it is |
 | --- | --- |
 | `build_dataset.py` | builds the Kaggle dataset: the board's prompts rendered by the benchmark's own code, the 300 cases with human marks, the pushback and feedback items, and the scoring modules |
@@ -38,7 +41,8 @@ kaggle b t publish grader-agreement                    # and the other four
 ```
 
 Then, in the Kaggle web interface: Benchmarks, Create benchmark, add the five tasks and the models to show. The
-CLI manages tasks only; a benchmark (the collection) is made in the web interface.
+CLI manages tasks only; a benchmark (the collection) is made in the web interface, and so is a dataset's change from
+private to public (its Settings page), which has to come before `kaggle b t publish`.
 
 Notes:
 - Each task file must end with its `.run(...)` call, or the push succeeds and records nothing.
