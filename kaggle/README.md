@@ -30,7 +30,8 @@ Published on 2026-11-06 as **Student-Work Grading**: https://www.kaggle.com/benc
 python3 fetch_data.py --dir DATA                       # each cases file is checked against its pin
 python3 kaggle/build_dataset.py --data DATA --out kg-dataset --owner <kaggle user or org>
 python3 kaggle/verify.py --data kg-dataset             # 0 mismatches before anything is uploaded
-kaggle datasets create -p kg-dataset                   # creates <owner>/ai-grading-benchmark-board
+kaggle datasets create -p kg-dataset --dir-mode zip    # creates <owner>/ai-grading-benchmark-board
+# a later change: kaggle datasets version -p kg-dataset --dir-mode zip -m "..."
 
 kaggle b init -y                                       # model-proxy credentials for local test runs
 python3 kaggle/tasks/grader_blank_answers.py           # optional: one cheap task locally first
@@ -48,6 +49,8 @@ private to public (its Settings page), which has to come before `kaggle b t publ
 Notes:
 - Each task file must end with its `.run(...)` call, or the push succeeds and records nothing.
 - Repeat `-d <owner>/ai-grading-benchmark-board` on every push; a push without it detaches the dataset.
+- Upload the dataset with `--dir-mode zip`. Without it the CLI skips subfolders, so `gbench/` and `cases/` go missing
+  and every task fails with `No module named 'kaggle_scoring'` (2026-11-19).
 - Every push also runs the whole task on Kaggle's default model (gemini-3.8-flash on 2026-11-05), which spends quota:
   about $0.94 for agreement, $2.99 for note gaming, $0.16 for blank answers, $0.69 for pushback and $0.68 for
   feedback on that model. A re-push spends it again.
