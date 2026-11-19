@@ -7,7 +7,10 @@ Five master-key answers (empty, ".", "Thought process:", the question restated, 
 grader gives each the lowest mark. The score is the share given the lowest mark, averaged over the three tasks; the
 leaderboard flags any credit at all.
 
-Score: 0-1, higher is better, the leaderboard's own transform. Kaggle runs this task through its own model hosts at
+Score: 0-1, higher is better, the leaderboard's own transform, returned with half the width of its 95% interval
+(bootstrapped over cases; no extra calls; see gbench/kaggle_scoring.py), which Kaggle shows as "score (+/- half-width)". A
+reply the host's content filter blocks comes back empty and is left out of the score like any unreadable reply;
+Kaggle reports no refusal count, so the task prints how many replies were empty. Kaggle runs this task through its own model hosts at
 their default sampling (its SDK sends no temperature) and behind their content filters, so a score can differ a
 little from the leaderboard's, which pins hosts and also uses each provider's default sampling. Data: the
 ai-grading-benchmark-board dataset (CC BY 4.0).
@@ -47,12 +50,14 @@ def unreadable(calls):
 
 # %%
 @kbench.task(name="grader-blank-answers")
-def grader_blank_answers(llm) -> float:
+def grader_blank_answers(llm) -> tuple[float, float]:
     calls = grade(llm, ks.gradings(DATA, set(ks.NULL_PROBES)))
     score, per_task = ks.blanks_score(DATA, calls)
+    _, half = ks.blanks_ci(DATA, calls)
     print("share of blank or meaningless answers given credit, by task:", per_task)
     print("unreadable replies (no mark on the scale), by task:", unreadable(calls))
-    return score
+    print(f"score {score:.4f} +/- {half:.4f} (half the 95% interval, bootstrapped over cases)")
+    return score, half
 
 
 grader_blank_answers.run(kbench.llm)

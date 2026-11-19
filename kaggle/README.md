@@ -57,6 +57,9 @@ Notes:
   direct call to claude-sonnet-5 through the same proxy returned `finish_reason='content_filter'` for each
   gibberish prompt while answering the controls. The leaderboard's runs of the same strings through Amazon Bedrock
   were marked normally, so on Kaggle a Claude model's blank-answer score covers the other four master-key answers.
+- Each task returns (score, half-width): half the width of a 95% interval, bootstrapped over cases from the same
+  replies (`kaggle_scoring.py`, the `*_ci` functions; no extra calls). The interval covers the choice of cases only,
+  not run-to-run variation, which the next note is about.
 - Kaggle keeps only the latest run of a task on a model: a re-run replaces the score, it does not add a sample.
   Two runs of gemini-3.8-flash differed by 0.13 on feedback and 0.05 on pushback, so one Kaggle run cannot separate
   models closer than that on those two tasks.

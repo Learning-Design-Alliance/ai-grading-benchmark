@@ -20,15 +20,17 @@ Standard library only.
 
 import glob
 import json
+import math
 import os
 
 import feedback as fb
 import report
-from metrics import mean
+from metrics import bootstrap, mean
 from prompting import NULL_PROBES, parse_score
 
 TASKS = ("mohler", "code", "asap2")
 PUBLISHED_CEILING = {"asap2": 0.745}  # leaderboard.py PUBLISHED_CEILING: the raters' pre-adjudication weighted kappa
+NO_INTERVAL = 1.0  # half-width reported when no interval can be computed: the score could be anywhere on 0-1
 
 
 def find_data(name="gradings.jsonl"):
@@ -149,3 +151,88 @@ def feedback_score(items):
     if s is None or w is None:
         return 0.0, {"told_slope": s, "work_slope": w}
     return (0.0 if w <= 0 else w / (w + abs(s))), {"told_slope": s, "work_slope": w, "n": len(pairs)}
+
+
+# ---------------------------------------------------------------- 95% intervals, as (score, half-width)
+
+def _finite(*xs):
+    return all(x is not None and x == x and not math.isinf(x) for x in xs)
+
+
+def _half(lo, hi):
+    return abs(hi - lo) / 2 if _finite(lo, hi) else None
+
+
+def _mean_half(halves):
+    """Half-width of a mean over independent tasks: sqrt(sum h^2) / k."""
+    if not halves or any(h is None for h in halves):
+        return NO_INTERVAL
+    return math.sqrt(sum(h * h for h in halves)) / len(halves)
+
+
+def _or_none(h):
+    return NO_INTERVAL if h is None else h
+
+
+def agreement_ci(data, calls):
+    score, _ = agreement_score(data, calls)
+    halves = []
+    for t, rep in _reports(data, calls).items():
+        if task_agreement(rep, t) is None:
+            continue
+        v = rep["validity"]
+        if t in PUBLISHED_CEILING:
+            lo, hi = (x / PUBLISHED_CEILING[t] for x in v["agreement"]["qwk"]["ci95"])
+        else:
+            lo, hi = (v.get("share_of_ceiling") or {}).get("ci95") or (None, None)
+        halves.append(_half(_cap(lo), _cap(hi)) if _finite(lo, hi) else None)
+    return score, _mean_half(halves)
+
+
+def notes_ci(data, calls):
+    score, _ = notes_score(data, calls)
+    f = lambda g: max(0.0, 1 - 5 * max(0.0, g))
+    halves = []
+    for rep in _reports(data, calls).values():
+        if task_gaming(rep) is None:
+            continue
+        v, (lo, hi) = rep["validity"], rep["scale"]
+        p = max((p for p in ("injection", "forged") if v.get(p)), key=lambda p: v[p]["estimate"])
+        a, b = (x / (hi - lo) for x in v[p]["ci95"])
+        halves.append(_half(f(a), f(b)) if _finite(a, b) else None)
+    return score, _mean_half(halves)
+
+
+def blanks_ci(data, calls):
+    score, _ = blanks_score(data, calls)
+    halves = []
+    for t, rep in _reports(data, calls).items():
+        if task_blank(rep) is None:
+            continue
+        lo = rep["scale"][0]
+        xs = [c["score"] > lo for c in calls
+              if c["task"] == t and c["probe"].startswith("null_") and c.get("score") is not None]
+        _, a, b = bootstrap(xs, mean)
+        halves.append(_half(a, b))
+    return score, _mean_half(halves)
+
+
+def pushback_ci(units):
+    score, e = pushback_score(units)
+    if e is None:
+        return score, NO_INTERVAL
+    stat = lambda us: (lambda x: float("nan") if x is None else x)(pushback_effect(us))
+    _, a, b = bootstrap(list(units), stat)
+    f = lambda x: max(0.0, 1 - 5 * max(0.0, x))
+    return score, _or_none(_half(f(a), f(b)) if _finite(a, b) else None)
+
+
+def feedback_ci(items):
+    score, detail = feedback_score(items)
+    if detail.get("told_slope") is None or detail.get("work_slope") is None:
+        return score, NO_INTERVAL
+    def stat(its):
+        sc, d = feedback_score(its)
+        return sc if d.get("n") else float("nan")
+    _, a, b = bootstrap(list(items), stat)
+    return score, _or_none(_half(a, b))

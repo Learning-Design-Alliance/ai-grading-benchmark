@@ -201,7 +201,7 @@ def check_tasks(data, ks, runs, slug):
     os.environ["GBENCH_KAGGLE_DATA"] = data
     for f in sorted(glob.glob(os.path.join(HERE, "tasks", "*.py"))):
         runpy.run_path(f, run_name="__main__")
-    print(f"task files replayed for {slug}: {json.dumps({k: round(v, 4) for k, v in kb.results.items()})}"
+    print(f"task files replayed for {slug}: {json.dumps({k: [round(x, 4) for x in v] if isinstance(v, tuple) else round(v, 4) for k, v in kb.results.items()})}"
           f"; {len(missing)} prompts with no recorded reply")
     return kb.results
 
